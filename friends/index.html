@@ -1031,6 +1031,32 @@ $(function () {
     <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
     <script src="/js/matery.js"></script>
 
+    <!--天气插件-->
+    <script src="https://apip.weatherdt.com/simple/static/js/weather-simple-common.js?v=2.0"></script>
+
+    <script>
+        WIDGET = {
+        CONFIG: {
+            "modules": "01234",
+            "background": 1,
+            "tmpColor": "FFFFFF",
+            "tmpSize": 16,
+            "cityColor": "FFFFFF",
+            "citySize": 16,
+            "aqiSize": 16,
+            "weatherIconSize": 24,
+            "alertIconSize": 18,
+            "padding": "10px 10px 10px 10px",
+            "shadow": "1",
+            "language": "auto",
+            "borderRadius": 5,
+            "fixed": "false",
+            "vertical": "middle",
+            "horizontal": "center",
+            "key": "TXjQn9uihG"
+        }
+        }
+    </script>
     <!-- 自动更改网站标题 -->
     <script type="text/javascript">
         var OriginTitile=document.title,st;
@@ -1076,6 +1102,9 @@ $(function () {
 
     
     <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+    <div id="weather-v2-plugin-simple"></div>
     
 
 </body>
