@@ -260,7 +260,7 @@
                 <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11"></script>
                 <script>
                     var typed = new Typed("#subtitle", {
-                        strings: ['一个人时 连哭都不用欧冠看人脸色 放肆大笑也不会有人骂你神经病 摔倒了也只有你才有资格嘲笑自己','回头看看 路那么长 时间过去很久 人来人往 只有自己在陪自己','爱学习爱编程，把分享变成一种习惯！','即使再小的帆也能远航！'],
+                        strings: ['一个人时 连哭都不用看人脸色 放肆大笑也不会有人骂你神经病 摔倒了也只有你才有资格嘲笑自己','回头看看 路那么长 时间过去很久 人来人往 只有自己在陪自己','爱学习爱编程，把分享变成一种习惯！','即使再小的帆也能远航！'],
                         startDelay: 300,
                         typeSpeed: 100,
                         loop: true,
@@ -489,6 +489,27 @@
                             <div class="card frind-card1">
                                 <div class="frind-ship">
                                     <div class="title">
+                                        <img src="https://nekodeng.gitee.io/medias/avatar.jpg" alt="img">
+                                        <div>
+                                            <h1 class="friend-name">itsNekoDeng</h1>
+                                            <p style="position: relative;top: -35px;">一只努力学习的十万伏特皮卡丘，梦想是世界和平，想要发光发热</p>
+                                        </div>
+                                    </div>
+                                    <div class="friend-button">
+                                        <a href="https://nekodeng.gitee.io/" target="_blank"
+                                            class="button button-glow button-rounded button-caution">
+                                            前去参观
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        
+                        <div class="col s12 m6 l4 friend-div" data-aos="zoom-in-up">
+                            <div class="card frind-card2">
+                                <div class="frind-ship">
+                                    <div class="title">
                                         <img src="http://image.luokangyuan.com/1_qq_27922023.jpg" alt="img">
                                         <div>
                                             <h1 class="friend-name">码酱</h1>
@@ -507,7 +528,7 @@
                         
                         
                         <div class="col s12 m6 l4 friend-div" data-aos="zoom-in-up">
-                            <div class="card frind-card2">
+                            <div class="card frind-card3">
                                 <div class="frind-ship">
                                     <div class="title">
                                         <img src="http://image.luokangyuan.com/4027734.jpeg" alt="img">
@@ -528,7 +549,7 @@
                         
                         
                         <div class="col s12 m6 l4 friend-div" data-aos="zoom-in-up">
-                            <div class="card frind-card3">
+                            <div class="card frind-card4">
                                 <div class="frind-ship">
                                     <div class="title">
                                         <img src="http://image.luokangyuan.com/avatar.jpg" alt="img">
@@ -558,6 +579,33 @@
             </div>
         </div>
         <div class="card">
+
+            
+            <link rel="stylesheet" href="/libs/gitalk/gitalk.css">
+<link rel="stylesheet" href="/css/my-gitalk.css">
+
+<div class="card gitalk-card" data-aos="fade-up">
+    <div class="comment_headling" style="font-size: 20px; font-weight: 700; position: relative; padding-left: 20px; top: 15px; padding-bottom: 5px;">
+        <i class="fas fa-comments fa-fw" aria-hidden="true"></i>
+        <span>评论</span>
+    </div>
+    <div id="gitalk-container" class="card-content"></div>
+</div>
+
+<script src="/libs/gitalk/gitalk.min.js"></script>
+<script>
+    let gitalk = new Gitalk({
+        clientID: '',
+        clientSecret: '',
+        repo: '',
+        owner: '',
+        admin: null,
+        id: '2020-10-18T11-35-38',
+        distractionFreeMode: false  // Facebook-like distraction free mode
+    });
+
+    gitalk.render('gitalk-container');
+</script>
 
             
 
@@ -1036,25 +1084,25 @@ $(function () {
 
     <script>
         WIDGET = {
-        CONFIG: {
-            "modules": "01234",
-            "background": 1,
-            "tmpColor": "FFFFFF",
-            "tmpSize": 16,
-            "cityColor": "FFFFFF",
-            "citySize": 16,
-            "aqiSize": 16,
-            "weatherIconSize": 24,
-            "alertIconSize": 18,
-            "padding": "10px 10px 10px 10px",
-            "shadow": "1",
-            "language": "auto",
-            "borderRadius": 5,
-            "fixed": "false",
-            "vertical": "middle",
-            "horizontal": "center",
-            "key": "TXjQn9uihG"
-        }
+            CONFIG: {
+                "modules": "01234",
+                "background": 1,
+                "tmpColor": "FFFFFF",
+                "tmpSize": 16,
+                "cityColor": "FFFFFF",
+                "citySize": 16,
+                "aqiSize": 16,
+                "weatherIconSize": 24,
+                "alertIconSize": 18,
+                "padding": "10px 10px 10px 10px",
+                "shadow": "1",
+                "language": "auto",
+                "borderRadius": 5,
+                "fixed": "false",
+                "vertical": "middle",
+                "horizontal": "center",
+                "key": "TXjQn9uihG"
+            }
         }
     </script>
     <!-- 自动更改网站标题 -->
@@ -1064,6 +1112,8 @@ $(function () {
             document.hidden?(document.title="ヽ(●-`Д´-)ノ你要玩捉迷藏嘛",clearTimeout(st)):(document.title="(Ő∀Ő3)ノ欢迎回来！",st=setTimeout(function(){document.title=OriginTitile},3e3))
         })
     </script>
+
+    <div id="weather-v2-plugin-simple"></div>
 
     <!-- Baidu Analytics -->
 
@@ -1104,7 +1154,7 @@ $(function () {
     <script src="/libs/instantpage/instantpage.js" type="module"></script>
     
 
-    <div id="weather-v2-plugin-simple"></div>
+    
     
 
 </body>
