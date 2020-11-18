@@ -381,7 +381,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2020-10-18
+                    2020-11-18
                 </div>
                 
 
@@ -397,9 +397,62 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="新建hexo博客测试"><a href="#新建hexo博客测试" class="headerlink" title="新建hexo博客测试"></a>新建hexo博客测试</h1><h2 id="标题1"><a href="#标题1" class="headerlink" title="标题1"></a>标题1</h2><p>插入图片</p>
-<p><img src="https://gitee.com/xiezhr/image-learn-bed/blob/master/img/abc.png" alt="avatar"></p>
-<h2 id="标题2"><a href="#标题2" class="headerlink" title="标题2"></a>标题2</h2><h2 id="标题3"><a href="#标题3" class="headerlink" title="标题3"></a>标题3</h2><h2 id="标题4"><a href="#标题4" class="headerlink" title="标题4"></a>标题4</h2>
+                <h1 id="markdown-插入图片、音频、视频语法"><a href="#markdown-插入图片、音频、视频语法" class="headerlink" title="markdown 插入图片、音频、视频语法"></a>markdown 插入图片、音频、视频语法</h1><h2 id="1、markdown-简介"><a href="#1、markdown-简介" class="headerlink" title="1、markdown 简介"></a>1、markdown 简介</h2><ul>
+<li><p>Markdown 是一种轻量级标记语言，它允许人们使用易读易写的纯文本格式编写文档。</p>
+</li>
+<li><p>Markdown 编写的文档后缀为 <strong>.md</strong>, <strong>.markdown</strong></p>
+</li>
+<li><p>简单易学容易上手，十分钟左右即可上手</p>
+</li>
+<li><p>有助于作者专心写作（各种在线博客编辑坑太多，文档丢失、广告太多，可移植性差）</p>
+</li>
+</ul>
+<h2 id="2、插入图片"><a href="#2、插入图片" class="headerlink" title="2、插入图片"></a>2、插入图片</h2><p>我们在写博客的时候总免不了要插入各种图片，下面就是markdown插入图片的语法</p>
+<pre><code class="markdown">![这里填写图片的描述信息](这里填写图片的路径，相对或决定路径都可以)</code></pre>
+<p>插入图片列子：</p>
+<p><img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/logo-ht.png" alt="插入图片例子"></p>
+<p>我们经常需要将一篇费劲心思写好的文章发布到各大平台&lt;微信公众号、头条、掘金、今日头条。。。以上插入图片语法虽然简单，但是图片存放就成了一个问题。 图片存在本地的话，上传到各个网站就没法显示了，就算一个一个复制粘贴上去，移植到其他平台，如果平台没有自动保存图片功能，图片就会消失。这时候我们就需要一个图床。</p>
+<p>什么是图床呢？</p>
+<ul>
+<li>图床就是一个便于在博客中插入在线图片的个人图片仓库。设置图床之后，我们可以随时将我们用到的图片上传到仓库，方便在博文中使用，预览。并且只要不亲自删除，就可以随时随地预览</li>
+</ul>
+<p>下面介绍一个 PicGo + Gitee(码云)实现markdown图床  <strong>免费</strong></p>
+<p><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/b69950a49ae2">PicGo + Gitee(码云)实现免费markdown图床</a></p>
+<h2 id="3、插入音频"><a href="#3、插入音频" class="headerlink" title="3、插入音频"></a>3、插入音频</h2><h3 id="3-1-使用audio-标签"><a href="#3-1-使用audio-标签" class="headerlink" title="3.1 使用audio 标签"></a>3.1 使用audio 标签</h3><p>语法</p>
+<pre><code class="markdown">&lt;audio id=&quot;audio&quot; controls=&quot;&quot; preload=&quot;none&quot;&gt;
+      &lt;source id=&quot;mp3&quot; src=&quot;音频地址&quot;&gt;
+&lt;/audio&gt;
+
+</code></pre>
+<p><audio  controls="" preload="metadata"> <sourse src="https://music.163.com/#/song?id=1489271328"/></audio></p>
+<h3 id="3-2-使用iframe标签"><a href="#3-2-使用iframe标签" class="headerlink" title="3.2 使用iframe标签"></a>3.2 使用iframe标签</h3><p>下面我们以获取网易云音乐为例</p>
+<ol>
+<li>首先在网易云音乐播放界面，点击生成外链播放器</li>
+</ol>
+<p><img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/image-20201118231021010.png" alt="image-20201118231021010"></p>
+<ol start="2">
+<li><p>选择自己想要的大小的iframe代码块</p>
+<p><img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/image-20201118231344091.png" alt="image-20201118231344091"></p>
+</li>
+<li><p>复制iframe代码块</p>
+<pre><code class="html">&lt;iframe frameborder=&quot;no&quot; border=&quot;0&quot; marginwidth=&quot;0&quot; marginheight=&quot;0&quot; width=330 height=86 src=&quot;//music.163.com/outchain/player?type=2&amp;id=1488737309&amp;auto=1&amp;height=66&quot;&gt;&lt;/iframe&gt;</code></pre>
+</li>
+</ol>
+<p>加好之后效果如下</p>
+<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=1488737309&auto=1&height=66"></iframe>
+
+
+
+<h2 id="4、引入视频"><a href="#4、引入视频" class="headerlink" title="4、引入视频"></a>4、引入视频</h2><p>我们小破站为例</p>
+<p>1.找到我们想插入的视频，然后点击下面的分享</p>
+<p><img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/image-20201118231928427.png" alt="image-20201118231928427"></p>
+<ol start="2">
+<li><p>加入一个自适应iframe</p>
+<pre><code class="markdown">&lt;iframe src=&quot;//player.bilibili.com/player.html?aid=59317437&amp;bvid=BV1Pt411G7qh&amp;cid=103365806&amp;page=1&quot; scrolling=&quot;no&quot; border=&quot;0&quot; frameborder=&quot;no&quot; framespacing=&quot;0&quot; allowfullscreen=&quot;true&quot;&gt; &lt;/iframe&gt;</code></pre>
+</li>
+</ol>
+<p>加好之后如下</p>
+<iframe src="//player.bilibili.com/player.html?aid=59317437&bvid=BV1Pt411G7qh&cid=103365806&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
             </div>
             <hr/>
 
@@ -424,7 +477,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://xiezhrspace.cn/2020/10/18/%E6%96%B0%E5%BB%BA%E5%8D%9A%E5%AE%A2%E6%B5%8B%E8%AF%95/">https://xiezhrspace.cn/2020/10/18/%E6%96%B0%E5%BB%BA%E5%8D%9A%E5%AE%A2%E6%B5%8B%E8%AF%95/</a>
+                    <a href="https://xiezhrspace.cn/2020/11/18/markdown%E6%8F%92%E5%85%A5%E5%9B%BE%E7%89%87%E3%80%81%E9%9F%B3%E9%A2%91%E8%A7%86%E9%A2%91/">https://xiezhrspace.cn/2020/11/18/markdown%E6%8F%92%E5%85%A5%E5%9B%BE%E7%89%87%E3%80%81%E9%9F%B3%E9%A2%91%E8%A7%86%E9%A2%91/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -941,7 +994,7 @@
                 <i class="far fa-dot-circle"></i>&nbsp;本篇
             </div>
             <div class="card">
-                <a href="/2020/10/18/%E6%96%B0%E5%BB%BA%E5%8D%9A%E5%AE%A2%E6%B5%8B%E8%AF%95/">
+                <a href="/2020/11/18/markdown%E6%8F%92%E5%85%A5%E5%9B%BE%E7%89%87%E3%80%81%E9%9F%B3%E9%A2%91%E8%A7%86%E9%A2%91/">
                     <div class="card-image">
                         
                         
@@ -958,7 +1011,7 @@
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-10-18
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-11-18
                             </span>
                         <span class="publish-author">
                             
