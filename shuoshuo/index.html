@@ -386,12 +386,22 @@
                 
 
                 
-
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
+                    2020-10-30
+                </div>
                 
 
                 
 
                 
+
+                
+                    <div id="busuanzi_container_page_pv" class="info-break-policy">
+                        <i class="far fa-eye fa-fw"></i>阅读次数:&nbsp;&nbsp;
+                        <span id="busuanzi_value_page_pv"></span>
+                    </div>
+				
             </div>
         </div>
         <hr class="clearfix">
@@ -882,52 +892,6 @@
     
 
     
-        <style>
-    .mvaline-card {
-        margin: 1.5rem auto;
-    }
-
-    .mvaline-card .card-content {
-        padding: 20px 20px 5px 20px;
-    }
-</style>
-
-<div class="card mvaline-card" data-aos="fade-up">
-    <div class="comment_headling" style="font-size: 20px; font-weight: 700; position: relative; padding-left: 20px; top: 15px; padding-bottom: 5px;">
-        <i class="fas fa-comments fa-fw" aria-hidden="true"></i>
-        <span>评论</span>
-    </div>
-    <div id="mvcomments" class="card-content" style="display: grid">
-    </div>
-</div>
-
-<script src="/libs/minivaline/MiniValine.js"></script>
-<script>
-    new MiniValine({
-        el: '#mvcomments',
-        appId: 'nLFYjWbdxNXHi8ECkNbad7eo-gzGzoHsz',
-        appKey: 'EN6vxfxOV7eBy6HlfVE4jhGI',
-        mode: 'DesertsP',
-        placeholder: 'Write a Comment',
-        pathname: window.location.pathname,
-        lang: '',
-        adminEmailMd5: 'de8a7aa53d07e6b6bceb45c64027763d',
-        tagMeta: ["管理员", "小伙伴", "访客"],
-        master: ["de8a7aa53d07e6b6bceb45c64027763d"],
-        friends: ["b5bd5d836c7a0091aa8473e79ed4c25e", "adb7d1cd192658a55c0ad22a3309cecf", "3ce1e6c77b4910f1871106cb30dc62b0", "cfce8dc43725cc14ffcd9fb4892d5bfc"],
-        math: true,
-        md: true,
-        enableQQ: true,
-        NoRecordIP: false,
-        visitor: true,
-        maxNest: 6,
-        pageSize: 6,
-        serverURLs: '',
-        emoticonUrl: ["https://cdn.jsdelivr.net/npm/alus@master", "https://cdn.jsdelivr.net/gh/MiniValine/qq@master", "https://cdn.jsdelivr.net/gh/MiniValine/Bilibilis@master", "https://cdn.jsdelivr.net/gh/MiniValine/tieba@master", "https://cdn.jsdelivr.net/gh/MiniValine/twemoji@master", "https://cdn.jsdelivr.net/gh/MiniValine/weibo@master"],
-    });
-</script>
-
-    
 
     
 
@@ -1014,6 +978,43 @@
 
 </div>
 
+
+<script>
+    $('#articleContent').on('copy', function (e) {
+        // IE8 or earlier browser is 'undefined'
+        if (typeof window.getSelection === 'undefined') return;
+
+        var selection = window.getSelection();
+        // if the selection is short let's not annoy our users.
+        if (('' + selection).length < Number.parseInt('300')) {
+            return;
+        }
+
+        // create a div outside of the visible area and fill it with the selected text.
+        var bodyElement = document.getElementsByTagName('body')[0];
+        var newdiv = document.createElement('div');
+        newdiv.style.position = 'absolute';
+        newdiv.style.left = '-99999px';
+        bodyElement.appendChild(newdiv);
+        newdiv.appendChild(selection.getRangeAt(0).cloneContents());
+
+        // we need a <pre> tag workaround.
+        // otherwise the text inside "pre" loses all the line breaks!
+        if (selection.getRangeAt(0).commonAncestorContainer.nodeName === 'PRE') {
+            newdiv.innerHTML = "<pre>" + newdiv.innerHTML + "</pre>";
+        }
+
+        var url = document.location.href;
+        newdiv.innerHTML += '<br />'
+            + '来源: xiezhrspace<br />'
+            + '文章作者: xiezhr<br />'
+            + '文章链接: <a href="' + url + '">' + url + '</a><br />'
+            + '本文章著作权归作者所有，任何形式的转载都请注明出处。';
+
+        selection.selectAllChildren(newdiv);
+        window.setTimeout(function () {bodyElement.removeChild(newdiv);}, 200);
+    });
+</script>
 
 
 <!-- 代码块功能依赖 -->
@@ -1383,8 +1384,6 @@ $(function () {
 </script>
 
     
-    <script src="/libs/others/clicklove.js" async="async"></script>
-    
     
     <script async src="/libs/others/busuanzi.pure.mini.js"></script>
     
@@ -1393,6 +1392,11 @@ $(function () {
 
     
 
+    
+    <script type="text/javascript" color="0,0,255"
+        pointColor="0,0,255" opacity='0.7'
+        zIndex="-1" count="120"
+        src="/libs/background/canvas-nest.js"></script>
     
 
     
