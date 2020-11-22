@@ -1,6 +1,14 @@
+/*
+ * @Author: your name
+ * @Date: 2020-11-22 14:32:52
+ * @LastEditTime: 2020-11-22 15:13:03
+ * @LastEditors: your name
+ * @Description: In User Settings Edit
+ * @FilePath: \hexo-xiezhrblog\themes\hexo-theme-matery\source\live2d-widget\autoload.js
+ */
 // 注意：live2d_path 参数应使用绝对路径
-const live2d_path = "https://cdn.jsdelivr.net/gh/stevenjoezhang/live2d-widget@latest/";
-//const live2d_path = "/live2d-widget/";
+//const live2d_path = "https://cdn.jsdelivr.net/gh/stevenjoezhang/live2d-widget@latest/";
+const live2d_path = "/live2d-widget/";
 
 // 封装异步加载资源的方法
 function loadExternalResource(url, type) {
