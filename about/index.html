@@ -1,13 +1,5 @@
 <!DOCTYPE HTML>
 <html lang="zh-CN">
-<!--
- * @Author: your name
- * @Date: 2020-10-18 11:22:48
- * @LastEditTime: 2020-11-22 14:49:01
- * @LastEditors: your name
- * @Description: In User Settings Edit
- * @FilePath: \hexo-xiezhrblog\themes\hexo-theme-matery\layout\_partial\head.ejs
--->
 
 
 <head>
@@ -34,10 +26,15 @@
     <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
     <link rel="stylesheet" type="text/css" href="/css/matery.css">
     <link rel="stylesheet" type="text/css" href="/css/my.css">
+    
+    
+    
 
     <script src="/libs/jquery/jquery.min.js"></script>
 
-   
+    
+        <link type="text/css" href="/js/live2d_assets/waifu.css">
+    
 
 <meta name="generator" content="Hexo 5.2.0"></head>
 
@@ -560,7 +557,7 @@
                 name: '文章篇数',
                 type: 'line',
                 color: ['#6772e5'],
-                data: [0,0,0,0,0,0,0,0,0,0,0,1,2],
+                data: [0,0,0,0,0,0,0,1,0,0,0,1,1],
                 markPoint: {
                     symbolSize: 45,
                     color: ['#fa755a','#3ecf8e','#82d3f4'],
@@ -602,7 +599,7 @@
                 type: 'pie',
                 radius: '50%',
                 color: ['#6772e5', '#ff9e0f', '#fa755a', '#3ecf8e', '#82d3f4', '#ab47bc', '#525f7f', '#f51c47', '#26A69A'],
-                data: [{"name":"日常小技巧","value":1},{"name":"Linux","value":1}],
+                data: [{"name":"Linux","value":1},{"name":"日常小技巧","value":1}],
                 itemStyle: {
                     emphasis: {
                         shadowBlur: 10,
@@ -626,7 +623,7 @@
         xAxis: [
             {
                 type: 'category',
-                data: ["markdown","Linux"]
+                data: ["Linux","markdown"]
             }
         ],
         yAxis: [
@@ -796,14 +793,14 @@
         <div class="tag-chips center-align">
             
             
-            <a href="/tags/markdown/">
-                <span class="chip center-align waves-effect waves-light chip-default">markdown</span>
+            <a href="/tags/Linux/">
+                <span class="chip center-align waves-effect waves-light chip-default">Linux</span>
             </a>
             
             
             
-            <a href="/tags/Linux/">
-                <span class="chip center-align waves-effect waves-light chip-default">Linux</span>
+            <a href="/tags/markdown/">
+                <span class="chip center-align waves-effect waves-light chip-default">markdown</span>
             </a>
             
             
@@ -1037,9 +1034,9 @@ $(function () {
     </script>
     -->
      <!--自定义看板娘-->
-     <script src="https://cdn.jsdelivr.net/npm/jquery/dist/jquery.min.js"></script>
+     <!--<script src="https://cdn.jsdelivr.net/npm/jquery/dist/jquery.min.js"></script>
      <script src="/live2d-widget/autoload.js"></script>
-     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome/css/font-awesome.min.css"/>
+     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome/css/font-awesome.min.css"/>-->
 
     <!-- 自动更改网站标题 -->
     <script type="text/javascript">
