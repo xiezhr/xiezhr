@@ -2,7 +2,7 @@
 <search>
   <entry>
     <title>markdown 引入图片、音频、视频</title>
-    <url>/posts/766c3ab6.html</url>
+    <url>/archives/766c3ab6.html</url>
     <content><![CDATA[<h2 id="1、markdown-简介"><a href="#1、markdown-简介" class="headerlink" title="1、markdown 简介"></a>1、markdown 简介</h2><ul>
 <li><p>Markdown 是一种轻量级标记语言，它允许人们使用易读易写的纯文本格式编写文档。</p>
 </li>
@@ -68,7 +68,7 @@
   </entry>
   <entry>
     <title>Hello World</title>
-    <url>/posts/4a17b156.html</url>
+    <url>/archives/4a17b156.html</url>
     <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
 <h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><pre><code class="bash">$ hexo new &quot;My New Post&quot;</code></pre>
 <p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
@@ -82,7 +82,7 @@
   </entry>
   <entry>
     <title>Linux下七种文件类型、文件属性及其查看方法</title>
-    <url>/posts/89feddba.html</url>
+    <url>/archives/89feddba.html</url>
     <content><![CDATA[<h2 id="1、七种文件类型"><a href="#1、七种文件类型" class="headerlink" title="1、七种文件类型"></a>1、七种文件类型</h2><hr>
 <p><strong>普通文件类型</strong><br>Linux中最多的一种文件类型, 包括 纯文本文件(ASCII)；二进制文件(binary)；数据格式的文件(data);各种压缩文件.第一个属性为 [-]</p>
 <p><strong>目录文件</strong><br>就是目录， 能用 # cd 命令进入的。第一个属性为 [d]，例如 [drwxrwxrwx]</p>
