@@ -1,6 +1,46 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>mysql5.7安装教程</title>
+    <url>/archives/52c20fff.html</url>
+    <content><![CDATA[<h1 id="mysql5-7安装教程"><a href="#mysql5-7安装教程" class="headerlink" title="mysql5.7安装教程"></a>mysql5.7安装教程</h1><h2 id="1-下载mysql"><a href="#1-下载mysql" class="headerlink" title="1.下载mysql"></a>1.下载mysql</h2><p>下载地址：<a href="https://dev.mysql.com/downloads/mysql/5.7.html#downloads">https://dev.mysql.com/downloads/mysql/5.7.html#downloads</a></p>
+<p>下载zip免安装版，可以省去很多事</p>
+<h2 id="2-将下载的安装文件解压放到磁盘中"><a href="#2-将下载的安装文件解压放到磁盘中" class="headerlink" title="2.将下载的安装文件解压放到磁盘中"></a>2.将下载的安装文件解压放到磁盘中</h2><p><img src="https://imgconvert.csdnimg.cn/aHR0cDovL3E3YWRzdHpqeC5ia3QuY2xvdWRkbi5jb20vbGouUE5H?x-oss-process=image/format,png" alt="Alt"></p>
+<h2 id="3-在mysql解压缩包根目录下创建my-ini-文件（mysql主配置文件）并创建data目录（用户初始化数据库文件目录）"><a href="#3-在mysql解压缩包根目录下创建my-ini-文件（mysql主配置文件）并创建data目录（用户初始化数据库文件目录）" class="headerlink" title="3.在mysql解压缩包根目录下创建my.ini 文件（mysql主配置文件）并创建data目录（用户初始化数据库文件目录）"></a>3.在mysql解压缩包根目录下创建my.ini 文件（mysql主配置文件）并创建data目录（用户初始化数据库文件目录）</h2><p><img src="https://imgconvert.csdnimg.cn/aHR0cDovL3E3YWRzdHpqeC5ia3QuY2xvdWRkbi5jb20vbXlzcWxfaW5zdGFsbGluc2VydC5QTkc?x-oss-process=image/format,png" alt="Alt"><br> my.ini文件内容如下</p>
+<pre><code class="sql">[mysqld]
+basedir=D:\mysql-5.7.29\
+datadir=D:\mysql-5.7.29\data\
+port=3306
+skip-grant-tables</code></pre>
+<p> 以上配置文件说明<br> basedir–mysql目录<br> datadir–数据路径<br> port –端口<br> skip-grant-tables –刚开始跳过登陆校验</p>
+<h2 id="4-添加path环境变量"><a href="#4-添加path环境变量" class="headerlink" title="4.添加path环境变量"></a>4.添加path环境变量</h2><p><img src="https://imgconvert.csdnimg.cn/aHR0cDovL3E3YWRzdHpqeC5ia3QuY2xvdWRkbi5jb20vbXlzcWxfaW5zdGFsbCVFNyU4RSVBRiVFNSVBMiU4MyVFNSU4RiU5OCVFOSU4NyU4Ri5QTkc?x-oss-process=image/format,png" alt="Alt"></p>
+<h2 id="5-以管理员打开命令行窗口，并进入到mysql的bin目录-安装mysql服务及初始化数据库"><a href="#5-以管理员打开命令行窗口，并进入到mysql的bin目录-安装mysql服务及初始化数据库" class="headerlink" title="5.以管理员打开命令行窗口，并进入到mysql的bin目录,安装mysql服务及初始化数据库"></a>5.以管理员打开命令行窗口，并进入到mysql的bin目录,安装mysql服务及初始化数据库</h2><p>安装服务：</p>
+<pre><code class="sql">mysqld install</code></pre>
+<p>初始化数据库</p>
+<pre><code class="sql">mysqld --initialize-insecure --user=mysql</code></pre>
+<h2 id="6-启动mysql服务-并以跳过登陆校验的方式登陆mysql"><a href="#6-启动mysql服务-并以跳过登陆校验的方式登陆mysql" class="headerlink" title="6.启动mysql服务,并以跳过登陆校验的方式登陆mysql"></a>6.启动mysql服务,并以跳过登陆校验的方式登陆mysql</h2><p><img src="https://imgconvert.csdnimg.cn/aHR0cDovL3E3YWRzdHpqeC5ia3QuY2xvdWRkbi5jb20vbXlzcWxfaW5zdGFsbHN0YXJ0c2VydmljZS5QTkc?x-oss-process=image/format,png" alt="Alt"></p>
+<pre><code class="sql">net start mysql</code></pre>
+<h2 id="7-修改密码，并刷新权限"><a href="#7-修改密码，并刷新权限" class="headerlink" title="7.修改密码，并刷新权限"></a>7.修改密码，并刷新权限</h2><pre><code class="sql">UPDATE mysql.user SET authentication_string = PASSWORD(&#39;新密码&#39;) WHERE user = &#39;root&#39;;
+
+# 我的命令 UPDATE mysql.user SET authentication_string = PASSWORD(&#39;123456&#39;) WHERE user = &#39;root&#39;;</code></pre>
+<p><img src="https://imgconvert.csdnimg.cn/aHR0cDovL3E3YWRzdHpqeC5ia3QuY2xvdWRkbi5jb20vbXlzcWxfaW5zdGFsbG15c3FsLnBuZw?x-oss-process=image/format,png" alt="Alt"></p>
+<h2 id="8-将mysql根目录下的my-ini-配置文件中的跳过登陆配置注释掉"><a href="#8-将mysql根目录下的my-ini-配置文件中的跳过登陆配置注释掉" class="headerlink" title="8.将mysql根目录下的my.ini 配置文件中的跳过登陆配置注释掉"></a>8.将mysql根目录下的my.ini 配置文件中的跳过登陆配置注释掉</h2><pre><code class="ini">basedir=D:\mysql-5.7.29\
+datadir=D:\mysql-5.7.29\data\
+port=3306
+#skip-grant-tables</code></pre>
+<h2 id="9-大功告成，可以登陆mysql。"><a href="#9-大功告成，可以登陆mysql。" class="headerlink" title="9.大功告成，可以登陆mysql。"></a>9.大功告成，可以登陆mysql。</h2><p>登陆命令：</p>
+<pre><code class="sql">mysql -u root -p123456</code></pre>
+<p><img src="https://imgconvert.csdnimg.cn/aHR0cDovL3E3YWRzdHpqeC5ia3QuY2xvdWRkbi5jb20vbXlzcWxfaW5zdGFsbGxvZ2luLlBORw?x-oss-process=image/format,png" alt="Alt"></p>
+<h2 id="最后给大家推荐一款mysql-图形化界面工具"><a href="#最后给大家推荐一款mysql-图形化界面工具" class="headerlink" title="最后给大家推荐一款mysql 图形化界面工具"></a>最后给大家推荐一款mysql 图形化界面工具</h2><p>SQLyog12.0.8安装包及注册码.zip       <a href="https://pan.baidu.com/s/1MbawQsqrAD1DWGOdNTjjZg">百度云下载链接</a>    提取码：mbd0</p>
+]]></content>
+      <categories>
+        <category>mysql</category>
+      </categories>
+      <tags>
+        <tag>mysql</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>markdown 引入图片、音频、视频</title>
     <url>/archives/766c3ab6.html</url>
     <content><![CDATA[<h2 id="1、markdown-简介"><a href="#1、markdown-简介" class="headerlink" title="1、markdown 简介"></a>1、markdown 简介</h2><ul>
