@@ -56,7 +56,7 @@
 
     
 
-<meta name="generator" content="Hexo 5.2.0"></head>
+<meta name="generator" content="Hexo 5.2.0"><link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
 
 
 
@@ -70,7 +70,7 @@
                     
                     <img src="/medias/logo.png" class="logo-img" alt="LOGO">
                     
-                    <span class="logo-span">xiezhrspace</span>
+                    <span class="logo-span diyFont">xiezhrspace</span>
                 </a>
             </div>
             
@@ -129,6 +129,17 @@
       </li>
       
     </ul>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/artitalk" class="waves-effect waves-light">
+      
+      <i class="fas fa-comments" style="zoom: 0.6;"></i>
+      
+      <span>说说</span>
+    </a>
     
   </li>
   
@@ -323,6 +334,17 @@
                 </li>
               
             </ul>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/artitalk" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-comments"></i>
+			
+			Artitalk
+		</a>
           
         </li>
         
@@ -617,7 +639,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    669
+                    630
                 </div>
                 
 
@@ -650,7 +672,7 @@
 </li>
 </ul>
 <h2 id="2、插入图片"><a href="#2、插入图片" class="headerlink" title="2、插入图片"></a>2、插入图片</h2><p>我们在写博客的时候总免不了要插入各种图片，下面就是markdown插入图片的语法</p>
-<pre><code class="markdown">![这里填写图片的描述信息](这里填写图片的路径，相对或决定路径都可以)</code></pre>
+<pre class=" language-markdown"><code class="language-markdown"><span class="token url">![这里填写图片的描述信息](这里填写图片的路径，相对或决定路径都可以)</span></code></pre>
 <p>插入图片列子：</p>
 <p><img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/logo-ht.png" alt="插入图片例子"></p>
 <p>我们经常需要将一篇费劲心思写好的文章发布到各大平台&lt;微信公众号、头条、掘金、今日头条。。。以上插入图片语法虽然简单，但是图片存放就成了一个问题。 图片存在本地的话，上传到各个网站就没法显示了，就算一个一个复制粘贴上去，移植到其他平台，如果平台没有自动保存图片功能，图片就会消失。这时候我们就需要一个图床。</p>
@@ -661,9 +683,9 @@
 <p>下面介绍一个 PicGo + Gitee(码云)实现markdown图床  <strong>免费</strong></p>
 <p><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/b69950a49ae2">PicGo + Gitee(码云)实现免费markdown图床</a></p>
 <h2 id="3、插入音频"><a href="#3、插入音频" class="headerlink" title="3、插入音频"></a>3、插入音频</h2><h3 id="3-1-使用audio-标签"><a href="#3-1-使用audio-标签" class="headerlink" title="3.1 使用audio 标签"></a>3.1 使用audio 标签</h3><p>语法</p>
-<pre><code class="markdown">&lt;audio id=&quot;audio&quot; controls=&quot;&quot; preload=&quot;none&quot;&gt;
-      &lt;source id=&quot;mp3&quot; src=&quot;音频地址&quot;&gt;
-&lt;/audio&gt;
+<pre class=" language-markdown"><code class="language-markdown"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>audio</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>audio<span class="token punctuation">"</span></span> <span class="token attr-name">controls</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span><span class="token punctuation">"</span></span> <span class="token attr-name">preload</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>none<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+<span class="token code keyword">      &lt;source id="mp3" src="音频地址"></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>audio</span><span class="token punctuation">></span></span>
 
 </code></pre>
 <p><audio  controls="" preload="metadata"> <sourse src="https://music.163.com/#/song?id=1489271328"/></audio></p>
@@ -677,7 +699,7 @@
 <p><img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/image-20201118231344091.png" alt="image-20201118231344091"></p>
 </li>
 <li><p>复制iframe代码块</p>
-<pre><code class="html">&lt;iframe frameborder=&quot;no&quot; border=&quot;0&quot; marginwidth=&quot;0&quot; marginheight=&quot;0&quot; width=330 height=86 src=&quot;//music.163.com/outchain/player?type=2&amp;id=1488737309&amp;auto=1&amp;height=66&quot;&gt;&lt;/iframe&gt;</code></pre>
+<pre class=" language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>iframe</span> <span class="token attr-name">frameborder</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>no<span class="token punctuation">"</span></span> <span class="token attr-name">border</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>0<span class="token punctuation">"</span></span> <span class="token attr-name">marginwidth</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>0<span class="token punctuation">"</span></span> <span class="token attr-name">marginheight</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>0<span class="token punctuation">"</span></span> <span class="token attr-name">width</span><span class="token attr-value"><span class="token punctuation">=</span>330</span> <span class="token attr-name">height</span><span class="token attr-value"><span class="token punctuation">=</span>86</span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>//music.163.com/outchain/player?type<span class="token punctuation">=</span>2&amp;id<span class="token punctuation">=</span>1488737309&amp;auto<span class="token punctuation">=</span>1&amp;height<span class="token punctuation">=</span>66<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>iframe</span><span class="token punctuation">></span></span></code></pre>
 </li>
 </ol>
 <p>加好之后效果如下</p>
@@ -690,7 +712,7 @@
 <p><img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/image-20201118231928427.png" alt="image-20201118231928427"></p>
 <ol start="2">
 <li><p>加入一个自适应iframe</p>
-<pre><code class="markdown">&lt;iframe src=&quot;//player.bilibili.com/player.html?aid=59317437&amp;bvid=BV1Pt411G7qh&amp;cid=103365806&amp;page=1&quot; scrolling=&quot;no&quot; border=&quot;0&quot; frameborder=&quot;no&quot; framespacing=&quot;0&quot; allowfullscreen=&quot;true&quot;&gt; &lt;/iframe&gt;</code></pre>
+<pre class=" language-markdown"><code class="language-markdown"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>iframe</span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>//player.bilibili.com/player.html?aid<span class="token punctuation">=</span>59317437&amp;bvid<span class="token punctuation">=</span>BV1Pt411G7qh&amp;cid<span class="token punctuation">=</span>103365806&amp;page<span class="token punctuation">=</span>1<span class="token punctuation">"</span></span> <span class="token attr-name">scrolling</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>no<span class="token punctuation">"</span></span> <span class="token attr-name">border</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>0<span class="token punctuation">"</span></span> <span class="token attr-name">frameborder</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>no<span class="token punctuation">"</span></span> <span class="token attr-name">framespacing</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>0<span class="token punctuation">"</span></span> <span class="token attr-name">allowfullscreen</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>true<span class="token punctuation">"</span></span><span class="token punctuation">></span></span> <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>iframe</span><span class="token punctuation">></span></span></code></pre>
 </li>
 </ol>
 <p>加好之后如下</p>
