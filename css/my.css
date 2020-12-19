@@ -74,3 +74,15 @@ body{
     font-family: 'hl';
 }
 
+/*网站头像大小*/
+header .brand-logo .logo-img {
+    height: 65px;
+    vertical-align: middle;
+    padding-bottom: 6px;
+}
+/*网站签名大小调整-xiezhrspace*/
+header .brand-logo .logo-span {
+    font-size: 2rem;
+    font-weight: 700;
+    padding-bottom: 6px;
+}
