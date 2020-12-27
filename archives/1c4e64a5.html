@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="Linux下七种文件类型、文件属性及其查看方法, HTML,CSS,JavaScript,JQuery,React,Vue.js等">
+    <meta name="keywords" content="SSH客户端常用工具SecureCRT操作, HTML,CSS,JavaScript,JQuery,React,Vue.js等">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -18,7 +18,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>Linux下七种文件类型、文件属性及其查看方法 | xiezhrspace</title>
+    <title>SSH客户端常用工具SecureCRT操作 | xiezhrspace</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -483,12 +483,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/17.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/9.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">Linux下七种文件类型、文件属性及其查看方法</h1>
+                    <h1 class="description center-align post-title">SSH客户端常用工具SecureCRT操作</h1>
                 </div>
             </div>
         </div>
@@ -630,28 +630,28 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2020-06-30
+                    2020-12-27
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2020-11-28
+                    2020-12-27
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.5k
+                    1.2k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    6 分
+                    4 分
                 </div>
                 
 
@@ -666,94 +666,47 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="1、七种文件类型"><a href="#1、七种文件类型" class="headerlink" title="1、七种文件类型"></a>1、七种文件类型</h2><hr>
-<p><strong>普通文件类型</strong><br>Linux中最多的一种文件类型, 包括 纯文本文件(ASCII)；二进制文件(binary)；数据格式的文件(data);各种压缩文件.第一个属性为 [-]</p>
-<p><strong>目录文件</strong><br>就是目录， 能用 # cd 命令进入的。第一个属性为 [d]，例如 [drwxrwxrwx]</p>
-<p><strong>块设备文件</strong><br>块设备文件  ： 就是存储数据以供系统存取的接口设备，简单而言就是硬盘。例如一号硬盘的代码是 /dev/hda1等文件。第一个属性为 [b]</p>
-<p><strong>字符设备</strong><br>字符设备文件：即串行端口的接口设备，例如键盘、鼠标等等。第一个属性为 [c]</p>
-<p><strong>套接字文件</strong><br>这类文件通常用在网络数据连接。可以启动一个程序来监听客户端的要求，客户端就可以通过套接字来进行数据通信。第一个属性为 [s]，最常在 /var/run目录中看到这种文件类型</p>
-<p><strong>管道文件</strong><br>FIFO也是一种特殊的文件类型，它主要的目的是，解决多个程序同时存取一个文件所造成的错误。FIFO是first-in-first-out(先进先出)的缩写。第一个属性为 [p]</p>
-<p><strong>链接文件</strong><br>类似Windows下面的快捷方式。第一个属性为 [l]，例如 [lrwxrwxrwx]</p>
-<h2 id="2、查看文件类型的三种方法"><a href="#2、查看文件类型的三种方法" class="headerlink" title="2、查看文件类型的三种方法"></a>2、查看文件类型的三种方法</h2><hr>
-<p> <strong>①</strong><br><strong>ls-l/ls-ld 或者ll  [ls-l  —查看文件   ls-ld   —查看路径  ll —-跟ls  -l  一样]</strong></p>
-<pre><code> ll anaconda-ks.cfg                       //看第一个字符
--rw-------. 1 root root 2460 6月   1 23:37 anaconda-ks.cfg
-[root@localhost log]# ls -ld /etc   
-drwxr-xr-x. 81 root root 4096 Jan 29 03:25 /etc</code></pre>
-<p><strong>②</strong><br><strong>file 命令</strong></p>
-<pre><code>[root@localhost data]# file a.txt 
-a.txt: ASCII text</code></pre>
-<p><strong>③</strong><br><strong>stat 命令</strong></p>
-<pre><code>[root@localhost data]# stat a.txt      //查看文件的详细属性（其中包括文件时间属性）
-  File: `a.txt&#39;
-  Size: 3               Blocks: 8          IO Block: 4096   regular file
-Device: 803h/2051d      Inode: 544365      Links: 1
-Access: (0644/-rw-r--r--)  Uid: (    0/    root)   Gid: (    0/    root)
-Access: 2018-01-28 20:56:01.965885036 +0800
-Modify: 2018-01-28 20:55:27.181876154 +0800
-Change: 2018-01-28 20:55:27.181876154 +0800</code></pre>
-<h2 id="3、Linux中文件扩展名"><a href="#3、Linux中文件扩展名" class="headerlink" title="3、Linux中文件扩展名"></a>3、Linux中文件扩展名</h2><hr>
-<p>windows里通过扩展名来区分文件类型的。linux里文件扩展名和文件类型没有关系。但为了容易区分和兼容用户使用windows的习惯，我们还是会用扩展名来表示文件类型。举例如下：</p>
+                <h2 id="1-1-SecureCRT工具介绍"><a href="#1-1-SecureCRT工具介绍" class="headerlink" title="1.1 SecureCRT工具介绍"></a>1.1 SecureCRT工具介绍</h2><p>SecureCRT是一款支持SSH（SSH1和SSH2）协议的终端仿真软件，常被用来<br>运行于Windows下远程登录UNIX或Linux服务器。</p>
+<p>SecureCRT软件功能强大，不仅仅支持SSH协议，同时还支持Telnet、RLogin、Serial和TAPI等协议，它有非常多的功能，这里就不一一介绍了，常用功能可见下文介绍。</p>
+<p>与SecureCRT类似功能的SSH软件还有Xshell、Putty等。SecureCRT、Xshell、Putty等都仅仅是客户端软件，一般用于Windows客户端计算机，因此，无论选择哪款客户端SSH工具都是可以的。</p>
+<h2 id="1-2-SecureCRT工具安装"><a href="#1-2-SecureCRT工具安装" class="headerlink" title="1.2 SecureCRT工具安装"></a>1.2 SecureCRT工具安装</h2><p>由于是在Windows下安装，安装步骤简单，按提示一路下一步就可以安装完成。这提供SecureCRT5.1.3下载地址。</p>
+<p>链接：<a target="_blank" rel="noopener" href="http://pan.baidu.com/s/1c2OwWqW">http://pan.baidu.com/s/1c2OwWqW</a> 密码：qe4e。</p>
+<p><strong>注意：SecureCRT需要注册之后才能使用 具体注册码在下载文件的 说明.txt</strong></p>
+<h2 id="1-3配置SecureCRT连接Linux主机"><a href="#1-3配置SecureCRT连接Linux主机" class="headerlink" title="1.3配置SecureCRT连接Linux主机"></a>1.3配置SecureCRT连接Linux主机</h2><p>①安装SecureCRT之后打开，并且单击快速链接按钮如图1.1所示<br><img src="https://img-blog.csdnimg.cn/img_convert/a812ab8e79abd4df7d8019684df2e1f5.png" alt="这里写图片描述"></p>
+<p>②选在协议SSH2，然后填入Linux主机IP，端口号，用户名<br><img src="https://img-blog.csdnimg.cn/img_convert/9279438e1fd724169f63dd1d173dfbb1.png" alt="这里写图片描述"></p>
+<p>③<img src="https://img-blog.csdnimg.cn/img_convert/5452489b938159613405743e62621cd1.png" alt="这里写图片描述"><br>以上三步骤如果顺利的话就可以连接到LInux主机</p>
+<h2 id="1-4调整SecureCRT终端显示和回滚缓冲区大小"><a href="#1-4调整SecureCRT终端显示和回滚缓冲区大小" class="headerlink" title="1.4调整SecureCRT终端显示和回滚缓冲区大小"></a>1.4调整SecureCRT终端显示和回滚缓冲区大小</h2><p>为了更加方便的使用SecureCRT，首先得对终端进行一些调整，步骤如下：<br>通过SecureCRT顶端菜单中的“选项”→“会话选项”，打开会话选项窗口，然后单击左侧菜单“终端”→“仿真”，并勾选右边的“ANSI颜色”，再到终端右边选择“Linux”，最后设置缓冲区大小，单击“确定”完成设置</p>
+<p><img src="https://img-blog.csdnimg.cn/img_convert/c2d0c18b9f4a45ef1a3996587f8d7892.png" alt="这里写图片描述"></p>
+<p>具体调整参数如下</p>
+<p>① 调整“终端”→“仿真”的ANSI颜色，并且最终将终端选为Linux（也可以选择Xterm）目的是让Linux命令行看起来更舒服，如果是开发Shell、Python程序，更有利于代码展示。</p>
+<p>② 调整回滚区的目的是为了当操作内容过多时，想看操作过得记录，可以向上翻得更远一些</p>
+<h2 id="1-5调整字体及光标颜色"><a href="#1-5调整字体及光标颜色" class="headerlink" title="1.5调整字体及光标颜色"></a>1.5调整字体及光标颜色</h2><p>通过SecureCRT顶端菜单中的“选项”→“会话选项”，打开会话选项窗口，然后单击左侧菜单“终端”→“外观”</p>
+<p><img src="https://img-blog.csdnimg.cn/img_convert/ad86d15224461fb00c2fc527dab43ced.png" alt="这里写图片描述">    </p>
+<p>在上图中单击“颜色”，在基本颜色出选择光标颜色，这儿选择绿色，利于保护眼睛<br><img src="https://img-blog.csdnimg.cn/img_convert/dd44da8352c779123471c84b593121f5.png" alt="这里写图片描述"></p>
+<h2 id="1-6-配置记录SSH操作日志及输出"><a href="#1-6-配置记录SSH操作日志及输出" class="headerlink" title="1.6 配置记录SSH操作日志及输出"></a>1.6 配置记录SSH操作日志及输出</h2><p>设置在SecureCRT中记录执行命令及屏幕输出日志，可以更加方便的查看过去操作过的配置、命令及结果输出（<em>日志文件格式可以设置为%H_%Y%M%D.log,这样设置之后，日志文件名将以主机IP_年、月、日的形式记录</em>）。</p>
+<p>具体设置如下图</p>
+<p><img src="https://img-blog.csdnimg.cn/img_convert/8b06cac2ab3bfd4b95ec64048910914a.png" alt="这里写图片描述"><br>配置说明<br>① 在上图中一定要勾选“在连接上启动记录”，如果不勾选则不会记录</p>
+<p>② 要勾选“追加到文件”</p>
+<h2 id="1-7-配置本地机器上传和下载目录"><a href="#1-7-配置本地机器上传和下载目录" class="headerlink" title="1.7 配置本地机器上传和下载目录"></a>1.7 配置本地机器上传和下载目录</h2><p>在会话管理界面，单击左侧菜单“Xmodem/Zmodem”,然后可在右侧目录中设置上传和下载目录（上传和下载目录可以是同一个，但必须是系统中有的目录）</p>
+<p><img src="https://img-blog.csdnimg.cn/img_convert/a1d4b0198a1f7a03e54c8e792bb79c6e.png" alt="这里写图片描述"></p>
+<p>设置完毕之后就可以通过SecureCRT的命令行实现客户端计算机和Linux主机的文件上传。</p>
+<p>下面是相关上传和下载命令的使用<br>① rz、sz命令的安装</p>
+<p>*安装 系统时选择包含rz、sz命令包组、即（<strong>Dial-up networking Support</strong>）</p>
+<p>*安装系统之后执行<br><code>yum install lrzsz -y</code> </p>
+<p>或<code>yum groupinstall&quot;Dial-up Networking Support&quot;-y</code> 命令来安装</p>
+<p>②上传命令rz</p>
+<p>上传文件时，执行<code>rz</code>命令，如果希望是覆盖服务器上的同文件内容，可以加-y参数，输入<code>rz -y</code> 后回车，会打开一个上传文件的窗口，然后选择文件上传即可</p>
+<p>③下载命令sz</p>
+<p>下载文件时，执行s<code>z filename</code>，如果希望覆盖本地同名文件，则可以输入-y参数控制<code>sz -y filename</code>，默认下载地址即为刚才配置的下载路径</p>
+<p>④使用rz、sz命令注意事项</p>
 <ul>
-<li>源码.tar、.tar.gz、.tgz、.zip、.tar.bz表示压缩文件，创建命令一般为tar，gzip，zip等。</li>
-<li>.sh表示shell脚本文件，通过shell语言开发的程序。</li>
-<li>.pl表示perl语言文件，通过perl语言开发的程序。</li>
-<li>.py表示python语言文件，通过python语言开发的程序。</li>
-<li>.html、.htm、.php、.jsp、.do表示网页语言的文件。</li>
-<li>.conf表示系统服务的配置文件。</li>
-<li>.rpm表示rpm安装包文件。</li>
+<li>只能上传和下载文件，不能上传和下载目录，如果是上传和下载目录需要打包成文件之后再传</li>
+<li>上传文件可以是计算机里任意文件、下载文件会下载到SecureCRT配置的对应路径</li>
+<li>执行rz命令按钮回车后出现的窗口中，一定不要勾最下方的“以ASCII方式上传文件”，否则会遇到问题<br><img src="https://img-blog.csdnimg.cn/img_convert/98896c9581134c727c21703ab4b459be.png" alt="这里写图片描述"></li>
 </ul>
-<h2 id="4、文件属性"><a href="#4、文件属性" class="headerlink" title="4、文件属性"></a>4、文件属性</h2><hr>
-<pre><code>[root@localhost /]# ls -lhi
-total 90K
-    12 dr-xr-xr-x.  2 root root 4.0K Jan 28 18:30 bin
-     2 dr-xr-xr-x.  5 root root 1.0K Aug  7  2016 boot
-     4 drwxr-xr-x. 18 root root 3.7K Jan 29 01:29 dev
-652802 drwxr-xr-x. 81 root root 4.0K Jan 29 03:25 etc
-130563 drwxr-xr-x.  3 root root 4.0K Jan 29 00:57 home
-    13 dr-xr-xr-x. 12 root root 4.0K Jan 28 18:30 lib
-391685 dr-xr-xr-x.  9 root root  12K Jan 28 18:30 lib64
-    11 drwx------.  2 root root  16K Aug  7  2016 lost+found
-130564 drwxr-xr-x.  2 root root 4.0K Sep 23  2011 media
-391689 drwxr-xr-x.  2 root root 4.0K Sep 23  2011 mnt
-130565 drwxr-xr-x.  3 root root 4.0K Aug  7  2016 opt
-     1 dr-xr-xr-x. 97 root root    0 Jan 29  2018 proc
-391682 dr-xr-x---.  2 root root 4.0K Jan 28 21:08 root
-130566 dr-xr-xr-x.  2 root root  12K Jan 28 18:30 sbin
-     1 drwxr-xr-x.  7 root root    0 Jan 29  2018 selinux
-    15 drwxr-xr-x.  2 root root 4.0K Sep 23  2011 srv
-     1 drwxr-xr-x. 13 root root    0 Jan 29  2018 sys
-522242 drwxrwxrwt.  5 root root 4.0K Jan 29 05:15 tmp
-522244 drwxr-xr-x. 14 root root 4.0K Jan 28 20:04 usr
-261121 drwxr-xr-x. 20 root root 4.0K Aug  7  2016 var</code></pre>
-<p><img src="https://imgconvert.csdnimg.cn/aHR0cDovL2ltZy5ibG9nLmNzZG4ubmV0LzIwMTgwMjAxMjIwNjAzNTk4?x-oss-process=image/format,png" alt="这里写图片描述"></p>
-<p>544365 -rw-r–r–. 1 root root 3 Jan 28 20:55 a.txt</p>
-<ul>
-<li>inode 索引节点编号:544365</li>
-<li>文件类型 : 文件类型是’-‘,表示这是一个普通文件</li>
-<li>文件权限: rw-r–r–  表示文件可读、可写、可执行，文件所归属的用户组可读可执行，其他用户可读可执行</li>
-<li>硬链接个数: 表示a.txt这个文件没有其他的硬链接，因为连接数是1，就是他本身</li>
-<li>文件属主:   表示这个文件所属的用户，这里的意思是a.txt文件被root用户拥有，是第一个root</li>
-<li>文件属组:  表示这个文件所属的用户组，这里表示a.txt文件属于root用户组，是第二个root</li>
-<li>文件大小:  文件大小是3个字节</li>
-<li>文件修改时间:   这里的时间是该文件最后被更新（包括文件创建、内容更新、文件名更新等）的时间可用如下命令查看文件的修改、访问、创建时间</li>
-</ul>
-<pre><code>[root@localhost data]# stat a.txt 
-  File: `a.txt&#39;
-  Size: 3               Blocks: 8          IO Block: 4096   regular file
-Device: 803h/2051d      Inode: 544365      Links: 1
-Access: (0644/-rw-r--r--)  Uid: (    0/    root)   Gid: (    0/    root)
-Access: 2018-01-28 20:56:01.965885036 +0800       ----------访问时间
-Modify: 2018-01-28 20:55:27.181876154 +0800       ----------修改时间
-Change: 2018-01-28 20:55:27.181876154 +0800     ----------创建时间</code></pre>
-<p>索引节点inode:<br>硬盘分区，格式化、创建文件系统<br>被格式化的磁盘分为两部分：**<em>第一部分是Inode  第二部分是block**</em></p>
-<ul>
-<li>block是用来存储实际数据用的，例如：照片、视频等普通文件数据</li>
-<li>inode是用来存储这些数据的属性的（也就是ls-l的结果）<br>inode包含的属性信息有文件大小、属主、归属的用户组、读写权限、问价类型、修改时间，还有指向文件实体指针的功能（inode节点—-block的对应关系），但是唯独不包含文件名<br><img src="https://imgconvert.csdnimg.cn/aHR0cDovL2ltZy5ibG9nLmNzZG4ubmV0LzIwMTgwMjAxMjIwOTE2NDky?x-oss-process=image/format,png" alt="这里写图片描述"><br>访问一个文件【通过文件名找到inode—-&gt;block 】<br><img src="https://imgconvert.csdnimg.cn/aHR0cDovL2ltZy5ibG9nLmNzZG4ubmV0LzIwMTgwMjAxMjIwOTMxODgy?x-oss-process=image/format,png" alt="这里写图片描述"><br>查看inode 大小</li>
-</ul>
-<pre><code>[root@localhost ~]# dumpe2fs /dev/sda1|grep -i &quot;Inode size&quot; 
-dumpe2fs 1.41.12 (17-May-2010)
-Inode size:               128</code></pre>
+<h2 id="1-8-调整命令行颜色方案（目录和注释）"><a href="#1-8-调整命令行颜色方案（目录和注释）" class="headerlink" title="1.8 调整命令行颜色方案（目录和注释）"></a>1.8 调整命令行颜色方案（目录和注释）</h2><p>默认情况下命令行界面目录和文件内容注释都是深蓝色的，看不清楚，这时候就需要我们调整颜色</p>
+<p>“选项”→“全局选项”，然后在全局选项左侧单击“ANSI颜色”，右侧就出现相应颜色，将右边颜色选为浅蓝色</p>
+<p><img src="https://img-blog.csdnimg.cn/img_convert/943ee1e832a92f70391e95a399703b23.png" alt="这里写图片描述"></p>
 
             </div>
             <hr/>
@@ -779,7 +732,7 @@ Inode size:               128</code></pre>
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://www.xiezhrspace.cn/archives/89feddba.html">https://www.xiezhrspace.cn/archives/89feddba.html</a>
+                    <a href="https://www.xiezhrspace.cn/archives/1c4e64a5.html">https://www.xiezhrspace.cn/archives/1c4e64a5.html</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -1249,66 +1202,18 @@ Inode size:               128</code></pre>
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/archives/91733556.html">
+                <a href="/archives/1c4e64a5.html">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/3.jpg" class="responsive-img" alt="mybatis 配置详解">
+                        <img src="/medias/featureimages/9.jpg" class="responsive-img" alt="SSH客户端常用工具SecureCRT操作">
                         
-                        <span class="card-title">mybatis 配置详解</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            
-                        
-                    </div>
-                    <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2020-10-30
-                        </span>
-                        <span class="publish-author">
-                            
-                            <i class="fas fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/mybatis/" class="post-category">
-                                    mybatis
-                                </a>
-                            
-                            
-                        </span>
-                    </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/mybatis/">
-                        <span class="chip bg-color">mybatis</span>
-                    </a>
-                    
-                </div>
-                
-            </div>
-        </div>
-        
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                本篇&nbsp;<i class="far fa-dot-circle"></i>
-            </div>
-            <div class="card">
-                <a href="/archives/89feddba.html">
-                    <div class="card-image">
-                        
-                        
-                        <img src="/medias/featureimages/17.jpg" class="responsive-img" alt="Linux下七种文件类型、文件属性及其查看方法">
-                        
-                        <span class="card-title">Linux下七种文件类型、文件属性及其查看方法</span>
+                        <span class="card-title">SSH客户端常用工具SecureCRT操作</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -1319,7 +1224,7 @@ Inode size:               128</code></pre>
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-06-30
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-12-27
                             </span>
                         <span class="publish-author">
                             
@@ -1339,6 +1244,55 @@ Inode size:               128</code></pre>
                     
                     <a href="/tags/Linux/">
                         <span class="chip bg-color">Linux</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/archives/e1e3a863.html">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/19.jpg" class="responsive-img" alt="mybatis 实现增删改查">
+                        
+                        <span class="card-title">mybatis 实现增删改查</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-12-20
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/mybatis/" class="post-category">
+                                    mybatis
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/mybatis/">
+                        <span class="chip bg-color">mybatis</span>
                     </a>
                     
                 </div>

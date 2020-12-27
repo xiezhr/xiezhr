@@ -2172,3 +2172,12 @@ footer .copy-right {
     padding: 0px;
     margin: 0px;
 }
+
+/*右侧悬浮按钮样式*/
+.theme-button {
+    width: 38px;
+    height: 38px;
+    position: absolute;
+    bottom: 0px;
+    border-radius: 50%;
+}
