@@ -715,10 +715,112 @@
       }
 </style>
 
+<!--友链提示样式-->
+<style>
+    @media only screen and (max-width: 800px) {
+        .swbk {
+            padding: 26px 2px!important;
+            margin: 14px 0px!important;
+        }
+    }
+    .swbk {
+        position: relative;
+        padding: 26px 20px;
+        font-style: italic;
+        margin: 10px 0px;
+        border-radius: 8px;
+        -webkit-box-shadow: 0 14px 38px rgba(0,0,0,.08), 0 3px 8px rgba(0,0,0,.06);
+        box-shadow: 0 14px 38px rgba(0,0,0,.08), 0 3px 8px rgba(0,0,0,.06);
+        -webkit-transition: all .3s ease 0s,-webkit-transform .6s cubic-bezier(.6,.2,.1,1) 0s;
+        transition: all .3s ease 0s,-webkit-transform .6s cubic-bezier(.6,.2,.1,1) 0s;
+        transition: all .3s ease 0s,transform .6s cubic-bezier(.6,.2,.1,1) 0s;
+        transition: all .3s ease 0s,transform .6s cubic-bezier(.6,.2,.1,1) 0s,-webkit-transform .6s cubic-bezier(.6,.2,.1,1) 0s;
+    }
+    .swbk:hover {
+        -webkit-transform: translateY(-4px);
+        transform: translateY(-4px);
+        -webkit-box-shadow: 0 14px 38px rgba(0,0,0,.14), 0 3px 8px rgba(0,0,0,.12);
+        box-shadow: 0 14px 38px rgba(0,0,0,.14), 0 3px 8px rgba(0,0,0,.12);
+    }
+    .swbk:before {
+        content: " “ ";
+        top: 56px;
+        /* left: -14px; */
+    }
+    .swbk:after {
+        content: " ” ";
+        bottom: 8px;
+        right: 5px;
+    }
+    .swbk:after, .swbk:before {
+        position: absolute;
+        font-style: normal;
+        font-weight: 600;
+        font-size: 42px;
+        text-decoration: inherit;
+    }
+    .ziwojieshao .swbk:after, .ziwojieshao .swbk:before {
+        display: none;
+    }
+    body.dark .swbk:after, body.dark .swbk:before {
+        color: #d2c9c9;
+    }
+    .swbk p {
+        font-size: 19px!important;
+        line-height: 2rem;
+        text-indent: 2rem;
+        font-style: italic;
+        font-family: 'Architects Daughter', cursive!important;
+    }
+    .swbk .label {
+        display: inline-block;
+        position: relative;
+        margin-bottom: 10px;
+        padding: 0 14px 0 32px;
+        height: 32px;
+        line-height: 32px;
+        border-radius: 0 3px 3px 0;
+        background-color: currentColor;
+    }
+    .swbk .label span {
+        color: #fff;
+    }
+    .swbk .label:after {
+        content: "";
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 0;
+        height: 0;
+        background-color: transparent;
+        border-style: solid;
+        border-width: 0 16px 16px 0;
+        border-color: transparent;
+        border-right-color: currentColor;
+        -webkit-filter: brightness(120%);
+        filter: brightness(120%);
+    }
+    @media screen and (min-width: 768px) {
+        .swbk .label {
+            left: -37px;
+        }
+    }
+    @media screen and (max-width: 767px) {
+        .swbk .label {
+            left: -18px;
+        }
+        .swbk p {
+            line-height: 2.02rem;
+            padding: 2px 10px;
+        }
+    }
+</style>
+
 <main class="content">
     <div class="container friends-container">
         <div class="card">
             <div class="card-content">
+                
                 <div class="tag-title center-align">
                     <i class="fas fa-address-book"></i>&nbsp;&nbsp;友情链接
                 </div>
@@ -816,9 +918,41 @@
                 </article>
             </div>
         </div>
+        
         <div class="card">
             <div class="card-content">
-                
+                <div class="swbk">
+                    <div class="label" style="color: rgb(178, 143, 206);"><span>友链申请须知</span></div>
+                    <p> 
+                        1、本站与技术类写作类、生活类、情感类、兴趣类等各类博客互换友链，且具有原创高质量文章、经常更新的站优先。</br>
+                        2、不与含有色情、暴力、政治敏感或其他法律法规禁止的网站互换。</br>
+                        3、申请链接前请先添加本博链接，通过本友链页面留言或邮件告知。</br>
+                        4、请提供网站名称、网站链接、网站描述（12字以内）、网站图标或头像。</br>
+                        5、本站会定期对所有友链进行检查，如果发现一月内不能访问或者六个月内没有内容更新可能会取消该友链。</br>
+                    </p>
+                </div>
+                <div class="swbk">
+                    <div class="label" style="color: rgb(251, 150, 110);"><span>我的博客资料</span></div>
+                    <p> 
+                        博客名称：xiezhrspace </br>
+                        博客地址：https://www.xiezhrspace.cn </br>
+                        博客头像：https://gitee.com/xiezhr/image-learn-bed/raw/master/image/avatar.jpg </br>
+                        博客简介：把分享变成一种习惯，再小的帆也能远航 </br>
+                        可选表头：访问主页  </br>
+                    </p>
+                </div>
+                <div class="swbk">
+                    <div class="label" style="color: rgb(22, 152, 228);"><span>你的友链格式</span></div>
+                    <p> 
+                        {
+                            "avatar": "https://gitee.com/xiezhr/image-learn-bed/raw/master/image/avatar.jpg", </br>
+                            "name": "xiezhrspace", </br>
+                            "introduction": "把分享变成一种习惯，再小的帆也能远航", </br>
+                            "url": "https://www.xiezhrspace.cn", </br>
+                            "title": "访问主页"</br>
+                        }
+                    </p>
+                </div>
             </div>
         </div>
         <div class="card">
