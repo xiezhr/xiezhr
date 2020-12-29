@@ -1,6 +1,50 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title></title>
+    <url>/archives/0.html</url>
+    <content><![CDATA[<h1 id="Oracle-创建定时任务"><a href="#Oracle-创建定时任务" class="headerlink" title="Oracle 创建定时任务"></a>Oracle 创建定时任务</h1><h2 id="一、Oracle定时任务简介"><a href="#一、Oracle定时任务简介" class="headerlink" title="一、Oracle定时任务简介"></a>一、Oracle定时任务简介</h2><p>Oracle定时任务是在oracle系统中一个非常重要的子系统，运用得当，可以大大提高我们系统运行和维护能力。oracle定时任务的功能，可以在指定的时间点自行执行任务。</p>
+<h2 id="二、dbms-job涉及到的知识点"><a href="#二、dbms-job涉及到的知识点" class="headerlink" title="二、dbms_job涉及到的知识点"></a>二、dbms_job涉及到的知识点</h2><ul>
+<li>创建job脚本</li>
+</ul>
+<pre class=" language-sql"><code class="language-sql">variable jobno number<span class="token punctuation">;</span>
+dbms_job<span class="token punctuation">.</span>submit<span class="token punctuation">(</span>:jobno<span class="token punctuation">,</span>       —<span class="token operator">-</span>job号 
+<span class="token string">'your_procedure;'</span><span class="token punctuation">,</span>            —<span class="token operator">-</span>执行的存储过程<span class="token punctuation">,</span> <span class="token string">';'</span>不能省略 
+next_date<span class="token punctuation">,</span>                    —<span class="token operator">-</span>下次执行时间 
+<span class="token string">'interval'</span>                    —<span class="token operator">-</span>每次间隔时间，
+interval                      以天为单位<span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<p>上面是通过脚本创建，当然也可以通过plsql图形化工具来创建，具体创建过程如下</p>
+<p><img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/a.png"></p>
+<p><img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/b.png"></p>
+<p>**系统会自动分配一个任务号jobno ** ，根据jobno 可以进行如下定时任务操作</p>
+<ul>
+<li><p>删除job: dbms_job.remove(jobno); </p>
+</li>
+<li><p>修改要执行的操作: job:dbms_job.what(jobno, what); </p>
+</li>
+<li><p>修改下次执行时间：dbms_job.next_date(jobno, next_date);</p>
+</li>
+<li><p>修改间隔时间：dbms_job.interval(jobno, interval); </p>
+</li>
+<li><p>启动job: dbms_job.run(jobno);</p>
+</li>
+<li><p>停止job: dbms.broken(jobno, broken, nextdate); –broken为boolean值</p>
+</li>
+</ul>
+<h2 id="三、初始化相关参数job-queue-processes"><a href="#三、初始化相关参数job-queue-processes" class="headerlink" title="三、初始化相关参数job_queue_processes"></a>三、初始化相关参数job_queue_processes</h2><ul>
+<li>job_queue_process表示oracle能够并发的job的数量，当job_queue_process值为0时表示全部停止oracle的job</li>
+<li>查看job_queue_processes参数</li>
+</ul>
+<pre class=" language-sql"><code class="language-sql"><span class="token keyword">show</span> parameter job_queue_process<span class="token punctuation">;</span>
+或者
+<span class="token keyword">select</span> <span class="token operator">*</span> <span class="token keyword">from</span> v$parameter <span class="token keyword">where</span> name<span class="token operator">=</span><span class="token string">'job_queue_processes'</span><span class="token punctuation">;</span></code></pre>
+<ul>
+<li>修改job_queue_processes参数</li>
+</ul>
+<pre class=" language-sql"><code class="language-sql"><span class="token keyword">alter</span> system <span class="token keyword">set</span> job_queue_processes <span class="token operator">=</span> <span class="token number">10</span><span class="token punctuation">;</span></code></pre>
+]]></content>
+  </entry>
+  <entry>
     <title>SSH客户端常用工具SecureCRT操作</title>
     <url>/archives/1c4e64a5.html</url>
     <content><![CDATA[<h2 id="1-1-SecureCRT工具介绍"><a href="#1-1-SecureCRT工具介绍" class="headerlink" title="1.1 SecureCRT工具介绍"></a>1.1 SecureCRT工具介绍</h2><p>SecureCRT是一款支持SSH（SSH1和SSH2）协议的终端仿真软件，常被用来<br>运行于Windows下远程登录UNIX或Linux服务器。</p>
