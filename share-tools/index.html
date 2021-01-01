@@ -694,34 +694,1669 @@
 
 </header>
 
-    <main class="content">
-    <div class="container friends-container">
-        <div class="card">
-            <div class="card-content">
-                <div class="tag-title center-align">
-                    <i class="fas fa-address-book"></i>&nbsp;&nbsp;友情链接
-                </div>
-
-                <article id="friends-link">
-                    
-                    
-                    <p> </p>
-                    
-                </article>
+    <div class="bg-cover pd-header about-cover">
+    <div class="container">
+    <div class="row">
+    <div class="col s10 offset-s1 m8 offset-m2 l8 offset-l2">
+        <div class="brand">
+            <div class="title center-align">
+                
+                about
+                
             </div>
-        </div>
-        <div class="card">
-            <div class="card-content">
+
+            <div class="description center-align">
+                
+                <span id="subtitle"></span>
+                <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11"></script>
+                <script>
+                    var typed = new Typed("#subtitle", {
+                        strings: ['一个人时 连哭都不用看人脸色 放肆大笑也不会有人骂你神经病 摔倒了也只有你才有资格嘲笑自己','回头看看 路那么长 时间过去很久 人来人往 只有自己在陪自己','爱学习爱编程，把分享变成一种习惯！','即使再小的帆也能远航！'],
+                        startDelay: 300,
+                        typeSpeed: 100,
+                        loop: true,
+                        backSpeed: 50,
+                        showCursor: true
+                    });
+                </script>
                 
             </div>
         </div>
-        
+    </div>
+</div>
+
+
+<script>
+    // 每天切换 banner 图.  Switch banner image every day.
+    var bannerUrl = "/medias/banner/" + new Date().getHours() + '.jpg';
+    $('.bg-cover').css('background-image', 'url(' + bannerUrl + ')');
+</script>
+
+    </div>
+</div>
+
+<style>
+    .card-content {
+        padding: 12px!important;
+    }
+    .miaoshus {
+        padding: 12px;
+        border: 1px dashed #e6e6e6;
+        color: #969696;
+        position: relative;
+        display: inline-block;
+        width: 95%;
+        background: #fbfbfb50;
+        border-radius: 10px;
+        font-size: 16px;
+        margin: 3px auto 0px;
+    }
+    body.dark .miaoshus {
+        background: 0 0;
+        border: 1px dashed #888;
+    }
+</style>
+<!--留言板样式-->
+<style>
+    .v[data-class="v"] .vwrap .vheader .vinput {
+        width: 32%;
+        border-bottom: 1px dashed #dedede;
+      }
+</style>
+<!-- 以下是书单模块css样式 -->
+<style>
+    body.dark .page {
+        background-color: #282c34!important;
+    }
+    body.dark .page .content li {
+        background-color: #282c34!important;
+    }
+    @media screen and (min-width: 768px) {
+        #book .page {
+        background-color: hsla(0,0%,100%,.7);
+        -webkit-box-shadow: 0 8px 16px rgba(0,0,0,.12);
+        box-shadow: 0 8px 16px rgba(0,0,0,.12);
+        }
+    }
+    #book .page {
+        overflow: hidden;
+        border-radius: 3px;
+    }
+    @media screen and (min-width: 768px) {
+        #book .content {
+            grid-template-columns: 1fr 1fr;
+        }
+    }
+    #book .content {
+        display: grid;
+        grid-column-gap: 16px;
+        padding: 16px;
+        text-align: justify;
+    }
+    #book .content li {
+        list-style: none;
+        margin-bottom: 16px;
+        border-radius: 3px;
+        background-color: hsla(0,0%,100%,.7);
+        -webkit-box-shadow: 0 14px 38px rgba(0,0,0,.08), 0 3px 8px rgba(0,0,0,.06);
+        box-shadow: 0 14px 38px rgba(0,0,0,.08), 0 3px 8px rgba(0,0,0,.06);
+        -webkit-transition: all .3s ease 0s,-webkit-transform .6s cubic-bezier(.6,.2,.1,1) 0s;
+        transition: all .3s ease 0s,-webkit-transform .6s cubic-bezier(.6,.2,.1,1) 0s;
+        transition: all .3s ease 0s,transform .6s cubic-bezier(.6,.2,.1,1) 0s;
+        transition: all .3s ease 0s,transform .6s cubic-bezier(.6,.2,.1,1) 0s,-webkit-transform .6s cubic-bezier(.6,.2,.1,1) 0s;
+    }
+    #book .content li .info {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-pack: start;
+        -ms-flex-pack: start;
+        justify-content: flex-start;
+        padding: 16px 12px 0;
+        line-height: 1.7;
+        list-style: none;
+    }
+    .book-container {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
+        justify-content: center;
+        -webkit-perspective: 600px;
+        perspective: 600px;
+    }
+    .book {
+        position: relative;
+        width: 100px;
+        height: 150px;
+        -webkit-transform-style: preserve-3d;
+        transform-style: preserve-3d;
+        -webkit-transform: rotateY(-30deg);
+        transform: rotateY(-30deg);
+        -webkit-transition: 1s ease;
+        transition: 1s ease;
+        -webkit-animation: bookRotate 0s 1s ease 0s;
+        animation: bookRotate 0s 1s ease 0s;
+        list-style: none;
+    }
+    .book:before {
+        content: " ";
+        position: absolute;
+        left: 0;
+        top: 2px;
+        width: 23px;
+        height: 146px;
+        -webkit-transform: translateX(84.5px) rotateY(90deg);
+        transform: translateX(84.5px) rotateY(90deg);
+        background: -webkit-gradient(linear,left top,right top,from(#fff),color-stop(5%,#f9f9f9),color-stop(10%,#fff),color-stop(15%,#f9f9f9),color-stop(20%,#fff),color-stop(25%,#f9f9f9),color-stop(30%,#fff),color-stop(35%,#f9f9f9),color-stop(40%,#fff),color-stop(45%,#f9f9f9),color-stop(50%,#fff),color-stop(55%,#f9f9f9),color-stop(60%,#fff),color-stop(65%,#f9f9f9),color-stop(70%,#fff),color-stop(75%,#f9f9f9),color-stop(80%,#fff),color-stop(85%,#f9f9f9),color-stop(90%,#fff),color-stop(95%,#f9f9f9),to(#fff));
+        background: linear-gradient(90deg,#fff,#f9f9f9 5%,#fff 10%,#f9f9f9 15%,#fff 20%,#f9f9f9 25%,#fff 30%,#f9f9f9 35%,#fff 40%,#f9f9f9 45%,#fff 50%,#f9f9f9 55%,#fff 60%,#f9f9f9 65%,#fff 70%,#f9f9f9 75%,#fff 80%,#f9f9f9 85%,#fff 90%,#f9f9f9 95%,#fff);
+    }
+    .book>:first-child {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100px;
+        height: 150px;
+        -webkit-transform: translateZ(12.5px);
+        transform: translateZ(12.5px);
+        border-radius: 0 2px 2px 0;
+        -webkit-box-shadow: 5px 5px 20px #666;
+        box-shadow: 5px 5px 20px #666;
+    }
+    .book:after {
+        content: " ";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100px;
+        height: 150px;
+        -webkit-transform: translateZ(-12.5px);
+        transform: translateZ(-12.5px);
+        background-color: #555;
+        border-radius: 0 2px 2px 0;
+    }
+    #book .content li .info>div {
+        margin-left: 26px;
+    }
+    #book .content li .info h3 {
+        font-size: 16px;
+    }
+    #book .content li .info p a {
+        position: relative;
+        color: #b854d4;
+    }
+    #book .content li .info p a:before {
+        content: " " attr(href);
+        position: absolute;
+        padding: 0 4px;
+        width: -webkit-max-content;
+        width: -moz-max-content;
+        width: max-content;
+        pointer-events: none;
+        font-family: Fontello;
+        font-size: 12px;
+        -webkit-box-shadow: 0 14px 38px rgba(0,0,0,.08), 0 3px 8px rgba(0,0,0,.06);
+        box-shadow: 0 14px 38px rgba(0,0,0,.08), 0 3px 8px rgba(0,0,0,.06);
+        border-radius: 3px;
+        background-color: #fff;
+        opacity: 0;
+        -webkit-transform: scale(.7) translateY(-75%);
+        transform: scale(.7) translateY(-75%);
+        -webkit-transform-origin: left center;
+        transform-origin: left center;
+        -webkit-transition: all .3s ease 0s;
+        transition: all .3s ease 0s;
+    }
+    #book .content li .info p a:after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 1.5px;
+        background-color: #b854d4;
+        -webkit-transform: scaleX(0);
+        transform: scaleX(0);
+        -webkit-transform-origin: bottom right;
+        transform-origin: bottom right;
+        -webkit-transition: -webkit-transform .3s ease-out;
+        transition: -webkit-transform .3s ease-out;
+        transition: transform .3s ease-out;
+        transition: transform .3s ease-out,-webkit-transform .3s ease-out;
+    }
+    #book .content li .info .fa-star {
+        margin-right: 4px;
+        color: #f3e40d;
+    }
+    .icon-star:before {
+        content: "\e80b";
+    }
+    [class*=" icon-"]:before, [class^=icon-]:before {
+        font-family: Fontello;
+        font-style: normal;
+        font-weight: 400;
+        display: inline-block;
+        text-decoration: inherit;
+        width: 1em;
+        text-align: center;
+        font-variant: normal;
+        text-transform: none;
+        line-height: 1em;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+    }
+    #book .content li .description {
+        padding: 12px;
+        font-size: 14px;
+        line-height: 1.7;
+    }
+    #book .content li .info p {
+        font-size: 14px;
+        line-height: 1.7;
+
+    }
+    @media screen and (min-width: 768px) {
+        #book .content li:hover {
+            -webkit-transform: translateY(-4px);
+            transform: translateY(-4px);
+            -webkit-box-shadow: 0 14px 38px rgba(0,0,0,.14), 0 3px 8px rgba(0,0,0,.12);
+            box-shadow: 0 14px 38px rgba(0,0,0,.14), 0 3px 8px rgba(0,0,0,.12);
+        }
+    }
+    #book .content li {
+        list-style: none;
+        margin-bottom: 16px;
+        border-radius: 3px;
+        background-color: hsla(0,0%,100%,.7);
+        -webkit-box-shadow: 0 14px 38px rgba(0,0,0,.08), 0 3px 8px rgba(0,0,0,.06);
+        box-shadow: 0 14px 38px rgba(0,0,0,.08), 0 3px 8px rgba(0,0,0,.06);
+        -webkit-transition: all .3s ease 0s,-webkit-transform .6s cubic-bezier(.6,.2,.1,1) 0s;
+        transition: all .3s ease 0s,-webkit-transform .6s cubic-bezier(.6,.2,.1,1) 0s;
+        transition: all .3s ease 0s,transform .6s cubic-bezier(.6,.2,.1,1) 0s;
+        transition: all .3s ease 0s,transform .6s cubic-bezier(.6,.2,.1,1) 0s,-webkit-transform .6s cubic-bezier(.6,.2,.1,1) 0s;
+    }
+    #book .content li:hover .book {
+        -webkit-transform: rotateY(0deg);
+        transform: rotateY(0deg);
+    }
+    .quote {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+        flex-direction: column;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
+        justify-content: center;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+        position: relative;
+        margin-bottom: 16px;
+        padding: 32px 0;
+    }
+    .quote i:first-child {
+        top: 0;
+        left: 16px;
+    }
+    .quote i {
+        position: absolute;
+        font-size: 24px;
+    }
+    .icon-quote-left:before {
+        content: "\f10d";
+    }
+    [class*=" icon-"]:before, [class^=icon-]:before {
+        font-family: Fontello;
+        font-style: normal;
+        font-weight: 400;
+        display: inline-block;
+        text-decoration: inherit;
+        width: 1em;
+        text-align: center;
+        font-variant: normal;
+        text-transform: none;
+        line-height: 1em;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+    }
+</style>
+<!--以下是图片大小样式-->
+<style>
+    .img-lage{
+        width:150px;
+        height:150px;
+    }
+</style>
+
+<style>
+    @media only screen and (max-width: 800px) {
+        .swbk {
+            padding: 26px 2px!important;
+            margin: 14px 0px!important;
+        }
+    }
+    .swbk {
+        position: relative;
+        padding: 26px 20px;
+        font-style: italic;
+        margin: 10px 0px;
+        border-radius: 8px;
+        -webkit-box-shadow: 0 14px 38px rgba(0,0,0,.08), 0 3px 8px rgba(0,0,0,.06);
+        box-shadow: 0 14px 38px rgba(0,0,0,.08), 0 3px 8px rgba(0,0,0,.06);
+        -webkit-transition: all .3s ease 0s,-webkit-transform .6s cubic-bezier(.6,.2,.1,1) 0s;
+        transition: all .3s ease 0s,-webkit-transform .6s cubic-bezier(.6,.2,.1,1) 0s;
+        transition: all .3s ease 0s,transform .6s cubic-bezier(.6,.2,.1,1) 0s;
+        transition: all .3s ease 0s,transform .6s cubic-bezier(.6,.2,.1,1) 0s,-webkit-transform .6s cubic-bezier(.6,.2,.1,1) 0s;
+    }
+    .swbk:hover {
+        -webkit-transform: translateY(-4px);
+        transform: translateY(-4px);
+        -webkit-box-shadow: 0 14px 38px rgba(0,0,0,.14), 0 3px 8px rgba(0,0,0,.12);
+        box-shadow: 0 14px 38px rgba(0,0,0,.14), 0 3px 8px rgba(0,0,0,.12);
+    }
+    .swbk:before {
+        content: " “ ";
+        top: 56px;
+        /* left: -14px; */
+    }
+    .swbk:after {
+        content: " ” ";
+        bottom: 8px;
+        right: 5px;
+    }
+    .swbk:after, .swbk:before {
+        position: absolute;
+        font-style: normal;
+        font-weight: 600;
+        font-size: 42px;
+        text-decoration: inherit;
+    }
+    .ziwojieshao .swbk:after, .ziwojieshao .swbk:before {
+        display: none;
+    }
+    body.dark .swbk:after, body.dark .swbk:before {
+        color: #d2c9c9;
+    }
+    .swbk p {
+        font-size: 19px!important;
+        line-height: 2rem;
+        text-indent: 2rem;
+        font-style: italic;
+        font-family: 'Architects Daughter', cursive!important;
+    }
+    .swbk .label {
+        display: inline-block;
+        position: relative;
+        margin-bottom: 10px;
+        padding: 0 14px 0 32px;
+        height: 32px;
+        line-height: 32px;
+        border-radius: 0 3px 3px 0;
+        background-color: currentColor;
+    }
+    .swbk .label span {
+        color: #fff;
+    }
+    .swbk .label:after {
+        content: "";
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 0;
+        height: 0;
+        background-color: transparent;
+        border-style: solid;
+        border-width: 0 16px 16px 0;
+        border-color: transparent;
+        border-right-color: currentColor;
+        -webkit-filter: brightness(120%);
+        filter: brightness(120%);
+    }
+    @media screen and (min-width: 768px) {
+        .swbk .label {
+            left: -37px;
+        }
+    }
+    @media screen and (max-width: 767px) {
+        .swbk .label {
+            left: -18px;
+        }
+        .swbk p {
+            line-height: 2.02rem;
+            padding: 2px 10px;
+        }
+    }
+</style>
+
+<main class="content">
+    <div class="container">
+        <div class="card">
+            <div class="card-content">
+                <div class="tag-title center-align">
+                    <div class="miaoshus">
+                        <div class="title center-align">“ 爱学习 爱生活 爱分享 ”</div>
+                    </div>
+                
+                <!-- 书单模块开始 -->
+                <div id="book">
+                    
+                    <div class="page">
+                        <p>开发工具</p>
+                        </hr>
+                        <ul class="content"> 
+                            <li>
+                                <div class="info">
+                                    <a href="https://pan.baidu.com/s/1r_EnR701EoklqoSngap4oA" target="_blank" rel="noreferrer noopener" class="book-container">
+                                        <div >
+                                            <img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/ideanew.jpg" alt="ideaIU-2019.3.3" class="img-lage">
+                                        </div>
+                            
+                                    </a>
+                                    <div>
+                                        <h2>ideaIU-2019.3.3</h2>
+                                        <p>
+                                            <span></span>
+                                            <span>提取码：lja3</span>
+                                        </p>
+                                        <p>
+                                            <span>下载指数：</span>
+                                            <span></span>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                        </p>
+                                       </br>
+                                        <a href="https://pan.baidu.com/s/1r_EnR701EoklqoSngap4oA" target="_blank" rel="noreferrer noopener" class="book-container">
+                                            <button type="button" class="btn btn-info">点击下载</button>
+                                        </a>
+                                        
+                                    </div>
+                                </div>
+                                     <p class="description">继eclipse之后又一款强大的java语言集成开发环境</p>
+                                    
+                            </li>
+                            <li>
+
+                                <div class="info">
+                                    <a href="https://pan.baidu.com/s/1rJfO71Bd296aHgJQBRpVSQ" target="_blank" rel="noreferrer noopener" class="book-container">
+                                        <div >
+                                            <img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/vscode.jpg" alt="VSCode-x64-1.42.1" class="img-lage"> 
+                                        </div>
+                            
+                                    </a>
+                                    <div>
+                                        <h3>VSCode</h3>
+                                        <p>
+                                            <span></span>
+                                            <span>提取码：kzq0</span>
+                                        </p>
+                                        <p>
+                                            <span>下载指数：</span>
+                                            <span></span>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                        </p>
+                                       </br>
+                                        <a href="https://pan.baidu.com/s/1rJfO71Bd296aHgJQBRpVSQ" target="_blank" rel="noreferrer noopener" class="book-container">
+                                            <button type="button" class="btn btn-info">点击下载</button>
+                                        </a>
+                                        
+                                    </div>
+                                </div>
+                                     <p class="description">一个运行于 Mac OS X、Windows和 Linux 之上的，针对于编写现代 Web 和云应用的跨平台源代码编辑器。支持多种语言，并提供丰富的插件下载</p>
+                                    
+                            </li>
+                            
+                            <li>
+                                <div class="info">
+                                    <a href="https://pan.baidu.com/s/1crGtmgV256r0O3cljHFWzg" target="_blank" rel="noreferrer noopener" class="book-container">
+                                        <div >
+                                            <img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/dw.jpg" alt="Dreamweaver8" class="img-lage">
+                                        </div>
+                            
+                                    </a>
+                                    <div>
+                                        <h3>Dreamweaver8</h3>
+                                        <p>
+                                            <span></span>
+                                            <span>提取码：ve0o</span>
+                                        </p>
+                                        <p>
+                                            <span>下载指数：</span>
+                                            <span></span>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                        </p>
+                                       </br>
+                                        <a href="https://pan.baidu.com/s/1crGtmgV256r0O3cljHFWzg" target="_blank" rel="noreferrer noopener" class="book-container">
+                                            <button type="button" class="btn btn-info">点击下载</button>
+                                        </a>
+                                        
+                                    </div>
+                                </div>
+                                     <p class="description">中文名称 "梦想编织者"，DW是集网页制作和管理网站于一身的所见即所得网页代码编辑器，利用对 HTML、CSS、JavaScript等内容的支持，设计师和程序员可以在几乎任何地方快速制作和进行网站建设</p>
+                                    
+                            </li>
+                        </ul>
+                    </div>
+                </br>
+                <div class="page">
+                        <p>数据库连接工具</p>
+                        </hr>
+                        <ul class="content"> 
+                            <li>
+                                <div class="info">
+                                    <a href="https://pan.baidu.com/s/18M1csSu9e3VFgRQusewSSA" target="_blank" rel="noreferrer noopener" class="book-container">
+                                        <div >
+                                            <img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/plsqldeveloper.png" alt="PLSQLDeveloper" class="img-lage">
+                                        </div>
+                            
+                                    </a>
+                                    <div>
+                                        <h2>PLSQLDeveloper</h2>
+                                        <p>
+                                            <span></span>
+                                            <span>提取码：g26f</span>
+                                        </p>
+                                        <p>
+                                            <span>下载指数：</span>
+                                            <span></span>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                        </p>
+                                       </br>
+                                        <a href="https://pan.baidu.com/s/18M1csSu9e3VFgRQusewSSA" target="_blank" rel="noreferrer noopener" class="book-container">
+                                            <button type="button" class="btn btn-info">点击下载</button>
+                                        </a>
+                                        
+                                    </div>
+                                </div>
+                                     <p class="description">Oracle数据库开发工具，很牛也很好用，PLSQL Developer功能很强大，可以做为集成调试器，有SQL窗口，命令窗口，对象浏览器和性能优化等功能</p>
+                                    
+                            </li>
+                            <li>
+                                <div class="info">
+                                    <a href="https://pan.baidu.com/s/1yDooGbVxqAfwrrsEJ2_Tug" target="_blank" rel="noreferrer noopener" class="book-container">
+                                        <div >
+                                            
+                                            <img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/navicat.jpg" alt="Navicat" class="img-lage"> 
+                                        </div>
+                            
+                                    </a>
+                                    <div>
+                                        <h3>Navicat</h3>
+                                        <p>
+                                            <span></span>
+                                            <span>提取码：9yoe</span>
+                                        </p>
+                                        <p>
+                                            <span>下载指数：</span>
+                                            <span></span>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                        </p>
+                                       </br>
+                                        <a href="https://pan.baidu.com/s/1yDooGbVxqAfwrrsEJ2_Tug" target="_blank" rel="noreferrer noopener" class="book-container">
+                                            <button type="button" class="btn btn-info">点击下载</button>
+                                        </a>
+                                        
+                                    </div>
+                                </div>
+                                     <p class="description">Navicat 是多重连接的数据库管理工具，支持MySQL、Oracle、PostgreSQL、SQLite 、mogodb及 SQL Server数据库连接，让管理不同类型的数据库更加方便</p>
+                                    
+                            </li>
+                            
+                            <li>
+                                <div class="info">
+                                    <a href="https://pan.baidu.com/s/1MbawQsqrAD1DWGOdNTjjZg" target="_blank" rel="noreferrer noopener" class="book-container">
+                                        <div >
+                                            <img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/sqlite.png" alt="SQLyog12.0.8" class="img-lage">
+                                        </div>
+                            
+                                    </a>
+                                    <div>
+                                        <h3>SQLyog12.0.8</h3>
+                                        <p>
+                                            <span></span>
+                                            <span>提取码：mbd0</span>
+                                        </p>
+                                        <p>
+                                            <span>下载指数：</span>
+                                            <span></span>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                        </p>
+                                       </br>
+                                        <a href="https://pan.baidu.com/s/1MbawQsqrAD1DWGOdNTjjZg" target="_blank" rel="noreferrer noopener" class="book-container">
+                                            <button type="button" class="btn btn-info">点击下载</button>
+                                        </a>
+                                        
+                                    </div>
+                                </div>
+                                     <p class="description">SQLite 是一个软件库，无服务器的、零配置的、事务性的 SQL 数据库引擎。SQLite在全世界被广泛应用。SQLyog可以非常方便的连接SQLite</p>
+                                    
+                            </li>
+                        </ul>
+                    </div>
+
+                </br>
+                <div class="page">
+                    <p>版本控制工具</p>
+                    </hr>
+                    <ul class="content"> 
+                        <li>
+                            <div class="info">
+                                <a href="https://pan.baidu.com/s/1z47qh7hzKXMO5jdaxcmC8g" target="_blank" rel="noreferrer noopener" class="book-container">
+                                    <div >
+                                        <img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/git.jpg" alt="Git" class="img-lage">
+                                    </div>
+                        
+                                </a>
+                                <div>
+                                    <h2>Git</h2>
+                                    <p>
+                                        <span></span>
+                                        <span>提取码：xekv</span>
+                                    </p>
+                                    <p>
+                                        <span>下载指数：</span>
+                                        <span></span>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                    </p>
+                                   </br>
+                                    <a href="https://pan.baidu.com/s/1z47qh7hzKXMO5jdaxcmC8g" target="_blank" rel="noreferrer noopener" class="book-container">
+                                        <button type="button" class="btn btn-info">点击下载</button>
+                                    </a>
+                                    
+                                </div>
+                            </div>
+                                 <p class="description">一个开源的分布式版本控制系统，是我们日常工作中必不可少的</p>
+                                
+                        </li>
+                        <li>
+                            <div class="info">
+                                <a href="https://pan.baidu.com/s/1DnS-R5APDKg1hj4KfvTAuQ" target="_blank" rel="noreferrer noopener" class="book-container">
+                                    <div >
+                                        <img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/svn.jpg" alt="SVN" class="img-lage"> 
+                                    </div>
+                        
+                                </a>
+                                <div>
+                                    <h3>SVN</h3>
+                                    <p>
+                                        <span></span>
+                                        <span>提取码：ykby</span>
+                                    </p>
+                                    <p>
+                                        <span>下载指数：</span>
+                                        <span></span>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                    </p>
+                                   </br>
+                                    <a href="https://pan.baidu.com/s/1DnS-R5APDKg1hj4KfvTAuQ" target="_blank" rel="noreferrer noopener" class="book-container">
+                                        <button type="button" class="btn btn-info">点击下载</button>
+                                    </a>
+                                    
+                                </div>
+                            </div>
+                                 <p class="description">一个开放源代码的版本控制系统，通过采用分支管理系统的高效管理，简而言之就是用于多个人共同开发同一个项目，实现共享资源</p>      
+                        </li>
+                    </ul>
+                </div>
+
+                </br>
+                    <div class="page">
+                        <p><fong>实用工具、软件</fong></p>
+                        </hr>
+                        <ul class="content"> 
+                            <li>
+                                <div class="info">
+                                    <a href="https://pan.baidu.com/s/1t0uHXFSAoM_S15iJtWDT_g" target="_blank" rel="noreferrer noopener" class="book-container">
+                                        <div >
+                                            <img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/SecureCRT.png" alt="SecureCRT" class="img-lage">
+                                        </div>
+                            
+                                    </a>
+                                    <div>
+                                        <h2>SecureCRT</h2>
+                                        <p>
+                                            <span></span>
+                                            <span>提取码：a1ip</span>
+                                        </p>
+                                        <p>
+                                            <span>下载指数：</span>
+                                            <span></span>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                        </p>
+                                       </br>
+                                        <a href="https://pan.baidu.com/s/1t0uHXFSAoM_S15iJtWDT_g" target="_blank" rel="noreferrer noopener" class="book-container">
+                                            <button type="button" class="btn btn-info">点击下载</button>
+                                        </a>
+                                        
+                                    </div>
+                                </div>
+                                     <p class="description">SecureCRT是一款支持SSH（SSH1和SSH2）的终端仿真程序，简单地说是Windows下登录UNIX或Linux服务器主机的软件</p>
+                                    
+                            </li>
+                            <li>
+                                <div class="info">
+                                    <a href="https://pan.baidu.com/s/10uDqjGPqDUad9aXYeqODtw" target="_blank" rel="noreferrer noopener" class="book-container">
+                                        <div >
+                                            
+                                            <img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/picgo.png" alt="PicGo" class="img-lage"> 
+                                        </div>
+                            
+                                    </a>
+                                    <div>
+                                        <h3>PicGo</h3>
+                                        <p>
+                                            <span></span>
+                                            <span>提取码：cqcp</span>
+                                        </p>
+                                        <p>
+                                            <span>下载指数：</span>
+                                            <span></span>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                        </p>
+                                       </br>
+                                        <a href="https://pan.baidu.com/s/10uDqjGPqDUad9aXYeqODtw" target="_blank" rel="noreferrer noopener" class="book-container">
+                                            <button type="button" class="btn btn-info">点击下载</button>
+                                        </a>
+                                        
+                                    </div>
+                                </div>
+                                     <p class="description">自动把本地图片转换成链接的一款工具，网络上有很多图床工具，就目前使用种类而言，PicGo 算得上一款比较优秀的图床工具。支持微博，七牛云，腾讯云COS，又拍云，GitHub，阿里云OSS，SM.MS，imgur 等8种常用图床，功能强大，简单易用</p>
+                                    
+                            </li>
+                            <li>
+                                <div class="info">
+                                    <a href="https://pan.baidu.com/s/1_OZc-vy9aExnm0IM7CSVYw" target="_blank" rel="noreferrer noopener" class="book-container">
+                                        <div >
+                                            <img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/Typora.jpg" alt="Typora" class="img-lage">
+                                        </div>
+                            
+                                    </a>
+                                    <div>
+                                        <h3>Typora</h3>
+                                        <p>
+                                            <span></span>
+                                            <span>提取码：ndd1</span>
+                                        </p>
+                                        <p>
+                                            <span>下载指数：</span>
+                                            <span></span>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                        </p>
+                                       </br>
+                                        <a href="https://pan.baidu.com/s/1_OZc-vy9aExnm0IM7CSVYw" target="_blank" rel="noreferrer noopener" class="book-container">
+                                            <button type="button" class="btn btn-info">点击下载</button>
+                                        </a>
+                                        
+                                    </div>
+                                </div>
+                                     <p class="description">一个所见即所得的Markdown格式文本编辑器，支持Windows、macOS和GNU/Linux操作系统。是个人认为目前markdown最好用的工具</p>
+                                    
+                            </li>
+                            
+                            <li>
+                                <div class="info">
+                                    <a href="https://pan.baidu.com/s/1Vkyqj0kpLeS9bWeM6LYJmg" target="_blank" rel="noreferrer noopener" class="book-container">
+                                        <div >
+                                            <img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/pandoc.jpg" alt="pandoc" class="img-lage">
+                                        </div>
+                            
+                                    </a>
+                                    <div>
+                                        <h3>pandoc</h3>
+                                        <p>
+                                            <span></span>
+                                            <span>提取码：hn1b</span>
+                                        </p>
+                                        <p>
+                                            <span>下载指数：</span>
+                                            <span></span>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                        </p>
+                                       </br>
+                                        <a href="https://pan.baidu.com/s/1Vkyqj0kpLeS9bWeM6LYJmg" target="_blank" rel="noreferrer noopener" class="book-container">
+                                            <button type="button" class="btn btn-info">点击下载</button>
+                                        </a>
+                                        
+                                    </div>
+                                </div>
+                                     <p class="description">Typora最让人难受的问题之一就是如何将.md文件导出为word,pandoc就是一个将markdown文档格式互转插件。</p>
+                                    
+                            </li>
+
+                            <li>
+                                <div class="info">
+                                    <a href="(https://pan.baidu.com/s/1Bq0TAfsxksXVKC9QfJfHgw" target="_blank" rel="noreferrer noopener" class="book-container">
+                                        <div >
+                                            <img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/扒网站小工具.png" alt="扒网页的小工具" class="img-lage">
+                                        </div>
+                            
+                                    </a>
+                                    <div>
+                                        <h3>扒网页的小工具</h3>
+                                        <p>
+                                            <span></span>
+                                            <span>提取码：o7p7</span>
+                                        </p>
+                                        <p>
+                                            <span>下载指数：</span>
+                                            <span></span>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                        </p>
+                                       </br>
+                                        <a href="(https://pan.baidu.com/s/1Bq0TAfsxksXVKC9QfJfHgw" target="_blank" rel="noreferrer noopener" class="book-container">
+                                            <button type="button" class="btn btn-info">点击下载</button>
+                                        </a>
+                                        
+                                    </div>
+                                </div>
+                                     <p class="description">一个下载网页的小工具，能够自动检测网页编码，远程下载网页，同时支持同域名和跨域名下载CSS文件、js文件、Flash 文件，并能够从网页和CSS文件中分析出图片和背景图片文件并下载到本地</p>
+                                    
+                            </li>
+
+                            <li>
+                                <div class="info">
+                                    <a href="https://pan.baidu.com/s/182_tnU7nOaklCpEIOls1tQ" target="_blank" rel="noreferrer noopener" class="book-container">
+                                        <div >
+                                            <img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/屏幕绘图小工具.png" alt="屏幕绘图工具" class="img-lage">
+                                        </div>
+                            
+                                    </a>
+                                    <div>
+                                        <h3>屏幕绘图工具</h3>
+                                        <p>
+                                            <span></span>
+                                            <span>提取码：5f1b</span>
+                                        </p>
+                                        <p>
+                                            <span>下载指数：</span>
+                                            <span></span>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                        </p>
+                                       </br>
+                                        <a href="https://pan.baidu.com/s/182_tnU7nOaklCpEIOls1tQ" target="_blank" rel="noreferrer noopener" class="book-container">
+                                            <button type="button" class="btn btn-info">点击下载</button>
+                                        </a>
+                                        
+                                    </div>
+                                </div>
+                                     <p class="description">可以在屏幕上绘制图形，教学必不可少工具之一</p>
+                                    
+                            </li>
+                            <li>
+                                <div class="info">
+                                    <a href="https://pan.baidu.com/s/1-RnWU7OY7dMqLC-Fk13V_A" target="_blank" rel="noreferrer noopener" class="book-container">
+                                        <div >
+                                            <img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/录屏软件.png" alt="录屏软件" class="img-lage">
+                                        </div>
+                            
+                                    </a>
+                                    <div>
+                                        <h3>录屏软件</h3>
+                                        <p>
+                                            <span></span>
+                                            <span>提取码：mwrj</span>
+                                        </p>
+                                        <p>
+                                            <span>下载指数：</span>
+                                            <span></span>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                        </p>
+                                       </br>
+                                        <a href="https://pan.baidu.com/s/1-RnWU7OY7dMqLC-Fk13V_A" target="_blank" rel="noreferrer noopener" class="book-container">
+                                            <button type="button" class="btn btn-info">点击下载</button>
+                                        </a>
+                                        
+                                    </div>
+                                </div>
+                                     <p class="description">一款非常实用的录屏软件，支持格式视频格式转换</p>
+                                    
+                            </li>
+                            <li>
+                                <div class="info">
+                                    <a href="https://pan.baidu.com/s/1Vkyqj0kpLeS9bWeM6LYJmg" target="_blank" rel="noreferrer noopener" class="book-container">
+                                        <div >
+                                            <img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/pandoc.jpg" alt="pandoc" class="img-lage">
+                                        </div>
+                            
+                                    </a>
+                                    <div>
+                                        <h3>网站上传工具</h3>
+                                        <p>
+                                            <span></span>
+                                            <span>提取码：hn1b</span>
+                                        </p>
+                                        <p>
+                                            <span>下载指数：</span>
+                                            <span></span>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                        </p>
+                                       </br>
+                                        <a href="https://pan.baidu.com/s/1Vkyqj0kpLeS9bWeM6LYJmg" target="_blank" rel="noreferrer noopener" class="book-container">
+                                            <button type="button" class="btn btn-info">点击下载</button>
+                                        </a>
+                                        
+                                    </div>
+                                </div>
+                                     <p class="description">Typora最让人难受的问题之一就是如何将.md文件导出为word,pandoc就是一个将markdown文档格式互转插件。</p>
+                                    
+                            </li>
+                            <li>
+                                <div class="info">
+                                    <a href="(https://pan.baidu.com/s/1Bq0TAfsxksXVKC9QfJfHgw" target="_blank" rel="noreferrer noopener" class="book-container">
+                                        <div >
+                                            <img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/扒网站小工具.png" alt="扒网页的小工具" class="img-lage">
+                                        </div>
+                            
+                                    </a>
+                                    <div>
+                                        <h3>扒网页的小工具</h3>
+                                        <p>
+                                            <span></span>
+                                            <span>提取码：o7p7</span>
+                                        </p>
+                                        <p>
+                                            <span>下载指数：</span>
+                                            <span></span>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                        </p>
+                                       </br>
+                                        <a href="(https://pan.baidu.com/s/1Bq0TAfsxksXVKC9QfJfHgw" target="_blank" rel="noreferrer noopener" class="book-container">
+                                            <button type="button" class="btn btn-info">点击下载</button>
+                                        </a>
+                                        
+                                    </div>
+                                </div>
+                                     <p class="description">一个下载网页的小工具，能够自动检测网页编码，远程下载网页，同时支持同域名和跨域名下载CSS文件、js文件、Flash 文件，并能够从网页和CSS文件中分析出图片和背景图片文件并下载到本地</p>
+                                    
+                            </li>
+                        </ul>
+                    </div>
+
+                </br>
+                <div class="page">
+                    <p><fong>常用工具</fong></p>
+                    </hr>
+                    <ul class="content"> 
+                        <li>
+                            <div class="info">
+                                <a href="https://pan.baidu.com/s/1r_EnR701EoklqoSngap4oA" target="_blank" rel="noreferrer noopener" class="book-container">
+                                    <div >
+                                        <img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/ideanew.jpg" alt="ideaIU-2019.3.3" class="img-lage">
+                                    </div>
+                        
+                                </a>
+                                <div>
+                                    <h2>ideaIU-2019.3.3</h2>
+                                    <p>
+                                        <span></span>
+                                        <span>提取码：lja3</span>
+                                    </p>
+                                    <p>
+                                        <span>下载指数：</span>
+                                        <span></span>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                    </p>
+                                   </br>
+                                    <a href="https://pan.baidu.com/s/1r_EnR701EoklqoSngap4oA" target="_blank" rel="noreferrer noopener" class="book-container">
+                                        <button type="button" class="btn btn-info">点击下载</button>
+                                    </a>
+                                    
+                                </div>
+                            </div>
+                                 <p class="description">继eclipse之后又一款强大的java语言集成开发环境</p>
+                                
+                        </li>
+                        <li>
+                            <div class="info">
+                                <a href="https://pan.baidu.com/s/18M1csSu9e3VFgRQusewSSA" target="_blank" rel="noreferrer noopener" class="book-container">
+                                    <div >
+                                        <img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/plsqldeveloper.png" alt="PLSQLDeveloper" class="img-lage"> 
+                                    </div>
+                        
+                                </a>
+                                <div>
+                                    <h3>PLSQLDeveloper</h3>
+                                    <p>
+                                        <span></span>
+                                        <span>提取码：g26f</span>
+                                    </p>
+                                    <p>
+                                        <span>下载指数：</span>
+                                        <span></span>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                    </p>
+                                   </br>
+                                    <a href="https://pan.baidu.com/s/18M1csSu9e3VFgRQusewSSA" target="_blank" rel="noreferrer noopener" class="book-container">
+                                        <button type="button" class="btn btn-info">点击下载</button>
+                                    </a>
+                                    
+                                </div>
+                            </div>
+                                 <p class="description">Oracle 图形化界面工具</p>
+                                
+                        </li>
+                        
+                        <li>
+                            <div class="info">
+                                <a href="https://pan.baidu.com/s/1r_EnR701EoklqoSngap4oA" target="_blank" rel="noreferrer noopener" class="book-container">
+                                    <div >
+                                        <img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/ideanew.jpg" alt="ideaIU-2019.3.3" class="img-lage">
+                                    </div>
+                        
+                                </a>
+                                <div>
+                                    <h3>ideaIU-2019.3.3</h3>
+                                    <p>
+                                        <span></span>
+                                        <span>提取码：lja3</span>
+                                    </p>
+                                    <p>
+                                        <span>下载指数：</span>
+                                        <span></span>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                    </p>
+                                   </br>
+                                    <a href="https://pan.baidu.com/s/1r_EnR701EoklqoSngap4oA" target="_blank" rel="noreferrer noopener" class="book-container">
+                                        <button type="button" class="btn btn-info">点击下载</button>
+                                    </a>
+                                    
+                                </div>
+                            </div>
+                                 <p class="description">继eclipse之后又一款强大的java语言集成开发环境</p>
+                                
+                        </li>
+                    </ul>
+                </div>
+
+            </br>
+            <div class="page">
+                <p><fong>常用工具</fong></p>
+                </hr>
+                <ul class="content"> 
+                    <li>
+                        <div class="info">
+                            <a href="https://pan.baidu.com/s/1r_EnR701EoklqoSngap4oA" target="_blank" rel="noreferrer noopener" class="book-container">
+                                <div >
+                                    <img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/ideanew.jpg" alt="ideaIU-2019.3.3" class="img-lage">
+                                </div>
+                    
+                            </a>
+                            <div>
+                                <h2>ideaIU-2019.3.3</h2>
+                                <p>
+                                    <span></span>
+                                    <span>提取码：lja3</span>
+                                </p>
+                                <p>
+                                    <span>下载指数：</span>
+                                    <span></span>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                </p>
+                               </br>
+                                <a href="https://pan.baidu.com/s/1r_EnR701EoklqoSngap4oA" target="_blank" rel="noreferrer noopener" class="book-container">
+                                    <button type="button" class="btn btn-info">点击下载</button>
+                                </a>
+                                
+                            </div>
+                        </div>
+                             <p class="description">继eclipse之后又一款强大的java语言集成开发环境</p>
+                            
+                    </li>
+                    <li>
+                        <div class="info">
+                            <a href="https://pan.baidu.com/s/18M1csSu9e3VFgRQusewSSA" target="_blank" rel="noreferrer noopener" class="book-container">
+                                <div >
+                                    <img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/plsqldeveloper.png" alt="PLSQLDeveloper" class="img-lage"> 
+                                </div>
+                    
+                            </a>
+                            <div>
+                                <h3>PLSQLDeveloper</h3>
+                                <p>
+                                    <span></span>
+                                    <span>提取码：g26f</span>
+                                </p>
+                                <p>
+                                    <span>下载指数：</span>
+                                    <span></span>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                </p>
+                               </br>
+                                <a href="https://pan.baidu.com/s/18M1csSu9e3VFgRQusewSSA" target="_blank" rel="noreferrer noopener" class="book-container">
+                                    <button type="button" class="btn btn-info">点击下载</button>
+                                </a>
+                                
+                            </div>
+                        </div>
+                             <p class="description">Oracle 图形化界面工具</p>
+                            
+                    </li>
+                    
+                    <li>
+                        <div class="info">
+                            <a href="https://pan.baidu.com/s/1r_EnR701EoklqoSngap4oA" target="_blank" rel="noreferrer noopener" class="book-container">
+                                <div >
+                                    <img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/ideanew.jpg" alt="ideaIU-2019.3.3" class="img-lage">
+                                </div>
+                    
+                            </a>
+                            <div>
+                                <h3>ideaIU-2019.3.3</h3>
+                                <p>
+                                    <span></span>
+                                    <span>提取码：lja3</span>
+                                </p>
+                                <p>
+                                    <span>下载指数：</span>
+                                    <span></span>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                </p>
+                               </br>
+                                <a href="https://pan.baidu.com/s/1r_EnR701EoklqoSngap4oA" target="_blank" rel="noreferrer noopener" class="book-container">
+                                    <button type="button" class="btn btn-info">点击下载</button>
+                                </a>
+                                
+                            </div>
+                        </div>
+                             <p class="description">继eclipse之后又一款强大的java语言集成开发环境</p>
+                            
+                    </li>
+                </ul>
+            </div>
+
+        </br>
+        <div class="page">
+            <p><fong>常用工具</fong></p>
+            </hr>
+            <ul class="content"> 
+                <li>
+                    <div class="info">
+                        <a href="https://pan.baidu.com/s/1r_EnR701EoklqoSngap4oA" target="_blank" rel="noreferrer noopener" class="book-container">
+                            <div >
+                                <img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/ideanew.jpg" alt="ideaIU-2019.3.3" class="img-lage">
+                            </div>
+                
+                        </a>
+                        <div>
+                            <h2>ideaIU-2019.3.3</h2>
+                            <p>
+                                <span></span>
+                                <span>提取码：lja3</span>
+                            </p>
+                            <p>
+                                <span>下载指数：</span>
+                                <span></span>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                            </p>
+                           </br>
+                            <a href="https://pan.baidu.com/s/1r_EnR701EoklqoSngap4oA" target="_blank" rel="noreferrer noopener" class="book-container">
+                                <button type="button" class="btn btn-info">点击下载</button>
+                            </a>
+                            
+                        </div>
+                    </div>
+                         <p class="description">继eclipse之后又一款强大的java语言集成开发环境</p>
+                        
+                </li>
+                <li>
+                    <div class="info">
+                        <a href="https://pan.baidu.com/s/18M1csSu9e3VFgRQusewSSA" target="_blank" rel="noreferrer noopener" class="book-container">
+                            <div >
+                                <img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/plsqldeveloper.png" alt="PLSQLDeveloper" class="img-lage"> 
+                            </div>
+                
+                        </a>
+                        <div>
+                            <h3>PLSQLDeveloper</h3>
+                            <p>
+                                <span></span>
+                                <span>提取码：g26f</span>
+                            </p>
+                            <p>
+                                <span>下载指数：</span>
+                                <span></span>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                            </p>
+                           </br>
+                            <a href="https://pan.baidu.com/s/18M1csSu9e3VFgRQusewSSA" target="_blank" rel="noreferrer noopener" class="book-container">
+                                <button type="button" class="btn btn-info">点击下载</button>
+                            </a>
+                            
+                        </div>
+                    </div>
+                         <p class="description">Oracle 图形化界面工具</p>
+                        
+                </li>
+                
+                <li>
+                    <div class="info">
+                        <a href="https://pan.baidu.com/s/1r_EnR701EoklqoSngap4oA" target="_blank" rel="noreferrer noopener" class="book-container">
+                            <div >
+                                <img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/ideanew.jpg" alt="ideaIU-2019.3.3" class="img-lage">
+                            </div>
+                
+                        </a>
+                        <div>
+                            <h3>ideaIU-2019.3.3</h3>
+                            <p>
+                                <span></span>
+                                <span>提取码：lja3</span>
+                            </p>
+                            <p>
+                                <span>下载指数：</span>
+                                <span></span>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                            </p>
+                           </br>
+                            <a href="https://pan.baidu.com/s/1r_EnR701EoklqoSngap4oA" target="_blank" rel="noreferrer noopener" class="book-container">
+                                <button type="button" class="btn btn-info">点击下载</button>
+                            </a>
+                            
+                        </div>
+                    </div>
+                         <p class="description">继eclipse之后又一款强大的java语言集成开发环境</p>
+                        
+                </li>
+            </ul>
+        </div>
+
+                </div>
+            
+                <!-- 书单模块结束 -->
+                    
+                </div>
+            </div>
+        </div>
+      
+        <!-- 评论模块 -->
+        <div class="card">
+            
+
+            
+
+            
+
+            
+
+            
+            <style>
+    .valine-card {
+        margin: 1.5rem auto;
+    }
+
+    .valine-card .card-content {
+        padding: 20px 20px 5px 20px;
+    }
+
+    #vcomments textarea {
+        box-sizing: border-box;
+        background: url("/medias/comment_bg.webp") 100% 100% no-repeat;
+    }
+
+    #vcomments p {
+        margin: 2px 2px 10px;
+        font-size: 1.05rem;
+        line-height: 1.78rem;
+    }
+
+    #vcomments blockquote p {
+        text-indent: 0.2rem;
+    }
+
+    #vcomments a {
+        padding: 0 2px;
+        color: #4cbf30;
+        font-weight: 500;
+        text-decoration: none;
+    }
+
+    #vcomments img {
+        max-width: 100%;
+        height: auto;
+        cursor: pointer;
+    }
+
+    #vcomments ol li {
+        list-style-type: decimal;
+    }
+
+    #vcomments ol,
+    ul {
+        display: block;
+        padding-left: 2em;
+        word-spacing: 0.05rem;
+    }
+
+    #vcomments ul li,
+    ol li {
+        display: list-item;
+        line-height: 1.8rem;
+        font-size: 1rem;
+    }
+
+    #vcomments ul li {
+        list-style-type: disc;
+    }
+
+    #vcomments ul ul li {
+        list-style-type: circle;
+    }
+
+    #vcomments table, th, td {
+        padding: 12px 13px;
+        border: 1px solid #dfe2e5;
+    }
+
+    #vcomments table, th, td {
+        border: 0;
+    }
+
+    table tr:nth-child(2n), thead {
+        background-color: #fafafa;
+    }
+
+    #vcomments table th {
+        background-color: #f2f2f2;
+        min-width: 80px;
+    }
+
+    #vcomments table td {
+        min-width: 80px;
+    }
+
+    #vcomments h1 {
+        font-size: 1.85rem;
+        font-weight: bold;
+        line-height: 2.2rem;
+    }
+
+    #vcomments h2 {
+        font-size: 1.65rem;
+        font-weight: bold;
+        line-height: 1.9rem;
+    }
+
+    #vcomments h3 {
+        font-size: 1.45rem;
+        font-weight: bold;
+        line-height: 1.7rem;
+    }
+
+    #vcomments h4 {
+        font-size: 1.25rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    #vcomments h5 {
+        font-size: 1.1rem;
+        font-weight: bold;
+        line-height: 1.4rem;
+    }
+
+    #vcomments h6 {
+        font-size: 1rem;
+        line-height: 1.3rem;
+    }
+
+    #vcomments p {
+        font-size: 1rem;
+        line-height: 1.5rem;
+    }
+
+    #vcomments hr {
+        margin: 12px 0;
+        border: 0;
+        border-top: 1px solid #ccc;
+    }
+
+    #vcomments blockquote {
+        margin: 15px 0;
+        border-left: 5px solid #42b983;
+        padding: 1rem 0.8rem 0.3rem 0.8rem;
+        color: #666;
+        background-color: rgba(66, 185, 131, .1);
+    }
+
+    #vcomments pre {
+        font-family: monospace, monospace;
+        padding: 1.2em;
+        margin: .5em 0;
+        background: #272822;
+        overflow: auto;
+        border-radius: 0.3em;
+        tab-size: 4;
+    }
+
+    #vcomments code {
+        font-family: monospace, monospace;
+        padding: 1px 3px;
+        font-size: 0.92rem;
+        color: #e96900;
+        background-color: #f8f8f8;
+        border-radius: 2px;
+    }
+
+    #vcomments pre code {
+        font-family: monospace, monospace;
+        padding: 0;
+        color: #e8eaf6;
+        background-color: #272822;
+    }
+
+    #vcomments pre[class*="language-"] {
+        padding: 1.2em;
+        margin: .5em 0;
+    }
+
+    #vcomments code[class*="language-"],
+    pre[class*="language-"] {
+        color: #e8eaf6;
+    }
+
+    #vcomments [type="checkbox"]:not(:checked), [type="checkbox"]:checked {
+        position: inherit;
+        margin-left: -1.3rem;
+        margin-right: 0.4rem;
+        margin-top: -1px;
+        vertical-align: middle;
+        left: unset;
+        visibility: visible;
+    }
+
+    #vcomments b,
+    strong {
+        font-weight: bold;
+    }
+
+    #vcomments dfn {
+        font-style: italic;
+    }
+
+    #vcomments small {
+        font-size: 85%;
+    }
+
+    #vcomments cite {
+        font-style: normal;
+    }
+
+    #vcomments mark {
+        background-color: #fcf8e3;
+        padding: .2em;
+    }
+
+    #vcomments table, th, td {
+        padding: 12px 13px;
+        border: 1px solid #dfe2e5;
+    }
+
+    table tr:nth-child(2n), thead {
+        background-color: #fafafa;
+    }
+
+    #vcomments table th {
+        background-color: #f2f2f2;
+        min-width: 80px;
+    }
+
+    #vcomments table td {
+        min-width: 80px;
+    }
+
+    #vcomments [type="checkbox"]:not(:checked), [type="checkbox"]:checked {
+        position: inherit;
+        margin-left: -1.3rem;
+        margin-right: 0.4rem;
+        margin-top: -1px;
+        vertical-align: middle;
+        left: unset;
+        visibility: visible;
+    }
+</style>
+
+<div class="card valine-card" data-aos="fade-up">
+    <div class="comment_headling" style="font-size: 20px; font-weight: 700; position: relative; padding-left: 20px; top: 15px; padding-bottom: 5px;">
+        <i class="fas fa-comments fa-fw" aria-hidden="true"></i>
+        <span>评论</span>
+    </div>
+    <div id="vcomments" class="card-content" style="display: grid">
+    </div>
+</div>
+
+<script src="/libs/valine/av-min.js"></script>
+<script src="/js/Valine.min.js"></script>
+<script>
+    new Valine({
+        el: '#vcomments',
+        appId: 'nLFYjWbdxNXHi8ECkNbad7eo-gzGzoHsz',
+        appKey: 'EN6vxfxOV7eBy6HlfVE4jhGI',
+        notify: 'false' === 'true',
+        verify: 'true' === 'true',
+        visitor: 'true' === 'true',
+        avatar: 'mm',
+        pageSize: '10',
+        lang: 'zh-cn',
+        placeholder: '欢迎你留下宝贵的意见 ^-^'
+    });
+</script>
+
+            
+			
+			
+        </div>
     </div>
 </main>
-<script>
-    alert(friends);
-    console.log(friends);
-</script>
+
 
     <footer class="page-footer bg-color">
     
