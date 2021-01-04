@@ -1,6 +1,83 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>Weblogic11g安装部署-winserver篇</title>
+    <url>/archives/c992e1b0.html</url>
+    <content><![CDATA[<h1 id="Weblogic11g安装部署-winserver篇"><a href="#Weblogic11g安装部署-winserver篇" class="headerlink" title="Weblogic11g安装部署-winserver篇"></a>Weblogic11g安装部署-winserver篇</h1><h2 id="一、安装weblogic11g"><a href="#一、安装weblogic11g" class="headerlink" title="一、安装weblogic11g"></a>一、安装weblogic11g</h2><h3 id="1-1找到下载好的weblogic11g"><a href="#1-1找到下载好的weblogic11g" class="headerlink" title="1.1找到下载好的weblogic11g"></a>1.1找到下载好的weblogic11g</h3><p><img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/wps1.jpg"></p>
+<h3 id="1-2打开安装程序wls1033-oepe111150-win32-exe-并完成初始化如下图"><a href="#1-2打开安装程序wls1033-oepe111150-win32-exe-并完成初始化如下图" class="headerlink" title="1.2打开安装程序wls1033_oepe111150_win32.exe,并完成初始化如下图"></a>1.2打开安装程序wls1033_oepe111150_win32.exe,并完成初始化如下图</h3><p><img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/wps2.jpg"></p>
+<p><img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/wps3.jpg"></p>
+<h3 id="1-3点击下一步并选择安装路径，这里选择d-bea11g"><a href="#1-3点击下一步并选择安装路径，这里选择d-bea11g" class="headerlink" title="1.3点击下一步并选择安装路径，这里选择d:\bea11g"></a>1.3点击下一步并选择安装路径，这里选择d:\bea11g</h3><p><img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/wps4.jpg"></p>
+<p><img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/wps5.jpg"></p>
+<h3 id="1-4-把“我希望通过My-Oracle-Support接收安全更新”方框前的勾去掉，其他选择默认安装即可"><a href="#1-4-把“我希望通过My-Oracle-Support接收安全更新”方框前的勾去掉，其他选择默认安装即可" class="headerlink" title="1.4 把“我希望通过My Oracle Support接收安全更新”方框前的勾去掉，其他选择默认安装即可"></a>1.4 把“我希望通过My Oracle Support接收安全更新”方框前的勾去掉，其他选择默认安装即可</h3><p><img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/wps6.jpg"></p>
+<p>。。。。此处省去部分图片</p>
+<h3 id="1-5-直到出现如下界面，则安装完成"><a href="#1-5-直到出现如下界面，则安装完成" class="headerlink" title="1.5 直到出现如下界面，则安装完成"></a>1.5 直到出现如下界面，则安装完成</h3><p><img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/wps12.jpg"></p>
+<h2 id="二、配置weblogic-域"><a href="#二、配置weblogic-域" class="headerlink" title="二、配置weblogic 域"></a>二、配置weblogic 域</h2><h3 id="2-1-在开始菜单栏中，找到【Configuration-Wizard】，创建域"><a href="#2-1-在开始菜单栏中，找到【Configuration-Wizard】，创建域" class="headerlink" title="2.1 在开始菜单栏中，找到【Configuration Wizard】，创建域"></a>2.1 在开始菜单栏中，找到【Configuration Wizard】，创建域</h3><p><img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/wps13.jpg"></p>
+<h3 id="2-2-选择创建新的Weblogic域"><a href="#2-2-选择创建新的Weblogic域" class="headerlink" title="2.2 选择创建新的Weblogic域"></a>2.2 选择创建新的Weblogic域</h3><p><img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/wps14.jpg"></p>
+<h3 id="2-3-默认选择下一步，默认域安装路径"><a href="#2-3-默认选择下一步，默认域安装路径" class="headerlink" title="2.3 默认选择下一步，默认域安装路径"></a>2.3 默认选择下一步，默认域安装路径</h3><p><img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/wps15.jpg"></p>
+<p><img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/wps16.jpg"></p>
+<h3 id="2-4-配置用户名和密码。用户名：weblogic-密码：weblogic11"><a href="#2-4-配置用户名和密码。用户名：weblogic-密码：weblogic11" class="headerlink" title="2.4 配置用户名和密码。用户名：weblogic   密码：weblogic11"></a>2.4 配置用户名和密码。用户名：weblogic   密码：weblogic11</h3><p><img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/wps17.jpg"></p>
+<h3 id="2-5-选择默认的Sun-SDK-1-6-0-18-0-d-bea11g-jdk160-18，然后下一步"><a href="#2-5-选择默认的Sun-SDK-1-6-0-18-0-d-bea11g-jdk160-18，然后下一步" class="headerlink" title="2.5 选择默认的Sun SDK 1.6.0_18 0 d:\bea11g\jdk160_18，然后下一步"></a>2.5 选择默认的Sun SDK 1.6.0_18 0 d:\bea11g\jdk160_18，然后下一步</h3><p><img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/wps18.jpg"></p>
+<h3 id="2-6-选择“管理服务器”-下一步"><a href="#2-6-选择“管理服务器”-下一步" class="headerlink" title="2.6 选择“管理服务器”,下一步"></a>2.6 选择“管理服务器”,下一步</h3><p><img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/wps19.jpg"></p>
+<h3 id="2-7-选择默认安装，出现以下界面说明已安装完成"><a href="#2-7-选择默认安装，出现以下界面说明已安装完成" class="headerlink" title="2.7 选择默认安装，出现以下界面说明已安装完成"></a>2.7 选择默认安装，出现以下界面说明已安装完成</h3><p><img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/wps23.jpg"></p>
+<h3 id="2-8-测试安装是否正确"><a href="#2-8-测试安装是否正确" class="headerlink" title="2.8 测试安装是否正确"></a>2.8 测试安装是否正确</h3><p>打开浏览器，输入地址<a href="http://127.0.0.1:7001/console%E5%90%8E%E5%87%BA%E7%8E%B0%E5%A6%82%E4%B8%8B%E9%A1%B5%E9%9D%A2%EF%BC%8C%E5%B9%B6%E8%BE%93%E5%85%A5%E7%94%A8%E6%88%B7%E5%90%8D%E5%AF%86%E7%A0%81%E3%80%82%E5%87%BA%E7%8E%B0%E5%A6%82%E4%B8%8B%E7%95%8C%E9%9D%A2%E8%AF%B4%E6%98%8E%E9%85%8D%E7%BD%AE%E6%88%90%E5%8A%9F">http://127.0.0.1:7001/console后出现如下页面，并输入用户名密码。出现如下界面说明配置成功</a></p>
+<p><img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/wps24.jpg"></p>
+<p><img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/wps25.jpg"></p>
+<h2 id="三、weblogic一些常用操作"><a href="#三、weblogic一些常用操作" class="headerlink" title="三、weblogic一些常用操作"></a>三、weblogic一些常用操作</h2><h3 id="3-1-修改端口"><a href="#3-1-修改端口" class="headerlink" title="3.1 修改端口"></a>3.1 修改端口</h3><p>（1）依次点击base_domain-&gt;环境-&gt;服务器 出现如下界面 点击AdminServer(admin)</p>
+<p><img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/wps27.jpg"></p>
+<p>（2）将图中的7001改为80，然后点击界面最下方的 【保存】 按钮。</p>
+<p><img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/wps28.jpg"></p>
+<h3 id="3-2-修改weblogic用户密码"><a href="#3-2-修改weblogic用户密码" class="headerlink" title="3.2  修改weblogic用户密码"></a>3.2  修改weblogic用户密码</h3><p>（1）依次点击base_domain-&gt;安全领域-&gt;myrealm-&gt;用户和组</p>
+<p><img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/wps29.jpg"></p>
+<p>（2）点击“weblogic”-&gt;口令 。填写新口令和确认新口令保存即可修改密码</p>
+<p><img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/wps30.jpg"></p>
+<h2 id="四、配置数据源"><a href="#四、配置数据源" class="headerlink" title="四、配置数据源"></a>四、配置数据源</h2><p>（1）依次点击base_domain-&gt;服务-&gt;数据源出现如下界面</p>
+<p><img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/wps31.jpg"></p>
+<p>（2）点击 新建 按钮，出现如下界面，选择【<strong>一般数据源</strong>】</p>
+<p><img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/abc.png"></p>
+<p>（3）填写jdbc和jndi的名称，选择你所用的数据库，下一步</p>
+<p><img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/jndi.png"></p>
+<p>（4） 选择正确的数据库驱动</p>
+<p><img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/wps34.png"></p>
+<p>（5）填写正确的数据库用户名、密码和数据库的地址，数据名称就是SID</p>
+<p><img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/myoracle36.png"></p>
+<p>（6）点击测试配置，测试一下配置的jndi是否能正常连上数据库</p>
+<p><img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/%E6%B5%8B%E8%AF%95%E9%85%8D%E7%BD%AE.png"></p>
+<p>（7） 然后点击下一步、完成。出现如下界面即建立成功</p>
+<p><img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/%E6%BF%80%E6%B4%BB%E6%88%90%E5%8A%9F.png"></p>
+<h2 id="五、新建服务"><a href="#五、新建服务" class="headerlink" title="五、新建服务"></a>五、新建服务</h2><p>（1）依次点击do_domain-&gt;环境-&gt;服务器，点击【新建】</p>
+<p><img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/%E6%96%B0%E5%BB%BA%E6%9C%8D%E5%8A%A1.png"></p>
+<p>（2）填写服务器名称、监听地址及端口。点击下一步</p>
+<p><img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/wps50.png"></p>
+<p>（3）点击完成即可建立新的服务如下图所示</p>
+<p><img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/wps52.png"></p>
+<h2 id="六、部署应用"><a href="#六、部署应用" class="headerlink" title="六、部署应用"></a>六、部署应用</h2><p>（1） 进入到部署页面，选择对应应用</p>
+<p><img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/%E9%83%A8%E7%BD%B2.png"></p>
+<p><img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/wps41.png"></p>
+<p>（2）选择将部署安装成应用程序</p>
+<p><img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/wps42.png"></p>
+<p>（3）选择程序安装的服务器，以下步骤选择默认安装即可</p>
+<p><img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/wps43.png"></p>
+<p>（3）选择默认安装，下一步，知道出现如下界面即表示成功</p>
+<p><img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/wps47.png"></p>
+<p>（4）最后可以查看应用安装状态</p>
+<p><img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/wps48.png"></p>
+<h2 id="七、启动应用"><a href="#七、启动应用" class="headerlink" title="七、启动应用"></a>七、启动应用</h2><p>（1）配置主机IP【服务器所在主机的IP，若不配置将不能启动服务器】</p>
+<p><img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/wps53.png"></p>
+<p>（2）依次如图操作，使用命令行进入【域所在文件夹】base_domain\bin文件夹下，启动startManagedWebLogic.cmd，并指明服务器名称，如Server-0。</p>
+<p><img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/%E5%90%AF%E5%8A%A8%E6%9C%8D%E5%8A%A1.png"></p>
+<p>（3） 执行完以上操作后，弹出窗口，如图，</p>
+<p><img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/%E6%9C%8D%E5%8A%A1.png"></p>
+<p>（4）在浏览器上刷新页面，看到状态为runing即启动成功</p>
+<p><img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/wps56.png"></p>
+]]></content>
+      <categories>
+        <category>weblogic</category>
+      </categories>
+      <tags>
+        <tag>weblogic</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Oracle 定时任务job实际应用</title>
     <url>/archives/f23c506d.html</url>
     <content><![CDATA[<h2 id="一、Oracle定时任务简介"><a href="#一、Oracle定时任务简介" class="headerlink" title="一、Oracle定时任务简介"></a>一、Oracle定时任务简介</h2><p>Oracle定时任务是在oracle系统中一个非常重要的子系统，运用得当，可以大大提高我们系统运行和维护能力。oracle定时任务的功能，可以在指定的时间点自行执行任务。</p>

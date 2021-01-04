@@ -440,8 +440,6 @@
       <li>
         <a href="/tags">
           
-          <i class="fas fa-tags" style="margin-top: -20px; zoom: 0.6;"></i>
-          
           <span>标签</span>
         </a>
       </li>
@@ -449,16 +447,12 @@
       <li>
         <a href="/categories">
           
-          <i class="fas fa-bookmark" style="margin-top: -20px; zoom: 0.6;"></i>
-          
           <span>分类</span>
         </a>
       </li>
       
       <li>
         <a href="/archives">
-          
-          <i class="fas fa-archive" style="margin-top: -20px; zoom: 0.6;"></i>
           
           <span>时间轴</span>
         </a>
@@ -644,8 +638,6 @@
 
                   <a href="/tags " style="margin-left:75px">
 				  
-				   <i class="fa fas fa-tags" style="position: absolute;left:50px" ></i>
-			      
 		          <span>标签</span>
                   </a>
                 </li>
@@ -654,8 +646,6 @@
 
                   <a href="/categories " style="margin-left:75px">
 				  
-				   <i class="fa fas fa-bookmark" style="position: absolute;left:50px" ></i>
-			      
 		          <span>分类</span>
                   </a>
                 </li>
@@ -664,8 +654,6 @@
 
                   <a href="/archives " style="margin-left:75px">
 				  
-				   <i class="fa fas fa-archive" style="position: absolute;left:50px" ></i>
-			      
 		          <span>时间轴</span>
                   </a>
                 </li>
@@ -1233,8 +1221,14 @@
     }
 
     #vcomments textarea {
+        
         box-sizing: border-box;
-        background: url("/medias/comment_bg.webp") 100% 100% no-repeat;
+        /* background: url("/medias/comment_bg.webp") 100% 100% no-repeat; */
+        background-image: url("/medias/hongmiaosi.gif");
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position:right;
+        resize:vertical;
     }
 
     #vcomments p {
@@ -1457,6 +1451,8 @@
         left: unset;
         visibility: visible;
     }
+
+    
 </style>
 
 <div class="card valine-card" data-aos="fade-up">
@@ -1469,20 +1465,46 @@
 </div>
 
 <script src="/libs/valine/av-min.js"></script>
-<script src="/js/Valine.min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/small-rose/small-rose.github.io/libs/valine/Valine.min.js"></script>
+
 <script>
+    // new Valine({
+    //     el: '#vcomments',
+    //     appId: 'nLFYjWbdxNXHi8ECkNbad7eo-gzGzoHsz',
+    //     appKey: 'EN6vxfxOV7eBy6HlfVE4jhGI',
+    //     notify: 'true' === 'true',
+    //     verify: 'true' === 'true',
+    //     visitor: 'true' === 'true',
+    //     avatar: 'monsterid',
+    //     pageSize: '10',
+    //     lang: 'zh-cn',
+    //     placeholder: '欢迎你留下宝贵的意见 ^-^&#39;'
+    // });
+
+    let metaPlaceholder = {"nick":"昵称/QQ号(必填)","mail":"邮箱(必填)","link":"网址(https://)"} ;
+    //这里要换行
     new Valine({
-        el: '#vcomments',
-        appId: 'nLFYjWbdxNXHi8ECkNbad7eo-gzGzoHsz',
-        appKey: 'EN6vxfxOV7eBy6HlfVE4jhGI',
-        notify: 'false' === 'true',
-        verify: 'true' === 'true',
-        visitor: 'true' === 'true',
-        avatar: 'mm',
-        pageSize: '10',
-        lang: 'zh-cn',
-        placeholder: '欢迎你留下宝贵的意见 ^-^'
-    });
+            el: '#vcomments',
+            appId: 'nLFYjWbdxNXHi8ECkNbad7eo-gzGzoHsz',
+            appKey: 'EN6vxfxOV7eBy6HlfVE4jhGI',
+            notify: 'true' === 'true',
+            verify: 'true' === 'true',
+            visitor: 'true' === 'true',
+            avatar: 'monsterid',
+            pageSize: '10',
+            lang: 'zh-CN',
+            placeholder: '欢迎你留下宝贵的意见 ^-^&#39;',
+            meta: ["nick", "mail", "link"],
+            recordIP: 'true' === 'true',
+            enableQQ: 'monsterid',
+            requiredFields: ["1610cd43778f1d972a92503426346411"],
+            master: ["1610cd43778f1d972a92503426346411"],
+            friends: ["c08508165c8eba9a77f8c2853xxxx09e", "901345d4c91ddfd8db0f175bbcfff0c8", "1512958e18378c98b498d5effe3e76ff"],
+            tagMeta: ["博主", "小伙伴", "访客"],
+            metaPlaceholder: metaPlaceholder,
+
+        });
+
 </script>
 
             
@@ -1559,7 +1581,7 @@
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">8.7k</span>&nbsp;字
+                class="white-color">9.5k</span>&nbsp;字
             
             
             
