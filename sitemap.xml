@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://www.xiezhrspace.cn/archives/e3ef4d8b.html</loc>
+    
+    <lastmod>2021-01-09</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://www.xiezhrspace.cn/epidemic/index.html</loc>
     
     <lastmod>2021-01-06</lastmod>
@@ -186,7 +193,7 @@
 
   <url>
     <loc>https://www.xiezhrspace.cn/</loc>
-    <lastmod>2021-01-06</lastmod>
+    <lastmod>2021-01-09</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
@@ -194,42 +201,42 @@
   
   <url>
     <loc>https://www.xiezhrspace.cn/tags/Oracle/</loc>
-    <lastmod>2021-01-06</lastmod>
+    <lastmod>2021-01-09</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://www.xiezhrspace.cn/tags/Linux/</loc>
-    <lastmod>2021-01-06</lastmod>
+    <lastmod>2021-01-09</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://www.xiezhrspace.cn/tags/markdown/</loc>
-    <lastmod>2021-01-06</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.xiezhrspace.cn/tags/mybatis/</loc>
-    <lastmod>2021-01-06</lastmod>
+    <lastmod>2021-01-09</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://www.xiezhrspace.cn/tags/mysql/</loc>
-    <lastmod>2021-01-06</lastmod>
+    <lastmod>2021-01-09</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://www.xiezhrspace.cn/tags/weblogic/</loc>
-    <lastmod>2021-01-06</lastmod>
+    <lastmod>2021-01-09</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.xiezhrspace.cn/tags/mybatis/</loc>
+    <lastmod>2021-01-09</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
@@ -238,42 +245,42 @@
   
   <url>
     <loc>https://www.xiezhrspace.cn/categories/Oracle/</loc>
-    <lastmod>2021-01-06</lastmod>
+    <lastmod>2021-01-09</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://www.xiezhrspace.cn/categories/Linux/</loc>
-    <lastmod>2021-01-06</lastmod>
+    <lastmod>2021-01-09</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://www.xiezhrspace.cn/categories/%E6%97%A5%E5%B8%B8%E5%B0%8F%E6%8A%80%E5%B7%A7/</loc>
-    <lastmod>2021-01-06</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.xiezhrspace.cn/categories/mybatis/</loc>
-    <lastmod>2021-01-06</lastmod>
+    <lastmod>2021-01-09</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://www.xiezhrspace.cn/categories/mysql/</loc>
-    <lastmod>2021-01-06</lastmod>
+    <lastmod>2021-01-09</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://www.xiezhrspace.cn/categories/weblogic/</loc>
-    <lastmod>2021-01-06</lastmod>
+    <lastmod>2021-01-09</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.xiezhrspace.cn/categories/mybatis/</loc>
+    <lastmod>2021-01-09</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
