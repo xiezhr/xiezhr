@@ -1,6 +1,102 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>windows环境下怎么搭建ftp服务器呢？</title>
+    <url>/archives/f9f84c7e.html</url>
+    <content><![CDATA[<h2 id="1-ftp简介"><a href="#1-ftp简介" class="headerlink" title="1.ftp简介"></a>1.ftp简介</h2><p><strong>在搭建ftp服务前呢，我们先来了解下ftp协议和ftp服务器</strong></p>
+<ul>
+<li>ftp协议： 一种文件传输协议。在本地和服务器之间进行文件传输。</li>
+<li>ftp服务器：支持ftp传输协议的服务器。一般windows都带有ftp服务，只是默认情况下都没启动。</li>
+</ul>
+<p>ftp相关软件也比较多，其中运用比较广泛的有Server-U、FileZilla、VsFTP、apache旗下的FtpServer。</p>
+<p>由于工作需要，我们经常会将文件拷贝到其他电脑，用U盘或者其他存储设备拷贝的话很容易中病毒。出于这个原因，我们就需要搭建一个ftp服务器，将我们需要共享的文件放到服务器上，只要网络正常，就很容易将我们所需要的文件从服务器上取下来。</p>
+<p>今天我们就来介绍一个开源的ftp服务器，Apache FTPServerFtpServer也就这次的主角，Apache FTPServer是一个100％纯Java的FTP服务器。FTPServer可独立运行作为Windows服务或Unix/ Linux后台程序或是被嵌入在Java应用程序中。</p>
+<p>接下来我们就以FtpServer为例，搭建ftp服务。</p>
+<h2 id="2-下载Apache-FTPServer"><a href="#2-下载Apache-FTPServer" class="headerlink" title="2.下载Apache FTPServer"></a>2.下载Apache FTPServer</h2><p>可以到官网下载:<a href="http://mina.apache.org/ftpserver-project/downloads.html">http://mina.apache.org/ftpserver-project/downloads.html</a> 目前最新版本是Apache FtpServer 1.1.1 Release，出于稳定考虑我这里下载的就是1.0.6版本</p>
+<h2 id="3-下载并解压压缩包"><a href="#3-下载并解压压缩包" class="headerlink" title="3.下载并解压压缩包"></a>3.下载并解压压缩包</h2><p>将下载下来的压缩包解压到本地，我的是放在D盘根目录下，其目录结构如下图：<br><img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/150418212047.png"></p>
+<h2 id="4-修改配置文件"><a href="#4-修改配置文件" class="headerlink" title="4.修改配置文件"></a>4.修改配置文件</h2><h3 id="4-1-修改users-properties配置文件"><a href="#4-1-修改users-properties配置文件" class="headerlink" title="4.1 修改users.properties配置文件"></a>4.1 修改users.properties配置文件</h3><p>配置文件路径：<br>D:\apache-ftpserver-1.0.6\res\conf\users.properties<br>在此配置文件中可以增加用户,如果不希望匿名登录的话，可以将匿名用户这个配置注释掉</p>
+<pre class=" language-properties"><code class="language-properties"><span class="token comment" spellcheck="true"># Password is "admin"</span>
+<span class="token attr-name">ftpserver.user.admin.userpassword</span><span class="token punctuation">=</span><span class="token attr-value">admin</span>
+<span class="token attr-name">ftpserver.user.admin.homedirectory</span><span class="token punctuation">=</span><span class="token attr-value">./res/home</span>
+<span class="token attr-name">ftpserver.user.admin.enableflag</span><span class="token punctuation">=</span><span class="token attr-value">true</span>
+<span class="token attr-name">ftpserver.user.admin.writepermission</span><span class="token punctuation">=</span><span class="token attr-value">true</span>
+<span class="token attr-name">ftpserver.user.admin.maxloginnumber</span><span class="token punctuation">=</span><span class="token attr-value">0</span>
+<span class="token attr-name">ftpserver.user.admin.maxloginperip</span><span class="token punctuation">=</span><span class="token attr-value">0</span>
+<span class="token attr-name">ftpserver.user.admin.idletime</span><span class="token punctuation">=</span><span class="token attr-value">0</span>
+<span class="token attr-name">ftpserver.user.admin.uploadrate</span><span class="token punctuation">=</span><span class="token attr-value">0</span>
+<span class="token attr-name">ftpserver.user.admin.downloadrate</span><span class="token punctuation">=</span><span class="token attr-value">0</span>
+<span class="token attr-name">ftpserver.user.anonymous.userpassword</span><span class="token punctuation">=</span>
+<span class="token attr-name">ftpserver.user.anonymous.homedirectory</span><span class="token punctuation">=</span><span class="token attr-value">./res/home</span>
+<span class="token attr-name">ftpserver.user.anonymous.enableflag</span><span class="token punctuation">=</span><span class="token attr-value">true</span>
+<span class="token attr-name">ftpserver.user.anonymous.writepermission</span><span class="token punctuation">=</span><span class="token attr-value">false</span>
+<span class="token attr-name">ftpserver.user.anonymous.maxloginnumber</span><span class="token punctuation">=</span><span class="token attr-value">20</span>
+<span class="token attr-name">ftpserver.user.anonymous.maxloginperip</span><span class="token punctuation">=</span><span class="token attr-value">2</span>
+<span class="token attr-name">ftpserver.user.anonymous.idletime</span><span class="token punctuation">=</span><span class="token attr-value">300</span>
+<span class="token attr-name">ftpserver.user.anonymous.uploadrate</span><span class="token punctuation">=</span><span class="token attr-value">4800</span>
+<span class="token attr-name">ftpserver.user.anonymous.downloadrate</span><span class="token punctuation">=</span><span class="token attr-value">4800</span>
+<span class="token comment" spellcheck="true">#密码 配置新的用户</span>
+<span class="token attr-name">ftpserver.user.lxw.userpassword</span><span class="token punctuation">=</span><span class="token attr-value">123456</span>
+<span class="token comment" spellcheck="true">#主目录</span>
+<span class="token attr-name">ftpserver.user.lxw.homedirectory</span><span class="token punctuation">=</span><span class="token attr-value">./res/home</span>
+<span class="token comment" spellcheck="true">#当前用户可用</span>
+<span class="token attr-name">ftpserver.user.lxw.enableflag</span><span class="token punctuation">=</span><span class="token attr-value">true</span>
+<span class="token comment" spellcheck="true">#具有上传权限</span>
+<span class="token attr-name">ftpserver.user.lxw.writepermission</span><span class="token punctuation">=</span><span class="token attr-value">true</span>
+<span class="token comment" spellcheck="true">#最大登陆用户数为20</span>
+<span class="token attr-name">ftpserver.user.lxw.maxloginnumber</span><span class="token punctuation">=</span><span class="token attr-value">20</span>
+<span class="token comment" spellcheck="true">#同IP登陆用户数为2</span>
+<span class="token attr-name">ftpserver.user.lxw.maxloginperip</span><span class="token punctuation">=</span><span class="token attr-value">2</span>
+<span class="token comment" spellcheck="true">#空闲时间为300秒</span>
+<span class="token attr-name">ftpserver.user.lxw.idletime</span><span class="token punctuation">=</span><span class="token attr-value">300</span>
+<span class="token comment" spellcheck="true">#上传速率限制为480000字节每秒</span>
+<span class="token attr-name">ftpserver.user.lxw.uploadrate</span><span class="token punctuation">=</span><span class="token attr-value">48000000</span>
+<span class="token comment" spellcheck="true">#下载速率限制为480000字节每秒</span>
+<span class="token attr-name">ftpserver.user.lxw.downloadrate</span><span class="token punctuation">=</span><span class="token attr-value">48000000</span></code></pre>
+<h3 id="4-2-修改ftpd-typical-xml配置文件"><a href="#4-2-修改ftpd-typical-xml配置文件" class="headerlink" title="4.2 修改ftpd-typical.xml配置文件"></a>4.2 修改ftpd-typical.xml配置文件</h3><p>配置文件路径：<br>D:\apache-ftpserver-1.0.6\res\conf\ftpd-typical.xml</p>
+<pre class=" language-xml"><code class="language-xml"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>server</span> <span class="token attr-name">xmlns</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>http://mina.apache.org/ftpserver/spring/v1<span class="token punctuation">"</span></span>
+    <span class="token attr-name"><span class="token namespace">xmlns:</span>xsi</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>http://www.w3.org/2001/XMLSchema-instance<span class="token punctuation">"</span></span>
+    <span class="token attr-name"><span class="token namespace">xsi:</span>schemaLocation</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>
+       http://mina.apache.org/ftpserver/spring/v1 http://mina.apache.org/ftpserver/ftpserver-1.0.xsd    
+       <span class="token punctuation">"</span></span>
+    <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>myServer<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>listeners</span><span class="token punctuation">></span></span>
+        <span class="token comment" spellcheck="true">&lt;!-- 默认端口是2121，可以修改为自己的端口 --></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>nio-listener</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>default<span class="token punctuation">"</span></span> <span class="token attr-name">port</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>2121<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>  
+            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>ssl</span><span class="token punctuation">></span></span>
+                <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>keystore</span> <span class="token attr-name">file</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>./res/ftpserver.jks<span class="token punctuation">"</span></span> <span class="token attr-name">password</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>password<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span>
+            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>ssl</span><span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>nio-listener</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>listeners</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>file-user-manager</span> <span class="token attr-name">file</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>./res/conf/users.properties<span class="token punctuation">"</span></span> <span class="token attr-name">encrypt-passwords</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>clear<span class="token punctuation">"</span></span><span class="token punctuation">/></span></span>
+    <span class="token comment" spellcheck="true">&lt;!-- 添加encrypt-passwords="clear"，将密码加密方式修改给clear --></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>server</span><span class="token punctuation">></span></span></code></pre>
+<h2 id="5-启动FTPServer"><a href="#5-启动FTPServer" class="headerlink" title="5.启动FTPServer"></a>5.启动FTPServer</h2><p>打开CMD命令窗口，切换到D:\apache-ftpserver-1.0.6\bin这个目录下 输入以下命令：</p>
+<pre class=" language-shell"><code class="language-shell">service install
+ftpd.bat res/conf/ftpd-typical.xml</code></pre>
+<p><strong>注意</strong>：由于ftpserver是纯java编写的，所以第二条命令的执行需要在环境变量中配置java环境JAVA_HOME。java环境此处省去，不会可以自行百度</p>
+<p>输入完命令之后如下图所示，当出现FtpServer started 出现即启动成功<br><img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/50418213905.jpeg"></p>
+<h2 id="6-访问FTP"><a href="#6-访问FTP" class="headerlink" title="6.访问FTP"></a>6.访问FTP</h2><p>在游览器中，输入<a href="ftp://ip:2121进行访问，如果端口修改了，要换成对应的端口，ip就是FTP所在的服务器的ip，访问如下图所示：">ftp://ip:2121进行访问，如果端口修改了，要换成对应的端口，ip就是FTP所在的服务器的ip，访问如下图所示：</a><br><img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/150418214059.png"></p>
+<p>当然我们也能通过工具直接访问，进行上传和下载文件操作<br>下面提供一个比较好用的免安装工具给大家，大家可以放心食用。</p>
+<p>winscp553   <a href="https://pan.baidu.com/s/1HIdJdJIoHtDk3wu3wLh7vA">百度云下载链接</a>    提取码：sncs</p>
+<h2 id="7-ftp-的启动与关闭"><a href="#7-ftp-的启动与关闭" class="headerlink" title="7.ftp 的启动与关闭"></a>7.ftp 的启动与关闭</h2><p>将dos命令窗口关掉，ftp服务即关闭<br>那么我们怎么样启动ftp服务呢，</p>
+<ul>
+<li>可以根据前面所提到的命令启动，切换到D:\apache-ftpserver-1.0.6\bin这个目录下 输入以下命令：<pre class=" language-shell"><code class="language-shell">service install
+ftpd.bat res/conf/ftpd-typical.xml</code></pre>
+</li>
+<li>可以把启动命令制作成bat文件，内容为：<pre class=" language-shell"><code class="language-shell">d:
+cd D:\apache-ftpserver-1.0.5\bin
+ftpd.bat res/conf/ftpd-typical.xml</code></pre>
+随便起一个名字xx，命名为xx.bat，点击xx.bat文件即可启动ftp服务器。</li>
+</ul>
+]]></content>
+      <categories>
+        <category>windows,ftp</category>
+      </categories>
+      <tags>
+        <tag>windows,ftp</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>工作中，我们经常用到哪些SQL语句呢？</title>
     <url>/archives/e3ef4d8b.html</url>
     <content><![CDATA[<p><img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/%E8%89%BE%E6%96%AF2.jpg"></p>

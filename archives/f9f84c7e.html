@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="Oracle,定时任务">
+    <meta name="keywords" content="windows,ftp">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -18,7 +18,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>Oracle 定时任务job实际应用 | xiezhrspace</title>
+    <title>windows环境下怎么搭建ftp服务器呢？ | xiezhrspace</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -847,12 +847,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/12.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/6.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">Oracle 定时任务job实际应用</h1>
+                    <h1 class="description center-align post-title">windows环境下怎么搭建ftp服务器呢？</h1>
                 </div>
             </div>
         </div>
@@ -969,8 +969,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/Oracle/">
-                                <span class="chip bg-color">Oracle</span>
+                            <a href="/tags/windows-ftp/">
+                                <span class="chip bg-color">windows,ftp</span>
                             </a>
                         
                     </div>
@@ -981,8 +981,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/Oracle/" class="post-category">
-                                Oracle
+                            <a href="/categories/windows-ftp/" class="post-category">
+                                windows,ftp
                             </a>
                         
                     </div>
@@ -994,14 +994,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2020-12-30
+                    2021-01-10
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-01-04
+                    2021-01-10
                 </div>
                 
 
@@ -1030,142 +1030,90 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="一、Oracle定时任务简介"><a href="#一、Oracle定时任务简介" class="headerlink" title="一、Oracle定时任务简介"></a>一、Oracle定时任务简介</h2><p>Oracle定时任务是在oracle系统中一个非常重要的子系统，运用得当，可以大大提高我们系统运行和维护能力。oracle定时任务的功能，可以在指定的时间点自行执行任务。</p>
-<p>那么在实际工作中，什么样的场景会用到定时任务呢？下面是在实际工作中用到的真实业务场景举例</p>
+                <h2 id="1-ftp简介"><a href="#1-ftp简介" class="headerlink" title="1.ftp简介"></a>1.ftp简介</h2><p><strong>在搭建ftp服务前呢，我们先来了解下ftp协议和ftp服务器</strong></p>
 <ul>
-<li>在生成环境中，有时候需要在表中记录一些业务日志，系统运行时间长了之后，表中日志会越来越多，导致系统性能下降，这时候就需要用到定时任务，定时去删除表中一些时间年代比较久远垃圾数据。</li>
-<li>在某些业务场景中，明细表的数据量特别大，而需要查询明细表一下汇总数据，就需要将明细表中的数据【某天的业务产生的金额、人数等】通过计算汇总到另外表中，这样在查询的时候就能优化查询效率。而以上操作需要在业务量比较少的情况下进行【一般都在凌晨之后】，这是就需要用到定时任务。</li>
+<li>ftp协议： 一种文件传输协议。在本地和服务器之间进行文件传输。</li>
+<li>ftp服务器：支持ftp传输协议的服务器。一般windows都带有ftp服务，只是默认情况下都没启动。</li>
 </ul>
-<h2 id="二、dbms-job涉及到的知识点"><a href="#二、dbms-job涉及到的知识点" class="headerlink" title="二、dbms_job涉及到的知识点"></a>二、dbms_job涉及到的知识点</h2><ul>
-<li>创建job脚本</li>
-</ul>
-<pre class=" language-sql"><code class="language-sql">variable jobno number<span class="token punctuation">;</span>
-dbms_job<span class="token punctuation">.</span>submit<span class="token punctuation">(</span>:jobno<span class="token punctuation">,</span>       —<span class="token operator">-</span>job号 
-<span class="token string">'your_procedure;'</span><span class="token punctuation">,</span>            —<span class="token operator">-</span>执行的存储过程<span class="token punctuation">,</span> <span class="token string">';'</span>不能省略 
-next_date<span class="token punctuation">,</span>                    —<span class="token operator">-</span>下次执行时间 
-<span class="token string">'interval'</span>                    —<span class="token operator">-</span>每次间隔时间，
-interval                      以天为单位<span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
-<p>上面是通过脚本创建，当然也可以通过plsql图形化工具来创建，具体创建过程如下</p>
-<p><img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/a.png"></p>
-<p><img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/b.png"></p>
-<p>**系统会自动分配一个任务号jobno ** ，根据jobno 可以进行如下定时任务操作</p>
+<p>ftp相关软件也比较多，其中运用比较广泛的有Server-U、FileZilla、VsFTP、apache旗下的FtpServer。</p>
+<p>由于工作需要，我们经常会将文件拷贝到其他电脑，用U盘或者其他存储设备拷贝的话很容易中病毒。出于这个原因，我们就需要搭建一个ftp服务器，将我们需要共享的文件放到服务器上，只要网络正常，就很容易将我们所需要的文件从服务器上取下来。</p>
+<p>今天我们就来介绍一个开源的ftp服务器，Apache FTPServerFtpServer也就这次的主角，Apache FTPServer是一个100％纯Java的FTP服务器。FTPServer可独立运行作为Windows服务或Unix/ Linux后台程序或是被嵌入在Java应用程序中。</p>
+<p>接下来我们就以FtpServer为例，搭建ftp服务。</p>
+<h2 id="2-下载Apache-FTPServer"><a href="#2-下载Apache-FTPServer" class="headerlink" title="2.下载Apache FTPServer"></a>2.下载Apache FTPServer</h2><p>可以到官网下载:<a target="_blank" rel="noopener" href="http://mina.apache.org/ftpserver-project/downloads.html">http://mina.apache.org/ftpserver-project/downloads.html</a> 目前最新版本是Apache FtpServer 1.1.1 Release，出于稳定考虑我这里下载的就是1.0.6版本</p>
+<h2 id="3-下载并解压压缩包"><a href="#3-下载并解压压缩包" class="headerlink" title="3.下载并解压压缩包"></a>3.下载并解压压缩包</h2><p>将下载下来的压缩包解压到本地，我的是放在D盘根目录下，其目录结构如下图：<br><img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/150418212047.png"></p>
+<h2 id="4-修改配置文件"><a href="#4-修改配置文件" class="headerlink" title="4.修改配置文件"></a>4.修改配置文件</h2><h3 id="4-1-修改users-properties配置文件"><a href="#4-1-修改users-properties配置文件" class="headerlink" title="4.1 修改users.properties配置文件"></a>4.1 修改users.properties配置文件</h3><p>配置文件路径：<br>D:\apache-ftpserver-1.0.6\res\conf\users.properties<br>在此配置文件中可以增加用户,如果不希望匿名登录的话，可以将匿名用户这个配置注释掉</p>
+<pre class=" language-properties"><code class="language-properties"><span class="token comment" spellcheck="true"># Password is "admin"</span>
+<span class="token attr-name">ftpserver.user.admin.userpassword</span><span class="token punctuation">=</span><span class="token attr-value">admin</span>
+<span class="token attr-name">ftpserver.user.admin.homedirectory</span><span class="token punctuation">=</span><span class="token attr-value">./res/home</span>
+<span class="token attr-name">ftpserver.user.admin.enableflag</span><span class="token punctuation">=</span><span class="token attr-value">true</span>
+<span class="token attr-name">ftpserver.user.admin.writepermission</span><span class="token punctuation">=</span><span class="token attr-value">true</span>
+<span class="token attr-name">ftpserver.user.admin.maxloginnumber</span><span class="token punctuation">=</span><span class="token attr-value">0</span>
+<span class="token attr-name">ftpserver.user.admin.maxloginperip</span><span class="token punctuation">=</span><span class="token attr-value">0</span>
+<span class="token attr-name">ftpserver.user.admin.idletime</span><span class="token punctuation">=</span><span class="token attr-value">0</span>
+<span class="token attr-name">ftpserver.user.admin.uploadrate</span><span class="token punctuation">=</span><span class="token attr-value">0</span>
+<span class="token attr-name">ftpserver.user.admin.downloadrate</span><span class="token punctuation">=</span><span class="token attr-value">0</span>
+<span class="token attr-name">ftpserver.user.anonymous.userpassword</span><span class="token punctuation">=</span>
+<span class="token attr-name">ftpserver.user.anonymous.homedirectory</span><span class="token punctuation">=</span><span class="token attr-value">./res/home</span>
+<span class="token attr-name">ftpserver.user.anonymous.enableflag</span><span class="token punctuation">=</span><span class="token attr-value">true</span>
+<span class="token attr-name">ftpserver.user.anonymous.writepermission</span><span class="token punctuation">=</span><span class="token attr-value">false</span>
+<span class="token attr-name">ftpserver.user.anonymous.maxloginnumber</span><span class="token punctuation">=</span><span class="token attr-value">20</span>
+<span class="token attr-name">ftpserver.user.anonymous.maxloginperip</span><span class="token punctuation">=</span><span class="token attr-value">2</span>
+<span class="token attr-name">ftpserver.user.anonymous.idletime</span><span class="token punctuation">=</span><span class="token attr-value">300</span>
+<span class="token attr-name">ftpserver.user.anonymous.uploadrate</span><span class="token punctuation">=</span><span class="token attr-value">4800</span>
+<span class="token attr-name">ftpserver.user.anonymous.downloadrate</span><span class="token punctuation">=</span><span class="token attr-value">4800</span>
+<span class="token comment" spellcheck="true">#密码 配置新的用户</span>
+<span class="token attr-name">ftpserver.user.lxw.userpassword</span><span class="token punctuation">=</span><span class="token attr-value">123456</span>
+<span class="token comment" spellcheck="true">#主目录</span>
+<span class="token attr-name">ftpserver.user.lxw.homedirectory</span><span class="token punctuation">=</span><span class="token attr-value">./res/home</span>
+<span class="token comment" spellcheck="true">#当前用户可用</span>
+<span class="token attr-name">ftpserver.user.lxw.enableflag</span><span class="token punctuation">=</span><span class="token attr-value">true</span>
+<span class="token comment" spellcheck="true">#具有上传权限</span>
+<span class="token attr-name">ftpserver.user.lxw.writepermission</span><span class="token punctuation">=</span><span class="token attr-value">true</span>
+<span class="token comment" spellcheck="true">#最大登陆用户数为20</span>
+<span class="token attr-name">ftpserver.user.lxw.maxloginnumber</span><span class="token punctuation">=</span><span class="token attr-value">20</span>
+<span class="token comment" spellcheck="true">#同IP登陆用户数为2</span>
+<span class="token attr-name">ftpserver.user.lxw.maxloginperip</span><span class="token punctuation">=</span><span class="token attr-value">2</span>
+<span class="token comment" spellcheck="true">#空闲时间为300秒</span>
+<span class="token attr-name">ftpserver.user.lxw.idletime</span><span class="token punctuation">=</span><span class="token attr-value">300</span>
+<span class="token comment" spellcheck="true">#上传速率限制为480000字节每秒</span>
+<span class="token attr-name">ftpserver.user.lxw.uploadrate</span><span class="token punctuation">=</span><span class="token attr-value">48000000</span>
+<span class="token comment" spellcheck="true">#下载速率限制为480000字节每秒</span>
+<span class="token attr-name">ftpserver.user.lxw.downloadrate</span><span class="token punctuation">=</span><span class="token attr-value">48000000</span></code></pre>
+<h3 id="4-2-修改ftpd-typical-xml配置文件"><a href="#4-2-修改ftpd-typical-xml配置文件" class="headerlink" title="4.2 修改ftpd-typical.xml配置文件"></a>4.2 修改ftpd-typical.xml配置文件</h3><p>配置文件路径：<br>D:\apache-ftpserver-1.0.6\res\conf\ftpd-typical.xml</p>
+<pre class=" language-xml"><code class="language-xml"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>server</span> <span class="token attr-name">xmlns</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>http://mina.apache.org/ftpserver/spring/v1<span class="token punctuation">"</span></span>
+    <span class="token attr-name"><span class="token namespace">xmlns:</span>xsi</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>http://www.w3.org/2001/XMLSchema-instance<span class="token punctuation">"</span></span>
+    <span class="token attr-name"><span class="token namespace">xsi:</span>schemaLocation</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>
+       http://mina.apache.org/ftpserver/spring/v1 http://mina.apache.org/ftpserver/ftpserver-1.0.xsd    
+       <span class="token punctuation">"</span></span>
+    <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>myServer<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>listeners</span><span class="token punctuation">></span></span>
+        <span class="token comment" spellcheck="true">&lt;!-- 默认端口是2121，可以修改为自己的端口 --></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>nio-listener</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>default<span class="token punctuation">"</span></span> <span class="token attr-name">port</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>2121<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>  
+            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>ssl</span><span class="token punctuation">></span></span>
+                <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>keystore</span> <span class="token attr-name">file</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>./res/ftpserver.jks<span class="token punctuation">"</span></span> <span class="token attr-name">password</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>password<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span>
+            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>ssl</span><span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>nio-listener</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>listeners</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>file-user-manager</span> <span class="token attr-name">file</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>./res/conf/users.properties<span class="token punctuation">"</span></span> <span class="token attr-name">encrypt-passwords</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>clear<span class="token punctuation">"</span></span><span class="token punctuation">/></span></span>
+    <span class="token comment" spellcheck="true">&lt;!-- 添加encrypt-passwords="clear"，将密码加密方式修改给clear --></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>server</span><span class="token punctuation">></span></span></code></pre>
+<h2 id="5-启动FTPServer"><a href="#5-启动FTPServer" class="headerlink" title="5.启动FTPServer"></a>5.启动FTPServer</h2><p>打开CMD命令窗口，切换到D:\apache-ftpserver-1.0.6\bin这个目录下 输入以下命令：</p>
+<pre class=" language-shell"><code class="language-shell">service install
+ftpd.bat res/conf/ftpd-typical.xml</code></pre>
+<p><strong>注意</strong>：由于ftpserver是纯java编写的，所以第二条命令的执行需要在环境变量中配置java环境JAVA_HOME。java环境此处省去，不会可以自行百度</p>
+<p>输入完命令之后如下图所示，当出现FtpServer started 出现即启动成功<br><img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/50418213905.jpeg"></p>
+<h2 id="6-访问FTP"><a href="#6-访问FTP" class="headerlink" title="6.访问FTP"></a>6.访问FTP</h2><p>在游览器中，输入<a href="ftp://ip:2121进行访问，如果端口修改了，要换成对应的端口，ip就是FTP所在的服务器的ip，访问如下图所示：">ftp://ip:2121进行访问，如果端口修改了，要换成对应的端口，ip就是FTP所在的服务器的ip，访问如下图所示：</a><br><img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/150418214059.png"></p>
+<p>当然我们也能通过工具直接访问，进行上传和下载文件操作<br>下面提供一个比较好用的免安装工具给大家，大家可以放心食用。</p>
+<p>winscp553   <a target="_blank" rel="noopener" href="https://pan.baidu.com/s/1HIdJdJIoHtDk3wu3wLh7vA">百度云下载链接</a>    提取码：sncs</p>
+<h2 id="7-ftp-的启动与关闭"><a href="#7-ftp-的启动与关闭" class="headerlink" title="7.ftp 的启动与关闭"></a>7.ftp 的启动与关闭</h2><p>将dos命令窗口关掉，ftp服务即关闭<br>那么我们怎么样启动ftp服务呢，</p>
 <ul>
-<li><p>删除job: dbms_job.remove(jobno); </p>
+<li>可以根据前面所提到的命令启动，切换到D:\apache-ftpserver-1.0.6\bin这个目录下 输入以下命令：<pre class=" language-shell"><code class="language-shell">service install
+ftpd.bat res/conf/ftpd-typical.xml</code></pre>
 </li>
-<li><p>修改要执行的操作: job:dbms_job.what(jobno, what); </p>
-</li>
-<li><p>修改下次执行时间：dbms_job.next_date(jobno, next_date);</p>
-</li>
-<li><p>修改间隔时间：dbms_job.interval(jobno, interval); </p>
-</li>
-<li><p>启动job: dbms_job.run(jobno);</p>
-</li>
-<li><p>停止job: dbms.broken(jobno, broken, nextdate); –broken为boolean值</p>
-</li>
-</ul>
-<h2 id="三、初始化相关参数job-queue-processes"><a href="#三、初始化相关参数job-queue-processes" class="headerlink" title="三、初始化相关参数job_queue_processes"></a>三、初始化相关参数job_queue_processes</h2><ul>
-<li>job_queue_process表示oracle能够并发的job的数量，当job_queue_process值为0时表示全部停止oracle的job</li>
-<li>查看job_queue_processes参数</li>
-</ul>
-<pre class=" language-sql"><code class="language-sql"><span class="token keyword">show</span> parameter job_queue_process<span class="token punctuation">;</span>
-或者
-<span class="token keyword">select</span> <span class="token operator">*</span> <span class="token keyword">from</span> v$parameter <span class="token keyword">where</span> name<span class="token operator">=</span><span class="token string">'job_queue_processes'</span><span class="token punctuation">;</span></code></pre>
-<ul>
-<li>修改job_queue_processes参数</li>
-</ul>
-<pre class=" language-sql"><code class="language-sql"><span class="token keyword">alter</span> system <span class="token keyword">set</span> job_queue_processes <span class="token operator">=</span> <span class="token number">10</span><span class="token punctuation">;</span></code></pre>
-<h2 id="四、实际创建一个定时任务（一分钟执行一次），实现定时一分钟往表中插入数据"><a href="#四、实际创建一个定时任务（一分钟执行一次），实现定时一分钟往表中插入数据" class="headerlink" title="四、实际创建一个定时任务（一分钟执行一次），实现定时一分钟往表中插入数据"></a>四、实际创建一个定时任务（一分钟执行一次），实现定时一分钟往表中插入数据</h2><h3 id="4-1-创建需要定时插入数据的目标表"><a href="#4-1-创建需要定时插入数据的目标表" class="headerlink" title="4.1 创建需要定时插入数据的目标表"></a>4.1 创建需要定时插入数据的目标表</h3><pre class=" language-sql"><code class="language-sql"><span class="token keyword">create</span> <span class="token keyword">table</span> t_test <span class="token punctuation">(</span>id varchar2<span class="token punctuation">(</span><span class="token number">30</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
-                  name varchar2<span class="token punctuation">(</span><span class="token number">30</span><span class="token punctuation">)</span>
-                 <span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
-<h3 id="4-2-创建定时执行的存储过程"><a href="#4-2-创建定时执行的存储过程" class="headerlink" title="4.2 创建定时执行的存储过程"></a>4.2 创建定时执行的存储过程</h3><pre class=" language-sql"><code class="language-sql"><span class="token keyword">create</span> <span class="token operator">or</span> replace <span class="token keyword">procedure</span> proce_t <span class="token operator">is</span>
-<span class="token keyword">begin</span>
-  <span class="token keyword">insert</span> <span class="token keyword">into</span> t_test
-    <span class="token punctuation">(</span>id<span class="token punctuation">,</span> name<span class="token punctuation">)</span>
-  <span class="token keyword">values</span>
-    <span class="token punctuation">(</span><span class="token string">'1'</span><span class="token punctuation">,</span> to_char<span class="token punctuation">(</span>sysdate<span class="token punctuation">,</span> <span class="token string">'yyyy-mm-dd hh24:mi:ss'</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-  <span class="token keyword">commit</span><span class="token punctuation">;</span>
-<span class="token keyword">end</span> proce_t<span class="token punctuation">;</span>
-<span class="token operator">/</span></code></pre>
-<h3 id="4-3-创建定时一分钟定时任务job"><a href="#4-3-创建定时一分钟定时任务job" class="headerlink" title="4.3 创建定时一分钟定时任务job"></a>4.3 创建定时一分钟定时任务job</h3><pre class=" language-sql"><code class="language-sql">variable jobno number<span class="token punctuation">;</span>
-<span class="token keyword">begin</span> 
-dbms_job<span class="token punctuation">.</span>submit<span class="token punctuation">(</span>:jobno<span class="token punctuation">,</span>
-<span class="token string">'proce_t;'</span><span class="token punctuation">,</span>
- sysdate<span class="token punctuation">,</span> 
- <span class="token string">'sysdate+1/24/60'</span><span class="token punctuation">)</span><span class="token punctuation">;</span> 
- <span class="token keyword">commit</span><span class="token punctuation">;</span>
-<span class="token keyword">end</span><span class="token punctuation">;</span></code></pre>
-<h3 id="4-5-可以根据以下语句查询刚创建好的job"><a href="#4-5-可以根据以下语句查询刚创建好的job" class="headerlink" title="4.5 可以根据以下语句查询刚创建好的job"></a>4.5 可以根据以下语句查询刚创建好的job</h3><pre class=" language-sql"><code class="language-sql"><span class="token keyword">select</span> job<span class="token punctuation">,</span> next_date<span class="token punctuation">,</span> next_sec<span class="token punctuation">,</span> failures<span class="token punctuation">,</span> broken <span class="token keyword">from</span> user_jobs <span class="token keyword">where</span> job <span class="token operator">=</span> <span class="token string">'1424'</span></code></pre>
-<p>查询结果如下</p>
-<pre class=" language-sql"><code class="language-sql">SQL<span class="token operator">></span> <span class="token keyword">select</span> job<span class="token punctuation">,</span> next_date<span class="token punctuation">,</span> next_sec<span class="token punctuation">,</span> failures<span class="token punctuation">,</span> broken <span class="token keyword">from</span> user_jobs <span class="token keyword">where</span> job <span class="token operator">=</span> <span class="token string">'1424'</span>
-  <span class="token number">2</span>  <span class="token operator">/</span>
-
-       JOB NEXT_DATE   NEXT_SEC           FAILURES BROKEN
-<span class="token comment" spellcheck="true">---------- ----------- ---------------- ---------- ------</span>
-      <span class="token number">1424</span> <span class="token number">2020</span><span class="token operator">-</span><span class="token number">12</span><span class="token operator">-</span><span class="token number">30</span>  <span class="token number">13</span>:<span class="token number">07</span>:<span class="token number">14</span>                  <span class="token number">0</span> N</code></pre>
-<p>其中broken = N 表示该job已经生效</p>
-<p>我们再来查看目标表中有没有定时插入数据</p>
-<pre class=" language-sql"><code class="language-sql">SQL<span class="token operator">></span> <span class="token keyword">select</span> <span class="token operator">*</span> <span class="token keyword">from</span> t_test<span class="token punctuation">;</span>
-
-ID                             NAME
-<span class="token comment" spellcheck="true">------------------------------ ------------------------------</span>
-<span class="token number">1</span>                              <span class="token number">2020</span><span class="token operator">-</span><span class="token number">12</span><span class="token operator">-</span><span class="token number">30</span> <span class="token number">13</span>:<span class="token number">05</span>:<span class="token number">14</span>
-<span class="token number">1</span>                              <span class="token number">2020</span><span class="token operator">-</span><span class="token number">12</span><span class="token operator">-</span><span class="token number">30</span> <span class="token number">13</span>:<span class="token number">03</span>:<span class="token number">14</span>
-<span class="token number">1</span>                              <span class="token number">2020</span><span class="token operator">-</span><span class="token number">12</span><span class="token operator">-</span><span class="token number">30</span> <span class="token number">13</span>:<span class="token number">04</span>:<span class="token number">14</span>
-<span class="token number">1</span>                              <span class="token number">2020</span><span class="token operator">-</span><span class="token number">12</span><span class="token operator">-</span><span class="token number">30</span> <span class="token number">13</span>:<span class="token number">08</span>:<span class="token number">14</span>
-<span class="token number">1</span>                              <span class="token number">2020</span><span class="token operator">-</span><span class="token number">12</span><span class="token operator">-</span><span class="token number">30</span> <span class="token number">13</span>:<span class="token number">06</span>:<span class="token number">14</span>
-<span class="token number">1</span>                              <span class="token number">2020</span><span class="token operator">-</span><span class="token number">12</span><span class="token operator">-</span><span class="token number">30</span> <span class="token number">13</span>:<span class="token number">07</span>:<span class="token number">14</span>
-
-<span class="token number">6</span> <span class="token keyword">rows</span> selected</code></pre>
-<p>可以看到，定时一分钟插入了一条数据。</p>
-<h3 id="4-6-如果我们不需要这个定时任务了，那要怎么停止呢？"><a href="#4-6-如果我们不需要这个定时任务了，那要怎么停止呢？" class="headerlink" title="4.6 如果我们不需要这个定时任务了，那要怎么停止呢？"></a>4.6 如果我们不需要这个定时任务了，那要怎么停止呢？</h3><p>1、根据jobno，执行以下脚本可以停止job</p>
-<pre class=" language-sql"><code class="language-sql">SQL<span class="token operator">></span> <span class="token keyword">begin</span>
-  <span class="token number">2</span>    dbms_job<span class="token punctuation">.</span>broken<span class="token punctuation">(</span><span class="token number">1424</span><span class="token punctuation">,</span> <span class="token boolean">true</span><span class="token punctuation">,</span> sysdate<span class="token punctuation">)</span><span class="token punctuation">;</span>
-  <span class="token number">3</span>    <span class="token keyword">commit</span><span class="token punctuation">;</span>
-  <span class="token number">4</span>  <span class="token keyword">end</span><span class="token punctuation">;</span>
-  <span class="token number">5</span>  <span class="token operator">/</span>
-
-PL<span class="token operator">/</span>SQL <span class="token keyword">procedure</span> successfully completed</code></pre>
-<p>再来查看定时任务是否停用成功</p>
-<pre class=" language-sql"><code class="language-sql">SQL<span class="token operator">></span> <span class="token keyword">select</span> job<span class="token punctuation">,</span> next_date<span class="token punctuation">,</span> next_sec<span class="token punctuation">,</span> failures<span class="token punctuation">,</span> broken <span class="token keyword">from</span> user_jobs <span class="token keyword">where</span> job <span class="token operator">=</span> <span class="token string">'1424'</span><span class="token punctuation">;</span>
-
-       JOB NEXT_DATE   NEXT_SEC           FAILURES BROKEN
-<span class="token comment" spellcheck="true">---------- ----------- ---------------- ---------- ------</span>
-      <span class="token number">1424</span> <span class="token number">4000</span><span class="token operator">-</span><span class="token number">01</span><span class="token operator">-</span><span class="token number">01</span>  <span class="token number">00</span>:<span class="token number">00</span>:<span class="token number">00</span>                  <span class="token number">0</span> Y</code></pre>
-<p>我们发现BROKEN=Y   说明定时任务已经停止成功了</p>
-<h3 id="4-7-启用刚才停用的定时任务"><a href="#4-7-启用刚才停用的定时任务" class="headerlink" title="4.7 启用刚才停用的定时任务"></a>4.7 启用刚才停用的定时任务</h3><pre class=" language-sql"><code class="language-sql">SQL<span class="token operator">></span> <span class="token keyword">begin</span>
-  <span class="token number">2</span>   dbms_job<span class="token punctuation">.</span>run<span class="token punctuation">(</span><span class="token number">1424</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-  <span class="token number">3</span>   <span class="token keyword">commit</span><span class="token punctuation">;</span>
-  <span class="token number">4</span>  <span class="token keyword">end</span><span class="token punctuation">;</span>
-  <span class="token number">5</span>  <span class="token operator">/</span>
-
-PL<span class="token operator">/</span>SQL <span class="token keyword">procedure</span> successfully completed
-
-SQL<span class="token operator">></span> <span class="token keyword">select</span> job<span class="token punctuation">,</span> next_date<span class="token punctuation">,</span> next_sec<span class="token punctuation">,</span> failures<span class="token punctuation">,</span> broken <span class="token keyword">from</span> user_jobs <span class="token keyword">where</span> job <span class="token operator">=</span> <span class="token string">'1424'</span><span class="token punctuation">;</span>
-
-       JOB NEXT_DATE   NEXT_SEC           FAILURES BROKEN
-<span class="token comment" spellcheck="true">---------- ----------- ---------------- ---------- ------</span>
-      <span class="token number">1424</span> <span class="token number">2020</span><span class="token operator">-</span><span class="token number">12</span><span class="token operator">-</span><span class="token number">30</span>  <span class="token number">13</span>:<span class="token number">20</span>:<span class="token number">53</span>                  <span class="token number">0</span> N</code></pre>
-<p>BROKEN = N ,刚才的定时任务又启动了</p>
-<h2 id="五、定时任务中job运行时间"><a href="#五、定时任务中job运行时间" class="headerlink" title="五、定时任务中job运行时间"></a>五、定时任务中job运行时间</h2><p>下面总计了一些定时任务中常用的运行时间</p>
-<ul>
-<li><p><strong>每分钟执行：</strong> TRUNC(sysdate,’mi’) + 1/(24*60)</p>
-</li>
-<li><p><strong>半个小时：</strong> sysdate+30/(24*60) </p>
-</li>
-<li><p><strong>每天凌晨1点执行：</strong>TRUNC(sysdate) + 1 +1/(24)</p>
-</li>
-<li><p><strong>每周一凌晨1点执行：</strong> TRUNC(next_day(sysdate,’星期一’))+1/24</p>
-</li>
-<li><p><strong>每月1日凌晨1点执行：</strong> TRUNC(LAST_DAY(SYSDATE))+1+1/24</p>
-</li>
-<li><p><strong>每季度的第一天凌晨1点执行：</strong> TRUNC(ADD_MONTHS(SYSDATE,3),’Q’) + 1/24</p>
-</li>
-<li><p><strong>每年7月1日和1月1日凌晨1点：</strong> ADD_MONTHS(trunc(sysdate,’yyyy’),6)+1/24</p>
-</li>
-<li><p><strong>每年1月1日凌晨1点执行：</strong> ADD_MONTHS(trunc(sysdate,’yyyy’), 12)+1/24</p>
-</li>
-<li><p><strong>每个小时的第15分钟运行，比如：8:15，9:15，10:15…：</strong>trunc(sysdate,’hh’)+(60+15)/(24*60) </p>
-</li>
+<li>可以把启动命令制作成bat文件，内容为：<pre class=" language-shell"><code class="language-shell">d:
+cd D:\apache-ftpserver-1.0.5\bin
+ftpd.bat res/conf/ftpd-typical.xml</code></pre>
+随便起一个名字xx，命名为xx.bat，点击xx.bat文件即可启动ftp服务器。</li>
 </ul>
 
             </div>
@@ -1192,7 +1140,7 @@ SQL<span class="token operator">></span> <span class="token keyword">select</spa
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://www.xiezhrspace.cn/archives/f23c506d.html">https://www.xiezhrspace.cn/archives/f23c506d.html</a>
+                    <a href="https://www.xiezhrspace.cn/archives/f9f84c7e.html">https://www.xiezhrspace.cn/archives/f9f84c7e.html</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -1230,8 +1178,8 @@ SQL<span class="token operator">></span> <span class="token keyword">select</spa
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/Oracle/">
-                                    <span class="chip bg-color">Oracle</span>
+                                <a href="/tags/windows-ftp/">
+                                    <span class="chip bg-color">windows,ftp</span>
                                 </a>
                             
                         </div>
@@ -1696,46 +1644,48 @@ SQL<span class="token operator">></span> <span class="token keyword">select</spa
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/archives/c992e1b0.html">
+                <a href="/archives/f9f84c7e.html">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/18.jpg" class="responsive-img" alt="Weblogic11g安装部署-winserver篇">
+                        <img src="/medias/featureimages/6.jpg" class="responsive-img" alt="windows环境下怎么搭建ftp服务器呢？">
                         
-                        <span class="card-title">Weblogic11g安装部署-winserver篇</span>
+                        <span class="card-title">windows环境下怎么搭建ftp服务器呢？</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            Weblogic11g安装部署-winserver篇。
+                            windows环境下怎么搭建ftp服务器呢？
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2021-01-04
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-01-10
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/weblogic/" class="post-category">
-                                    weblogic
+                            <a href="/categories/windows-ftp/" class="post-category">
+                                    windows,ftp
                                 </a>
                             
                             
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/weblogic/">
-                        <span class="chip bg-color">weblogic</span>
+                    <a href="/tags/windows-ftp/">
+                        <span class="chip bg-color">windows,ftp</span>
                     </a>
                     
                 </div>
@@ -1749,31 +1699,31 @@ SQL<span class="token operator">></span> <span class="token keyword">select</spa
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/archives/1c4e64a5.html">
+                <a href="/archives/e3ef4d8b.html">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/9.jpg" class="responsive-img" alt="SSH客户端常用工具SecureCRT操作">
+                        <img src="/medias/featureimages/8.jpg" class="responsive-img" alt="工作中，我们经常用到哪些SQL语句呢？">
                         
-                        <span class="card-title">SSH客户端常用工具SecureCRT操作</span>
+                        <span class="card-title">工作中，我们经常用到哪些SQL语句呢？</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            SSH客户端常用工具SecureCRT操作
+                            工作中，我们经常用到哪些SQL语句呢？
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-12-27
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-01-09
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/Linux/" class="post-category">
-                                    Linux
+                            <a href="/categories/Oracle/" class="post-category">
+                                    Oracle
                                 </a>
                             
                             
@@ -1783,8 +1733,8 @@ SQL<span class="token operator">></span> <span class="token keyword">select</spa
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Linux/">
-                        <span class="chip bg-color">Linux</span>
+                    <a href="/tags/Oracle/">
+                        <span class="chip bg-color">Oracle</span>
                     </a>
                     
                 </div>
