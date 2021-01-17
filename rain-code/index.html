@@ -925,7 +925,7 @@ window.onload = function() {
     for (var i = 0; i < colunms; i++) {
         drops.push(0)
     }
-    var str = "0 1";
+    var str = "欢 迎 你 的 到 来";
     function draw() {
         context.fillStyle = "rgba(238,238,238,.08)";
         context.fillRect(0, 0, W, H);
@@ -949,7 +949,8 @@ window.onload = function() {
         return "rgb(" + r + "," + g + "," + b + ")"
     }
     draw();
-    setInterval(draw, 35)
+    // 调整速度
+    setInterval(draw, 50)
 };
 </script>
 
