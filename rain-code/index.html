@@ -900,19 +900,17 @@
     </div>
 </div>
 
+
 <main class="content">
     <div class="container">
-        <div class="card">
-            <div class="card-content" id="card-content">
-                <canvas id="canvas" height="900" frameborder="no" width="1070">请使用高版本浏览器，IE8以及一下不支持canvas</canvas>
+        <div class="card" id="card-rain">
+            <div class="card-content">
+                <canvas id="canvas" class="canvas" height="900" width="1070" frameborder="no" >请使用高版本浏览器，IE8以及一下不支持canvas</canvas>
             </div>
         </div>
     </div>
 </main>
 
-<style type="text/css">
-	body{height:100%;overflow:hidden}
-</style> 
 
 <script>
 window.onload = function() {
@@ -927,7 +925,7 @@ window.onload = function() {
     for (var i = 0; i < colunms; i++) {
         drops.push(0)
     }
-    var str = "WELCOME TO WWW.ITRHX.COM";
+    var str = "0 1";
     function draw() {
         context.fillStyle = "rgba(238,238,238,.08)";
         context.fillRect(0, 0, W, H);
