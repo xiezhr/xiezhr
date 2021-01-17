@@ -59,7 +59,7 @@
 
 @font-face{
     font-family: 'hl';
-    src: url('../font/font.ttf');
+    src: url('https://cdn.jsdelivr.net/gh/xiezhr/xiezhrblog-cdn-source/source/font/font.ttf');
 }
 
 /** 表示全局使用，如果不想全局使用不要添加该段 */
