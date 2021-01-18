@@ -263,6 +263,20 @@
   </url>
   
   <url>
+    <loc>https://www.xiezhrspace.cn/tags/windows/</loc>
+    <lastmod>2021-01-18</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.xiezhrspace.cn/tags/ftp/</loc>
+    <lastmod>2021-01-18</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://www.xiezhrspace.cn/tags/Hexo/</loc>
     <lastmod>2021-01-18</lastmod>
     <changefreq>daily</changefreq>
@@ -285,20 +299,6 @@
   
   <url>
     <loc>https://www.xiezhrspace.cn/tags/CDN/</loc>
-    <lastmod>2021-01-18</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.xiezhrspace.cn/tags/windows/</loc>
-    <lastmod>2021-01-18</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.xiezhrspace.cn/tags/ftp/</loc>
     <lastmod>2021-01-18</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -349,14 +349,14 @@
   </url>
   
   <url>
-    <loc>https://www.xiezhrspace.cn/categories/hexo/</loc>
+    <loc>https://www.xiezhrspace.cn/categories/windows/</loc>
     <lastmod>2021-01-18</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://www.xiezhrspace.cn/categories/windows/</loc>
+    <loc>https://www.xiezhrspace.cn/categories/hexo/</loc>
     <lastmod>2021-01-18</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
