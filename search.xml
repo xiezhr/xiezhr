@@ -1,6 +1,91 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>如何使用jsDelivr+Github 实现免费CDN加速?</title>
+    <url>/archives/c14c115.html</url>
+    <content><![CDATA[<h2 id="序言"><a href="#序言" class="headerlink" title="序言"></a>序言</h2><p>个人采用hexo搭建的博客，博客虽然放到了云服务器上，但是由于博客上传的图片等资源越来越多，请求的资源也越来越多，博客访问速度越来越慢，简直不忍直视。这时就需要寻找解决办法，根据网上找资料，和博客交流群的小伙伴后便有了解决方案。使用cdn加速。但是很多云服务提供商的cdn加速都是要花钱的。花钱当然是拒绝的了，后面在小伙伴推荐后有了两种白嫖方案，1、jsDelivr+Github 2、又拍云（需要申请账号加入又拍云联盟，个人的申请还未下来）。都说又拍云加速会更好一些，但是自己的申请还没到，而博客访问优化又迫在眉睫，固先采用了1、jsDelivr+Github 的方案。下面就以jsDelivr+Github 实现免费cdn加速为例，记录自己优化过程。</p>
+<h2 id="1-cdn简介"><a href="#1-cdn简介" class="headerlink" title="1 cdn简介"></a>1 cdn简介</h2><p>cdn 全称Content Delivery Network即内容分发网络。</p>
+<p>CDN是一组分布在多个不同地方的WEB服务器，可以更加有效的向用户提供资源，会根据距离的远近来选择 。使用户能就近的获取请求数据，解决网络拥堵，提高访问速度，解决由于网络带宽小，用户访问量大，网点分布不均等原因导致的访问速度慢的问题。</p>
+<h2 id="2-cdn请求分发原理"><a href="#2-cdn请求分发原理" class="headerlink" title="2 cdn请求分发原理"></a>2 cdn请求分发原理</h2><p><img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/cdn%E5%8E%9F%E7%90%86%E5%9B%BE.webp" alt="cdn分发原理图"></p>
+<p>（1）用户向浏览器提供需要访问的域名；</p>
+<p>（2）浏览器调用域名解析库对域名进行解析，由于CDN对域名解析过程进行了调整，所以解析函数库一般得到的是该域名对应的CNAME记录，为了得到实际的IP地址，浏览器需要再次对获得的CNAME域名进行解析以得到实际的IP地址；在此过程中，使用的全局负载均衡DNS解析。如根据地理位置信息解析对应的IP地址，使得用户能就近访问；</p>
+<p>（3）此次解析得到CDN缓存服务器的IP地址，浏览器在得到实际的ip地址之后，向缓存服务器发出访问请求；</p>
+<p>（4）缓存服务器根据浏览器提供的要访问的域名，通过Cache内部专用DNS解析得到此域名的实际IP地址，再由缓存服务器向此实际IP地址提交访问请求；</p>
+<p>（5）缓存服务器从实际IP地址得到内容以后，一方面在本地进行保存，以备以后使用，二方面把获取的数据放回给客户端，完成数据服务过程；</p>
+<p>（6）客户端得到由缓存服务器返回的数据以后显示出来并完成整个浏览的数据请求过程。</p>
+<h2 id="3-jsDelivr简介"><a href="#3-jsDelivr简介" class="headerlink" title="3 jsDelivr简介"></a>3 jsDelivr简介</h2><p>是一个免费、快速和可信赖的CDN加速服务，声称它每个月可以支撑680亿次的请求。服务在Github上是开源的，<a href="https://github.com/jsdelivr/jsdelivr">jsDelivr地址</a> 。目前，它提供了针对npm、Github和WordPress的加速服务，只需要一行代码就可以获得加速效果。只要我们的项目中用到了第三方的静态资源，譬如JavaScript脚本，css样式表，图片，图标，Flash等静态资源文件都应该考虑接入到CDN中</p>
+<h2 id="4-jsDelivr-的简单使用"><a href="#4-jsDelivr-的简单使用" class="headerlink" title="4.jsDelivr 的简单使用"></a>4.jsDelivr 的简单使用</h2><p>我们以加载jQuery和Bootstrap 为例</p>
+<pre class=" language-js"><code class="language-js"><span class="token comment" spellcheck="true">// load jQuery v3.2.1</span>
+https<span class="token punctuation">:</span><span class="token operator">/</span><span class="token operator">/</span>cdn<span class="token punctuation">.</span>jsdelivr<span class="token punctuation">.</span>net<span class="token operator">/</span>npm<span class="token operator">/</span>jquery@<span class="token number">3.2</span><span class="token punctuation">.</span><span class="token number">1</span><span class="token operator">/</span>dist<span class="token operator">/</span>jquery<span class="token punctuation">.</span>min<span class="token punctuation">.</span>js
+<span class="token comment" spellcheck="true">// load bootstrap v4.4.1</span>
+https<span class="token punctuation">:</span><span class="token operator">/</span><span class="token operator">/</span>cdn<span class="token punctuation">.</span>jsdelivr<span class="token punctuation">.</span>net<span class="token operator">/</span>npm<span class="token operator">/</span>bootstrap@<span class="token number">4.4</span><span class="token punctuation">.</span><span class="token number">1</span><span class="token operator">/</span>dist<span class="token operator">/</span>js<span class="token operator">/</span>bootstrap<span class="token punctuation">.</span>js</code></pre>
+<p>jsDelivr + Github便是免费且好用的CDN，非常适合博客网站使用</p>
+<h2 id="5-jsDelivr-Github-的具体实现"><a href="#5-jsDelivr-Github-的具体实现" class="headerlink" title="5 jsDelivr + Github 的具体实现"></a>5 jsDelivr + Github 的具体实现</h2><h3 id="5-1-新建Github仓库"><a href="#5-1-新建Github仓库" class="headerlink" title="5.1 新建Github仓库"></a>5.1 新建Github仓库</h3><p><img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20210118212710.png"></p>
+<h3 id="5-2-使用git-clone-命令将仓库克隆到本地"><a href="#5-2-使用git-clone-命令将仓库克隆到本地" class="headerlink" title="5.2 使用git clone 命令将仓库克隆到本地"></a>5.2 使用git clone 命令将仓库克隆到本地</h3><p><img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/clone.png"></p>
+<p>在要放仓库的本地目录右键 Git Bash Here（如果没有安装git的需要提前安装下，都是默认安装即可），并输入以下命令</p>
+<pre class=" language-git"><code class="language-git">git clone https://github.com/xiezhr/mycdn.git</code></pre>
+<pre class=" language-git"><code class="language-git"><span class="token command">$ git clone https://github.com/xiezhr/mycdn.git</span>
+Cloning into <span class="token string">'mycdn'</span>...
+remote: Enumerating objects: 3, done.
+remote: Counting objects: 100% (3/3), done.
+remote: Total 3 (delta 0), reused 0 (delta 0), pack-reused 0
+Receiving objects: 100% (3/3), done.
+</code></pre>
+<h3 id="5-3-将需要cdn加速的资源上传到github仓库"><a href="#5-3-将需要cdn加速的资源上传到github仓库" class="headerlink" title="5.3 将需要cdn加速的资源上传到github仓库"></a>5.3 将需要cdn加速的资源上传到github仓库</h3><p>需要用到的命令如下</p>
+<pre class=" language-shell"><code class="language-shell">git add .                     //添加所有文件到暂存区
+git status                    //查看状态
+git commit -m '第一次提交'      //把文件提交到仓库 -m 后面的是备注信息
+git push                      //推送至远程仓库</code></pre>
+<p>个人采用的是hexo博客框架，该框架的静态资源（css、js、图片等）都是放在source目录下面，所以呢我是将source目录真个上传上去，这样的好处是路径跟原来的保持一致，后面在调用的时候比较方便。<br><img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/source.png"></p>
+<p>git 窗口输入如上命令之后，文件都上传到了github仓库<br><img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0%E5%90%8E.png"></p>
+<h3 id="5-4-点击release-发布版本"><a href="#5-4-点击release-发布版本" class="headerlink" title="5.4 点击release 发布版本"></a>5.4 点击release 发布版本</h3><p><img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/releases.png"><br>自定义发布版<br><img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/pubshcdn.png"></p>
+<h3 id="5-5-通过jsDelivr引用资源"><a href="#5-5-通过jsDelivr引用资源" class="headerlink" title="5.5 通过jsDelivr引用资源"></a>5.5 通过jsDelivr引用资源</h3><p>通过如下地址应用资源</p>
+<pre class=" language-url"><code class="language-url">https://cdn.jsdelivr.net/gh/你的用户名/你的仓库名@发布的版本号/文件路径</code></pre>
+<p>举个栗子,获取source/bgimg路径下的back-rain.png </p>
+<pre class=" language-url"><code class="language-url">https://cdn.jsdelivr.net/gh/xiezhr/mycdn/source/bgimg/back-rain.png       ## 获取最新资源
+https://cdn.jsdelivr.net/gh/xiezhr/mycdn@1.0/source/bgimg/back-rain.png   ## 获取1.0版本的资源</code></pre>
+<p><strong>注意：</strong> 版本号不是必需的，是为了区分新旧资源，如果不使用版本号，将会直接引用最新资源，除此之外还可以使用某个范围内的版本，查看所有资源等，具体使用方法如下：</p>
+<pre class=" language-url"><code class="language-url">// 加载任何Github发布、提交或分支
+https://cdn.jsdelivr.net/gh/user/repo@version/file
+
+// 加载 jQuery v3.2.1
+https://cdn.jsdelivr.net/gh/jquery/jquery@3.2.1/dist/jquery.min.js
+
+// 使用版本范围而不是特定版本
+https://cdn.jsdelivr.net/gh/jquery/jquery@3.2/dist/jquery.min.js   https://cdn.jsdelivr.net/gh/jquery/jquery@3/dist/jquery.min.js
+
+// 完全省略该版本以获取最新版本
+https://cdn.jsdelivr.net/gh/jquery/jquery/dist/jquery.min.js
+
+// 将“.min”添加到任何JS/CSS文件中以获取缩小版本，如果不存在，将为会自动生成
+https://cdn.jsdelivr.net/gh/jquery/jquery@3.2.1/src/core.min.js
+
+// 在末尾添加 / 以获取资源目录列表
+https://cdn.jsdelivr.net/gh/jquery/jquery/</code></pre>
+<h2 id="6-将hexo中用到静态资源的地方换成cdn加速"><a href="#6-将hexo中用到静态资源的地方换成cdn加速" class="headerlink" title="6 将hexo中用到静态资源的地方换成cdn加速"></a>6 将hexo中用到静态资源的地方换成cdn加速</h2><pre class=" language-yml"><code class="language-yml"># 使用到的前端库，可按需替换成对应的CDN地址，如果下面未指定具体的版本号，使用最新的版本即可.
+# 注：jsdelivr可以自动帮你生成.min版的js和css，所以你在设置js及css路径中可以直接写.min.xxx
+libs:
+  css:
+    matery: https://cdn.jsdelivr.net/gh/xiezhr/mycdn/source/css/matery.css
+    mycss: https://cdn.jsdelivr.net/gh/xiezhr/mycdn/source/css/my.css
+    fontAwesome: https://cdn.jsdelivr.net/gh/xiezhr/mycdn/source/libs/awesome/css/all.css # V5.11.1
+    materialize: https://cdn.jsdelivr.net/gh/xiezhr/mycdn/source/libs/materialize/materialize.min.css # 1.0.0
+    aos: https://cdn.jsdelivr.net/gh/xiezhr/mycdn/source/libs/aos/aos.css</code></pre>
+<p>都换好之后，执行如下命令</p>
+<pre class=" language-xml"><code class="language-xml">hexo cl &amp; hexo g &amp; hexo s</code></pre>
+<p>浏览器地址栏输入 <a href="http://localhost:4000/">http://localhost:4000</a> 访问博客，你会发下博客访问速度快了很多。到此大功告成！！！</p>
+]]></content>
+      <categories>
+        <category>hexo</category>
+      </categories>
+      <tags>
+        <tag>Hexo</tag>
+        <tag>jsDelivr</tag>
+        <tag>Github</tag>
+        <tag>CDN</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>windows环境下怎么搭建ftp服务器呢？</title>
     <url>/archives/f9f84c7e.html</url>
     <content><![CDATA[<h2 id="1-ftp简介"><a href="#1-ftp简介" class="headerlink" title="1.ftp简介"></a>1.ftp简介</h2><p><strong>在搭建ftp服务前呢，我们先来了解下ftp协议和ftp服务器</strong></p>
@@ -90,10 +175,12 @@ ftpd.bat res/conf/ftpd-typical.xml</code></pre>
 </ul>
 ]]></content>
       <categories>
-        <category>windows,ftp</category>
+        <category>windows</category>
+        <category>ftp</category>
       </categories>
       <tags>
-        <tag>windows,ftp</tag>
+        <tag>windows</tag>
+        <tag>ftp</tag>
       </tags>
   </entry>
   <entry>
