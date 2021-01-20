@@ -1205,7 +1205,7 @@
                 type: 'pie',
                 radius: '50%',
                 color: ['#6772e5', '#ff9e0f', '#fa755a', '#3ecf8e', '#82d3f4', '#ab47bc', '#525f7f', '#f51c47', '#26A69A'],
-                data: [{"name":"Oracle","value":2},{"name":"Linux","value":2},{"name":"日常小技巧","value":1},{"name":"mybatis","value":2},{"name":"mysql","value":1},{"name":"windows","value":1},{"name":"hexo","value":1},{"name":"weblogic","value":1},{"name":"ftp","value":1}],
+                data: [{"name":"Oracle","value":2},{"name":"Linux","value":2},{"name":"日常小技巧","value":1},{"name":"mysql","value":1},{"name":"mybatis","value":2},{"name":"weblogic","value":1},{"name":"hexo","value":1},{"name":"windows","value":1},{"name":"ftp","value":1}],
                 itemStyle: {
                     emphasis: {
                         shadowBlur: 10,
@@ -1229,7 +1229,7 @@
         xAxis: [
             {
                 type: 'category',
-                data: ["Oracle","Linux","mybatis","markdown","mysql","windows","ftp","Hexo","jsDelivr","Github"]
+                data: ["Oracle","Linux","mybatis","markdown","mysql","weblogic","Hexo","jsDelivr","Github","CDN"]
             }
         ],
         yAxis: [
@@ -1271,6 +1271,50 @@
     tagsChart.setOption(tagsOption);
 </script>
  -->
+                <!-- 对话 -->
+                
+                <link href="https://cdn.bootcss.com/botui/0.3.9/botui-theme-default.css" rel="stylesheet">
+<link href="https://cdn.bootcss.com/botui/0.3.9/botui.min.css" rel="stylesheet">
+
+<style>
+#myTalk{
+    margin-top: 30px;
+
+}
+</style>
+<div id="myTalk" class="container  other-skills chip-container" data-aos="zoom-in-up"">
+
+    <!-- 因为vue和botui更新导至bug,现将对话移至js下的botui中配置 -->
+    <div class="entry-content">
+     <!--
+        <div class="sub-title center-align"><i class="fa fa-message"></i>&nbsp;&nbsp;张小菜苔</div>
+       
+      <div class="moe-cungudafa" style="text-align:center; font-size: 30px; margin-bottom: 20px;">张小菜苔</div>
+      -->
+      <div id="hello-xiaocai" class="popcontainer" style="min-height: 300px; padding: 2px 6px 4px; background-color: rgb(36, 200, 255); border-radius: 10px;">
+        <center>
+        <h4>
+        与&nbsp;<ruby>
+        xiezhr &nbsp;<rp>
+        </rp>
+        </ruby>
+        对话中...</h4>
+        <p>
+        </p>
+        </center>
+        <bot-ui></botui>
+      </div>
+    </div>
+
+
+</div>
+
+<script type="text/javascript" src="/js/botui.js"></script>
+<script>
+ bot_ui_ini()
+</script>
+
+                
 
                 
                 
@@ -1417,26 +1461,20 @@
             
             
             
-            <a href="/tags/mybatis/">
-                <span class="chip center-align waves-effect waves-light chip-default">mybatis</span>
-            </a>
-            
-            
-            
             <a href="/tags/mysql/">
                 <span class="chip center-align waves-effect waves-light chip-default">mysql</span>
             </a>
             
             
             
-            <a href="/tags/windows/">
-                <span class="chip center-align waves-effect waves-light chip-default">windows</span>
+            <a href="/tags/mybatis/">
+                <span class="chip center-align waves-effect waves-light chip-default">mybatis</span>
             </a>
             
             
             
-            <a href="/tags/ftp/">
-                <span class="chip center-align waves-effect waves-light chip-default">ftp</span>
+            <a href="/tags/weblogic/">
+                <span class="chip center-align waves-effect waves-light chip-default">weblogic</span>
             </a>
             
             
@@ -1465,8 +1503,14 @@
             
             
             
-            <a href="/tags/weblogic/">
-                <span class="chip center-align waves-effect waves-light chip-default">weblogic</span>
+            <a href="/tags/windows/">
+                <span class="chip center-align waves-effect waves-light chip-default">windows</span>
+            </a>
+            
+            
+            
+            <a href="/tags/ftp/">
+                <span class="chip center-align waves-effect waves-light chip-default">ftp</span>
             </a>
             
             
