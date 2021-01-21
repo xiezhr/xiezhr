@@ -407,9 +407,9 @@
             <div class="brand-logo">
                 <a href="/" class="waves-effect waves-light">
                     
-                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    <img src="/medias/logo.png" class="logo-img" id="logo-img" alt="LOGO">
                     
-                    <span class="logo-span diyFont">xiezhrspace</span>
+                    <span class="logo-span diyFont" id="logo-title">xiezhrspace</span>
                 </a>
             </div>
             
@@ -613,17 +613,31 @@
   </li>
 </ul>
 
+<style>
+  #logo-title{
+    display: none;
+  }
+
+  #logo-img{
+    
+  }
+  #mobile-logo-img{
+    height: auto;
+    width: auto;
+  }
+</style>
+
 
 <div id="mobile-nav" class="side-nav sidenav">
 
     <div class="mobile-head bg-color">
         
-        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        <img src="/medias/logo.png" class="logo-img circle responsive-img" id="mobile-logo-img">
         
-        <div class="logo-name">xiezhrspace</div>
+        
         <div class="logo-desc">
             
-            Never really desperate, only the lost of the soul.
+            爱学习 爱编程 爱分享 再小的帆也能远航
             
         </div>
     </div>
@@ -635,9 +649,9 @@
         <li class="m-nav-item">
 	  
 		<a href="/" class="waves-effect waves-light">
-			
+			<!-- 
 				<i class="fas fa-fw fa-link"></i>
-			
+			 -->
 			首页
 		</a>
           
@@ -646,10 +660,10 @@
         <li class="m-nav-item">
 	  
 		<a href="javascript:;">
-			
+			<!-- 
 				<i class="fas fa-fw fa-link"></i>
-			
-			Classification
+			 -->
+			归档
 			<span class="m-icon"><i class="fas fa-chevron-right"></i></span>
 		</a>
             <ul  style="background:  ;" >
@@ -685,10 +699,10 @@
         <li class="m-nav-item">
 	  
 		<a href="/artitalk" class="waves-effect waves-light">
-			
+			<!-- 
 				<i class="fas fa-fw fa-link"></i>
-			
-			Artitalk
+			 -->
+			说说
 		</a>
           
         </li>
@@ -696,10 +710,10 @@
         <li class="m-nav-item">
 	  
 		<a href="javascript:;">
-			
+			<!-- 
 				<i class="fas fa-fw fa-link"></i>
-			
-			Medias
+			 -->
+			媒体
 			<span class="m-icon"><i class="fas fa-chevron-right"></i></span>
 		</a>
             <ul  style="background:  ;" >
@@ -735,10 +749,10 @@
         <li class="m-nav-item">
 	  
 		<a href="javascript:;">
-			
+			<!-- 
 				<i class="fas fa-fw fa-link"></i>
-			
-			Resources-share
+			 -->
+			资源分享
 			<span class="m-icon"><i class="fas fa-chevron-right"></i></span>
 		</a>
             <ul  style="background:  ;" >
@@ -766,9 +780,9 @@
         <li class="m-nav-item">
 	  
 		<a href="/about" class="waves-effect waves-light">
-			
+			<!-- 
 				<i class="fas fa-fw fa-link"></i>
-			
+			 -->
 			关于
 		</a>
           
@@ -777,9 +791,9 @@
         <li class="m-nav-item">
 	  
 		<a href="/contact" class="waves-effect waves-light">
-			
+			<!-- 
 				<i class="fas fa-fw fa-link"></i>
-			
+			 -->
 			留言板
 		</a>
           
@@ -788,9 +802,9 @@
         <li class="m-nav-item">
 	  
 		<a href="/friends" class="waves-effect waves-light">
-			
+			<!-- 
 				<i class="fas fa-fw fa-link"></i>
-			
+			 -->
 			友情链接
 		</a>
           
@@ -799,10 +813,10 @@
         <li class="m-nav-item">
 	  
 		<a href="javascript:;">
-			
+			<!-- 
 				<i class="fas fa-fw fa-link"></i>
-			
-			Laboratory
+			 -->
+			实验室
 			<span class="m-icon"><i class="fas fa-chevron-right"></i></span>
 		</a>
             <ul  style="background:  ;" >
@@ -940,19 +954,10 @@
                 </a>
                 
                 
-                <a href="/tags/mysql/" title="mysql: 1">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-default "
-                            data-tagname="mysql" style="background-color: #E8F8F5;">mysql
-                        <span class="tag-length">1</span>
-                    </span>
-                </a>
-                
-                
                 <a href="/tags/mybatis/" title="mybatis: 2">
                     <span class="chip center-align waves-effect waves-light
                              chip-default "
-                            data-tagname="mybatis" style="background-color: #FEF9E7;">mybatis
+                            data-tagname="mybatis" style="background-color: #E8F8F5;">mybatis
                         <span class="tag-length">2</span>
                     </span>
                 </a>
@@ -961,43 +966,16 @@
                 <a href="/tags/weblogic/" title="weblogic: 1">
                     <span class="chip center-align waves-effect waves-light
                              chip-default "
-                            data-tagname="weblogic" style="background-color: #F8F9F9;">weblogic
+                            data-tagname="weblogic" style="background-color: #FEF9E7;">weblogic
                         <span class="tag-length">1</span>
                     </span>
                 </a>
                 
                 
-                <a href="/tags/Hexo/" title="Hexo: 1">
+                <a href="/tags/mysql/" title="mysql: 1">
                     <span class="chip center-align waves-effect waves-light
                              chip-default "
-                            data-tagname="Hexo" style="background-color: #82E0AA;">Hexo
-                        <span class="tag-length">1</span>
-                    </span>
-                </a>
-                
-                
-                <a href="/tags/jsDelivr/" title="jsDelivr: 1">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-default "
-                            data-tagname="jsDelivr" style="background-color: #D7BDE2;">jsDelivr
-                        <span class="tag-length">1</span>
-                    </span>
-                </a>
-                
-                
-                <a href="/tags/Github/" title="Github: 1">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-active "
-                            data-tagname="Github" style="background-color: #A3E4D7;">Github
-                        <span class="tag-length">1</span>
-                    </span>
-                </a>
-                
-                
-                <a href="/tags/CDN/" title="CDN: 1">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-default "
-                            data-tagname="CDN" style="background-color: #85C1E9;">CDN
+                            data-tagname="mysql" style="background-color: #F8F9F9;">mysql
                         <span class="tag-length">1</span>
                     </span>
                 </a>
@@ -1006,7 +984,7 @@
                 <a href="/tags/windows/" title="windows: 1">
                     <span class="chip center-align waves-effect waves-light
                              chip-default "
-                            data-tagname="windows" style="background-color: #F8C471;">windows
+                            data-tagname="windows" style="background-color: #82E0AA;">windows
                         <span class="tag-length">1</span>
                     </span>
                 </a>
@@ -1015,7 +993,43 @@
                 <a href="/tags/ftp/" title="ftp: 1">
                     <span class="chip center-align waves-effect waves-light
                              chip-default "
-                            data-tagname="ftp" style="background-color: #F9E79F;">ftp
+                            data-tagname="ftp" style="background-color: #D7BDE2;">ftp
+                        <span class="tag-length">1</span>
+                    </span>
+                </a>
+                
+                
+                <a href="/tags/Hexo/" title="Hexo: 1">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default "
+                            data-tagname="Hexo" style="background-color: #A3E4D7;">Hexo
+                        <span class="tag-length">1</span>
+                    </span>
+                </a>
+                
+                
+                <a href="/tags/jsDelivr/" title="jsDelivr: 1">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default "
+                            data-tagname="jsDelivr" style="background-color: #85C1E9;">jsDelivr
+                        <span class="tag-length">1</span>
+                    </span>
+                </a>
+                
+                
+                <a href="/tags/Github/" title="Github: 1">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-active "
+                            data-tagname="Github" style="background-color: #F8C471;">Github
+                        <span class="tag-length">1</span>
+                    </span>
+                </a>
+                
+                
+                <a href="/tags/CDN/" title="CDN: 1">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default "
+                            data-tagname="CDN" style="background-color: #F9E79F;">CDN
                         <span class="tag-length">1</span>
                     </span>
                 </a>
