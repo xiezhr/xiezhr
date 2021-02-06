@@ -1,6 +1,55 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title></title>
+    <url>/archives/0.html</url>
+    <content><![CDATA[<h1 id="如何让别人访问到你的本地项目？-Ngrok免费实现内网穿透"><a href="#如何让别人访问到你的本地项目？-Ngrok免费实现内网穿透" class="headerlink" title="如何让别人访问到你的本地项目？ Ngrok免费实现内网穿透"></a>如何让别人访问到你的本地项目？ Ngrok免费实现内网穿透</h1><p><img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/bbbbbb.png"></p>
+<h2 id="1、使用场景"><a href="#1、使用场景" class="headerlink" title="1、使用场景"></a>1、使用场景</h2><p>让本地局域网的跑的应用可以被外网访问</p>
+<h2 id="2、常用内网穿透工具"><a href="#2、常用内网穿透工具" class="headerlink" title="2、常用内网穿透工具"></a>2、常用内网穿透工具</h2><pre><code>能实现内网穿透的工具也挺多，下面列出了几个</code></pre>
+<ul>
+<li>Ngrok 一个通过任何NAT或防火墙为您的本地主机服务器提供即时访问、安全的URL的命令。类似花生壳，分为服务端和客户端，也可以自己搭建服务端（也是我们今天采用的工具）</li>
+<li>Ssh、autossh</li>
+<li>Natapp：基于ngrok的国内收费内网穿透工具，类似花生壳</li>
+<li>Frp ：frp 是一个可用于内网穿透的高性能的反向代理应用，支持 tcp, udp, http, https 协议。</li>
+<li>Lanproxy ：lanproxy是一个将局域网个人电脑、服务器代理到公网的内网穿透工具，目前仅支持tcp流量转发</li>
+<li>Spike ：Spike是一个可以用来将你的内网服务暴露在公网的快速的反向代理，基于ReactPHP，采用IO多路复用模型。采用Php实现</li>
+<li>花生壳：比较稳定，收费贵，一般都是企业使用</li>
+</ul>
+<h2 id="3、Ngrok免费实现内网穿透"><a href="#3、Ngrok免费实现内网穿透" class="headerlink" title="3、Ngrok免费实现内网穿透"></a>3、Ngrok免费实现内网穿透</h2><h3 id="3-1-注册、并登陆账号"><a href="#3-1-注册、并登陆账号" class="headerlink" title="3.1. 注册、并登陆账号"></a>3.1. 注册、并登陆账号</h3><ul>
+<li><p>官方地址：<a href="http://www.ngrok.cc/">http://www.ngrok.cc/</a></p>
+<p>  <img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/%E6%B3%A8%E5%86%8C%E7%99%BB%E5%BD%95.png"><br>  <img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/%E7%99%BB%E5%BD%95.png"></p>
+</li>
+</ul>
+<h3 id="3-2-开通隧道"><a href="#3-2-开通隧道" class="headerlink" title="3.2. 开通隧道"></a>3.2. 开通隧道</h3><ul>
+<li><p>我们注册好账号后登陆后可以看到如下首页界面</p>
+<p>  <img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/%E9%A6%96%E9%A1%B5.png"></p>
+</li>
+<li><p>在右侧菜单栏选择隧道管理–》开通隧道。<br>这里呢我们选择免费的，找到如下图所示服务器并点击购买，如果要绑定域名的话就需要根据需要购买对应服务器<br><img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/%E5%85%8D%E8%B4%B9%E6%9C%8D%E5%8A%A1.png"></p>
+</li>
+</ul>
+<h3 id="3-3-填写隧道相关信息"><a href="#3-3-填写隧道相关信息" class="headerlink" title="3.3. 填写隧道相关信息"></a>3.3. 填写隧道相关信息</h3><pre><code>当我们点击上一步选择购买的服务器之后，会跳转到如下隧道信息填写界面。填写好相关信息</code></pre>
+<p><img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/%E9%9A%A7%E9%81%93%E4%BF%A1%E6%81%AF%E5%A1%AB%E5%86%99.png"></p>
+<h3 id="3-4-下载客户端工具"><a href="#3-4-下载客户端工具" class="headerlink" title="3.4. 下载客户端工具"></a>3.4. 下载客户端工具</h3><p>上一步我们填写隧道信息并开通之后，会跳转到隧道管理页面。此页面会有一个客户端下载链接地址。如下图所示<br><img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/%E5%AE%A2%E6%88%B7%E7%AB%AF%E4%B8%8B%E8%BD%BD.png"></p>
+<h3 id="3-5-解压下载的客户端工具，并运行批处理启动"><a href="#3-5-解压下载的客户端工具，并运行批处理启动" class="headerlink" title="3.5. 解压下载的客户端工具，并运行批处理启动"></a>3.5. 解压下载的客户端工具，并运行批处理启动</h3><ul>
+<li><p>找到下载的客户端工具并解压，双击运行批处理文件【Sunny-Ngrok启动工具.bat】启动<br>  <img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/%E5%90%AF%E5%8A%A8.png"></p>
+</li>
+<li><p>双击之后会到一个启动界面，如下<br>  <img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/%E5%90%AF%E5%8A%A8%E7%95%8C%E9%9D%A2.png"></p>
+</li>
+<li><p>我们找到刚才开通的隧道id，并将id填入<br><img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/%E9%9A%A7%E9%81%93id.png"></p>
+</li>
+</ul>
+<p><img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/%E9%9A%A7%E9%81%93id%E5%A1%AB%E5%85%A5.png"></p>
+<h3 id="3-6-查看启动状态"><a href="#3-6-查看启动状态" class="headerlink" title="3.6. 查看启动状态"></a>3.6. 查看启动状态</h3><ul>
+<li>接上一步回车之后如果出现如下界面则证明启动成功<br><img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/%E5%90%AF%E5%8A%A8%E7%8A%B6%E6%80%811.png"><br><img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/%E5%90%AF%E5%8A%A8%E7%8A%B6%E6%80%812.png"></li>
+</ul>
+<h3 id="3-7-建立web应用-并启动本地服务"><a href="#3-7-建立web应用-并启动本地服务" class="headerlink" title="3.7. 建立web应用,并启动本地服务"></a>3.7. 建立web应用,并启动本地服务</h3><p>怎么建立web应用这里就不细说了，可以参考<a href="https://how2j.cn/k/idea/idea-tomcat/1361.html">idea环境下建立web应用</a></p>
+<p>本地访问：<a href="http://localhost:8080/web/hello">http://localhost:8080/web/hello</a><br>    <img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/%E6%9C%AC%E5%9C%B0%E8%AE%BF%E9%97%AE.png"></p>
+<p>外网访问：<a href="http://xiezr.free.idcfengye.com/web/hello">http://xiezr.free.idcfengye.com/web/hello</a></p>
+<p><img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/%E5%A4%96%E7%BD%91%E8%AE%BF%E9%97%AE.png"></p>
+<p>大功告成！！！</p>
+]]></content>
+  </entry>
+  <entry>
     <title>Oracle异常处理</title>
     <url>/archives/93a2b0e4.html</url>
     <content><![CDATA[<h2 id="序言"><a href="#序言" class="headerlink" title="序言"></a>序言</h2><p>最近在工作中遇到这么一个场景：</p>
