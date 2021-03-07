@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="内网穿透,Ngrok">
+    <meta name="keywords" content="数据库备份,Linux">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -18,7 +18,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>Ngrok免费实现内网穿透？ | xiezhrspace</title>
+    <title>数据库定时备份linux篇 | xiezhrspace</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/xiezhr/xiezhrblog-cdn-source/source/libs/awesome/css/all.css">
@@ -912,12 +912,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/xiezhr/xiezhrblog-cdn-source/source/cover/ngrok.png')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://gitee.com/xiezhr/image-learn-bed/raw/master/image/backup1.png')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">Ngrok免费实现内网穿透？</h1>
+                    <h1 class="description center-align post-title">数据库定时备份linux篇</h1>
                 </div>
             </div>
         </div>
@@ -1041,12 +1041,12 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F/">
-                                <span class="chip bg-color">内网穿透</span>
+                            <a href="/tags/Linux/">
+                                <span class="chip bg-color">Linux</span>
                             </a>
                         
-                            <a href="/tags/Ngrok/">
-                                <span class="chip bg-color">Ngrok</span>
+                            <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93%E5%A4%87%E4%BB%BD/">
+                                <span class="chip bg-color">数据库备份</span>
                             </a>
                         
                     </div>
@@ -1057,12 +1057,12 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F/" class="post-category">
-                                内网穿透
+                            <a href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93%E5%A4%87%E4%BB%BD/" class="post-category">
+                                数据库备份
                             </a>
                         
-                            <a href="/categories/%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F/Ngrok/" class="post-category">
-                                Ngrok
+                            <a href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93%E5%A4%87%E4%BB%BD/Linux/" class="post-category">
+                                Linux
                             </a>
                         
                     </div>
@@ -1074,7 +1074,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2021-02-06
+                    2021-03-07
                 </div>
                 
 
@@ -1088,14 +1088,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    676
+                    2.5k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    2 分
+                    11 分
                 </div>
                 
 
@@ -1110,49 +1110,233 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p><img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/bbbbbb.png"></p>
-<h2 id="1、使用场景"><a href="#1、使用场景" class="headerlink" title="1、使用场景"></a>1、使用场景</h2><p>让本地局域网的跑的应用可以被外网访问</p>
-<h2 id="2、常用内网穿透工具"><a href="#2、常用内网穿透工具" class="headerlink" title="2、常用内网穿透工具"></a>2、常用内网穿透工具</h2><p>能实现内网穿透的工具也挺多，下面列出了几个</p>
+                <h2 id="1-序言"><a href="#1-序言" class="headerlink" title="1 序言"></a>1 序言</h2><p>数据是无价的，所以生产环境中定时备份数据库显得尤为重要。备份能防止服务器故障和人为误操作带来的数据丢失。</p>
+<p>生产环境中linux操作系统也是服务器的首选，所以我们今天就以linux为例，说一说数据库备份。</p>
+<p>具体以什么数据库为例呢，就以这几年工作中接触到的几种常见数据库为例吧。</p>
 <ul>
-<li>Ngrok 一个通过任何NAT或防火墙为您的本地主机服务器提供即时访问、安全的URL的命令。类似花生壳，分为服务端和客户端，也可以自己搭建服务端（也是我们今天采用的工具）</li>
-<li>Ssh、autossh</li>
-<li>Natapp：基于ngrok的国内收费内网穿透工具，类似花生壳</li>
-<li>Frp ：frp 是一个可用于内网穿透的高性能的反向代理应用，支持 tcp, udp, http, https 协议。</li>
-<li>Lanproxy ：lanproxy是一个将局域网个人电脑、服务器代理到公网的内网穿透工具，目前仅支持tcp流量转发</li>
-<li>Spike ：Spike是一个可以用来将你的内网服务暴露在公网的快速的反向代理，基于ReactPHP，采用IO多路复用模型。采用Php实现</li>
-<li>花生壳：比较稳定，收费贵，一般都是企业使用</li>
+<li>Oracle </li>
+<li>mysql</li>
+<li>postgresql</li>
+<li>mongoDB</li>
 </ul>
-<h2 id="3、Ngrok免费实现内网穿透"><a href="#3、Ngrok免费实现内网穿透" class="headerlink" title="3、Ngrok免费实现内网穿透"></a>3、Ngrok免费实现内网穿透</h2><h3 id="3-1-注册、并登陆账号"><a href="#3-1-注册、并登陆账号" class="headerlink" title="3.1. 注册、并登陆账号"></a>3.1. 注册、并登陆账号</h3><ul>
-<li><p>官方地址：<a target="_blank" rel="noopener" href="http://www.ngrok.cc/">http://www.ngrok.cc/</a></p>
-<p>  <img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/%E6%B3%A8%E5%86%8C%E7%99%BB%E5%BD%95.png"><br>  <img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/%E7%99%BB%E5%BD%95.png"></p>
-</li>
+<p>在这里呢也给自己挖一个坑，工作中呢也用到winserver 作为服务器的情况，所以呢下周也整理更新下winserver 环境下数据库备份。</p>
+<h2 id="2-crond-相关知识点"><a href="#2-crond-相关知识点" class="headerlink" title="2 crond 相关知识点"></a>2 crond 相关知识点</h2><h3 id="2-1-crond-是什么？"><a href="#2-1-crond-是什么？" class="headerlink" title="2.1 crond 是什么？"></a>2.1 crond 是什么？</h3><ul>
+<li>crond任务调度相当于我们日常生活中的闹钟。可以在某个时间点执行特定的命令和程序。</li>
+<li>linux系统自身定期执行的任务工作：例如轮询系统日志、备份系统数据、清理系统缓存、杀毒等等</li>
+<li>用户执行的工作任务：用户通过设置任务调度，定时执行自己添加shell脚本或简单的指令。例如每隔1分钟和互联网上时间服务器同步，每天凌晨1点备份数据库等等</li>
 </ul>
-<h3 id="3-2-开通隧道"><a href="#3-2-开通隧道" class="headerlink" title="3.2. 开通隧道"></a>3.2. 开通隧道</h3><ul>
-<li><p>我们注册好账号后登陆后可以看到如下首页界面</p>
-<p>  <img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/%E9%A6%96%E9%A1%B5.png"></p>
-</li>
-<li><p>在右侧菜单栏选择隧道管理–》开通隧道。<br>这里呢我们选择免费的，找到如下图所示服务器并点击购买，如果要绑定域名的话就需要根据需要购买对应服务器<br><img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/%E5%85%8D%E8%B4%B9%E6%9C%8D%E5%8A%A1.png"></p>
-</li>
-</ul>
-<h3 id="3-3-填写隧道相关信息"><a href="#3-3-填写隧道相关信息" class="headerlink" title="3.3. 填写隧道相关信息"></a>3.3. 填写隧道相关信息</h3><p>当我们点击上一步选择购买的服务器之后，会跳转到如下隧道信息填写界面。填写好相关信息<br><img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/%E9%9A%A7%E9%81%93%E4%BF%A1%E6%81%AF%E5%A1%AB%E5%86%99.png"></p>
-<h3 id="3-4-下载客户端工具"><a href="#3-4-下载客户端工具" class="headerlink" title="3.4. 下载客户端工具"></a>3.4. 下载客户端工具</h3><p>上一步我们填写隧道信息并开通之后，会跳转到隧道管理页面。此页面会有一个客户端下载链接地址。如下图所示<br><img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/%E5%AE%A2%E6%88%B7%E7%AB%AF%E4%B8%8B%E8%BD%BD.png"></p>
-<h3 id="3-5-解压下载的客户端工具，并运行批处理启动"><a href="#3-5-解压下载的客户端工具，并运行批处理启动" class="headerlink" title="3.5. 解压下载的客户端工具，并运行批处理启动"></a>3.5. 解压下载的客户端工具，并运行批处理启动</h3><ul>
-<li><p>找到下载的客户端工具并解压，双击运行批处理文件【Sunny-Ngrok启动工具.bat】启动<br>  <img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/%E5%90%AF%E5%8A%A8.png"></p>
-</li>
-<li><p>双击之后会到一个启动界面，如下<br>  <img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/%E5%90%AF%E5%8A%A8%E7%95%8C%E9%9D%A2.png"></p>
-</li>
-<li><p>我们找到刚才开通的隧道id，并将id填入<br><img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/%E9%9A%A7%E9%81%93id.png"></p>
-</li>
-</ul>
-<p><img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/%E9%9A%A7%E9%81%93id%E5%A1%AB%E5%85%A5.png"></p>
-<h3 id="3-6-查看启动状态"><a href="#3-6-查看启动状态" class="headerlink" title="3.6. 查看启动状态"></a>3.6. 查看启动状态</h3><ul>
-<li>接上一步回车之后如果出现如下界面则证明启动成功<br><img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/%E5%90%AF%E5%8A%A8%E7%8A%B6%E6%80%811.png"><br><img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/%E5%90%AF%E5%8A%A8%E7%8A%B6%E6%80%812.png"></li>
-</ul>
-<h3 id="3-7-建立web应用-并启动本地服务"><a href="#3-7-建立web应用-并启动本地服务" class="headerlink" title="3.7. 建立web应用,并启动本地服务"></a>3.7. 建立web应用,并启动本地服务</h3><p>怎么建立web应用这里就不细说了，可以参考<a target="_blank" rel="noopener" href="https://how2j.cn/k/idea/idea-tomcat/1361.html">idea环境下建立web应用</a></p>
-<p>本地访问：<a target="_blank" rel="noopener" href="http://localhost:8080/web/hello">http://localhost:8080/web/hello</a><br>    <img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/%E6%9C%AC%E5%9C%B0%E8%AE%BF%E9%97%AE.png"></p>
-<p>外网访问：<a target="_blank" rel="noopener" href="http://xiezr.free.idcfengye.com/web/hello">http://xiezr.free.idcfengye.com/web/hello</a></p>
-<p><img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/%E5%A4%96%E7%BD%91%E8%AE%BF%E9%97%AE.png"></p>
-<p>大功告成！！！</p>
+<h3 id="2-2-crontab-进行定时任务设置"><a href="#2-2-crontab-进行定时任务设置" class="headerlink" title="2.2 crontab 进行定时任务设置"></a>2.2 crontab 进行定时任务设置</h3><h4 id="2-2-1-crontab-指令选项说明"><a href="#2-2-1-crontab-指令选项说明" class="headerlink" title="2.2.1 crontab 指令选项说明"></a>2.2.1 crontab 指令选项说明</h4><p>语法：</p>
+<pre class=" language-shell"><code class="language-shell">crontab[-e|-l|-r]
+
+-e:编辑crontab 定时任务
+-l:查询crontab定时任务
+-r:删除当前用户所有的crontab定时任务</code></pre>
+<h4 id="2-2-2-crontab-指令使用格式"><a href="#2-2-2-crontab-指令使用格式" class="headerlink" title="2.2.2 crontab 指令使用格式"></a>2.2.2 crontab 指令使用格式</h4><p><strong>crontab用户的定时任务一般分为6段（空格分隔，系统的定时任务则/etc/crontab分为7段），其中前五段位时间设定段，第六段为所要执行的命令或脚本任务段。</strong></p>
+<p>①语法：</p>
+<pre class=" language-shell"><code class="language-shell">* * * * * cmd
+①cmd为要执行的命令或脚本，例如/server/scripts/lee.sh
+②每个段之间必须要有空格。</code></pre>
+<p>② crontab语法格式中时间段的含义表</p>
+<p><img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/u=186462863,671954497&fm=11&gp=0.jpg"></p>
+<table>
+<thead>
+<tr>
+<th>段</th>
+<th>含义</th>
+<th>取值范围</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>第一个“*”</td>
+<td>一小时当中的第几分钟</td>
+<td>0-59</td>
+</tr>
+<tr>
+<td>第二个“*”</td>
+<td>一天当中的第几个小时</td>
+<td>0-23</td>
+</tr>
+<tr>
+<td>第三个“*”</td>
+<td>一个月当中的第几天</td>
+<td>1-31</td>
+</tr>
+<tr>
+<td>第四个“*”</td>
+<td>一年当中的第几个月</td>
+<td>1-12</td>
+</tr>
+<tr>
+<td>第五个“*”</td>
+<td>一周当中的星期几</td>
+<td>0-7（0和7都代表周天）</td>
+</tr>
+</tbody></table>
+<p>③ crontab语法格式中特殊符号的含义表</p>
+<table>
+<thead>
+<tr>
+<th>特殊符号</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>*</td>
+<td>“*” 表示任意时间都，就是“每”的意思，举例：如00 01 * * * cmd 表示每月每周每日的凌晨1点执行cmd任务。</td>
+</tr>
+<tr>
+<td>-</td>
+<td>“-“ 表示分隔符，表示一个时间范围段，如17-19点，每小时的00分执行任务。00 17-19 * * * cmd 表示17,18,19点整点分别执行的意思。</td>
+</tr>
+<tr>
+<td>,</td>
+<td>“,” 表示分隔时间段的意思。30 17,18,19 * * * cmd  表示每天17,18,19点的半点执行cmd 也可以和“-”结合使用，如： 30 3-5,17-19 * * * cmd 表示每天3、4、5和17、18、19 执行</td>
+</tr>
+<tr>
+<td>/n</td>
+<td>n代表数字 即”每隔n单位时间”,例如：每10分钟执行一次任务可以写 */10 * * * * cmd,其中 <em>/10，</em>的范围是0-59，也可以写成0-59/10</td>
+</tr>
+</tbody></table>
+<hr>
+<h4 id="2-2-3-特定时间执行任务例子"><a href="#2-2-3-特定时间执行任务例子" class="headerlink" title="2.2.3 特定时间执行任务例子"></a>2.2.3 特定时间执行任务例子</h4><pre class=" language-shell"><code class="language-shell">① 30 23 * * * cmd    表示每天23:30分执行cmd命令
+② 40 22 * * 1 cmd    表示每周一22:40分执行cmd命令
+③ 30 0 1-12 * * cmd  表示每月1号和12号 00:30执行cmd命令
+④ 30 0 * * 1-5 cmd   表示每周一和周五00:30执行命令
+⑤ */10 4 * * * cmd   表示每天4:00每隔10分钟执行一次cmd命令</code></pre>
+<h4 id="2-2-4-crontab-设置步骤"><a href="#2-2-4-crontab-设置步骤" class="headerlink" title="2.2.4 crontab 设置步骤"></a>2.2.4 crontab 设置步骤</h4><p>这里我们以每5分钟同步一次互联网时间为例进行说明</p>
+<p>① 查看crond服务是否启动</p>
+<p>/sbin/service crond status  –查看crond服务是否启动</p>
+<pre class=" language-shell"><code class="language-shell">[root@xiezhr /]# /sbin/service crond status
+Redirecting to /bin/systemctl status crond.service
+● crond.service - Command Scheduler
+   Loaded: loaded (/usr/lib/systemd/system/crond.service; enabled; vendor preset: enabled)
+   Active: active (running) since Sun 2021-01-10 21:14:50 CST; 1 months 25 days ago
+ Main PID: 990 (crond)
+   CGroup: /system.slice/crond.service
+           └─990 /usr/sbin/crond -n
+
+Jan 25 14:00:01 xiezhr crond[990]: /usr/sbin/sendmail: error while loading shared librari...ory
+Jan 25 14:30:02 xiezhr crond[990]: /usr/sbin/sendmail: error while loading shared librari...ory
+Jan 25 15:00:02 xiezhr crond[990]: /usr/sbin/sendmail: error while loading shared librari...ory
+Jan 25 15:30:01 xiezhr crond[990]: /usr/sbin/sendmail: error while loading shared librari...ory
+Jan 25 16:00:01 xiezhr crond[990]: /usr/sbin/sendmail: error while loading shared librari...ory
+Jan 25 16:24:01 xiezhr crond[990]: (*system*) RELOAD (/etc/cron.d/yunjing)
+Jan 28 11:18:01 xiezhr crond[990]: (*system*) RELOAD (/etc/cron.d/sgagenttask)
+Jan 28 11:18:01 xiezhr crond[990]: (root) RELOAD (/var/spool/cron/root)
+Feb 07 12:03:01 xiezhr crond[990]: (*system*) RELOAD (/etc/cron.d/yunjing)
+Feb 07 12:03:01 xiezhr crond[990]: (root) RELOAD (/var/spool/cron/root)
+Hint: Some lines were ellipsized, use -l to show in full.</code></pre>
+<p>如果crond服务没启动则执行如下命令启动crond服务</p>
+<pre class=" language-shell"><code class="language-shell">/sbin/service crond start          启动服务</code></pre>
+<p>查看进程</p>
+<pre class=" language-shell"><code class="language-shell">[root@xiezhr /]# ps -ef|grep crond
+root       990     1  0 Jan10 ?        00:00:22 /usr/sbin/crond -n
+root     19552 15271  0 16:10 pts/1    00:00:00 grep --color=auto crond</code></pre>
+<p>② 编写shell脚本</p>
+<p>在home路径下添加如下shell脚本  </p>
+<pre class=" language-shell"><code class="language-shell">[root@xiezhr home]# vim /home/my.sh
+/usr/sbin/ntpdate time.windows.com >/dev/null 2>&1</code></pre>
+<p>③ 给脚本增加执行权限</p>
+<pre class=" language-shell"><code class="language-shell">[root@xiezhr home]# chmod u+x /home/my.sh </code></pre>
+<p>④ 设置定时任务crontab</p>
+<pre class=" language-shell"><code class="language-shell">[root@xiezhr home]# crontab -e
+*/5 * * * * /home/my.sh</code></pre>
+<p><img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/crontab.png"></p>
+<h2 id="3-各个数据库备份脚本"><a href="#3-各个数据库备份脚本" class="headerlink" title="3 各个数据库备份脚本"></a>3 各个数据库备份脚本</h2><h3 id="3-1-Oracle数据库"><a href="#3-1-Oracle数据库" class="headerlink" title="3.1 Oracle数据库"></a>3.1 Oracle数据库</h3><pre class=" language-sql"><code class="language-sql"><span class="token comment" spellcheck="true">#!/bin/bash</span>
+export ORACLE_HOME<span class="token operator">=</span><span class="token operator">/</span>u01<span class="token operator">/</span>app<span class="token operator">/</span>oracle<span class="token operator">/</span>product<span class="token operator">/</span><span class="token number">11.2</span><span class="token punctuation">.</span><span class="token number">0</span><span class="token operator">/</span>db_1<span class="token punctuation">;</span>
+export ORACLE_SID<span class="token operator">=</span>orcl<span class="token punctuation">;</span>
+export PATH<span class="token operator">=</span>$ORACLE_HOME<span class="token operator">/</span>bin:<span class="token operator">/</span>usr<span class="token operator">/</span>sbin:$PATH<span class="token punctuation">;</span>
+export LD_LIBRARY_PATH<span class="token operator">=</span>$ORACLE_HOME<span class="token operator">/</span>lib:<span class="token operator">/</span>lib:<span class="token operator">/</span>usr<span class="token operator">/</span>lib<span class="token punctuation">;</span>
+export NLS_LANG<span class="token operator">=</span>AMERICAN_AMERICA<span class="token punctuation">.</span>ZHS16GBK
+<span class="token comment" spellcheck="true">#以上代码为Oracle数据库运行账号oracle的系统环境变量设置，必须添加，否则crontab任务计划不能执行。</span>
+
+<span class="token keyword">date</span><span class="token operator">=</span><span class="token keyword">date</span> <span class="token operator">+</span><span class="token operator">%</span>Y_<span class="token operator">%</span>m_<span class="token operator">%</span><span class="token number">d</span>            <span class="token comment" spellcheck="true">#获取系统当前日期时间</span>
+days<span class="token operator">=</span><span class="token number">7</span>                         <span class="token comment" spellcheck="true">#设置删除7天之前的备份文件</span>
+orsid<span class="token operator">=</span><span class="token number">192.168</span><span class="token punctuation">.</span><span class="token number">1.100</span>:<span class="token number">1521</span><span class="token operator">/</span>orcl  <span class="token comment" spellcheck="true">#Oracle数据库服务器IP、端口、SID</span>
+orowner<span class="token operator">=</span>scott                  <span class="token comment" spellcheck="true">#备份此用户下面的数据</span>
+bakuser<span class="token operator">=</span>system                 <span class="token comment" spellcheck="true">#用此用户来执行备份，必须要有备份操作的权限</span>
+bakpass<span class="token operator">=</span>oracle                 <span class="token comment" spellcheck="true">#执行备注的用户密码</span>
+bakdir<span class="token operator">=</span><span class="token operator">/</span><span class="token keyword">backup</span><span class="token operator">/</span>oracledata      <span class="token comment" spellcheck="true">#备份文件路径，需要提前创建好</span>
+bakdata<span class="token operator">=</span>$orowner<span class="token string">"_"</span>$<span class="token keyword">date</span><span class="token punctuation">.</span>dmp   <span class="token comment" spellcheck="true">#备份数据库名称</span>
+baklog<span class="token operator">=</span>$orowner<span class="token string">"_"</span>$<span class="token keyword">date</span><span class="token punctuation">.</span>log    <span class="token comment" spellcheck="true">#备份执行时候生成的日志文件名称</span>
+ordatabak<span class="token operator">=</span>$orowner<span class="token string">"_"</span>$<span class="token keyword">date</span><span class="token punctuation">.</span>tar<span class="token punctuation">.</span>gz <span class="token comment" spellcheck="true">#最后保存的Oracle数据库备份文件</span>
+
+<span class="token number">cd</span> $bakdir                     <span class="token comment" spellcheck="true">#进入备份目录</span>
+mkdir <span class="token operator">-</span>p $orowner              <span class="token comment" spellcheck="true">#按需要备份的Oracle用户创建目录</span>
+<span class="token number">cd</span> $orowner                    <span class="token comment" spellcheck="true">#进入目录</span>
+exp $bakuser<span class="token operator">/</span>$bakpass<span class="token variable">@$orsid</span> grants<span class="token operator">=</span>y owner<span class="token operator">=</span>$orowner <span class="token keyword">file</span><span class="token operator">=</span>$bakdir<span class="token operator">/</span>$orowner<span class="token operator">/</span>$bakdata log<span class="token operator">=</span>$bakdir<span class="token operator">/</span>$orowner<span class="token operator">/</span>$baklog <span class="token comment" spellcheck="true">#执行备份</span>
+tar <span class="token operator">-</span>zcvf $ordatabak $bakdata  $baklog                      <span class="token comment" spellcheck="true">#压缩备份文件和日志文件</span>
+find $bakdir<span class="token operator">/</span>$orowner  <span class="token operator">-</span><span class="token keyword">type</span> <span class="token number">f</span> <span class="token operator">-</span>name <span class="token string">"*.log"</span> <span class="token operator">-</span><span class="token keyword">exec</span> rm <span class="token operator">&amp;</span><span class="token comment" spellcheck="true">#123;&amp;#125; \; #删除备份文件</span>
+find $bakdir<span class="token operator">/</span>$orowner  <span class="token operator">-</span><span class="token keyword">type</span> <span class="token number">f</span> <span class="token operator">-</span>name <span class="token string">"*.dmp"</span> <span class="token operator">-</span><span class="token keyword">exec</span> rm <span class="token operator">&amp;</span><span class="token comment" spellcheck="true">#123;&amp;#125; \; #删除日志文件</span>
+find $bakdir<span class="token operator">/</span>$orowner  <span class="token operator">-</span><span class="token keyword">type</span> <span class="token number">f</span> <span class="token operator">-</span>name <span class="token string">"*.tar.gz"</span> <span class="token operator">-</span>mtime <span class="token operator">+</span>$days <span class="token operator">-</span><span class="token keyword">exec</span> rm <span class="token operator">-</span>rf <span class="token operator">&amp;</span><span class="token comment" spellcheck="true">#123;&amp;#125; \;  #删除7天前的备份（注意：&amp;#123;&amp;#125; \中间有空格）</span>
+
+以上exp备份，如果要采用expd备份，只需将上面执行语句换成下面的即可
+expdp $bakuser<span class="token operator">/</span>$bakpass<span class="token variable">@$orsid</span> <span class="token keyword">full</span><span class="token operator">=</span>y cluster<span class="token operator">=</span>n directory<span class="token operator">=</span>$bakdir <span class="token keyword">dumpfile</span><span class="token operator">=</span>$bakdir<span class="token operator">/</span>$orowner<span class="token operator">/</span>$bakdata logfile<span class="token operator">=</span>$bakdir<span class="token operator">/</span>$orowner<span class="token operator">/</span>$baklog 
+</code></pre>
+<h3 id="3-2-Mysql数据库"><a href="#3-2-Mysql数据库" class="headerlink" title="3.2 Mysql数据库"></a>3.2 Mysql数据库</h3><pre class=" language-sql"><code class="language-sql"><span class="token comment" spellcheck="true">#!/bin/bash</span>
+PATH<span class="token operator">=</span><span class="token operator">/</span>bin:<span class="token operator">/</span>sbin:<span class="token operator">/</span>usr<span class="token operator">/</span>bin:<span class="token operator">/</span>usr<span class="token operator">/</span>sbin:<span class="token operator">/</span>usr<span class="token operator">/</span><span class="token keyword">local</span><span class="token operator">/</span>bin:<span class="token operator">/</span>usr<span class="token operator">/</span><span class="token keyword">local</span><span class="token operator">/</span>sbin:<span class="token operator">/</span>usr<span class="token operator">/</span><span class="token keyword">local</span><span class="token operator">/</span>mysql<span class="token operator">/</span>bin
+export PATH
+dbuser<span class="token operator">=</span><span class="token string">'root'</span>          <span class="token comment" spellcheck="true">#数据库用户名</span>
+dbpasswd<span class="token operator">=</span><span class="token string">'123456'</span>      <span class="token comment" spellcheck="true">#数据库密码</span>
+dbname<span class="token operator">=</span><span class="token string">'test1 test2'</span>   <span class="token comment" spellcheck="true">#数据库名,可以定义多个数据库，中间以空格隔开，如 test1 test2</span>
+backtime<span class="token operator">=</span><span class="token punctuation">`</span><span class="token keyword">date</span> <span class="token operator">+</span><span class="token operator">%</span>Y<span class="token operator">%</span>m<span class="token operator">%</span><span class="token number">d</span><span class="token operator">%</span>H<span class="token operator">%</span>M<span class="token operator">%</span>S<span class="token punctuation">`</span>    <span class="token comment" spellcheck="true">#备份时间</span>
+logpath<span class="token operator">=</span> <span class="token string">'/home/mysql/backup'</span>     <span class="token comment" spellcheck="true">#日志备份路径</span>
+datapath<span class="token operator">=</span><span class="token string">'/home/mysql/backup'</span>     <span class="token comment" spellcheck="true">#数据备份路径</span>
+echo "备份时间为$<span class="token operator">&amp;</span><span class="token comment" spellcheck="true">#123;backtime&amp;#125;,备份数据库表 $&amp;#123;dbname&amp;#125; 开始" >> $&amp;#123;logpath&amp;#125;/mysqllog.log  #日志记录头部</span>
+
+<span class="token comment" spellcheck="true">#正式备份数据库</span>
+<span class="token keyword">for</span> <span class="token keyword">table</span> <span class="token operator">in</span> $dbname<span class="token punctuation">;</span> <span class="token keyword">do</span>  
+source<span class="token operator">=</span><span class="token punctuation">`</span>mysqldump <span class="token operator">-</span>u $<span class="token operator">&amp;</span><span class="token comment" spellcheck="true">#123;dbuser&amp;#125; -p$&amp;#123;dbpasswd&amp;#125; $&amp;#123;table&amp;#125;> $&amp;#123;logpath&amp;#125;/$&amp;#123;backtime&amp;#125;.sql` 2>> $&amp;#123;logpath&amp;#125;/mysqllog.log;</span>
+<span class="token comment" spellcheck="true">#备份成功以下操作</span>
+<span class="token keyword">if</span> <span class="token punctuation">[</span> <span class="token string">"$?"</span> <span class="token operator">=</span><span class="token operator">=</span> <span class="token number">0</span> <span class="token punctuation">]</span><span class="token punctuation">;</span><span class="token keyword">then</span> 
+<span class="token number">cd</span> $datapath
+tar jcf $<span class="token operator">&amp;</span><span class="token comment" spellcheck="true">#123;table&amp;#125;$&amp;#123;backtime&amp;#125;.tar.bz2 $&amp;#123;backtime&amp;#125;.sql > /dev/null   #为节约硬盘空间，将数据库压缩</span>
+rm <span class="token operator">-</span><span class="token number">f</span> $<span class="token operator">&amp;</span><span class="token comment" spellcheck="true">#123;datapath&amp;#125;/$&amp;#123;backtime&amp;#125;.sql   #删除原始文件，只留压缩后文件</span>
+<span class="token number">cd</span> $datapath
+rm <span class="token operator">-</span>rf <span class="token punctuation">`</span>find <span class="token punctuation">.</span> <span class="token operator">-</span>name <span class="token string">'*.sql.gz'</span> <span class="token operator">-</span>mtime <span class="token operator">+</span><span class="token number">30</span><span class="token punctuation">`</span> <span class="token operator">>></span> $<span class="token operator">&amp;</span><span class="token comment" spellcheck="true">#123;logpath&amp;#125;/mysqllog.log 2>&amp;1  #删除30天前备份文件</span>
+echo "数据库表 $<span class="token operator">&amp;</span><span class="token comment" spellcheck="true">#123;dbname&amp;#125; 备份成功!!" >> $&amp;#123;logpath&amp;#125;/mysqllog.log</span>
+<span class="token keyword">else</span>
+echo “数据库表 $<span class="token operator">&amp;</span><span class="token comment" spellcheck="true">#123;dbname&amp;#125; 备份失败!!” >> $&amp;#123;logpath&amp;#125;/mysqllog.log   #备份失败则进行以下操作</span>
+fi
+done</code></pre>
+<h3 id="3-3-postgresql数据库"><a href="#3-3-postgresql数据库" class="headerlink" title="3.3 postgresql数据库"></a>3.3 postgresql数据库</h3><pre class=" language-sql"><code class="language-sql"><span class="token comment" spellcheck="true">#!/bin/bash</span>
+pg_user <span class="token operator">=</span><span class="token string">'postgres'</span>
+export NLS_DATE_FORMAT<span class="token operator">=</span><span class="token string">'yyyy-mm-dd hh24:mi:ss'</span>
+export exp_date<span class="token operator">=</span><span class="token punctuation">`</span><span class="token keyword">date</span> <span class="token string">'+%Y%m%d'</span><span class="token punctuation">`</span>
+pg_dump  <span class="token operator">-</span>U postgres dbpostgres <span class="token operator">-</span><span class="token number">f</span> <span class="token operator">/</span>u01<span class="token operator">/</span><span class="token keyword">backup</span><span class="token operator">/</span>$exp_date<span class="token punctuation">.</span>sql  
+gzip <span class="token operator">-</span><span class="token number">1</span> <span class="token operator">/</span>u01<span class="token operator">/</span><span class="token keyword">backup</span><span class="token operator">/</span>$exp_date<span class="token punctuation">.</span>sql       <span class="token comment" spellcheck="true">#压缩备份文件</span>
+find <span class="token operator">/</span>u01<span class="token operator">/</span><span class="token keyword">backup</span> <span class="token operator">-</span>mtime <span class="token operator">+</span><span class="token number">14</span> <span class="token operator">-</span><span class="token keyword">exec</span> rm <span class="token operator">&amp;</span><span class="token comment" spellcheck="true">#123;&amp;#125; \;   #删除七天前备份文件</span></code></pre>
+<h3 id="3-4-mongoDB数据库"><a href="#3-4-mongoDB数据库" class="headerlink" title="3.4 mongoDB数据库"></a>3.4 mongoDB数据库</h3><pre class=" language-sql"><code class="language-sql"><span class="token comment" spellcheck="true">#!/bin/sh</span>
+<span class="token keyword">DUMP</span><span class="token operator">=</span><span class="token operator">/</span>home<span class="token operator">/</span>webapp<span class="token operator">/</span>Downloads<span class="token operator">/</span>mongoDB<span class="token operator">/</span>mongodbserver<span class="token operator">/</span>bin<span class="token operator">/</span>mongodump <span class="token comment" spellcheck="true">#mongodump备份文件执行路径</span>
+OUT_DIR<span class="token operator">=</span><span class="token operator">/</span>home<span class="token operator">/</span>webapp<span class="token operator">/</span><span class="token keyword">backup</span><span class="token operator">/</span>mongo_bak<span class="token operator">/</span>mongod_bak_now <span class="token comment" spellcheck="true">#临时备份目录</span>
+TAR_DIR<span class="token operator">=</span><span class="token operator">/</span>home<span class="token operator">/</span>webapp<span class="token operator">/</span><span class="token keyword">backup</span><span class="token operator">/</span>mongo_bak<span class="token operator">/</span>mongod_bak_list <span class="token comment" spellcheck="true">#备份存放路径</span>
+<span class="token keyword">DATE</span><span class="token operator">=</span><span class="token punctuation">`</span><span class="token keyword">date</span> <span class="token operator">+</span><span class="token operator">%</span>Y_<span class="token operator">%</span>m_<span class="token operator">%</span>d_<span class="token operator">%</span>H_<span class="token operator">%</span>M_<span class="token operator">%</span>S<span class="token punctuation">`</span> <span class="token comment" spellcheck="true">#获取当前系统时间</span>
+
+DB_USER<span class="token operator">=</span>XXXX<span class="token comment" spellcheck="true">#数据库账号</span>
+DB_PASS<span class="token operator">=</span>XXXX <span class="token comment" spellcheck="true">#数据库密码</span>
+DB_NAME<span class="token operator">=</span>TEST <span class="token comment" spellcheck="true">#数据库名称</span>
+IP<span class="token operator">=</span>xx<span class="token punctuation">.</span>xx<span class="token punctuation">.</span>xx<span class="token punctuation">.</span>xx:<span class="token number">27017</span>
+DAYS<span class="token operator">=</span><span class="token number">365</span> <span class="token comment" spellcheck="true">#DAYS=30代表删除30天前的备份，即只保留最近30天的备份</span>
+TAR_BAK<span class="token operator">=</span><span class="token string">"mongod_bak_$DATE.tar.gz"</span> <span class="token comment" spellcheck="true">#最终保存的数据库备份文件名</span>
+<span class="token number">cd</span> $OUT_DIR
+rm <span class="token operator">-</span>rf $OUT_DIR
+mkdir <span class="token operator">-</span>p $OUT_DIR<span class="token operator">/</span>$<span class="token keyword">DATE</span>
+$<span class="token keyword">DUMP</span> <span class="token operator">-</span>h $IP <span class="token operator">-</span>u $DB_USER <span class="token operator">-</span>p $DB_PASS <span class="token operator">-</span><span class="token number">d</span> $DB_NAME <span class="token operator">-</span>o $OUT_DIR<span class="token operator">/</span>$<span class="token keyword">DATE</span> <span class="token comment" spellcheck="true">#备份数据库</span>
+tar <span class="token operator">-</span>zcvf $TAR_DIR<span class="token operator">/</span>$TAR_BAK $OUT_DIR<span class="token operator">/</span>$<span class="token keyword">DATE</span>                         <span class="token comment" spellcheck="true">#压缩为.tar.gz格式</span>
+find $TAR_DIR<span class="token operator">/</span> <span class="token operator">-</span>mtime <span class="token operator">+</span>$DAYS <span class="token operator">-</span><span class="token keyword">delete</span>                               <span class="token comment" spellcheck="true">#删除30天前的备份</span>
+
+<span class="token keyword">exit</span></code></pre>
+<h2 id="4-定时备份数据库实际操作"><a href="#4-定时备份数据库实际操作" class="headerlink" title="4 定时备份数据库实际操作"></a>4 定时备份数据库实际操作</h2><p>每天凌晨1点备份以上常见数据库</p>
+<p>① 创建备份脚本</p>
+<p>在home路径下创建backup.sh 并添加以上数据库备份shell脚本</p>
+<pre class=" language-shell"><code class="language-shell">[root@xiezhr home]#  vim /home/bakcup/backup.sh
+# 要备份那个数据库，就往backup.sh 添加对应的shell脚本即可
+</code></pre>
+<p>③ 给脚本增加执行权限</p>
+<pre class=" language-shell"><code class="language-shell">[root@xiezhr home]# chmod u+x /home/bakcup/backup.sh</code></pre>
+<p>③ 设置定时任务crontab</p>
+<pre class=" language-shell"><code class="language-shell">[root@xiezhr home]# crontab -e
+0 1 * * * /home/bakcup/backup.sh</code></pre>
 
             </div>
             <hr/>
@@ -1178,7 +1362,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://www.xiezhrspace.cn/archives/550d5b16.html">https://www.xiezhrspace.cn/archives/550d5b16.html</a>
+                    <a href="https://www.xiezhrspace.cn/archives/a3ea155e.html">https://www.xiezhrspace.cn/archives/a3ea155e.html</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -1216,12 +1400,12 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F/">
-                                    <span class="chip bg-color">内网穿透</span>
+                                <a href="/tags/Linux/">
+                                    <span class="chip bg-color">Linux</span>
                                 </a>
                             
-                                <a href="/tags/Ngrok/">
-                                    <span class="chip bg-color">Ngrok</span>
+                                <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93%E5%A4%87%E4%BB%BD/">
+                                    <span class="chip bg-color">数据库备份</span>
                                 </a>
                             
                         </div>
@@ -1686,53 +1870,55 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/archives/23431c72.html">
+                <a href="/archives/a3ea155e.html">
                     <div class="card-image">
                         
-                        <img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/2020年年终总结.jpg" class="responsive-img" alt="迟来的2020年年终总结">
+                        <img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/backup1.png" class="responsive-img" alt="数据库定时备份linux篇">
                         
-                        <span class="card-title">迟来的2020年年终总结</span>
+                        <span class="card-title">数据库定时备份linux篇</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            2020年年终总结
+                            数据库定时备份linux篇
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2021-02-13
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-03-07
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/2020/" class="post-category">
-                                    2020
+                            <a href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93%E5%A4%87%E4%BB%BD/" class="post-category">
+                                    数据库备份
                                 </a>
                             
-                            <a href="/categories/2020/%E5%B9%B4%E7%BB%88%E6%80%BB%E7%BB%93/" class="post-category">
-                                    年终总结
+                            <a href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93%E5%A4%87%E4%BB%BD/Linux/" class="post-category">
+                                    Linux
                                 </a>
                             
                             
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/2020/">
-                        <span class="chip bg-color">2020</span>
+                    <a href="/tags/Linux/">
+                        <span class="chip bg-color">Linux</span>
                     </a>
                     
-                    <a href="/tags/%E5%B9%B4%E7%BB%88%E6%80%BB%E7%BB%93/">
-                        <span class="chip bg-color">年终总结</span>
+                    <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93%E5%A4%87%E4%BB%BD/">
+                        <span class="chip bg-color">数据库备份</span>
                     </a>
                     
                 </div>
@@ -1746,23 +1932,23 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/archives/93a2b0e4.html">
+                <a href="/archives/e72a86b2.html">
                     <div class="card-image">
                         
-                        <img src="https://cdn.jsdelivr.net/gh/xiezhr/xiezhrblog-cdn-source/source/cover/Oracle%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86.jpg" class="responsive-img" alt="Oracle异常处理">
+                        <img src="https://cdn.jsdelivr.net/gh/xiezhr/xiezhrblog-cdn-source/source/cover/Oracle函数封面.png" class="responsive-img" alt="工作中，我们需要掌握哪些Oracle内置函数？">
                         
-                        <span class="card-title">Oracle异常处理</span>
+                        <span class="card-title">工作中，我们需要掌握哪些Oracle内置函数？</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            Oracle异常处理？
+                            工作中，我们需要掌握哪些Oracle内置函数？
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-01-25
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-02-27
                             </span>
                         <span class="publish-author">
                             
@@ -1770,6 +1956,10 @@
                             
                             <a href="/categories/Oracle/" class="post-category">
                                     Oracle
+                                </a>
+                            
+                            <a href="/categories/Oracle/%E5%86%85%E7%BD%AE%E5%87%BD%E6%95%B0/" class="post-category">
+                                    内置函数
                                 </a>
                             
                             
@@ -1781,6 +1971,10 @@
                     
                     <a href="/tags/Oracle/">
                         <span class="chip bg-color">Oracle</span>
+                    </a>
+                    
+                    <a href="/tags/%E5%86%85%E7%BD%AE%E5%87%BD%E6%95%B0/">
+                        <span class="chip bg-color">内置函数</span>
                     </a>
                     
                 </div>

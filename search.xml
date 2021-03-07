@@ -2,7 +2,7 @@
 <search>
   <entry>
     <title>数据库定时备份linux篇</title>
-    <url>/archives/23431c72.html</url>
+    <url>/archives/a3ea155e.html</url>
     <content><![CDATA[<h2 id="1-序言"><a href="#1-序言" class="headerlink" title="1 序言"></a>1 序言</h2><p>数据是无价的，所以生产环境中定时备份数据库显得尤为重要。备份能防止服务器故障和人为误操作带来的数据丢失。</p>
 <p>生产环境中linux操作系统也是服务器的首选，所以我们今天就以linux为例，说一说数据库备份。</p>
 <p>具体以什么数据库为例呢，就以这几年工作中接触到的几种常见数据库为例吧。</p>
@@ -4467,9 +4467,11 @@ impdp scott<span class="token operator">/</span>tiger DIRECTORY<span class="toke
 ]]></content>
       <categories>
         <category>Oracle</category>
+        <category>SQL</category>
       </categories>
       <tags>
         <tag>Oracle</tag>
+        <tag>SQL</tag>
       </tags>
   </entry>
   <entry>
