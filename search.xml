@@ -104,15 +104,11 @@ set RAR_CMD="C:\Program Files\WinRAR\Rar.exe"
 ]]></content>
       <categories>
         <category>数据库备份</category>
-        <category>Oracle</category>
-        <category>mysql</category>
-        <category>postgresql</category>
+        <category>windows server</category>
       </categories>
       <tags>
-        <tag>Oracle</tag>
-        <tag>mysql</tag>
         <tag>数据库备份</tag>
-        <tag>postgresql</tag>
+        <tag>windows server</tag>
       </tags>
   </entry>
   <entry>
@@ -345,6 +341,10 @@ find $TAR_DIR<span class="token operator">/</span> <span class="token operator">
 <p>③ 设置定时任务crontab</p>
 <pre class=" language-shell"><code class="language-shell">[root@xiezhr home]# crontab -e
 0 1 * * * /home/bakcup/backup.sh</code></pre>
+<p>推荐阅读</p>
+<ul>
+<li><a href="http://xiezhrspace.cn/archives/5060cc60.html">数据库备份真的很重要！很重要！很重要！winserver篇</a></li>
+</ul>
 ]]></content>
       <categories>
         <category>数据库备份</category>
