@@ -1,6 +1,839 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>打开windows批处理大门</title>
+    <url>/archives/6c7596dd.html</url>
+    <content><![CDATA[<p>大家好，我是xiezhr。</p>
+<h2 id="1-前言"><a href="#1-前言" class="headerlink" title="1 前言"></a>1 前言</h2><p>打开公众号历史文章，上一篇文章是2021年3月20号更新的，又拖更了。</p>
+<p>一个原因是，最近工作上真的挺忙的，有比较着急需要加班加点赶的需求。好在清明前算是把比较着急的改好了。本来安排清明也是要加班的，但是真的加不动了。（连着加班真的挺影响效率的，适当休息是非常有必要的~）</p>
+<p>以至于一周都是在连轴转，需求改好更新之后也是心惊胆战的，生怕哪个地方出现问题，大脑一度都处于紧绷状态。</p>
+<p>其次呢写一篇公众号文章还是挺费时费力的，又不想草率的更新一篇上去，这样还不如不写。</p>
+<h2 id="2-批处理简介"><a href="#2-批处理简介" class="headerlink" title="2 批处理简介"></a>2 批处理简介</h2><ul>
+<li>批处理(Batch)，也称为批处理脚本，扩展名为.bat或者.cmd。</li>
+<li>类似于linux或Unix中的shell脚本。</li>
+<li>包含一系列 DOS命令，通常用于自动执行重复性任务。只需我们双击批处理文件便可执行任务，而无需重复输入相同指令。</li>
+<li>批处理文件可以极大程度地节省时间，在应对重复性工作时尤其有效，熟练使用可以简化很多重复工作，提高工作效率。</li>
+</ul>
+<h2 id="3-批处理文件创建"><a href="#3-批处理文件创建" class="headerlink" title="3 批处理文件创建"></a>3 批处理文件创建</h2><ul>
+<li><p>用记事本或者各种文本编辑器创建一个后缀为.bat的文件即可</p>
+</li>
+<li><p>一般情况下每行一条命令，方便阅读方便书写。当然也可以用（&amp;、&amp;&amp;、|、||）分割书写到一行，但不建议这样</p>
+</li>
+<li><p>当像遇到像编程语言那样if、for 等命令时候，系统会扫描整个批处理，然后从第一行开始顺序向下逐句执行，直到程序结尾或者遇到exit或意外退出</p>
+</li>
+</ul>
+<p>废话不多说，直接上一个例子，感受下批处理的魅力 O(∩_∩)O哈哈~</p>
+<p>下面是一个以批处理创建的计算器小例子，打开xiezhr.bat 后效果如下</p>
+<p><img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/doc-jsq-menu.png"></p>
+<p><img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/%E5%8A%A0%E5%87%8F%E4%B9%98%E9%99%A4%E8%BF%90%E7%AE%97.png"></p>
+<p><img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/doc-%E6%AC%A1%E6%96%B9.png"></p>
+<p><img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/doc-help.png"></p>
+<h2 id="4-批处理常用符号"><a href="#4-批处理常用符号" class="headerlink" title="4 批处理常用符号"></a>4 批处理常用符号</h2><h3 id="4-1"><a href="#4-1" class="headerlink" title="4.1 @"></a>4.1 @</h3><blockquote>
+<p>回显屏蔽</p>
+</blockquote>
+<p>① 语法</p>
+<pre class=" language-bat"><code class="language-bat">@ </code></pre>
+<p>② 举例</p>
+<pre class=" language-bat"><code class="language-bat">rem 从本行开始关闭回显。一般批处理第一行都是这个
+@echo off  </code></pre>
+<h3 id="4-2-重定向1-gt-与-gt-gt"><a href="#4-2-重定向1-gt-与-gt-gt" class="headerlink" title="4.2 重定向1 &gt;与&gt;&gt;"></a>4.2 重定向1 &gt;与&gt;&gt;</h3><blockquote>
+<p>输出重定向命令  &gt;清除文件中原有的内容后再写入 &gt;&gt;追加内容到文件末尾，而不会清除原有的内容。</p>
+</blockquote>
+<blockquote>
+<p>主要将本来显示在屏幕上的内容输出到指定文件中,指定文件如果不存在，则自动生成该文件</p>
+</blockquote>
+<p>① 语法</p>
+<pre class=" language-bat"><code class="language-bat">[p读取数据的位置] > [写入数据的位置]
+
+[p读取数据的位置] >> [写入数据的位置]</code></pre>
+<p>② 举例</p>
+<pre class=" language-bat"><code class="language-bat">rem 将dir输出stdin重定向到文件Dirlist.txt,> 每次文件都会被重新创建,>> 则是文件追加
+dir 1 > dirlist.txt
+dir > dirlist.txt
+
+dir 1>> dirlist.txt
+dir >> dirlist.txt
+
+rem 将打印信息重定向到文件,使用>每次文件会被重新创建,>> 则是文件追加
+echo abc>log.txt
+echo abc>>log.txt
+
+rem 将所有的IP信息存入文件,使用>每次文件会被重新创建,>> 则是文件追加
+ipconfig>log.txt
+ipconfig>>log.txt
+
+rem 阻止输出显示,将默认输出位置(句柄)重定向为nul 使用>每次文件会被重新创建,>> 则是文件追加
+echo invalie prompt >nul
+echo invalie prompt 1>>nul</code></pre>
+<h3 id="4-3-重定向2-lt"><a href="#4-3-重定向2-lt" class="headerlink" title="4.3 重定向2 &lt;"></a>4.3 重定向2 &lt;</h3><blockquote>
+<p>要从键盘或设备重定向命令输入</p>
+</blockquote>
+<p>① 语法</p>
+<pre class=" language-bat"><code class="language-bat">[相应处理] < [读取数据的位置]</code></pre>
+<p>② 举例</p>
+<pre class=" language-bat"><code class="language-bat">rem 重定向输入是来自文件,并将输入的文件内容按首字母排序
+sort<xiezhr.txt 
+
+rem 将从stdin输入重定向为从文件输入,只输入文件首行内容,stdin(0)是默认输入,可以省略
+set /p var=0<xiezhr.txt
+set /p var=<xiezhr.txt
+echo %var%</code></pre>
+<h3 id="4-4-管道符号"><a href="#4-4-管道符号" class="headerlink" title="4.4 管道符号 |"></a>4.4 管道符号 |</h3><blockquote>
+<p>传递作用,将前面一条命令的执行结果传递给后面一条命令继续执行</p>
+</blockquote>
+<p>① 语法</p>
+<pre class=" language-bat"><code class="language-bat">[]|[]</code></pre>
+<p>② 举例</p>
+<pre class=" language-bat"><code class="language-bat">rem 将dir的输出作为sort的输入
+dir | sort
+
+rem 查找当前目录中包含".txt"的文件名
+dir | find ".txt"
+</code></pre>
+<h3 id="4-5-转义符"><a href="#4-5-转义符" class="headerlink" title="4.5 转义符 ^"></a>4.5 转义符 ^</h3><blockquote>
+<p>用在特殊符号之前,取消特殊字符的作用</p>
+</blockquote>
+<p>① 语法</p>
+<pre class=" language-bat"><code class="language-bat">^ [特殊字符]</code></pre>
+<p>② 举例</p>
+<pre class=" language-bat"><code class="language-bat">rem &将作为字符输出
+echo 非常^&批处理 </code></pre>
+<h3 id="4-6-逻辑命令符-amp-、-amp-amp-、"><a href="#4-6-逻辑命令符-amp-、-amp-amp-、" class="headerlink" title="4.6 逻辑命令符 &amp;、&amp;&amp;、||"></a>4.6 逻辑命令符 &amp;、&amp;&amp;、||</h3><blockquote>
+<p>&amp;  无论前面的命令是否成功执行 都执行后面的<br>&amp;&amp; 当前面的命令成功执行 再执行后面的命令  相当于逻辑与运算<br>|| 当前面的命令没有成功执行 则执行后面的命令 可以作判断选择用  相当于逻辑或运算</p>
+</blockquote>
+<p>① 语法</p>
+<pre class=" language-bat"><code class="language-bat">[命令1]&[命令2]
+[命令1]&&[命令2]
+[命令1]||[命令2]</code></pre>
+<p>② 举例</p>
+<pre class=" language-bat"><code class="language-bat">rem & 
+rem 虽然没有成功到“个人博客” 但还是会执行echo 命令,输出“字符中含有xiezhr”
+echo xiezhrspace.cn | find "个人博客" & echo 字符中含有xiezhr
+
+
+rem &&  
+rem 没有成功到“个人博客” ,所以echo命令不会成功执行
+echo xiezhrspace.cn | find "个人博客" && echo 字符中含有xiezhr
+
+rem || 
+rem 在xiezhrspace.cn中查找字符"个人博客",如果没有找到则继续执行后面的命令,即在屏幕中显示"字符中没有xiezhr",如果找到了,也就是如果前面是xiezhrspace.cn的话则停止继续执行||后面的命令,而是在屏幕中直接显示"xiezhrspace.cn".
+echo xiezhrspace.cn | find "个人博客" || echo 字符中没有xiezhr
+echo xiezhrspace.cn | find "xiezhr" || echo 字符中含有xiezhr</code></pre>
+<h2 id="5-常用批处理"><a href="#5-常用批处理" class="headerlink" title="5 常用批处理"></a>5 常用批处理</h2><blockquote>
+<p><strong>注意：在cmd中输入命令+/?即可查看该命令的帮助信息。如cd /?</strong></p>
+</blockquote>
+<h3 id="5-1-文件夹管理"><a href="#5-1-文件夹管理" class="headerlink" title="5.1 文件夹管理"></a>5.1 文件夹管理</h3><h4 id="5-1-1-cd"><a href="#5-1-1-cd" class="headerlink" title="5.1.1 cd"></a>5.1.1 cd</h4><blockquote>
+<p>显示当前目录名或改变当前目录</p>
+</blockquote>
+<p>① 语法</p>
+<pre class=" language-bat"><code class="language-bat">cd   rem 显示当前路径
+cd   rem 进入根目录
+cd /d d:sdk   rem 变更盘符目录</code></pre>
+<p>② 举例</p>
+<pre class=" language-bat"><code class="language-bat">rem 进入根目录
+C:\Users\xiezhr>cd
+C:\Users\xiezhr
+
+rem 显示当前目录
+D:\>cd
+D:\
+
+rem 切换到F:\xiezhrspace\hexo-xiezhrblog 目录
+C:\Users\ye.ff>cd F:\xiezhrspace\hexo-xiezhrblog
+F:\xiezhrspace\hexo-xiezhrblog></code></pre>
+<h4 id="5-1-2-md"><a href="#5-1-2-md" class="headerlink" title="5.1.2 md"></a>5.1.2 md</h4><blockquote>
+<p>创建目录</p>
+</blockquote>
+<p>①语法</p>
+<pre class=" language-bat"><code class="language-bat">MKDIR [drive:]path
+MD [drive:]path</code></pre>
+<p>②举例</p>
+<pre class=" language-bat"><code class="language-bat">rem 在D盘下创建xiezhr目录
+md d:xiezhr</code></pre>
+<h4 id="5-1-3-rd"><a href="#5-1-3-rd" class="headerlink" title="5.1.3 rd"></a>5.1.3 rd</h4><blockquote>
+<p>删除一个目录</p>
+</blockquote>
+<p>①语法</p>
+<pre class=" language-bat"><code class="language-bat">rd [directoryname]</code></pre>
+<p>② 举例</p>
+<pre class=" language-bat"><code class="language-bat">rem 删除d盘xiezhr目录
+rd d:xiezhr</code></pre>
+<h4 id="5-1-4-dir"><a href="#5-1-4-dir" class="headerlink" title="5.1.4 dir"></a>5.1.4 dir</h4><blockquote>
+<p>显示目录中的文件和子目录列表</p>
+</blockquote>
+<p>① 语法</p>
+<pre class=" language-bat"><code class="language-bat">DIR [drive:][path][filename] 
+        指定要列出的驱动器、目录和/或文件。</code></pre>
+<p>②举例</p>
+<pre class=" language-bat"><code class="language-bat">dir rem 显示当前目录中的文件和子目录
+dir /a  rem 显示当前目录中的文件和子目录，包括隐藏文件和系统文件
+dir c: /a:d rem 显示 C 盘当前目录中的目录
+dir c: /a:-d rem 显示 C 盘根目录中的文件
+dir c: /b/p rem /b只显示文件名，/p分页显示
+dir *.exe /s rem 显示当前目录和子目录里所有的.exe文件</code></pre>
+<h4 id="5-1-5-tree"><a href="#5-1-5-tree" class="headerlink" title="5.1.5 tree"></a>5.1.5 tree</h4><blockquote>
+<p>以图形显示驱动器或路径的文件夹结构</p>
+</blockquote>
+<p>① 语法</p>
+<pre class=" language-bat"><code class="language-bat">TREE [drive:][path] [/F] [/A]
+
+   /F   显示每个文件夹中文件的名称。
+   /A   使用 ASCII 字符，而不使用扩展字符。</code></pre>
+<p>② 举例</p>
+<pre class=" language-bat"><code class="language-bat">rem 显示D盘的文件目录结构
+tree d: </code></pre>
+<h4 id="5-1-6-path"><a href="#5-1-6-path" class="headerlink" title="5.1.6 path"></a>5.1.6 path</h4><blockquote>
+<p>为可执行文件显示或设置一个搜索路径</p>
+</blockquote>
+<p>① 语法</p>
+<pre class=" language-bat"><code class="language-bat">PATH [[drive:]path[;...][;%PATH%]
+PATH ;
+
+键入 PATH 但不加参数，显示当前路径。
+将 %PATH% 包括在新的路径设置中会将旧路径附加到新设置</code></pre>
+<p>② 举例</p>
+<pre class=" language-bat"><code class="language-bat">::设置要永久加入到path环境变量中的路径
+@echo off
+set My_PATH=D:\AppFolder
+
+set PATH=%PATH%;%My_PATH%
+reg add "HKLM\SYSTEM\CurrentControlSet\Control\Session Manager\Environment" /v "Path" /t REG_EXPAND_SZ /d "%PATH%" /f
+exit
+
+::设置要临时加入到path环境变量中的路径
+@echo off
+set My_PATH=D:\AppFolder
+set PATH=%PATH%;%My_PATH%
+pause</code></pre>
+<h4 id="5-1-7-xcopy"><a href="#5-1-7-xcopy" class="headerlink" title="5.1.7 xcopy"></a>5.1.7 xcopy</h4><blockquote>
+<p>复制文件和目录树</p>
+</blockquote>
+<p>① 语法</p>
+<pre class=" language-bat"><code class="language-bat">XCOPY source [destination][参数]</code></pre>
+<p>② 举例</p>
+<pre class=" language-bat"><code class="language-bat">rem 复制 d:xiezhr 文件夹、所有子文件夹和文件到 e: ，覆盖已有文件
+rem 加 /i 表示如果 e: 没有 xiezhr 文件夹就自动新建一个，否则会有询问
+xcopy d:xiezhr e:xiezhr /s/e/i/y</code></pre>
+<h3 id="5-2-文件管理"><a href="#5-2-文件管理" class="headerlink" title="5.2 文件管理"></a>5.2 文件管理</h3><h4 id="5-2-1-type"><a href="#5-2-1-type" class="headerlink" title="5.2.1 type"></a>5.2.1 type</h4><blockquote>
+<p>显示文本文件的内容</p>
+</blockquote>
+<p>① 语法</p>
+<pre class=" language-bat"><code class="language-bat">TYPE [drive:][path]filename</code></pre>
+<p>② 举例</p>
+<pre class=" language-bat"><code class="language-bat">rem 显示指定文件的内容(下面是显示d盘目录下xiezhr.txt文件的内容)
+type d:xiezhr.txt
+
+C:\Users\xiezhr>type d:xiezhr.txt
+xiezhr的个人公众号：xiezhrspac
+
+rem 显示当前目录里所有.txt文件的内容
+type *.txt </code></pre>
+<h4 id="5-2-2-copy"><a href="#5-2-2-copy" class="headerlink" title="5.2.2 copy"></a>5.2.2 copy</h4><blockquote>
+<p>将一份或多份文件复制到另一个位置</p>
+</blockquote>
+<p>① 语法</p>
+<pre class=" language-bat"><code class="language-bat">COPY [source] [destination]</code></pre>
+<p>② 举例</p>
+<pre class=" language-bat"><code class="language-bat">rem 复制 c:test.txt 文件到 d: ，并重命名为 test.bak
+copy c:xiezhr.txt d:xiezhr.bak
+
+rem 从屏幕上等待输入，按 Ctrl+Z 结束输入，输入内容存为test.txt文件
+rem con代表屏幕，prn代表打印机，nul代表空设备
+copy con xiezhr.txt
+
+rem 合并 1.txt 和 2.txt 的内容，保存为 3.txt 文件 如果不指定 3.txt ，则保存到 1.txt
+copy 1.txt + 2.txt 3.txt
+
+rem 复制文件到自己，实际上是修改了文件日期
+copy test.txt +
+</code></pre>
+<h4 id="5-2-3-del"><a href="#5-2-3-del" class="headerlink" title="5.2.3 del"></a>5.2.3 del</h4><blockquote>
+<p>删除一个或数个文件</p>
+</blockquote>
+<p>① 语法</p>
+<pre class=" language-bat"><code class="language-bat">del [filename]
+ filename         指定一个或多个文件或者目录列表。
+                通配符可用来删除多个文件。
+                如果指定了一个目录，该目录中的所
+                有文件都会被删除。</code></pre>
+<p>② 举例</p>
+<pre class=" language-bat"><code class="language-bat">rem 删除指定文件，不能是隐藏、系统、只读文件
+del d:xiezhr.txt 
+
+rem 删除 d:xiezhr 文件夹里面的所有文件，包括隐藏、只读、系统文件，不包括子目录
+del /q/a/f d:xiezhr*.*
+
+rem 删除 d:xiezhr 及子文件夹里面的所有文件，包括隐藏、只读、系统文件，不包括子目录
+del /q/a/f/s d:xiezhr*.*
+</code></pre>
+<h4 id="5-2-4-move"><a href="#5-2-4-move" class="headerlink" title="5.2.4  move"></a>5.2.4  move</h4><blockquote>
+<p>移动文件并重命名文件和目录</p>
+</blockquote>
+<p>①语法</p>
+<pre class=" language-bat"><code class="language-bat">move [source] [destination]</code></pre>
+<p>② 举例</p>
+<pre class=" language-bat"><code class="language-bat">rem 将D盘xiezhr.txt 移动到f盘
+move xiezhr.txt f:
+
+rem 将xiezhr.txt重命名为xiezhrspace.txt
+move xiezhr.txt xiezhrspace.txt</code></pre>
+<h4 id="5-2-5-ren"><a href="#5-2-5-ren" class="headerlink" title="5.2.5  ren"></a>5.2.5  ren</h4><blockquote>
+<p>重命名文件名</p>
+</blockquote>
+<p>①语法</p>
+<pre class=" language-bat"><code class="language-bat">REN [drive:][path]filename1 filename2.</code></pre>
+<p>②举例</p>
+<pre class=" language-bat"><code class="language-bat">rem 将xiezhr文件夹重命名为xiezhrspace
+ren d:xiezhr xiezhrspace</code></pre>
+<h4 id="5-2-6-replace"><a href="#5-2-6-replace" class="headerlink" title="5.2.6  replace"></a>5.2.6  replace</h4><blockquote>
+<p>替换文件</p>
+</blockquote>
+<p>① 语法</p>
+<pre class=" language-bat"><code class="language-bat">REPLACE [drive1:][path1]filename [drive2:][path2] [/A] [/P] [/R] [/W]
+
+ [drive1:][path1]filename 指定源文件。
+ [drive2:][path2]         指定要替换文件的目录</code></pre>
+<p>②举例</p>
+<pre class=" language-bat"><code class="language-bat">rem 添加新文件到目标目录: 将 xiezhr.bat 文件添加到 E 盘目录下
+replace /A C:\xiezhr.bat E:\ 
+
+rem 提示替换文件到目标目录: 将 xiezhr.txt 文本文件替换到 temp 目录中去,( temp 目录必须有 xiezhr.txt 文本文件)
+replace /P C:\xiezhr.txt E:\temp</code></pre>
+<h4 id="5-2-7-attrib"><a href="#5-2-7-attrib" class="headerlink" title="5.2.7  attrib"></a>5.2.7  attrib</h4><blockquote>
+<p>显示或更改文件属性</p>
+</blockquote>
+<p>① 语法</p>
+<pre class=" language-bat"><code class="language-bat">ATTRIB [+R | -R] [+A | -A ] [+S | -S] [+H | -H] [+I | -I]
+       [drive:][path][filename] [/S [/D] [/L]]
+
+  +   设置属性。
+  -   清除属性。
+  R   只读文件属性。
+  A   存档文件属性。
+  S   系统文件属性。
+  H   隐藏文件属性。
+  I   无内容索引文件属性。
+  X   无清理文件属性。
+  V   完整性属性。
+  [drive:][path][filename]
+      指定 attrib 要处理的文件。
+  /S  处理当前文件夹
+      及其所有子文件夹中的匹配文件。
+  /D  也处理文件夹。
+  /L  处理符号链接和
+      符号链接目标的属性</code></pre>
+<p>② 举例</p>
+<pre class=" language-bat"><code class="language-bat">rem 查看d盘xiezhr目录下各个文件属性
+D:\xiezhr>attrib /s
+A            D:\xiezhr\logo.png
+A            D:\xiezhr\公众号-xiezhrspace.txt
+
+rem 设置logo.png文件的属性为系统实现、隐藏属性、只读属性
+D:\xiezhr>attrib +s +h +r logo.png
+D:\xiezhr>attrib /s
+A  SHR       D:\xiezhr\logo.png
+A            D:\xiezhr\公众号-xiezhrspace.txt
+
+rem 设置logo.png 恢复原来属性
+D:\xiezhr>attrib -s -h -r logo.png
+
+D:\xiezhr>attrib /s
+A            D:\xiezhr\logo.png
+A            D:\xiezhr\公众号-xiezhrspace.txt
+rem </code></pre>
+<h4 id="5-2-7-find"><a href="#5-2-7-find" class="headerlink" title="5.2.7  find"></a>5.2.7  find</h4><p>① 语法</p>
+<pre class=" language-bat"><code class="language-bat">FIND [/V] [/C] [/N] [/I] [/OFF[LINE]] "string" [[drive:][path]filename[ ...]]
+
+  /V         显示所有未包含指定字符串的行。
+  /C         仅显示包含字符串的行数。
+  /N         显示行号。
+  /I         搜索字符串时忽略大小写。
+  /OFF[LINE] 不要跳过具有脱机属性集的文件。
+  "string" 指定要搜索的文本字符串。
+  [drive:][path]filename
+             指定要搜索的文件</code></pre>
+<p>② 举例</p>
+<pre class=" language-bat"><code class="language-bat">rem 在 d:/xiezhr/xiezhr.txt 文件里查找含 "公众号：xiezhrspace" 字符串的行如果找不到，将设 errorlevel 返回码为1
+C:\Users\xiezhr>find "公众号：xiezhrspace" d:/xiezhr/xiezhr.txt
+
+---------- D:/XIEZHR/XIEZHR.TXT
+公众号：xiezhrspace
+
+rem 查找含 xiezhrspace 的行，忽略大小写
+C:\Users\xiezhr>find /i "xiezhrspace" d:/xiezhr/xiezhr.txt
+
+---------- D:/XIEZHR/XIEZHR.TXT
+博客：www.xiezhrspace.cn
+公众号：xiezhrspace
+更多实用的文章和资源尽在公众号：XiezhrSpace,欢迎订
+
+
+rem 显示含 xiezhrspace 的行的行数
+C:\Users\ye.ff>find /c "xiezhrspace" d:/xiezhr/xiezhr.txt
+
+---------- D:/XIEZHR/XIEZHR.TXT: 2
+</code></pre>
+<h4 id="5-2-8-fc"><a href="#5-2-8-fc" class="headerlink" title="5.2.8  fc"></a>5.2.8  fc</h4><blockquote>
+<p>比较两个文件或两个文件集并显示它们之间的不同</p>
+</blockquote>
+<p>① 语法</p>
+<pre class=" language-bat"><code class="language-bat">FC /B [drive1:][path1]filename1 [drive2:][path2]filename2
+[drive1:][path1]filename1
+             指定要比较的第一个文件或第一个文件集。
+[drive2:][path2]filename2
+             指定要比较的第二个文件或第二个文件集。
+</code></pre>
+<p>② 举例</p>
+<pre class=" language-bat"><code class="language-bat">rem 比较d盘xiezhr目录下的“公众号-xiezhrspace.txt” 和“xiezhr.txt”文件 。如下为比较结果
+D:\xiezhr>fc xiezhr.txt 公众号-xiezhrspace.txt
+正在比较文件 xiezhr.txt 和 公众号-XIEZHRSPACE.TXT
+***** xiezhr.txt
+
+
+微信号：xie_zhr
+
+博客：www.xiezhrspace.cn
+
+公众号：xiezhrspace
+
+***** 公众号-XIEZHRSPACE.TXT
+公众号：xiezhrspace
+*****</code></pre>
+<h3 id="5-3-网络命令"><a href="#5-3-网络命令" class="headerlink" title="5.3 网络命令"></a>5.3 网络命令</h3><h4 id="5-3-1-ping"><a href="#5-3-1-ping" class="headerlink" title="5.3.1 ping"></a>5.3.1 ping</h4><blockquote>
+<p>确定本地主机是否能与另一台主机交换数据报</p>
+</blockquote>
+<p>① 语法</p>
+<pre class=" language-bat"><code class="language-bat">ping+IP地址或主机域名
+ping+IP地址或主机域名+命令参数
+ping+命令参数+IP地址或主机域名</code></pre>
+<p>② 举例</p>
+<pre class=" language-bat"><code class="language-bat">rem 本机与192.168.205.9是否连通
+ping 192.168.205.9
+
+rem 网络是否畅通
+ping www.baidu.com</code></pre>
+<h4 id="5-3-2-ftp"><a href="#5-3-2-ftp" class="headerlink" title="5.3.2 ftp"></a>5.3.2 ftp</h4><blockquote>
+<p>将文件传送到运行 FTP 服务器服务(经常称为后台程序)的计算机以及将文件从该计算机<br>传出。可以交互使用 Ftp。</p>
+</blockquote>
+<p>① 语法</p>
+<pre class=" language-bat"><code class="language-bat">ftp -v -d -i -n -g [主机名] 
+-v 显示远程服务器的所有响应信息；
+-n 限制ftp的自动登录，即不使用；.n etrc文件；
+-d 使用调试方式；
+-g 取消全局文件名</code></pre>
+<p>② 举例</p>
+<pre class=" language-bat"><code class="language-bat">rem 将D盘xiezhr.txt文件上传到ftp 文件服务器
+rem ftp服务器信息：ip:192.168.205.9 账号：xiezhr 密码：pswxiezhr
+
+@Echo Off
+Echo  open  192.168.205.9 > ftp .up
+Echo xiezhr >> ftp .up
+Echo pswxiezhr >> ftp .up
+Echo Cd .\User >> ftp .up
+Echo binary>> ftp .up
+Echo put  "D:xiezhr.txt" >> ftp .up
+Echo bye>> ftp .up
+FTP -s: ftp .up
+del  ftp .up  /q
+Pause</code></pre>
+<h4 id="5-3-3-net"><a href="#5-3-3-net" class="headerlink" title="5.3.3 net"></a>5.3.3 net</h4><blockquote>
+<p>网络命令集及用户管理,根据使用的命令提供各种网络服务</p>
+</blockquote>
+<p>① 语法</p>
+<pre class=" language-bat"><code class="language-bat">net [variant]  </code></pre>
+<p>②  举例</p>
+<pre class=" language-bat"><code class="language-bat">rem 查看计算机的当前密码和登录限制。
+net accounts
+
+添加或删除附加到Windows域控制器的计算机。
+net computer
+
+rem 显示当前的服务器或工作组设置。
+net config
+
+rem 该命令可以用于查看特定用户帐户的详细信息。
+net user
+
+rem 该命令用于停止和启动特定的服务。
+net stop/start
+
+rem 显示工作站或服务器的网络统计信息。
+net statistics
+
+rem 连接或断开计算机与共享资源或显示有关连接的信息
+net use</code></pre>
+<h4 id="5-3-4-telnet"><a href="#5-3-4-telnet" class="headerlink" title="5.3.4 telnet"></a>5.3.4 telnet</h4><blockquote>
+<p>查看某个端口是否可访问。我们在搞开发的时候，经常要用的端口就是 8080。那么你可以启动服务器，用telnet 去查看这个端口是否可用。</p>
+</blockquote>
+<p>① 语法</p>
+<pre class=" language-bat"><code class="language-bat">telnet IP 端口
+telnet 域名 端口</code></pre>
+<p>② 举例</p>
+<pre class=" language-bat"><code class="language-bat">rem 查看主机192.168.205.9 的8080端口是否可以访问
+telnet 192.168.205.9 8080 </code></pre>
+<h4 id="5-3-5-ipconfig"><a href="#5-3-5-ipconfig" class="headerlink" title="5.3.5 ipconfig"></a>5.3.5 ipconfig</h4><blockquote>
+<p>显示、修改TCP/IP设置</p>
+</blockquote>
+<p>① 语法</p>
+<pre class=" language-bat"><code class="language-bat">ipconfig</code></pre>
+<p>② 举例</p>
+<pre class=" language-bat"><code class="language-bat">rem 查看本机IP地址
+ipconfig 
+无线局域网适配器 WLAN:
+连接特定的 DNS 后缀 . . . . . . . :
+IPv6 地址 . . . . . . . . . . . . : 2409:8a6c:72:41c0:5424:dc10:aa75:2782
+临时 IPv6 地址. . . . . . . . . . : 2409:8a6c:72:41c0:1df7:d511:b10e:72c
+本地链接 IPv6 地址. . . . . . . . : fe80::5424:dc10:aa75:2782%11
+IPv4 地址 . . . . . . . . . . . . : 192.168.1.80
+子网掩码  . . . . . . . . . . . . : 255.255.255.0
+默认网关. . . . . . . . . . . . . : fe80::1%11
+                                    192.168.1.1</code></pre>
+<h4 id="5-3-5-msg"><a href="#5-3-5-msg" class="headerlink" title="5.3.5 msg"></a>5.3.5 msg</h4><blockquote>
+<p>给用户发送消息</p>
+</blockquote>
+<p>① 语法</p>
+<pre class=" language-bat"><code class="language-bat">MSG &#123;username | sessionname | sessionid | @filename | *&#125;
+    [/SERVER:servername] [/TIME:seconds] [/V] [/W] [message]
+
+  username            标识指定的用户名。
+  sessionname         会话名。
+  sessionid           会话 ID。
+  @filename           识别这样一个文件，该文件含有将所发消息发送到的用户
+                      名、会话名和会话标识号的列表。
+  *                   给指定服务器上的所有会话发送信息。
+  /SERVER:servername  要联系的服务器(默认值是当前值)。
+  /TIME:seconds       等待接收器确认消息的时间延迟。
+  /V                  显示有关执行的操作的信息。
+  /W                  等待用户的响应，跟 /V 一起有用。
+  message             要发送的消息。如果没有指定，发出提示，或者从 stdin
+                      读取。
+</code></pre>
+<p>② 举例</p>
+<pre class=" language-bat"><code class="language-bat">  MSG /server:192.168.1.200 * "Hello"      ----------------->>>>>    运行成功，弹出消息对话框。</code></pre>
+<h3 id="5-4-系统管理"><a href="#5-4-系统管理" class="headerlink" title="5.4 系统管理"></a>5.4 系统管理</h3><h4 id="5-4-1-shutdown"><a href="#5-4-1-shutdown" class="headerlink" title="5.4.1 shutdown"></a>5.4.1 shutdown</h4><blockquote>
+<p>关闭计算机，或者注销当前用户</p>
+</blockquote>
+<p>① 语法</p>
+<pre class=" language-bat"><code class="language-bat">Shutdown</code></pre>
+<p>②举例</p>
+<pre class=" language-bat"><code class="language-bat">rem 如果执行批处理文件的用户具有相关权限，则计算机将被关闭。                    
+@echo off 
+shutdown</code></pre>
+<h4 id="5-4-2-Tasklist"><a href="#5-4-2-Tasklist" class="headerlink" title="5.4.2 Tasklist"></a>5.4.2 Tasklist</h4><blockquote>
+<p>列出任务，包括任务名称和进程ID(PID)</p>
+</blockquote>
+<p>① 语法</p>
+<pre class=" language-bat"><code class="language-bat">Tasklist</code></pre>
+<p>② 举例</p>
+<pre class=" language-bat"><code class="language-bat">rem 列出当前系统上的所有任务
+@echo off 
+Tasklist</code></pre>
+<h4 id="5-4-3-Taskkill"><a href="#5-4-3-Taskkill" class="headerlink" title="5.4.3 Taskkill"></a>5.4.3 Taskkill</h4><blockquote>
+<p>于结束一个或多个任务。</p>
+</blockquote>
+<p>① 语法</p>
+<pre class=" language-bat"><code class="language-bat">taskkill /im [taskname]</code></pre>
+<p>② 举例</p>
+<pre class=" language-bat"><code class="language-bat">rem 将发送一个终止消息到MS Paint的任何打开的程序
+@echo off 
+Taskkill /im mspaint.exe</code></pre>
+<h4 id="5-4-4-reg"><a href="#5-4-4-reg" class="headerlink" title="5.4.4 reg"></a>5.4.4 reg</h4><blockquote>
+<p>注册表是Windows系统的关键要素之一。 它包含有关操作系统各个方面的大量信息。 几乎所有安装在Windows系统上的应用程序都以某种形式与注册表交互<br>注册表包含两个基本元素:键和值</p>
+</blockquote>
+<p>① 语法</p>
+<pre class=" language-bat"><code class="language-bat">rem 1 从注册表中检索任何键的值。
+REG QUERY [ROOT\]RegKey /v ValueName [/s] 
+REG QUERY [ROOT\]RegKey /ve --This returns the (default) value
+
+rem 2 向注册表添加值，需要在系统上拥有足够的权限才能执行此操作
+REG ADD [ROOT\]RegKey /v ValueName [/t DataType] [/S Separator] [/d Data] [/f]
+REG ADD [ROOT\]RegKey /ve [/d Data] [/f]
+
+rem 3 从注册表中删除值，需要在系统上拥有足够的权限来执行此操作。
+REG DELETE [ROOT\]RegKey /v ValueName [/f] 
+REG DELETE [ROOT\]RegKey /ve [/f] 
+REG DELETE [ROOT\]RegKey /va [/f]
+
+rem 4 从注册表复制值，您需要在系统上拥有足够的权限才能在源位置和目标位置上执行此操作。
+REG COPY [\\SourceMachine\][ROOT\]RegKey [\\DestMachine\][ROOT\]RegKey
+
+rem 5 比较注册表项
+REG COMPARE [ROOT\]RegKey [ROOT\]RegKey [/v ValueName] [Output] [/s]
+REG COMPARE [ROOT\]RegKey [ROOT\]RegKey [/ve] [Output] [/s]</code></pre>
+<p>② 举例</p>
+<pre class=" language-bat"><code class="language-bat">rem 1 查询注册表项HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Windows\ 下的所有键及其各自的值
+@echo off R
+EG QUERY HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Windows\
+
+rem 2 在注册表 - HKEY_CURRENT_USER\Console 下添加一个键 键的名字是Test 分配给这个键的值是Test Data，它是默认的字符串类型
+@echo off 
+REG ADD HKEY_CURRENT_USER\Console /v Xiezhr /d "xiezhr"  
+
+rem 3 删除注册表HKEY_CURRENT_USER\Console下的一个注册表项。 键的名称是Test
+@echo off
+REG DELETE HKEY_CURRENT_USER\Console /v Xiezhr /f
+
+rem 4  将内容从位置HKEY_CURRENT_USER\Console复制到同一台机器上的HKEY_CURRENT_USER\Console\Xiezhr位置
+@echo off 
+REG COPY HKEY_CURRENT_USER\Console HKEY_CURRENT_USER\Console\Xiezhr
+
+rem 5 比较注册表项HKEY_CURRENT_USER\Console & HKEY_CURRENT_USER\Console\Xiezhr之间的所有值
+@echo off
+REG COMPARE HKEY_CURRENT_USER\Console HKEY_CURRENT_USER\Console\Xiezhr</code></pre>
+<h2 id="6-Batch-常用命令"><a href="#6-Batch-常用命令" class="headerlink" title="6 Batch 常用命令"></a>6 Batch 常用命令</h2><h3 id="6-1-echo"><a href="#6-1-echo" class="headerlink" title="6.1 echo"></a>6.1 echo</h3><blockquote>
+<p>打开回显或关闭请求回显功能，或显示消息。如果没有任何参数，echo命令将显示当前回显设置。<br>① 语法</p>
+</blockquote>
+<pre class=" language-bat"><code class="language-bat">echo [&#123;on|off&#125;] [message]</code></pre>
+<p>② 例子</p>
+<pre class=" language-bat"><code class="language-bat">rem 关闭单行回显
+@  
+
+rem 从下一行开始关闭回显
+echo off  
+
+rem 从本行开始关闭回显。一般批处理第一行都是这个
+@echo off  
+
+rem 从下一行开始打开回显
+echo on 
+
+rem 显示当前是 echo off 状态还是 echo on 状态
+echo 
+
+rem 输出一个”回车换行”，空白行
+echo. 
+
+rem 在实际应用中我们会把这条命令和重定向符号（也称为管道符号，一般用> >> ^）结合来实现输入一些命令到特定的文件中 命令会创建一个名为"test"的文本文件，并将"test"输入到文本文件中。
+echo test>test.txt
+</code></pre>
+<h3 id="6-2-rem-和"><a href="#6-2-rem-和" class="headerlink" title="6.2 rem 和 ::"></a>6.2 rem 和 ::</h3><blockquote>
+<p>注释命令，类似于在编程语言中的/<em>——–</em>/，它并不会被执行，只是起一个注释的作用，只有在编辑批处理时才会被看到，主要用于方便修改</p>
+</blockquote>
+<p>① 语法</p>
+<pre class=" language-bat"><code class="language-bat">Rem [注释内容]</code></pre>
+<p>② 例子</p>
+<pre class=" language-bat"><code class="language-bat">Rem 此处是注释内容。</code></pre>
+<h3 id="6-3-pause"><a href="#6-3-pause" class="headerlink" title="6.3 pause"></a>6.3 pause</h3><blockquote>
+<p>暂停命令。运行 Pause 命令时，将显示下面的消息：<br>Press any key to continue. . .（或：请按任意键继续. . .)</p>
+</blockquote>
+<p>① 语法</p>
+<pre class=" language-bat"><code class="language-bat">pause</code></pre>
+<p>② 例子</p>
+<pre class=" language-bat"><code class="language-bat">C:\Users\xiezhr>pause
+请按任意键继续. . .</code></pre>
+<h3 id="6-4-call"><a href="#6-4-call" class="headerlink" title="6.4 call"></a>6.4 call</h3><blockquote>
+<p>从一个批处理程序调用另一个批处理程序，并且不终止父批处理程序。还可以调用指定标号处后面的所有命令</p>
+</blockquote>
+<p>① 语法</p>
+<pre class=" language-bat"><code class="language-bat">call [drive:][path]filename [batch-parameters]
+
+[drive:][path]filename：指定被调用的批处理文件名，当被调用的批处理文件与正在执行的批处理文件处于同一目录下时，可以省调盘符及路径</code></pre>
+<p>②举例<br>在D盘先分别建立test.bat 和 called.bat批处理文件<br>test.bat</p>
+<pre class=" language-bat"><code class="language-bat">@echo off
+echo 正在调用called.bat
+call called.bat
+echo called.bat 调用完毕</code></pre>
+<p>called.bat</p>
+<pre class=" language-bat"><code class="language-bat">@echo off
+@echo 已经进入到called.bat 中。。。</code></pre>
+<p>test.bat 和called.bat 创建完毕后，执行test.bat，当test.bat执行到call called.bat命令时便转向执行called.bat批处理文件中的内容。called.bat 执行完之后继续执行test.bat call called.bat 命令行后面的内容</p>
+<h3 id="6-5-start"><a href="#6-5-start" class="headerlink" title="6.5 start"></a>6.5 start</h3><blockquote>
+<p>调用外部程序，所有的DOS命令和命令行程序都可以由start命令来调用</p>
+</blockquote>
+<p>①语法</p>
+<pre class=" language-bat"><code class="language-bat">START “programname”              </code></pre>
+<p>② 举例</p>
+<pre class=" language-bat"><code class="language-bat">rem 修改 DOS 窗口标题
+start title "新标题"
+
+rem 打开计算机 E 盘
+start E:
+
+rem 最小化打开记事本
+start /min notepad.exe
+
+rem 最大化打开计算器
+start /max calc
+
+rem 打开任务管理器
+start taskmgr
+
+rem 同时打开写字板和计算器 用 & 将两个要开启的程序连起来
+start write & calc</code></pre>
+<h3 id="6-6-cls"><a href="#6-6-cls" class="headerlink" title="6.6 cls"></a>6.6 cls</h3><blockquote>
+<p>清屏</p>
+</blockquote>
+<p>① 语法</p>
+<pre class=" language-bat"><code class="language-bat">cls</code></pre>
+<p>② 举例</p>
+<pre class=" language-bat"><code class="language-bat">@echo off 
+dir
+cls</code></pre>
+<h3 id="6-7-title"><a href="#6-7-title" class="headerlink" title="6.7 title"></a>6.7 title</h3><blockquote>
+<p>设置控制台窗口中显示的标题。在实际工作中，我们会在一台服务器上启动很多服务，这时我们通过给不同的服务起不同的名字就很容易辨认出不同服务</p>
+</blockquote>
+<p>① 语法</p>
+<pre class=" language-bat"><code class="language-bat">TITLE [Tilename]
+其中，tilename是要提供给命令提示符窗口标题的新名称</code></pre>
+<p>② 举例</p>
+<pre class=" language-bat"><code class="language-bat">rem 将把窗口的标题改为“xiezhr的新窗口“。
+@echo off 
+Title “xiezhr的新窗口”</code></pre>
+<h3 id="6-8-ver"><a href="#6-8-ver" class="headerlink" title="6.8 ver"></a>6.8 ver</h3><blockquote>
+<p>显示系统版本</p>
+</blockquote>
+<p>① 语法</p>
+<pre class=" language-bat"><code class="language-bat">ver</code></pre>
+<p>② 举例</p>
+<pre class=" language-bat"><code class="language-bat">rem 下面命令将显示系统版本
+@echo off 
+ver</code></pre>
+<h3 id="6-9-date"><a href="#6-9-date" class="headerlink" title="6.9 date"></a>6.9 date</h3><blockquote>
+<p>用于获取当前系统时间。</p>
+</blockquote>
+<p>① 语法</p>
+<pre class=" language-bat"><code class="language-bat">date</code></pre>
+<p>② 举例</p>
+<pre class=" language-bat"><code class="language-bat">rem 显示当前日期
+@echo off 
+echo %DATE%</code></pre>
+<h3 id="6-10-time"><a href="#6-10-time" class="headerlink" title="6.10 time"></a>6.10 time</h3><blockquote>
+<p>用于设置或显示时间</p>
+</blockquote>
+<p>① 语法</p>
+<pre class=" language-bat"><code class="language-bat">time </code></pre>
+<p>② 举例</p>
+<pre class=" language-bat"><code class="language-bat">rem 显示系统当前时间
+@echo off 
+echo %TIME%</code></pre>
+<h3 id="6-11-exit"><a href="#6-11-exit" class="headerlink" title="6.11 exit"></a>6.11 exit</h3><blockquote>
+<p>用于退出DOS控制台</p>
+</blockquote>
+<p>① 语法</p>
+<pre class=" language-bat"><code class="language-bat">exit</code></pre>
+<p>② 举例</p>
+<pre class=" language-bat"><code class="language-bat">rem 退出doc控制台
+exit</code></pre>
+<h3 id="6-12-set"><a href="#6-12-set" class="headerlink" title="6.12 set"></a>6.12 set</h3><blockquote>
+<p>设置变量。引用变量可在变量名前后加 % ，即 %变量名%</p>
+</blockquote>
+<p>① 语法</p>
+<pre class=" language-bat"><code class="language-bat">set</code></pre>
+<p>② 举例</p>
+<pre class=" language-bat"><code class="language-bat">rem 显示当前系统上的环境变量列表
+@echo off 
+set
+
+rem 进行四则运算
+@echo off
+set /a a=1+1,b=2+1,c=3+1
+echo %a% %b% %c%</code></pre>
+<h3 id="6-13-if"><a href="#6-13-if" class="headerlink" title="6.13 if"></a>6.13 if</h3><blockquote>
+<p>判断语句，如果满足条件则执行条件后语句</p>
+</blockquote>
+<p>① 语法</p>
+<pre class=" language-bat"><code class="language-bat">rem 1 if语句
+if (condition) do_something
+
+rem 2 if/else 语句
+if (condition) (do_something) ELSE (do_something_else)
+</code></pre>
+<p>if 语句</p>
+<p><img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/if.png"></p>
+<p>if/else 语句</p>
+<p><img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/iflese.png"></p>
+<p>② 举例</p>
+<pre class=" language-bat"><code class="language-bat">rem  如果d盘存在xiezhr.bat 则输出“存在d:xiezhr.bat文件”
+if exist d:xiezhr.bat echo 存在d:xiezhr.bat文件
+
+rem 如果d盘不存在xiezhr 文件夹则输出“不存在d:xiezhr文件夹”
+if not exist d:xiezhr (
+echo 不存在d:xiezhr文件夹
+)
+
+rem 每个“if else”代码放在括号()中。 如果括号不是用于分隔"if"和"else"代码的代码，那么如果else语句不成立，那么这些语句就不会有效。
+rem 在第一个“if else”语句中，if条件将评估为true。
+rem 在第二个“if else”语句中，else条件将被执行，因为条件将被评估为false
+
+@echo off 
+SET /A a=15 
+SET /A b=20
+SET /A c=%a% + %b% 
+if %c%==35 (echo "最后结果为 35") else (echo "为知结果") 
+if %c%==45 (echo "最后结果为 45") else (echo "为知结果")</code></pre>
+<h3 id="6-13-for"><a href="#6-13-for" class="headerlink" title="6.13 for"></a>6.13 for</h3><blockquote>
+<p>循环命令。对一组文件中的每一个文件执行某个特定命 具体参照 for /? 查看</p>
+</blockquote>
+<p>① 语法</p>
+<pre class=" language-bat"><code class="language-bat">FOR %variable IN (set) DO command [command-parameters]
+
+  %variable  指定一个单一字母可替换的参数。
+  (set)      指定一个或一组文件。可以使用通配符。
+  command    指定对每个文件执行的命令。
+  command-parameters 为特定命令指定参数或命令行开关</code></pre>
+<p>② 举例</p>
+<pre class=" language-bat"><code class="language-bat">rem 依次调用小括号里的每个字符串，执行 do 后面的命令
+for %%i in (c: d: e: f:) do echo %%i
+
+rem 把 d:xiezhr 及其子目录里的mp4文件的文件名都存到 d:xiezhr.txt 里去
+for /r d:xiezhr %%i in (*.mp4) do echo %%i>>d:xiezhr.txt
+
+rem 对当前目录里所有的txt文件执行 find 命令,找出包含“xiezhr” 字符的所有文件
+for %%i in (*.txt) do find "xiezhr" %%i
+
+rem 在当前目录和子目录里所有的.txt文件中搜索包含“xiezhr”字符串的行
+for /r . %%i in (*.txt) do find "xiezhr" %%i
+</code></pre>
+<h2 id="7-批处理使用中一些常见问题"><a href="#7-批处理使用中一些常见问题" class="headerlink" title="7 批处理使用中一些常见问题"></a>7 批处理使用中一些常见问题</h2><h3 id="7-1-双击打开批出里文件xiezhr-bat后闪退"><a href="#7-1-双击打开批出里文件xiezhr-bat后闪退" class="headerlink" title="7.1 双击打开批出里文件xiezhr.bat后闪退"></a>7.1 双击打开批出里文件xiezhr.bat后闪退</h3><blockquote>
+<p>可能原因</p>
+</blockquote>
+<ul>
+<li>执行速度很快，执行完之后，自行关闭</li>
+<li>语法错误</li>
+</ul>
+<blockquote>
+<p>解决办法</p>
+</blockquote>
+<ul>
+<li>在最后面一行加上 pause</li>
+</ul>
+<pre class=" language-bat"><code class="language-bat">@echo off
+set p=xiezhr
+if %p%==xiezhr (
+echo %p%
+set p=xiezrhspace
+echo %p%
+)
+pause</code></pre>
+<p><img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/pause.png"></p>
+<ul>
+<li>用文本编辑器打开xiezhr.bat 文件，检查命令是否都书写正确</li>
+</ul>
+<h3 id="7-2-批处理xiezhr-bat-文件中输出中文乱码"><a href="#7-2-批处理xiezhr-bat-文件中输出中文乱码" class="headerlink" title="7.2 批处理xiezhr.bat 文件中输出中文乱码"></a>7.2 批处理xiezhr.bat 文件中输出中文乱码</h3><blockquote>
+<p>原因</p>
+</blockquote>
+<ul>
+<li>记事本新建的文件，编码不是 utf-8</li>
+</ul>
+<blockquote>
+<p>解决办法</p>
+</blockquote>
+<ul>
+<li>用【记事本】打开&gt;【另存为】&gt;【修改编码为：utf-8】<br><img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/utf-8.png"></li>
+</ul>
+]]></content>
+      <categories>
+        <category>windows</category>
+        <category>bat</category>
+        <category>批处理</category>
+      </categories>
+      <tags>
+        <tag>windows</tag>
+        <tag>bat</tag>
+        <tag>批处理</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>数据库备份真的很重要！很重要！很重要</title>
     <url>/archives/5060cc60.html</url>
     <content><![CDATA[<h2 id="1-序言"><a href="#1-序言" class="headerlink" title="1 序言"></a>1 序言</h2><p>最近相信大家都被这则新闻刷屏了吧，欧洲云计算巨头 OVH 位于法国斯特拉斯堡的机房近日发生严重火灾，</p>
