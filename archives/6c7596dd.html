@@ -1,0 +1,3122 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="windows,bat,批处理">
+    <meta name="description" content="">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="baidu-site-verification" content="code-uutUfowLsm" />
+    <meta name="msvalidate.01" content="F999DE5405A9F0E56508AD3016F4E45E" />
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <title>打开windows批处理大门 | xiezhrspace</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/xiezhr/xiezhrblog-cdn-source/source/libs/awesome/css/all.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/xiezhr/xiezhrblog-cdn-source/source/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/xiezhr/xiezhrblog-cdn-source/source/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/xiezhr/xiezhrblog-cdn-source/source/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/xiezhr/xiezhrblog-cdn-source/source/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/xiezhr/xiezhrblog-cdn-source/source/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/xiezhr/xiezhrblog-cdn-source/source/css/my.css">
+    
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/xiezhr/xiezhrblog-cdn-source/source/libs/artitalk/artitalk.min.css">
+    <!--引入春节样式-->
+    <link rel="stylesheet" type="text/css" href="../../css/spring.css">
+    <!--引入黑夜样式-->
+    <link rel="stylesheet" type="text/css" href="../../css/moon.css">
+    
+
+    <script src="https://cdn.jsdelivr.net/gh/xiezhr/xiezhrblog-cdn-source/source/libs/jquery/jquery.min.js"></script>
+
+    
+        <link type="text/css" href="/js/live2d_assets/waifu.css">
+    
+
+    
+
+<!-- 元宵节灯笼样式开始 -->
+
+    <style>
+        @media only screen and (min-width: 1124px) {
+            .nav-menu {
+                padding-right: 90px;
+            }
+        }
+        @media only screen and (max-width: 760px) {
+            .deng-box, .deng-box1 {
+                width: 40%;
+            }
+            .right {
+                float: left!important;
+            }
+        }
+        @media only screen and (min-width: 768px) and (max-width: 1024px) {
+            .right {
+                float: left!important;
+            }
+        }
+        .deng-box {
+            position: fixed;
+            top: -40px;
+            right: -20px;
+            z-index: 999;
+        }
+        .deng-box1 {
+            position: fixed;
+            top: -30px;
+            right: 10px;
+            z-index: 999;
+        }
+        .deng-box1 .deng {
+            position: relative;
+            width: 120px;
+            height: 90px;
+            margin: 50px;
+            background: #d8000f;
+            background: rgba(216, 0, 15, 0.8);
+            border-radius: 50% 50%;
+            -webkit-transform-origin: 50% -100px;
+            -webkit-animation: swing 5s infinite ease-in-out;
+            box-shadow: -5px 5px 30px 4px rgba(252, 144, 61, 1);
+        }
+        .deng {
+            position: relative;
+            width: 120px;
+            height: 90px;
+            margin: 50px;
+            background: #d8000f;
+            background: rgba(216, 0, 15, 0.8);
+            border-radius: 50% 50%;
+            -webkit-transform-origin: 50% -100px;
+            -webkit-animation: swing 3s infinite ease-in-out;
+            box-shadow: -5px 5px 50px 4px rgba(250, 108, 0, 1);
+        }
+        .deng-a {
+            width: 100px;
+            height: 90px;
+            background: #d8000f;
+            background: rgba(216, 0, 15, 0.1);
+            margin: 12px 8px 8px 10px;
+            border-radius: 50% 50%;
+            border: 2px solid #dc8f03;
+        }
+        .deng-b {
+            width: 45px;
+            height: 90px;
+            background: #d8000f;
+            background: rgba(216, 0, 15, 0.1);
+            margin: -4px 8px 8px 26px;
+            border-radius: 50% 50%;
+            border: 2px solid #dc8f03;
+        }
+        .xian {
+            position: absolute;
+            top: -20px;
+            left: 60px;
+            width: 2px;
+            height: 20px;
+            background: #dc8f03;
+        }
+        .shui-a {
+            position: relative;
+            width: 5px;
+            height: 20px;
+            margin: -5px 0 0 59px;
+            -webkit-animation: swing 4s infinite ease-in-out;
+            -webkit-transform-origin: 50% -45px;
+            background: #ffa500;
+            border-radius: 0 0 5px 5px;
+        }
+        .shui-b {
+            position: absolute;
+            top: 14px;
+            left: -2px;
+            width: 10px;
+            height: 10px;
+            background: #dc8f03;
+            border-radius: 50%;
+        }
+        .shui-c {
+            position: absolute;
+            top: 18px;
+            left: -2px;
+            width: 10px;
+            height: 35px;
+            background: #ffa500;
+            border-radius: 0 0 0 5px;
+        }
+        .deng:before {
+            position: absolute;
+            top: -7px;
+            left: 29px;
+            height: 12px;
+            width: 60px;
+            content: " ";
+            display: block;
+            z-index: 999;
+            border-radius: 5px 5px 0 0;
+            border: solid 1px #dc8f03;
+            background: #ffa500;
+            background: linear-gradient(to right, #dc8f03, #ffa500, #dc8f03, #ffa500, #dc8f03);
+        }
+        .deng:after {
+            position: absolute;
+            bottom: -7px;
+            left: 10px;
+            height: 12px;
+            width: 60px;
+            content: " ";
+            display: block;
+            margin-left: 20px;
+            border-radius: 0 0 5px 5px;
+            border: solid 1px #dc8f03;
+            background: #ffa500;
+            background: linear-gradient(to right, #dc8f03, #ffa500, #dc8f03, #ffa500, #dc8f03);
+        }
+        @font-face {
+            font-family: "华文行楷";
+            src: url('/fonts/华文行楷.ttf');
+        }
+        .deng-t {
+            font-family: 华文行楷;
+            font-size: 26px;
+            color: #dc8f03;
+            font-weight: bold;
+            line-height: 44px;
+            text-align: center;
+        }
+        .night .deng-t,
+        .night .deng-box,
+        .night .deng-box1 {
+            background: transparent !important;
+        }
+        @-moz-keyframes swing {
+            0% {
+                    -moz-transform: rotate(-10deg)
+            }
+            50% {
+                -moz-transform: rotate(10deg)
+            }
+            100% {
+                    -moz-transform: rotate(-10deg)
+            }
+        }
+        @-webkit-keyframes swing {
+            0% {
+                    -webkit-transform: rotate(-10deg)
+            }
+            50% {
+                    -webkit-transform: rotate(10deg)
+            }
+            100% {
+                    -webkit-transform: rotate(-10deg)
+            }
+        }
+    </style>
+    <div class="deng-box">
+        <div class="deng">
+            <div class="xian"></div>
+            <div class="deng-a">
+                <div class="deng-b"><div class="deng-t">喜迎</div></div>
+            </div>
+            <div class="shui shui-a"><div class="shui-c"></div><div class="shui-b"></div></div>
+        </div>
+    </div>
+    <div class="deng-box1">
+        <div class="deng">
+            <div class="xian"></div>
+            <div class="deng-a">
+                <div class="deng-b"><div class="deng-t">春节</div></div>
+            </div>
+            <div class="shui shui-a"><div class="shui-c"></div><div class="shui-b"></div></div>
+        </div>
+    </div>
+
+<!-- 元宵节灯笼样式结束 -->
+
+    
+
+<meta name="generator" content="Hexo 5.4.0"><link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+
+
+
+
+
+    <style type="text/css" lang="css">
+    #loading-container{
+        position: fixed;
+        top: 0;
+        left: 0;
+        min-height: 100vh;
+        width: 100vw;
+        z-index: 9999;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background: #FFF;
+        text-align: center;
+        /* loader页面消失采用渐隐的方式*/
+        -webkit-transition: opacity 1s ease;
+        -moz-transition: opacity 1s ease;
+        -o-transition: opacity 1s ease;
+        transition: opacity 1s ease;
+    }
+    .loading-image{
+        width: 120px;
+        height: 50px;
+        transform: translate(-50%);
+    }
+
+    .loading-image div:nth-child(2) {
+        -webkit-animation: pacman-balls 1s linear 0s infinite;
+        animation: pacman-balls 1s linear 0s infinite
+    }
+
+    .loading-image div:nth-child(3) {
+        -webkit-animation: pacman-balls 1s linear .33s infinite;
+        animation: pacman-balls 1s linear .33s infinite
+    }
+
+    .loading-image div:nth-child(4) {
+        -webkit-animation: pacman-balls 1s linear .66s infinite;
+        animation: pacman-balls 1s linear .66s infinite
+    }
+
+    .loading-image div:nth-child(5) {
+        -webkit-animation: pacman-balls 1s linear .99s infinite;
+        animation: pacman-balls 1s linear .99s infinite
+    }
+
+   .loading-image div:first-of-type {
+        width: 0;
+        height: 0;
+        border: 25px solid #49b1f5;
+        border-right-color: transparent;
+        border-radius: 25px;
+        -webkit-animation: rotate_pacman_half_up .5s 0s infinite;
+        animation: rotate_pacman_half_up .5s 0s infinite;
+    }
+    .loading-image div:nth-child(2) {
+        width: 0;
+        height: 0;
+        border: 25px solid #49b1f5;
+        border-right-color: transparent;
+        border-radius: 25px;
+        -webkit-animation: rotate_pacman_half_down .5s 0s infinite;
+        animation: rotate_pacman_half_down .5s 0s infinite;
+        margin-top: -50px;
+    }
+    @-webkit-keyframes rotate_pacman_half_up {0% {transform: rotate(270deg)}50% {transform: rotate(1turn)}to {transform: rotate(270deg)}}
+
+    @keyframes rotate_pacman_half_up {0% {transform: rotate(270deg)}50% {transform: rotate(1turn)}to {transform: rotate(270deg)}}
+
+    @-webkit-keyframes rotate_pacman_half_down {0% {transform: rotate(90deg)}50% {transform: rotate(0deg)}to {transform: rotate(90deg)}}
+
+    @keyframes rotate_pacman_half_down {0% {transform: rotate(90deg)}50% {transform: rotate(0deg)}to {transform: rotate(90deg)}}
+
+    @-webkit-keyframes pacman-balls {75% {opacity: .7}to {transform: translate(-100px, -6.25px)}}
+
+    @keyframes pacman-balls {75% {opacity: .7}to {transform: translate(-100px, -6.25px)}}
+
+
+    .loading-image div:nth-child(3),
+    .loading-image div:nth-child(4),
+    .loading-image div:nth-child(5),
+    .loading-image div:nth-child(6){
+        background-color: #49b1f5;
+        width: 15px;
+        height: 15px;
+        border-radius: 100%;
+        margin: 2px;
+        width: 10px;
+        height: 10px;
+        position: absolute;
+        transform: translateY(-6.25px);
+        top: 25px;
+        left: 100px;
+    }
+    .loading-text{
+        margin-bottom: 20vh;
+        text-align: center;
+        color: #2c3e50;
+        font-size: 2rem;
+        box-sizing: border-box;
+        padding: 0 10px;
+        text-shadow: 0 2px 10px rgba(0,0,0,0.2);
+    }
+    @media only screen and (max-width: 500px) {
+         .loading-text{
+            font-size: 1.5rem;
+         }
+    }
+    .fadeout {
+        opacity: 0;
+        filter: alpha(opacity=0);
+    }
+    /* logo出现动画 */
+    @-webkit-keyframes fadeInDown{0%{opacity:0;-webkit-transform:translate3d(0,-100%,0);transform:translate3d(0,-100%,0)}100%{opacity:1;-webkit-transform:none;transform:none}}
+    @keyframes fadeInDown{0%{opacity:0;-webkit-transform:translate3d(0,-100%,0);}}
+ </style>
+ <script>
+(function () {
+    const loaded = function(){
+       setTimeout(function(){
+            const loader = document.getElementById("loading-container");
+            loader.className="fadeout" ;//使用渐隐的方法淡出loading page
+            // document.getElementById("body-wrap").style.display="flex";
+            setTimeout(function(){
+                loader.style.display="none";
+            },2500); 
+        },1000);//强制显示loading page 1s  
+    };
+    loaded();
+})()
+</script>
+
+ 
+
+<body>
+    
+    
+        <div id="loading-container">
+             <p class="loading-text">嘘~  小破站正在拼命加载中 . . . </p> 
+             <div class="loading-image">
+                 <div></div>
+                 <div></div>
+                 <div></div>
+                 <div></div> 
+                 <div></div>
+             </div>
+        </div>
+    
+
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" id="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span diyFont" id="logo-title">xiezhrspace</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/#" class="waves-effect waves-light">
+
+      
+      <span>归档</span>
+      <i class="fas fa-chevron-down" aria-hidden="true" style="zoom: 0.6;"></i>
+    </a>
+    <ul class="sub-nav menus_item_child ">
+      
+      <li>
+        <a href="/tags">
+          
+          <span>标签</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/categories">
+          
+          <span>分类</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/archives">
+          
+          <span>时间轴</span>
+        </a>
+      </li>
+      
+    </ul>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/artitalk" class="waves-effect waves-light">
+      
+      <span>说说</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/#" class="waves-effect waves-light">
+
+      
+      <span>媒体</span>
+      <i class="fas fa-chevron-down" aria-hidden="true" style="zoom: 0.6;"></i>
+    </a>
+    <ul class="sub-nav menus_item_child ">
+      
+      <li>
+        <a href="/books">
+          
+          <span>读书</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/musics">
+          
+          <span>音乐</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/movies">
+          
+          <span>电影</span>
+        </a>
+      </li>
+      
+    </ul>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/#" class="waves-effect waves-light">
+
+      
+      <span>资源分享</span>
+      <i class="fas fa-chevron-down" aria-hidden="true" style="zoom: 0.6;"></i>
+    </a>
+    <ul class="sub-nav menus_item_child ">
+      
+      <li>
+        <a href="/share-tools">
+          
+          <span>常用工具</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/e-book">
+          
+          <span>电子书</span>
+        </a>
+      </li>
+      
+    </ul>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/#" class="waves-effect waves-light">
+
+      
+      <span>交流</span>
+      <i class="fas fa-chevron-down" aria-hidden="true" style="zoom: 0.6;"></i>
+    </a>
+    <ul class="sub-nav menus_item_child ">
+      
+      <li>
+        <a href="/contact">
+          
+          <span>留言</span>
+        </a>
+      </li>
+      
+      <li>
+        <a target="_blank" rel="noopener" href="http://chat.xiezhrspace.cn">
+          
+          <span>聊天室</span>
+        </a>
+      </li>
+      
+    </ul>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/friends" class="waves-effect waves-light">
+      
+      <span>友情链接</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/#" class="waves-effect waves-light">
+
+      
+      <span>实验室</span>
+      <i class="fas fa-chevron-down" aria-hidden="true" style="zoom: 0.6;"></i>
+    </a>
+    <ul class="sub-nav menus_item_child ">
+      
+      <li>
+        <a href="/sponsorship">
+          
+          <i class="fas fa-money" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>赞助墙</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/status">
+          
+          <i class="fas fa-flush" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>检测监控</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/epidemic">
+          
+          <span>疫情实况</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/rain-code">
+          
+          <span>代码雨</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/mykeep">
+          
+          <span>我的Keep</span>
+        </a>
+      </li>
+      
+    </ul>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+<style>
+  #logo-title{
+  }
+
+  #logo-img{
+    
+  }
+  #mobile-logo-img{}
+</style>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img" id="mobile-logo-img">
+        
+        <div class="logo-name">xiezhrspace
+        <div class="logo-desc">
+            
+            爱学习 爱编程 爱分享 再小的帆也能远航
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			<!-- 
+				<i class="fas fa-fw fa-link"></i>
+			 -->
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="javascript:;">
+			<!-- 
+				<i class="fas fa-fw fa-link"></i>
+			 -->
+			归档
+			<span class="m-icon"><i class="fas fa-chevron-right"></i></span>
+		</a>
+            <ul  style="background:  ;" >
+              
+                <li>
+
+                  <a href="/tags " style="margin-left:75px">
+				  
+		          <span>标签</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/categories " style="margin-left:75px">
+				  
+		          <span>分类</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/archives " style="margin-left:75px">
+				  
+		          <span>时间轴</span>
+                  </a>
+                </li>
+              
+            </ul>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/artitalk" class="waves-effect waves-light">
+			<!-- 
+				<i class="fas fa-fw fa-link"></i>
+			 -->
+			说说
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="javascript:;">
+			<!-- 
+				<i class="fas fa-fw fa-link"></i>
+			 -->
+			媒体
+			<span class="m-icon"><i class="fas fa-chevron-right"></i></span>
+		</a>
+            <ul  style="background:  ;" >
+              
+                <li>
+
+                  <a href="/books " style="margin-left:75px">
+				  
+		          <span>读书</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/musics " style="margin-left:75px">
+				  
+		          <span>音乐</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/movies " style="margin-left:75px">
+				  
+		          <span>电影</span>
+                  </a>
+                </li>
+              
+            </ul>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="javascript:;">
+			<!-- 
+				<i class="fas fa-fw fa-link"></i>
+			 -->
+			资源分享
+			<span class="m-icon"><i class="fas fa-chevron-right"></i></span>
+		</a>
+            <ul  style="background:  ;" >
+              
+                <li>
+
+                  <a href="/share-tools " style="margin-left:75px">
+				  
+		          <span>常用工具</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/e-book " style="margin-left:75px">
+				  
+		          <span>电子书</span>
+                  </a>
+                </li>
+              
+            </ul>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			<!-- 
+				<i class="fas fa-fw fa-link"></i>
+			 -->
+			关于
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="javascript:;">
+			<!-- 
+				<i class="fas fa-fw fa-link"></i>
+			 -->
+			交流
+			<span class="m-icon"><i class="fas fa-chevron-right"></i></span>
+		</a>
+            <ul  style="background:  ;" >
+              
+                <li>
+
+                  <a href="/contact " style="margin-left:75px">
+				  
+		          <span>留言</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a target="_blank" rel="noopener" href="http://chat.xiezhrspace.cn " style="margin-left:75px">
+				  
+		          <span>聊天室</span>
+                  </a>
+                </li>
+              
+            </ul>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/friends" class="waves-effect waves-light">
+			<!-- 
+				<i class="fas fa-fw fa-link"></i>
+			 -->
+			友情链接
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="javascript:;">
+			<!-- 
+				<i class="fas fa-fw fa-link"></i>
+			 -->
+			实验室
+			<span class="m-icon"><i class="fas fa-chevron-right"></i></span>
+		</a>
+            <ul  style="background:  ;" >
+              
+                <li>
+
+                  <a href="/sponsorship " style="margin-left:75px">
+				  
+				   <i class="fa fas fa-money" style="position: absolute;left:50px" ></i>
+			      
+		          <span>赞助墙</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/status " style="margin-left:75px">
+				  
+				   <i class="fa fas fa-flush" style="position: absolute;left:50px" ></i>
+			      
+		          <span>检测监控</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/epidemic " style="margin-left:75px">
+				  
+		          <span>疫情实况</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/rain-code " style="margin-left:75px">
+				  
+		          <span>代码雨</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/mykeep " style="margin-left:75px">
+				  
+		          <span>我的Keep</span>
+                  </a>
+                </li>
+              
+            </ul>
+          
+        </li>
+        
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+    </nav>
+
+</header>
+
+    
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://gitee.com/xiezhr/image-learn-bed/raw/master/image/102513539_1533949233095.png')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">打开windows批处理大门</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/xiezhr/xiezhrblog-cdn-source/source/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        margin: 35px 0 15px 0;
+        padding-left: 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content {
+        height: calc(100vh - 250px);
+        overflow: auto;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+
+        position: absolute;
+        right: 23.5vw;
+        display: block;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!--评论区样式调整-->
+<style>
+    .v[data-class="v"] .vwrap .vheader .vinput {
+        width: 32%;
+        border-bottom: 1px dashed #dedede;
+      }
+</style>
+<!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/windows/">
+                                <span class="chip bg-color">windows</span>
+                            </a>
+                        
+                            <a href="/tags/bat/">
+                                <span class="chip bg-color">bat</span>
+                            </a>
+                        
+                            <a href="/tags/%E6%89%B9%E5%A4%84%E7%90%86/">
+                                <span class="chip bg-color">批处理</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/windows/" class="post-category">
+                                windows
+                            </a>
+                        
+                            <a href="/categories/windows/bat/" class="post-category">
+                                bat
+                            </a>
+                        
+                            <a href="/categories/windows/bat/%E6%89%B9%E5%A4%84%E7%90%86/" class="post-category">
+                                批处理
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2021-04-24
+                </div>
+                
+
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
+                    2021-04-24
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
+                    5.9k
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
+                    24 分
+                </div>
+                
+
+                
+                    <div id="busuanzi_container_page_pv" class="info-break-policy">
+                        <i class="far fa-eye fa-fw"></i>阅读次数:&nbsp;&nbsp;
+                        <span id="busuanzi_value_page_pv"></span>
+                    </div>
+				
+            </div>
+        </div>
+        <hr class="clearfix">
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <p>大家好，我是xiezhr。</p>
+<h2 id="1-前言"><a href="#1-前言" class="headerlink" title="1 前言"></a>1 前言</h2><p>打开公众号历史文章，上一篇文章是2021年3月20号更新的，又拖更了。</p>
+<p>一个原因是，最近工作上真的挺忙的，有比较着急需要加班加点赶的需求。好在清明前算是把比较着急的改好了。本来安排清明也是要加班的，但是真的加不动了。（连着加班真的挺影响效率的，适当休息是非常有必要的~）</p>
+<p>以至于一周都是在连轴转，需求改好更新之后也是心惊胆战的，生怕哪个地方出现问题，大脑一度都处于紧绷状态。</p>
+<p>其次呢写一篇公众号文章还是挺费时费力的，又不想草率的更新一篇上去，这样还不如不写。</p>
+<h2 id="2-批处理简介"><a href="#2-批处理简介" class="headerlink" title="2 批处理简介"></a>2 批处理简介</h2><ul>
+<li>批处理(Batch)，也称为批处理脚本，扩展名为.bat或者.cmd。</li>
+<li>类似于linux或Unix中的shell脚本。</li>
+<li>包含一系列 DOS命令，通常用于自动执行重复性任务。只需我们双击批处理文件便可执行任务，而无需重复输入相同指令。</li>
+<li>批处理文件可以极大程度地节省时间，在应对重复性工作时尤其有效，熟练使用可以简化很多重复工作，提高工作效率。</li>
+</ul>
+<h2 id="3-批处理文件创建"><a href="#3-批处理文件创建" class="headerlink" title="3 批处理文件创建"></a>3 批处理文件创建</h2><ul>
+<li><p>用记事本或者各种文本编辑器创建一个后缀为.bat的文件即可</p>
+</li>
+<li><p>一般情况下每行一条命令，方便阅读方便书写。当然也可以用（&amp;、&amp;&amp;、|、||）分割书写到一行，但不建议这样</p>
+</li>
+<li><p>当像遇到像编程语言那样if、for 等命令时候，系统会扫描整个批处理，然后从第一行开始顺序向下逐句执行，直到程序结尾或者遇到exit或意外退出</p>
+</li>
+</ul>
+<p>废话不多说，直接上一个例子，感受下批处理的魅力 O(∩_∩)O哈哈~</p>
+<p>下面是一个以批处理创建的计算器小例子，打开xiezhr.bat 后效果如下</p>
+<p><img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/doc-jsq-menu.png"></p>
+<p><img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/%E5%8A%A0%E5%87%8F%E4%B9%98%E9%99%A4%E8%BF%90%E7%AE%97.png"></p>
+<p><img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/doc-%E6%AC%A1%E6%96%B9.png"></p>
+<p><img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/doc-help.png"></p>
+<h2 id="4-批处理常用符号"><a href="#4-批处理常用符号" class="headerlink" title="4 批处理常用符号"></a>4 批处理常用符号</h2><h3 id="4-1"><a href="#4-1" class="headerlink" title="4.1 @"></a>4.1 @</h3><blockquote>
+<p>回显屏蔽</p>
+</blockquote>
+<p>① 语法</p>
+<pre class=" language-bat"><code class="language-bat">@ 
+</code></pre>
+<p>② 举例</p>
+<pre class=" language-bat"><code class="language-bat">rem 从本行开始关闭回显。一般批处理第一行都是这个
+@echo off  
+</code></pre>
+<h3 id="4-2-重定向1-gt-与-gt-gt"><a href="#4-2-重定向1-gt-与-gt-gt" class="headerlink" title="4.2 重定向1 &gt;与&gt;&gt;"></a>4.2 重定向1 &gt;与&gt;&gt;</h3><blockquote>
+<p>输出重定向命令  &gt;清除文件中原有的内容后再写入 &gt;&gt;追加内容到文件末尾，而不会清除原有的内容。</p>
+</blockquote>
+<blockquote>
+<p>主要将本来显示在屏幕上的内容输出到指定文件中,指定文件如果不存在，则自动生成该文件</p>
+</blockquote>
+<p>① 语法</p>
+<pre class=" language-bat"><code class="language-bat">[p读取数据的位置] > [写入数据的位置]
+
+[p读取数据的位置] >> [写入数据的位置]
+</code></pre>
+<p>② 举例</p>
+<pre class=" language-bat"><code class="language-bat">rem 将dir输出stdin重定向到文件Dirlist.txt,> 每次文件都会被重新创建,>> 则是文件追加
+dir 1 > dirlist.txt
+dir > dirlist.txt
+
+dir 1>> dirlist.txt
+dir >> dirlist.txt
+
+rem 将打印信息重定向到文件,使用>每次文件会被重新创建,>> 则是文件追加
+echo abc>log.txt
+echo abc>>log.txt
+
+rem 将所有的IP信息存入文件,使用>每次文件会被重新创建,>> 则是文件追加
+ipconfig>log.txt
+ipconfig>>log.txt
+
+rem 阻止输出显示,将默认输出位置(句柄)重定向为nul 使用>每次文件会被重新创建,>> 则是文件追加
+echo invalie prompt >nul
+echo invalie prompt 1>>nul
+</code></pre>
+<h3 id="4-3-重定向2-lt"><a href="#4-3-重定向2-lt" class="headerlink" title="4.3 重定向2 &lt;"></a>4.3 重定向2 &lt;</h3><blockquote>
+<p>要从键盘或设备重定向命令输入</p>
+</blockquote>
+<p>① 语法</p>
+<pre class=" language-bat"><code class="language-bat">[相应处理] < [读取数据的位置]
+</code></pre>
+<p>② 举例</p>
+<pre class=" language-bat"><code class="language-bat">rem 重定向输入是来自文件,并将输入的文件内容按首字母排序
+sort<xiezhr.txt 
+
+rem 将从stdin输入重定向为从文件输入,只输入文件首行内容,stdin(0)是默认输入,可以省略
+set /p var=0<xiezhr.txt
+set /p var=<xiezhr.txt
+echo %var%
+</code></pre>
+<h3 id="4-4-管道符号"><a href="#4-4-管道符号" class="headerlink" title="4.4 管道符号 |"></a>4.4 管道符号 |</h3><blockquote>
+<p>传递作用,将前面一条命令的执行结果传递给后面一条命令继续执行</p>
+</blockquote>
+<p>① 语法</p>
+<pre class=" language-bat"><code class="language-bat">[]|[]
+</code></pre>
+<p>② 举例</p>
+<pre class=" language-bat"><code class="language-bat">rem 将dir的输出作为sort的输入
+dir | sort
+
+rem 查找当前目录中包含".txt"的文件名
+dir | find ".txt"
+</code></pre>
+<h3 id="4-5-转义符"><a href="#4-5-转义符" class="headerlink" title="4.5 转义符 ^"></a>4.5 转义符 ^</h3><blockquote>
+<p>用在特殊符号之前,取消特殊字符的作用</p>
+</blockquote>
+<p>① 语法</p>
+<pre class=" language-bat"><code class="language-bat">^ [特殊字符]
+</code></pre>
+<p>② 举例</p>
+<pre class=" language-bat"><code class="language-bat">rem &将作为字符输出
+echo 非常^&批处理 
+</code></pre>
+<h3 id="4-6-逻辑命令符-amp-、-amp-amp-、"><a href="#4-6-逻辑命令符-amp-、-amp-amp-、" class="headerlink" title="4.6 逻辑命令符 &amp;、&amp;&amp;、||"></a>4.6 逻辑命令符 &amp;、&amp;&amp;、||</h3><blockquote>
+<p>&amp;  无论前面的命令是否成功执行 都执行后面的<br>&amp;&amp; 当前面的命令成功执行 再执行后面的命令  相当于逻辑与运算<br>|| 当前面的命令没有成功执行 则执行后面的命令 可以作判断选择用  相当于逻辑或运算</p>
+</blockquote>
+<p>① 语法</p>
+<pre class=" language-bat"><code class="language-bat">[命令1]&[命令2]
+[命令1]&&[命令2]
+[命令1]||[命令2]
+</code></pre>
+<p>② 举例</p>
+<pre class=" language-bat"><code class="language-bat">rem & 
+rem 虽然没有成功到“个人博客” 但还是会执行echo 命令,输出“字符中含有xiezhr”
+echo xiezhrspace.cn | find "个人博客" & echo 字符中含有xiezhr
+
+
+rem &&  
+rem 没有成功到“个人博客” ,所以echo命令不会成功执行
+echo xiezhrspace.cn | find "个人博客" && echo 字符中含有xiezhr
+
+rem || 
+rem 在xiezhrspace.cn中查找字符"个人博客",如果没有找到则继续执行后面的命令,即在屏幕中显示"字符中没有xiezhr",如果找到了,也就是如果前面是xiezhrspace.cn的话则停止继续执行||后面的命令,而是在屏幕中直接显示"xiezhrspace.cn".
+echo xiezhrspace.cn | find "个人博客" || echo 字符中没有xiezhr
+echo xiezhrspace.cn | find "xiezhr" || echo 字符中含有xiezhr
+</code></pre>
+<h2 id="5-常用批处理"><a href="#5-常用批处理" class="headerlink" title="5 常用批处理"></a>5 常用批处理</h2><blockquote>
+<p><strong>注意：在cmd中输入命令+/?即可查看该命令的帮助信息。如cd /?</strong></p>
+</blockquote>
+<h3 id="5-1-文件夹管理"><a href="#5-1-文件夹管理" class="headerlink" title="5.1 文件夹管理"></a>5.1 文件夹管理</h3><h4 id="5-1-1-cd"><a href="#5-1-1-cd" class="headerlink" title="5.1.1 cd"></a>5.1.1 cd</h4><blockquote>
+<p>显示当前目录名或改变当前目录</p>
+</blockquote>
+<p>① 语法</p>
+<pre class=" language-bat"><code class="language-bat">cd   rem 显示当前路径
+cd   rem 进入根目录
+cd /d d:sdk   rem 变更盘符目录
+</code></pre>
+<p>② 举例</p>
+<pre class=" language-bat"><code class="language-bat">rem 进入根目录
+C:\Users\xiezhr>cd
+C:\Users\xiezhr
+
+rem 显示当前目录
+D:\>cd
+D:\
+
+rem 切换到F:\xiezhrspace\hexo-xiezhrblog 目录
+C:\Users\ye.ff>cd F:\xiezhrspace\hexo-xiezhrblog
+F:\xiezhrspace\hexo-xiezhrblog>
+</code></pre>
+<h4 id="5-1-2-md"><a href="#5-1-2-md" class="headerlink" title="5.1.2 md"></a>5.1.2 md</h4><blockquote>
+<p>创建目录</p>
+</blockquote>
+<p>①语法</p>
+<pre class=" language-bat"><code class="language-bat">MKDIR [drive:]path
+MD [drive:]path
+</code></pre>
+<p>②举例</p>
+<pre class=" language-bat"><code class="language-bat">rem 在D盘下创建xiezhr目录
+md d:xiezhr
+</code></pre>
+<h4 id="5-1-3-rd"><a href="#5-1-3-rd" class="headerlink" title="5.1.3 rd"></a>5.1.3 rd</h4><blockquote>
+<p>删除一个目录</p>
+</blockquote>
+<p>①语法</p>
+<pre class=" language-bat"><code class="language-bat">rd [directoryname]
+</code></pre>
+<p>② 举例</p>
+<pre class=" language-bat"><code class="language-bat">rem 删除d盘xiezhr目录
+rd d:xiezhr
+</code></pre>
+<h4 id="5-1-4-dir"><a href="#5-1-4-dir" class="headerlink" title="5.1.4 dir"></a>5.1.4 dir</h4><blockquote>
+<p>显示目录中的文件和子目录列表</p>
+</blockquote>
+<p>① 语法</p>
+<pre class=" language-bat"><code class="language-bat">DIR [drive:][path][filename] 
+        指定要列出的驱动器、目录和/或文件。
+</code></pre>
+<p>②举例</p>
+<pre class=" language-bat"><code class="language-bat">dir rem 显示当前目录中的文件和子目录
+dir /a  rem 显示当前目录中的文件和子目录，包括隐藏文件和系统文件
+dir c: /a:d rem 显示 C 盘当前目录中的目录
+dir c: /a:-d rem 显示 C 盘根目录中的文件
+dir c: /b/p rem /b只显示文件名，/p分页显示
+dir *.exe /s rem 显示当前目录和子目录里所有的.exe文件
+</code></pre>
+<h4 id="5-1-5-tree"><a href="#5-1-5-tree" class="headerlink" title="5.1.5 tree"></a>5.1.5 tree</h4><blockquote>
+<p>以图形显示驱动器或路径的文件夹结构</p>
+</blockquote>
+<p>① 语法</p>
+<pre class=" language-bat"><code class="language-bat">TREE [drive:][path] [/F] [/A]
+
+   /F   显示每个文件夹中文件的名称。
+   /A   使用 ASCII 字符，而不使用扩展字符。
+</code></pre>
+<p>② 举例</p>
+<pre class=" language-bat"><code class="language-bat">rem 显示D盘的文件目录结构
+tree d: 
+</code></pre>
+<h4 id="5-1-6-path"><a href="#5-1-6-path" class="headerlink" title="5.1.6 path"></a>5.1.6 path</h4><blockquote>
+<p>为可执行文件显示或设置一个搜索路径</p>
+</blockquote>
+<p>① 语法</p>
+<pre class=" language-bat"><code class="language-bat">PATH [[drive:]path[;...][;%PATH%]
+PATH ;
+
+键入 PATH 但不加参数，显示当前路径。
+将 %PATH% 包括在新的路径设置中会将旧路径附加到新设置
+</code></pre>
+<p>② 举例</p>
+<pre class=" language-bat"><code class="language-bat">::设置要永久加入到path环境变量中的路径
+@echo off
+set My_PATH=D:\AppFolder
+  
+set PATH=%PATH%;%My_PATH%
+reg add "HKLM\SYSTEM\CurrentControlSet\Control\Session Manager\Environment" /v "Path" /t REG_EXPAND_SZ /d "%PATH%" /f
+exit
+
+::设置要临时加入到path环境变量中的路径
+@echo off
+set My_PATH=D:\AppFolder
+set PATH=%PATH%;%My_PATH%
+pause
+</code></pre>
+<h4 id="5-1-7-xcopy"><a href="#5-1-7-xcopy" class="headerlink" title="5.1.7 xcopy"></a>5.1.7 xcopy</h4><blockquote>
+<p>复制文件和目录树</p>
+</blockquote>
+<p>① 语法</p>
+<pre class=" language-bat"><code class="language-bat">XCOPY source [destination][参数]
+</code></pre>
+<p>② 举例</p>
+<pre class=" language-bat"><code class="language-bat">rem 复制 d:xiezhr 文件夹、所有子文件夹和文件到 e: ，覆盖已有文件
+rem 加 /i 表示如果 e: 没有 xiezhr 文件夹就自动新建一个，否则会有询问
+xcopy d:xiezhr e:xiezhr /s/e/i/y
+</code></pre>
+<h3 id="5-2-文件管理"><a href="#5-2-文件管理" class="headerlink" title="5.2 文件管理"></a>5.2 文件管理</h3><h4 id="5-2-1-type"><a href="#5-2-1-type" class="headerlink" title="5.2.1 type"></a>5.2.1 type</h4><blockquote>
+<p>显示文本文件的内容</p>
+</blockquote>
+<p>① 语法</p>
+<pre class=" language-bat"><code class="language-bat">TYPE [drive:][path]filename
+</code></pre>
+<p>② 举例</p>
+<pre class=" language-bat"><code class="language-bat">rem 显示指定文件的内容(下面是显示d盘目录下xiezhr.txt文件的内容)
+type d:xiezhr.txt
+
+C:\Users\xiezhr>type d:xiezhr.txt
+xiezhr的个人公众号：xiezhrspac
+
+rem 显示当前目录里所有.txt文件的内容
+type *.txt 
+</code></pre>
+<h4 id="5-2-2-copy"><a href="#5-2-2-copy" class="headerlink" title="5.2.2 copy"></a>5.2.2 copy</h4><blockquote>
+<p>将一份或多份文件复制到另一个位置</p>
+</blockquote>
+<p>① 语法</p>
+<pre class=" language-bat"><code class="language-bat">COPY [source] [destination]
+</code></pre>
+<p>② 举例</p>
+<pre class=" language-bat"><code class="language-bat">rem 复制 c:test.txt 文件到 d: ，并重命名为 test.bak
+copy c:xiezhr.txt d:xiezhr.bak
+
+rem 从屏幕上等待输入，按 Ctrl+Z 结束输入，输入内容存为test.txt文件
+rem con代表屏幕，prn代表打印机，nul代表空设备
+copy con xiezhr.txt
+
+rem 合并 1.txt 和 2.txt 的内容，保存为 3.txt 文件 如果不指定 3.txt ，则保存到 1.txt
+copy 1.txt + 2.txt 3.txt
+
+rem 复制文件到自己，实际上是修改了文件日期
+copy test.txt +
+</code></pre>
+<h4 id="5-2-3-del"><a href="#5-2-3-del" class="headerlink" title="5.2.3 del"></a>5.2.3 del</h4><blockquote>
+<p>删除一个或数个文件</p>
+</blockquote>
+<p>① 语法</p>
+<pre class=" language-bat"><code class="language-bat">del [filename]
+ filename         指定一个或多个文件或者目录列表。
+                通配符可用来删除多个文件。
+                如果指定了一个目录，该目录中的所
+                有文件都会被删除。
+</code></pre>
+<p>② 举例</p>
+<pre class=" language-bat"><code class="language-bat">rem 删除指定文件，不能是隐藏、系统、只读文件
+del d:xiezhr.txt 
+
+rem 删除 d:xiezhr 文件夹里面的所有文件，包括隐藏、只读、系统文件，不包括子目录
+del /q/a/f d:xiezhr*.*
+
+rem 删除 d:xiezhr 及子文件夹里面的所有文件，包括隐藏、只读、系统文件，不包括子目录
+del /q/a/f/s d:xiezhr*.*
+</code></pre>
+<h4 id="5-2-4-move"><a href="#5-2-4-move" class="headerlink" title="5.2.4  move"></a>5.2.4  move</h4><blockquote>
+<p>移动文件并重命名文件和目录</p>
+</blockquote>
+<p>①语法</p>
+<pre class=" language-bat"><code class="language-bat">move [source] [destination]
+</code></pre>
+<p>② 举例</p>
+<pre class=" language-bat"><code class="language-bat">rem 将D盘xiezhr.txt 移动到f盘
+move xiezhr.txt f:
+
+rem 将xiezhr.txt重命名为xiezhrspace.txt
+move xiezhr.txt xiezhrspace.txt
+</code></pre>
+<h4 id="5-2-5-ren"><a href="#5-2-5-ren" class="headerlink" title="5.2.5  ren"></a>5.2.5  ren</h4><blockquote>
+<p>重命名文件名</p>
+</blockquote>
+<p>①语法</p>
+<pre class=" language-bat"><code class="language-bat">REN [drive:][path]filename1 filename2.
+</code></pre>
+<p>②举例</p>
+<pre class=" language-bat"><code class="language-bat">rem 将xiezhr文件夹重命名为xiezhrspace
+ren d:xiezhr xiezhrspace
+</code></pre>
+<h4 id="5-2-6-replace"><a href="#5-2-6-replace" class="headerlink" title="5.2.6  replace"></a>5.2.6  replace</h4><blockquote>
+<p>替换文件</p>
+</blockquote>
+<p>① 语法</p>
+<pre class=" language-bat"><code class="language-bat">REPLACE [drive1:][path1]filename [drive2:][path2] [/A] [/P] [/R] [/W]
+
+ [drive1:][path1]filename 指定源文件。
+ [drive2:][path2]         指定要替换文件的目录
+</code></pre>
+<p>②举例</p>
+<pre class=" language-bat"><code class="language-bat">rem 添加新文件到目标目录: 将 xiezhr.bat 文件添加到 E 盘目录下
+replace /A C:\xiezhr.bat E:\ 
+
+rem 提示替换文件到目标目录: 将 xiezhr.txt 文本文件替换到 temp 目录中去,( temp 目录必须有 xiezhr.txt 文本文件)
+replace /P C:\xiezhr.txt E:\temp
+</code></pre>
+<h4 id="5-2-7-attrib"><a href="#5-2-7-attrib" class="headerlink" title="5.2.7  attrib"></a>5.2.7  attrib</h4><blockquote>
+<p>显示或更改文件属性</p>
+</blockquote>
+<p>① 语法</p>
+<pre class=" language-bat"><code class="language-bat">ATTRIB [+R | -R] [+A | -A ] [+S | -S] [+H | -H] [+I | -I]
+       [drive:][path][filename] [/S [/D] [/L]]
+
+  +   设置属性。
+  -   清除属性。
+  R   只读文件属性。
+  A   存档文件属性。
+  S   系统文件属性。
+  H   隐藏文件属性。
+  I   无内容索引文件属性。
+  X   无清理文件属性。
+  V   完整性属性。
+  [drive:][path][filename]
+      指定 attrib 要处理的文件。
+  /S  处理当前文件夹
+      及其所有子文件夹中的匹配文件。
+  /D  也处理文件夹。
+  /L  处理符号链接和
+      符号链接目标的属性
+</code></pre>
+<p>② 举例</p>
+<pre class=" language-bat"><code class="language-bat">rem 查看d盘xiezhr目录下各个文件属性
+D:\xiezhr>attrib /s
+A            D:\xiezhr\logo.png
+A            D:\xiezhr\公众号-xiezhrspace.txt
+
+rem 设置logo.png文件的属性为系统实现、隐藏属性、只读属性
+D:\xiezhr>attrib +s +h +r logo.png
+D:\xiezhr>attrib /s
+A  SHR       D:\xiezhr\logo.png
+A            D:\xiezhr\公众号-xiezhrspace.txt
+
+rem 设置logo.png 恢复原来属性
+D:\xiezhr>attrib -s -h -r logo.png
+
+D:\xiezhr>attrib /s
+A            D:\xiezhr\logo.png
+A            D:\xiezhr\公众号-xiezhrspace.txt
+rem 
+</code></pre>
+<h4 id="5-2-7-find"><a href="#5-2-7-find" class="headerlink" title="5.2.7  find"></a>5.2.7  find</h4><p>① 语法</p>
+<pre class=" language-bat"><code class="language-bat">FIND [/V] [/C] [/N] [/I] [/OFF[LINE]] "string" [[drive:][path]filename[ ...]]
+
+  /V         显示所有未包含指定字符串的行。
+  /C         仅显示包含字符串的行数。
+  /N         显示行号。
+  /I         搜索字符串时忽略大小写。
+  /OFF[LINE] 不要跳过具有脱机属性集的文件。
+  "string" 指定要搜索的文本字符串。
+  [drive:][path]filename
+             指定要搜索的文件
+</code></pre>
+<p>② 举例</p>
+<pre class=" language-bat"><code class="language-bat">rem 在 d:/xiezhr/xiezhr.txt 文件里查找含 "公众号：xiezhrspace" 字符串的行如果找不到，将设 errorlevel 返回码为1
+C:\Users\xiezhr>find "公众号：xiezhrspace" d:/xiezhr/xiezhr.txt
+
+---------- D:/XIEZHR/XIEZHR.TXT
+公众号：xiezhrspace
+
+rem 查找含 xiezhrspace 的行，忽略大小写
+C:\Users\xiezhr>find /i "xiezhrspace" d:/xiezhr/xiezhr.txt
+
+---------- D:/XIEZHR/XIEZHR.TXT
+博客：www.xiezhrspace.cn
+公众号：xiezhrspace
+更多实用的文章和资源尽在公众号：XiezhrSpace,欢迎订
+
+
+rem 显示含 xiezhrspace 的行的行数
+C:\Users\ye.ff>find /c "xiezhrspace" d:/xiezhr/xiezhr.txt
+
+---------- D:/XIEZHR/XIEZHR.TXT: 2
+</code></pre>
+<h4 id="5-2-8-fc"><a href="#5-2-8-fc" class="headerlink" title="5.2.8  fc"></a>5.2.8  fc</h4><blockquote>
+<p>比较两个文件或两个文件集并显示它们之间的不同</p>
+</blockquote>
+<p>① 语法</p>
+<pre class=" language-bat"><code class="language-bat">FC /B [drive1:][path1]filename1 [drive2:][path2]filename2
+[drive1:][path1]filename1
+             指定要比较的第一个文件或第一个文件集。
+[drive2:][path2]filename2
+             指定要比较的第二个文件或第二个文件集。
+</code></pre>
+<p>② 举例</p>
+<pre class=" language-bat"><code class="language-bat">rem 比较d盘xiezhr目录下的“公众号-xiezhrspace.txt” 和“xiezhr.txt”文件 。如下为比较结果
+D:\xiezhr>fc xiezhr.txt 公众号-xiezhrspace.txt
+正在比较文件 xiezhr.txt 和 公众号-XIEZHRSPACE.TXT
+***** xiezhr.txt
+
+
+微信号：xie_zhr
+
+博客：www.xiezhrspace.cn
+
+公众号：xiezhrspace
+
+***** 公众号-XIEZHRSPACE.TXT
+公众号：xiezhrspace
+*****
+</code></pre>
+<h3 id="5-3-网络命令"><a href="#5-3-网络命令" class="headerlink" title="5.3 网络命令"></a>5.3 网络命令</h3><h4 id="5-3-1-ping"><a href="#5-3-1-ping" class="headerlink" title="5.3.1 ping"></a>5.3.1 ping</h4><blockquote>
+<p>确定本地主机是否能与另一台主机交换数据报</p>
+</blockquote>
+<p>① 语法</p>
+<pre class=" language-bat"><code class="language-bat">ping+IP地址或主机域名
+ping+IP地址或主机域名+命令参数
+ping+命令参数+IP地址或主机域名
+</code></pre>
+<p>② 举例</p>
+<pre class=" language-bat"><code class="language-bat">rem 本机与192.168.205.9是否连通
+ping 192.168.205.9
+
+rem 网络是否畅通
+ping www.baidu.com
+</code></pre>
+<h4 id="5-3-2-ftp"><a href="#5-3-2-ftp" class="headerlink" title="5.3.2 ftp"></a>5.3.2 ftp</h4><blockquote>
+<p>将文件传送到运行 FTP 服务器服务(经常称为后台程序)的计算机以及将文件从该计算机<br>传出。可以交互使用 Ftp。</p>
+</blockquote>
+<p>① 语法</p>
+<pre class=" language-bat"><code class="language-bat">ftp -v -d -i -n -g [主机名] 
+-v 显示远程服务器的所有响应信息；
+-n 限制ftp的自动登录，即不使用；.n etrc文件；
+-d 使用调试方式；
+-g 取消全局文件名
+</code></pre>
+<p>② 举例</p>
+<pre class=" language-bat"><code class="language-bat">rem 将D盘xiezhr.txt文件上传到ftp 文件服务器
+rem ftp服务器信息：ip:192.168.205.9 账号：xiezhr 密码：pswxiezhr
+
+@Echo Off
+Echo  open  192.168.205.9 > ftp .up
+Echo xiezhr >> ftp .up
+Echo pswxiezhr >> ftp .up
+Echo Cd .\User >> ftp .up
+Echo binary>> ftp .up
+Echo put  "D:xiezhr.txt" >> ftp .up
+Echo bye>> ftp .up
+FTP -s: ftp .up
+del  ftp .up  /q
+Pause
+</code></pre>
+<h4 id="5-3-3-net"><a href="#5-3-3-net" class="headerlink" title="5.3.3 net"></a>5.3.3 net</h4><blockquote>
+<p>网络命令集及用户管理,根据使用的命令提供各种网络服务</p>
+</blockquote>
+<p>① 语法</p>
+<pre class=" language-bat"><code class="language-bat">net [variant]  
+</code></pre>
+<p>②  举例</p>
+<pre class=" language-bat"><code class="language-bat">rem 查看计算机的当前密码和登录限制。
+net accounts
+
+添加或删除附加到Windows域控制器的计算机。
+net computer
+
+rem 显示当前的服务器或工作组设置。
+net config
+
+rem 该命令可以用于查看特定用户帐户的详细信息。
+net user
+
+rem 该命令用于停止和启动特定的服务。
+net stop/start
+
+rem 显示工作站或服务器的网络统计信息。
+net statistics
+
+rem 连接或断开计算机与共享资源或显示有关连接的信息
+net use
+</code></pre>
+<h4 id="5-3-4-telnet"><a href="#5-3-4-telnet" class="headerlink" title="5.3.4 telnet"></a>5.3.4 telnet</h4><blockquote>
+<p>查看某个端口是否可访问。我们在搞开发的时候，经常要用的端口就是 8080。那么你可以启动服务器，用telnet 去查看这个端口是否可用。</p>
+</blockquote>
+<p>① 语法</p>
+<pre class=" language-bat"><code class="language-bat">telnet IP 端口
+telnet 域名 端口
+</code></pre>
+<p>② 举例</p>
+<pre class=" language-bat"><code class="language-bat">rem 查看主机192.168.205.9 的8080端口是否可以访问
+telnet 192.168.205.9 8080 
+</code></pre>
+<h4 id="5-3-5-ipconfig"><a href="#5-3-5-ipconfig" class="headerlink" title="5.3.5 ipconfig"></a>5.3.5 ipconfig</h4><blockquote>
+<p>显示、修改TCP/IP设置</p>
+</blockquote>
+<p>① 语法</p>
+<pre class=" language-bat"><code class="language-bat">ipconfig
+</code></pre>
+<p>② 举例</p>
+<pre class=" language-bat"><code class="language-bat">rem 查看本机IP地址
+ipconfig 
+无线局域网适配器 WLAN:
+连接特定的 DNS 后缀 . . . . . . . :
+IPv6 地址 . . . . . . . . . . . . : 2409:8a6c:72:41c0:5424:dc10:aa75:2782
+临时 IPv6 地址. . . . . . . . . . : 2409:8a6c:72:41c0:1df7:d511:b10e:72c
+本地链接 IPv6 地址. . . . . . . . : fe80::5424:dc10:aa75:2782%11
+IPv4 地址 . . . . . . . . . . . . : 192.168.1.80
+子网掩码  . . . . . . . . . . . . : 255.255.255.0
+默认网关. . . . . . . . . . . . . : fe80::1%11
+                                    192.168.1.1
+</code></pre>
+<h4 id="5-3-5-msg"><a href="#5-3-5-msg" class="headerlink" title="5.3.5 msg"></a>5.3.5 msg</h4><blockquote>
+<p>给用户发送消息</p>
+</blockquote>
+<p>① 语法</p>
+<pre class=" language-bat"><code class="language-bat">MSG &#123;username | sessionname | sessionid | @filename | *&#125;
+    [/SERVER:servername] [/TIME:seconds] [/V] [/W] [message]
+
+  username            标识指定的用户名。
+  sessionname         会话名。
+  sessionid           会话 ID。
+  @filename           识别这样一个文件，该文件含有将所发消息发送到的用户
+                      名、会话名和会话标识号的列表。
+  *                   给指定服务器上的所有会话发送信息。
+  /SERVER:servername  要联系的服务器(默认值是当前值)。
+  /TIME:seconds       等待接收器确认消息的时间延迟。
+  /V                  显示有关执行的操作的信息。
+  /W                  等待用户的响应，跟 /V 一起有用。
+  message             要发送的消息。如果没有指定，发出提示，或者从 stdin
+                      读取。
+</code></pre>
+<p>② 举例</p>
+<pre class=" language-bat"><code class="language-bat">  MSG /server:192.168.1.200 * "Hello"      ----------------->>>>>    运行成功，弹出消息对话框。
+</code></pre>
+<h3 id="5-4-系统管理"><a href="#5-4-系统管理" class="headerlink" title="5.4 系统管理"></a>5.4 系统管理</h3><h4 id="5-4-1-shutdown"><a href="#5-4-1-shutdown" class="headerlink" title="5.4.1 shutdown"></a>5.4.1 shutdown</h4><blockquote>
+<p>关闭计算机，或者注销当前用户</p>
+</blockquote>
+<p>① 语法</p>
+<pre class=" language-bat"><code class="language-bat">Shutdown
+</code></pre>
+<p>②举例</p>
+<pre class=" language-bat"><code class="language-bat">rem 如果执行批处理文件的用户具有相关权限，则计算机将被关闭。                    
+@echo off 
+shutdown
+</code></pre>
+<h4 id="5-4-2-Tasklist"><a href="#5-4-2-Tasklist" class="headerlink" title="5.4.2 Tasklist"></a>5.4.2 Tasklist</h4><blockquote>
+<p>列出任务，包括任务名称和进程ID(PID)</p>
+</blockquote>
+<p>① 语法</p>
+<pre class=" language-bat"><code class="language-bat">Tasklist
+</code></pre>
+<p>② 举例</p>
+<pre class=" language-bat"><code class="language-bat">rem 列出当前系统上的所有任务
+@echo off 
+Tasklist
+</code></pre>
+<h4 id="5-4-3-Taskkill"><a href="#5-4-3-Taskkill" class="headerlink" title="5.4.3 Taskkill"></a>5.4.3 Taskkill</h4><blockquote>
+<p>于结束一个或多个任务。</p>
+</blockquote>
+<p>① 语法</p>
+<pre class=" language-bat"><code class="language-bat">taskkill /im [taskname]
+</code></pre>
+<p>② 举例</p>
+<pre class=" language-bat"><code class="language-bat">rem 将发送一个终止消息到MS Paint的任何打开的程序
+@echo off 
+Taskkill /im mspaint.exe
+</code></pre>
+<h4 id="5-4-4-reg"><a href="#5-4-4-reg" class="headerlink" title="5.4.4 reg"></a>5.4.4 reg</h4><blockquote>
+<p>注册表是Windows系统的关键要素之一。 它包含有关操作系统各个方面的大量信息。 几乎所有安装在Windows系统上的应用程序都以某种形式与注册表交互<br>注册表包含两个基本元素:键和值</p>
+</blockquote>
+<p>① 语法</p>
+<pre class=" language-bat"><code class="language-bat">rem 1 从注册表中检索任何键的值。
+REG QUERY [ROOT\]RegKey /v ValueName [/s] 
+REG QUERY [ROOT\]RegKey /ve --This returns the (default) value
+
+rem 2 向注册表添加值，需要在系统上拥有足够的权限才能执行此操作
+REG ADD [ROOT\]RegKey /v ValueName [/t DataType] [/S Separator] [/d Data] [/f]
+REG ADD [ROOT\]RegKey /ve [/d Data] [/f]
+
+rem 3 从注册表中删除值，需要在系统上拥有足够的权限来执行此操作。
+REG DELETE [ROOT\]RegKey /v ValueName [/f] 
+REG DELETE [ROOT\]RegKey /ve [/f] 
+REG DELETE [ROOT\]RegKey /va [/f]
+
+rem 4 从注册表复制值，您需要在系统上拥有足够的权限才能在源位置和目标位置上执行此操作。
+REG COPY [\\SourceMachine\][ROOT\]RegKey [\\DestMachine\][ROOT\]RegKey
+
+rem 5 比较注册表项
+REG COMPARE [ROOT\]RegKey [ROOT\]RegKey [/v ValueName] [Output] [/s]
+REG COMPARE [ROOT\]RegKey [ROOT\]RegKey [/ve] [Output] [/s]
+</code></pre>
+<p>② 举例</p>
+<pre class=" language-bat"><code class="language-bat">rem 1 查询注册表项HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Windows\ 下的所有键及其各自的值
+@echo off R
+EG QUERY HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Windows\
+
+rem 2 在注册表 - HKEY_CURRENT_USER\Console 下添加一个键 键的名字是Test 分配给这个键的值是Test Data，它是默认的字符串类型
+@echo off 
+REG ADD HKEY_CURRENT_USER\Console /v Xiezhr /d "xiezhr"  
+
+rem 3 删除注册表HKEY_CURRENT_USER\Console下的一个注册表项。 键的名称是Test
+@echo off
+REG DELETE HKEY_CURRENT_USER\Console /v Xiezhr /f
+
+rem 4  将内容从位置HKEY_CURRENT_USER\Console复制到同一台机器上的HKEY_CURRENT_USER\Console\Xiezhr位置
+@echo off 
+REG COPY HKEY_CURRENT_USER\Console HKEY_CURRENT_USER\Console\Xiezhr
+
+rem 5 比较注册表项HKEY_CURRENT_USER\Console & HKEY_CURRENT_USER\Console\Xiezhr之间的所有值
+@echo off
+REG COMPARE HKEY_CURRENT_USER\Console HKEY_CURRENT_USER\Console\Xiezhr
+</code></pre>
+<h2 id="6-Batch-常用命令"><a href="#6-Batch-常用命令" class="headerlink" title="6 Batch 常用命令"></a>6 Batch 常用命令</h2><h3 id="6-1-echo"><a href="#6-1-echo" class="headerlink" title="6.1 echo"></a>6.1 echo</h3><blockquote>
+<p>打开回显或关闭请求回显功能，或显示消息。如果没有任何参数，echo命令将显示当前回显设置。<br>① 语法</p>
+</blockquote>
+<pre class=" language-bat"><code class="language-bat">echo [&#123;on|off&#125;] [message]
+</code></pre>
+<p>② 例子</p>
+<pre class=" language-bat"><code class="language-bat">rem 关闭单行回显
+@  
+
+rem 从下一行开始关闭回显
+echo off  
+
+rem 从本行开始关闭回显。一般批处理第一行都是这个
+@echo off  
+
+rem 从下一行开始打开回显
+echo on 
+
+rem 显示当前是 echo off 状态还是 echo on 状态
+echo 
+
+rem 输出一个”回车换行”，空白行
+echo. 
+
+rem 在实际应用中我们会把这条命令和重定向符号（也称为管道符号，一般用> >> ^）结合来实现输入一些命令到特定的文件中 命令会创建一个名为"test"的文本文件，并将"test"输入到文本文件中。
+echo test>test.txt
+</code></pre>
+<h3 id="6-2-rem-和"><a href="#6-2-rem-和" class="headerlink" title="6.2 rem 和 ::"></a>6.2 rem 和 ::</h3><blockquote>
+<p>注释命令，类似于在编程语言中的/<em>——–</em>/，它并不会被执行，只是起一个注释的作用，只有在编辑批处理时才会被看到，主要用于方便修改</p>
+</blockquote>
+<p>① 语法</p>
+<pre class=" language-bat"><code class="language-bat">Rem [注释内容]
+</code></pre>
+<p>② 例子</p>
+<pre class=" language-bat"><code class="language-bat">Rem 此处是注释内容。
+</code></pre>
+<h3 id="6-3-pause"><a href="#6-3-pause" class="headerlink" title="6.3 pause"></a>6.3 pause</h3><blockquote>
+<p>暂停命令。运行 Pause 命令时，将显示下面的消息：<br>Press any key to continue. . .（或：请按任意键继续. . .)</p>
+</blockquote>
+<p>① 语法</p>
+<pre class=" language-bat"><code class="language-bat">pause
+</code></pre>
+<p>② 例子</p>
+<pre class=" language-bat"><code class="language-bat">C:\Users\xiezhr>pause
+请按任意键继续. . .
+</code></pre>
+<h3 id="6-4-call"><a href="#6-4-call" class="headerlink" title="6.4 call"></a>6.4 call</h3><blockquote>
+<p>从一个批处理程序调用另一个批处理程序，并且不终止父批处理程序。还可以调用指定标号处后面的所有命令</p>
+</blockquote>
+<p>① 语法</p>
+<pre class=" language-bat"><code class="language-bat">call [drive:][path]filename [batch-parameters]
+
+[drive:][path]filename：指定被调用的批处理文件名，当被调用的批处理文件与正在执行的批处理文件处于同一目录下时，可以省调盘符及路径
+</code></pre>
+<p>②举例<br>在D盘先分别建立test.bat 和 called.bat批处理文件<br>test.bat</p>
+<pre class=" language-bat"><code class="language-bat">@echo off
+echo 正在调用called.bat
+call called.bat
+echo called.bat 调用完毕
+</code></pre>
+<p>called.bat</p>
+<pre class=" language-bat"><code class="language-bat">@echo off
+@echo 已经进入到called.bat 中。。。
+</code></pre>
+<p>test.bat 和called.bat 创建完毕后，执行test.bat，当test.bat执行到call called.bat命令时便转向执行called.bat批处理文件中的内容。called.bat 执行完之后继续执行test.bat call called.bat 命令行后面的内容</p>
+<h3 id="6-5-start"><a href="#6-5-start" class="headerlink" title="6.5 start"></a>6.5 start</h3><blockquote>
+<p>调用外部程序，所有的DOS命令和命令行程序都可以由start命令来调用</p>
+</blockquote>
+<p>①语法</p>
+<pre class=" language-bat"><code class="language-bat">START “programname”              
+</code></pre>
+<p>② 举例</p>
+<pre class=" language-bat"><code class="language-bat">rem 修改 DOS 窗口标题
+start title "新标题"
+
+rem 打开计算机 E 盘
+start E:
+
+rem 最小化打开记事本
+start /min notepad.exe
+
+rem 最大化打开计算器
+start /max calc
+
+rem 打开任务管理器
+start taskmgr
+
+rem 同时打开写字板和计算器 用 & 将两个要开启的程序连起来
+start write & calc
+</code></pre>
+<h3 id="6-6-cls"><a href="#6-6-cls" class="headerlink" title="6.6 cls"></a>6.6 cls</h3><blockquote>
+<p>清屏</p>
+</blockquote>
+<p>① 语法</p>
+<pre class=" language-bat"><code class="language-bat">cls
+</code></pre>
+<p>② 举例</p>
+<pre class=" language-bat"><code class="language-bat">@echo off 
+dir
+cls
+</code></pre>
+<h3 id="6-7-title"><a href="#6-7-title" class="headerlink" title="6.7 title"></a>6.7 title</h3><blockquote>
+<p>设置控制台窗口中显示的标题。在实际工作中，我们会在一台服务器上启动很多服务，这时我们通过给不同的服务起不同的名字就很容易辨认出不同服务</p>
+</blockquote>
+<p>① 语法</p>
+<pre class=" language-bat"><code class="language-bat">TITLE [Tilename]
+其中，tilename是要提供给命令提示符窗口标题的新名称
+</code></pre>
+<p>② 举例</p>
+<pre class=" language-bat"><code class="language-bat">rem 将把窗口的标题改为“xiezhr的新窗口“。
+@echo off 
+Title “xiezhr的新窗口”
+</code></pre>
+<h3 id="6-8-ver"><a href="#6-8-ver" class="headerlink" title="6.8 ver"></a>6.8 ver</h3><blockquote>
+<p>显示系统版本</p>
+</blockquote>
+<p>① 语法</p>
+<pre class=" language-bat"><code class="language-bat">ver
+</code></pre>
+<p>② 举例</p>
+<pre class=" language-bat"><code class="language-bat">rem 下面命令将显示系统版本
+@echo off 
+ver
+</code></pre>
+<h3 id="6-9-date"><a href="#6-9-date" class="headerlink" title="6.9 date"></a>6.9 date</h3><blockquote>
+<p>用于获取当前系统时间。</p>
+</blockquote>
+<p>① 语法</p>
+<pre class=" language-bat"><code class="language-bat">date
+</code></pre>
+<p>② 举例</p>
+<pre class=" language-bat"><code class="language-bat">rem 显示当前日期
+@echo off 
+echo %DATE%
+</code></pre>
+<h3 id="6-10-time"><a href="#6-10-time" class="headerlink" title="6.10 time"></a>6.10 time</h3><blockquote>
+<p>用于设置或显示时间</p>
+</blockquote>
+<p>① 语法</p>
+<pre class=" language-bat"><code class="language-bat">time 
+</code></pre>
+<p>② 举例</p>
+<pre class=" language-bat"><code class="language-bat">rem 显示系统当前时间
+@echo off 
+echo %TIME%
+</code></pre>
+<h3 id="6-11-exit"><a href="#6-11-exit" class="headerlink" title="6.11 exit"></a>6.11 exit</h3><blockquote>
+<p>用于退出DOS控制台</p>
+</blockquote>
+<p>① 语法</p>
+<pre class=" language-bat"><code class="language-bat">exit
+</code></pre>
+<p>② 举例</p>
+<pre class=" language-bat"><code class="language-bat">rem 退出doc控制台
+exit
+</code></pre>
+<h3 id="6-12-set"><a href="#6-12-set" class="headerlink" title="6.12 set"></a>6.12 set</h3><blockquote>
+<p>设置变量。引用变量可在变量名前后加 % ，即 %变量名%</p>
+</blockquote>
+<p>① 语法</p>
+<pre class=" language-bat"><code class="language-bat">set
+</code></pre>
+<p>② 举例</p>
+<pre class=" language-bat"><code class="language-bat">rem 显示当前系统上的环境变量列表
+@echo off 
+set
+
+rem 进行四则运算
+@echo off
+set /a a=1+1,b=2+1,c=3+1
+echo %a% %b% %c%
+</code></pre>
+<h3 id="6-13-if"><a href="#6-13-if" class="headerlink" title="6.13 if"></a>6.13 if</h3><blockquote>
+<p>判断语句，如果满足条件则执行条件后语句</p>
+</blockquote>
+<p>① 语法</p>
+<pre class=" language-bat"><code class="language-bat">rem 1 if语句
+if (condition) do_something
+
+rem 2 if/else 语句
+if (condition) (do_something) ELSE (do_something_else)
+</code></pre>
+<p>if 语句</p>
+<p><img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/if.png"></p>
+<p>if/else 语句</p>
+<p><img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/iflese.png"></p>
+<p>② 举例</p>
+<pre class=" language-bat"><code class="language-bat">rem  如果d盘存在xiezhr.bat 则输出“存在d:xiezhr.bat文件”
+if exist d:xiezhr.bat echo 存在d:xiezhr.bat文件
+
+rem 如果d盘不存在xiezhr 文件夹则输出“不存在d:xiezhr文件夹”
+if not exist d:xiezhr (
+echo 不存在d:xiezhr文件夹
+)
+
+rem 每个“if else”代码放在括号()中。 如果括号不是用于分隔"if"和"else"代码的代码，那么如果else语句不成立，那么这些语句就不会有效。
+rem 在第一个“if else”语句中，if条件将评估为true。
+rem 在第二个“if else”语句中，else条件将被执行，因为条件将被评估为false
+
+@echo off 
+SET /A a=15 
+SET /A b=20
+SET /A c=%a% + %b% 
+if %c%==35 (echo "最后结果为 35") else (echo "为知结果") 
+if %c%==45 (echo "最后结果为 45") else (echo "为知结果")
+</code></pre>
+<h3 id="6-13-for"><a href="#6-13-for" class="headerlink" title="6.13 for"></a>6.13 for</h3><blockquote>
+<p>循环命令。对一组文件中的每一个文件执行某个特定命 具体参照 for /? 查看</p>
+</blockquote>
+<p>① 语法</p>
+<pre class=" language-bat"><code class="language-bat">FOR %variable IN (set) DO command [command-parameters]
+
+  %variable  指定一个单一字母可替换的参数。
+  (set)      指定一个或一组文件。可以使用通配符。
+  command    指定对每个文件执行的命令。
+  command-parameters 为特定命令指定参数或命令行开关
+</code></pre>
+<p>② 举例</p>
+<pre class=" language-bat"><code class="language-bat">rem 依次调用小括号里的每个字符串，执行 do 后面的命令
+for %%i in (c: d: e: f:) do echo %%i
+
+rem 把 d:xiezhr 及其子目录里的mp4文件的文件名都存到 d:xiezhr.txt 里去
+for /r d:xiezhr %%i in (*.mp4) do echo %%i>>d:xiezhr.txt
+
+rem 对当前目录里所有的txt文件执行 find 命令,找出包含“xiezhr” 字符的所有文件
+for %%i in (*.txt) do find "xiezhr" %%i
+
+rem 在当前目录和子目录里所有的.txt文件中搜索包含“xiezhr”字符串的行
+for /r . %%i in (*.txt) do find "xiezhr" %%i
+</code></pre>
+<h2 id="7-批处理使用中一些常见问题"><a href="#7-批处理使用中一些常见问题" class="headerlink" title="7 批处理使用中一些常见问题"></a>7 批处理使用中一些常见问题</h2><h3 id="7-1-双击打开批出里文件xiezhr-bat后闪退"><a href="#7-1-双击打开批出里文件xiezhr-bat后闪退" class="headerlink" title="7.1 双击打开批出里文件xiezhr.bat后闪退"></a>7.1 双击打开批出里文件xiezhr.bat后闪退</h3><blockquote>
+<p>可能原因</p>
+</blockquote>
+<ul>
+<li>执行速度很快，执行完之后，自行关闭</li>
+<li>语法错误</li>
+</ul>
+<blockquote>
+<p>解决办法</p>
+</blockquote>
+<ul>
+<li>在最后面一行加上 pause</li>
+</ul>
+<pre class=" language-bat"><code class="language-bat">@echo off
+set p=xiezhr
+if %p%==xiezhr (
+echo %p%
+set p=xiezrhspace
+echo %p%
+)
+pause
+</code></pre>
+<p><img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/pause.png"></p>
+<ul>
+<li>用文本编辑器打开xiezhr.bat 文件，检查命令是否都书写正确</li>
+</ul>
+<h3 id="7-2-批处理xiezhr-bat-文件中输出中文乱码"><a href="#7-2-批处理xiezhr-bat-文件中输出中文乱码" class="headerlink" title="7.2 批处理xiezhr.bat 文件中输出中文乱码"></a>7.2 批处理xiezhr.bat 文件中输出中文乱码</h3><blockquote>
+<p>原因</p>
+</blockquote>
+<ul>
+<li>记事本新建的文件，编码不是 utf-8</li>
+</ul>
+<blockquote>
+<p>解决办法</p>
+</blockquote>
+<ul>
+<li>用【记事本】打开&gt;【另存为】&gt;【修改编码为：utf-8】<br><img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/utf-8.png"></li>
+</ul>
+
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="/about" rel="external nofollow noreferrer">xiezhr</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="https://www.xiezhrspace.cn/archives/6c7596dd.html">https://www.xiezhrspace.cn/archives/6c7596dd.html</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="/about" target="_blank">xiezhr</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/windows/">
+                                    <span class="chip bg-color">windows</span>
+                                </a>
+                            
+                                <a href="/tags/bat/">
+                                    <span class="chip bg-color">bat</span>
+                                </a>
+                            
+                                <a href="/tags/%E6%89%B9%E5%A4%84%E7%90%86/">
+                                    <span class="chip bg-color">批处理</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="qq,wechat,weibo,douban" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+                <style>
+    #reward {
+        margin: 40px 0;
+        text-align: center;
+    }
+
+    #reward .reward-link {
+        font-size: 1.4rem;
+        line-height: 38px;
+    }
+
+    #reward .btn-floating:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    #rewardModal {
+        width: 320px;
+        height: 350px;
+    }
+
+    #rewardModal .reward-title {
+        margin: 15px auto;
+        padding-bottom: 5px;
+    }
+
+    #rewardModal .modal-content {
+        padding: 10px;
+    }
+
+    #rewardModal .close {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 1.3rem;
+        line-height: 20px;
+        cursor: pointer;
+    }
+
+    #rewardModal .close:hover {
+        color: #ef5350;
+        transform: scale(1.3);
+        -moz-transform:scale(1.3);
+        -webkit-transform:scale(1.3);
+        -o-transform:scale(1.3);
+    }
+
+    #rewardModal .reward-tabs {
+        margin: 0 auto;
+        width: 210px;
+    }
+
+    .reward-tabs .tabs {
+        height: 38px;
+        margin: 10px auto;
+        padding-left: 0;
+    }
+
+    .reward-content ul {
+        padding-left: 0 !important;
+    }
+
+    .reward-tabs .tabs .tab {
+        height: 38px;
+        line-height: 38px;
+    }
+
+    .reward-tabs .tab a {
+        color: #fff;
+        background-color: #ccc;
+    }
+
+    .reward-tabs .tab a:hover {
+        background-color: #ccc;
+        color: #fff;
+    }
+
+    .reward-tabs .wechat-tab .active {
+        color: #fff !important;
+        background-color: #22AB38 !important;
+    }
+
+    .reward-tabs .alipay-tab .active {
+        color: #fff !important;
+        background-color: #019FE8 !important;
+    }
+
+    .reward-tabs .reward-img {
+        width: 210px;
+        height: 210px;
+    }
+</style>
+
+<div id="reward">
+    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-medium waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close modal-close"><i class="fas fa-times"></i></a>
+            <h4 class="reward-title">你的赏识是我前进的动力</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs row">
+                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
+                    </ul>
+                    <div id="alipay">
+                        <img src="https://cdn.jsdelivr.net/gh/xiezhr/xiezhrblog-cdn-source/source/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                    <div id="wechat">
+                        <img src="https://cdn.jsdelivr.net/gh/xiezhr/xiezhrblog-cdn-source/source/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('.tabs').tabs();
+    });
+</script>
+
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+        <style>
+    .valine-card {
+        margin: 1.5rem auto;
+    }
+
+    .valine-card .card-content {
+        padding: 20px 20px 5px 20px;
+    }
+
+    #vcomments textarea {
+        
+        box-sizing: border-box;
+        /* background: url("https://cdn.jsdelivr.net/gh/xiezhr/xiezhrblog-cdn-source/source/medias/comment_bg.webp") 100% 100% no-repeat; */
+        background-image: url("https://cdn.jsdelivr.net/gh/xiezhr/xiezhrblog-cdn-source/source/medias/hongmiaosi.gif");
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position:right;
+        resize:vertical;
+    }
+
+    #vcomments p {
+        margin: 2px 2px 10px;
+        font-size: 1.05rem;
+        line-height: 1.78rem;
+    }
+
+    #vcomments blockquote p {
+        text-indent: 0.2rem;
+    }
+
+    #vcomments a {
+        padding: 0 2px;
+        color: #4cbf30;
+        font-weight: 500;
+        text-decoration: none;
+    }
+
+    #vcomments img {
+        max-width: 100%;
+        height: auto;
+        cursor: pointer;
+    }
+
+    #vcomments ol li {
+        list-style-type: decimal;
+    }
+
+    #vcomments ol,
+    ul {
+        display: block;
+        padding-left: 2em;
+        word-spacing: 0.05rem;
+    }
+
+    #vcomments ul li,
+    ol li {
+        display: list-item;
+        line-height: 1.8rem;
+        font-size: 1rem;
+    }
+
+    #vcomments ul li {
+        list-style-type: disc;
+    }
+
+    #vcomments ul ul li {
+        list-style-type: circle;
+    }
+
+    #vcomments table, th, td {
+        padding: 12px 13px;
+        border: 1px solid #dfe2e5;
+    }
+
+    #vcomments table, th, td {
+        border: 0;
+    }
+
+    table tr:nth-child(2n), thead {
+        background-color: #fafafa;
+    }
+
+    #vcomments table th {
+        background-color: #f2f2f2;
+        min-width: 80px;
+    }
+
+    #vcomments table td {
+        min-width: 80px;
+    }
+
+    #vcomments h1 {
+        font-size: 1.85rem;
+        font-weight: bold;
+        line-height: 2.2rem;
+    }
+
+    #vcomments h2 {
+        font-size: 1.65rem;
+        font-weight: bold;
+        line-height: 1.9rem;
+    }
+
+    #vcomments h3 {
+        font-size: 1.45rem;
+        font-weight: bold;
+        line-height: 1.7rem;
+    }
+
+    #vcomments h4 {
+        font-size: 1.25rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    #vcomments h5 {
+        font-size: 1.1rem;
+        font-weight: bold;
+        line-height: 1.4rem;
+    }
+
+    #vcomments h6 {
+        font-size: 1rem;
+        line-height: 1.3rem;
+    }
+
+    #vcomments p {
+        font-size: 1rem;
+        line-height: 1.5rem;
+    }
+
+    #vcomments hr {
+        margin: 12px 0;
+        border: 0;
+        border-top: 1px solid #ccc;
+    }
+
+    #vcomments blockquote {
+        margin: 15px 0;
+        border-left: 5px solid #42b983;
+        padding: 1rem 0.8rem 0.3rem 0.8rem;
+        color: #666;
+        background-color: rgba(66, 185, 131, .1);
+    }
+
+    #vcomments pre {
+        font-family: monospace, monospace;
+        padding: 1.2em;
+        margin: .5em 0;
+        background: #272822;
+        overflow: auto;
+        border-radius: 0.3em;
+        tab-size: 4;
+    }
+
+    #vcomments code {
+        font-family: monospace, monospace;
+        padding: 1px 3px;
+        font-size: 0.92rem;
+        color: #e96900;
+        background-color: #f8f8f8;
+        border-radius: 2px;
+    }
+
+    #vcomments pre code {
+        font-family: monospace, monospace;
+        padding: 0;
+        color: #e8eaf6;
+        background-color: #272822;
+    }
+
+    #vcomments pre[class*="language-"] {
+        padding: 1.2em;
+        margin: .5em 0;
+    }
+
+    #vcomments code[class*="language-"],
+    pre[class*="language-"] {
+        color: #e8eaf6;
+    }
+
+    #vcomments [type="checkbox"]:not(:checked), [type="checkbox"]:checked {
+        position: inherit;
+        margin-left: -1.3rem;
+        margin-right: 0.4rem;
+        margin-top: -1px;
+        vertical-align: middle;
+        left: unset;
+        visibility: visible;
+    }
+
+    #vcomments b,
+    strong {
+        font-weight: bold;
+    }
+
+    #vcomments dfn {
+        font-style: italic;
+    }
+
+    #vcomments small {
+        font-size: 85%;
+    }
+
+    #vcomments cite {
+        font-style: normal;
+    }
+
+    #vcomments mark {
+        background-color: #fcf8e3;
+        padding: .2em;
+    }
+
+    #vcomments table, th, td {
+        padding: 12px 13px;
+        border: 1px solid #dfe2e5;
+    }
+
+    table tr:nth-child(2n), thead {
+        background-color: #fafafa;
+    }
+
+    #vcomments table th {
+        background-color: #f2f2f2;
+        min-width: 80px;
+    }
+
+    #vcomments table td {
+        min-width: 80px;
+    }
+
+    #vcomments [type="checkbox"]:not(:checked), [type="checkbox"]:checked {
+        position: inherit;
+        margin-left: -1.3rem;
+        margin-right: 0.4rem;
+        margin-top: -1px;
+        vertical-align: middle;
+        left: unset;
+        visibility: visible;
+    }
+
+    
+</style>
+
+<div class="card valine-card" data-aos="fade-up">
+    <div class="comment_headling" style="font-size: 20px; font-weight: 700; position: relative; padding-left: 20px; top: 15px; padding-bottom: 5px;">
+        <i class="fas fa-comments fa-fw" aria-hidden="true"></i>
+        <span>评论</span>
+    </div>
+    <div id="vcomments" class="card-content" style="display: grid">
+    </div>
+</div>
+
+<script src="/libs/valine/av-min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/small-rose/small-rose.github.io/libs/valine/Valine.min.js"></script>
+
+<script>
+    // new Valine({
+    //     el: '#vcomments',
+    //     appId: 'nLFYjWbdxNXHi8ECkNbad7eo-gzGzoHsz',
+    //     appKey: 'EN6vxfxOV7eBy6HlfVE4jhGI',
+    //     notify: 'true' === 'true',
+    //     verify: 'true' === 'true',
+    //     visitor: 'true' === 'true',
+    //     avatar: 'monsterid',
+    //     pageSize: '10',
+    //     lang: 'zh-cn',
+    //     placeholder: '欢迎你留下宝贵的意见 ^-^&#39;'
+    // });
+
+    let metaPlaceholder = {"nick":"昵称/QQ号(必填)","mail":"邮箱(必填)","link":"网址(https://)"} ;
+    //这里要换行
+    new Valine({
+            el: '#vcomments',
+            appId: 'nLFYjWbdxNXHi8ECkNbad7eo-gzGzoHsz',
+            appKey: 'EN6vxfxOV7eBy6HlfVE4jhGI',
+            notify: 'true' === 'true',
+            verify: 'true' === 'true',
+            visitor: 'true' === 'true',
+            avatar: 'monsterid',
+            pageSize: '10',
+            lang: 'zh-CN',
+            placeholder: '欢迎你留下宝贵的意见 ^-^&#39;',
+            meta: ["nick", "mail", "link"],
+            recordIP: 'true' === 'true',
+            enableQQ: 'monsterid',
+            requiredFields: ["1610cd43778f1d972a92503426346411"],
+            master: ["1610cd43778f1d972a92503426346411"],
+            friends: ["c08508165c8eba9a77f8c2853xxxx09e", "901345d4c91ddfd8db0f175bbcfff0c8", "1512958e18378c98b498d5effe3e76ff"],
+            tagMeta: ["博主", "小伙伴", "访客"],
+            metaPlaceholder: metaPlaceholder,
+
+        });
+
+</script>
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/archives/537e8f5d.html">
+                    <div class="card-image">
+                        
+                        <img src="https://cdn.jsdelivr.net/gh/xiezhr/xiezhrblog-cdn-source/source/cover/觉醒年代.webp" class="responsive-img" alt="《觉醒年代》观后感">
+                        
+                        <span class="card-title">《觉醒年代》观后感</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            《觉醒年代》观后感
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2021-05-23
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E8%A7%89%E9%86%92%E5%B9%B4%E4%BB%A3/" class="post-category">
+                                    觉醒年代
+                                </a>
+                            
+                            <a href="/categories/%E8%A7%89%E9%86%92%E5%B9%B4%E4%BB%A3/%E8%A7%82%E5%90%8E%E6%84%9F/" class="post-category">
+                                    观后感
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E8%A7%89%E9%86%92%E5%B9%B4%E4%BB%A3/">
+                        <span class="chip bg-color">觉醒年代</span>
+                    </a>
+                    
+                    <a href="/tags/%E8%A7%82%E5%90%8E%E6%84%9F/">
+                        <span class="chip bg-color">观后感</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/archives/5060cc60.html">
+                    <div class="card-image">
+                        
+                        <img src="https://cdn.jsdelivr.net/gh/xiezhr/xiezhrblog-cdn-source/source/cover/backup2.png" class="responsive-img" alt="数据库备份真的很重要！很重要！很重要">
+                        
+                        <span class="card-title">数据库备份真的很重要！很重要！很重要</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            数据库备份真的很重要！很重要！很重要
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-03-20
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93%E5%A4%87%E4%BB%BD/" class="post-category">
+                                    数据库备份
+                                </a>
+                            
+                            <a href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93%E5%A4%87%E4%BB%BD/windows-server/" class="post-category">
+                                    windows server
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93%E5%A4%87%E4%BB%BD/">
+                        <span class="chip bg-color">数据库备份</span>
+                    </a>
+                    
+                    <a href="/tags/windows-server/">
+                        <span class="chip bg-color">windows server</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+<script>
+    $('#articleContent').on('copy', function (e) {
+        // IE8 or earlier browser is 'undefined'
+        if (typeof window.getSelection === 'undefined') return;
+
+        var selection = window.getSelection();
+        // if the selection is short let's not annoy our users.
+        if (('' + selection).length < Number.parseInt('300')) {
+            return;
+        }
+
+        // create a div outside of the visible area and fill it with the selected text.
+        var bodyElement = document.getElementsByTagName('body')[0];
+        var newdiv = document.createElement('div');
+        newdiv.style.position = 'absolute';
+        newdiv.style.left = '-99999px';
+        bodyElement.appendChild(newdiv);
+        newdiv.appendChild(selection.getRangeAt(0).cloneContents());
+
+        // we need a <pre> tag workaround.
+        // otherwise the text inside "pre" loses all the line breaks!
+        //if (selection.getRangeAt(0).commonAncestorContainer.nodeName === 'PRE') {
+          //  newdiv.innerHTML = "<pre>" + newdiv.innerHTML + "</pre>";
+        //}
+        newdiv.innerHTML = "<pre>" + newdiv.innerHTML + "</pre>";
+        var url = document.location.href;
+        newdiv.innerHTML += '<br />'
+            + '来源: xiezhrspace<br />'
+            + '文章作者: xiezhr<br />'
+            + '文章链接: <a href="' + url + '">' + url + '</a><br />'
+            + '本文章著作权归作者所有，任何形式的转载都请注明出处。';
+
+        selection.selectAllChildren(newdiv);
+        window.setTimeout(function () {bodyElement.removeChild(newdiv);}, 200);
+    });
+</script>
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+<!-- 代码块折行 -->
+
+<style type="text/css">
+code[class*="language-"], pre[class*="language-"] { white-space: pre !important; }
+</style>
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="https://cdn.jsdelivr.net/gh/xiezhr/xiezhrblog-cdn-source/source/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+
+
+    <style>
+    .youpaiyunlogo {
+        height: 26px;
+        display: inline-block;
+        vertical-align: top;
+    }
+</style>
+<footer class="page-footer bg-color">
+    
+    <div class="container row center-align" style="margin-bottom: 15px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            <span id="year">2020</span>
+            <a href="/about" target="_blank">xiezhr</a>
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            <br>
+            
+            &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
+                class="white-color">51.3k</span>&nbsp;字
+            
+            
+            
+            
+            
+            
+            <span id="busuanzi_container_site_pv">
+                |&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;<span id="busuanzi_value_site_pv"
+                    class="white-color"></span>&nbsp;次
+            </span>
+            
+            
+            <span id="busuanzi_container_site_uv">
+                |&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;<span id="busuanzi_value_site_uv"
+                    class="white-color"></span>&nbsp;人
+            </span>
+            
+            <br>
+            
+            <span id="sitetime">载入运行时间...</span>
+            <script>
+                function siteTime() {
+                    var seconds = 1000;
+                    var minutes = seconds * 60;
+                    var hours = minutes * 60;
+                    var days = hours * 24;
+                    var years = days * 365;
+                    var today = new Date();
+                    var startYear = "2020";
+                    var startMonth = "11";
+                    var startDate = "17";
+                    var startHour = "9";
+                    var startMinute = "1";
+                    var startSecond = "1";
+                    var todayYear = today.getFullYear();
+                    var todayMonth = today.getMonth() + 1;
+                    var todayDate = today.getDate();
+                    var todayHour = today.getHours();
+                    var todayMinute = today.getMinutes();
+                    var todaySecond = today.getSeconds();
+                    var t1 = Date.UTC(startYear, startMonth, startDate, startHour, startMinute, startSecond);
+                    var t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond);
+                    var diff = t2 - t1;
+                    var diffYears = Math.floor(diff / years);
+                    var diffDays = Math.floor((diff / days) - diffYears * 365);
+                    var diffHours = Math.floor((diff - (diffYears * 365 + diffDays) * days) / hours);
+                    var diffMinutes = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours) /
+                        minutes);
+                    var diffSeconds = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours -
+                        diffMinutes * minutes) / seconds);
+                    if (startYear == todayYear) {
+                        document.getElementById("year").innerHTML = todayYear;
+                        document.getElementById("sitetime").innerHTML = "小破站已在各种灾难中安全运行 " + diffDays + " 天 " + diffHours +
+                            " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
+                    } else {
+                        document.getElementById("year").innerHTML = startYear + " - " + todayYear;
+                        document.getElementById("sitetime").innerHTML = "小破站已在各种灾难中安全运行 " + diffYears + " 年 " + diffDays +
+                            " 天 " + diffHours + " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
+                    }
+                }
+                setInterval(siteTime, 1000);
+            </script>
+            
+            <br>
+            
+            <span id="icp"><img src="/medias/icp.png" style="vertical-align: text-bottom;" />
+                <a href="http://www.beian.miit.gov.cn" target="_blank">滇ICP备2020008901号</a>
+            </span>
+            
+            <a href="https://www.upyun.com/?utm_source=lianmeng&amp;utm_medium=referra" target="_blank" title="本站由又拍云 提供CDN加速/云存储服务" >
+                <img src="https://cdn2.sublimerui.top/2021/01/09/4a78e24138103.png"class="youpaiyunlogo"/>
+            </a>
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/xiezhr" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+    <a href="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/wx.jpg" class="tooltipped" target="_blank" data-tooltip="微信联系我: https://gitee.com/xiezhr/image-learn-bed/raw/master/image/wx.jpg" data-position="top" data-delay="50">
+        <i class="fab fa-weixin"></i>
+    </a>
+
+
+
+    <a href="https://www.jianshu.com/u/2b57477b4c5a" class="tooltipped" target="_blank" data-tooltip="关注我的简书: https://www.jianshu.com/u/2b57477b4c5a" data-position="top" data-delay="50">
+        <i class="fab fa-jianshu">简</i>
+    </a>
+
+
+
+    <a href="https://blog.csdn.net/rong09_13" class="tooltipped" target="_blank" data-tooltip="关注我的CSDN: https://blog.csdn.net/rong09_13" data-position="top" data-delay="50">
+        <i class="fab fa-csdn">C</i>
+    </a>
+
+
+
+    <a href="https://juejin.im/user/1829211147871415/posts" class="tooltipped" target="_blank" data-tooltip="关注我的掘金: https://juejin.im/user/1829211147871415/posts" data-position="top" data-delay="50">
+        <i class="fab fa-juejin">掘</i>
+    </a>
+
+
+
+    <a href="mailto:1666397814@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=1666397814" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 1666397814" data-position="top" data-delay="50">
+        <i class="fab fa-qq"></i>
+    </a>
+
+
+
+
+
+    <a href="https://www.zhihu.com/people/rong-xie-49-35" class="tooltipped" target="_blank" data-tooltip="关注我的知乎: https://www.zhihu.com/people/rong-xie-49-35" data-position="top" data-delay="50">
+        <i class="fab fa-zhihu1">知</i>
+    </a>
+
+
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/gh/xiezhr/xiezhrblog-cdn-source/source/js/search.js"></script>
+<script type="text/javascript">
+$(function () {
+    searchFunc('/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <style>
+    .top-scroll .btn-floating {
+        background: rgb(73, 177, 245);
+        width: 38px;
+        height: 38px;
+    }
+
+</style>
+
+<!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="https://cdn.jsdelivr.net/gh/xiezhr/xiezhrblog-cdn-source/source/libs/materialize/materialize.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/xiezhr/xiezhrblog-cdn-source/source/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/xiezhr/xiezhrblog-cdn-source/source/libs/aos/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/xiezhr/xiezhrblog-cdn-source/source/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/xiezhr/xiezhrblog-cdn-source/source/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/xiezhr/xiezhrblog-cdn-source/source/js/matery.js"></script>
+
+    
+    <!-- 自动更改网站标题 -->
+    <script type="text/javascript">
+        var OriginTitile=document.title,st;
+        document.addEventListener("visibilitychange",function(){
+            document.hidden?(document.title="ヽ(●-`Д´-)ノ你要玩捉迷藏嘛",clearTimeout(st)):(document.title="(Ő∀Ő3)ノ欢迎回来！",st=setTimeout(function(){document.title=OriginTitile},3e3))
+        })
+    </script>
+
+    <div id="weather-v2-plugin-simple"></div>
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    
+    <script async src="https://cdn.jsdelivr.net/gh/xiezhr/xiezhrblog-cdn-source/source/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+    
+    <script type="text/javascript" color="0,0,255"
+        pointColor="0,0,255" opacity='0.7'
+        zIndex="-1" count="120"
+        src="https://cdn.jsdelivr.net/gh/xiezhr/xiezhrblog-cdn-source/source/libs/background/canvas-nest.js"></script>
+    
+
+    
+
+    
+
+    
+    <script src="https://cdn.jsdelivr.net/gh/xiezhr/xiezhrblog-cdn-source/source/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+    <!--添加全局深色模式-->
+    <script> 
+        if (localStorage.getItem('dark') === '1') { 
+            document.body.classList.add('dark'); 
+        } else if (new Date().getHours() >= 22 || new Date().getHours() < 7) {
+             document.body.classList.add('dark'); 
+        } else if (matchMedia('(prefers-color-scheme: dark)').matches) { 
+            document.body.classList.add('dark'); 
+        } 
+    </script> 
+    <a onclick="switchNightMode()" id="sma"> 
+        <i class="fa fa-moon-o" id="nightMode" aria-hidden="true"></i> 
+    </a>
+</body>
+
+</html>
