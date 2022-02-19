@@ -1,6 +1,573 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title></title>
+    <url>/archives/0.html</url>
+    <content><![CDATA[<h1 id="IntelliJ-IDEA学习这一篇就够了，从入门到上瘾"><a href="#IntelliJ-IDEA学习这一篇就够了，从入门到上瘾" class="headerlink" title="IntelliJ IDEA学习这一篇就够了，从入门到上瘾"></a>IntelliJ IDEA学习这一篇就够了，从入门到上瘾</h1><h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><blockquote>
+<p>每次换电脑，最最最头疼的事情莫过于安装各种软件和搭建开发环境。这算是不想换电脑的一个原因吧（最主要还是穷）。除非是电脑坏了开不了机或者点一下卡一下，真不想换电脑。每次换电脑都得折腾好久。</p>
+</blockquote>
+<p><img src="https://ftp.bmp.ovh/imgs/2022/02/83f42ae23ed2be24.gif"></p>
+<p>趁着这次换电脑了，顺便整理下IDEA安装使用及配置。</p>
+<p>官网提供的详细使用文档，英文好的可以直接上手了</p>
+<p><a href="https://www.jetbrains.com/help/idea/getting-started.html">https://www.jetbrains.com/help/idea/getting-started.html</a></p>
+<h3 id="IntelliJ-IDEA简介"><a href="#IntelliJ-IDEA简介" class="headerlink" title="IntelliJ IDEA简介"></a>IntelliJ IDEA简介</h3><blockquote>
+<p>IDEA，全称IntelliJ IDEA，是 Java 语言的集成开发环境， IDEA 在业界被公认为是最好的 java 开发工具之一，一旦用上了就会上瘾。尤其在智能代码助手、代码自动提示、重构、 J2EE<br>支持、 Ant、 JUnit、 CVS 整合、代码审查、创新的 GUI 设计等方面的功能可以说是超常的。</p>
+</blockquote>
+<blockquote>
+<p>IDEA在官网是这样解释自己的<br>Excel at enterprise, mobile and web development with Java, Scala and Groovy,<br>with all the latest modern technologies and frameworks available out of the<br>box.<br>简明翻译： IntelliJ IDEA 主要用于支持 Java、 Scala、 Groovy 等语言的开发工<br>具，同时具备支持目前主流的技术和框架，擅长于企业应用、移动应用和 Web 应<br>用的开发</p>
+</blockquote>
+<blockquote>
+<p>IntelliJ IDEA 相比于Eclipse的优势</p>
+</blockquote>
+<ul>
+<li>强大的整合能力。比如： Git、 Maven、 Spring 等</li>
+<li>提示功能的快速、 便捷</li>
+<li>提示功能的范围广</li>
+<li>好用的快捷键和代码模板</li>
+<li>精准搜索</li>
+</ul>
+<h3 id="IntelliJ-IDEA-下载安装"><a href="#IntelliJ-IDEA-下载安装" class="headerlink" title="IntelliJ IDEA 下载安装"></a>IntelliJ IDEA 下载安装</h3><ol>
+<li>下载地址</li>
+</ol>
+<p><a href="https://www.jetbrains.com/idea/download/#section=windows">https://www.jetbrains.com/idea/download/#section=windows</a></p>
+<p>DEA 分为两个版本： 旗舰版(Ultimate)和社区版(Community)。<br>旗舰版：收费(限 30 天免费试用)，功能全面，插件丰富，但是收费，按年收费；<br>社区版：免费试用，功能相对而言不是很丰富，但是不影响开发使用。</p>
+<p><img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/1644414369238%E4%B8%8B%E8%BD%BD%E5%9C%B0%E5%9D%80.png"></p>
+<ol start="2">
+<li>软硬件要求（官方要求）</li>
+</ol>
+<p><strong>以现目前最新版为例（现在最新版是idea-2021.3.2）</strong></p>
+<ul>
+<li>操作系统： 64-bit versions of Microsoft Windows 10, 8</li>
+<li>内存：2 GB RAM minimum, 8 GB RAM recommended</li>
+<li>硬盘：2.5 GB hard disk space, SSD recommended</li>
+<li>屏幕：1024x768 minimum screen resolution</li>
+<li>JRE：JRE 1.8 is bundled with the IntelliJ IDEA distribution. You do not need to install Java<br>on your computer to run IntelliJ IDEA.</li>
+<li>JDK A standalone JDK is required for Java development</li>
+</ul>
+<p>个人建议配置： 内存 8G 或以上， CPU 最好 i5 以上， 最好安装块固态硬盘(SSD)，将 IDEA<br>安装在固态硬盘上，这样流畅度会加快很多</p>
+<ol start="3">
+<li>安装过程</li>
+</ol>
+<p><strong>双击下载好的exe文件进行无脑安装即可</strong><br><img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/1644417462962idea1.png"><br><img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/1644417530962idea2.png"><br><img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/1644417562966idea3.png"></p>
+<ol start="4">
+<li>激活<br>淘宝，你懂的。</li>
+</ol>
+<h3 id="目录结构介绍"><a href="#目录结构介绍" class="headerlink" title="目录结构介绍"></a>目录结构介绍</h3><ol>
+<li>安装目录介绍</li>
+</ol>
+<p><img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/1644417792963idea4.png"></p>
+<blockquote>
+<p>bin：容器，执行文件和启动参数等<br><img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/1644419838962idea6.png"></p>
+</blockquote>
+<p><strong>idea64.exe.vmoptions</strong> 是比较重要的配置文件，这里以我个人电脑为例（win10 64位 16G内存）</p>
+<pre class=" language-ini"><code class="language-ini">-Xms512m   # 设置初始的内存数，增加该值可以提高 Java 程序的启动速度
+-Xmx1500m  #设置最大内存数，提高该值，可以减少内存 Garage 收集的频率，提高程序性能
+<span class="token constant">-XX:ReservedCodeCacheSize</span><span class="token attr-value"><span class="token punctuation">=</span>512m  #保留代码占用的内存容量</span>
+-XX:+IgnoreUnrecognizedVMOptions
+-XX:+UseG1GC
+<span class="token constant">-XX:SoftRefLRUPolicyMSPerMB</span><span class="token attr-value"><span class="token punctuation">=</span>50</span>
+<span class="token constant">-XX:CICompilerCount</span><span class="token attr-value"><span class="token punctuation">=</span>2</span>
+-XX:+HeapDumpOnOutOfMemoryError
+-XX:-OmitStackTraceInFastThrow
+-ea
+<span class="token constant">-Dsun.io.useCanonCaches</span><span class="token attr-value"><span class="token punctuation">=</span>false</span>
+<span class="token constant">-Djdk.http.auth.tunneling.disabledSchemes</span><span class="token attr-value"><span class="token punctuation">=</span>""</span>
+<span class="token constant">-Djdk.attach.allowAttachSelf</span><span class="token attr-value"><span class="token punctuation">=</span>true</span>
+<span class="token constant">-Djdk.module.illegalAccess.silent</span><span class="token attr-value"><span class="token punctuation">=</span>true</span>
+<span class="token constant">-Dkotlinx.coroutines.debug</span><span class="token attr-value"><span class="token punctuation">=</span>off</span>
+</code></pre>
+<ul>
+<li>help：快捷键文档和其他帮助文档</li>
+<li>jbr： 咱们在介绍intellij idea安装之前的准备时就给大家说过硬件和软件上的一个要求，如果你只是想运行java程序，那么你就用不着再去装jre了，因为intellij idea已经绑定好了。在jbr目录中，大家就能够看到它已经提供好了java的运行环境，当然，如果你要是想开发java程序的话，那么就得需要独立安装jdk了</li>
+<li>lib： idea 依赖的类库</li>
+<li>license：各个插件许可</li>
+<li>plugin：插件</li>
+</ul>
+<ol start="2">
+<li>设置目录介绍</li>
+</ol>
+<p>路径<br>C:\Users\用户.IntelliJIdea2019.3<br><img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/1644496580514idea7.png"></p>
+<blockquote>
+<p>这是 IDEA 的各种配置的保存目录。 这个设置目录有一个特性，就是你删除掉整<br>个目录之后，重新启动 IntelliJ IDEA 会再自动帮你生成一个全新的默认配置，<br>所以很多时候如果你把 IntelliJ IDEA 配置改坏了，删掉该目录，一切都会还原到默认值</p>
+</blockquote>
+<p>① config 目录</p>
+<p>此目录为IDEA最重要的目录。目录主要记录了： IDE 主要配置功能、自定义的代码模板、自定义的文件<br>模板、自定义的快捷键、 Project 的 tasks 记录等等个性化的设置</p>
+<p>② system目录</p>
+<p>system 目录是 IntelliJ IDEA 系统文件目录，是 IntelliJ IDEA 与开发项目一个<br>桥梁目录， 里面主要有：缓存、索引、容器文件输出等等</p>
+<h3 id="创建Java工程，实现Hell-World"><a href="#创建Java工程，实现Hell-World" class="headerlink" title="创建Java工程，实现Hell World"></a>创建Java工程，实现Hell World</h3><ol>
+<li>创建工程<br><img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/1644498573506idea8.png"></li>
+</ol>
+<ul>
+<li>Create New Project:创建一个新的工程</li>
+<li>Import Project:导入一个现有的工程</li>
+<li>Open:打开一个已有工程。比如：可以打开 Eclipse 项目。</li>
+<li>Check out from Version Control:可以通过服务器上的项目地址 check out Github<br>上面项目或其他 Git 托管服务器上的项目</li>
+</ul>
+<p>这里选择 <strong>Create New Project</strong></p>
+<p>IntelliJ IDEA 没有类似 Eclipse 的工作空间的概念（ Workspaces），最大单元就是<br>Project。 这里可以把 Project 理解为 Eclipse 中的 Workspace。</p>
+<ol start="2">
+<li><p>选择jdk版本，框架<br><img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/1644498999507idea9.png"></p>
+</li>
+<li><p>选择模板<br><img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/1644499145521idea10.png"></p>
+</li>
+<li><p>设置项目路径及项目名称<br><img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/1644499358509idea11.png"></p>
+</li>
+<li><p>项目界面<br><img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/1644500479506idea12.png"></p>
+</li>
+</ol>
+<ul>
+<li>工程下的 src 类似于 Eclipse 下的 src 目录， 用于存放代码</li>
+<li>工程下的.idea 和 project01.iml 文件都是 IDEA 工程特有的。类似于 Eclipse 工<br>程下的.settings、 .classpath、 .project 等</li>
+</ul>
+<ol start="6">
+<li>创建package和class</li>
+</ol>
+<p>在src目录下创建一个package<br><img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/1644500847511idea13.png"><br><img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/1644500896511idea14.png"></p>
+<p>在刚建的package下新建class<br><img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/1644500967506idea15.png"><br><img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/1644501071510idea16.png"></p>
+<p>在HelloWorld类里声明主方法，控制台打印Hello World!  到此成功完成</p>
+<p><img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/1644501301506idea17.png"></p>
+<h3 id="模块（Module）简介"><a href="#模块（Module）简介" class="headerlink" title="模块（Module）简介"></a>模块（Module）简介</h3><blockquote>
+<p>在 Eclipse 中我们有 Workspace（工作空间）和 Project（工程）的概念，在 IDEA<br>中只有 Project（工程）和 Module（模块）的概念<br>① Eclipse 中 workspace 相当于 IDEA 中的 Project<br>②Eclipse 中 Project 相当于 IDEA 中的 Module</p>
+</blockquote>
+<blockquote>
+<p>eclipse在同一窗口可以管理 n 个项目，这在IntelliJ IDEA 是无法做到的。<br>IntelliJ IDEA 提供的解决方案是打开多个项目实例，<br>即打开多个项目窗口。 即： 一个 Project 打开一个 Window 窗口</p>
+</blockquote>
+<blockquote>
+<p>在 IntelliJ IDEA 中 Project 是最顶级的级别，次级别是 Module。 一个 ProjectIntelliJ IDEA 的安装、 配置与使用可以有多个 Module。目前主流的大型项目都是分布式部署的， 结构都是类似这种多 Module 结构</p>
+</blockquote>
+<p><img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/1644504508506model1.png"></p>
+<p>下图为若依项目模块截图，根据model命名可以看出，他们之间处于同一项目下，彼此之间有着不可分割的业务关系<br><img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/1644505305506model.png"></p>
+<p>相比多个Module项目，小项目就没这么复杂，IntelliJ IDEA创建项目的时候默认的就是单Module结构的.</p>
+<ol>
+<li>IntelliJ IDEA 中一个项目是以Module为单位的，那么，下面我们就来看看建立和删除Module</li>
+</ol>
+<p>① 怎么建立Module？</p>
+<p><img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/1644506075506idea18.png"></p>
+<p><img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/1644506169510module2.png"></p>
+<p><img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/1644506403506module004.png"></p>
+<p>之后，我们可以在 Module 的 src 里写代码，此时 Project 工程下的 src 就没什么用了。可以删掉。</p>
+<p>② 如何删除一个Module呢？</p>
+<ul>
+<li> remove Module<br><img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/1644507263511moduleremove.png"></li>
+<li> delete Module<br><img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/1644507336506moduleremove02.png"></li>
+</ul>
+<p>直到第二步完成，Module将彻底从磁盘上删除</p>
+<h3 id="查看项目配置"><a href="#查看项目配置" class="headerlink" title="查看项目配置"></a>查看项目配置</h3><p><img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/1644507675506structure.png"></p>
+<p><img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/1644507880506stu.png"></p>
+<h3 id="IDEA-常用配置"><a href="#IDEA-常用配置" class="headerlink" title="IDEA 常用配置"></a>IDEA 常用配置</h3><blockquote>
+<p> file–&gt;Settings 进入设置界面</p>
+</blockquote>
+<p><img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/1644581331762setting.png"></p>
+<ol>
+<li>Appearance &amp; Behavior</li>
+</ol>
+<p>① 设置主题</p>
+<p>默认有如下三种主题，根据自己喜好设置即可<br><img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/1644581627769theme.png"></p>
+<p>② 设置窗体及菜单的字体及大小</p>
+<p><img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/1644581775771font.png"></p>
+<ol start="2">
+<li>Editor - General</li>
+</ol>
+<p>① 设置鼠标滚轮修改字体大小<br><img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/1644582159761monuth.png"></p>
+<p>② 设置鼠标悬浮提示</p>
+<p><img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/1644582446765month1.png"></p>
+<p>③ 设置自动导包</p>
+<p><img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/1644582544766import.png"></p>
+<ul>
+<li>Add unambiguous imports on the fly：自动导入不明确的结构</li>
+<li>Optimize imports on the fly： 自动帮我们优化导入的包</li>
+</ul>
+<p>④ 设置显示行号和方法间的分隔符</p>
+<p><img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/1644582785761number.png"></p>
+<ul>
+<li>如上图红圈所示， 可以勾选 Show line numbers：显示行数。 建议勾上，好定位代码</li>
+<li>如上图红圈所示， 可以勾选 Show method separators： 显示方法分隔线。建议勾上，单一个方法代码比较多时，好区分一个方法到哪结束</li>
+</ul>
+<p>⑤ 忽略大小写提示<br><img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/1644583240760match.png"></p>
+<ul>
+<li>IntelliJ IDEA 的代码提示和补充功能默认是区分大小写的。我们输入stringb是没有提示的<br><img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/1644583584760stringbuffer1.png"></li>
+<li>按照上图，我们把Match case 前的勾去掉后代码提示就不区分大小写了。输入stringb后就会有提示<br><img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/1644583752770stringbuffer2.png"></li>
+</ul>
+<p>⑥ 设置取消单行显示 tabs 的操作</p>
+<p><img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/1644583954764tabs.png"></p>
+<p>在打开很多文件的时候， IntelliJ IDEA 默认是把所有打开的文件名 Tab 单行显示的。如果需要多行显示文件，超出部分不折叠，则按照上图设置即可</p>
+<ol start="3">
+<li>Editor – Font</li>
+</ol>
+<p>① 设置默认的字体、字体大小、字体行间距</p>
+<p><img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/1644584173765font11.png"></p>
+<ol start="4">
+<li>Editor – Color Scheme</li>
+</ol>
+<p>① 修改代码中注释的字体颜色</p>
+<p><img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/1644584437763color1.png"></p>
+<ul>
+<li>Doc Comment – Text： 修改文档注释的字体颜色</li>
+<li>Block comment： 修改多行注释的字体颜色</li>
+<li>Line comment： 修改当行注释的字体颜色</li>
+</ul>
+<ol start="5">
+<li>Editor – File and Code Templates</li>
+</ol>
+<p>① 修改类头的文档注释信息</p>
+<p><img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/1644584650761head1.png"></p>
+<pre class=" language-java"><code class="language-java"><span class="token comment" spellcheck="true">/**
+@author xiezhr
+@create $&amp;#123;YEAR&amp;#125;-$&amp;#123;MONTH&amp;#125;-$&amp;#123;DAY&amp;#125; $&amp;#123;TIME&amp;#125;
+*/</span>
+</code></pre>
+<ol start="6">
+<li>Editor – File Encodings</li>
+</ol>
+<p>① 设置项目文件编码格式</p>
+<p><img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/1644584930761encodings.png"></p>
+<ol start="7">
+<li>Build,Execution,Deployment</li>
+</ol>
+<p>① 设置自动编译</p>
+<p><img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/1644585236766compiler.png"></p>
+<ul>
+<li>Intellij Idea 默认状态为不自动编译状态， Eclipse 默认为自动编译。若你是刚才eclipse转过来的，这里需要设置下。</li>
+</ul>
+<ol start="8">
+<li>设置代码水平或垂直显示</li>
+</ol>
+<p><img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/1644585901763split.png"></p>
+<h3 id="快捷键设置"><a href="#快捷键设置" class="headerlink" title="快捷键设置"></a>快捷键设置</h3><ol>
+<li>相信不少小伙伴是刚才eclipse转过来的，习惯了eclipse的快捷键，没问题Intellij Idea中支持将快捷键设置成eclipse快捷键。</li>
+</ol>
+<p><img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/1644669258943eclipse.png"></p>
+<ol start="2">
+<li>导入快捷键设置</li>
+</ol>
+<p><img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/1644669383943import1.png"><br><img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/1644669618945keymap.png"></p>
+<ol start="3">
+<li>常用快捷键（标⭐的为常用）</li>
+</ol>
+<p>① 编辑类<br>|快捷键|快捷键说明|<br>|–|–|<br>|Ctrl + Space|补全代码，由于经常与操作系统的输入法的切换冲突，所以实际很少用。一般直接在 idea 中开启输入自动补全机制|<br>|Ctrl + Shift + Space|在列出的可选项中只显示出你所输入的关键字最相关的信息。⭐|<br>|Ctrl + Shift + Enter|代码补全后，自动在代码末尾添加分号结束符|<br>|Ctrl + P|在某个方法中，调用该按键后，会展示出这个方法的调用参数列表信息|<br>|Ctrl + Q|展示某个类或者方法的 API 说明文档|<br>|Ctrl + mouse|跳进到某个类或者方法源代码中进行查看⭐|<br>|Alt + Insert|自动生成某个类的 Getters, Setters, Constructors, hashCode/equals, toString 等代码 ⭐|<br>|Ctrl + O|    展示该类中所有覆盖或者实现的方法列表|<br>|Ctrl + Alt + T    |自动生成具有环绕性质的代码，比如：if..else,try..catch, for, synchronized 等等，使用前要先选择好需要环绕的代码块⭐|<br>|Ctrl + /|对单行代码，添加或删除注释。分为两种情况：如果只是光标停留在某行，那么连续使用该快捷键，会不断注释掉下一行的代码；如果选定了某行代码（选定了某行代码一部分也算这种情况），那么连续使用该快捷键，会在添加或删除该行注释之间来回切换⭐|<br>|Ctrl + Shift + /|对代码块，添加或删除注释。它与 Ctrl + / 的区别是，它只会在代码块的开头与结尾添加注释符号⭐|<br>|Ctrl + W|选中当前光标所在的代码块，多次触发，代码块会逐级变大⭐|<br>|Ctrl + Shift + W|是 Ctrl + W 的反向操作，多次触发，代码块会逐级变小，最小变为光标|<br>|Alt + Q|展示包含当前光标所在代码的父节点信息，比如在 java 方法中调用，就会展示方法签名信息|<br>|Alt + Enter|展示当前当前光标所在代码，可以变化的扩展操作|<br>|Ctrl + Alt + L    |格式化代码⭐|<br>|Ctrl + Alt + O    |去除没有实际用到的包，这在 java 类中特别有用⭐|<br>|Ctrl + Alt + I    |按照缩进的设定，自动缩进所选择的代码段|<br>|Tab / Shift + Tab|缩进或者不缩进一次所选择的代码段⭐|<br>|Ctrl + X 或 Shift Delete|剪切当前代码⭐|<br>|Ctrl + C 或 Ctrl + Insert|拷贝当前代码⭐|<br>|Ctrl + V 或 Shift + Insert    |粘贴之前剪切或拷贝的代码⭐|<br>|Ctrl + Shift + V|从之前的剪切或拷贝的代码历史记录中，选择现在需要粘贴的内容⭐|<br>|Ctrl + D|复制当前选中的代码⭐|<br>|Ctrl + Y|删除当前光标所在的代码行⭐|<br>|Ctrl + Shift + J|把下一行的代码接续到当前的代码行|<br>|Ctrl + Enter|当前代码行与下一行代码之间插入一个空行，原来所在的光标不变⭐|<br>|Shift + Enter|当前代码行与下一行代码之间插入一个空行，原来光标现在处于新加的空行上⭐|<br>|Ctrl + Shift + U|所选择的内容进行大小写转换⭐|<br>|Ctrl + Shift + ]/[    |从当前光标所在位置开始，一直选择到当前光标所在代码段起始或者结束位置|<br>|Ctrl + Delete|删除从当前光标所在位置开始，直到这个单词的结尾的内容|<br>|Ctrl + NumPad(+/-)    |展开或收缩代码段⭐|<br>|Ctrl + Shift + NumPad(+)|展开所有代码段|<br>|Ctrl + Shift + NumPad(-)|收缩所有代码段|<br>|Ctrl + F4|关闭当前标签页|<br>|Shift + F6    |修改名字⭐|</p>
+<p>② 查找替换<br>|快捷键|快捷键说明|<br>|–|–|<br>|Ctrl + F|在当前标签页中进行查找，还支持正则表达式⭐|<br>|F3|如果找到了多个查找结果，每调用一次就会跳到下一个结果，很方便哦|<br>|Shift + F3    |是 F3 的反向操作，即每调用一次就会跳到上一个结果|<br>|Ctrl + R|在当前标签页中进行替换操作⭐|<br>|Ctrl + Shift + F|通过路径查找⭐|<br>|Ctrl + Shift + R|通过路径替换⭐|</p>
+<p><img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/1645256137664ctrl_f.png"><br>|图示|说明|<br>|–|–|<br>|向上箭头|    就是 快捷键【Shift + F3】，每调用一次就会跳到上一个结果|<br>|向下箭头|    就是 快捷键【F3】，每调用一次就会跳到下一个结果|<br>|加号符号|    把当前的高亮项加入到选中的列表中|<br>|减号符号|    把当前的高亮项从选中的列表中移除|<br>|勾选符号|    把所有的查找结果同时选中，这很适合批量操作|<br>|文本内的向上箭头|    打开查询结果列表面板|<br>|两个框加一个向下箭头|    更多选项|<br>|Match Case|    是否大小写敏感|<br>|Regex|    正则表达式|<br>|Words|    匹配单词|<br>|x matches|    x 表示的是找到的记录数|</p>
+<p>④ 查看使用情况<br>|快捷键    |快捷键说明|<br>|–|–|<br>|Alt + F7|在当前项目中的使用情况，会打开一个使用情况面板|<br>|Ctrl + F7|在当前文件中的使用情况，找的内容会低亮显示|<br>|Ctrl + Shift + F7|在当前文件中的使用情况，找的内容会高亮显示|<br>|Ctrl + Alt + F7|打开使用情况列表⭐|</p>
+<p>④ 编译运行<br>|快捷键|快捷键说明|<br>|–|–|<br>|Ctrl + F9|编译项目（如果之前有编译过，那么只会编译那些修改的类或者依赖的包⭐|<br>|Ctrl + Shift + F9|编译选中的范围（如果在某个类中，那么只会编译当前类）|<br>|Alt + Shift + F10|会打开一个已经配置的运行列表，让你选择一个后，再运行|<br>|Alt + Shift + F9|会打开一个已经配置的运行列表，让你选择一个后，再以调试模式运行|<br>|Shift + F10|立即运行当前配置的运行实例，这个在单元测试中特别好用⭐|<br>|Shift + F9|立即以编译模式运行当前配置的运行实例⭐|<br>|Ctrl + Shift + F10    |按照编辑器绑定的文件类型，运行相关的程序。比如一个 html 页面，调用后，会直接打开一个浏览器|</p>
+<p>⑤ 调试<br>|快捷键|快捷键说明|<br>|–|–|<br>|F8|跳到当前代码下一行⭐|<br>|F7|跳入到调用的方法内部代码⭐|<br>|Shift + F7    |会打开一个面板，让你选择具体要跳入的类方法，这个在复杂的嵌套代码中特别有用|<br>|Shift + F8|跳出当前的类，到上一级⭐|<br>|Alt + F9|让代码运行到当前光标所在处，非常棒的功能⭐|<br>|Alt + F8|打开一个表达式面板，然后进行进一步的计算|<br>|F9|结束当前断点的本轮调试（因为有可能代码会被调用多次，所以调用后只会结束当前的这一次）；如果有下一个断点会跳到下一个断点中⭐|<br>|Ctrl + F8|在当前光标处，添加或者删除断点|<br>|Ctrl + Shift + F8|打开当前断点的面板，可以进行条件过滤哦|</p>
+<p>⑥ 导航<br>|快捷键|快捷键说明|<br>|–|–|<br>|Ctrl + N|打开类查询框⭐|<br>|Ctrl + Shift + N|打开文件查询框⭐|<br>|Ctrl + Alt + Shift + N    |打开文本查询框|<br>|Alt + 右箭头/左箭头|跳到下一个/上一个编辑器标签|<br>|F12|如果当前在编辑窗口，触发后，会跳到之前操作过的工具栏上|<br>|ESC|从工具栏上，再跳回原来的编辑窗口，一般与 F12 配合使用|<br>|Shift + ESC|隐藏最后一个处于活跃状态的工具窗口|<br>|Ctrl + Shift + F4|同时关闭处于活动状态的某些工具栏窗口|<br>|Ctrl + G|跳转至某一行代码⭐|<br>|Ctrl + E|打开曾经操作过的文件历史列表|<br>|Ctrl + Alt + 右箭头/左箭头    |在曾经浏览过的代码行中来回跳|<br>|Ctrl + Shift + Backspace|跳转到最近的编辑位置（如果曾经编辑过代码）|<br>|Alt + F1|打开一个类型列表，选择后会导航到当前文件或者内容的具体与类型相关的面板中|<br>|Ctrl + B 或 Ctrl + 鼠标左键|如果是类，那么会跳转到当前光标所在的类定义或者接口；如果是变量，会打开一个变量被引用的列表⭐|<br>|Ctrl + Alt + B|跳转到实现类，而不是接口⭐|<br>|Ctrl + Shift + I|打开一个面板，里面包含类代码|<br>|Ctrl + Shift + B|打开变量的类型所对应的类代码，只对变量有用|<br>|Ctrl + U|打开方法的超类方法或者类的超类，只对有超类的方法或者类有效|<br>|Alt + 上/下箭头|在某个类中，跳到上一个/下一个方法的签名上|<br>|Ctrl + ]/[|移动光标到类定义的终止右大括号或者起始左大括号|<br>|Ctrl + F12    |打开类的结构列表⭐|<br>|Ctrl + H|打开类的继承关系列表|<br>|Ctrl + Shift + H|打开某个类方法的继承关系列表|<br>|Ctrl + Alt + H    |打开所有类的方法列表，这些方法都调用了当前光标所处的某个类方法⭐|<br>|F2/Shift + F2|在编译错误的代码行中来回跳|<br>|F4|打开当前光标所在处的方法或类源码|<br>|Alt + Home    |激活包路径的导航栏|<br>|F11|把光标所处的代码行添加为书签或者从书签中删除⭐|<br>|Ctrl + F11    |把光标所处的代码行添加为带快捷键的书签或者从快捷键书签中删除。|<br>|Shift + F11|打开书签列表⭐|</p>
+<p><strong>Ctrl + N （打开类查询框）</strong></p>
+<p>键入类名的关键字，会自动出现相关的类，很强大<br><img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/1644679942942file.png"></p>
+<p> <strong>Alt + F1（打开一个类型列表）</strong></p>
+<p><img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/1644680153942typelist.png"></p>
+<h3 id="模板设置"><a href="#模板设置" class="headerlink" title="模板设置"></a>模板设置</h3><blockquote>
+<p>模板包含Live Templates 和 Postfix Completion<br>二者的区别： Live Templates 可以自定义，而 Postfix Completion 不可以</p>
+</blockquote>
+<ol>
+<li>Live Templates(实时代码模板)</li>
+</ol>
+<p><img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/1644681906943templates3.png"></p>
+<p>配置一些常用代码字母缩写，在输入简写时可以出现你预定义的固定模式的代码，使得开发效率大大提高.</p>
+<blockquote>
+<p>Java 中输入 sout 会出现 System.out.println();</p>
+</blockquote>
+<ol start="2">
+<li>已有的常用模板</li>
+</ol>
+<p><img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/1644681513942template.png"></p>
+<p>举例<br>① psvm </p>
+<p>psvm 可生成 main 方法</p>
+<p>② sout  </p>
+<p>sout 可生成 System.out.println()</p>
+<p>③ fori<br>fori：可生成 for 循环<br>iter：可生成增强 for 循环<br>itar：可生成普通 for 循环</p>
+<p>④ list.for<br>list.for 可生成集合 list 的 for 循环<br>List<String> list = new ArrayList<String>();<br>输入: list.for 即可输出<br>for(String s:list){<br>}</p>
+<p>⑤ ifn<br>ifn 可生成 if(xxx = null)<br>inn：可生成 if(xxx != null)<br>xxx.nn 或 xxx.null</p>
+<p>⑥ prsf<br>prsf  可生成 private static final<br>psf   可生成 public static final<br>psfi  可生成 public static final int<br>psfs  可生成 public static final String</p>
+<ol start="3">
+<li>如果对已有的模板不习惯，可以修改</li>
+</ol>
+<p><img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/1644841408141modify-templates.png"></p>
+<ol start="4">
+<li>如果对已有的模板不习惯，也可以定义自己的模板，步骤如下</li>
+</ol>
+<p>① 定义一个模板的组</p>
+<p><img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/1644841620138addgroup.png"></p>
+<p><img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/1644841790135temname.png"></p>
+<p>② 在上一步定义的模板组下定义一个模板</p>
+<p><img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/1644842295132template5.png"></p>
+<p><img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/1644842304133template6.png"></p>
+<p>③ 选择应用范围</p>
+<p><img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/1644842531133define1.png"></p>
+<h3 id="关联数据库"><a href="#关联数据库" class="headerlink" title="关联数据库"></a>关联数据库</h3><ol>
+<li>关联数据库</li>
+</ol>
+<p><img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/1644844572141linkdatabase.png"></p>
+<p><img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/1644844950133testmysql.png"></p>
+<p><img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/1644845015133connect1.png"></p>
+<p>IntelliJ IDEA  的  Database  最大特性就是对于 Java Web 项目来讲，常使用的 ORM 框架，如 Hibernate、Mybatis 有很好的支持，比如配置好了 Database 之后，IntelliJ IDEA 会自动识别 domain 对象与数据表的关系，也可以通过 Database 的数据表直接生成 domain 对象等等</p>
+<ol start="2">
+<li>常用操作</li>
+</ol>
+<p><img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/1644845168134%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C.png"></p>
+<ul>
+<li>图标 1：同步当前的数据库连接。这个是最重要的操作。配置好连接以后或通过其他工具操作数据库以后，需要及时同步。</li>
+<li>图标 2：配置当前的连接。</li>
+<li>图标 3：断开当前的连接。</li>
+<li>图标 4：显示相应数据库对象的数据</li>
+<li>图标 5：编辑修改当前数据库对象</li>
+</ul>
+<h3 id="版本控制"><a href="#版本控制" class="headerlink" title="版本控制"></a>版本控制</h3><blockquote>
+<p>不管是个人开发还是团队开发，都离不开版本控制，IntelliJ IDEA也集成了版本控制工具。</p>
+</blockquote>
+<p><img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/1644846553134git.png"></p>
+<p>注：<strong>IntelliJ IDEA 虽然默认对这些版本控制工具提供插件支持，但是还需要我们自己安装版本控制客户端滴</strong></p>
+<ol>
+<li>Git是我们常用的版本控制工具，是目前世界上最先进的分布式版本控制系统（没有之一）。<br>我们这里就以Git为例，说一说IntelliJ IDEA怎么配置和使用Git</li>
+</ol>
+<p>① 下载和安装Git客户端</p>
+<p>官网下载地址：<a href="https://git-scm.com/downloads">https://git-scm.com/downloads</a></p>
+<p>全部无脑下一步安装即可</p>
+<p>默认安装完成后，右键出现下图所示图标即表示安装成功</p>
+<p><img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/1644847992133git%E5%AE%A2%E6%88%B7%E7%AB%AF%E5%8F%B3%E9%94%AE.png"></p>
+<p>安装完成后，还需要最后一步设置，在命令行输入：</p>
+<pre class=" language-yml"><code class="language-yml"># 注意git config命令的--global参数，用了这个参数，表示你这台机器上所有的Git仓库都会使用这个配置
+$ git config --global user.name "Your Name"
+$ git config --global user.email "email@example.com"
+</code></pre>
+<p>因为Git是分布式版本控制系统，所以，每个机器都必须自报家门：你的名字和Email地址</p>
+<p>② 关联 git.exe</p>
+<p><img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/1644848334134gitpath.png"></p>
+<p>③ 关联 GitHub 上的账户，并测试连接</p>
+<p><img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/1644849387136gitlogin.png"></p>
+<p>④ 在 GitHub 上创建账户下的一个新的仓库作为测试</p>
+<p><img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/1644850140134gittest.png"></p>
+<p>⑤ 从当前github 账号上checkout项目</p>
+<p><img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/1644850425134gitprojece.png"></p>
+<p>获取GitHub上项目路径，并将项目路径填入其中<br><img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/1644850587133pathgit.png"></p>
+<p><img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/1644850653134clone.png"></p>
+<p><img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/1644851147133importproject.png"></p>
+<p><img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/1644851381138prj.png"></p>
+<p>按照以上步骤，在GitHub上的项目即克隆到了本地。是不是很简单哦</p>
+<p>⑥ Git常用操作</p>
+<p><img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/1644852654148git%E5%91%BD%E4%BB%A4.png"></p>
+<pre class=" language-git"><code class="language-git">clone：拷贝远程仓库
+commit：本地提交
+push：远程提交
+pull：更新到本地
+</code></pre>
+<p>上面只提了最最最常用的命令，如果你想更加深入的了解git,建议参考</p>
+<p><a href="https://www.liaoxuefeng.com/wiki/896043488029600">廖雪峰的Git教程</a></p>
+<p>注：<strong>即使我们没有使用任何版本控制工具，IntelliJ IDEA也为我们提供了历史版本查看功能</strong></p>
+<p><img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/1644852961139history.png"></p>
+<p><img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/1644853121136historyahtml.png"></p>
+<h3 id="断点调试功能"><a href="#断点调试功能" class="headerlink" title="断点调试功能"></a>断点调试功能</h3><ol>
+<li>debug 模式设置</li>
+</ol>
+<blockquote>
+<p>设置 Debug 连接方式，默认是 Socket。Shared memory 是  Windows  特有的一个属性，一般在 Windows 系统下建议使用此设置，内存占用相对较少</p>
+</blockquote>
+<p><img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/1644853376133debug.png"></p>
+<ol start="2">
+<li>常用断点调试说明</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th>图标</th>
+<th>显示</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/1644853769146debug1.png"></td>
+<td>step over</td>
+<td>进入下一步，如果当前行断点是一个方法，则不进入当前方法体内</td>
+</tr>
+<tr>
+<td><img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/1644853770137debug2.png"></td>
+<td>step into</td>
+<td>进入下一步，如果当前行断点是一个方法，则进入当前方法体内</td>
+</tr>
+<tr>
+<td><img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/1644853771145debug3.png"></td>
+<td>force step into</td>
+<td>进入下一步，如果当前行断点是一个方法，则进入当前方法体内</td>
+</tr>
+<tr>
+<td><img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/1644853772143debug4.png"></td>
+<td>step out</td>
+<td>跳出</td>
+</tr>
+<tr>
+<td><img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/1644853773146debug5.png"></td>
+<td>resume program</td>
+<td>恢复程序运行，但如果该断点下面代码还有断点则停在下一个断点上</td>
+</tr>
+<tr>
+<td><img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/1644853774134debug6.png"></td>
+<td>stop</td>
+<td>停止</td>
+</tr>
+<tr>
+<td><img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/1644853775141debug7.png"></td>
+<td>view breakpoints</td>
+<td>查看所有断点</td>
+</tr>
+</tbody></table>
+<ol start="3">
+<li>条件断点</li>
+</ol>
+<blockquote>
+<p>在实际项目中，我们会遇到这样一种场景。我们已经定位问题（bug）就出在这个循环里，但是确定不了循环到第几次的时候报错，<br>当循环次数比较少，是3次或5次的时候，我们可以一次一次的调试。但当循环次数是100次，甚至1000次呢？这个时候我们就需要用到条件断点了。</p>
+</blockquote>
+<p><strong>在循环里增加条件判断，能大大提高我们的效率</strong></p>
+<p>我们在需要设置断点的语句前单击，当出现红色断点时，右键出现如下图所示，即可加入条件。</p>
+<p><img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/1645015720084i=50.png"></p>
+<p>debug程序，程序在i=10的时候停止</p>
+<p><img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/1645016008085i=10.png"></p>
+<p><img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/1645016162089i=1011.png"></p>
+<h3 id="配置maven"><a href="#配置maven" class="headerlink" title="配置maven"></a>配置maven</h3><ol>
+<li>Java项目构成</li>
+</ol>
+<p>在介绍maven 前，我们先了解下一个Java项目需要哪些东西。</p>
+<ul>
+<li>如果我们需要log4j，就需要吧log4j相关的jar包放到classpath中，如果我们需要fastjson,就需要把fastjson相关的jar包放到classpath中。这就是依赖包的管理</li>
+<li>我们要确定项目的目录结构。例如，src目录存放Java源码，resources目录存放配置文件，bin目录存放编译生成的.class文件</li>
+<li>我们还需要配置环境，例如JDK的版本，编译打包的流程</li>
+<li>需要对代码进行编译，才能够让项目在一个独立的服务器上编译、测试、部署</li>
+</ul>
+<ol start="2">
+<li>maven 简介</li>
+</ol>
+<p>这些工作难度不大，但是非常琐碎且耗时。如果每一个项目都自己搞一套配置，肯定是费时费力。我们需要的是一个标准化的Java项目管理和构建工具</p>
+<p>Maven就是是专门为Java项目打造的管理和构建工具，Maven有以下功能</p>
+<ul>
+<li>提供了一套标准化的项目结构</li>
+<li>提供了一套标准化的构建流程（编译，测试，打包，发布……）</li>
+<li>提供了一套依赖管理机制</li>
+</ul>
+<ol start="3">
+<li>Maven 项目结构</li>
+</ol>
+<p><img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/1645248168669maven-jg.png"></p>
+<ol start="4">
+<li>Maven构建流程</li>
+</ol>
+<p><img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/1645018242084maven-list.png"></p>
+<ol start="5">
+<li>IntelliJ IDEA 配置Maven</li>
+</ol>
+<p><img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/1645018738087maven-confit.png"></p>
+<ol start="6">
+<li>新建Maven项目</li>
+</ol>
+<p>① 新建项目</p>
+<p><img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/1645019169086create-newpro.png"></p>
+<p>②选择Maven项目</p>
+<p><img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/1645019856096bz.png"></p>
+<p>③设置项目参数</p>
+<p><img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/1645019901083mavenconfig.png"></p>
+<p>④配置本地Maven设置</p>
+<p><img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/1645019918088local-config.png"></p>
+<p>⑤初始化项目</p>
+<p><img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/1645019950096download.png"></p>
+<p>⑥项目构建完成</p>
+<p><img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/1645020111093success-maven.png"></p>
+<ol start="4">
+<li>添加第三方jar包</li>
+</ol>
+<blockquote>
+<p>mysql 是我们日常开发中常用的数据库，这里我们以导入MySQL驱动包为例</p>
+</blockquote>
+<p>①当我们执行App.java中代码时，由于没加mysql驱动包，所以会报如下错误</p>
+<p><img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/1645020413085mysql-err.png"></p>
+<p>②修改pom.xml文件,添加如下内容</p>
+<pre class=" language-xml"><code class="language-xml"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>dependency</span><span class="token punctuation">></span></span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>groupId</span><span class="token punctuation">></span></span>mysql<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>groupId</span><span class="token punctuation">></span></span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>artifactId</span><span class="token punctuation">></span></span>mysql-connector-java<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>artifactId</span><span class="token punctuation">></span></span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>version</span><span class="token punctuation">></span></span>5.1.20<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>version</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>dependency</span><span class="token punctuation">></span></span>
+</code></pre>
+<p><img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/1645020952088addmaven.png"></p>
+<p>注：<strong>dependency标签中的内容我们不用死记，我们只需要到<a href="https://mvnrepository.com/%E6%9F%A5%E8%AF%A2%EF%BC%8C%E7%84%B6%E5%90%8E%E5%A4%8D%E5%88%B6%E5%8D%B3%E5%8F%AF">https://mvnrepository.com/查询，然后复制即可</a></strong></p>
+<p><img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/1645021099086myslq-each.png"></p>
+<p><img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/1645021169083copy-1.png"></p>
+<p>③ 等待驱动下载完成</p>
+<p><img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/1645021247085driver-download.png"></p>
+<p>④ 再次运行，成功</p>
+<p><img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/1645021352083success-driver.png"></p>
+<h3 id="创建web项目并配置tomcat"><a href="#创建web项目并配置tomcat" class="headerlink" title="创建web项目并配置tomcat"></a>创建web项目并配置tomcat</h3><ol>
+<li>新建maven web项目</li>
+</ol>
+<p>① 创建项目</p>
+<p><img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/1645249592671maven-create.png"></p>
+<p>②选择Maven webapp格式</p>
+<p><img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/1645249593674maven-select.png"></p>
+<p>③填写项目参数</p>
+<p><img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/1645249594666maven-name.png"></p>
+<p>④ 配置本地Maven相关参数</p>
+<p><img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/1645249595672maven-confit.png"></p>
+<p>⑤配置java源代码目录</p>
+<blockquote>
+<p>maven web项目默认是没有java源代码目录的，所以需要手动创建，并设置其为源代码目录<br>右键main目录-&gt; New-&gt;Directory-&gt;输入java-&gt;右键java-&gt;Mark Directory as-&gt; Sources Root<br>这样就创建了存放java源文件的目录了<br><img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/1645249791663java-src.png"></p>
+</blockquote>
+<p>⑥ 新建servlet</p>
+<p><img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/1645251040668newservlet.png"><br><img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/1645251028671servlet-info.png"></p>
+<pre class=" language-java"><code class="language-java"><span class="token keyword">package</span> com<span class="token punctuation">.</span>xiezhr<span class="token punctuation">;</span>
+
+<span class="token keyword">import</span> javax<span class="token punctuation">.</span>servlet<span class="token punctuation">.</span>ServletException<span class="token punctuation">;</span>
+<span class="token keyword">import</span> javax<span class="token punctuation">.</span>servlet<span class="token punctuation">.</span>annotation<span class="token punctuation">.</span>WebServlet<span class="token punctuation">;</span>
+<span class="token keyword">import</span> javax<span class="token punctuation">.</span>servlet<span class="token punctuation">.</span>http<span class="token punctuation">.</span>HttpServlet<span class="token punctuation">;</span>
+<span class="token keyword">import</span> javax<span class="token punctuation">.</span>servlet<span class="token punctuation">.</span>http<span class="token punctuation">.</span>HttpServletRequest<span class="token punctuation">;</span>
+<span class="token keyword">import</span> javax<span class="token punctuation">.</span>servlet<span class="token punctuation">.</span>http<span class="token punctuation">.</span>HttpServletResponse<span class="token punctuation">;</span>
+<span class="token keyword">import</span> java<span class="token punctuation">.</span>io<span class="token punctuation">.</span>IOException<span class="token punctuation">;</span>
+<span class="token keyword">import</span> java<span class="token punctuation">.</span>util<span class="token punctuation">.</span>Date<span class="token punctuation">;</span>
+
+<span class="token annotation punctuation">@WebServlet</span><span class="token punctuation">(</span>name <span class="token operator">=</span> <span class="token string">"HelloServlet"</span><span class="token punctuation">)</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">HelloServlet</span> <span class="token keyword">extends</span> <span class="token class-name">HttpServlet</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+    <span class="token keyword">protected</span> <span class="token keyword">void</span> <span class="token function">doGet</span><span class="token punctuation">(</span>HttpServletRequest request<span class="token punctuation">,</span> HttpServletResponse response<span class="token punctuation">)</span> <span class="token keyword">throws</span> ServletException<span class="token punctuation">,</span> IOException <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+
+        response<span class="token punctuation">.</span><span class="token function">getWriter</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"&lt;h1>Hello Servlet! Hello xiezhr!&lt;/h1>"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        response<span class="token punctuation">.</span><span class="token function">getWriter</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">Date</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">toLocaleString</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+</code></pre>
+<p>⑦修改web.xml</p>
+<pre class=" language-xml"><code class="language-xml"><span class="token doctype">&lt;!DOCTYPE web-app PUBLIC
+ "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
+ "http://java.sun.com/dtd/web-app_2_3.dtd" ></span>
+
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>web-app</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>display-name</span><span class="token punctuation">></span></span>Archetype Created Web Application<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>display-name</span><span class="token punctuation">></span></span>
+
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>servlet</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>servlet-name</span><span class="token punctuation">></span></span>HelloServlet<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>servlet-name</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>servlet-class</span><span class="token punctuation">></span></span>com.xiezhr.HelloServlet<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>servlet-class</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>servlet</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>servlet-mapping</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>servlet-name</span><span class="token punctuation">></span></span>HelloServlet<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>servlet-name</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>url-pattern</span><span class="token punctuation">></span></span>/hello<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>url-pattern</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>servlet-mapping</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>web-app</span><span class="token punctuation">></span></span>
+</code></pre>
+<p>⑧pom.xml添加servlet包依赖</p>
+<pre class=" language-xml"><code class="language-xml"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>dependency</span><span class="token punctuation">></span></span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>groupId</span><span class="token punctuation">></span></span>javax.servlet<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>groupId</span><span class="token punctuation">></span></span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>artifactId</span><span class="token punctuation">></span></span>javax.servlet-api<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>artifactId</span><span class="token punctuation">></span></span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>version</span><span class="token punctuation">></span></span>3.1.0<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>version</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>dependency</span><span class="token punctuation">></span></span>
+</code></pre>
+<ol start="2">
+<li>配置tomcat</li>
+</ol>
+<p>① 打开tomcat配置，并选择tomcat 路径</p>
+<p><img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/1645252181667tomcat-1.png"></p>
+<p>② 设置部署</p>
+<p><img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/1645252417674tomcat-play.png"></p>
+<p><img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/1645252503672tomcat2.png"></p>
+<p>③ 运行项目</p>
+<p><img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/1645252566672run.png"></p>
+<p><img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/1645253973662run-success.png"></p>
+<p>④ 测试成功</p>
+<p><img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/1645254019663run-1.png"></p>
+]]></content>
+  </entry>
+  <entry>
     <title>2021平(jia)凡(ban)的一年</title>
     <url>/archives/f2ab69ad.html</url>
     <content><![CDATA[<h2 id="0x00"><a href="#0x00" class="headerlink" title="0x00"></a>0x00</h2><p>刚刚把《平凡的世界》电视剧看完。也不知道什么原因，又去刷了一遍， 可能是有那么一段时间比较迷茫、加班加到怀疑人生了吧。</p>
