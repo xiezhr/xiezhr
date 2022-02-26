@@ -352,9 +352,9 @@
       </tags>
   </entry>
   <entry>
-    <title></title>
-    <url>/archives/0.html</url>
-    <content><![CDATA[<h1 id="IntelliJ-IDEA学习这一篇就够了，从入门到上瘾"><a href="#IntelliJ-IDEA学习这一篇就够了，从入门到上瘾" class="headerlink" title="IntelliJ IDEA学习这一篇就够了，从入门到上瘾"></a>IntelliJ IDEA学习这一篇就够了，从入门到上瘾</h1><h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><blockquote>
+    <title>IntelliJ IDEA学习这一篇就够了，从入门到上瘾</title>
+    <url>/archives/7dac2f53.html</url>
+    <content><![CDATA[<h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><blockquote>
 <p>每次换电脑，最最最头疼的事情莫过于安装各种软件和搭建开发环境。这算是不想换电脑的一个原因吧（最主要还是穷）。除非是电脑坏了开不了机或者点一下卡一下，真不想换电脑。每次换电脑都得折腾好久。</p>
 </blockquote>
 <p><img src="https://ftp.bmp.ovh/imgs/2022/02/83f42ae23ed2be24.gif"></p>
@@ -917,6 +917,16 @@ pull：更新到本地
 <p>④ 测试成功</p>
 <p><img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/1645254019663run-1.png"></p>
 ]]></content>
+      <categories>
+        <category>IntelliJ IDEA</category>
+        <category>IDEA</category>
+        <category>Java</category>
+      </categories>
+      <tags>
+        <tag>IntelliJ IDEA</tag>
+        <tag>IDEA</tag>
+        <tag>Java</tag>
+      </tags>
   </entry>
   <entry>
     <title>2021平(jia)凡(ban)的一年</title>
