@@ -1,6 +1,120 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>快速上手Linux核心命令（一）：核心命令简介</title>
+    <url>/archives/324ec8c8.html</url>
+    <content><![CDATA[<h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>众所周知，Linux在服务器中占用不可替代的位置。大多数互联网公司，服务器都是采用的Linux操作系统。而Linux是一个主要通过命令行来进行管理的操作系统。只有熟练掌握Linux核心命令，在使用起来我们才会得心应手。</p>
+<p>​<br>通过文章希望能帮助<strong>刚入门Linux的小伙伴们快速掌握核心命令，也可以将之作为一份Linux帮助文档使用。</strong></p>
+<p>一开始，我们会以<strong>思维导图</strong>的方式把常用命令都列出来，后面系列文章会就列出来的命令做详细使用说明。<br>​</p>
+<p>当然，受限于个人水平，及Linux命令实在太多，不可能把所有命令都列出来，这里只列出个人觉得<strong>比较常用及非常重要</strong>的命令。有说的不对的地方及有部分命令可能你觉得很重要但没列出来，欢迎大家补充纠正。</p>
+<p>​</p>
+<h3 id="命令行简介"><a href="#命令行简介" class="headerlink" title="命令行简介"></a>命令行简介</h3><h4 id="Linux命令行简介"><a href="#Linux命令行简介" class="headerlink" title="Linux命令行简介"></a>Linux命令行简介</h4><p><strong>工作中我们一般不会直接到服务器上操作，而是通过远程工具连接Linux系统。</strong> 连接后如下图所示</p>
+<p><img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/16464661030921646466102207.png"></p>
+<pre class=" language-shell"><code class="language-shell">[root@xiezhr ~]#      # '#'表示超级用户root对应的命令行
+[xiezhr@xiezhr ~]$    # '$'表示普通用户xiezhr对应的命令行
+</code></pre>
+<p>① ‘#’ 表示超级用户root用户登录系统后，命令行结尾提示符</p>
+<p>② ‘$’ 表示普通用户xiezhr用户登录系统后，命令行结尾提示符</p>
+<p>③ 超级用户具有管理系统的所有权限，普通用户权限比较小，只能进行普通的操作</p>
+<p>④ ‘@’ ‘@’符号前面的表示当前登录的用户，‘@’后面的是Linux主机名</p>
+<h4 id="Linux命令行操作常用快捷键"><a href="#Linux命令行操作常用快捷键" class="headerlink" title="Linux命令行操作常用快捷键"></a>Linux命令行操作常用快捷键</h4><p><strong>我们已SecureCRT工具为例进行操作说明</strong>，下面是用到的一些快捷键</p>
+<table>
+<thead>
+<tr>
+<th>快捷键</th>
+<th>功能说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>tab</td>
+<td><strong>命令或路径补全键</strong> 是Linux最最最常用的键</td>
+</tr>
+<tr>
+<td>ctrl+c</td>
+<td>中断终端正在执行的任务</td>
+</tr>
+<tr>
+<td>ctrl+a</td>
+<td>光标回到命令行首</td>
+</tr>
+<tr>
+<td>ctrl+e</td>
+<td>光标回到命令行尾</td>
+</tr>
+<tr>
+<td>ctrl+Insert</td>
+<td>复制命令行内容</td>
+</tr>
+<tr>
+<td>shift+Insert</td>
+<td>粘贴命令行内容</td>
+</tr>
+<tr>
+<td>ctrl+k</td>
+<td>剪切（删除）光标位置到行尾的字符</td>
+</tr>
+<tr>
+<td>ctrl+u</td>
+<td>剪切（删除）光标位置到行首的字符</td>
+</tr>
+<tr>
+<td>ctrl+d</td>
+<td>退出当前shell命令行</td>
+</tr>
+<tr>
+<td>ctrl+r</td>
+<td>搜索命令行使用过的历史命令记录</td>
+</tr>
+<tr>
+<td>ctrl+l</td>
+<td>清除屏幕的所有内容，并开始一个新行 等同于<strong>clear</strong></td>
+</tr>
+<tr>
+<td>ctrl+z</td>
+<td>暂停执行终端运行的任务</td>
+</tr>
+<tr>
+<td>！c</td>
+<td>获取最近以c开头的命令</td>
+</tr>
+<tr>
+<td>！num</td>
+<td>获取历史执行的地num条命令</td>
+</tr>
+<tr>
+<td>esc+.</td>
+<td>获取最后一次执行命令</td>
+</tr>
+</tbody></table>
+<h3 id="命令的十三个模块"><a href="#命令的十三个模块" class="headerlink" title="命令的十三个模块"></a>命令的十三个模块</h3><p>由于命令较多，这里根据功能分了13个模块</p>
+<ul>
+<li>基础命令</li>
+<li>文件和目录相关</li>
+<li>文件内容相关</li>
+<li>文本处理三剑客</li>
+<li>vi/vim :文本编辑相关</li>
+<li>Linux系统信息相关</li>
+<li>网络相关</li>
+<li>文件备份压缩相关</li>
+<li>软件安装相关</li>
+<li>Linux用户相关</li>
+<li>Linux磁盘与文件系统相关</li>
+<li>进程相关</li>
+<li>系统管理相关</li>
+</ul>
+<p><img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/1646472822104Linux%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4%20(1).png"></p>
+<p><img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/1646472849084Linux%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4.png"></p>
+]]></content>
+      <categories>
+        <category>Linux</category>
+        <category>Linux 核心命令</category>
+      </categories>
+      <tags>
+        <tag>Linux</tag>
+        <tag>Linux 核心命令</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>给你安利一款国产良心软件</title>
     <url>/archives/4006f79a.html</url>
     <content><![CDATA[<h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>大家好，我是xiezhr</p>
@@ -926,120 +1040,6 @@ pull：更新到本地
         <tag>IntelliJ IDEA</tag>
         <tag>IDEA</tag>
         <tag>Java</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>快速上手Linux核心命令（一）：核心命令简介</title>
-    <url>/archives/324ec8c8.html</url>
-    <content><![CDATA[<h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>众所周知，Linux在服务器中占用不可替代的位置。大多数互联网公司，服务器都是采用的Linux操作系统。而Linux是一个主要通过命令行来进行管理的操作系统。只有熟练掌握Linux核心命令，在使用起来我们才会得心应手。</p>
-<p>​<br>通过文章希望能帮助<strong>刚入门Linux的小伙伴们快速掌握核心命令，也可以将之作为一份Linux帮助文档使用。</strong></p>
-<p>一开始，我们会以<strong>思维导图</strong>的方式把常用命令都列出来，后面系列文章会就列出来的命令做详细使用说明。<br>​</p>
-<p>当然，受限于个人水平，及Linux命令实在太多，不可能把所有命令都列出来，这里只列出个人觉得<strong>比较常用及非常重要</strong>的命令。有说的不对的地方及有部分命令可能你觉得很重要但没列出来，欢迎大家补充纠正。</p>
-<p>​</p>
-<h3 id="命令行简介"><a href="#命令行简介" class="headerlink" title="命令行简介"></a>命令行简介</h3><h4 id="Linux命令行简介"><a href="#Linux命令行简介" class="headerlink" title="Linux命令行简介"></a>Linux命令行简介</h4><p><strong>工作中我们一般不会直接到服务器上操作，而是通过远程工具连接Linux系统。</strong> 连接后如下图所示</p>
-<p><img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/16464661030921646466102207.png"></p>
-<pre class=" language-shell"><code class="language-shell">[root@xiezhr ~]#      # '#'表示超级用户root对应的命令行
-[xiezhr@xiezhr ~]$    # '$'表示普通用户xiezhr对应的命令行
-</code></pre>
-<p>① ‘#’ 表示超级用户root用户登录系统后，命令行结尾提示符</p>
-<p>② ‘$’ 表示普通用户xiezhr用户登录系统后，命令行结尾提示符</p>
-<p>③ 超级用户具有管理系统的所有权限，普通用户权限比较小，只能进行普通的操作</p>
-<p>④ ‘@’ ‘@’符号前面的表示当前登录的用户，‘@’后面的是Linux主机名</p>
-<h4 id="Linux命令行操作常用快捷键"><a href="#Linux命令行操作常用快捷键" class="headerlink" title="Linux命令行操作常用快捷键"></a>Linux命令行操作常用快捷键</h4><p><strong>我们已SecureCRT工具为例进行操作说明</strong>，下面是用到的一些快捷键</p>
-<table>
-<thead>
-<tr>
-<th>快捷键</th>
-<th>功能说明</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>tab</td>
-<td><strong>命令或路径补全键</strong> 是Linux最最最常用的键</td>
-</tr>
-<tr>
-<td>ctrl+c</td>
-<td>中断终端正在执行的任务</td>
-</tr>
-<tr>
-<td>ctrl+a</td>
-<td>光标回到命令行首</td>
-</tr>
-<tr>
-<td>ctrl+e</td>
-<td>光标回到命令行尾</td>
-</tr>
-<tr>
-<td>ctrl+Insert</td>
-<td>复制命令行内容</td>
-</tr>
-<tr>
-<td>shift+Insert</td>
-<td>粘贴命令行内容</td>
-</tr>
-<tr>
-<td>ctrl+k</td>
-<td>剪切（删除）光标位置到行尾的字符</td>
-</tr>
-<tr>
-<td>ctrl+u</td>
-<td>剪切（删除）光标位置到行首的字符</td>
-</tr>
-<tr>
-<td>ctrl+d</td>
-<td>退出当前shell命令行</td>
-</tr>
-<tr>
-<td>ctrl+r</td>
-<td>搜索命令行使用过的历史命令记录</td>
-</tr>
-<tr>
-<td>ctrl+l</td>
-<td>清除屏幕的所有内容，并开始一个新行 等同于<strong>clear</strong></td>
-</tr>
-<tr>
-<td>ctrl+z</td>
-<td>暂停执行终端运行的任务</td>
-</tr>
-<tr>
-<td>！c</td>
-<td>获取最近以c开头的命令</td>
-</tr>
-<tr>
-<td>！num</td>
-<td>获取历史执行的地num条命令</td>
-</tr>
-<tr>
-<td>esc+.</td>
-<td>获取最后一次执行命令</td>
-</tr>
-</tbody></table>
-<h3 id="命令的十三个模块"><a href="#命令的十三个模块" class="headerlink" title="命令的十三个模块"></a>命令的十三个模块</h3><p>由于命令较多，这里根据功能分了13个模块</p>
-<ul>
-<li>基础命令</li>
-<li>文件和目录相关</li>
-<li>文件内容相关</li>
-<li>文本处理三剑客</li>
-<li>vi/vim :文本编辑相关</li>
-<li>Linux系统信息相关</li>
-<li>网络相关</li>
-<li>文件备份压缩相关</li>
-<li>软件安装相关</li>
-<li>Linux用户相关</li>
-<li>Linux磁盘与文件系统相关</li>
-<li>进程相关</li>
-<li>系统管理相关</li>
-</ul>
-<p><img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/1646472822104Linux%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4%20(1).png"></p>
-<p><img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/1646472849084Linux%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4.png"></p>
-]]></content>
-      <categories>
-        <category>Linux</category>
-        <category>Linux 核心命令</category>
-      </categories>
-      <tags>
-        <tag>Linux</tag>
-        <tag>Linux 核心命令</tag>
       </tags>
   </entry>
   <entry>
