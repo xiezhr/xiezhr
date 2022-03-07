@@ -204,7 +204,7 @@ poweroff [参数选项]
 </tr>
 </table>
 
-<p><a href="https://blog.csdn.net/rong09_13/article/details/123303512">快速上手Linux核心命令专栏目录</a></p>
+<p><a href="https://xiezhrspace.cn/archives/324ec8c8.html">快速上手Linux核心命令（一）：核心命令简介</a></p>
 <p>专栏目录：<a herf="https://blog.csdn.net/rong09_13/article/details/123303512">快速上手Linux核心命令专栏目录</a></p>
 <p>上一篇：<a herf="https://blog.csdn.net/rong09_13/article/details/123303512">快速上手Linux核心命令（一）：核心命令简介</a></p>
 <p>下一篇：<a herf="#">快速上手Linux核心命令（三）：文件和目录操作命令(未完成)</a></p>
@@ -324,6 +324,11 @@ poweroff [参数选项]
 <p><img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/1646472849084Linux%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4.png"></p>
 <p>这期内容就到这，下期具体写一写Linux系统关机、重启、注销操作及命令帮助的使用。</p>
 <p>涉及到的命令包括：shoutdown、init、halt、poweroff、reboot、man、–help、info</p>
+<p>相关文章</p>
+<ul>
+<li><a href="https://xiezhrspace.cn/archives/324ec8c8.html">快速上手Linux核心命令（一）：核心命令简介</a></li>
+<li><a href="https://xiezhrspace.cn/archives/b35c8a1c.html">快速上手Linux核心命令（二）：关机、重启</a></li>
+</ul>
 ]]></content>
       <categories>
         <category>Linux</category>
