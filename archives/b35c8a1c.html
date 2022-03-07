@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="gallery, HTML,CSS,JavaScript,JQuery,React,Vue.js等">
+    <meta name="keywords" content="Linux,Linux 核心命令">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -18,7 +18,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>gallery | xiezhrspace</title>
+    <title>快速上手Linux核心命令（二）：关机、重启 | xiezhrspace</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/xiezhr/xiezhrblog-cdn-source/source/libs/awesome/css/all.css">
@@ -927,12 +927,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/xiezhr/xiezhrblog-cdn-source/source/medias/featureimages/14.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://gitee.com/xiezhr/image-learn-bed/raw/master/image/1646493055089linux3.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">gallery</h1>
+                    <h1 class="description center-align post-title">快速上手Linux核心命令（二）：关机、重启</h1>
                 </div>
             </div>
         </div>
@@ -1054,12 +1054,33 @@
             <div class="row tag-cate">
                 <div class="col s7">
                     
-                          <div class="article-tag">
-                            <span class="chip bg-color">无标签</span>
-                          </div>
+                    <div class="article-tag">
+                        
+                            <a href="/tags/Linux/">
+                                <span class="chip bg-color">Linux</span>
+                            </a>
+                        
+                            <a href="/tags/Linux-%E6%A0%B8%E5%BF%83%E5%91%BD%E4%BB%A4/">
+                                <span class="chip bg-color">Linux 核心命令</span>
+                            </a>
+                        
+                    </div>
                     
                 </div>
                 <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/Linux/" class="post-category">
+                                Linux
+                            </a>
+                        
+                            <a href="/categories/Linux/Linux-%E6%A0%B8%E5%BF%83%E5%91%BD%E4%BB%A4/" class="post-category">
+                                Linux 核心命令
+                            </a>
+                        
+                    </div>
                     
                 </div>
             </div>
@@ -1068,28 +1089,28 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2020-11-22
+                    2022-03-07
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2020-11-22
+                    2022-03-07
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    0
+                    1.3k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    1 分
+                    4 分
                 </div>
                 
 
@@ -1104,7 +1125,212 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                
+                <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>从这篇开始，我们正式开始Linux命令了。</p>
+<p>上一篇中已经预告，我们这篇主要说一说Linux中怎么在命令行下查看命令帮助？Linux怎么关机、重启？</p>
+<h3 id="在命令行下查看命令帮助"><a href="#在命令行下查看命令帮助" class="headerlink" title="在命令行下查看命令帮助"></a>在命令行下查看命令帮助</h3><h4 id="man-命令"><a href="#man-命令" class="headerlink" title="man 命令"></a>man 命令</h4><p>1、简介</p>
+<p>man是Linux核心命令之一，也是我们最常用的命令之一。使用它我们可以查看其他命令的帮助文档</p>
+<p>2、语法格式</p>
+<pre class=" language-shell"><code class="language-shell">man 参数选项 命令/文件
+</code></pre>
+<p>3、参数说明</p>
+<p>一般不加参数</p>
+<p>4、实践操作</p>
+<pre class=" language-shell"><code class="language-shell">man cp   # 差看cp命令的帮助文档
+</code></pre>
+<p>命令行输入 man cp 后，进入到帮助页面。<br><img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/16465720806211646572080359.png"></p>
+<p>那么我们怎么查看帮助文档呢？</p>
+<p>其实啊，我们把这个单做一个文本文件查看即可，具体操作如下</p>
+<table>
+<thead>
+<tr>
+<th>快捷键</th>
+<th>功能说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>【<strong>PgDn ↓</strong>】</td>
+<td>向下翻一页</td>
+</tr>
+<tr>
+<td>【<strong>space 空格键</strong>】</td>
+<td>向下翻一页</td>
+</tr>
+<tr>
+<td>【<strong>PgUp ↑</strong>】</td>
+<td>向上翻一页</td>
+</tr>
+<tr>
+<td>【<strong>Home</strong>】</td>
+<td>跳转到第一页</td>
+</tr>
+<tr>
+<td>【<strong>End</strong>】</td>
+<td>跳转到最后一页</td>
+</tr>
+<tr>
+<td><strong>/xiezhr</strong></td>
+<td>向下查找xiezhr字符串，xiezhr可以替换为任意你想查找的内容</td>
+</tr>
+<tr>
+<td><strong>?xiezhr</strong></td>
+<td>向上查找xiezhr字符串，xiezhr可以替换为任意你想查找的内容</td>
+</tr>
+<tr>
+<td><strong>n,N</strong></td>
+<td>配合“/”或“?”快捷键使用，当我们使用“/”或“?”向下或者向上搜索时，<strong>n会跳转到下一个匹配内容，N则会跳转到上一个匹配内容</strong></td>
+</tr>
+<tr>
+<td><strong>q</strong></td>
+<td>退出帮助文档</td>
+</tr>
+</tbody></table>
+<p>文档可谓是相当相当的详细了，当然我们也不用关注全部。只需要关注对我们有用的即可，下面列出来的是我们需要重点关注的，上面截图中也重点标注了。</p>
+<p>既然man 出来的帮助文档都这么详细了，那还写文章干嘛呢。。开个玩笑了🤣</p>
+<table>
+<thead>
+<tr>
+<th>man信息中的标题</th>
+<th>功能解释</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>NAME</td>
+<td>命令说明及介绍</td>
+</tr>
+<tr>
+<td>SYNOPSIS</td>
+<td>命令的基本使用语法</td>
+</tr>
+<tr>
+<td>DESCRIPTION</td>
+<td>命令是使用详细描述，以及相关参数说明</td>
+</tr>
+<tr>
+<td>EXAMPLEAS</td>
+<td>命令的一些使用例子</td>
+</tr>
+</tbody></table>
+<h4 id="–help-命令"><a href="#–help-命令" class="headerlink" title="–help 命令"></a>–help 命令</h4><p>1、简介</p>
+<p>查看其它命令简易信息，查出来的信息没有<strong>man命令</strong>全，但如果我们不需要对某个命令知根知底的话，这个命令就可以满足了</p>
+<p>2、语法格式</p>
+<pre class=" language-shell"><code class="language-shell">命令 --help
+</code></pre>
+<p>3、参数说明</p>
+<p>一般不需要加参数</p>
+<p>4、实践操作</p>
+<pre class=" language-shell"><code class="language-shell">cp --help
+</code></pre>
+<p>同样以cp命令帮助文档为例，–help 出来的文档就简单很多了，只有一页，man出来的足足有100多页<br><img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/16465742396131646574238839.png"></p>
+<h4 id="info命令"><a href="#info命令" class="headerlink" title="info命令"></a>info命令</h4><p>1、简介</p>
+<p>info 可以配合man、–help 使用，但我们用的比较少</p>
+<p>2、语法格式</p>
+<pre class=" language-shell"><code class="language-shell">info cp
+</code></pre>
+<p>由于用的比较少，这里就不作说明了，大概知道就好了</p>
+<h3 id="Linux关机、重启"><a href="#Linux关机、重启" class="headerlink" title="Linux关机、重启"></a>Linux关机、重启</h3><h4 id="shutdown"><a href="#shutdown" class="headerlink" title="shutdown"></a>shutdown</h4><p>1、简介</p>
+<p>shutdown 用来安全关闭或重启Linux，系统在关闭之前会通知所有登录的用户，系统即将关闭。</p>
+<p>2、语法格式</p>
+<pre class=" language-shell"><code class="language-shell">shutdown [参数选项] 时间 消息
+</code></pre>
+<p>3、参数说明</p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>参数说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>-r</td>
+<td>重启系统，这个参数经常用到</td>
+</tr>
+<tr>
+<td>-h</td>
+<td>关机，这个参数也是经常用到</td>
+</tr>
+</tbody></table>
+<p>4、实践操作</p>
+<p>① 重启系统</p>
+<pre class=" language-shell"><code class="language-shell">shutdown -r now  # 现在重启系统
+</code></pre>
+<p>② 关闭系统</p>
+<pre class=" language-shell"><code class="language-shell">shutdown -h now # 现在关闭系统
+</code></pre>
+<p>③ 假设15:30 要和一个漂亮小姐姐去约会，这时我们需要在15:00关闭系统，停止手头工作。这时就可以执行如下命令</p>
+<pre><code>shoutdown -h 15:00
+</code></pre>
+<p>以上只是假设哈，一般我们也不会关闭Linux，再说哪来的小姐姐。哈哈😄</p>
+<h4 id="reboot、halt、poweroff"><a href="#reboot、halt、poweroff" class="headerlink" title="reboot、halt、poweroff"></a>reboot、halt、poweroff</h4><p>1、简介</p>
+<p>halt、poweroff 时reboot 的链接文件，何为链接文件呢？我们可以简单的理解为Windows中的快捷方式。</p>
+<p>halt 立即关闭系统，需要人工关闭电源；poweroff:立即关闭系统，并且关闭电源</p>
+<p>reboot 立即重启</p>
+<p>2、语法格式</p>
+<pre class=" language-shell"><code class="language-shell">reboot [参数选项]
+halt [参数选项]
+poweroff [参数选项]
+</code></pre>
+<p>3、参数说明</p>
+<p>一般不加参数</p>
+<p>4、实践操作</p>
+<p>①立即关闭系统</p>
+<pre class=" language-shell"><code class="language-shell">halt  # 不加参数，立即关闭系统
+</code></pre>
+<p>②立即关闭系统</p>
+<pre class=" language-shell"><code class="language-shell">poweroff  # 不加参数，立即关闭系统
+</code></pre>
+<p>③立即重启系统</p>
+<pre class=" language-shell"><code class="language-shell">reboot  # 不加参数，立即重启系统
+</code></pre>
+<p>上面说了好多关闭、重启系统方式，是不是有点晕了呢？这里做了个总结，只需记住这个表格内容即可(●’◡’●)</p>
+<table border="1" >
+    <th>---</th>
+    <th align="center" >命令</th>
+    <th>功能描述</th>
+<tr>
+  <th rowspan="5" >Linux 关闭</th>
+  <td align="center">shoutdown -h now</td>
+  <td align="left">立刻关机 ⭐生产环境经常使用</td>
+</tr>
+<tr>
+  <td align="center">shoutdown -h +5</td>
+  <td align="left">5分钟后关机，5可以换成任意数值，或时间点 如15:00</td>
+</tr>
+<tr>
+  <td align="center">halt</td>
+  <td align="left">立即关闭系统，需要手工关闭电源 时reboot链接文件</td>
+</tr>
+<tr>
+  <td align="center">init 0</td>
+  <td align="left">切换运行级别到0，0表示关机。因此该命令可以用于关机</td>
+</tr>
+<tr>
+  <td align="center">poweroff</td>
+  <td align="left">立即关闭系统，并且关闭电源 时reboot链接文件</td>
+</tr>
+<tr>
+  <th rowspan="4">Linux重启</th>
+  <td align="center">reboot</td>
+  <td align="left">立即重启 ⭐生产环境经常使用</td>
+</tr>
+<tr>
+  <td align="center">shoutdown -r now</td>
+  <td align="left">立即重启 ⭐生产环境经常使用</td>
+</tr>
+<tr>
+  <td align="center">shoutdow -r +5</td>
+  <td align="left">5分钟后重启，5可以换成任意数值，或时间点 如15:00</td>
+</tr>
+<tr>
+  <td align="center">init 6</td>
+  <td align="left">切换运行级别到0，0表示关机。因此该命令可以用于关机</td>
+</tr>
+</table>
+
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/rong09_13/article/details/123303512">快速上手Linux核心命令专栏目录</a></p>
+<p>专栏目录：<a herf="https://blog.csdn.net/rong09_13/article/details/123303512">快速上手Linux核心命令专栏目录</a></p>
+<p>上一篇：<a herf="https://blog.csdn.net/rong09_13/article/details/123303512">快速上手Linux核心命令（一）：核心命令简介</a></p>
+<p>下一篇：<a herf="#">快速上手Linux核心命令（三）：文件和目录操作命令(未完成)</a></p>
+
             </div>
             <hr/>
 
@@ -1129,7 +1355,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://www.xiezhrspace.cn/gallery/index.html">https://www.xiezhrspace.cn/gallery/index.html</a>
+                    <a href="https://www.xiezhrspace.cn/archives/b35c8a1c.html">https://www.xiezhrspace.cn/archives/b35c8a1c.html</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -1166,7 +1392,15 @@
                 <div class="post-meta__tag-list" style="display: inline-block;">
                     
                         <div class="article-tag">
-                            <span class="chip bg-color">无标签</span>
+                            
+                                <a href="/tags/Linux/">
+                                    <span class="chip bg-color">Linux</span>
+                                </a>
+                            
+                                <a href="/tags/Linux-%E6%A0%B8%E5%BF%83%E5%91%BD%E4%BB%A4/">
+                                    <span class="chip bg-color">Linux 核心命令</span>
+                                </a>
+                            
                         </div>
                     
                 </div>
@@ -1634,34 +1868,53 @@
                 <i class="far fa-dot-circle"></i>&nbsp;本篇
             </div>
             <div class="card">
-                <a href="/gallery/index.html">
+                <a href="/archives/b35c8a1c.html">
                     <div class="card-image">
                         
+                        <img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/1646493055089linux3.jpg" class="responsive-img" alt="快速上手Linux核心命令（二）：关机、重启">
                         
-                        <img src="https://cdn.jsdelivr.net/gh/xiezhr/xiezhrblog-cdn-source/source/medias/featureimages/14.jpg" class="responsive-img" alt="gallery">
-                        
-                        <span class="card-title">gallery</span>
+                        <span class="card-title">快速上手Linux核心命令（二）：关机、重启</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            
+                            快速上手Linux核心命令（二）：关机、重启
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-11-22
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-03-07
                             </span>
                         <span class="publish-author">
                             
-                            <i class="fas fa-user fa-fw"></i>
-                            xiezhr
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Linux/" class="post-category">
+                                    Linux
+                                </a>
+                            
+                            <a href="/categories/Linux/Linux-%E6%A0%B8%E5%BF%83%E5%91%BD%E4%BB%A4/" class="post-category">
+                                    Linux 核心命令
+                                </a>
+                            
                             
                         </span>
                     </div>
                 </div>
 
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Linux/">
+                        <span class="chip bg-color">Linux</span>
+                    </a>
+                    
+                    <a href="/tags/Linux-%E6%A0%B8%E5%BF%83%E5%91%BD%E4%BB%A4/">
+                        <span class="chip bg-color">Linux 核心命令</span>
+                    </a>
+                    
+                </div>
                 
             </div>
         </div>
@@ -1669,37 +1922,55 @@
         
         <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge right-badge text-color">
-                本篇&nbsp;<i class="far fa-dot-circle"></i>
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/gallery/index.html">
+                <a href="/archives/324ec8c8.html">
                     <div class="card-image">
                         
+                        <img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/1646493055089linux3.jpg" class="responsive-img" alt="快速上手Linux核心命令（一）：核心命令简介">
                         
-                        <img src="https://cdn.jsdelivr.net/gh/xiezhr/xiezhrblog-cdn-source/source/medias/featureimages/14.jpg" class="responsive-img" alt="gallery">
-                        
-                        <span class="card-title">gallery</span>
+                        <span class="card-title">快速上手Linux核心命令（一）：核心命令简介</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            
+                            快速上手Linux核心命令（一）：核心命令简介
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-11-22
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-03-05
                             </span>
                         <span class="publish-author">
                             
-                            <i class="fas fa-user fa-fw"></i>
-                            xiezhr
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Linux/" class="post-category">
+                                    Linux
+                                </a>
+                            
+                            <a href="/categories/Linux/Linux-%E6%A0%B8%E5%BF%83%E5%91%BD%E4%BB%A4/" class="post-category">
+                                    Linux 核心命令
+                                </a>
+                            
                             
                         </span>
                     </div>
                 </div>
-
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Linux/">
+                        <span class="chip bg-color">Linux</span>
+                    </a>
+                    
+                    <a href="/tags/Linux-%E6%A0%B8%E5%BF%83%E5%91%BD%E4%BB%A4/">
+                        <span class="chip bg-color">Linux 核心命令</span>
+                    </a>
+                    
+                </div>
                 
             </div>
         </div>
