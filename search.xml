@@ -1262,7 +1262,8 @@ md5sum: WARNING: 1 computed checksum did NOT match
     <url>/archives/b35c8a1c.html</url>
     <content><![CDATA[<h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>从这篇开始，我们正式开始Linux命令了。</p>
 <p>上一篇中已经预告，我们这篇主要说一说Linux中怎么在命令行下查看命令帮助？Linux怎么关机、重启？</p>
-<h3 id="在命令行下查看命令帮助"><a href="#在命令行下查看命令帮助" class="headerlink" title="在命令行下查看命令帮助"></a>在命令行下查看命令帮助</h3><h4 id="man-命令"><a href="#man-命令" class="headerlink" title="man 命令"></a>man 命令</h4><p>1、简介</p>
+<p><strong>注意：Linux命令和命令后面的选项至少要有一个空格</strong></p>
+<h3 id="一、在命令行下查看命令帮助"><a href="#一、在命令行下查看命令帮助" class="headerlink" title="一、在命令行下查看命令帮助"></a>一、在命令行下查看命令帮助</h3><h4 id="man-命令"><a href="#man-命令" class="headerlink" title="man 命令"></a>man 命令</h4><p>1、简介</p>
 <p>man是Linux核心命令之一，也是我们最常用的命令之一。使用它我们可以查看其他命令的帮助文档</p>
 <p>2、语法格式</p>
 <pre class=" language-shell"><code class="language-shell">man 参数选项 命令/文件
@@ -1272,7 +1273,7 @@ md5sum: WARNING: 1 computed checksum did NOT match
 <p>4、实践操作</p>
 <pre class=" language-shell"><code class="language-shell">man cp   # 差看cp命令的帮助文档
 </code></pre>
-<p>命令行输入 man cp 后，进入到帮助页面。<br><img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/16465720806211646572080359.png"></p>
+<p>命令行输入 man cp 后，进入到帮助页面。<br><img src="https://img-blog.csdnimg.cn/img_convert/7c9cbad2747491da74d2b5faf10d9cbd.png"></p>
 <p>那么我们怎么查看帮助文档呢？</p>
 <p>其实啊，我们把这个单做一个文本文件查看即可，具体操作如下</p>
 <table>
@@ -1320,7 +1321,7 @@ md5sum: WARNING: 1 computed checksum did NOT match
 </tr>
 </tbody></table>
 <p>文档可谓是相当相当的详细了，当然我们也不用关注全部。只需要关注对我们有用的即可，下面列出来的是我们需要重点关注的，上面截图中也重点标注了。</p>
-<p>既然man 出来的帮助文档都这么详细了，那还写文章干嘛呢。。开个玩笑了🤣</p>
+<p>既然man 出来的帮助文档都这么详细了，那还写文章干嘛呢。。开个玩笑哦开玩笑🤣</p>
 <table>
 <thead>
 <tr>
@@ -1355,14 +1356,14 @@ md5sum: WARNING: 1 computed checksum did NOT match
 <p>4、实践操作</p>
 <pre class=" language-shell"><code class="language-shell">cp --help
 </code></pre>
-<p>同样以cp命令帮助文档为例，–help 出来的文档就简单很多了，只有一页，man出来的足足有100多页<br><img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/16465742396131646574238839.png"></p>
+<p>同样以cp命令帮助文档为例，–help 出来的文档就简单很多了，只有一页，man出来的足足有100多页<br><img src="https://img-blog.csdnimg.cn/img_convert/57ca8095cff31c67cb7f177116f3e194.png"></p>
 <h4 id="info命令"><a href="#info命令" class="headerlink" title="info命令"></a>info命令</h4><p>1、简介</p>
 <p>info 可以配合man、–help 使用，但我们用的比较少</p>
 <p>2、语法格式</p>
 <pre class=" language-shell"><code class="language-shell">info cp
 </code></pre>
 <p>由于用的比较少，这里就不作说明了，大概知道就好了</p>
-<h3 id="Linux关机、重启"><a href="#Linux关机、重启" class="headerlink" title="Linux关机、重启"></a>Linux关机、重启</h3><h4 id="shutdown"><a href="#shutdown" class="headerlink" title="shutdown"></a>shutdown</h4><p>1、简介</p>
+<h3 id="二、Linux关机、重启"><a href="#二、Linux关机、重启" class="headerlink" title="二、Linux关机、重启"></a>二、Linux关机、重启</h3><h4 id="shutdown"><a href="#shutdown" class="headerlink" title="shutdown"></a>shutdown</h4><p>1、简介</p>
 <p>shutdown 用来安全关闭或重启Linux，系统在关闭之前会通知所有登录的用户，系统即将关闭。</p>
 <p>2、语法格式</p>
 <pre class=" language-shell"><code class="language-shell">shutdown [参数选项] 时间 消息
@@ -1396,7 +1397,7 @@ md5sum: WARNING: 1 computed checksum did NOT match
 </code></pre>
 <p>以上只是假设哈，一般我们也不会关闭Linux，再说哪来的小姐姐。哈哈😄</p>
 <h4 id="reboot、halt、poweroff"><a href="#reboot、halt、poweroff" class="headerlink" title="reboot、halt、poweroff"></a>reboot、halt、poweroff</h4><p>1、简介</p>
-<p>halt、poweroff 是reboot 的链接文件，何为链接文件呢？我们可以简单的理解为Windows中的快捷方式。</p>
+<p>halt、poweroff 时reboot 的链接文件，何为链接文件呢？我们可以简单的理解为Windows中的快捷方式。</p>
 <p>halt 立即关闭系统，需要人工关闭电源；poweroff:立即关闭系统，并且关闭电源</p>
 <p>reboot 立即重启</p>
 <p>2、语法格式</p>
@@ -1461,8 +1462,8 @@ poweroff [参数选项]
 </tr>
 </table>
 
-<p>这期内容就到这，下期根据思维导图就到了文件和目录操作相关的命令使用了。</p>
-<p>涉及到的命令有：pwd、cd、mkdir、touch、rm、ls、cp、mv、chmod、chown、find等等核心命令</p>
+<p>这期内容就到这，下期根据<strong>思维导图</strong>就到了文件和目录相关的命令使用了。</p>
+<p>涉及到的命令包括：cd、pwd、ls、mkdir、tree、touch、cp、mv、rm、chown、chmod<br>等等</p>
 <p>敬请期待哦(●’◡’●)</p>
 <p>相关文章</p>
 <ul>
@@ -1496,13 +1497,12 @@ poweroff [参数选项]
     <url>/archives/324ec8c8.html</url>
     <content><![CDATA[<h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>众所周知，Linux在服务器中占用不可替代的位置。大多数互联网公司，服务器都是采用的Linux操作系统。而Linux是一个主要通过命令行来进行管理的操作系统。只有熟练掌握Linux核心命令，在使用起来我们才会得心应手。</p>
 <p>​<br>通过文章希望能帮助<strong>刚入门Linux的小伙伴们快速掌握核心命令，也可以将之作为一份Linux帮助文档使用。</strong></p>
-<p>一开始，我们会以<strong>思维导图</strong>的方式把常用命令都列出来，后面系列文章会就列出来的命令做详细使用说明。</p>
-<p><img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/1646472822104Linux%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4%20(1).png"></p>
-<p><img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/1646472849084Linux%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4.png"><br>​</p>
+<p>一开始，我们会以<strong>思维导图</strong>的方式把常用命令都列出来，后面系列文章会就列出来的命令做详细使用说明。<br><img src="https://img-blog.csdnimg.cn/img_convert/4836165cc874da4dc0177f66dc2c842f.png"></p>
+<p><img src="https://img-blog.csdnimg.cn/img_convert/af57cf6ac42b56e379f725374b5cfa18.png"><br>​</p>
 <p>当然，受限于个人水平，及Linux命令实在太多，不可能把所有命令都列出来，这里只列出个人觉得<strong>比较常用及非常重要</strong>的命令。有说的不对的地方及有部分命令可能你觉得很重要但没列出来，欢迎大家补充纠正。</p>
 <p>​</p>
-<h3 id="命令行简介"><a href="#命令行简介" class="headerlink" title="命令行简介"></a>命令行简介</h3><h4 id="Linux命令行简介"><a href="#Linux命令行简介" class="headerlink" title="Linux命令行简介"></a>Linux命令行简介</h4><p><strong>工作中我们一般不会直接到服务器上操作，而是通过远程工具连接Linux系统。</strong> 连接后如下图所示</p>
-<p><img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/16464661030921646466102207.png"></p>
+<h3 id="一、命令行简介"><a href="#一、命令行简介" class="headerlink" title="一、命令行简介"></a>一、命令行简介</h3><h4 id="Linux命令行简介"><a href="#Linux命令行简介" class="headerlink" title="Linux命令行简介"></a>Linux命令行简介</h4><p><strong>工作中我们一般不会直接到服务器上操作，而是通过远程工具连接Linux系统。</strong> 连接后如下图所示</p>
+<p><img src="https://img-blog.csdnimg.cn/img_convert/0bc1e345e0d579ceb8b2e6895dd21820.png"></p>
 <pre class=" language-shell"><code class="language-shell">[root@xiezhr ~]#      # '#'表示超级用户root对应的命令行
 [xiezhr@xiezhr ~]$    # '$'表示普通用户xiezhr对应的命令行
 </code></pre>
@@ -1579,7 +1579,7 @@ poweroff [参数选项]
 <td>获取最后一次执行命令</td>
 </tr>
 </tbody></table>
-<h3 id="命令的十三个模块"><a href="#命令的十三个模块" class="headerlink" title="命令的十三个模块"></a>命令的十三个模块</h3><p>由于命令较多，这里根据功能分了13个模块</p>
+<h3 id="二、命令的十三个模块"><a href="#二、命令的十三个模块" class="headerlink" title="二、命令的十三个模块"></a>二、命令的十三个模块</h3><p>由于命令较多，这里根据功能分了13个模块</p>
 <ul>
 <li>基础命令</li>
 <li>文件和目录相关</li>
@@ -1595,7 +1595,7 @@ poweroff [参数选项]
 <li>进程相关</li>
 <li>系统管理相关</li>
 </ul>
-<p>这期内容就到这，下期具体写一写Linux系统关机、重启、注销操作及命令帮助的使用。</p>
+<p>这期内容就到这，下期具体写一写Linux系统关机、重启、注销操作及命令帮助的使用。敬请期待哦(●’◡’●)</p>
 <p>涉及到的命令包括：shoutdown、init、halt、poweroff、reboot、man、–help、info</p>
 <p>相关文章</p>
 <ul>
@@ -1981,7 +1981,7 @@ poweroff [参数选项]
     <content><![CDATA[<h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><blockquote>
 <p>每次换电脑，最最最头疼的事情莫过于安装各种软件和搭建开发环境。这算是不想换电脑的一个原因吧（最主要还是穷）。除非是电脑坏了开不了机或者点一下卡一下，真不想换电脑。每次换电脑都得折腾好久。</p>
 </blockquote>
-<p><img src="https://ftp.bmp.ovh/imgs/2022/02/83f42ae23ed2be24.gif"></p>
+<p><img src="https://img-blog.csdnimg.cn/img_convert/8712a0a9ce510cbe87a126d0333ecb94.gif"></p>
 <p>趁着这次换电脑了，顺便整理下IDEA安装使用及配置。</p>
 <p>官网提供的详细使用文档，英文好的可以直接上手了</p>
 <p><a href="https://www.jetbrains.com/help/idea/getting-started.html">https://www.jetbrains.com/help/idea/getting-started.html</a></p>
@@ -2006,7 +2006,7 @@ poweroff [参数选项]
 </ol>
 <p><a href="https://www.jetbrains.com/idea/download/#section=windows">https://www.jetbrains.com/idea/download/#section=windows</a></p>
 <p>DEA 分为两个版本： 旗舰版(Ultimate)和社区版(Community)。<br>旗舰版：收费(限 30 天免费试用)，功能全面，插件丰富，但是收费，按年收费；<br>社区版：免费试用，功能相对而言不是很丰富，但是不影响开发使用。</p>
-<p><img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/1644414369238%E4%B8%8B%E8%BD%BD%E5%9C%B0%E5%9D%80.png"></p>
+<p><img src="https://img-blog.csdnimg.cn/img_convert/a685116da4ad780abe976a06cd63bfde.png"></p>
 <ol start="2">
 <li>软硬件要求（官方要求）</li>
 </ol>
@@ -2023,16 +2023,16 @@ poweroff [参数选项]
 <ol start="3">
 <li>安装过程</li>
 </ol>
-<p><strong>双击下载好的exe文件进行无脑安装即可</strong><br><img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/1644417462962idea1.png"><br><img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/1644417530962idea2.png"><br><img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/1644417562966idea3.png"></p>
+<p><strong>双击下载好的exe文件进行无脑安装即可</strong><br><img src="https://img-blog.csdnimg.cn/img_convert/4f143bd594dae153cc45ab67d14f9a3a.png"><br><img src="https://img-blog.csdnimg.cn/img_convert/f1f35f95c21bfcefc599b8d5a2db0f02.png"><br><img src="https://img-blog.csdnimg.cn/img_convert/32fd7f70ec4aafc5aa8047cfc1d9ba71.png"></p>
 <ol start="4">
 <li>激活<br>淘宝，你懂的。</li>
 </ol>
 <h3 id="目录结构介绍"><a href="#目录结构介绍" class="headerlink" title="目录结构介绍"></a>目录结构介绍</h3><ol>
 <li>安装目录介绍</li>
 </ol>
-<p><img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/1644417792963idea4.png"></p>
+<p><img src="https://img-blog.csdnimg.cn/img_convert/7e5f5ab3b07bc01c899bc1f99d078585.png"></p>
 <blockquote>
-<p>bin：容器，执行文件和启动参数等<br><img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/1644419838962idea6.png"></p>
+<p>bin：容器，执行文件和启动参数等<br><img src="https://img-blog.csdnimg.cn/img_convert/9d2c0558022b6b9f289bb169149c10ac.png"></p>
 </blockquote>
 <p><strong>idea64.exe.vmoptions</strong> 是比较重要的配置文件，这里以我个人电脑为例（win10 64位 16G内存）</p>
 <pre class=" language-ini"><code class="language-ini">-Xms512m   # 设置初始的内存数，增加该值可以提高 Java 程序的启动速度
@@ -2061,7 +2061,7 @@ poweroff [参数选项]
 <ol start="2">
 <li>设置目录介绍</li>
 </ol>
-<p>路径<br>C:\Users\用户.IntelliJIdea2019.3<br><img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/1644496580514idea7.png"></p>
+<p>路径<br>C:\Users\用户.IntelliJIdea2019.3<br><img src="https://img-blog.csdnimg.cn/img_convert/82ef6d495aa4a540db96ae2184e897ee.png"></p>
 <blockquote>
 <p>这是 IDEA 的各种配置的保存目录。 这个设置目录有一个特性，就是你删除掉整<br>个目录之后，重新启动 IntelliJ IDEA 会再自动帮你生成一个全新的默认配置，<br>所以很多时候如果你把 IntelliJ IDEA 配置改坏了，删掉该目录，一切都会还原到默认值</p>
 </blockquote>
@@ -2070,7 +2070,7 @@ poweroff [参数选项]
 <p>② system目录</p>
 <p>system 目录是 IntelliJ IDEA 系统文件目录，是 IntelliJ IDEA 与开发项目一个<br>桥梁目录， 里面主要有：缓存、索引、容器文件输出等等</p>
 <h3 id="创建Java工程，实现Hell-World"><a href="#创建Java工程，实现Hell-World" class="headerlink" title="创建Java工程，实现Hell World"></a>创建Java工程，实现Hell World</h3><ol>
-<li>创建工程<br><img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/1644498573506idea8.png"></li>
+<li>创建工程<br><img src="https://img-blog.csdnimg.cn/img_convert/b95ff1560bb60e3fbb34dd52ee6b6129.png"></li>
 </ol>
 <ul>
 <li>Create New Project:创建一个新的工程</li>
@@ -2081,13 +2081,13 @@ poweroff [参数选项]
 <p>这里选择 <strong>Create New Project</strong></p>
 <p>IntelliJ IDEA 没有类似 Eclipse 的工作空间的概念（ Workspaces），最大单元就是<br>Project。 这里可以把 Project 理解为 Eclipse 中的 Workspace。</p>
 <ol start="2">
-<li><p>选择jdk版本，框架<br><img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/1644498999507idea9.png"></p>
+<li><p>选择jdk版本，框架<br><img src="https://img-blog.csdnimg.cn/img_convert/ba41c673b36e33dc3de71256dcf547ec.png"></p>
 </li>
-<li><p>选择模板<br><img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/1644499145521idea10.png"></p>
+<li><p>选择模板<br><img src="https://img-blog.csdnimg.cn/img_convert/e458dc0f8e5c724c6d7ee3ba11a4ccd2.png"></p>
 </li>
-<li><p>设置项目路径及项目名称<br><img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/1644499358509idea11.png"></p>
+<li><p>设置项目路径及项目名称<br><img src="https://img-blog.csdnimg.cn/img_convert/3b9f6f838468f1aee81e987143d8aeb6.png"></p>
 </li>
-<li><p>项目界面<br><img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/1644500479506idea12.png"></p>
+<li><p>项目界面<br><img src="https://img-blog.csdnimg.cn/img_convert/f45ab566a5e637efc7e4c4252e9e1b34.png"></p>
 </li>
 </ol>
 <ul>
@@ -2097,10 +2097,10 @@ poweroff [参数选项]
 <ol start="6">
 <li>创建package和class</li>
 </ol>
-<p>在src目录下创建一个package<br><img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/1644500847511idea13.png"><br><img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/1644500896511idea14.png"></p>
-<p>在刚建的package下新建class<br><img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/1644500967506idea15.png"><br><img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/1644501071510idea16.png"></p>
+<p>在src目录下创建一个package<br><img src="https://img-blog.csdnimg.cn/img_convert/f51e225431c6af58db4f120ced038230.png"><br><img src="https://img-blog.csdnimg.cn/img_convert/34007c4939217c40485eceb94c5c23bb.png"></p>
+<p>在刚建的package下新建class<br><img src="https://img-blog.csdnimg.cn/img_convert/1084b52e4ca477d12caf74420a7eaf2e.png"><br><img src="https://img-blog.csdnimg.cn/img_convert/43fa7049cf11d5fe991757ba40924566.png"></p>
 <p>在HelloWorld类里声明主方法，控制台打印Hello World!  到此成功完成</p>
-<p><img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/1644501301506idea17.png"></p>
+<p><img src="https://img-blog.csdnimg.cn/img_convert/15bb6818d7ff185eb90c671ba6b63f74.png"></p>
 <h3 id="模块（Module）简介"><a href="#模块（Module）简介" class="headerlink" title="模块（Module）简介"></a>模块（Module）简介</h3><blockquote>
 <p>在 Eclipse 中我们有 Workspace（工作空间）和 Project（工程）的概念，在 IDEA<br>中只有 Project（工程）和 Module（模块）的概念<br>① Eclipse 中 workspace 相当于 IDEA 中的 Project<br>②Eclipse 中 Project 相当于 IDEA 中的 Module</p>
 </blockquote>
@@ -2110,72 +2110,72 @@ poweroff [参数选项]
 <blockquote>
 <p>在 IntelliJ IDEA 中 Project 是最顶级的级别，次级别是 Module。 一个 ProjectIntelliJ IDEA 的安装、 配置与使用可以有多个 Module。目前主流的大型项目都是分布式部署的， 结构都是类似这种多 Module 结构</p>
 </blockquote>
-<p><img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/1644504508506model1.png"></p>
-<p>下图为若依项目模块截图，根据model命名可以看出，他们之间处于同一项目下，彼此之间有着不可分割的业务关系<br><img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/1644505305506model.png"></p>
+<p><img src="https://img-blog.csdnimg.cn/img_convert/52088f2535be76c634dfa3b7dd91ac57.png"></p>
+<p>下图为若依项目模块截图，根据model命名可以看出，他们之间处于同一项目下，彼此之间有着不可分割的业务关系<br><img src="https://img-blog.csdnimg.cn/img_convert/60ad473433f8ea3ae04a1d9558f5212a.png"></p>
 <p>相比多个Module项目，小项目就没这么复杂，IntelliJ IDEA创建项目的时候默认的就是单Module结构的.</p>
 <ol>
 <li>IntelliJ IDEA 中一个项目是以Module为单位的，那么，下面我们就来看看建立和删除Module</li>
 </ol>
 <p>① 怎么建立Module？</p>
-<p><img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/1644506075506idea18.png"></p>
-<p><img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/1644506169510module2.png"></p>
-<p><img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/1644506403506module004.png"></p>
+<p><img src="https://img-blog.csdnimg.cn/img_convert/a75ae9974c68b5aab056776ef5894274.png"></p>
+<p><img src="https://img-blog.csdnimg.cn/img_convert/e5f858f47183c83e771d862ed875750b.png"></p>
+<p><img src="https://img-blog.csdnimg.cn/img_convert/9acdb114eff5c477695867a3f015c4b2.png"></p>
 <p>之后，我们可以在 Module 的 src 里写代码，此时 Project 工程下的 src 就没什么用了。可以删掉。</p>
 <p>② 如何删除一个Module呢？</p>
 <ul>
-<li> remove Module<br><img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/1644507263511moduleremove.png"></li>
-<li> delete Module<br><img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/1644507336506moduleremove02.png"></li>
+<li> remove Module<br><img src="https://img-blog.csdnimg.cn/img_convert/753a05d5373aeed5172152c81859fae0.png"></li>
+<li> delete Module<br><img src="https://img-blog.csdnimg.cn/img_convert/660572e0bffd7c953a09503a2f4128ed.png"></li>
 </ul>
 <p>直到第二步完成，Module将彻底从磁盘上删除</p>
-<h3 id="查看项目配置"><a href="#查看项目配置" class="headerlink" title="查看项目配置"></a>查看项目配置</h3><p><img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/1644507675506structure.png"></p>
-<p><img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/1644507880506stu.png"></p>
+<h3 id="查看项目配置"><a href="#查看项目配置" class="headerlink" title="查看项目配置"></a>查看项目配置</h3><p><img src="https://img-blog.csdnimg.cn/img_convert/27d67883b9d5a4f6e8f3493925d199a2.png"></p>
+<p><img src="https://img-blog.csdnimg.cn/img_convert/a2c5faade571de3082769e1087c39d54.png"></p>
 <h3 id="IDEA-常用配置"><a href="#IDEA-常用配置" class="headerlink" title="IDEA 常用配置"></a>IDEA 常用配置</h3><blockquote>
 <p> file–&gt;Settings 进入设置界面</p>
 </blockquote>
-<p><img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/1644581331762setting.png"></p>
+<p><img src="https://img-blog.csdnimg.cn/img_convert/8cd9e822cee341807e85f56e32f35a18.png"></p>
 <ol>
 <li>Appearance &amp; Behavior</li>
 </ol>
 <p>① 设置主题</p>
-<p>默认有如下三种主题，根据自己喜好设置即可<br><img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/1644581627769theme.png"></p>
+<p>默认有如下三种主题，根据自己喜好设置即可<br><img src="https://img-blog.csdnimg.cn/img_convert/10351d2c0ac8bbc951a3924bae1378cd.png"></p>
 <p>② 设置窗体及菜单的字体及大小</p>
-<p><img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/1644581775771font.png"></p>
+<p><img src="https://img-blog.csdnimg.cn/img_convert/1b32caba483dcb1d80451318351ecac5.png"></p>
 <ol start="2">
 <li>Editor - General</li>
 </ol>
-<p>① 设置鼠标滚轮修改字体大小<br><img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/1644582159761monuth.png"></p>
+<p>① 设置鼠标滚轮修改字体大小<br><img src="https://img-blog.csdnimg.cn/img_convert/db4e500ee0209b9b1d682b50a16beaa4.png"></p>
 <p>② 设置鼠标悬浮提示</p>
-<p><img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/1644582446765month1.png"></p>
+<p><img src="https://img-blog.csdnimg.cn/img_convert/95680010aec2883322def51c5b58b797.png"></p>
 <p>③ 设置自动导包</p>
-<p><img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/1644582544766import.png"></p>
+<p><img src="https://img-blog.csdnimg.cn/img_convert/1b4d0ddf63bc16d8f8f540c89d5be33a.png"></p>
 <ul>
 <li>Add unambiguous imports on the fly：自动导入不明确的结构</li>
 <li>Optimize imports on the fly： 自动帮我们优化导入的包</li>
 </ul>
 <p>④ 设置显示行号和方法间的分隔符</p>
-<p><img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/1644582785761number.png"></p>
+<p><img src="https://img-blog.csdnimg.cn/img_convert/051285cfe3822fa00b217cc59bc9d88f.png"></p>
 <ul>
 <li>如上图红圈所示， 可以勾选 Show line numbers：显示行数。 建议勾上，好定位代码</li>
 <li>如上图红圈所示， 可以勾选 Show method separators： 显示方法分隔线。建议勾上，单一个方法代码比较多时，好区分一个方法到哪结束</li>
 </ul>
-<p>⑤ 忽略大小写提示<br><img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/1644583240760match.png"></p>
+<p>⑤ 忽略大小写提示<br><img src="https://img-blog.csdnimg.cn/img_convert/b7ec9420e9a83b4442da7c890e17a3e8.png"></p>
 <ul>
-<li>IntelliJ IDEA 的代码提示和补充功能默认是区分大小写的。我们输入stringb是没有提示的<br><img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/1644583584760stringbuffer1.png"></li>
-<li>按照上图，我们把Match case 前的勾去掉后代码提示就不区分大小写了。输入stringb后就会有提示<br><img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/1644583752770stringbuffer2.png"></li>
+<li>IntelliJ IDEA 的代码提示和补充功能默认是区分大小写的。我们输入stringb是没有提示的<br><img src="https://img-blog.csdnimg.cn/img_convert/a1f42ebf4db11e9201fbd4b45e901ff0.png"></li>
+<li>按照上图，我们把Match case 前的勾去掉后代码提示就不区分大小写了。输入stringb后就会有提示<br><img src="https://img-blog.csdnimg.cn/img_convert/04e87778d4b48406139673be86ebe8dd.png"></li>
 </ul>
 <p>⑥ 设置取消单行显示 tabs 的操作</p>
-<p><img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/1644583954764tabs.png"></p>
+<p><img src="https://img-blog.csdnimg.cn/img_convert/5d6696b8d09b262db96bbe214680e7d4.png"></p>
 <p>在打开很多文件的时候， IntelliJ IDEA 默认是把所有打开的文件名 Tab 单行显示的。如果需要多行显示文件，超出部分不折叠，则按照上图设置即可</p>
 <ol start="3">
 <li>Editor – Font</li>
 </ol>
 <p>① 设置默认的字体、字体大小、字体行间距</p>
-<p><img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/1644584173765font11.png"></p>
+<p><img src="https://img-blog.csdnimg.cn/img_convert/986d99aff799a439796631c6c3e173de.png"></p>
 <ol start="4">
 <li>Editor – Color Scheme</li>
 </ol>
 <p>① 修改代码中注释的字体颜色</p>
-<p><img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/1644584437763color1.png"></p>
+<p><img src="https://img-blog.csdnimg.cn/img_convert/93f1c0de12bd54eefd70a6ccb57c586e.png"></p>
 <ul>
 <li>Doc Comment – Text： 修改文档注释的字体颜色</li>
 <li>Block comment： 修改多行注释的字体颜色</li>
@@ -2185,7 +2185,7 @@ poweroff [参数选项]
 <li>Editor – File and Code Templates</li>
 </ol>
 <p>① 修改类头的文档注释信息</p>
-<p><img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/1644584650761head1.png"></p>
+<p><img src="https://img-blog.csdnimg.cn/img_convert/038f1a7cc51cddf971aaed0eccce8600.png"></p>
 <pre class=" language-java"><code class="language-java"><span class="token comment" spellcheck="true">/**
 @author xiezhr
 @create $&amp;#123;YEAR&amp;#125;-$&amp;#123;MONTH&amp;#125;-$&amp;#123;DAY&amp;#125; $&amp;#123;TIME&amp;#125;
@@ -2195,48 +2195,48 @@ poweroff [参数选项]
 <li>Editor – File Encodings</li>
 </ol>
 <p>① 设置项目文件编码格式</p>
-<p><img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/1644584930761encodings.png"></p>
+<p><img src="https://img-blog.csdnimg.cn/img_convert/b803925e998612771c44525182f146f9.png"></p>
 <ol start="7">
 <li>Build,Execution,Deployment</li>
 </ol>
 <p>① 设置自动编译</p>
-<p><img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/1644585236766compiler.png"></p>
+<p><img src="https://img-blog.csdnimg.cn/img_convert/570344f9e6772aecc0b53a290d1f7022.png"></p>
 <ul>
 <li>Intellij Idea 默认状态为不自动编译状态， Eclipse 默认为自动编译。若你是刚才eclipse转过来的，这里需要设置下。</li>
 </ul>
 <ol start="8">
 <li>设置代码水平或垂直显示</li>
 </ol>
-<p><img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/1644585901763split.png"></p>
+<p><img src="https://img-blog.csdnimg.cn/img_convert/560b885c0ff14884cf025f24d398e8a1.png"></p>
 <h3 id="快捷键设置"><a href="#快捷键设置" class="headerlink" title="快捷键设置"></a>快捷键设置</h3><ol>
 <li>相信不少小伙伴是刚才eclipse转过来的，习惯了eclipse的快捷键，没问题Intellij Idea中支持将快捷键设置成eclipse快捷键。</li>
 </ol>
-<p><img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/1644669258943eclipse.png"></p>
+<p><img src="https://img-blog.csdnimg.cn/img_convert/132defcabfdc2597842e63616e0560b3.png"></p>
 <ol start="2">
 <li>导入快捷键设置</li>
 </ol>
-<p><img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/1644669383943import1.png"><br><img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/1644669618945keymap.png"></p>
+<p><img src="https://img-blog.csdnimg.cn/img_convert/3e56cc17865a9dd30dc0b4c06c822947.png"><br><img src="https://img-blog.csdnimg.cn/img_convert/81a31db96a35cade3a8281ee4c6a1044.png"></p>
 <ol start="3">
 <li>常用快捷键（标⭐的为常用）</li>
 </ol>
 <p>① 编辑类<br>|快捷键|快捷键说明|<br>|–|–|<br>|Ctrl + Space|补全代码，由于经常与操作系统的输入法的切换冲突，所以实际很少用。一般直接在 idea 中开启输入自动补全机制|<br>|Ctrl + Shift + Space|在列出的可选项中只显示出你所输入的关键字最相关的信息。⭐|<br>|Ctrl + Shift + Enter|代码补全后，自动在代码末尾添加分号结束符|<br>|Ctrl + P|在某个方法中，调用该按键后，会展示出这个方法的调用参数列表信息|<br>|Ctrl + Q|展示某个类或者方法的 API 说明文档|<br>|Ctrl + mouse|跳进到某个类或者方法源代码中进行查看⭐|<br>|Alt + Insert|自动生成某个类的 Getters, Setters, Constructors, hashCode/equals, toString 等代码 ⭐|<br>|Ctrl + O|    展示该类中所有覆盖或者实现的方法列表|<br>|Ctrl + Alt + T    |自动生成具有环绕性质的代码，比如：if..else,try..catch, for, synchronized 等等，使用前要先选择好需要环绕的代码块⭐|<br>|Ctrl + /|对单行代码，添加或删除注释。分为两种情况：如果只是光标停留在某行，那么连续使用该快捷键，会不断注释掉下一行的代码；如果选定了某行代码（选定了某行代码一部分也算这种情况），那么连续使用该快捷键，会在添加或删除该行注释之间来回切换⭐|<br>|Ctrl + Shift + /|对代码块，添加或删除注释。它与 Ctrl + / 的区别是，它只会在代码块的开头与结尾添加注释符号⭐|<br>|Ctrl + W|选中当前光标所在的代码块，多次触发，代码块会逐级变大⭐|<br>|Ctrl + Shift + W|是 Ctrl + W 的反向操作，多次触发，代码块会逐级变小，最小变为光标|<br>|Alt + Q|展示包含当前光标所在代码的父节点信息，比如在 java 方法中调用，就会展示方法签名信息|<br>|Alt + Enter|展示当前当前光标所在代码，可以变化的扩展操作|<br>|Ctrl + Alt + L    |格式化代码⭐|<br>|Ctrl + Alt + O    |去除没有实际用到的包，这在 java 类中特别有用⭐|<br>|Ctrl + Alt + I    |按照缩进的设定，自动缩进所选择的代码段|<br>|Tab / Shift + Tab|缩进或者不缩进一次所选择的代码段⭐|<br>|Ctrl + X 或 Shift Delete|剪切当前代码⭐|<br>|Ctrl + C 或 Ctrl + Insert|拷贝当前代码⭐|<br>|Ctrl + V 或 Shift + Insert    |粘贴之前剪切或拷贝的代码⭐|<br>|Ctrl + Shift + V|从之前的剪切或拷贝的代码历史记录中，选择现在需要粘贴的内容⭐|<br>|Ctrl + D|复制当前选中的代码⭐|<br>|Ctrl + Y|删除当前光标所在的代码行⭐|<br>|Ctrl + Shift + J|把下一行的代码接续到当前的代码行|<br>|Ctrl + Enter|当前代码行与下一行代码之间插入一个空行，原来所在的光标不变⭐|<br>|Shift + Enter|当前代码行与下一行代码之间插入一个空行，原来光标现在处于新加的空行上⭐|<br>|Ctrl + Shift + U|所选择的内容进行大小写转换⭐|<br>|Ctrl + Shift + ]/[    |从当前光标所在位置开始，一直选择到当前光标所在代码段起始或者结束位置|<br>|Ctrl + Delete|删除从当前光标所在位置开始，直到这个单词的结尾的内容|<br>|Ctrl + NumPad(+/-)    |展开或收缩代码段⭐|<br>|Ctrl + Shift + NumPad(+)|展开所有代码段|<br>|Ctrl + Shift + NumPad(-)|收缩所有代码段|<br>|Ctrl + F4|关闭当前标签页|<br>|Shift + F6    |修改名字⭐|</p>
 <p>② 查找替换<br>|快捷键|快捷键说明|<br>|–|–|<br>|Ctrl + F|在当前标签页中进行查找，还支持正则表达式⭐|<br>|F3|如果找到了多个查找结果，每调用一次就会跳到下一个结果，很方便哦|<br>|Shift + F3    |是 F3 的反向操作，即每调用一次就会跳到上一个结果|<br>|Ctrl + R|在当前标签页中进行替换操作⭐|<br>|Ctrl + Shift + F|通过路径查找⭐|<br>|Ctrl + Shift + R|通过路径替换⭐|</p>
-<p><img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/1645256137664ctrl_f.png"><br>|图示|说明|<br>|–|–|<br>|向上箭头|    就是 快捷键【Shift + F3】，每调用一次就会跳到上一个结果|<br>|向下箭头|    就是 快捷键【F3】，每调用一次就会跳到下一个结果|<br>|加号符号|    把当前的高亮项加入到选中的列表中|<br>|减号符号|    把当前的高亮项从选中的列表中移除|<br>|勾选符号|    把所有的查找结果同时选中，这很适合批量操作|<br>|文本内的向上箭头|    打开查询结果列表面板|<br>|两个框加一个向下箭头|    更多选项|<br>|Match Case|    是否大小写敏感|<br>|Regex|    正则表达式|<br>|Words|    匹配单词|<br>|x matches|    x 表示的是找到的记录数|</p>
+<p><img src="https://img-blog.csdnimg.cn/img_convert/f60cff8c8c3881f378b82cc148ed8f1f.png"><br>|图示|说明|<br>|–|–|<br>|向上箭头|    就是 快捷键【Shift + F3】，每调用一次就会跳到上一个结果|<br>|向下箭头|    就是 快捷键【F3】，每调用一次就会跳到下一个结果|<br>|加号符号|    把当前的高亮项加入到选中的列表中|<br>|减号符号|    把当前的高亮项从选中的列表中移除|<br>|勾选符号|    把所有的查找结果同时选中，这很适合批量操作|<br>|文本内的向上箭头|    打开查询结果列表面板|<br>|两个框加一个向下箭头|    更多选项|<br>|Match Case|    是否大小写敏感|<br>|Regex|    正则表达式|<br>|Words|    匹配单词|<br>|x matches|    x 表示的是找到的记录数|</p>
 <p>④ 查看使用情况<br>|快捷键    |快捷键说明|<br>|–|–|<br>|Alt + F7|在当前项目中的使用情况，会打开一个使用情况面板|<br>|Ctrl + F7|在当前文件中的使用情况，找的内容会低亮显示|<br>|Ctrl + Shift + F7|在当前文件中的使用情况，找的内容会高亮显示|<br>|Ctrl + Alt + F7|打开使用情况列表⭐|</p>
 <p>④ 编译运行<br>|快捷键|快捷键说明|<br>|–|–|<br>|Ctrl + F9|编译项目（如果之前有编译过，那么只会编译那些修改的类或者依赖的包⭐|<br>|Ctrl + Shift + F9|编译选中的范围（如果在某个类中，那么只会编译当前类）|<br>|Alt + Shift + F10|会打开一个已经配置的运行列表，让你选择一个后，再运行|<br>|Alt + Shift + F9|会打开一个已经配置的运行列表，让你选择一个后，再以调试模式运行|<br>|Shift + F10|立即运行当前配置的运行实例，这个在单元测试中特别好用⭐|<br>|Shift + F9|立即以编译模式运行当前配置的运行实例⭐|<br>|Ctrl + Shift + F10    |按照编辑器绑定的文件类型，运行相关的程序。比如一个 html 页面，调用后，会直接打开一个浏览器|</p>
 <p>⑤ 调试<br>|快捷键|快捷键说明|<br>|–|–|<br>|F8|跳到当前代码下一行⭐|<br>|F7|跳入到调用的方法内部代码⭐|<br>|Shift + F7    |会打开一个面板，让你选择具体要跳入的类方法，这个在复杂的嵌套代码中特别有用|<br>|Shift + F8|跳出当前的类，到上一级⭐|<br>|Alt + F9|让代码运行到当前光标所在处，非常棒的功能⭐|<br>|Alt + F8|打开一个表达式面板，然后进行进一步的计算|<br>|F9|结束当前断点的本轮调试（因为有可能代码会被调用多次，所以调用后只会结束当前的这一次）；如果有下一个断点会跳到下一个断点中⭐|<br>|Ctrl + F8|在当前光标处，添加或者删除断点|<br>|Ctrl + Shift + F8|打开当前断点的面板，可以进行条件过滤哦|</p>
 <p>⑥ 导航<br>|快捷键|快捷键说明|<br>|–|–|<br>|Ctrl + N|打开类查询框⭐|<br>|Ctrl + Shift + N|打开文件查询框⭐|<br>|Ctrl + Alt + Shift + N    |打开文本查询框|<br>|Alt + 右箭头/左箭头|跳到下一个/上一个编辑器标签|<br>|F12|如果当前在编辑窗口，触发后，会跳到之前操作过的工具栏上|<br>|ESC|从工具栏上，再跳回原来的编辑窗口，一般与 F12 配合使用|<br>|Shift + ESC|隐藏最后一个处于活跃状态的工具窗口|<br>|Ctrl + Shift + F4|同时关闭处于活动状态的某些工具栏窗口|<br>|Ctrl + G|跳转至某一行代码⭐|<br>|Ctrl + E|打开曾经操作过的文件历史列表|<br>|Ctrl + Alt + 右箭头/左箭头    |在曾经浏览过的代码行中来回跳|<br>|Ctrl + Shift + Backspace|跳转到最近的编辑位置（如果曾经编辑过代码）|<br>|Alt + F1|打开一个类型列表，选择后会导航到当前文件或者内容的具体与类型相关的面板中|<br>|Ctrl + B 或 Ctrl + 鼠标左键|如果是类，那么会跳转到当前光标所在的类定义或者接口；如果是变量，会打开一个变量被引用的列表⭐|<br>|Ctrl + Alt + B|跳转到实现类，而不是接口⭐|<br>|Ctrl + Shift + I|打开一个面板，里面包含类代码|<br>|Ctrl + Shift + B|打开变量的类型所对应的类代码，只对变量有用|<br>|Ctrl + U|打开方法的超类方法或者类的超类，只对有超类的方法或者类有效|<br>|Alt + 上/下箭头|在某个类中，跳到上一个/下一个方法的签名上|<br>|Ctrl + ]/[|移动光标到类定义的终止右大括号或者起始左大括号|<br>|Ctrl + F12    |打开类的结构列表⭐|<br>|Ctrl + H|打开类的继承关系列表|<br>|Ctrl + Shift + H|打开某个类方法的继承关系列表|<br>|Ctrl + Alt + H    |打开所有类的方法列表，这些方法都调用了当前光标所处的某个类方法⭐|<br>|F2/Shift + F2|在编译错误的代码行中来回跳|<br>|F4|打开当前光标所在处的方法或类源码|<br>|Alt + Home    |激活包路径的导航栏|<br>|F11|把光标所处的代码行添加为书签或者从书签中删除⭐|<br>|Ctrl + F11    |把光标所处的代码行添加为带快捷键的书签或者从快捷键书签中删除。|<br>|Shift + F11|打开书签列表⭐|</p>
 <p><strong>Ctrl + N （打开类查询框）</strong></p>
-<p>键入类名的关键字，会自动出现相关的类，很强大<br><img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/1644679942942file.png"></p>
+<p>键入类名的关键字，会自动出现相关的类，很强大<br><img src="https://img-blog.csdnimg.cn/img_convert/3ca870272be6c6e6a53d81d78ea050d4.png"></p>
 <p> <strong>Alt + F1（打开一个类型列表）</strong></p>
-<p><img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/1644680153942typelist.png"></p>
+<p><img src="https://img-blog.csdnimg.cn/img_convert/99b5750dd126950b2e9fbefded277c8c.png"></p>
 <h3 id="模板设置"><a href="#模板设置" class="headerlink" title="模板设置"></a>模板设置</h3><blockquote>
 <p>模板包含Live Templates 和 Postfix Completion<br>二者的区别： Live Templates 可以自定义，而 Postfix Completion 不可以</p>
 </blockquote>
 <ol>
 <li>Live Templates(实时代码模板)</li>
 </ol>
-<p><img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/1644681906943templates3.png"></p>
+<p><img src="https://img-blog.csdnimg.cn/img_convert/a6cf1fe74968bf9b525db088a4e0fb38.png"></p>
 <p>配置一些常用代码字母缩写，在输入简写时可以出现你预定义的固定模式的代码，使得开发效率大大提高.</p>
 <blockquote>
 <p>Java 中输入 sout 会出现 System.out.println();</p>
@@ -2244,7 +2244,7 @@ poweroff [参数选项]
 <ol start="2">
 <li>已有的常用模板</li>
 </ol>
-<p><img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/1644681513942template.png"></p>
+<p><img src="https://img-blog.csdnimg.cn/img_convert/8eea5bf606508911e733dd299436aeca.png"></p>
 <p>举例<br>① psvm </p>
 <p>psvm 可生成 main 方法</p>
 <p>② sout  </p>
@@ -2256,29 +2256,29 @@ poweroff [参数选项]
 <ol start="3">
 <li>如果对已有的模板不习惯，可以修改</li>
 </ol>
-<p><img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/1644841408141modify-templates.png"></p>
+<p><img src="https://img-blog.csdnimg.cn/img_convert/772233587379f0730683307823b2463d.png"></p>
 <ol start="4">
 <li>如果对已有的模板不习惯，也可以定义自己的模板，步骤如下</li>
 </ol>
 <p>① 定义一个模板的组</p>
-<p><img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/1644841620138addgroup.png"></p>
-<p><img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/1644841790135temname.png"></p>
+<p><img src="https://img-blog.csdnimg.cn/img_convert/2fee276240ef5eb712c4d5174d2f9093.png"></p>
+<p><img src="https://img-blog.csdnimg.cn/img_convert/b7da330805eb5365ba23647ba4d8bdeb.png"></p>
 <p>② 在上一步定义的模板组下定义一个模板</p>
-<p><img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/1644842295132template5.png"></p>
-<p><img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/1644842304133template6.png"></p>
+<p><img src="https://img-blog.csdnimg.cn/img_convert/0d0e5e93660b65dddd04d3806f3bdd66.png"></p>
+<p><img src="https://img-blog.csdnimg.cn/img_convert/04c2ae0f6e62beb317d92c455576dd82.png"></p>
 <p>③ 选择应用范围</p>
-<p><img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/1644842531133define1.png"></p>
+<p><img src="https://img-blog.csdnimg.cn/img_convert/30a996435495af376a890fb41cb65a2d.png"></p>
 <h3 id="关联数据库"><a href="#关联数据库" class="headerlink" title="关联数据库"></a>关联数据库</h3><ol>
 <li>关联数据库</li>
 </ol>
-<p><img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/1644844572141linkdatabase.png"></p>
-<p><img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/1644844950133testmysql.png"></p>
-<p><img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/1644845015133connect1.png"></p>
+<p><img src="https://img-blog.csdnimg.cn/img_convert/0a8349144d5b03d2a2242280e154c030.png"></p>
+<p><img src="https://img-blog.csdnimg.cn/img_convert/c6d219a37e41d831f58d5572b34f7ff0.png"></p>
+<p><img src="https://img-blog.csdnimg.cn/img_convert/3fb4e16fc03a35d6b363099dc89b59bb.png"></p>
 <p>IntelliJ IDEA  的  Database  最大特性就是对于 Java Web 项目来讲，常使用的 ORM 框架，如 Hibernate、Mybatis 有很好的支持，比如配置好了 Database 之后，IntelliJ IDEA 会自动识别 domain 对象与数据表的关系，也可以通过 Database 的数据表直接生成 domain 对象等等</p>
 <ol start="2">
 <li>常用操作</li>
 </ol>
-<p><img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/1644845168134%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C.png"></p>
+<p><img src="https://img-blog.csdnimg.cn/img_convert/79af6aa3751875999026e054c257b647.png"></p>
 <ul>
 <li>图标 1：同步当前的数据库连接。这个是最重要的操作。配置好连接以后或通过其他工具操作数据库以后，需要及时同步。</li>
 <li>图标 2：配置当前的连接。</li>
@@ -2289,7 +2289,7 @@ poweroff [参数选项]
 <h3 id="版本控制"><a href="#版本控制" class="headerlink" title="版本控制"></a>版本控制</h3><blockquote>
 <p>不管是个人开发还是团队开发，都离不开版本控制，IntelliJ IDEA也集成了版本控制工具。</p>
 </blockquote>
-<p><img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/1644846553134git.png"></p>
+<p><img src="https://img-blog.csdnimg.cn/img_convert/d5ca43d1a07d543059b54441edd73747.png"></p>
 <p>注：<strong>IntelliJ IDEA 虽然默认对这些版本控制工具提供插件支持，但是还需要我们自己安装版本控制客户端滴</strong></p>
 <ol>
 <li>Git是我们常用的版本控制工具，是目前世界上最先进的分布式版本控制系统（没有之一）。<br>我们这里就以Git为例，说一说IntelliJ IDEA怎么配置和使用Git</li>
@@ -2298,7 +2298,7 @@ poweroff [参数选项]
 <p>官网下载地址：<a href="https://git-scm.com/downloads">https://git-scm.com/downloads</a></p>
 <p>全部无脑下一步安装即可</p>
 <p>默认安装完成后，右键出现下图所示图标即表示安装成功</p>
-<p><img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/1644847992133git%E5%AE%A2%E6%88%B7%E7%AB%AF%E5%8F%B3%E9%94%AE.png"></p>
+<p><img src="https://img-blog.csdnimg.cn/img_convert/3b13ae383ce65c0a5103dccf430cf6a6.png"></p>
 <p>安装完成后，还需要最后一步设置，在命令行输入：</p>
 <pre class=" language-yml"><code class="language-yml"># 注意git config命令的--global参数，用了这个参数，表示你这台机器上所有的Git仓库都会使用这个配置
 $ git config --global user.name "Your Name"
@@ -2306,20 +2306,20 @@ $ git config --global user.email "email@example.com"
 </code></pre>
 <p>因为Git是分布式版本控制系统，所以，每个机器都必须自报家门：你的名字和Email地址</p>
 <p>② 关联 git.exe</p>
-<p><img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/1644848334134gitpath.png"></p>
+<p><img src="https://img-blog.csdnimg.cn/img_convert/58571f5f8a0a596e54cb83df6318833f.png"></p>
 <p>③ 关联 GitHub 上的账户，并测试连接</p>
-<p><img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/1644849387136gitlogin.png"></p>
+<p><img src="https://img-blog.csdnimg.cn/img_convert/0f59166efaa41c69ff2e84d88a39614a.png"></p>
 <p>④ 在 GitHub 上创建账户下的一个新的仓库作为测试</p>
-<p><img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/1644850140134gittest.png"></p>
+<p><img src="https://img-blog.csdnimg.cn/img_convert/e4dd053ab0478e50efc2f3cfadf69017.png"></p>
 <p>⑤ 从当前github 账号上checkout项目</p>
-<p><img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/1644850425134gitprojece.png"></p>
-<p>获取GitHub上项目路径，并将项目路径填入其中<br><img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/1644850587133pathgit.png"></p>
-<p><img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/1644850653134clone.png"></p>
-<p><img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/1644851147133importproject.png"></p>
-<p><img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/1644851381138prj.png"></p>
+<p><img src="https://img-blog.csdnimg.cn/img_convert/b0f1188a7a44efd7f62cdb501ea59b00.png"></p>
+<p>获取GitHub上项目路径，并将项目路径填入其中<br><img src="https://img-blog.csdnimg.cn/img_convert/bc31ee818ee3c285dca2e41d960aefa9.png"></p>
+<p><img src="https://img-blog.csdnimg.cn/img_convert/f951710f641669b60aa0ca89cd6d1d34.png"></p>
+<p><img src="https://img-blog.csdnimg.cn/img_convert/3b4dbba327622b698f06a9e5d266c437.png"></p>
+<p><img src="https://img-blog.csdnimg.cn/img_convert/30d17e02ba2e3066e94e77d02ed0f92a.png"></p>
 <p>按照以上步骤，在GitHub上的项目即克隆到了本地。是不是很简单哦</p>
 <p>⑥ Git常用操作</p>
-<p><img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/1644852654148git%E5%91%BD%E4%BB%A4.png"></p>
+<p><img src="https://img-blog.csdnimg.cn/img_convert/5b28a859da8c918e01a1a8a7dcde80e9.png"></p>
 <pre class=" language-git"><code class="language-git">clone：拷贝远程仓库
 commit：本地提交
 push：远程提交
@@ -2328,15 +2328,15 @@ pull：更新到本地
 <p>上面只提了最最最常用的命令，如果你想更加深入的了解git,建议参考</p>
 <p><a href="https://www.liaoxuefeng.com/wiki/896043488029600">廖雪峰的Git教程</a></p>
 <p>注：<strong>即使我们没有使用任何版本控制工具，IntelliJ IDEA也为我们提供了历史版本查看功能</strong></p>
-<p><img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/1644852961139history.png"></p>
-<p><img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/1644853121136historyahtml.png"></p>
+<p><img src="https://img-blog.csdnimg.cn/img_convert/0e6c2e7ebdee3a2ed2af206beef5a718.png"></p>
+<p><img src="https://img-blog.csdnimg.cn/img_convert/ace55b3c94b504f73cd2852378da16d3.png"></p>
 <h3 id="断点调试功能"><a href="#断点调试功能" class="headerlink" title="断点调试功能"></a>断点调试功能</h3><ol>
 <li>debug 模式设置</li>
 </ol>
 <blockquote>
 <p>设置 Debug 连接方式，默认是 Socket。Shared memory 是  Windows  特有的一个属性，一般在 Windows 系统下建议使用此设置，内存占用相对较少</p>
 </blockquote>
-<p><img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/1644853376133debug.png"></p>
+<p><img src="https://img-blog.csdnimg.cn/img_convert/95d04655564f71313e419ef0870e78b3.png"></p>
 <ol start="2">
 <li>常用断点调试说明</li>
 </ol>
@@ -2349,37 +2349,37 @@ pull：更新到本地
 </tr>
 </thead>
 <tbody><tr>
-<td><img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/1644853769146debug1.png"></td>
+<td><img src="https://img-blog.csdnimg.cn/img_convert/1811192e0e7e2161d29e04537a706717.png"></td>
 <td>step over</td>
 <td>进入下一步，如果当前行断点是一个方法，则不进入当前方法体内</td>
 </tr>
 <tr>
-<td><img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/1644853770137debug2.png"></td>
+<td><img src="https://img-blog.csdnimg.cn/img_convert/b9863c5f51c42a30cbd08e4c640b54ae.png"></td>
 <td>step into</td>
 <td>进入下一步，如果当前行断点是一个方法，则进入当前方法体内</td>
 </tr>
 <tr>
-<td><img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/1644853771145debug3.png"></td>
+<td><img src="https://img-blog.csdnimg.cn/img_convert/00f0bbc057cdbde688524b1f008ca4dd.png"></td>
 <td>force step into</td>
 <td>进入下一步，如果当前行断点是一个方法，则进入当前方法体内</td>
 </tr>
 <tr>
-<td><img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/1644853772143debug4.png"></td>
+<td><img src="https://img-blog.csdnimg.cn/img_convert/a1c509114d498e37b592ee0462f3b5a1.png"></td>
 <td>step out</td>
 <td>跳出</td>
 </tr>
 <tr>
-<td><img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/1644853773146debug5.png"></td>
+<td><img src="https://img-blog.csdnimg.cn/img_convert/f77ce513903132e3cb98a828ffef1c2d.png"></td>
 <td>resume program</td>
 <td>恢复程序运行，但如果该断点下面代码还有断点则停在下一个断点上</td>
 </tr>
 <tr>
-<td><img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/1644853774134debug6.png"></td>
+<td><img src="https://img-blog.csdnimg.cn/img_convert/39309b4724108e6268188bcd88c352cc.png"></td>
 <td>stop</td>
 <td>停止</td>
 </tr>
 <tr>
-<td><img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/1644853775141debug7.png"></td>
+<td><img src="https://img-blog.csdnimg.cn/img_convert/d36bc923b685ce42f7318a642ca67fe8.png"></td>
 <td>view breakpoints</td>
 <td>查看所有断点</td>
 </tr>
@@ -2392,10 +2392,10 @@ pull：更新到本地
 </blockquote>
 <p><strong>在循环里增加条件判断，能大大提高我们的效率</strong></p>
 <p>我们在需要设置断点的语句前单击，当出现红色断点时，右键出现如下图所示，即可加入条件。</p>
-<p><img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/1645015720084i=50.png"></p>
+<p><img src="https://img-blog.csdnimg.cn/img_convert/bf555be4fbe3196bab63da1f15ac136e.png"></p>
 <p>debug程序，程序在i=10的时候停止</p>
-<p><img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/1645016008085i=10.png"></p>
-<p><img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/1645016162089i=1011.png"></p>
+<p><img src="https://img-blog.csdnimg.cn/img_convert/695dbcf7688bf5fb48638292f6d8615d.png"></p>
+<p><img src="https://img-blog.csdnimg.cn/img_convert/4aeabd080635e7511ca7f447406fa9d1.png"></p>
 <h3 id="配置maven"><a href="#配置maven" class="headerlink" title="配置maven"></a>配置maven</h3><ol>
 <li>Java项目构成</li>
 </ol>
@@ -2419,30 +2419,30 @@ pull：更新到本地
 <ol start="3">
 <li>Maven 项目结构</li>
 </ol>
-<p><img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/1645248168669maven-jg.png"></p>
+<p><img src="https://img-blog.csdnimg.cn/img_convert/66ce3e154e16d8e57379b239374e7d7f.png"></p>
 <ol start="4">
 <li>Maven构建流程</li>
 </ol>
-<p><img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/1645018242084maven-list.png"></p>
+<p><img src="https://img-blog.csdnimg.cn/img_convert/726792cf6826a8d285319fc60cd12049.png"></p>
 <ol start="5">
 <li>IntelliJ IDEA 配置Maven</li>
 </ol>
-<p><img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/1645018738087maven-confit.png"></p>
+<p><img src="https://img-blog.csdnimg.cn/img_convert/02ea6661109ab2b0a1238ad610289199.png"></p>
 <ol start="6">
 <li>新建Maven项目</li>
 </ol>
 <p>① 新建项目</p>
-<p><img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/1645019169086create-newpro.png"></p>
+<p><img src="https://img-blog.csdnimg.cn/img_convert/1e4b230337fb74cf7951b9ec377a6f6d.png"></p>
 <p>②选择Maven项目</p>
-<p><img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/1645019856096bz.png"></p>
+<p><img src="https://img-blog.csdnimg.cn/img_convert/6dd6bec686a060e5d7f2d1b360ee9a67.png"></p>
 <p>③设置项目参数</p>
-<p><img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/1645019901083mavenconfig.png"></p>
+<p><img src="https://img-blog.csdnimg.cn/img_convert/717c0f9b9ceb622cc5f595b1eeb1571c.png"></p>
 <p>④配置本地Maven设置</p>
-<p><img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/1645019918088local-config.png"></p>
+<p><img src="https://img-blog.csdnimg.cn/img_convert/d45ae6d4241ba8e463edfd43e2068326.png"></p>
 <p>⑤初始化项目</p>
-<p><img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/1645019950096download.png"></p>
+<p><img src="https://img-blog.csdnimg.cn/img_convert/88237f03714016074119f11ad61a80e6.png"></p>
 <p>⑥项目构建完成</p>
-<p><img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/1645020111093success-maven.png"></p>
+<p><img src="https://img-blog.csdnimg.cn/img_convert/928fe7c9e79b00327de2be523269982d.png"></p>
 <ol start="4">
 <li>添加第三方jar包</li>
 </ol>
@@ -2450,7 +2450,7 @@ pull：更新到本地
 <p>mysql 是我们日常开发中常用的数据库，这里我们以导入MySQL驱动包为例</p>
 </blockquote>
 <p>①当我们执行App.java中代码时，由于没加mysql驱动包，所以会报如下错误</p>
-<p><img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/1645020413085mysql-err.png"></p>
+<p><img src="https://img-blog.csdnimg.cn/img_convert/28415ac6b25d8be1f377def3d848e14f.png"></p>
 <p>②修改pom.xml文件,添加如下内容</p>
 <pre class=" language-xml"><code class="language-xml"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>dependency</span><span class="token punctuation">></span></span>
       <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>groupId</span><span class="token punctuation">></span></span>mysql<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>groupId</span><span class="token punctuation">></span></span>
@@ -2458,31 +2458,31 @@ pull：更新到本地
       <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>version</span><span class="token punctuation">></span></span>5.1.20<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>version</span><span class="token punctuation">></span></span>
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>dependency</span><span class="token punctuation">></span></span>
 </code></pre>
-<p><img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/1645020952088addmaven.png"></p>
+<p><img src="https://img-blog.csdnimg.cn/img_convert/38159e1183fb4052f4ccb4f2a75f5c8a.png"></p>
 <p>注：<strong>dependency标签中的内容我们不用死记，我们只需要到<a href="https://mvnrepository.com/%E6%9F%A5%E8%AF%A2%EF%BC%8C%E7%84%B6%E5%90%8E%E5%A4%8D%E5%88%B6%E5%8D%B3%E5%8F%AF">https://mvnrepository.com/查询，然后复制即可</a></strong></p>
-<p><img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/1645021099086myslq-each.png"></p>
-<p><img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/1645021169083copy-1.png"></p>
+<p><img src="https://img-blog.csdnimg.cn/img_convert/b02c70116eaef25ddca7cb408f395d6d.png"></p>
+<p><img src="https://img-blog.csdnimg.cn/img_convert/c55f87af20eac52c631018954ab462ac.png"></p>
 <p>③ 等待驱动下载完成</p>
-<p><img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/1645021247085driver-download.png"></p>
+<p><img src="https://img-blog.csdnimg.cn/img_convert/905840684e95d8f35d2a5ec45062bf1e.png"></p>
 <p>④ 再次运行，成功</p>
-<p><img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/1645021352083success-driver.png"></p>
+<p><img src="https://img-blog.csdnimg.cn/img_convert/c9b3f660542c586bafbcd64fb0940669.png"></p>
 <h3 id="创建web项目并配置tomcat"><a href="#创建web项目并配置tomcat" class="headerlink" title="创建web项目并配置tomcat"></a>创建web项目并配置tomcat</h3><ol>
 <li>新建maven web项目</li>
 </ol>
 <p>① 创建项目</p>
-<p><img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/1645249592671maven-create.png"></p>
+<p><img src="https://img-blog.csdnimg.cn/img_convert/b10c7cd3a69996124015ec5231c859e3.png"></p>
 <p>②选择Maven webapp格式</p>
-<p><img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/1645249593674maven-select.png"></p>
+<p><img src="https://img-blog.csdnimg.cn/img_convert/5a5917bab857a1de4c6de8334d4ec49a.png"></p>
 <p>③填写项目参数</p>
-<p><img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/1645249594666maven-name.png"></p>
+<p><img src="https://img-blog.csdnimg.cn/img_convert/78443692128222d5c4c0433805fe3cd2.png"></p>
 <p>④ 配置本地Maven相关参数</p>
-<p><img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/1645249595672maven-confit.png"></p>
+<p><img src="https://img-blog.csdnimg.cn/img_convert/b6a3cc53bbed7f1aec549f06af90a16a.png"></p>
 <p>⑤配置java源代码目录</p>
 <blockquote>
-<p>maven web项目默认是没有java源代码目录的，所以需要手动创建，并设置其为源代码目录<br>右键main目录-&gt; New-&gt;Directory-&gt;输入java-&gt;右键java-&gt;Mark Directory as-&gt; Sources Root<br>这样就创建了存放java源文件的目录了<br><img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/1645249791663java-src.png"></p>
+<p>maven web项目默认是没有java源代码目录的，所以需要手动创建，并设置其为源代码目录<br>右键main目录-&gt; New-&gt;Directory-&gt;输入java-&gt;右键java-&gt;Mark Directory as-&gt; Sources Root<br>这样就创建了存放java源文件的目录了<br><img src="https://img-blog.csdnimg.cn/img_convert/1bbde521bf1373881315418deefb7a31.png"></p>
 </blockquote>
 <p>⑥ 新建servlet</p>
-<p><img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/1645251040668newservlet.png"><br><img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/1645251028671servlet-info.png"></p>
+<p><img src="https://img-blog.csdnimg.cn/img_convert/a67c4fb8f6cd524ae2ca5fc354b5afea.png"><br><img src="https://img-blog.csdnimg.cn/img_convert/cc6069c4b25add2b5c3477784e31b13f.png"></p>
 <pre class=" language-java"><code class="language-java"><span class="token keyword">package</span> com<span class="token punctuation">.</span>xiezhr<span class="token punctuation">;</span>
 
 <span class="token keyword">import</span> javax<span class="token punctuation">.</span>servlet<span class="token punctuation">.</span>ServletException<span class="token punctuation">;</span>
@@ -2531,15 +2531,15 @@ pull：更新到本地
 <li>配置tomcat</li>
 </ol>
 <p>① 打开tomcat配置，并选择tomcat 路径</p>
-<p><img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/1645252181667tomcat-1.png"></p>
+<p><img src="https://img-blog.csdnimg.cn/img_convert/7a9257bc6355ad55d56417f3007abbc3.png"></p>
 <p>② 设置部署</p>
-<p><img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/1645252417674tomcat-play.png"></p>
-<p><img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/1645252503672tomcat2.png"></p>
+<p><img src="https://img-blog.csdnimg.cn/img_convert/8b3c5232119524b742388362f66e6a45.png"></p>
+<p><img src="https://img-blog.csdnimg.cn/img_convert/5adf8577365d6b0ede1cb553ee383050.png"></p>
 <p>③ 运行项目</p>
-<p><img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/1645252566672run.png"></p>
-<p><img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/1645253973662run-success.png"></p>
+<p><img src="https://img-blog.csdnimg.cn/img_convert/cd7e60a13500c95a888a68735a754c73.png"></p>
+<p><img src="https://img-blog.csdnimg.cn/img_convert/0174ed1d7974f14dd2b3749f6c5fd752.png"></p>
 <p>④ 测试成功</p>
-<p><img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/1645254019663run-1.png"></p>
+<p><img src="https://img-blog.csdnimg.cn/img_convert/ad76326d23f11669088f547190cfc59e.png"></p>
 ]]></content>
       <categories>
         <category>IntelliJ IDEA</category>
@@ -2555,30 +2555,31 @@ pull：更新到本地
   <entry>
     <title>2021平(jia)凡(ban)的一年</title>
     <url>/archives/f2ab69ad.html</url>
-    <content><![CDATA[<h2 id="0x00"><a href="#0x00" class="headerlink" title="0x00"></a>0x00</h2><p>刚刚把《平凡的世界》电视剧看完。也不知道什么原因，又去刷了一遍， 可能是有那么一段时间比较迷茫、加班加到怀疑人生了吧。</p>
+    <content><![CDATA[<p><img src="https://img-blog.csdnimg.cn/1dc783ed297a4dee82b570c896d4c2de.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBAeGllX3pocg==,size_20,color_FFFFFF,t_70,g_se,x_16#pic_center" alt="在这里插入图片描述"></p>
+<h2 id="0x00"><a href="#0x00" class="headerlink" title="0x00"></a>0x00</h2><p>刚刚把《平凡的世界》电视剧看完。也不知道什么原因，又去刷了一遍， 可能是有那么一段时间比较迷茫、加班加到怀疑人生了吧。</p>
 <p>记得当年第一次看这本小说还是17年，好像是为了借一本什么书来着，就去了省图书馆。本来打算借完书就走的，结果在书架正好看到了《平凡的世界》，而且又有不少朋友推荐过。</p>
 <p>想着时间还早，就抱着第一部在旁边的座位上看了起来。结果看了第一章就被迷住了， 一看就是一下午。</p>
-<p><img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/%E5%B0%8F%E8%AF%B4.png"></p>
+<p><img src="https://img-blog.csdnimg.cn/img_convert/f9a659a63414b8550c26ed5ca604f50e.png"></p>
 <p>2021这一年，怎么说呢。大半部分时间要么在加班，要么在去加班的路上。。。。 恍恍惚惚、浑浑噩噩一年就这么结束了，回想这一年也不知道该写点什么，但也该给这年画上一个句号，就想到什么写什么吧。</p>
 <p>2021 年算是比较平凡的一年吧。</p>
 <h2 id="0x01"><a href="#0x01" class="headerlink" title="0x01"></a>0x01</h2><p>回过头来看看这一年，其实也并不是都那么糟糕。大概是刚开始的前五个月吧，一切看似都还比较正常吧。</p>
 <p>该吃饭吃饭、到点上班、到点下班、该休息就休息。</p>
-<p>平常下班或者周末有空就看看动漫（《凡人修仙传》、《刺客五六七》、《一人之下》、《海贼王》等）刷刷剧（《觉醒年代》、《平凡的世界》）或者写写自己公众号文章。当时看完《觉醒年代》，还特意写了一篇观后感。<br><img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/%E8%A7%89%E9%86%92%E5%B9%B4%E4%BB%A3.jpg"><br>感兴趣的小伙伴可以去看看，还是挺不错的。</p>
-<p>大概是这一年的4月份吧，因为自己一直在InfoQ写作平台更新内容吧。也收到一些平台寄来的小礼物，这在之前是想都没想过的，小礼物虽然也不值什么钱，但写作平台真的很有心，这对自己来说算是很好的开端吧。<br><img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/%E5%8D%8A%E6%9C%88%E6%9B%B4.png"></p>
+<p>平常下班或者周末有空就看看动漫（《凡人修仙传》、《刺客五六七》、《一人之下》、《海贼王》等）刷刷剧（《觉醒年代》、《平凡的世界》）或者写写自己公众号文章。当时看完《觉醒年代》，还特意写了一篇观后感。<br><img src="https://img-blog.csdnimg.cn/img_convert/62575d91a2bec80faeb111ef2f967dfd.png"><br>感兴趣的小伙伴可以去看看，还是挺不错的。</p>
+<p>大概是这一年的4月份吧，因为自己一直在InfoQ写作平台更新内容吧。也收到一些平台寄来的小礼物，这在之前是想都没想过的，小礼物虽然也不值什么钱，但写作平台真的很有心，这对自己来说算是很好的开端吧。<br><img src="https://img-blog.csdnimg.cn/img_convert/2824ffc912fad2aa2fdcd1fe82c7c731.png"></p>
 <p>付出终会有所收获吧，就在三四月份吧，参加了InfoQ写作平台的签约作者活动，最终在几轮考核和筛选后成为了InfoQ签约作者。刚开始参加的时候吧，根本就没想过会成功，也就是抱着试一试的心态去的。因为参加的都是那些流量很高的大佬。经常在各个平台可以看得到他们的身影。</p>
 <p>参加这活动收获还是挺多的，一方面呢可以看看大佬是如何写作的，拿到选题后是如何定位选题，怎么构思文章结构的。在这一个多月的时间里，很多大佬都做到了日更，这产出真的惊人。。</p>
 <p>小菜鸟只能投去羡慕的眼神~</p>
-<p><img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/20220121234530.gif"></p>
-<p>另一方面对自己来说也是一个好的开始，是不是会收到一些粉丝的救助，还有平台的小礼品。有了收获才会有更多的动力坚持下去。<br><img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/%E7%AC%94%E8%AE%B0%E6%9C%AC.png"></p>
-<p><img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/%E7%BA%B8%E8%B4%A8%E5%A5%96.png"></p>
+<p><img src="https://img-blog.csdnimg.cn/img_convert/27f95a2d5e5d6ce97990a242ad8a5887.gif"></p>
+<p>另一方面对自己来说也是一个好的开始，是不是会收到一些粉丝的救助，还有平台的小礼品。有了收获才会有更多的动力坚持下去。<br><img src="https://img-blog.csdnimg.cn/img_convert/96dacc14ef9cd890beadcfd0a1b4d85b.png"></p>
+<p><img src="https://img-blog.csdnimg.cn/img_convert/d5e154ad945d0184eb9bc709a862f72d.png"></p>
 <h2 id="0x02"><a href="#0x02" class="headerlink" title="0x02"></a>0x02</h2><p>大概5月中旬左右吧，得知公司中标了新项目。这应该算是一个好消息吧，但伴随着而来就是加班的开始。</p>
 <p>起初，大家对新项目呢也不太了解，只知道做起来应该很难，还没有个全局的概念。</p>
-<p>直到加班从周末可以休一天，晚上只加到7、8点到一天不休的魔鬼式加班（说魔鬼式加班真的一点也不为过）；直到听说同事去重庆支援每天加班都是加到1点；直到看到正式接口文档下来，大概文档上扫了一眼，119数字出来了，整个人都不好了。。。也就是说有100多个接口需要实现。不知道其他同事是什么想法，反正我是整个人都傻眼了。<br><img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/%E5%82%BB%E4%BA%86.jpg"></p>
+<p>直到加班从周末可以休一天，晚上只加到7、8点到一天不休的魔鬼式加班（说魔鬼式加班真的一点也不为过）；直到听说同事去重庆支援每天加班都是加到1点；直到看到正式接口文档下来，大概文档上扫了一眼，119数字出来了，整个人都不好了。。。也就是说有100多个接口需要实现。不知道其他同事是什么想法，反正我是整个人都傻眼了。<br><img src="https://img-blog.csdnimg.cn/img_convert/783c98b4a685f1453afd4c78c4f54b04.png"></p>
 <p>现在运维的这项目少说也有十年了吧，时常在修bug的时候会看到零几年前辈们留下的注释。有些时候吧宁愿去接触全新的项目，也不敢动这些传承下来的代码。</p>
 <p>在长时间众多人的接力赛后，修修补补后，这代码早就不是这代码了。</p>
 <p>怎么说好呢，只能用下面的图表达了</p>
-<p><img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/%E8%B7%91%E8%B5%B7%E6%9D%A5%E4%BA%86.jpg"></p>
-<p><img src="https://pic.rmb.bdstatic.com/bjh/91796debf2d12777761a1311b55a58be.gif"></p>
+<p><img src="https://img-blog.csdnimg.cn/img_convert/68a39f6fb434e9b9abc90cf72f359e11.png"></p>
+<p><img src="https://img-blog.csdnimg.cn/img_convert/b87f697e38bb5ce31cd7937db6493e3b.gif"></p>
 <p>每次看到有些功能代码，谁能忍住不重构一下呢。但由于时间不够，客户又催的紧。敢动的只有非核心代码，在各种压力下不得不妥协，就这样进入了死循环。。。</p>
 <p>每次修改核心代码的难度 ≠ 每次核心代码相加<br>每次修改核心代码的难度 = 第一次核心代码+每次代码桥接的阶乘</p>
 <p>真的能在真么短的时间把常用接口改造完成真的是挺不容易的，为自己和小伙伴们感到骄傲！</p>
@@ -2586,7 +2587,7 @@ pull：更新到本地
 <p>时间切回到2021年8月初，当时的心情真不知道该怎么描述，总之就是怀着忐忑、不敢相信等等各种各样说不出来的心情来到了第一现场保山。</p>
 <p>上线的倒计时也开始了。。</p>
 <p>到了现场遇到了不少老熟人，同时呢也结识了不少新朋友。大家聚一起，一起熬夜，一起加班。</p>
-<p><img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/20220124002903.gif"></p>
+<p><img src="https://img-blog.csdnimg.cn/img_convert/b1005885431c5e6508eef823c52d4273.gif"></p>
 <p>还清晰记得上线的那晚上，凌晨后还在给客户处理问题。处理完一个还有一个，另一个还在排着队。</p>
 <p>不知不觉中天也蒙蒙亮了，大概是凌晨6点钟吧才回酒店休息。迷迷糊糊睡了两个小时吧就被电话给吵醒了，又匆匆忙忙赶着去上班。</p>
 <p>到了办公室，整个人都是飘飘欲仙的那种。拖着沉重的脑袋，走路都会倒下的那种。。。。</p>
@@ -2597,32 +2598,31 @@ pull：更新到本地
 <p>从倾尽一家所有积蓄买了骡子到社里揽工，到骡子被偷的绝望再到骡子失而复得后成功揽工赚到了第一桶金; 从一无所有,到处借钱，家人的种种不赞同到成功办起了砖窑再到烧出的砖有问题而差点负债累累再到后来带领一村人发家致富；从黑面膜到白面馍；从和牲口挤一个又脏又臭又冷的牲口棚到自己箍起了新窑洞；</p>
 <p>这一切的一切在我看来这已经算是不平凡的人生了。作为一个平平凡凡打工人的我们，谁不是为了柴米油盐、几两碎银而暗无天日的加班着、工作着。</p>
 <p>好像撤的有点远了，在保山大概呆了一个月左右吧。从保山回来的时候遇到一件事也是记忆犹新。刚下飞机就急匆匆的想往家赶，结果呢把电脑包给拿错了（不知道是不是被迫拿错），到了地铁站才知道。<br>各种报销单据、资料都还在里面，心想完了，绝望中。。。</p>
-<p><img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/%E7%BB%9D%E6%9C%9B.gif"></p>
+<p><img src="https://img-blog.csdnimg.cn/img_convert/541c32de7e0b50fdb820423bee06eb42.gif"></p>
 <p>后面又急匆匆返回机场找航空公司，回去一问前台工作人员才知道对方也发现包拿错了，交失物招领了，还报了警，从小到大哪经历过这个啊，一下变“嫌疑人”了，这下心更慌了。</p>
 <p>前台工作人员大概知道情况后，及时联系到了对方，大概等了5、6分钟左右吧，失主出现了。确认身份后，清理了包里东西也完好无损。后面失主说了句：“这些年的资料都在里面，这个可不能丢了。。”  客套了几句后，问了工作人员失物招领柜台在哪后，就急忙忙赶去领自己电脑包去了，当时心里想着这哥们大概也是同行吧，一样的电脑包，一样的到处奔波着。</p>
 <p>想想这就是生活吧，平淡日常–绝望–希望–平淡生活–绝望–希望– 平平淡淡才是常态。</p>
 <h2 id="0x04"><a href="#0x04" class="headerlink" title="0x04"></a>0x04</h2><p>买书如山倒 读书如抽丝 这话一点也不假。2021年呢也买了不少好书，结果呢没看完几本，大多都去吃灰去了。虽然很多书在网上都能找到电子版的，但还是控制不住自己，过上一段时间就会买上一两本。</p>
-<p>下面的是2021这一年新买的<br><img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/2021%E4%B9%A6%E5%8D%95%E6%96%B0.jpg"></p>
+<p>下面的是2021这一年新买的<br><img src="https://img-blog.csdnimg.cn/img_convert/635716693dd3aa42cbca784d92089376.png"></p>
 <p>读书的时候会让人感到非常的平静和踏实，而且有些书每一次重读都会有不一样的感受。就像《平凡的世界》，已经记不清读了多少遍了，每当感到很困惑很迷茫就会去读一遍，每次重读都有种身临其境的感觉。</p>
 <p>不知道什么时候养成的习惯，基本上每天晚上要睡之前都会打开喜马拉雅，然后选一本看着还不错的书，定好时便开始听书。基本上大多数时候都是听着听着就睡着了。</p>
 <p>作为一名再普通不过的程序员，不应该只关注代码，其他的一些软技能也是必不可少的。接下来时间里呢，也会多读一读除了技术类书籍之外的，并将其一直坚持下去。朋友也安利了不少好书。</p>
-<h2 id="0x05"><a href="#0x05" class="headerlink" title="0x05"></a>0x05</h2><p>这一年吧，相比以往年又长了几斤肉，还是那句话，成年人的世界里除了长胖容易，其他的都不容易。。。<br><img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/%E5%87%8F%E8%82%A5.jpg"></p>
+<h2 id="0x05"><a href="#0x05" class="headerlink" title="0x05"></a>0x05</h2><p>这一年吧，相比以往年又长了几斤肉，还是那句话，成年人的世界里除了长胖容易，其他的都不容易。。。<br><img src="https://img-blog.csdnimg.cn/img_convert/db60bf6bd8968a876ac531529e9c1f5e.png"></p>
 <p>自己呢也找了下原（jie）因(kou),平常基本上都在加班了，没时间锻炼，真的是太忙（lan）了。这一年吧，总感觉自己身体会出问题，不管怎么忙，还是在元旦前几天请假去体检了。</p>
 <p>体检结果呢跟上一年差不多，大毛病没有，小毛病还是好几个。有几项指标一直偏高，哎。。。</p>
 <p>突然又想起了小说中的秀莲，一个勤奋踏实的女子，嫁给少安后没过过一天好日子，但她也从来没抱怨什么，都是任劳任怨的。但就是这么个好女子，在家庭富裕之后没逃离病魔的侵袭，没享受过一天有钱人的生活。每次读到这都感到挺惋惜的。。。</p>
 <p>这就是平凡的生活吧，平凡到每个人都有喜怒哀乐，都有生老病死。</p>
-<p>这一年呢，内卷这词也是频繁出现，自己是真的卷不动了。身体呢永远是最前面的1，其他的都是后面的0<br><img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/%E5%86%85%E5%8D%B7.png"></p>
-<h2 id="0x06"><a href="#0x06" class="headerlink" title="0x06"></a>0x06</h2><p>2021年呢没去什么地方玩过，唯一的一次是去了西游洞，这也是很久很久之前就想去的景点了<br>下面是随手拍的几张。再忙也要抽空出去玩一玩，工作是为了更好的生活，不管怎么样呢都要找到这其中的平衡点<br>|  |  |<br>|:—-:|:—-:|<br>|<img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/2001.jpg"><br>|<img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/2002.jpg">|<br>|<img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/2003.jpg"><br>|<img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/2004.jpg"><br>|</p>
+<p>这一年呢，内卷这词也是频繁出现，自己是真的卷不动了。身体呢永远是最前面的1，其他的都是后面的0<br><img src="https://img-blog.csdnimg.cn/img_convert/8e83a1ad74951b9a1e52104d5475a850.png"></p>
+<h2 id="0x06"><a href="#0x06" class="headerlink" title="0x06"></a>0x06</h2><p>2021年呢没去什么地方玩过，唯一的一次是去了西游洞，这也是很久很久之前就想去的景点了<br>下面是随手拍的几张。再忙也要抽空出去玩一玩，工作是为了更好的生活，不管怎么样呢都要找到这其中的平衡点<br>|  |<br>|:—-:|<br>|<img src="https://img-blog.csdnimg.cn/img_convert/a56fd179db65cf1c97e8853c50e99ad6.png"><br>|<img src="https://img-blog.csdnimg.cn/img_convert/1a538055f257cdb78adfaa79142e0a50.png">|<br>|<img src="https://img-blog.csdnimg.cn/img_convert/dbde25eed099ba4ace2f03a4bac47725.png"><br>|<img src="https://img-blog.csdnimg.cn/img_convert/6e49dd95dce0da82585b15c50ff1d864.png"><br>|</p>
 <h2 id="0x07"><a href="#0x07" class="headerlink" title="0x07"></a>0x07</h2><p>个人公众号、个人博客呢是在2020年中旬左右正式上线的。</p>
 <p>上线后呢时不时还会有些小伙伴来询问博客怎么弄的，还有一些其他技术类问题。也有约稿恰饭的，感谢小伙伴的支持与信任，奈何自己没时间，主要还是比较菜。<br>一直有这么个想法，就是建立一个属于群或者知识星球。大家聚一起可以聊一聊技术、聊一聊日常、吐吐槽等等。<br>等后面有时间有精力就开干吧。在此呢就暂时不立flag了</p>
-<p><img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/1001.png"><br><img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/1002.png"><br><img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/1003.png"><br><img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/1004.png"></p>
+<p><img src="https://img-blog.csdnimg.cn/img_convert/60cfcb20ba3d19b9b3a919e39ee66e3a.png"><br><img src="https://img-blog.csdnimg.cn/img_convert/9d81833159baa8c31d7afa04eb5d35b6.png"><br><img src="https://img-blog.csdnimg.cn/img_convert/3ac60de9bdeed52bfbcfa293e537816e.png"><br><img src="https://img-blog.csdnimg.cn/img_convert/8079c416ac413d1e661ddd4da69b147f.png"></p>
 <p>在2021这一年里基本上没怎么打理博客和公众号，文章也停留在了2021年5月，说来也是惭愧。但还是每天都会有一两个小伙伴来关注，</p>
-<p><img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/%E5%85%B3%E6%B3%A8.jpg"></p>
+<p><img src="https://img-blog.csdnimg.cn/img_convert/bd25eaf565d5a4b0a45c68697589fb74.png"></p>
 <p>有一天去逛了下自己博客，发现里面全是各种广告留言，要是能收点广告费就很nice了。<br>现在呢里面的广告呢已删除，希望后面能经常去维护，不断的进入正轨。</p>
 <p><strong>【个人公众号】：</strong> XiezhrSpace </p>
-<p><img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/%E5%BE%AE%E4%BF%A1%E5%85%AC%E4%BC%97%E5%8F%B7-1.png"></p>
 <p><strong>【个人博客】</strong> <a href="http://www.xiezhrspace.cn/">www.xiezhrspace.cn</a></p>
-<p><img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/blog01.png"></p>
+<p><img src="https://img-blog.csdnimg.cn/img_convert/20c506522642c27106cbb6eb334bece4.png"></p>
 <p>相遇便是缘分，感兴趣的小伙伴可以关注一下公众号，经常逛一逛小破站(<strong>疯狂暗示</strong>)。</p>
 <h2 id="0x08"><a href="#0x08" class="headerlink" title="0x08"></a>0x08</h2><p>最后当然是到了立flag环节了。</p>
 <p>2021年flag完成情况</p>
@@ -2637,13 +2637,13 @@ pull：更新到本地
 <li><table>
 <thead>
 <tr>
-<th align="center"></th>
-<th align="center"></th>
+<th align="center">2021</th>
+<th align="center">2022</th>
 </tr>
 </thead>
 <tbody><tr>
-<td align="center"><img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/4001.png"></td>
-<td align="center"><img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/4002.png"></td>
+<td align="center"><img src="https://img-blog.csdnimg.cn/img_convert/47ce1fa494f35a689df21097f0e9bba0.png"></td>
+<td align="center"><img src="https://img-blog.csdnimg.cn/img_convert/1b6d989d77105a0b12bbe7c5d1b57ad0.png"></td>
 </tr>
 </tbody></table>
 </li>
@@ -2658,7 +2658,7 @@ pull：更新到本地
 <li><p>戒骄戒躁，好好工作，好好学习，好好生活</p>
 </li>
 </ul>
-<p>在春节来临之际，祝大家春节快乐！身体越来越健康！学习越来越好！工资越来越高！头发越来越多！</p>
+<p>在春节来临之际，祝大家春节快乐！身体越来越健康！学习越来越好！工资越来越高！头发越来越多</p>
 ]]></content>
       <categories>
         <category>2021</category>

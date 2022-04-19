@@ -927,7 +927,7 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('https://gitee.com/xiezhr/image-learn-bed/raw/master/image/1646493055089linux3.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/xiezhr/xiezhrblog-cdn-source@main/blog-img/1650379983091Linux-cover.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
@@ -1096,7 +1096,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-03-18
+                    2022-04-19
                 </div>
                 
 
@@ -1127,7 +1127,8 @@
             <div id="articleContent">
                 <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>从这篇开始，我们正式开始Linux命令了。</p>
 <p>上一篇中已经预告，我们这篇主要说一说Linux中怎么在命令行下查看命令帮助？Linux怎么关机、重启？</p>
-<h3 id="在命令行下查看命令帮助"><a href="#在命令行下查看命令帮助" class="headerlink" title="在命令行下查看命令帮助"></a>在命令行下查看命令帮助</h3><h4 id="man-命令"><a href="#man-命令" class="headerlink" title="man 命令"></a>man 命令</h4><p>1、简介</p>
+<p><strong>注意：Linux命令和命令后面的选项至少要有一个空格</strong></p>
+<h3 id="一、在命令行下查看命令帮助"><a href="#一、在命令行下查看命令帮助" class="headerlink" title="一、在命令行下查看命令帮助"></a>一、在命令行下查看命令帮助</h3><h4 id="man-命令"><a href="#man-命令" class="headerlink" title="man 命令"></a>man 命令</h4><p>1、简介</p>
 <p>man是Linux核心命令之一，也是我们最常用的命令之一。使用它我们可以查看其他命令的帮助文档</p>
 <p>2、语法格式</p>
 <pre class=" language-shell"><code class="language-shell">man 参数选项 命令/文件
@@ -1137,7 +1138,7 @@
 <p>4、实践操作</p>
 <pre class=" language-shell"><code class="language-shell">man cp   # 差看cp命令的帮助文档
 </code></pre>
-<p>命令行输入 man cp 后，进入到帮助页面。<br><img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/16465720806211646572080359.png"></p>
+<p>命令行输入 man cp 后，进入到帮助页面。<br><img src="https://img-blog.csdnimg.cn/img_convert/7c9cbad2747491da74d2b5faf10d9cbd.png"></p>
 <p>那么我们怎么查看帮助文档呢？</p>
 <p>其实啊，我们把这个单做一个文本文件查看即可，具体操作如下</p>
 <table>
@@ -1185,7 +1186,7 @@
 </tr>
 </tbody></table>
 <p>文档可谓是相当相当的详细了，当然我们也不用关注全部。只需要关注对我们有用的即可，下面列出来的是我们需要重点关注的，上面截图中也重点标注了。</p>
-<p>既然man 出来的帮助文档都这么详细了，那还写文章干嘛呢。。开个玩笑了🤣</p>
+<p>既然man 出来的帮助文档都这么详细了，那还写文章干嘛呢。。开个玩笑哦开玩笑🤣</p>
 <table>
 <thead>
 <tr>
@@ -1220,14 +1221,14 @@
 <p>4、实践操作</p>
 <pre class=" language-shell"><code class="language-shell">cp --help
 </code></pre>
-<p>同样以cp命令帮助文档为例，–help 出来的文档就简单很多了，只有一页，man出来的足足有100多页<br><img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/16465742396131646574238839.png"></p>
+<p>同样以cp命令帮助文档为例，–help 出来的文档就简单很多了，只有一页，man出来的足足有100多页<br><img src="https://img-blog.csdnimg.cn/img_convert/57ca8095cff31c67cb7f177116f3e194.png"></p>
 <h4 id="info命令"><a href="#info命令" class="headerlink" title="info命令"></a>info命令</h4><p>1、简介</p>
 <p>info 可以配合man、–help 使用，但我们用的比较少</p>
 <p>2、语法格式</p>
 <pre class=" language-shell"><code class="language-shell">info cp
 </code></pre>
 <p>由于用的比较少，这里就不作说明了，大概知道就好了</p>
-<h3 id="Linux关机、重启"><a href="#Linux关机、重启" class="headerlink" title="Linux关机、重启"></a>Linux关机、重启</h3><h4 id="shutdown"><a href="#shutdown" class="headerlink" title="shutdown"></a>shutdown</h4><p>1、简介</p>
+<h3 id="二、Linux关机、重启"><a href="#二、Linux关机、重启" class="headerlink" title="二、Linux关机、重启"></a>二、Linux关机、重启</h3><h4 id="shutdown"><a href="#shutdown" class="headerlink" title="shutdown"></a>shutdown</h4><p>1、简介</p>
 <p>shutdown 用来安全关闭或重启Linux，系统在关闭之前会通知所有登录的用户，系统即将关闭。</p>
 <p>2、语法格式</p>
 <pre class=" language-shell"><code class="language-shell">shutdown [参数选项] 时间 消息
@@ -1261,7 +1262,7 @@
 </code></pre>
 <p>以上只是假设哈，一般我们也不会关闭Linux，再说哪来的小姐姐。哈哈😄</p>
 <h4 id="reboot、halt、poweroff"><a href="#reboot、halt、poweroff" class="headerlink" title="reboot、halt、poweroff"></a>reboot、halt、poweroff</h4><p>1、简介</p>
-<p>halt、poweroff 是reboot 的链接文件，何为链接文件呢？我们可以简单的理解为Windows中的快捷方式。</p>
+<p>halt、poweroff 时reboot 的链接文件，何为链接文件呢？我们可以简单的理解为Windows中的快捷方式。</p>
 <p>halt 立即关闭系统，需要人工关闭电源；poweroff:立即关闭系统，并且关闭电源</p>
 <p>reboot 立即重启</p>
 <p>2、语法格式</p>
@@ -1326,8 +1327,8 @@ poweroff [参数选项]
 </tr>
 </table>
 
-<p>这期内容就到这，下期根据思维导图就到了文件和目录操作相关的命令使用了。</p>
-<p>涉及到的命令有：pwd、cd、mkdir、touch、rm、ls、cp、mv、chmod、chown、find等等核心命令</p>
+<p>这期内容就到这，下期根据<strong>思维导图</strong>就到了文件和目录相关的命令使用了。</p>
+<p>涉及到的命令包括：cd、pwd、ls、mkdir、tree、touch、cp、mv、rm、chown、chmod<br>等等</p>
 <p>敬请期待哦(●’◡’●)</p>
 <p>相关文章</p>
 <ul>
@@ -1587,7 +1588,7 @@ poweroff [参数选项]
         
         box-sizing: border-box;
         /* background: url("https://cdn.jsdelivr.net/gh/xiezhr/xiezhrblog-cdn-source/source/medias/comment_bg.webp") 100% 100% no-repeat; */
-        background-image: url("https://cdn.jsdelivr.net/gh/xiezhr/xiezhrblog-cdn-source/source/medias/simiao.gif");
+        background-image: url("https://cdn.jsdelivr.net/gh/xiezhr/xiezhrblog-cdn-source/source/medias/hongmiaosi.gif");
         background-size: contain;
         background-repeat: no-repeat;
         background-position:right;
@@ -1942,7 +1943,7 @@ poweroff [参数选项]
                 <a href="/archives/324ec8c8.html">
                     <div class="card-image">
                         
-                        <img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/1646493055089linux3.jpg" class="responsive-img" alt="快速上手Linux核心命令（一）：核心命令简介">
+                        <img src="https://cdn.jsdelivr.net/gh/xiezhr/xiezhrblog-cdn-source@main/blog-img/1650379983091Linux-cover.jpg" class="responsive-img" alt="快速上手Linux核心命令（一）：核心命令简介">
                         
                         <span class="card-title">快速上手Linux核心命令（一）：核心命令简介</span>
                     </div>
