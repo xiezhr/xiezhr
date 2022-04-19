@@ -1217,7 +1217,7 @@
         },
         xAxis: {
             type: 'category',
-            data: ["2021-03","2021-04","2021-05","2021-06","2021-07","2021-08","2021-09","2021-10","2021-11","2021-12","2022-01","2022-02","2022-03"]
+            data: ["2021-04","2021-05","2021-06","2021-07","2021-08","2021-09","2021-10","2021-11","2021-12","2022-01","2022-02","2022-03","2022-04"]
         },
         yAxis: {
             type: 'value',
@@ -1227,7 +1227,7 @@
                 name: '文章篇数',
                 type: 'line',
                 color: ['#6772e5'],
-                data: [2,1,1,2,0,0,0,0,0,0,1,2,3],
+                data: [1,1,2,0,0,0,0,0,0,1,2,3,0],
                 markPoint: {
                     symbolSize: 45,
                     color: ['#fa755a','#3ecf8e','#82d3f4'],
@@ -1269,7 +1269,7 @@
                 type: 'pie',
                 radius: '50%',
                 color: ['#6772e5', '#ff9e0f', '#fa755a', '#3ecf8e', '#82d3f4', '#ab47bc', '#525f7f', '#f51c47', '#26A69A'],
-                data: [{"name":"内网穿透","value":1},{"name":"2021","value":1},{"name":"Oracle","value":5},{"name":"IntelliJ IDEA","value":1},{"name":"Ngrok","value":1},{"name":"年终总结","value":1},{"name":"Linux","value":5},{"name":"SQL","value":1},{"name":"日常小技巧","value":1},{"name":"mybatis","value":2},{"name":"IDEA","value":1},{"name":"mysql","value":1},{"name":"weblogic","value":1},{"name":"采访提纲","value":1},{"name":"内置函数","value":1},{"name":"windows","value":2},{"name":"hexo","value":1},{"name":"数据库备份","value":2},{"name":"Linux 核心命令","value":3},{"name":"uTools","value":1},{"name":"觉醒年代","value":1},{"name":"2020","value":1},{"name":"问卷调查","value":1},{"name":"Java","value":1},{"name":"道哥","value":1},{"name":"ftp","value":1},{"name":"bat","value":1},{"name":"windows server","value":1},{"name":"Linux","value":1},{"name":"效率工具","value":1},{"name":"观后感","value":1},{"name":"年终总结","value":1},{"name":"大学生","value":1},{"name":"吴瀚清","value":1},{"name":"批处理","value":1},{"name":"IT专业","value":1}],
+                data: [{"name":"IntelliJ IDEA","value":1},{"name":"内网穿透","value":1},{"name":"2021","value":1},{"name":"Oracle","value":5},{"name":"IDEA","value":1},{"name":"Ngrok","value":1},{"name":"Linux","value":5},{"name":"年终总结","value":1},{"name":"日常小技巧","value":1},{"name":"mybatis","value":2},{"name":"内置函数","value":1},{"name":"mysql","value":1},{"name":"Java","value":1},{"name":"weblogic","value":1},{"name":"windows","value":2},{"name":"采访提纲","value":1},{"name":"SQL","value":1},{"name":"hexo","value":1},{"name":"Linux 核心命令","value":3},{"name":"ftp","value":1},{"name":"道哥","value":1},{"name":"吴瀚清","value":1},{"name":"bat","value":1},{"name":"数据库备份","value":2},{"name":"uTools","value":1},{"name":"批处理","value":1},{"name":"觉醒年代","value":1},{"name":"2020","value":1},{"name":"Linux","value":1},{"name":"问卷调查","value":1},{"name":"windows server","value":1},{"name":"效率工具","value":1},{"name":"观后感","value":1},{"name":"年终总结","value":1},{"name":"大学生","value":1},{"name":"IT专业","value":1}],
                 itemStyle: {
                     emphasis: {
                         shadowBlur: 10,
@@ -1293,7 +1293,7 @@
         xAxis: [
             {
                 type: 'category',
-                data: ["Linux","Oracle","Linux 核心命令","年终总结","mybatis","windows","数据库备份","内网穿透","Ngrok","2021"]
+                data: ["Linux","Oracle","Linux 核心命令","年终总结","mybatis","windows","数据库备份","IntelliJ IDEA","IDEA","Java"]
             }
         ],
         yAxis: [
@@ -1507,6 +1507,20 @@
         <div class="tag-chips center-align">
             
             
+            <a href="/tags/IntelliJ-IDEA/">
+                <span class="chip center-align waves-effect waves-light chip-default">IntelliJ IDEA</span>
+            </a>
+            
+            
+            
+            <a href="/tags/IDEA/">
+                <span class="chip center-align waves-effect waves-light chip-default">IDEA</span>
+            </a>
+            
+            
+            
+            
+            
             <a href="/tags/%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F/">
                 <span class="chip center-align waves-effect waves-light chip-default">内网穿透</span>
             </a>
@@ -1537,25 +1551,11 @@
             
             
             
-            
-            
-            <a href="/tags/IntelliJ-IDEA/">
-                <span class="chip center-align waves-effect waves-light chip-default">IntelliJ IDEA</span>
-            </a>
-            
-            
-            
-            <a href="/tags/IDEA/">
-                <span class="chip center-align waves-effect waves-light chip-default">IDEA</span>
-            </a>
-            
-            
-            
-            
-            
             <a href="/tags/%E5%86%85%E7%BD%AE%E5%87%BD%E6%95%B0/">
                 <span class="chip center-align waves-effect waves-light chip-default">内置函数</span>
             </a>
+            
+            
             
             
             
@@ -1583,8 +1583,26 @@
             
             
             
+            <a href="/tags/Oracle%E5%87%BD%E6%95%B0/">
+                <span class="chip center-align waves-effect waves-light chip-default">Oracle函数</span>
+            </a>
+            
+            
+            
             <a href="/tags/weblogic/">
                 <span class="chip center-align waves-effect waves-light chip-default">weblogic</span>
+            </a>
+            
+            
+            
+            <a href="/tags/windows/">
+                <span class="chip center-align waves-effect waves-light chip-default">windows</span>
+            </a>
+            
+            
+            
+            <a href="/tags/ftp/">
+                <span class="chip center-align waves-effect waves-light chip-default">ftp</span>
             </a>
             
             
@@ -1603,24 +1621,6 @@
             
             <a href="/tags/%E5%90%B4%E7%80%9A%E6%B8%85/">
                 <span class="chip center-align waves-effect waves-light chip-default">吴瀚清</span>
-            </a>
-            
-            
-            
-            <a href="/tags/windows/">
-                <span class="chip center-align waves-effect waves-light chip-default">windows</span>
-            </a>
-            
-            
-            
-            <a href="/tags/ftp/">
-                <span class="chip center-align waves-effect waves-light chip-default">ftp</span>
-            </a>
-            
-            
-            
-            <a href="/tags/Oracle%E5%87%BD%E6%95%B0/">
-                <span class="chip center-align waves-effect waves-light chip-default">Oracle函数</span>
             </a>
             
             

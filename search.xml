@@ -4,7 +4,7 @@
     <title>快速上手Linux核心命令（三）：文件和目录操作命令</title>
     <url>/archives/b55ad976.html</url>
     <content><![CDATA[<h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>这期呢主要说一说Linux中文件与目录相关的命令，一共包含19个命令</p>
-<p><img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/16468359076451646835906780.png"></p>
+<p><img src="https://img-blog.csdnimg.cn/img_convert/89f128511386d14639d614d8f91e7aec.png"></p>
 <h3 id="cd-切换目录"><a href="#cd-切换目录" class="headerlink" title="cd 切换目录"></a>cd 切换目录</h3><p>1、简介</p>
 <p>cd 是“change directory” 中每个单词的首字母，其功能是从当前目录切换到目标路径。</p>
 <p>2、语法格式</p>
@@ -231,7 +231,7 @@ a.txt  b.txt  c.txt  dir1  dir2  dir3  tt.txt  xiezhr.txt
 ├── dir3
 ├── tt.txt
 ├── xiezhr
-│   └── test
+│   └── test
 └── xiezhr.txt
 
 5 directories, 5 files
@@ -274,7 +274,7 @@ a.txt  b.txt  c.txt  dir1  dir2  dir3  tt.txt  xiezhr.txt
 ├── dir3
 ├── tt.txt
 ├── xiezhr
-│   └── test
+│   └── test
 └── xiezhr.txt
 
 6 directories, 5 files
@@ -319,7 +319,7 @@ a.txt  b.txt  c.txt  dir1  dir2  dir3  tt.txt  xiezhr.txt
 ├── ./dir3
 ├── ./tt.txt
 ├── ./xiezhr
-│   └── ./xiezhr/test
+│   └── ./xiezhr/test
 └── ./xiezhr.txt
 
 6 directories, 5 files
@@ -366,7 +366,7 @@ xiezhr.txt
 ├── dir3/
 ├── tt.txt
 ├── xiezhr/
-│   └── test/
+│   └── test/
 └── xiezhr.txt
 
 6 directories, 5 files
@@ -644,8 +644,8 @@ total 20
 drwxr-xr-x 3 xiezhr xiezhr 4096 Mar 13 16:08 dir
 drwxr-xr-x 2 root   root   4096 Mar 10 23:38 dir3
 </code></pre>
-<p><img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/16472722797261647272278869.png"></p>
-<p><img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/1647272709727chmod2.png"></p>
+<p><img src="https://img-blog.csdnimg.cn/img_convert/92b239abb8c9d9173e7a5d034955fdae.png"></p>
+<p><img src="https://img-blog.csdnimg.cn/img_convert/c140936a1df701a1a6f3947ef66b7c40.png"></p>
 <p>如上图所示，</p>
 <ul>
 <li><p>Linux权限分为三级 : 文件所有者（Owner）、用户组（Group）、其它用户（Other Users）</p>
@@ -968,7 +968,7 @@ a.txt
 /home/test/dir/linka
 /home/test/dir/lna
 </code></pre>
-<p><img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/16474422349311647442234066.png"></p>
+<p><img src="https://img-blog.csdnimg.cn/img_convert/53a504aaf0312e816e5e24bb0381bca1.png"></p>
 <p>参照上图所示</p>
 <ul>
 <li><input checked="" disabled="" type="checkbox"> -4 代表文件更改时间距离现在4天以内</li>
