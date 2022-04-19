@@ -2963,7 +2963,8 @@ pull：更新到本地
     <title>打开windows批处理大门</title>
     <url>/archives/6c7596dd.html</url>
     <content><![CDATA[<p>大家好，我是xiezhr。</p>
-<h2 id="1-前言"><a href="#1-前言" class="headerlink" title="1 前言"></a>1 前言</h2><p>打开公众号历史文章，上一篇文章是2021年3月20号更新的，又拖更了。</p>
+<h2 id="1-前言"><a href="#1-前言" class="headerlink" title="1 前言"></a>1 前言</h2><p>打开历史文章一看，上一篇文章是2021年3月20号更新的，又拖更了。</p>
+<p><img src="https://img-blog.csdnimg.cn/img_convert/ef3545addf6f1e1a95e5d8bd436c14ed.gif"></p>
 <p>一个原因是，最近工作上真的挺忙的，有比较着急需要加班加点赶的需求。好在清明前算是把比较着急的改好了。本来安排清明也是要加班的，但是真的加不动了。（连着加班真的挺影响效率的，适当休息是非常有必要的~）</p>
 <p>以至于一周都是在连轴转，需求改好更新之后也是心惊胆战的，生怕哪个地方出现问题，大脑一度都处于紧绷状态。</p>
 <p>其次呢写一篇公众号文章还是挺费时费力的，又不想草率的更新一篇上去，这样还不如不写。</p>
@@ -2983,10 +2984,10 @@ pull：更新到本地
 </ul>
 <p>废话不多说，直接上一个例子，感受下批处理的魅力 O(∩_∩)O哈哈~</p>
 <p>下面是一个以批处理创建的计算器小例子，打开xiezhr.bat 后效果如下</p>
-<p><img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/doc-jsq-menu.png"></p>
-<p><img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/%E5%8A%A0%E5%87%8F%E4%B9%98%E9%99%A4%E8%BF%90%E7%AE%97.png"></p>
-<p><img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/doc-%E6%AC%A1%E6%96%B9.png"></p>
-<p><img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/doc-help.png"></p>
+<p><img src="https://img-blog.csdnimg.cn/img_convert/b1801001b8f34bfe1e01361aa26d962e.png"></p>
+<p><img src="https://img-blog.csdnimg.cn/img_convert/2abd19999c727c5275a3ffee2aab947b.png"></p>
+<p><img src="https://img-blog.csdnimg.cn/img_convert/e774f91f92b6a152685b0423a0faffc9.png"></p>
+<p><img src="https://img-blog.csdnimg.cn/img_convert/61f6ae9e43a997db20d9b1bed1a480c9.png"></p>
 <h2 id="4-批处理常用符号"><a href="#4-批处理常用符号" class="headerlink" title="4 批处理常用符号"></a>4 批处理常用符号</h2><h3 id="4-1"><a href="#4-1" class="headerlink" title="4.1 @"></a>4.1 @</h3><blockquote>
 <p>回显屏蔽</p>
 </blockquote>
@@ -3780,9 +3781,9 @@ rem 2 if/else 语句
 if (condition) (do_something) ELSE (do_something_else)
 </code></pre>
 <p>if 语句</p>
-<p><img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/if.png"></p>
+<p><img src="https://img-blog.csdnimg.cn/img_convert/4b4f821f688a663082df1ddc00e429a1.png"></p>
 <p>if/else 语句</p>
-<p><img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/iflese.png"></p>
+<p><img src="https://img-blog.csdnimg.cn/img_convert/ee7ce945dfe0b90e8bf197272f8aa47c.png"></p>
 <p>② 举例</p>
 <pre class=" language-bat"><code class="language-bat">rem  如果d盘存在xiezhr.bat 则输出“存在d:xiezhr.bat文件”
 if exist d:xiezhr.bat echo 存在d:xiezhr.bat文件
@@ -3849,7 +3850,7 @@ echo %p%
 )
 pause
 </code></pre>
-<p><img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/pause.png"></p>
+<p><img src="https://img-blog.csdnimg.cn/img_convert/157c87d19598b592a120d43e6ca00091.png"></p>
 <ul>
 <li>用文本编辑器打开xiezhr.bat 文件，检查命令是否都书写正确</li>
 </ul>
@@ -3863,7 +3864,7 @@ pause
 <p>解决办法</p>
 </blockquote>
 <ul>
-<li>用【记事本】打开&gt;【另存为】&gt;【修改编码为：utf-8】<br><img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/utf-8.png"></li>
+<li>用【记事本】打开&gt;【另存为】&gt;【修改编码为：utf-8】<br><img src="https://img-blog.csdnimg.cn/img_convert/140c82661978ea31f06da615b761cf5e.png"></li>
 </ul>
 ]]></content>
       <categories>
@@ -5048,39 +5049,39 @@ pipe <span class="token keyword">row</span><span class="token punctuation">(</sp
     <title>迟来的2020年年终总结</title>
     <url>/archives/23431c72.html</url>
     <content><![CDATA[<h2 id="序言"><a href="#序言" class="headerlink" title="序言"></a>序言</h2><p>转眼间，2020年就这么过去了。2020对于每个人来说应该都是不平凡的一年，毕竟这一年太特殊了，一场席卷全世界的疫情来了。</p>
-<p><img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/%E7%97%85%E6%AF%92%E6%9D%A5%E8%A2%AD.jpg"></p>
-<p>回想这一年，疫情改变了我们工作方式、生活方式。也让我们感受到活着真好。<br><img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/%E6%B4%BB%E7%9D%80.png"></p>
+<p><img src="https://img-blog.csdnimg.cn/img_convert/bc6ceb3fe4aaa653e1349cdc3ae94b9c.png"></p>
+<p>回想这一年，疫情改变了我们工作方式、生活方式。也让我们感受到活着真好。<br><img src="https://img-blog.csdnimg.cn/img_convert/44e836252c98061ae617c036c2b28b18.png"></p>
 <h2 id="疫情到来"><a href="#疫情到来" class="headerlink" title="疫情到来"></a>疫情到来</h2><p>放假刚回家那时，确诊就有那么几例，当时还不以为然，都想着过几天应该就好了。还计划着要去哪哪玩，万万没想到，新冠病毒传染这么快，一下就袭卷了全国。随着武汉严重到封城之后，确诊病例也是蹭蹭往上涨，我们那也开始封村了，村委会开始挨家挨户的查情况，询问有没有去过武汉，从哪回来，有路过武汉的都去隔离了。每天村委会的都来询问体温，有没有发烧的情况，确认后签字。</p>
-<p><img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/%E6%A3%80%E6%9F%A5%E4%BD%93%E6%B8%A9.jpg"><br>           封村</p>
-<p><img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/%E5%B0%81%E6%9D%91.jpg"></p>
+<p><img src="https://img-blog.csdnimg.cn/img_convert/3d71a3e83ca333c65dc1ad1e370ec9d2.png"><br>           封村</p>
+<p><img src="https://img-blog.csdnimg.cn/img_convert/10d86ecda0d25e89bfca83a01b69e849.png"></p>
 <p>一家人都被这疫情阴影笼罩着。口罩更是重金难求，家里唯一的几个口罩是弟弟回来时候买的。 再加上那几天自己感冒了，顺带又有点咳嗽，瞬间整个人都不好了。这样一直持续了一周左右，然后感冒好了，整个人也轻松了一些。真的很庆幸这个时候一家人都在，也庆幸自己在农村，相对其他人活动范围更广了。</p>
-<p>可以到山上逛逛，透透气。<br><img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/%E5%B1%B1%E4%B8%8A1.jpg"><br><img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/%E5%B1%B1%E4%B8%8A2.jpg"><br>挖点野菜。<br><img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/%E9%A9%AC%E5%88%BA%E6%A0%B9.jpg"></p>
+<p>可以到山上逛逛，透透气。<br><img src="https://img-blog.csdnimg.cn/img_convert/b3c032c0d611d10d47953ae5490cedd7.png"><br><img src="https://img-blog.csdnimg.cn/img_convert/42cf59a407a3913e869d2266e9ffb279.png"><br>挖点野菜。<br><img src="https://img-blog.csdnimg.cn/img_convert/f551c7f50517a82c0fb5737a8268419d.png"></p>
 <p>找点树花（凉拌真的好吃）</p>
-<p><img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/%E6%A0%91%E8%8A%B1.jpg"></p>
+<p><img src="https://img-blog.csdnimg.cn/img_convert/fcb6c1294818552ccac7a38ec42204e0.png"></p>
 <p>由于疫情的影响，上班时间也往后延了。期待已久的在家办公来了，但是呢待在家办公真的没想象的那么好，一方面是家里网络不太好，缺少正常办公的条件。其次是每天都有看不完的培训课，做不完的题。。。</p>
 <h2 id="学习娱乐"><a href="#学习娱乐" class="headerlink" title="学习娱乐"></a>学习娱乐</h2><p>这一年疫情彻底打乱了我们的工作生活，但这也阻挡不了学习的脚步。</p>
 <p>刚开始来B站呢是为了看动漫，灵笼、三体、凡人修仙传 这些动漫真滴不错。。。</p>
-<p>不要打扰我，我要学习了。<br><img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/%E6%88%91%E8%A6%81%E5%AD%A6%E4%B9%A0.jpg"></p>
+<p>不要打扰我，我要学习了。<br><img src="https://img-blog.csdnimg.cn/img_convert/2afe4f6d489b0e2f5987de46b1d6c125.png"></p>
 <p>B站逛得久了呢，发现了不少优秀的up主。从此沉迷B站无法自拔，抖音什么的都卸载了。</p>
 <p>有美食区的如徐大sao、美食家王刚、李子柒、壮乡小莫、华农兄弟等等，不知道为啥，就是挺喜欢看他们的视频；</p>
 <p>音乐区的邓园长声音很好听；</p>
 <p>读书区的小圆脸Paprika、suelence、江湖举人等，不知道看什么书的时候可以看看他们的视频，一堆书单就来了，可惜自己太懒了没读多少书，曾经加的一个读书群呢也因为有两个月没写书评，然后被无情的踢出了群聊；</p>
 <p>科技区的老师好我是何同学、科技美学，更新的视频呢也基本都看。</p>
-<p>最后呢，作为社会底层的普通程序猿，必须要时刻学习新知识。这方面呢当然也关注了不少编程类的优秀up主，如遇见狂神说、codesheep、三太子敖丙、guide哥、我是程序汪等。<br>这一年下来呢也看了不少他们的视频，学到了不少新知识。<br><img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/%E5%AD%A6%E4%B9%A0%E6%88%98%E6%96%97%E5%8C%BA.jpg"><br><img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/B%E7%AB%99%E5%AD%A6%E4%B9%A0%E8%A7%86%E9%A2%91.jpg"><br><img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/%E9%81%87%E8%A7%81%E7%8B%82%E7%A5%9E%E8%AF%B4B%E7%AB%99.jpg"></p>
+<p>最后呢，作为社会底层的普通程序猿，必须要时刻学习新知识。这方面呢当然也关注了不少编程类的优秀up主，如遇见狂神说、codesheep、三太子敖丙、guide哥、我是程序汪等。<br>这一年下来呢也看了不少他们的视频，学到了不少新知识。<br><img src="https://img-blog.csdnimg.cn/img_convert/99e51750fa280e21c5189e0c64ec043b.png"><br><img src="https://img-blog.csdnimg.cn/img_convert/d67db3cf5eaf961fd83335feff10f7f6.png"><br><img src="https://img-blog.csdnimg.cn/img_convert/af1c3ab61de9557267016204ce8d726a.png"></p>
 <p>在跟着【遇见狂神说】学习的时候呢，也跟着将自己的一些代码、资料之类的提交到了gitee和github上面,以后呢也要坚持，保持好的习惯。</p>
 <p><strong>gitee:</strong><a href="https://gitee.com/xiezhr">访问我的gitee</a></p>
-<p><img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/gitee%E4%B8%BB%E9%A1%B5%E6%88%AA%E5%9B%BE.png"></p>
-<p><img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/gitee%E9%A1%B9%E7%9B%AE%E6%88%AA%E5%9B%BE.png"></p>
-<p>github:<a href="https://github.com/xiezhr">访问我的github</a><br>有点可怜，这么好的学习社区，没好好利用。。<br><img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/github%E4%B8%BB%E9%A1%B5%E6%88%AA%E5%9B%BE.png"></p>
+<p><img src="https://img-blog.csdnimg.cn/img_convert/40bb7f3f8242af6e6ce941739b56fc0d.png"></p>
+<p><img src="https://img-blog.csdnimg.cn/img_convert/991c5618ef7f0048585412e66fa5159b.png"></p>
+<p>github:<a href="https://github.com/xiezhr">访问我的github</a><br>有点可怜，这么好的学习社区，没好好利用。。<br><img src="https://img-blog.csdnimg.cn/img_convert/920e77d04f46ad46a0f8c61054d9fd16.png"></p>
 <p>自己也在B站分享了一些工作中有用的视频资料，当初找这些资料真的花费了不少心思，很难找。有的还是在某宝上买的。</p>
-<p>*<em>个人B站主页：</em><a href="https://space.bilibili.com/305330347">个人B站主页</a><br><img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/xiezhrB%E7%AB%99%E4%B8%BB%E9%A1%B5.png"><br><img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/B%E7%AB%99%E6%8A%95%E7%A8%BF%E8%A7%86%E9%A2%91.jpg"></p>
+<p>*<em>个人B站主页：</em><a href="https://space.bilibili.com/305330347">个人B站主页</a><br><img src="https://img-blog.csdnimg.cn/img_convert/57442b6ebaceac7f1757be2545c2f6fa.png"><br><img src="https://img-blog.csdnimg.cn/img_convert/35059f4ba420f9d7448a71b068e90a20.png"></p>
 <p>感兴趣的小伙伴可以关注一波，如果有些视频对你有所帮助呢，记得一键三连、这次一定哟！</p>
-<p>之前呢也在知乎上写过一个回答 <a href="https://www.zhihu.com/question/424363061/answer/1521446749">能推荐优秀的Java方面的up主吗？</a>  到目前为止已经获得了1.5K点赞，收藏超过5K。看来有那么多小伙伴也都选择在B站学习，自己并非孤家寡人一个。<br><img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/%E4%BC%98%E7%A7%80up%E4%B8%BB.png"></p>
+<p>之前呢也在知乎上写过一个回答 <a href="https://www.zhihu.com/question/424363061/answer/1521446749">能推荐优秀的Java方面的up主吗？</a>  到目前为止已经获得了1.5K点赞，收藏超过5K。看来有那么多小伙伴也都选择在B站学习，自己并非孤家寡人一个。<br><img src="https://img-blog.csdnimg.cn/img_convert/c19c2bd8fe21603d4856db2c14874723.png"></p>
 <h2 id="个人公众号创建"><a href="#个人公众号创建" class="headerlink" title="个人公众号创建"></a>个人公众号创建</h2><p>一直都想创建一个属于自己的个人公众号。初衷就是为了分享和记录一些工作中看得懂、用的到的资源和文章。</p>
 <p>记录一些遇到过的坑踩过的雷，防止再次掉坑里。。。</p>
 <p>这个想法呢在2017年就有了，当时已蠢蠢欲动，并成功申请到了自己公众号。</p>
 <p>记得当年还借用了弟弟的学生号买了云服务器，并在自己服务器上搭建了微信公众号应用程序。</p>
-<p>后面呢由于自己太懒，长时间没更新打理，这个公众号就这么夭折了。<br><img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/%E4%B8%AA%E4%BA%BA%E5%85%AC%E4%BC%97%E5%8F%B7%E5%89%8D%E8%BA%AB.jpg"></p>
+<p>后面呢由于自己太懒，长时间没更新打理，这个公众号就这么夭折了。<br><img src="https://img-blog.csdnimg.cn/img_convert/02cd9dd27c53d148e0b8d3607935b068.png"></p>
 <p>直到今年心血来潮，又想弄一个。可是再去找之前申请的公众号的时候，发现账号已经被注销，已经没法找回。</p>
 <p>真是欲哭无泪，2018年2月后注册的公众号就没了留言功能。当然也没这么快就放弃了，就疯狂的在网上找怎么样才能开通留言功能。</p>
 <p>找到的结果无非就是砸钱呗。</p>
@@ -5091,14 +5092,14 @@ pipe <span class="token keyword">row</span><span class="token punctuation">(</sp
 <p>要持续输出那就得不断的输入，就要不断学习不断积累</p>
 <p><strong>【个人公众号】：</strong> XiezhrSpace</p>
 <p>欢迎小伙伴们来关注</p>
-<p><img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/%E5%BE%AE%E4%BF%A1%E5%85%AC%E4%BC%97%E5%8F%B7-1.png"></p>
+<p><img src="https://img-blog.csdnimg.cn/img_convert/ee8e4d559a3365f65a3f1fbca3105243.png"></p>
 <h2 id="个人博客正式上线"><a href="#个人博客正式上线" class="headerlink" title="个人博客正式上线"></a>个人博客正式上线</h2><p>本来想着用自己所掌握的知识敲一个，也当练练手，巩固知识。只可惜真的没时间没时间去搞。这一年除了加班就是在加班的路上，一个字就是累。 </p>
 <p>当然在网上有不少优秀的开源博客，其中有动态博客（Halo、OneBlog、Solo、蘑菇博客、wordpress、plumemo）静态博客（hexo、jekyll、gohugo、vuepress）</p>
 <p>也逛了不少个人博客，然后发现一个挺漂亮的博客:<a href="https://nekodeng.gitee.io/">itsNekoDeng</a>,博客是用hexo搭建的主题是Matery。hexo也是用的比较多得，而且主题也比较多。</p>
 <p>于是决定选hexo框架搭建博客，主题选择Matery，在域名备案和云服务器都准备好后，2020年11月17日 博客正式上线了。</p>
 <p><strong>【博客地址】：</strong> <a href="http://www.xiezhrspace.cn/">www.xiezhrspace.cn</a>  欢迎小伙伴来关注哦。</p>
-<p><img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/blog01.png"></p>
-<p><img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/blog02.png"></p>
+<p><img src="https://img-blog.csdnimg.cn/img_convert/65dfc449de0dabcdabb671619d0771bc.png"></p>
+<p><img src="https://img-blog.csdnimg.cn/img_convert/73a3dccce62a3b1fcae5dbadc209aeb7.png"></p>
 <p>博客上线之后，维护博客也不是一件容易的事。</p>
 <ul>
 <li><p>服务器开支 赶上双十一活动剁手买了三年最低配的轻量级腾讯云服务器+域名。有点心疼。。然后呢就把之前开的腾讯会员、爱奇艺会员、喜马拉雅会员都停了。┭┮﹏┭┮  ┭┮﹏┭┮  也希望能得到小伙伴的赞助，你的赞赏是我前进的动力。<br>博客赞赏地址：<a href="http://xiezhrspace.cn/sponsorship/">http://xiezhrspace.cn/sponsorship/</a>   来留个言也可以 哈哈~</p>
@@ -5106,7 +5107,7 @@ pipe <span class="token keyword">row</span><span class="token punctuation">(</sp
 <li><p>头像选择。就因为头像的选择折腾了好几天（挠头挠头），也问了朋友意见。在某宝上也看过，最后呢还是根据自己唯一会的一点ps P了一个。寓意：再小的帆也能远航</p>
 </li>
 </ul>
-<p><img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/logo-xiezhr.png"></p>
+<p><img src="https://img-blog.csdnimg.cn/img_convert/f0f5980505b87d19962b749b2afd084e.png"></p>
 <ul>
 <li><p>博客优化 刚开始上线的时候博客真的有点卡，群里小伙伴给了解决方案。</p>
 </li>
@@ -5118,7 +5119,7 @@ pipe <span class="token keyword">row</span><span class="token punctuation">(</sp
 <p>但是呢都没有实际操作过，年假结束后因为疫情原因上班时间延后了。兄弟两人呆在家里便看起了股票，记得年后股市刚开盘，当时大盘跌到了3000点以下，跌了两三天之后医疗、口罩、线上培训、游戏相关行业就开始疯狂涨了</p>
 <p>蠢蠢欲动的我们先后开通了股票账户，可惜还是错过了最佳时机。小弟买的那只倒是几天内赚了1000多块，自己买的就不那么顺利了，红了几天然后又绿了然后又红了。。如此反反复复。好在后面回本之后就全部卖了，也没亏钱。</p>
 <p>到此，股票投资算是告一段落。没啥事可做的我又开始在B站上听狂神说的课，无意间发现里面有几篇投稿视频是关于基金投资的。听完之后又入坑基金了。</p>
-<p>根据视频和之前看的一些帖子，便在蚂蚁财富选了几只自己觉得优质的基金，每周定投。这样坚持了快一年。。好在没被当做韭菜割了，赚了那么一点点。。<br><img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/%E7%90%86%E8%B4%A2.jpg"></p>
+<p>根据视频和之前看的一些帖子，便在蚂蚁财富选了几只自己觉得优质的基金，每周定投。这样坚持了快一年。。好在没被当做韭菜割了，赚了那么一点点。。<br><img src="https://img-blog.csdnimg.cn/img_convert/b8261bcd75469eee8b3f1c24a3cc0138.png"></p>
 <p>2020继续坚持吧。。。</p>
 <h2 id="健康问题"><a href="#健康问题" class="headerlink" title="健康问题"></a>健康问题</h2><p>有人说：健康是1，事业、财富、婚姻、名誉种种都是0，有了前面的1，后面的0才有价值。善待自己，健康是福。</p>
 <p>这一年也感触挺深的，爷爷、奶奶、老爸身体都不太好，也是经常往医院跑。</p>
@@ -5130,7 +5131,7 @@ pipe <span class="token keyword">row</span><span class="token punctuation">(</sp
 <p>每次回家呢，都能安安心心、舒舒服服的睡一个懒觉。不管外面工作压力多大，回家总感觉到很轻松。。。</p>
 <p>每年回家过年，最喜欢干的事就是贴对联、30晚守岁，等到12点放鞭炮<br>。不亲自去把这一步做了，就会感觉少了一些年味，过年嘛就是图个年味，虽然每年都会感觉到年味越来越淡了。。。</p>
 <p>这些年也感觉春晚一年不如一年，但是一家人聚在一起看春晚还是挺开心的。</p>
-<p><img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/spring-night-ys.jpg"></p>
+<p><img src="https://img-blog.csdnimg.cn/img_convert/04da507884f8e109927fdc2e2049176e.png"></p>
 <h2 id="2021年flag"><a href="#2021年flag" class="headerlink" title="2021年flag"></a>2021年flag</h2><p>2020年过得很快，回顾这一年，还是经历了不少事，遇到不少人，收获也挺多，个人觉得也算成长了不少。</p>
 <p>新的一年，也立几个跳起来可以够得到的flag吧</p>
 <ul>
@@ -7914,19 +7915,16 @@ EXCEPTION
   <entry>
     <title>如何使用jsDelivr+Github 实现免费CDN加速?</title>
     <url>/archives/c14c115.html</url>
-    <content><![CDATA[<h2 id="序言"><a href="#序言" class="headerlink" title="序言"></a>序言</h2><p>个人采用hexo搭建的博客，博客虽然放到了云服务器上，但是由于博客上传的图片等资源越来越多，请求的资源也越来越多，博客访问速度越来越慢，简直不忍直视。个人博客地址：<a href="https://www.xiezhrspace.cn/">https://www.xiezhrspace.cn</a> 疯狂暗示，欢迎来关注来访问 （‐＾▽＾‐）</p>
-<p>愁了好久，一直在想办法优化，自己在网上也找资料，在和博客交流群的小伙伴交流后便有了解决方案【使用cdn加速】。</p>
+    <content><![CDATA[<p><img src="https://img-blog.csdnimg.cn/img_convert/d192dd3c82eff4ccb5651b1379d91d82.png"></p>
+<h2 id="序言"><a href="#序言" class="headerlink" title="序言"></a>序言</h2><p>个人采用hexo搭建了博客，博客也刚上线不久，博客地址：<a href="https://www.xiezhrspace.cn/">https://www.xiezhrspace.cn</a> 。 欢迎小伙伴访问，疯狂暗示来关注来访问（‐＾▽＾‐）。</p>
+<p>虽然放到了云服务器上，但是由于博客上传的图片等资源越来越多，请求的资源也越来越多，博客访问速度越来越慢，简直不忍直视。</p>
+<p>愁了好久，一直在想办法优化，自己在网上也找资料，在和博客交流群的小伙伴交流后便有了解决方案，【使用cdn加速】。</p>
 <p>但是呢问题又来了，很多云服务提供商的cdn加速都是要根据流量花钱的。虽然网站访问量不多，但是呢能白嫖当然是最好的了。</p>
-<p>在小伙伴推荐后有了两种白嫖方案 </p>
-<ul>
-<li>1.jsDelivr+Github  </li>
-<li>2.又拍云（需要申请账号加入又拍云联盟，个人的申请还未下来）。</li>
-</ul>
-<p>都说又拍云加速会更好一些，但是自己的申请还没办好，而博客访问优化又迫在眉睫，固先采用了第一个方案：jsDelivr+Github 的方案。</p>
+<p>在小伙伴推荐后有了两种白嫖方案 1、jsDelivr+Github  2、又拍云（需要申请账号加入又拍云联盟，个人的申请还未下来）。都说又拍云加速会更好一些，但是自己的申请还没办好，而博客访问优化又迫在眉睫，固先采用了第一个方案：jsDelivr+Github 的方案。</p>
 <p>下面就以jsDelivr+Github 实现免费cdn加速为例，记录自己优化过程。</p>
 <h2 id="1-cdn简介"><a href="#1-cdn简介" class="headerlink" title="1 cdn简介"></a>1 cdn简介</h2><p>cdn 全称Content Delivery Network即内容分发网络。</p>
 <p>CDN是一组分布在多个不同地方的WEB服务器，可以更加有效的向用户提供资源，会根据距离的远近来选择 。使用户能就近的获取请求数据，解决网络拥堵，提高访问速度，解决由于网络带宽小，用户访问量大，网点分布不均等原因导致的访问速度慢的问题。</p>
-<h2 id="2-cdn请求分发原理"><a href="#2-cdn请求分发原理" class="headerlink" title="2 cdn请求分发原理"></a>2 cdn请求分发原理</h2><p><img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/cdn%E5%8E%9F%E7%90%86%E5%9B%BE.webp" alt="cdn分发原理图"></p>
+<h2 id="2-cdn请求分发原理"><a href="#2-cdn请求分发原理" class="headerlink" title="2 cdn请求分发原理"></a>2 cdn请求分发原理</h2><p><img src="https://img-blog.csdnimg.cn/img_convert/37c104e38ef65ec6e4897f54a93a2194.webp?x-oss-process=image/format,png" alt="cdn分发原理图"></p>
 <p>（1）用户向浏览器提供需要访问的域名；</p>
 <p>（2）浏览器调用域名解析库对域名进行解析，由于CDN对域名解析过程进行了调整，所以解析函数库一般得到的是该域名对应的CNAME记录，为了得到实际的IP地址，浏览器需要再次对获得的CNAME域名进行解析以得到实际的IP地址；在此过程中，使用的全局负载均衡DNS解析。如根据地理位置信息解析对应的IP地址，使得用户能就近访问；</p>
 <p>（3）此次解析得到CDN缓存服务器的IP地址，浏览器在得到实际的ip地址之后，向缓存服务器发出访问请求；</p>
@@ -7941,8 +7939,8 @@ https<span class="token punctuation">:</span><span class="token operator">/</spa
 https<span class="token punctuation">:</span><span class="token operator">/</span><span class="token operator">/</span>cdn<span class="token punctuation">.</span>jsdelivr<span class="token punctuation">.</span>net<span class="token operator">/</span>npm<span class="token operator">/</span>bootstrap@<span class="token number">4.4</span><span class="token punctuation">.</span><span class="token number">1</span><span class="token operator">/</span>dist<span class="token operator">/</span>js<span class="token operator">/</span>bootstrap<span class="token punctuation">.</span>js
 </code></pre>
 <p>jsDelivr + Github便是免费且好用的CDN，非常适合博客网站使用</p>
-<h2 id="5-jsDelivr-Github-的具体实现"><a href="#5-jsDelivr-Github-的具体实现" class="headerlink" title="5 jsDelivr + Github 的具体实现"></a>5 jsDelivr + Github 的具体实现</h2><h3 id="5-1-新建Github仓库"><a href="#5-1-新建Github仓库" class="headerlink" title="5.1 新建Github仓库"></a>5.1 新建Github仓库</h3><p><img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20210118212710.png"></p>
-<h3 id="5-2-使用git-clone-命令将仓库克隆到本地"><a href="#5-2-使用git-clone-命令将仓库克隆到本地" class="headerlink" title="5.2 使用git clone 命令将仓库克隆到本地"></a>5.2 使用git clone 命令将仓库克隆到本地</h3><p><img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/clone.png"></p>
+<h2 id="5-jsDelivr-Github-的具体实现"><a href="#5-jsDelivr-Github-的具体实现" class="headerlink" title="5 jsDelivr + Github 的具体实现"></a>5 jsDelivr + Github 的具体实现</h2><h3 id="5-1-新建Github仓库"><a href="#5-1-新建Github仓库" class="headerlink" title="5.1 新建Github仓库"></a>5.1 新建Github仓库</h3><p><img src="https://img-blog.csdnimg.cn/img_convert/f1f3cbacc54eb4abff0ed4af56cfb7d1.png"></p>
+<h3 id="5-2-使用git-clone-命令将仓库克隆到本地"><a href="#5-2-使用git-clone-命令将仓库克隆到本地" class="headerlink" title="5.2 使用git clone 命令将仓库克隆到本地"></a>5.2 使用git clone 命令将仓库克隆到本地</h3><p><img src="https://img-blog.csdnimg.cn/img_convert/ad0914e5f5a709797254ca7bcd631006.png"></p>
 <p>在要放仓库的本地目录右键 Git Bash Here（如果没有安装git的需要提前安装下，都是默认安装即可），并输入以下命令</p>
 <pre class=" language-git"><code class="language-git">git clone https://github.com/xiezhr/mycdn.git
 </code></pre>
@@ -7959,9 +7957,9 @@ git status                    //查看状态
 git commit -m '第一次提交'      //把文件提交到仓库 -m 后面的是备注信息
 git push                      //推送至远程仓库
 </code></pre>
-<p>个人采用的是hexo博客框架，该框架的静态资源（css、js、图片等）都是放在source目录下面，所以呢我是将source目录真个上传上去，这样的好处是路径跟原来的保持一致，后面在调用的时候比较方便。<br><img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/source.png"></p>
-<p>git 窗口输入如上命令之后，文件都上传到了github仓库<br><img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0%E5%90%8E.png"></p>
-<h3 id="5-4-点击release-发布版本"><a href="#5-4-点击release-发布版本" class="headerlink" title="5.4 点击release 发布版本"></a>5.4 点击release 发布版本</h3><p><img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/releases.png"><br>自定义发布版<br><img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/pubshcdn.png"></p>
+<p>个人采用的是hexo博客框架，该框架的静态资源（css、js、图片等）都是放在source目录下面，所以呢我是将source目录真个上传上去，这样的好处是路径跟原来的保持一致，后面在调用的时候比较方便。<br><img src="https://img-blog.csdnimg.cn/img_convert/b5b3417df6d4692ce5e42aee36934a7f.png"></p>
+<p>git 窗口输入如上命令之后，文件都上传到了github仓库<br><img src="https://img-blog.csdnimg.cn/img_convert/e73807875384b87487c9a6e729f11ba1.png"></p>
+<h3 id="5-4-点击release-发布版本"><a href="#5-4-点击release-发布版本" class="headerlink" title="5.4 点击release 发布版本"></a>5.4 点击release 发布版本</h3><p><img src="https://img-blog.csdnimg.cn/img_convert/975fe19ae2d850fa9f45938053c5b9fe.png"><br>自定义发布版<br><img src="https://img-blog.csdnimg.cn/img_convert/fcf15cb10546ee3672eea6235a80fa42.png"></p>
 <h3 id="5-5-通过jsDelivr引用资源"><a href="#5-5-通过jsDelivr引用资源" class="headerlink" title="5.5 通过jsDelivr引用资源"></a>5.5 通过jsDelivr引用资源</h3><p>通过如下地址应用资源</p>
 <pre class=" language-url"><code class="language-url">https://cdn.jsdelivr.net/gh/你的用户名/你的仓库名@发布的版本号/文件路径
 </code></pre>
