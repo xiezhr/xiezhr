@@ -1,0 +1,3389 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="Linux,Linux 核心命令">
+    <meta name="description" content="">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="baidu-site-verification" content="code-uutUfowLsm" />
+    <meta name="msvalidate.01" content="F999DE5405A9F0E56508AD3016F4E45E" />
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <title>快速上手Linux核心命令（四）：文件内容相关命令 | xiezhrspace</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/xiezhr/xiezhrblog-cdn-source/source/libs/awesome/css/all.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/xiezhr/xiezhrblog-cdn-source/source/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/xiezhr/xiezhrblog-cdn-source/source/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/xiezhr/xiezhrblog-cdn-source/source/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/xiezhr/xiezhrblog-cdn-source/source/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/xiezhr/xiezhrblog-cdn-source/source/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/xiezhr/xiezhrblog-cdn-source/source/css/my.css">
+    
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/xiezhr/xiezhrblog-cdn-source/source/libs/artitalk/artitalk.min.css">
+    <!--引入春节样式-->
+    <link rel="stylesheet" type="text/css" href="../../css/spring.css">
+    <!--引入黑夜样式-->
+    <link rel="stylesheet" type="text/css" href="../../css/moon.css">
+    
+
+    <script src="https://cdn.jsdelivr.net/gh/xiezhr/xiezhrblog-cdn-source/source/libs/jquery/jquery.min.js"></script>
+
+    
+        <link type="text/css" href="/js/live2d_assets/waifu.css">
+    
+
+    
+
+<!-- 元宵节灯笼样式开始 -->
+
+    <style>
+        @media only screen and (min-width: 1124px) {
+            .nav-menu {
+                padding-right: 90px;
+            }
+        }
+        @media only screen and (max-width: 760px) {
+            .deng-box, .deng-box1 {
+                width: 40%;
+            }
+            .right {
+                float: left!important;
+            }
+        }
+        @media only screen and (min-width: 768px) and (max-width: 1024px) {
+            .right {
+                float: left!important;
+            }
+        }
+        .deng-box {
+            position: fixed;
+            top: -40px;
+            right: -20px;
+            z-index: 999;
+        }
+        .deng-box1 {
+            position: fixed;
+            top: -30px;
+            right: 10px;
+            z-index: 999;
+        }
+        .deng-box1 .deng {
+            position: relative;
+            width: 120px;
+            height: 90px;
+            margin: 50px;
+            background: #d8000f;
+            background: rgba(216, 0, 15, 0.8);
+            border-radius: 50% 50%;
+            -webkit-transform-origin: 50% -100px;
+            -webkit-animation: swing 5s infinite ease-in-out;
+            box-shadow: -5px 5px 30px 4px rgba(252, 144, 61, 1);
+        }
+        .deng {
+            position: relative;
+            width: 120px;
+            height: 90px;
+            margin: 50px;
+            background: #d8000f;
+            background: rgba(216, 0, 15, 0.8);
+            border-radius: 50% 50%;
+            -webkit-transform-origin: 50% -100px;
+            -webkit-animation: swing 3s infinite ease-in-out;
+            box-shadow: -5px 5px 50px 4px rgba(250, 108, 0, 1);
+        }
+        .deng-a {
+            width: 100px;
+            height: 90px;
+            background: #d8000f;
+            background: rgba(216, 0, 15, 0.1);
+            margin: 12px 8px 8px 10px;
+            border-radius: 50% 50%;
+            border: 2px solid #dc8f03;
+        }
+        .deng-b {
+            width: 45px;
+            height: 90px;
+            background: #d8000f;
+            background: rgba(216, 0, 15, 0.1);
+            margin: -4px 8px 8px 26px;
+            border-radius: 50% 50%;
+            border: 2px solid #dc8f03;
+        }
+        .xian {
+            position: absolute;
+            top: -20px;
+            left: 60px;
+            width: 2px;
+            height: 20px;
+            background: #dc8f03;
+        }
+        .shui-a {
+            position: relative;
+            width: 5px;
+            height: 20px;
+            margin: -5px 0 0 59px;
+            -webkit-animation: swing 4s infinite ease-in-out;
+            -webkit-transform-origin: 50% -45px;
+            background: #ffa500;
+            border-radius: 0 0 5px 5px;
+        }
+        .shui-b {
+            position: absolute;
+            top: 14px;
+            left: -2px;
+            width: 10px;
+            height: 10px;
+            background: #dc8f03;
+            border-radius: 50%;
+        }
+        .shui-c {
+            position: absolute;
+            top: 18px;
+            left: -2px;
+            width: 10px;
+            height: 35px;
+            background: #ffa500;
+            border-radius: 0 0 0 5px;
+        }
+        .deng:before {
+            position: absolute;
+            top: -7px;
+            left: 29px;
+            height: 12px;
+            width: 60px;
+            content: " ";
+            display: block;
+            z-index: 999;
+            border-radius: 5px 5px 0 0;
+            border: solid 1px #dc8f03;
+            background: #ffa500;
+            background: linear-gradient(to right, #dc8f03, #ffa500, #dc8f03, #ffa500, #dc8f03);
+        }
+        .deng:after {
+            position: absolute;
+            bottom: -7px;
+            left: 10px;
+            height: 12px;
+            width: 60px;
+            content: " ";
+            display: block;
+            margin-left: 20px;
+            border-radius: 0 0 5px 5px;
+            border: solid 1px #dc8f03;
+            background: #ffa500;
+            background: linear-gradient(to right, #dc8f03, #ffa500, #dc8f03, #ffa500, #dc8f03);
+        }
+        @font-face {
+            font-family: "华文行楷";
+            src: url('/fonts/华文行楷.ttf');
+        }
+        .deng-t {
+            font-family: 华文行楷;
+            font-size: 26px;
+            color: #dc8f03;
+            font-weight: bold;
+            line-height: 44px;
+            text-align: center;
+        }
+        .night .deng-t,
+        .night .deng-box,
+        .night .deng-box1 {
+            background: transparent !important;
+        }
+        @-moz-keyframes swing {
+            0% {
+                    -moz-transform: rotate(-10deg)
+            }
+            50% {
+                -moz-transform: rotate(10deg)
+            }
+            100% {
+                    -moz-transform: rotate(-10deg)
+            }
+        }
+        @-webkit-keyframes swing {
+            0% {
+                    -webkit-transform: rotate(-10deg)
+            }
+            50% {
+                    -webkit-transform: rotate(10deg)
+            }
+            100% {
+                    -webkit-transform: rotate(-10deg)
+            }
+        }
+    </style>
+    <div class="deng-box">
+        <div class="deng">
+            <div class="xian"></div>
+            <div class="deng-a">
+                <div class="deng-b"><div class="deng-t">喜迎</div></div>
+            </div>
+            <div class="shui shui-a"><div class="shui-c"></div><div class="shui-b"></div></div>
+        </div>
+    </div>
+    <div class="deng-box1">
+        <div class="deng">
+            <div class="xian"></div>
+            <div class="deng-a">
+                <div class="deng-b"><div class="deng-t">春节</div></div>
+            </div>
+            <div class="shui shui-a"><div class="shui-c"></div><div class="shui-b"></div></div>
+        </div>
+    </div>
+
+<!-- 元宵节灯笼样式结束 -->
+
+    
+
+<meta name="generator" content="Hexo 5.4.0"><link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+
+
+
+
+
+    <style type="text/css" lang="css">
+    #loading-container{
+        position: fixed;
+        top: 0;
+        left: 0;
+        min-height: 100vh;
+        width: 100vw;
+        z-index: 9999;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background: #FFF;
+        text-align: center;
+        /* loader页面消失采用渐隐的方式*/
+        -webkit-transition: opacity 1s ease;
+        -moz-transition: opacity 1s ease;
+        -o-transition: opacity 1s ease;
+        transition: opacity 1s ease;
+    }
+    .loading-image{
+        width: 120px;
+        height: 50px;
+        transform: translate(-50%);
+    }
+
+    .loading-image div:nth-child(2) {
+        -webkit-animation: pacman-balls 1s linear 0s infinite;
+        animation: pacman-balls 1s linear 0s infinite
+    }
+
+    .loading-image div:nth-child(3) {
+        -webkit-animation: pacman-balls 1s linear .33s infinite;
+        animation: pacman-balls 1s linear .33s infinite
+    }
+
+    .loading-image div:nth-child(4) {
+        -webkit-animation: pacman-balls 1s linear .66s infinite;
+        animation: pacman-balls 1s linear .66s infinite
+    }
+
+    .loading-image div:nth-child(5) {
+        -webkit-animation: pacman-balls 1s linear .99s infinite;
+        animation: pacman-balls 1s linear .99s infinite
+    }
+
+   .loading-image div:first-of-type {
+        width: 0;
+        height: 0;
+        border: 25px solid #49b1f5;
+        border-right-color: transparent;
+        border-radius: 25px;
+        -webkit-animation: rotate_pacman_half_up .5s 0s infinite;
+        animation: rotate_pacman_half_up .5s 0s infinite;
+    }
+    .loading-image div:nth-child(2) {
+        width: 0;
+        height: 0;
+        border: 25px solid #49b1f5;
+        border-right-color: transparent;
+        border-radius: 25px;
+        -webkit-animation: rotate_pacman_half_down .5s 0s infinite;
+        animation: rotate_pacman_half_down .5s 0s infinite;
+        margin-top: -50px;
+    }
+    @-webkit-keyframes rotate_pacman_half_up {0% {transform: rotate(270deg)}50% {transform: rotate(1turn)}to {transform: rotate(270deg)}}
+
+    @keyframes rotate_pacman_half_up {0% {transform: rotate(270deg)}50% {transform: rotate(1turn)}to {transform: rotate(270deg)}}
+
+    @-webkit-keyframes rotate_pacman_half_down {0% {transform: rotate(90deg)}50% {transform: rotate(0deg)}to {transform: rotate(90deg)}}
+
+    @keyframes rotate_pacman_half_down {0% {transform: rotate(90deg)}50% {transform: rotate(0deg)}to {transform: rotate(90deg)}}
+
+    @-webkit-keyframes pacman-balls {75% {opacity: .7}to {transform: translate(-100px, -6.25px)}}
+
+    @keyframes pacman-balls {75% {opacity: .7}to {transform: translate(-100px, -6.25px)}}
+
+
+    .loading-image div:nth-child(3),
+    .loading-image div:nth-child(4),
+    .loading-image div:nth-child(5),
+    .loading-image div:nth-child(6){
+        background-color: #49b1f5;
+        width: 15px;
+        height: 15px;
+        border-radius: 100%;
+        margin: 2px;
+        width: 10px;
+        height: 10px;
+        position: absolute;
+        transform: translateY(-6.25px);
+        top: 25px;
+        left: 100px;
+    }
+    .loading-text{
+        margin-bottom: 20vh;
+        text-align: center;
+        color: #2c3e50;
+        font-size: 2rem;
+        box-sizing: border-box;
+        padding: 0 10px;
+        text-shadow: 0 2px 10px rgba(0,0,0,0.2);
+    }
+    @media only screen and (max-width: 500px) {
+         .loading-text{
+            font-size: 1.5rem;
+         }
+    }
+    .fadeout {
+        opacity: 0;
+        filter: alpha(opacity=0);
+    }
+    /* logo出现动画 */
+    @-webkit-keyframes fadeInDown{0%{opacity:0;-webkit-transform:translate3d(0,-100%,0);transform:translate3d(0,-100%,0)}100%{opacity:1;-webkit-transform:none;transform:none}}
+    @keyframes fadeInDown{0%{opacity:0;-webkit-transform:translate3d(0,-100%,0);}}
+ </style>
+ <script>
+(function () {
+    const loaded = function(){
+       setTimeout(function(){
+            const loader = document.getElementById("loading-container");
+            loader.className="fadeout" ;//使用渐隐的方法淡出loading page
+            // document.getElementById("body-wrap").style.display="flex";
+            setTimeout(function(){
+                loader.style.display="none";
+            },2500); 
+        },1000);//强制显示loading page 1s  
+    };
+    loaded();
+})()
+</script>
+
+ 
+
+<body>
+    
+    
+        <div id="loading-container">
+             <p class="loading-text">嘘~  小破站正在拼命加载中 . . . </p> 
+             <div class="loading-image">
+                 <div></div>
+                 <div></div>
+                 <div></div>
+                 <div></div> 
+                 <div></div>
+             </div>
+        </div>
+    
+
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" id="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span diyFont" id="logo-title">xiezhrspace</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/#" class="waves-effect waves-light">
+
+      
+      <span>归档</span>
+      <i class="fas fa-chevron-down" aria-hidden="true" style="zoom: 0.6;"></i>
+    </a>
+    <ul class="sub-nav menus_item_child ">
+      
+      <li>
+        <a href="/tags">
+          
+          <span>标签</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/categories">
+          
+          <span>分类</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/archives">
+          
+          <span>时间轴</span>
+        </a>
+      </li>
+      
+    </ul>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/artitalk" class="waves-effect waves-light">
+      
+      <span>说说</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/#" class="waves-effect waves-light">
+
+      
+      <span>媒体</span>
+      <i class="fas fa-chevron-down" aria-hidden="true" style="zoom: 0.6;"></i>
+    </a>
+    <ul class="sub-nav menus_item_child ">
+      
+      <li>
+        <a href="/books">
+          
+          <span>读书</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/musics">
+          
+          <span>音乐</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/movies">
+          
+          <span>电影</span>
+        </a>
+      </li>
+      
+    </ul>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/#" class="waves-effect waves-light">
+
+      
+      <span>资源分享</span>
+      <i class="fas fa-chevron-down" aria-hidden="true" style="zoom: 0.6;"></i>
+    </a>
+    <ul class="sub-nav menus_item_child ">
+      
+      <li>
+        <a href="/share-tools">
+          
+          <span>常用工具</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/e-book">
+          
+          <span>电子书</span>
+        </a>
+      </li>
+      
+    </ul>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/#" class="waves-effect waves-light">
+
+      
+      <span>交流</span>
+      <i class="fas fa-chevron-down" aria-hidden="true" style="zoom: 0.6;"></i>
+    </a>
+    <ul class="sub-nav menus_item_child ">
+      
+      <li>
+        <a href="/contact">
+          
+          <span>留言</span>
+        </a>
+      </li>
+      
+      <li>
+        <a target="_blank" rel="noopener" href="http://chat.xiezhrspace.cn">
+          
+          <span>聊天室</span>
+        </a>
+      </li>
+      
+    </ul>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/friends" class="waves-effect waves-light">
+      
+      <span>友情链接</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/#" class="waves-effect waves-light">
+
+      
+      <span>实验室</span>
+      <i class="fas fa-chevron-down" aria-hidden="true" style="zoom: 0.6;"></i>
+    </a>
+    <ul class="sub-nav menus_item_child ">
+      
+      <li>
+        <a href="/sponsorship">
+          
+          <i class="fas fa-money" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>赞助墙</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/status">
+          
+          <i class="fas fa-flush" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>检测监控</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/epidemic">
+          
+          <span>疫情实况</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/rain-code">
+          
+          <span>代码雨</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/mykeep">
+          
+          <span>我的Keep</span>
+        </a>
+      </li>
+      
+    </ul>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+<style>
+  #logo-title{
+  }
+
+  #logo-img{
+    
+  }
+  #mobile-logo-img{}
+</style>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img" id="mobile-logo-img">
+        
+        <div class="logo-name">xiezhrspace
+        <div class="logo-desc">
+            
+            爱学习 爱编程 爱分享 再小的帆也能远航
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			<!-- 
+				<i class="fas fa-fw fa-link"></i>
+			 -->
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="javascript:;">
+			<!-- 
+				<i class="fas fa-fw fa-link"></i>
+			 -->
+			归档
+			<span class="m-icon"><i class="fas fa-chevron-right"></i></span>
+		</a>
+            <ul  style="background:  ;" >
+              
+                <li>
+
+                  <a href="/tags " style="margin-left:75px">
+				  
+		          <span>标签</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/categories " style="margin-left:75px">
+				  
+		          <span>分类</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/archives " style="margin-left:75px">
+				  
+		          <span>时间轴</span>
+                  </a>
+                </li>
+              
+            </ul>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/artitalk" class="waves-effect waves-light">
+			<!-- 
+				<i class="fas fa-fw fa-link"></i>
+			 -->
+			说说
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="javascript:;">
+			<!-- 
+				<i class="fas fa-fw fa-link"></i>
+			 -->
+			媒体
+			<span class="m-icon"><i class="fas fa-chevron-right"></i></span>
+		</a>
+            <ul  style="background:  ;" >
+              
+                <li>
+
+                  <a href="/books " style="margin-left:75px">
+				  
+		          <span>读书</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/musics " style="margin-left:75px">
+				  
+		          <span>音乐</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/movies " style="margin-left:75px">
+				  
+		          <span>电影</span>
+                  </a>
+                </li>
+              
+            </ul>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="javascript:;">
+			<!-- 
+				<i class="fas fa-fw fa-link"></i>
+			 -->
+			资源分享
+			<span class="m-icon"><i class="fas fa-chevron-right"></i></span>
+		</a>
+            <ul  style="background:  ;" >
+              
+                <li>
+
+                  <a href="/share-tools " style="margin-left:75px">
+				  
+		          <span>常用工具</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/e-book " style="margin-left:75px">
+				  
+		          <span>电子书</span>
+                  </a>
+                </li>
+              
+            </ul>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			<!-- 
+				<i class="fas fa-fw fa-link"></i>
+			 -->
+			关于
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="javascript:;">
+			<!-- 
+				<i class="fas fa-fw fa-link"></i>
+			 -->
+			交流
+			<span class="m-icon"><i class="fas fa-chevron-right"></i></span>
+		</a>
+            <ul  style="background:  ;" >
+              
+                <li>
+
+                  <a href="/contact " style="margin-left:75px">
+				  
+		          <span>留言</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a target="_blank" rel="noopener" href="http://chat.xiezhrspace.cn " style="margin-left:75px">
+				  
+		          <span>聊天室</span>
+                  </a>
+                </li>
+              
+            </ul>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/friends" class="waves-effect waves-light">
+			<!-- 
+				<i class="fas fa-fw fa-link"></i>
+			 -->
+			友情链接
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="javascript:;">
+			<!-- 
+				<i class="fas fa-fw fa-link"></i>
+			 -->
+			实验室
+			<span class="m-icon"><i class="fas fa-chevron-right"></i></span>
+		</a>
+            <ul  style="background:  ;" >
+              
+                <li>
+
+                  <a href="/sponsorship " style="margin-left:75px">
+				  
+				   <i class="fa fas fa-money" style="position: absolute;left:50px" ></i>
+			      
+		          <span>赞助墙</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/status " style="margin-left:75px">
+				  
+				   <i class="fa fas fa-flush" style="position: absolute;left:50px" ></i>
+			      
+		          <span>检测监控</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/epidemic " style="margin-left:75px">
+				  
+		          <span>疫情实况</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/rain-code " style="margin-left:75px">
+				  
+		          <span>代码雨</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/mykeep " style="margin-left:75px">
+				  
+		          <span>我的Keep</span>
+                  </a>
+                </li>
+              
+            </ul>
+          
+        </li>
+        
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+    </nav>
+
+</header>
+
+    
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/xiezhr/xiezhrblog-cdn-source@main/blog-img/1650379983091Linux-cover.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">快速上手Linux核心命令（四）：文件内容相关命令</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/xiezhr/xiezhrblog-cdn-source/source/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        margin: 35px 0 15px 0;
+        padding-left: 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content {
+        height: calc(100vh - 250px);
+        overflow: auto;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+
+        position: absolute;
+        right: 23.5vw;
+        display: block;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!--评论区样式调整-->
+<style>
+    .v[data-class="v"] .vwrap .vheader .vinput {
+        width: 32%;
+        border-bottom: 1px dashed #dedede;
+      }
+</style>
+<!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/Linux/">
+                                <span class="chip bg-color">Linux</span>
+                            </a>
+                        
+                            <a href="/tags/Linux-%E6%A0%B8%E5%BF%83%E5%91%BD%E4%BB%A4/">
+                                <span class="chip bg-color">Linux 核心命令</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/Linux/" class="post-category">
+                                Linux
+                            </a>
+                        
+                            <a href="/categories/Linux/Linux-%E6%A0%B8%E5%BF%83%E5%91%BD%E4%BB%A4/" class="post-category">
+                                Linux 核心命令
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2022-03-26
+                </div>
+                
+
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
+                    2022-04-23
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
+                    6.1k
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
+                    27 分
+                </div>
+                
+
+                
+                    <div id="busuanzi_container_page_pv" class="info-break-policy">
+                        <i class="far fa-eye fa-fw"></i>阅读次数:&nbsp;&nbsp;
+                        <span id="busuanzi_value_page_pv"></span>
+                    </div>
+				
+            </div>
+        </div>
+        <hr class="clearfix">
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>上一篇中已经预告，我们这篇主要说一说Linux中文件内容查看处理相关的命令。一共16个命令，其中</p>
+<p><img src="https://s2.loli.net/2022/03/26/P9KD6jvbsf732Gn.png"></p>
+<p>标注的为重点命令，工作中用的也比较多，需要熟练掌握</p>
+<p><img src="https://s2.loli.net/2022/03/26/qhupoE7fsaQyLBx.png"></p>
+<h3 id="cat-合并文件或查看文件内容"><a href="#cat-合并文件或查看文件内容" class="headerlink" title="cat 合并文件或查看文件内容"></a>cat 合并文件或查看文件内容</h3><p>1、简介</p>
+<p>cat 是con<strong>cat</strong>enate 单词的缩写，或者理解成猫，”喵”一下文件内容，即显示文件内容。</p>
+<ul>
+<li>可以用来显示单个文件内容</li>
+<li>可以将几个文件连接起来一起显示</li>
+<li>从标准输入中读取内容并显示，与重定向或追加符号配合使用</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>功能</th>
+<th>举个栗子</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>查看文件内容</td>
+<td>cat xiezhr.txt 查看xiezhr.txt 的内容</td>
+</tr>
+<tr>
+<td>把多个文件合并成一个</td>
+<td>cat xiezhr1.txt xiezhr2.txt &gt;newxiezhr.txt</td>
+</tr>
+<tr>
+<td>编辑或追加内容到文件尾部</td>
+<td>cat &gt;&gt;xiezhr.txt&lt;&lt;EOF My blog is <a href="http://www.xiezhrspace.cn/">www.xiezhrspace.cn</a>. EOF</td>
+</tr>
+<tr>
+<td>清空文件内容</td>
+<td>cat /dev/null &gt;xiezhr.txt 命令可以把xiezhr.txt文件内容清空，但是文件还是存在的</td>
+</tr>
+<tr>
+<td>2、语法格式</td>
+<td></td>
+</tr>
+</tbody></table>
+<pre class=" language-shell"><code class="language-shell">cat [参数选项] [文件]
+</code></pre>
+<p>3、参数说明</p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>参数说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>-n</td>
+<td>从1开始对所有输出的内容按行编号</td>
+</tr>
+<tr>
+<td>-b</td>
+<td>和-n功能类似，但会忽略显示空白行行号</td>
+</tr>
+<tr>
+<td>-s</td>
+<td>当文件内容中包含多个空白行时，为了阅读更加方便，-s可以将多个空白行替换为一个空白行</td>
+</tr>
+<tr>
+<td>-E</td>
+<td>每一行的行尾显示$符号</td>
+</tr>
+<tr>
+<td>-T</td>
+<td>将Tab(制表符)字符显示为^I</td>
+</tr>
+</tbody></table>
+<p>4、实践操作</p>
+<p>① 不加参数，直接执行cat 查看文件内容</p>
+<pre class=" language-shell"><code class="language-shell">[root@xiezhr test]# cat xiezhr.txt 
+个人公众号：XiezhrSpace
+
+
+个人博客：www.xiezhrspace.cn
+
+
+
+个人微信号：xie_zhr
+
+欢迎您的关注！
+</code></pre>
+<p>② 通过非交互式创建编辑xiezhr.txt 文件<br>上面的xiezhr.txt文件我们可以通过之前说过的touch xiezhr.txt先创建一个空白文件，<br>然后通过vi/vim（下一期我们会具体说一说它的用法）编辑xiezhr.txt的内容。</p>
+<p>当然了，这个是我们之前的玩法，今天我们尝试着以一种新的方式创建xiezhr.txt文件并编辑其内容。</p>
+<pre class=" language-shell"><code class="language-shell">[root@xiezhr test]# ls
+a.txt  c.txt  dir  dir2  dir3  dir5  dir6  dir_bak  movie.tar.gz  test.txt  tt.txt
+[root@xiezhr test]# cat >xiezhr.txt<<EOF
+> 个人公众号：XiezhrSpace
+> 
+> 
+> 个人博客：www.xiezhrspace.cn
+> 
+> 
+> 
+> 个人微信号：xie_zhr
+> 
+> 欢迎您的关注！
+> EOF  #注意，这里需要按回车结束，EOF为标签，我们可以用其他标签替代，但是必须成对出现。
+[root@xiezhr test]# ls
+a.txt  c.txt  dir  dir2  dir3  dir5  dir6  dir_bak  movie.tar.gz  test.txt  tt.txt  xiezhr.txt
+</code></pre>
+<p>③ 分别用【-n】【-b】显示上面创建的文件前的序号</p>
+<pre class=" language-shell"><code class="language-shell">[root@xiezhr test]# cat -n xiezhr.txt 
+     1  个人公众号：XiezhrSpace
+     2
+     3
+     4  个人博客：www.xiezhrspace.cn
+     5
+     6
+     7
+     8  个人微信号：xie_zhr
+     9
+    10  欢迎您的关注！
+[root@xiezhr test]# cat -b xiezhr.txt 
+     1  个人公众号：XiezhrSpace
+
+
+     2  个人博客：www.xiezhrspace.cn
+
+
+
+     3  个人微信号：xie_zhr
+
+     4  欢迎您的关注！
+</code></pre>
+<p>④ 使用【-E】参数，在每一行末尾显示$</p>
+<pre class=" language-shell"><code class="language-shell">[root@xiezhr test]# cat -E xiezhr.txt 
+个人公众号：XiezhrSpace$
+$
+$
+个人博客：www.xiezhrspace.cn$
+$
+$
+$
+个人微信号：xie_zhr$
+$
+欢迎您的关注！$
+</code></pre>
+<p>⑤使用 【-s】参数，把文件内容中的多个空白行变成一个空白行，方便我们阅读</p>
+<pre class=" language-shell"><code class="language-shell">[root@xiezhr test]# cat -s xiezhr.txt 
+个人公众号：XiezhrSpace
+
+个人博客：www.xiezhrspace.cn
+
+个人微信号：xie_zhr
+
+欢迎您的关注！
+</code></pre>
+<p>上面文件中的多个空白行就变成了一个，这样当文件内容比较多的时候，阅读起来就比较友好了。</p>
+<p>当然也可以将所有的空白行都去掉，这个我们会在后面的命令中说</p>
+<p>⑥ 连接多个文件并显示内容</p>
+<pre class=" language-shell"><code class="language-shell"># 创建test1.txt 文件
+[root@xiezhr test]# cat >test1.txt <<EOF
+> 这个是test1.txt的内容
+> EOF
+# 创建test2.txt文件
+[root@xiezhr test]# cat >test2.txt <<EOF           
+> 这个是test2.txt的内容
+> EOF
+# 将test1 test2 文件合并并输出
+[root@xiezhr test]# cat test1.txt test2.txt test3.txt
+这个是test1.txt的内容
+这个是test2.txt的内容
+</code></pre>
+<h3 id="more-分页显示文件内容"><a href="#more-分页显示文件内容" class="headerlink" title="more 分页显示文件内容"></a>more 分页显示文件内容</h3><p>1、简介</p>
+<p>more 其功能和cat 类似，cat 是将整个文件内容一次显示出来，而more一页一页的显示文件内容。我们可以根据其中文意思<strong>更多</strong>去理解，<strong>除了这页，还有更多页内容</strong>，这样是不是就记住了呢。😄</p>
+<p>2、语法格式</p>
+<pre class=" language-shell"><code class="language-shell">more [参数选项] [文件]
+</code></pre>
+<p>3、参数说明</p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>参数说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>-num</td>
+<td>指定屏幕显示大小为num行</td>
+</tr>
+<tr>
+<td>+num</td>
+<td>从行号num开始显示</td>
+</tr>
+</tbody></table>
+<p>4、实践操作</p>
+<p>使用more命令打开文本之后，会进入vi交互界面。这时候我们就可以使用vi编辑器功能。那么都有些说明功能呢？</p>
+<p>具体看下表总结</p>
+<table>
+<thead>
+<tr>
+<th>子命令</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>h或？</td>
+<td>查看帮助</td>
+</tr>
+<tr>
+<td>空格键[space]</td>
+<td>向下滚动一屏</td>
+</tr>
+<tr>
+<td>b</td>
+<td>返回上一屏</td>
+</tr>
+<tr>
+<td>Enter</td>
+<td>向下显示一行</td>
+</tr>
+<tr>
+<td>/要查找的内容</td>
+<td>查找指定的文本内容</td>
+</tr>
+<tr>
+<td>=</td>
+<td>输出当前行的行号</td>
+</tr>
+<tr>
+<td>:f</td>
+<td>输出打开的文件名和行号</td>
+</tr>
+<tr>
+<td>v</td>
+<td>调用vi编辑器</td>
+</tr>
+<tr>
+<td>!</td>
+<td>调用shell并执行命令</td>
+</tr>
+<tr>
+<td>q</td>
+<td>退出more</td>
+</tr>
+</tbody></table>
+<p>① 不带参数查看文件</p>
+<pre class=" language-shell"><code class="language-shell">[root@xiezhr ~]# more /etc/services 
+# /etc/services:
+# $Id: services,v 1.55 2013/04/14 ovasik Exp $
+#
+# Network services, Internet style
+# IANA services version: last updated 2013-04-10
+#
+......由于文件内容比较多此处省略n行.....
+ssh             22/udp                          # The Secure Shell (SSH) Protocol
+telnet          23/tcp
+--More--(0%)
+</code></pre>
+<p>②使用【-num】参数每页显示num行</p>
+<pre class=" language-shell"><code class="language-shell">[root@xiezhr ~]# more -5 /etc/services 
+# /etc/services:
+# $Id: services,v 1.55 2013/04/14 ovasik Exp $
+#
+# Network services, Internet style
+# IANA services version: last updated 2013-04-10
+</code></pre>
+<p>② 使用【+num】参数，从第num行开始显示</p>
+<pre class=" language-shell"><code class="language-shell">[root@xiezhr ~]# more +666 -6
+Usage: more [options] file...
+
+Options:
+  -d        display help instead of ring bell
+  -f        count logical, rather than screen lines
+  -l        suppress pause after form feed
+  -p        do not scroll, clean screen and display text
+  -c        do not scroll, display text and clean line ends
+  -u        suppress underlining
+  -s        squeeze multiple blank lines into one
+  -NUM      specify the number of lines per screenful
+  +NUM      display file beginning from line number NUM
+  +/STRING  display file beginning from search string match
+  -V        output version information and exit
+</code></pre>
+<h3 id="less-分页显示文件内容"><a href="#less-分页显示文件内容" class="headerlink" title="less 分页显示文件内容"></a>less 分页显示文件内容</h3><p>1、简介</p>
+<p>lss 功能类似于more  它的中文意思是少，看似是功能更少了，其实不然。它是more的增强版，具有更多功能</p>
+<p>2、语法格式</p>
+<pre class=" language-shell"><code class="language-shell">less [参数选项] [文件]
+</code></pre>
+<p>3、参数说明</p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>参数说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>-N</td>
+<td>显示每行的行号</td>
+</tr>
+<tr>
+<td>-m</td>
+<td>显示进度百分比</td>
+</tr>
+<tr>
+<td>-s</td>
+<td>当出现连续空行时压缩为一行显示</td>
+</tr>
+<tr>
+<td>-e</td>
+<td>文件显示到最后时自动退出，若不适用参数需要用快捷键q退出less</td>
+</tr>
+</tbody></table>
+<p>4、实践操作</p>
+<p>使用less命令打开文本之后，会进入vi交互界面。下面列出了一些常用交互式子命令</p>
+<table>
+<thead>
+<tr>
+<th>子命令</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>空格键[space]</td>
+<td>向后翻一页</td>
+</tr>
+<tr>
+<td>b</td>
+<td>向前翻一页</td>
+</tr>
+<tr>
+<td>回车键[Enter]</td>
+<td>向下滚动一行</td>
+</tr>
+<tr>
+<td>↑</td>
+<td>向上滚动一行</td>
+</tr>
+<tr>
+<td>↓</td>
+<td>向下滚动一行</td>
+</tr>
+<tr>
+<td>[PgUp]</td>
+<td>向前翻一页</td>
+</tr>
+<tr>
+<td>[PgDn]</td>
+<td>向后翻一页</td>
+</tr>
+<tr>
+<td>/字符串</td>
+<td>向下搜素“字符串”</td>
+</tr>
+<tr>
+<td>?字符串</td>
+<td>向上搜素”字符串“</td>
+</tr>
+<tr>
+<td>n</td>
+<td>向后查找下一个匹配的文本</td>
+</tr>
+<tr>
+<td>N</td>
+<td>向上查找上一个匹配的文本</td>
+</tr>
+<tr>
+<td>v</td>
+<td>进入vi编辑界面</td>
+</tr>
+<tr>
+<td>!</td>
+<td>调用shell,并执行命令</td>
+</tr>
+<tr>
+<td>G</td>
+<td>移动到最后一行</td>
+</tr>
+<tr>
+<td>g</td>
+<td>移动到第一行</td>
+</tr>
+<tr>
+<td>h</td>
+<td>显示帮助界面</td>
+</tr>
+<tr>
+<td>q</td>
+<td>退出less</td>
+</tr>
+</tbody></table>
+<p>① 不带参数查看文件</p>
+<pre class=" language-shell"><code class="language-shell">[root@xiezhr ~]# less /etc/services 
+# /etc/services:
+# $Id: services,v 1.55 2013/04/14 ovasik Exp $
+#
+# Network services, Internet style
+# IANA services version: last updated 2013-04-10
+......省略n行......
+</code></pre>
+<p>② 带上【-N】参数，显示行号</p>
+<pre class=" language-shell"><code class="language-shell">[root@xiezhr ~]# less -N /etc/services 
+      1 # /etc/services:
+      2 # $Id: services,v 1.55 2013/04/14 ovasik Exp $
+      3 #
+      4 # Network services, Internet style
+      5 # IANA services version: last updated 2013-04-10
+      6 #
+      7 # Note that it is presently the policy of IANA to assign a single well-known
+......此处省略n行......
+</code></pre>
+<h3 id="head-显示文件内容头部"><a href="#head-显示文件内容头部" class="headerlink" title="head 显示文件内容头部"></a>head 显示文件内容头部</h3><p>1、简介</p>
+<p>head 中文意思时头部，相信你也想到了，head的功能就是显示文件内容的头部。默认显示头10行</p>
+<p>2、语法格式</p>
+<pre class=" language-shell"><code class="language-shell">head [参数选项] [文件]
+</code></pre>
+<p>3、参数说明</p>
+<table>
+<thead>
+<tr>
+<th align="center">参数选项</th>
+<th align="center">参数说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">-n</td>
+<td align="center">显示前n行</td>
+</tr>
+</tbody></table>
+<p>4、实践操作</p>
+<p>① 不带参数，默认显示前十行</p>
+<pre class=" language-shell"><code class="language-shell">[root@xiezhr ~]# head /etc/passwd
+root:x:0:0:root:/root:/bin/bash
+bin:x:1:1:bin:/bin:/sbin/nologin
+daemon:x:2:2:daemon:/sbin:/sbin/nologin
+adm:x:3:4:adm:/var/adm:/sbin/nologin
+lp:x:4:7:lp:/var/spool/lpd:/sbin/nologin
+sync:x:5:0:sync:/sbin:/bin/sync
+shutdown:x:6:0:shutdown:/sbin:/sbin/shutdown
+halt:x:7:0:halt:/sbin:/sbin/halt
+mail:x:8:12:mail:/var/spool/mail:/sbin/nologin
+operator:x:11:0:operator:/root:/sbin/nologin
+</code></pre>
+<p>②带上【-n】参数，显示文件前n行</p>
+<pre class=" language-shell"><code class="language-shell">[root@xiezhr ~]# head -n 5 /etc/passwd
+root:x:0:0:root:/root:/bin/bash
+bin:x:1:1:bin:/bin:/sbin/nologin
+daemon:x:2:2:daemon:/sbin:/sbin/nologin
+adm:x:3:4:adm:/var/adm:/sbin/nologin
+lp:x:4:7:lp:/var/spool/lpd:/sbin/nologin
+</code></pre>
+<h3 id="tail-显示文件内容尾部"><a href="#tail-显示文件内容尾部" class="headerlink" title="tail 显示文件内容尾部"></a>tail 显示文件内容尾部</h3><p>1、简介</p>
+<p>tail 中文意思时尾巴，到这里你应该知道这个命令时干嘛用的了。你想的没错，就是显示文件最后10行，和命令head相反</p>
+<p>2、语法格式</p>
+<pre class=" language-shell"><code class="language-shell">tail [参数选项] [文件]
+</code></pre>
+<p>3、参数说明</p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>参数说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>-n</td>
+<td>指定显示的行数</td>
+</tr>
+<tr>
+<td>-f</td>
+<td>实时输出文件变化后追加的数据</td>
+</tr>
+</tbody></table>
+<p>4、实践操作</p>
+<p>① 不带参数，默认显示最后10行</p>
+<pre class=" language-shell"><code class="language-shell">[root@xiezhr ~]# tail /etc/passwd
+abrt:x:173:173::/etc/abrt:/sbin/nologin
+sshd:x:74:74:Privilege-separated SSH:/var/empty/sshd:/sbin/nologin
+postfix:x:89:89::/var/spool/postfix:/sbin/nologin
+chrony:x:997:995::/var/lib/chrony:/sbin/nologin
+tcpdump:x:72:72::/:/sbin/nologin
+syslog:x:996:994::/home/syslog:/bin/false
+git:x:995:993:git version control:/home/git:/bin/bash
+nginx:x:994:992:Nginx web server:/var/lib/nginx:/sbin/nologin
+mysql:x:1000:1000::/home/mysql:/bin/bash
+xiezhr:x:1001:1001::/home/xiezhr:/bin/bash
+</code></pre>
+<p>② 显示文件尾部5行</p>
+<pre class=" language-shell"><code class="language-shell">[root@xiezhr ~]# tail -n 5 /etc/passwd
+syslog:x:996:994::/home/syslog:/bin/false
+git:x:995:993:git version control:/home/git:/bin/bash
+nginx:x:994:992:Nginx web server:/var/lib/nginx:/sbin/nologin
+mysql:x:1000:1000::/home/mysql:/bin/bash
+xiezhr:x:1001:1001::/home/xiezhr:/bin/bash
+</code></pre>
+<p> ③ 实时跟踪日志的变化（<strong>实际工作中经常用到，需要牢靠掌握</strong>）</p>
+<pre class=" language-shell"><code class="language-shell">[root@xiezhr /]# tail -f /var/log/nginx/access.log
+118.126.124.141 - - [22/Mar/2022:23:11:10 +0800] "GET /categories/%E8%A7%89%E9%86%92%E5%B9%B4%E4%BB%A3/ HTTP/1.1" 200 10085 "-" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.212 Safari/537.36" "-"
+14.215.156.21 - - [22/Mar/2022:23:11:10 +0800] "GET /medias/logo.png HTTP/1.1" 200 112674 "-" "-" "-"
+54.36.148.108 - - [22/Mar/2022:23:12:14 +0800] "GET / HTTP/1.1" 200 14641 "-" "Mozilla/5.0 (compatible; AhrefsBot/7.0; +http://ahrefs.com/robot/)" "-"
+69.162.124.234 - - [22/Mar/2022:23:13:23 +0800] "HEAD / HTTP/1.1" 200 0 "https://www.xiezhrspace.cn" "Mozilla/5.0+(compatible; UptimeRobot/2.0; http://www.uptimerobot.com/)" "-"
+216.245.221.91 - - [22/Mar/2022:23:14:10 +0800] "HEAD / HTTP/1.1" 200 0 "https://www.xiezhrspace.cn" "Mozilla/5.0+(compatible; UptimeRobot/2.0; http://www.uptimerobot.com/)" "-"
+207.46.13.67 - - [22/Mar/2022:23:16:44 +0800] "GET /archives/f454bf8f.html HTTP/2.0" 200 15842 "-" "Mozilla/5.0 (compatible; bingbot/2.0; +http://www.bing.com/bingbot.htm)" "-"
+40.77.167.21 - - [22/Mar/2022:23:17:00 +0800] "GET /libs/share/js/social-share.min.js HTTP/2.0" 200 9195 "-" "Mozilla/5.0 (compatible; bingbot/2.0; +http://www.bing.com/bingbot.htm)" "-"
+157.55.39.183 - - [22/Mar/2022:23:17:00 +0800] "GET /libs/share/css/share.min.css HTTP/2.0" 200 1082 "-" "Mozilla/5.0 (compatible; bingbot/2.0; +http://www.bing.com/bingbot.htm)" "-"
+69.162.124.234 - - [22/Mar/2022:23:18:23 +0800] "HEAD / HTTP/1.1" 200 0 "https://www.xiezhrspace.cn" "Mozilla/5.0+(compatible; UptimeRobot/2.0; http://www.uptimerobot.com/)" "-"
+216.245.221.91 - - [22/Mar/2022:23:19:10 +0800] "HEAD / HTTP/1.1" 200 0 "https://www.xiezhrspace.cn" "Mozilla/5.0+(compatible; UptimeRobot/2.0; http://www.uptimerobot.com/)" "-"
+</code></pre>
+<h3 id="tailf-跟踪日志文件"><a href="#tailf-跟踪日志文件" class="headerlink" title="tailf 跟踪日志文件"></a>tailf 跟踪日志文件</h3><p>1、简介</p>
+<p>tailf 功能与 tail -f 命令基本相同，记住一个即可</p>
+<h3 id="diff-比较两个文件的不同"><a href="#diff-比较两个文件的不同" class="headerlink" title="diff 比较两个文件的不同"></a>diff 比较两个文件的不同</h3><p>1、简介</p>
+<p>diff 命令用于逐行比较<strong>两个</strong>文件的不同，并输出差异内容</p>
+<p>2、语法格式</p>
+<pre class=" language-shell"><code class="language-shell">diff [参数选项] [文件1] [文件2]
+</code></pre>
+<p>3、参数说明</p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>参数说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>-y</td>
+<td>以并列的方式显示两个文件的不同</td>
+</tr>
+<tr>
+<td>-W</td>
+<td>在使用-y参数时，指定显示的宽度</td>
+</tr>
+<tr>
+<td>-c</td>
+<td>使用上下文的输出格式</td>
+</tr>
+<tr>
+<td>-u</td>
+<td>使用统一格式输出</td>
+</tr>
+</tbody></table>
+<p>4、实践操作</p>
+<p>① 不带参数，比较两个文件</p>
+<pre class=" language-shell"><code class="language-shell">[root@xiezhr test]# cat test1.txt 
+1
+2
+3
+4
+[root@xiezhr test]# cat test2.txt 
+3
+4
+5
+[root@xiezhr test]# diff test1.txt test2.txt 
+1,2d0
+< 1
+< 2
+4a3
+> 5
+</code></pre>
+<p>以上结果说明</p>
+<ul>
+<li>a  代表add 新加</li>
+<li>c  代表change   改变</li>
+<li>d 代表delete 删除</li>
+<li>&lt;代表第一个文件&gt;代表第二个文件</li>
+</ul>
+<p>② 带【-y -w】参数比较两个文件</p>
+<pre class=" language-shell"><code class="language-shell">[root@xiezhr test]# diff -y test1.txt test2.txt 
+1                                                             <
+2                                                             <
+3                                                               3
+4                                                               4
+                                                              > 5
+</code></pre>
+<p>③ 使用【-c】比较两个文件 (<strong>个人推荐使用这个，结果显示直观，一看就懂</strong>)</p>
+<pre class=" language-shell"><code class="language-shell">[root@xiezhr test]# diff -c test1.txt test2.txt 
+*** test1.txt   2022-03-26 10:04:38.400526014 +0800
+--- test2.txt   2022-03-26 10:05:50.597539120 +0800
+***************
+*** 1,4 ****
+- 1
+- 2
+  3
+  4
+--- 1,3 ----
+  3
+  4
++ 5
+</code></pre>
+<p>结果说明：</p>
+<ul>
+<li>‘+’ 表示test2 比test1 多的</li>
+<li>‘_’ 表示test2 比test1 少的</li>
+</ul>
+<p>④ 使用【-u】比较两个文件</p>
+<pre class=" language-shell"><code class="language-shell">[root@xiezhr test]# diff -u test1.txt test2.txt 
+--- test1.txt   2022-03-26 10:04:38.400526014 +0800
++++ test2.txt   2022-03-26 10:05:50.597539120 +0800
+@@ -1,4 +1,3 @@
+-1
+-2
+ 3
+ 4
++5
+</code></pre>
+<h3 id="vimdiff-可视化比较工具"><a href="#vimdiff-可视化比较工具" class="headerlink" title="vimdiff 可视化比较工具"></a>vimdiff 可视化比较工具</h3><p>1、简介</p>
+<p>vimdiff  命令我们可以拆分为vim和diff 由此可知，该命令是调用vim打开文件来<strong>可视化分屏</strong>比较<strong>多个</strong>文件</p>
+<p>2、语法格式</p>
+<pre class=" language-shell"><code class="language-shell">vimdiff [参数选项] [文件1] [文件2] [文件3]
+</code></pre>
+<p>3、参数说明</p>
+<p>一般不加参数</p>
+<p>4、实践操作</p>
+<p>比较多个文件</p>
+<pre class=" language-shell"><code class="language-shell">[root@xiezhr test]# vimdiff test1.txt test2.txt test3.txt
+</code></pre>
+<p><img src="https://s2.loli.net/2022/03/26/1xGN8IU7QdpOsui.png"></p>
+<p><strong>退出vimdiff 需要执行两次退出vim的操作（:q）</strong></p>
+<h3 id="wc-统计文件的的行数、单词数或字节数"><a href="#wc-统计文件的的行数、单词数或字节数" class="headerlink" title="wc 统计文件的的行数、单词数或字节数"></a>wc 统计文件的的行数、单词数或字节数</h3><p>1、简介</p>
+<p>wc 命令可以理解为是<strong>w</strong>ords <strong>c</strong>ount 的缩写，说到缩写，我知道你想到了“厕所”，可真不是厕所的缩写。</p>
+<p>用于统计文件的行数、单词数或字节数</p>
+<p>2、语法格式</p>
+<pre class=" language-shell"><code class="language-shell">wc [参数选项] [文件]
+</code></pre>
+<p>3、参数说明</p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>参数说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>-c</td>
+<td>统计字节数</td>
+</tr>
+<tr>
+<td>-w</td>
+<td>统计单词数</td>
+</tr>
+<tr>
+<td>-l</td>
+<td>统计行数</td>
+</tr>
+<tr>
+<td>-L</td>
+<td>打印最长行的长度</td>
+</tr>
+<tr>
+<td>-m</td>
+<td>统计字符数</td>
+</tr>
+</tbody></table>
+<p>4、实践操作</p>
+<p>① 不带参数</p>
+<pre class=" language-shell"><code class="language-shell">[root@xiezhr test]# cat xiezhr.txt 
+个人公众号：XiezhrSpace
+
+
+个人博客：www.xiezhrspace.cn
+
+
+
+个人微信号：xie_zhr
+
+欢迎您的关注！
+[root@xiezhr test]# wc xiezhr.txt 
+ 10   4 118 xiezhr.txt
+</code></pre>
+<p>结果说明，不带参数，直接输出的结果四10行，4个单词（按照英文单词方式记的可笑😂），118个字节</p>
+<p>② 带上参数，查看文件的字数、字节数、字符数</p>
+<pre class=" language-shell"><code class="language-shell">[root@xiezhr test]# cat xiezhr.txt 
+个人公众号：XiezhrSpace
+
+
+个人博客：www.xiezhrspace.cn
+
+
+
+个人微信号：xie_zhr
+
+欢迎您的关注！
+[root@xiezhr test]# wc -c xiezhr.txt 
+118 xiezhr.txt
+[root@xiezhr test]# wc -l xiezhr.txt 
+10 xiezhr.txt
+[root@xiezhr test]# wc -m xiezhr.txt 
+70 xiezhr.txt
+[root@xiezhr test]# wc -w xiezhr.txt 
+4 xiezhr.txt
+[root@xiezhr test]# wc -L xiezhr.txt 
+28 xiezhr.txt
+</code></pre>
+<p>③ 查看登录系统的用户数</p>
+<pre class=" language-shell"><code class="language-shell"># 查看哪些用户登录系统
+[root@xiezhr test]# who
+root     pts/0        2022-03-26 10:03 (39.130.60.84)
+root     pts/1        2022-03-26 10:36 (39.130.60.84)
+root     pts/2        2022-03-26 10:56 (39.130.60.84)
+# 查看一共有多少用户登录系统
+[root@xiezhr test]# who |wc -l
+3
+</code></pre>
+<h3 id="sort-文本排序"><a href="#sort-文本排序" class="headerlink" title="sort 文本排序"></a>sort 文本排序</h3><p>1、简介</p>
+<p>sort 中文意思就是排序，所以呢该命令用于将输入的文件内容按照指定规则排序</p>
+<p>2、语法格式</p>
+<pre class=" language-shell"><code class="language-shell">sort [参数选项] [文件]
+</code></pre>
+<p>3、参数说明</p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>参数选项</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>-b</td>
+<td>忽略每行开头存在的空格字符</td>
+</tr>
+<tr>
+<td>-n</td>
+<td>按照数值的大小进行排序</td>
+</tr>
+<tr>
+<td>-r</td>
+<td>倒叙排序</td>
+</tr>
+<tr>
+<td>-u</td>
+<td>去除重复行</td>
+</tr>
+<tr>
+<td>-t</td>
+<td>指定分隔符</td>
+</tr>
+<tr>
+<td>-k</td>
+<td>按指定区间排序</td>
+</tr>
+</tbody></table>
+<p>4、实践操作</p>
+<p><strong>默认是从首字符向后，依次按照ASCII码升序排列</strong></p>
+<p>①不带参数进行排序</p>
+<pre class=" language-shell"><code class="language-shell">[root@xiezhr test]# cat a.txt 
+
+192.168.205.23
+192.168.205.23
+192.168.205.23
+192.168.205.24
+192.168.205.21
+192.168.205.24
+
+[root@xiezhr test]# sort a.txt 
+
+
+192.168.205.21
+192.168.205.23
+192.168.205.23
+192.168.205.23
+192.168.205.24
+192.168.205.24
+</code></pre>
+<p>② 使用【-n】参数，按数字从小到大排序</p>
+<pre class=" language-shell"><code class="language-shell">[root@xiezhr test]# sort -n a.txt 
+
+
+192.168.205.21
+192.168.205.23
+192.168.205.23
+192.168.205.23
+192.168.205.24
+192.168.205.24
+</code></pre>
+<p>③ 使用【-r】参数，按降序排序</p>
+<pre class=" language-shell"><code class="language-shell">[root@xiezhr test]# sort -nr a.txt 
+192.168.205.24
+192.168.205.24
+192.168.205.23
+192.168.205.23
+192.168.205.23
+192.168.205.21
+
+</code></pre>
+<p>④使用【-u】参数，去除重复</p>
+<pre class=" language-shell"><code class="language-shell">[root@xiezhr test]# sort -u a.txt 
+192.168.205.21
+192.168.205.23
+192.168.205.24
+</code></pre>
+<p>⑤使用【-t -k】按指定列排序</p>
+<pre class=" language-shell"><code class="language-shell">[root@xiezhr test]# cat a2.txt 
+小谢 18岁
+小明 17岁
+小林 25岁
+晓燕 30岁
+小李 17岁
+[root@xiezhr test]# sort a2.txt 
+小明 17岁
+小李 17岁
+小林 25岁
+小谢 18岁
+晓燕 30岁
+# -t 后面指定以空格为分隔符， -k 后面参数表示按第二列排序
+[root@xiezhr test]# sort -t " " -k2 a2.txt 
+小明 17岁
+小李 17岁
+小谢 18岁
+小林 25岁
+晓燕 30岁
+</code></pre>
+<h3 id="uniq-去除重复行"><a href="#uniq-去除重复行" class="headerlink" title="uniq 去除重复行"></a>uniq 去除重复行</h3><p>1、简介</p>
+<p> uniq 命令用于检查及删除文本文件中重复出现的行列，一般与 sort 命令结合使用。 </p>
+<p>2、语法格式</p>
+<pre class=" language-shell"><code class="language-shell">uniq [参数选项] [文件或标准输出]
+</code></pre>
+<p>3、参数说明</p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>参数说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>-c</td>
+<td>去除重复行，并计算每行出现的次数</td>
+</tr>
+<tr>
+<td>-d</td>
+<td>只显示重复的行</td>
+</tr>
+<tr>
+<td>-u</td>
+<td>只显示唯一的行</td>
+</tr>
+</tbody></table>
+<p>4、实践操作</p>
+<p>① 不带参数去重</p>
+<pre class=" language-shell"><code class="language-shell">[root@xiezhr test]# cat test1.txt 
+个人公众号：XiezhrSpace
+个人公众号：XiezhrSpace
+个人公众号：XiezhrSpace
+个人博客：www.xiezhrspace.cn
+个人博客：www.xiezhrspace.cn
+[root@xiezhr test]# uniq test1.txt 
+个人公众号：XiezhrSpace
+个人博客：www.xiezhrspace.cn
+</code></pre>
+<p>②加上【-c】参数，显示相应出现的次数</p>
+<pre class=" language-shell"><code class="language-shell">[root@xiezhr test]# cat test1.txt 
+个人公众号：XiezhrSpace
+个人公众号：XiezhrSpace
+个人公众号：XiezhrSpace
+个人博客：www.xiezhrspace.cn
+个人博客：www.xiezhrspace.cn
+[root@xiezhr test]# uniq -c test1.txt 
+      3 个人公众号：XiezhrSpace
+      2 个人博客：www.xiezhrspace.cn
+</code></pre>
+<p>③ 配合着sort命令一起使用</p>
+<pre class=" language-shell"><code class="language-shell">[root@xiezhr test]# cat test1.txt 
+个人公众号：XiezhrSpace
+个人公众号：XiezhrSpace
+个人博客：www.xiezhrspace.cn
+个人公众号：XiezhrSpace
+个人博客：www.xiezhrspace.cn
+个人博客：www.xiezhrspace.cn
+[root@xiezhr test]# uniq test1.txt 
+个人公众号：XiezhrSpace
+个人博客：www.xiezhrspace.cn
+个人公众号：XiezhrSpace
+个人博客：www.xiezhrspace.cn
+[root@xiezhr test]# sort -n test1.txt | uniq -c
+      3 个人公众号：XiezhrSpace
+      3 个人博客：www.xiezhrspace.cn
+</code></pre>
+<h3 id="join-按两个文件的相同字段合并"><a href="#join-按两个文件的相同字段合并" class="headerlink" title="join 按两个文件的相同字段合并"></a>join 按两个文件的相同字段合并</h3><p>1、简介</p>
+<p>man  命令用于将两个文件中，指定栏位内容相同的行连接起来 </p>
+<p>2、语法格式</p>
+<pre class=" language-shell"><code class="language-shell">join [参数选项] [文件1] [文件2]
+</code></pre>
+<p>3、参数说明</p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>参数选项</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>-1</td>
+<td>以第一个文件的指定字段为基础进行合并</td>
+</tr>
+<tr>
+<td>-2</td>
+<td>以第二个文件的指定字段为基础进行合并</td>
+</tr>
+<tr>
+<td>-i</td>
+<td>比较字段时忽略大小写</td>
+</tr>
+<tr>
+<td>-a&lt;1或2&gt;</td>
+<td>除了显示原来的输出内容之外，还显示指令文件中没有相同栏位的行</td>
+</tr>
+</tbody></table>
+<p>4、实践操作</p>
+<p>合并文本</p>
+<pre class=" language-shell"><code class="language-shell">[root@xiezhr test]# cat a1.txt 
+小谢 男
+小明 女
+小林 男
+晓燕 女
+[root@xiezhr test]# cat a2.txt 
+小谢 18岁
+小明 17岁
+小林 25岁
+晓燕 30岁
+[root@xiezhr test]# join a1.txt a2.txt 
+小谢 男 18岁
+小明 女 17岁
+小林 男 25岁
+晓燕 女 30岁
+</code></pre>
+<h3 id="paste-合并文件"><a href="#paste-合并文件" class="headerlink" title="paste 合并文件"></a>paste 合并文件</h3><p>1、简介</p>
+<p>paste 命令能将文件按照行与行进行合并，中间使用tab隔开</p>
+<p>2、语法格式</p>
+<pre class=" language-shell"><code class="language-shell">paste [参数选项] [文件]
+</code></pre>
+<p>3、参数说明</p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>参数说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>-d</td>
+<td>指定合并的分隔符，默认是tab</td>
+</tr>
+<tr>
+<td>-s</td>
+<td>每个文件占用一行</td>
+</tr>
+</tbody></table>
+<p>4、实践操作</p>
+<p>①不带参数合并文件</p>
+<pre class=" language-shell"><code class="language-shell">[root@xiezhr test]# cat a1.txt 
+小谢 男
+小明 女
+小林 男
+晓燕 女
+[root@xiezhr test]# cat a2.txt 
+小谢 18岁
+小明 17岁
+小林 25岁
+晓燕 30岁
+小李 17岁
+[root@xiezhr test]# paste a1.txt a2.txt 
+小谢 男 小谢 18岁
+小明 女 小明 17岁
+小林 男 小林 25岁
+晓燕 女 晓燕 30岁
+        小李 17岁
+</code></pre>
+<p>②通过【-d】参数，指定分隔符</p>
+<pre class=" language-shell"><code class="language-shell">[root@xiezhr test]# cat a1.txt 
+小谢 男
+小明 女
+小林 男
+晓燕 女
+[root@xiezhr test]# cat a2.txt 
+小谢 18岁
+小明 17岁
+小林 25岁
+晓燕 30岁
+小李 17岁
+[root@xiezhr test]# paste -d: a1.txt a2.txt 
+小谢 男:小谢 18岁
+小明 女:小明 17岁
+小林 男:小林 25岁
+晓燕 女:晓燕 30岁
+:小李 17岁
+</code></pre>
+<p>③使用【-s】参数，合并内容</p>
+<pre class=" language-shell"><code class="language-shell">[root@xiezhr test]# cat a1.txt 
+小谢 男
+小明 女
+小林 男
+晓燕 女
+[root@xiezhr test]# paste -s a1.txt 
+小谢 男 小明 女 小林 男 晓燕 女
+</code></pre>
+<h3 id="split-分割文件"><a href="#split-分割文件" class="headerlink" title="split 分割文件"></a>split 分割文件</h3><p>1、简介</p>
+<p>split 是分割的意思，按照指定行数或者指定文件大小分割文件，将其分割成多个文件。</p>
+<p>2、语法格式</p>
+<pre class=" language-shell"><code class="language-shell">split [参数选项] [输入文件] [输入文件名前缀]
+</code></pre>
+<p>3、参数说明</p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>参数说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>-l</td>
+<td>指定分割后文件的最大行数</td>
+</tr>
+</tbody></table>
+<p>4、实践操作</p>
+<p>按行数进行分割</p>
+<pre class=" language-shell"><code class="language-shell">[root@xiezhr test]# cat a.txt 
+
+192.168.205.23
+192.168.205.23
+192.168.205.23
+192.168.205.24
+192.168.205.21
+192.168.205.24
+#原来的大文件"a.txt"切割成多个以"x"开头的小文件。而在这些小文件中，每个文件都只有3行内容。
+[root@xiezhr test]# split -3 a.txt 
+[root@xiezhr test]# ls
+a1.txt  a2.txt  a.txt  c.txt  dir  dir2  dir3  dir5  dir6  dir_bak  movie.tar.gz  m.tx  test1.txt  test2.txt  test3.txt  test.txt  tt.txt  xaa  xab  xac  xiezhr.txt
+</code></pre>
+<h3 id="cut-从文本中提取一段文字并输出"><a href="#cut-从文本中提取一段文字并输出" class="headerlink" title="cut 从文本中提取一段文字并输出"></a>cut 从文本中提取一段文字并输出</h3><p>1、简介</p>
+<p>cut 意思是剪切，所以其功能就是把文件每一行剪切一段文字，并将文字输出</p>
+<p>2、语法格式</p>
+<pre class=" language-shell"><code class="language-shell">cut [参数选项] [文件]
+</code></pre>
+<p>3、参数说明</p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>参数选项</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>-c</td>
+<td>以字符为单位进行分割</td>
+</tr>
+<tr>
+<td>-d</td>
+<td>自定义分割符，默认以tab为分割符</td>
+</tr>
+<tr>
+<td>-f</td>
+<td>与选项-d一起使用，指定显示哪个区域</td>
+</tr>
+<tr>
+<td>N</td>
+<td>第N个字节、字符或字段</td>
+</tr>
+<tr>
+<td>N-</td>
+<td>从第N个字符、字节或字段开始直至行尾</td>
+</tr>
+<tr>
+<td>N-M</td>
+<td>从第N到第M(包含M)个字节、字符或字段</td>
+</tr>
+<tr>
+<td>-M</td>
+<td>从第1到第M(包含M)个字节、字符或字段</td>
+</tr>
+</tbody></table>
+<p>4、实践操作</p>
+<p>以字符为单位进行剪切</p>
+<pre class=" language-shell"><code class="language-shell">[root@xiezhr dir]# cat a.txt 
+I am xiezhr.I love coding.
+
+[root@xiezhr dir]# cut -c 4 a.txt  #输出第4个字符
+m
+
+[root@xiezhr dir]# cut -c 3-4 a.txt #输出第3到第4个字符
+am
+
+[root@xiezhr dir]# cut -c -4 a.txt  #输出第1到第4个字符
+I am
+
+[root@xiezhr dir]# cut -c 4- a.txt  #输出第4个到最后个字符
+m xiezhr.I love coding.
+</code></pre>
+<h3 id="tr-替换或删除字符"><a href="#tr-替换或删除字符" class="headerlink" title="tr 替换或删除字符"></a>tr 替换或删除字符</h3><p>1、简介</p>
+<p>tr  命令用于替换或删除文件中的字符。 </p>
+<p>2、语法格式</p>
+<pre class=" language-shell"><code class="language-shell">tr [参数选项] [字符1] [字符2]
+</code></pre>
+<p>3、参数说明</p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>参数说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>-d</td>
+<td>删除字符</td>
+</tr>
+<tr>
+<td>-s</td>
+<td>保留连续字符的第一个字符，删去其他字符</td>
+</tr>
+<tr>
+<td>-c</td>
+<td>反选设定字符。也就是符合 SET1 的部份不做处理，不符合的剩余部份才进行转换</td>
+</tr>
+</tbody></table>
+<p>4、实践操作</p>
+<p>①将文件中的‘is’ 替换为‘ab’ <strong>注意：凡是文中出现的”i”都替换成“a”,”s”均被替换成“b”,而不仅仅是“is”替换为字符串“ab”</strong></p>
+<pre class=" language-shell"><code class="language-shell">[root@xiezhr dir]# clear
+[root@xiezhr dir]# cat a.txt 
+I am xiezhr.
+I love coding. 
+My official account is XiezhrSpace.
+My blog is www.xiezhrspace.cn.
+My QQ is 1666397814.
+
+Welcome to follow me!
+
+We study together and make progress together.
+
+[root@xiezhr dir]# tr 'is' 'ab' < a.txt 
+I am xaezhr.
+I love codang. 
+My offacaal account ab XaezhrSpace.
+My blog ab www.xaezhrbpace.cn.
+My QQ ab 1666397814.
+
+Welcome to follow me!
+
+We btudy together and make progrebb together.
+</code></pre>
+<p>②大小写替换</p>
+<pre class=" language-shell"><code class="language-shell">[root@xiezhr dir]# tr '[a-z]' '[A-Z]' < a.txt 
+I AM XIEZHR.
+I LOVE CODING. 
+MY OFFICIAL ACCOUNT IS XIEZHRSPACE.
+MY BLOG IS WWW.XIEZHRSPACE.CN.
+MY QQ IS 1666397814.
+
+WELCOME TO FOLLOW ME!
+
+WE STUDY TOGETHER AND MAKE PROGRESS TOGETHER.
+</code></pre>
+<p>③ 将数字0-9 替换成a-j</p>
+<pre class=" language-shell"><code class="language-shell">[root@xiezhr dir]# tr '[0-9]' '[a-j]' < a.txt 
+I am xiezhr.
+I love coding. 
+My official account is XiezhrSpace.
+My blog is www.xiezhrspace.cn.
+My QQ is bgggdjhibe.
+
+Welcome to follow me!
+
+We study together and make progress together.
+</code></pre>
+<p>④删除文中的字符(<strong>注：’M‘,’y’每个字符都会被删除，而不仅仅是“My”字符被删除</strong>)</p>
+<pre class=" language-shell"><code class="language-shell">[root@xiezhr dir]# tr -d 'My' < a.txt 
+I am xiezhr.
+I love coding. 
+ official account is XiezhrSpace.
+ blog is www.xiezhrspace.cn.
+ QQ is 1666397814.
+
+Welcome to follow me!
+
+We stud together and make progress together.
+</code></pre>
+<p>⑤ 删除文件中换行符“\n”，制表符“\t”</p>
+<pre class=" language-shell"><code class="language-shell">[root@xiezhr dir]# tr -d '\n\t' < a.txt 
+I am xiezhr.I love coding. My official account is XiezhrSpace.My blog is www.xiezhrspace.cn.My QQ is 1666397814.Welcome to follow me!We study together and make progress together.[root@xiezhr dir]# 
+</code></pre>
+<p>⑥使用【-c】参数取反</p>
+<pre class=" language-shell"><code class="language-shell"># 下面命令将不是‘0-9’ 的数字替换为‘*’
+[root@xiezhr dir]# tr -c '0-9' '*' < a.txt 
+*********************************************************************************************************1666397814*************************************************************************[root@xiezhr dir]# 
+</code></pre>
+<p>这期内容就到这，下期根据思维导图就到了文件内容操作相关的命令使用了。</p>
+<p>涉及到的命令有：cat、more、head、tail、less、cut、join、sort等等</p>
+<p>敬请期待哦(●’◡’●)</p>
+<p>专栏目录：<a target="_blank" rel="noopener" href="https://blog.csdn.net/rong09_13/article/details/123303512">快速上手Linux核心命令专栏目录</a></p>
+<p>上一篇：<a target="_blank" rel="noopener" href="https://blog.csdn.net/rong09_13/article/details/123586164">快速上手Linux核心命令（三）：文件和目录操作命令</a></p>
+<p>下一篇：<a href="#">快速上手Linux核心命令（五）：文本处理三剑客（博主正在玩命更新中）</a></p>
+
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="/about" rel="external nofollow noreferrer">xiezhr</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="https://www.xiezhrspace.cn/archives/51ec36be.html">https://www.xiezhrspace.cn/archives/51ec36be.html</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="/about" target="_blank">xiezhr</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/Linux/">
+                                    <span class="chip bg-color">Linux</span>
+                                </a>
+                            
+                                <a href="/tags/Linux-%E6%A0%B8%E5%BF%83%E5%91%BD%E4%BB%A4/">
+                                    <span class="chip bg-color">Linux 核心命令</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="qq,wechat,weibo,douban" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+                <style>
+    #reward {
+        margin: 40px 0;
+        text-align: center;
+    }
+
+    #reward .reward-link {
+        font-size: 1.4rem;
+        line-height: 38px;
+    }
+
+    #reward .btn-floating:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    #rewardModal {
+        width: 320px;
+        height: 350px;
+    }
+
+    #rewardModal .reward-title {
+        margin: 15px auto;
+        padding-bottom: 5px;
+    }
+
+    #rewardModal .modal-content {
+        padding: 10px;
+    }
+
+    #rewardModal .close {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 1.3rem;
+        line-height: 20px;
+        cursor: pointer;
+    }
+
+    #rewardModal .close:hover {
+        color: #ef5350;
+        transform: scale(1.3);
+        -moz-transform:scale(1.3);
+        -webkit-transform:scale(1.3);
+        -o-transform:scale(1.3);
+    }
+
+    #rewardModal .reward-tabs {
+        margin: 0 auto;
+        width: 210px;
+    }
+
+    .reward-tabs .tabs {
+        height: 38px;
+        margin: 10px auto;
+        padding-left: 0;
+    }
+
+    .reward-content ul {
+        padding-left: 0 !important;
+    }
+
+    .reward-tabs .tabs .tab {
+        height: 38px;
+        line-height: 38px;
+    }
+
+    .reward-tabs .tab a {
+        color: #fff;
+        background-color: #ccc;
+    }
+
+    .reward-tabs .tab a:hover {
+        background-color: #ccc;
+        color: #fff;
+    }
+
+    .reward-tabs .wechat-tab .active {
+        color: #fff !important;
+        background-color: #22AB38 !important;
+    }
+
+    .reward-tabs .alipay-tab .active {
+        color: #fff !important;
+        background-color: #019FE8 !important;
+    }
+
+    .reward-tabs .reward-img {
+        width: 210px;
+        height: 210px;
+    }
+</style>
+
+<div id="reward">
+    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-medium waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close modal-close"><i class="fas fa-times"></i></a>
+            <h4 class="reward-title">你的赏识是我前进的动力</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs row">
+                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
+                    </ul>
+                    <div id="alipay">
+                        <img src="https://cdn.jsdelivr.net/gh/xiezhr/xiezhrblog-cdn-source/source/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                    <div id="wechat">
+                        <img src="https://cdn.jsdelivr.net/gh/xiezhr/xiezhrblog-cdn-source/source/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('.tabs').tabs();
+    });
+</script>
+
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+        <style>
+    .valine-card {
+        margin: 1.5rem auto;
+    }
+
+    .valine-card .card-content {
+        padding: 20px 20px 5px 20px;
+    }
+
+    #vcomments textarea {
+        
+        box-sizing: border-box;
+        /* background: url("https://cdn.jsdelivr.net/gh/xiezhr/xiezhrblog-cdn-source/source/medias/comment_bg.webp") 100% 100% no-repeat; */
+        background-image: url("https://cdn.jsdelivr.net/gh/xiezhr/xiezhrblog-cdn-source/source/medias/comment_bg.webp");
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position:right;
+        resize:vertical;
+    }
+
+    #vcomments p {
+        margin: 2px 2px 10px;
+        font-size: 1.05rem;
+        line-height: 1.78rem;
+    }
+
+    #vcomments blockquote p {
+        text-indent: 0.2rem;
+    }
+
+    #vcomments a {
+        padding: 0 2px;
+        color: #4cbf30;
+        font-weight: 500;
+        text-decoration: none;
+    }
+
+    #vcomments img {
+        max-width: 100%;
+        height: auto;
+        cursor: pointer;
+    }
+
+    #vcomments ol li {
+        list-style-type: decimal;
+    }
+
+    #vcomments ol,
+    ul {
+        display: block;
+        padding-left: 2em;
+        word-spacing: 0.05rem;
+    }
+
+    #vcomments ul li,
+    ol li {
+        display: list-item;
+        line-height: 1.8rem;
+        font-size: 1rem;
+    }
+
+    #vcomments ul li {
+        list-style-type: disc;
+    }
+
+    #vcomments ul ul li {
+        list-style-type: circle;
+    }
+
+    #vcomments table, th, td {
+        padding: 12px 13px;
+        border: 1px solid #dfe2e5;
+    }
+
+    #vcomments table, th, td {
+        border: 0;
+    }
+
+    table tr:nth-child(2n), thead {
+        background-color: #fafafa;
+    }
+
+    #vcomments table th {
+        background-color: #f2f2f2;
+        min-width: 80px;
+    }
+
+    #vcomments table td {
+        min-width: 80px;
+    }
+
+    #vcomments h1 {
+        font-size: 1.85rem;
+        font-weight: bold;
+        line-height: 2.2rem;
+    }
+
+    #vcomments h2 {
+        font-size: 1.65rem;
+        font-weight: bold;
+        line-height: 1.9rem;
+    }
+
+    #vcomments h3 {
+        font-size: 1.45rem;
+        font-weight: bold;
+        line-height: 1.7rem;
+    }
+
+    #vcomments h4 {
+        font-size: 1.25rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    #vcomments h5 {
+        font-size: 1.1rem;
+        font-weight: bold;
+        line-height: 1.4rem;
+    }
+
+    #vcomments h6 {
+        font-size: 1rem;
+        line-height: 1.3rem;
+    }
+
+    #vcomments p {
+        font-size: 1rem;
+        line-height: 1.5rem;
+    }
+
+    #vcomments hr {
+        margin: 12px 0;
+        border: 0;
+        border-top: 1px solid #ccc;
+    }
+
+    #vcomments blockquote {
+        margin: 15px 0;
+        border-left: 5px solid #42b983;
+        padding: 1rem 0.8rem 0.3rem 0.8rem;
+        color: #666;
+        background-color: rgba(66, 185, 131, .1);
+    }
+
+    #vcomments pre {
+        font-family: monospace, monospace;
+        padding: 1.2em;
+        margin: .5em 0;
+        background: #272822;
+        overflow: auto;
+        border-radius: 0.3em;
+        tab-size: 4;
+    }
+
+    #vcomments code {
+        font-family: monospace, monospace;
+        padding: 1px 3px;
+        font-size: 0.92rem;
+        color: #e96900;
+        background-color: #f8f8f8;
+        border-radius: 2px;
+    }
+
+    #vcomments pre code {
+        font-family: monospace, monospace;
+        padding: 0;
+        color: #e8eaf6;
+        background-color: #272822;
+    }
+
+    #vcomments pre[class*="language-"] {
+        padding: 1.2em;
+        margin: .5em 0;
+    }
+
+    #vcomments code[class*="language-"],
+    pre[class*="language-"] {
+        color: #e8eaf6;
+    }
+
+    #vcomments [type="checkbox"]:not(:checked), [type="checkbox"]:checked {
+        position: inherit;
+        margin-left: -1.3rem;
+        margin-right: 0.4rem;
+        margin-top: -1px;
+        vertical-align: middle;
+        left: unset;
+        visibility: visible;
+    }
+
+    #vcomments b,
+    strong {
+        font-weight: bold;
+    }
+
+    #vcomments dfn {
+        font-style: italic;
+    }
+
+    #vcomments small {
+        font-size: 85%;
+    }
+
+    #vcomments cite {
+        font-style: normal;
+    }
+
+    #vcomments mark {
+        background-color: #fcf8e3;
+        padding: .2em;
+    }
+
+    #vcomments table, th, td {
+        padding: 12px 13px;
+        border: 1px solid #dfe2e5;
+    }
+
+    table tr:nth-child(2n), thead {
+        background-color: #fafafa;
+    }
+
+    #vcomments table th {
+        background-color: #f2f2f2;
+        min-width: 80px;
+    }
+
+    #vcomments table td {
+        min-width: 80px;
+    }
+
+    #vcomments [type="checkbox"]:not(:checked), [type="checkbox"]:checked {
+        position: inherit;
+        margin-left: -1.3rem;
+        margin-right: 0.4rem;
+        margin-top: -1px;
+        vertical-align: middle;
+        left: unset;
+        visibility: visible;
+    }
+
+    
+</style>
+
+<div class="card valine-card" data-aos="fade-up">
+    <div class="comment_headling" style="font-size: 20px; font-weight: 700; position: relative; padding-left: 20px; top: 15px; padding-bottom: 5px;">
+        <i class="fas fa-comments fa-fw" aria-hidden="true"></i>
+        <span>评论</span>
+    </div>
+    <div id="vcomments" class="card-content" style="display: grid">
+    </div>
+</div>
+
+<script src="/libs/valine/av-min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/small-rose/small-rose.github.io/libs/valine/Valine.min.js"></script>
+
+<script>
+    // new Valine({
+    //     el: '#vcomments',
+    //     appId: 'nLFYjWbdxNXHi8ECkNbad7eo-gzGzoHsz',
+    //     appKey: 'EN6vxfxOV7eBy6HlfVE4jhGI',
+    //     notify: 'true' === 'true',
+    //     verify: 'true' === 'true',
+    //     visitor: 'true' === 'true',
+    //     avatar: 'monsterid',
+    //     pageSize: '10',
+    //     lang: 'zh-cn',
+    //     placeholder: '欢迎你留下宝贵的意见 ^-^&#39;'
+    // });
+
+    let metaPlaceholder = {"nick":"昵称/QQ号(必填)","mail":"邮箱(必填)","link":"网址(https://)"} ;
+    //这里要换行
+    new Valine({
+            el: '#vcomments',
+            appId: 'nLFYjWbdxNXHi8ECkNbad7eo-gzGzoHsz',
+            appKey: 'EN6vxfxOV7eBy6HlfVE4jhGI',
+            notify: 'true' === 'true',
+            verify: 'true' === 'true',
+            visitor: 'true' === 'true',
+            avatar: 'monsterid',
+            pageSize: '10',
+            lang: 'zh-CN',
+            placeholder: '欢迎你留下宝贵的意见 ^-^&#39;',
+            meta: ["nick", "mail", "link"],
+            recordIP: 'true' === 'true',
+            enableQQ: 'monsterid',
+            requiredFields: ["1610cd43778f1d972a92503426346411"],
+            master: ["1610cd43778f1d972a92503426346411"],
+            friends: ["c08508165c8eba9a77f8c2853xxxx09e", "901345d4c91ddfd8db0f175bbcfff0c8", "1512958e18378c98b498d5effe3e76ff"],
+            tagMeta: ["博主", "小伙伴", "访客"],
+            metaPlaceholder: metaPlaceholder,
+
+        });
+
+</script>
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/archives/87a8e6ef.html">
+                    <div class="card-image">
+                        
+                        <img src="https://cdn.jsdelivr.net/gh/xiezhr/xiezhrblog-cdn-source@main/blog-img/1650379983091Linux-cover.jpg" class="responsive-img" alt="快速上手Linux核心命令（五）：文本处理三剑客">
+                        
+                        <span class="card-title">快速上手Linux核心命令（五）：文本处理三剑客</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            快速上手Linux核心命令（五）：文本处理三剑客
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2022-04-17
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Linux/" class="post-category">
+                                    Linux
+                                </a>
+                            
+                            <a href="/categories/Linux/Linux-%E6%A0%B8%E5%BF%83%E5%91%BD%E4%BB%A4/" class="post-category">
+                                    Linux 核心命令
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Linux/">
+                        <span class="chip bg-color">Linux</span>
+                    </a>
+                    
+                    <a href="/tags/Linux-%E6%A0%B8%E5%BF%83%E5%91%BD%E4%BB%A4/">
+                        <span class="chip bg-color">Linux 核心命令</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/archives/b55ad976.html">
+                    <div class="card-image">
+                        
+                        <img src="https://cdn.jsdelivr.net/gh/xiezhr/xiezhrblog-cdn-source@main/blog-img/1650379983091Linux-cover.jpg" class="responsive-img" alt="快速上手Linux核心命令（三）：文件和目录操作命令">
+                        
+                        <span class="card-title">快速上手Linux核心命令（三）：文件和目录操作命令</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            快速上手Linux核心命令（三）：文件和目录操作命令
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-03-18
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Linux/" class="post-category">
+                                    Linux
+                                </a>
+                            
+                            <a href="/categories/Linux/Linux-%E6%A0%B8%E5%BF%83%E5%91%BD%E4%BB%A4/" class="post-category">
+                                    Linux 核心命令
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Linux/">
+                        <span class="chip bg-color">Linux</span>
+                    </a>
+                    
+                    <a href="/tags/Linux-%E6%A0%B8%E5%BF%83%E5%91%BD%E4%BB%A4/">
+                        <span class="chip bg-color">Linux 核心命令</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+<script>
+    $('#articleContent').on('copy', function (e) {
+        // IE8 or earlier browser is 'undefined'
+        if (typeof window.getSelection === 'undefined') return;
+
+        var selection = window.getSelection();
+        // if the selection is short let's not annoy our users.
+        if (('' + selection).length < Number.parseInt('300')) {
+            return;
+        }
+
+        // create a div outside of the visible area and fill it with the selected text.
+        var bodyElement = document.getElementsByTagName('body')[0];
+        var newdiv = document.createElement('div');
+        newdiv.style.position = 'absolute';
+        newdiv.style.left = '-99999px';
+        bodyElement.appendChild(newdiv);
+        newdiv.appendChild(selection.getRangeAt(0).cloneContents());
+
+        // we need a <pre> tag workaround.
+        // otherwise the text inside "pre" loses all the line breaks!
+        //if (selection.getRangeAt(0).commonAncestorContainer.nodeName === 'PRE') {
+          //  newdiv.innerHTML = "<pre>" + newdiv.innerHTML + "</pre>";
+        //}
+        newdiv.innerHTML = "<pre>" + newdiv.innerHTML + "</pre>";
+        var url = document.location.href;
+        newdiv.innerHTML += '<br />'
+            + '来源: xiezhrspace<br />'
+            + '文章作者: xiezhr<br />'
+            + '文章链接: <a href="' + url + '">' + url + '</a><br />'
+            + '本文章著作权归作者所有，任何形式的转载都请注明出处。';
+
+        selection.selectAllChildren(newdiv);
+        window.setTimeout(function () {bodyElement.removeChild(newdiv);}, 200);
+    });
+</script>
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+<!-- 代码块折行 -->
+
+<style type="text/css">
+code[class*="language-"], pre[class*="language-"] { white-space: pre !important; }
+</style>
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="https://cdn.jsdelivr.net/gh/xiezhr/xiezhrblog-cdn-source/source/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+
+
+    <style>
+    .youpaiyunlogo {
+        height: 26px;
+        display: inline-block;
+        vertical-align: top;
+    }
+</style>
+<footer class="page-footer bg-color">
+    
+    <div class="container row center-align" style="margin-bottom: 15px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            <span id="year">2020</span>
+            <a href="/about" target="_blank">xiezhr</a>
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            <br>
+            
+            &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
+                class="white-color">90k</span>&nbsp;字
+            
+            
+            
+            
+            
+            
+            <span id="busuanzi_container_site_pv">
+                |&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;<span id="busuanzi_value_site_pv"
+                    class="white-color"></span>&nbsp;次
+            </span>
+            
+            
+            <span id="busuanzi_container_site_uv">
+                |&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;<span id="busuanzi_value_site_uv"
+                    class="white-color"></span>&nbsp;人
+            </span>
+            
+            <br>
+            
+            <span id="sitetime">载入运行时间...</span>
+            <script>
+                function siteTime() {
+                    var seconds = 1000;
+                    var minutes = seconds * 60;
+                    var hours = minutes * 60;
+                    var days = hours * 24;
+                    var years = days * 365;
+                    var today = new Date();
+                    var startYear = "2020";
+                    var startMonth = "11";
+                    var startDate = "17";
+                    var startHour = "9";
+                    var startMinute = "1";
+                    var startSecond = "1";
+                    var todayYear = today.getFullYear();
+                    var todayMonth = today.getMonth() + 1;
+                    var todayDate = today.getDate();
+                    var todayHour = today.getHours();
+                    var todayMinute = today.getMinutes();
+                    var todaySecond = today.getSeconds();
+                    var t1 = Date.UTC(startYear, startMonth, startDate, startHour, startMinute, startSecond);
+                    var t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond);
+                    var diff = t2 - t1;
+                    var diffYears = Math.floor(diff / years);
+                    var diffDays = Math.floor((diff / days) - diffYears * 365);
+                    var diffHours = Math.floor((diff - (diffYears * 365 + diffDays) * days) / hours);
+                    var diffMinutes = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours) /
+                        minutes);
+                    var diffSeconds = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours -
+                        diffMinutes * minutes) / seconds);
+                    if (startYear == todayYear) {
+                        document.getElementById("year").innerHTML = todayYear;
+                        document.getElementById("sitetime").innerHTML = "小破站已在各种灾难中安全运行 " + diffDays + " 天 " + diffHours +
+                            " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
+                    } else {
+                        document.getElementById("year").innerHTML = startYear + " - " + todayYear;
+                        document.getElementById("sitetime").innerHTML = "小破站已在各种灾难中安全运行 " + diffYears + " 年 " + diffDays +
+                            " 天 " + diffHours + " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
+                    }
+                }
+                setInterval(siteTime, 1000);
+            </script>
+            
+            <br>
+            
+            <span id="icp"><img src="/medias/icp.png" style="vertical-align: text-bottom;" />
+                <a href="http://www.beian.miit.gov.cn" target="_blank">滇ICP备2020008901号</a>
+            </span>
+            
+            <a href="https://www.upyun.com/?utm_source=lianmeng&amp;utm_medium=referra" target="_blank" title="本站由又拍云 提供CDN加速/云存储服务" >
+                <img src="https://cdn2.sublimerui.top/2021/01/09/4a78e24138103.png"class="youpaiyunlogo"/>
+            </a>
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/xiezhr" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+    <a href="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/wx.jpg" class="tooltipped" target="_blank" data-tooltip="微信联系我: https://gitee.com/xiezhr/image-learn-bed/raw/master/image/wx.jpg" data-position="top" data-delay="50">
+        <i class="fab fa-weixin"></i>
+    </a>
+
+
+
+    <a href="https://www.jianshu.com/u/2b57477b4c5a" class="tooltipped" target="_blank" data-tooltip="关注我的简书: https://www.jianshu.com/u/2b57477b4c5a" data-position="top" data-delay="50">
+        <i class="fab fa-jianshu">简</i>
+    </a>
+
+
+
+    <a href="https://blog.csdn.net/rong09_13" class="tooltipped" target="_blank" data-tooltip="关注我的CSDN: https://blog.csdn.net/rong09_13" data-position="top" data-delay="50">
+        <i class="fab fa-csdn">C</i>
+    </a>
+
+
+
+    <a href="https://juejin.im/user/1829211147871415/posts" class="tooltipped" target="_blank" data-tooltip="关注我的掘金: https://juejin.im/user/1829211147871415/posts" data-position="top" data-delay="50">
+        <i class="fab fa-juejin">掘</i>
+    </a>
+
+
+
+    <a href="mailto:1666397814@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=1666397814" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 1666397814" data-position="top" data-delay="50">
+        <i class="fab fa-qq"></i>
+    </a>
+
+
+
+
+
+    <a href="https://www.zhihu.com/people/rong-xie-49-35" class="tooltipped" target="_blank" data-tooltip="关注我的知乎: https://www.zhihu.com/people/rong-xie-49-35" data-position="top" data-delay="50">
+        <i class="fab fa-zhihu1">知</i>
+    </a>
+
+
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/gh/xiezhr/xiezhrblog-cdn-source/source/js/search.js"></script>
+<script type="text/javascript">
+$(function () {
+    searchFunc('/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <style>
+    .top-scroll .btn-floating {
+        background: rgb(73, 177, 245);
+        width: 38px;
+        height: 38px;
+    }
+
+</style>
+
+<!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="https://cdn.jsdelivr.net/gh/xiezhr/xiezhrblog-cdn-source/source/libs/materialize/materialize.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/xiezhr/xiezhrblog-cdn-source/source/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/xiezhr/xiezhrblog-cdn-source/source/libs/aos/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/xiezhr/xiezhrblog-cdn-source/source/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/xiezhr/xiezhrblog-cdn-source/source/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/xiezhr/xiezhrblog-cdn-source/source/js/matery.js"></script>
+
+    
+    <!-- 自动更改网站标题 -->
+    <script type="text/javascript">
+        var OriginTitile=document.title,st;
+        document.addEventListener("visibilitychange",function(){
+            document.hidden?(document.title="ヽ(●-`Д´-)ノ你要玩捉迷藏嘛",clearTimeout(st)):(document.title="(Ő∀Ő3)ノ欢迎回来！",st=setTimeout(function(){document.title=OriginTitile},3e3))
+        })
+    </script>
+
+    <div id="weather-v2-plugin-simple"></div>
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    
+    <script async src="https://cdn.jsdelivr.net/gh/xiezhr/xiezhrblog-cdn-source/source/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+    
+    <script type="text/javascript" color="0,0,255"
+        pointColor="0,0,255" opacity='0.7'
+        zIndex="-1" count="120"
+        src="https://cdn.jsdelivr.net/gh/xiezhr/xiezhrblog-cdn-source/source/libs/background/canvas-nest.js"></script>
+    
+
+    
+
+    
+
+    
+    <script src="https://cdn.jsdelivr.net/gh/xiezhr/xiezhrblog-cdn-source/source/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+    <!--添加全局深色模式-->
+    <script> 
+        if (localStorage.getItem('dark') === '1') { 
+            document.body.classList.add('dark'); 
+        } else if (new Date().getHours() >= 22 || new Date().getHours() < 7) {
+             document.body.classList.add('dark'); 
+        } else if (matchMedia('(prefers-color-scheme: dark)').matches) { 
+            document.body.classList.add('dark'); 
+        } 
+    </script> 
+    <a onclick="switchNightMode()" id="sma"> 
+        <i class="fa fa-moon-o" id="nightMode" aria-hidden="true"></i> 
+    </a>
+</body>
+
+</html>

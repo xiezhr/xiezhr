@@ -1,0 +1,3069 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="Linux,Linux 核心命令">
+    <meta name="description" content="">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="baidu-site-verification" content="code-uutUfowLsm" />
+    <meta name="msvalidate.01" content="F999DE5405A9F0E56508AD3016F4E45E" />
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <title>快速上手Linux核心命令（五）：文本处理三剑客 | xiezhrspace</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/xiezhr/xiezhrblog-cdn-source/source/libs/awesome/css/all.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/xiezhr/xiezhrblog-cdn-source/source/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/xiezhr/xiezhrblog-cdn-source/source/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/xiezhr/xiezhrblog-cdn-source/source/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/xiezhr/xiezhrblog-cdn-source/source/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/xiezhr/xiezhrblog-cdn-source/source/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/xiezhr/xiezhrblog-cdn-source/source/css/my.css">
+    
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/xiezhr/xiezhrblog-cdn-source/source/libs/artitalk/artitalk.min.css">
+    <!--引入春节样式-->
+    <link rel="stylesheet" type="text/css" href="../../css/spring.css">
+    <!--引入黑夜样式-->
+    <link rel="stylesheet" type="text/css" href="../../css/moon.css">
+    
+
+    <script src="https://cdn.jsdelivr.net/gh/xiezhr/xiezhrblog-cdn-source/source/libs/jquery/jquery.min.js"></script>
+
+    
+        <link type="text/css" href="/js/live2d_assets/waifu.css">
+    
+
+    
+
+<!-- 元宵节灯笼样式开始 -->
+
+    <style>
+        @media only screen and (min-width: 1124px) {
+            .nav-menu {
+                padding-right: 90px;
+            }
+        }
+        @media only screen and (max-width: 760px) {
+            .deng-box, .deng-box1 {
+                width: 40%;
+            }
+            .right {
+                float: left!important;
+            }
+        }
+        @media only screen and (min-width: 768px) and (max-width: 1024px) {
+            .right {
+                float: left!important;
+            }
+        }
+        .deng-box {
+            position: fixed;
+            top: -40px;
+            right: -20px;
+            z-index: 999;
+        }
+        .deng-box1 {
+            position: fixed;
+            top: -30px;
+            right: 10px;
+            z-index: 999;
+        }
+        .deng-box1 .deng {
+            position: relative;
+            width: 120px;
+            height: 90px;
+            margin: 50px;
+            background: #d8000f;
+            background: rgba(216, 0, 15, 0.8);
+            border-radius: 50% 50%;
+            -webkit-transform-origin: 50% -100px;
+            -webkit-animation: swing 5s infinite ease-in-out;
+            box-shadow: -5px 5px 30px 4px rgba(252, 144, 61, 1);
+        }
+        .deng {
+            position: relative;
+            width: 120px;
+            height: 90px;
+            margin: 50px;
+            background: #d8000f;
+            background: rgba(216, 0, 15, 0.8);
+            border-radius: 50% 50%;
+            -webkit-transform-origin: 50% -100px;
+            -webkit-animation: swing 3s infinite ease-in-out;
+            box-shadow: -5px 5px 50px 4px rgba(250, 108, 0, 1);
+        }
+        .deng-a {
+            width: 100px;
+            height: 90px;
+            background: #d8000f;
+            background: rgba(216, 0, 15, 0.1);
+            margin: 12px 8px 8px 10px;
+            border-radius: 50% 50%;
+            border: 2px solid #dc8f03;
+        }
+        .deng-b {
+            width: 45px;
+            height: 90px;
+            background: #d8000f;
+            background: rgba(216, 0, 15, 0.1);
+            margin: -4px 8px 8px 26px;
+            border-radius: 50% 50%;
+            border: 2px solid #dc8f03;
+        }
+        .xian {
+            position: absolute;
+            top: -20px;
+            left: 60px;
+            width: 2px;
+            height: 20px;
+            background: #dc8f03;
+        }
+        .shui-a {
+            position: relative;
+            width: 5px;
+            height: 20px;
+            margin: -5px 0 0 59px;
+            -webkit-animation: swing 4s infinite ease-in-out;
+            -webkit-transform-origin: 50% -45px;
+            background: #ffa500;
+            border-radius: 0 0 5px 5px;
+        }
+        .shui-b {
+            position: absolute;
+            top: 14px;
+            left: -2px;
+            width: 10px;
+            height: 10px;
+            background: #dc8f03;
+            border-radius: 50%;
+        }
+        .shui-c {
+            position: absolute;
+            top: 18px;
+            left: -2px;
+            width: 10px;
+            height: 35px;
+            background: #ffa500;
+            border-radius: 0 0 0 5px;
+        }
+        .deng:before {
+            position: absolute;
+            top: -7px;
+            left: 29px;
+            height: 12px;
+            width: 60px;
+            content: " ";
+            display: block;
+            z-index: 999;
+            border-radius: 5px 5px 0 0;
+            border: solid 1px #dc8f03;
+            background: #ffa500;
+            background: linear-gradient(to right, #dc8f03, #ffa500, #dc8f03, #ffa500, #dc8f03);
+        }
+        .deng:after {
+            position: absolute;
+            bottom: -7px;
+            left: 10px;
+            height: 12px;
+            width: 60px;
+            content: " ";
+            display: block;
+            margin-left: 20px;
+            border-radius: 0 0 5px 5px;
+            border: solid 1px #dc8f03;
+            background: #ffa500;
+            background: linear-gradient(to right, #dc8f03, #ffa500, #dc8f03, #ffa500, #dc8f03);
+        }
+        @font-face {
+            font-family: "华文行楷";
+            src: url('/fonts/华文行楷.ttf');
+        }
+        .deng-t {
+            font-family: 华文行楷;
+            font-size: 26px;
+            color: #dc8f03;
+            font-weight: bold;
+            line-height: 44px;
+            text-align: center;
+        }
+        .night .deng-t,
+        .night .deng-box,
+        .night .deng-box1 {
+            background: transparent !important;
+        }
+        @-moz-keyframes swing {
+            0% {
+                    -moz-transform: rotate(-10deg)
+            }
+            50% {
+                -moz-transform: rotate(10deg)
+            }
+            100% {
+                    -moz-transform: rotate(-10deg)
+            }
+        }
+        @-webkit-keyframes swing {
+            0% {
+                    -webkit-transform: rotate(-10deg)
+            }
+            50% {
+                    -webkit-transform: rotate(10deg)
+            }
+            100% {
+                    -webkit-transform: rotate(-10deg)
+            }
+        }
+    </style>
+    <div class="deng-box">
+        <div class="deng">
+            <div class="xian"></div>
+            <div class="deng-a">
+                <div class="deng-b"><div class="deng-t">喜迎</div></div>
+            </div>
+            <div class="shui shui-a"><div class="shui-c"></div><div class="shui-b"></div></div>
+        </div>
+    </div>
+    <div class="deng-box1">
+        <div class="deng">
+            <div class="xian"></div>
+            <div class="deng-a">
+                <div class="deng-b"><div class="deng-t">春节</div></div>
+            </div>
+            <div class="shui shui-a"><div class="shui-c"></div><div class="shui-b"></div></div>
+        </div>
+    </div>
+
+<!-- 元宵节灯笼样式结束 -->
+
+    
+
+<meta name="generator" content="Hexo 5.4.0"><link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+
+
+
+
+
+    <style type="text/css" lang="css">
+    #loading-container{
+        position: fixed;
+        top: 0;
+        left: 0;
+        min-height: 100vh;
+        width: 100vw;
+        z-index: 9999;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background: #FFF;
+        text-align: center;
+        /* loader页面消失采用渐隐的方式*/
+        -webkit-transition: opacity 1s ease;
+        -moz-transition: opacity 1s ease;
+        -o-transition: opacity 1s ease;
+        transition: opacity 1s ease;
+    }
+    .loading-image{
+        width: 120px;
+        height: 50px;
+        transform: translate(-50%);
+    }
+
+    .loading-image div:nth-child(2) {
+        -webkit-animation: pacman-balls 1s linear 0s infinite;
+        animation: pacman-balls 1s linear 0s infinite
+    }
+
+    .loading-image div:nth-child(3) {
+        -webkit-animation: pacman-balls 1s linear .33s infinite;
+        animation: pacman-balls 1s linear .33s infinite
+    }
+
+    .loading-image div:nth-child(4) {
+        -webkit-animation: pacman-balls 1s linear .66s infinite;
+        animation: pacman-balls 1s linear .66s infinite
+    }
+
+    .loading-image div:nth-child(5) {
+        -webkit-animation: pacman-balls 1s linear .99s infinite;
+        animation: pacman-balls 1s linear .99s infinite
+    }
+
+   .loading-image div:first-of-type {
+        width: 0;
+        height: 0;
+        border: 25px solid #49b1f5;
+        border-right-color: transparent;
+        border-radius: 25px;
+        -webkit-animation: rotate_pacman_half_up .5s 0s infinite;
+        animation: rotate_pacman_half_up .5s 0s infinite;
+    }
+    .loading-image div:nth-child(2) {
+        width: 0;
+        height: 0;
+        border: 25px solid #49b1f5;
+        border-right-color: transparent;
+        border-radius: 25px;
+        -webkit-animation: rotate_pacman_half_down .5s 0s infinite;
+        animation: rotate_pacman_half_down .5s 0s infinite;
+        margin-top: -50px;
+    }
+    @-webkit-keyframes rotate_pacman_half_up {0% {transform: rotate(270deg)}50% {transform: rotate(1turn)}to {transform: rotate(270deg)}}
+
+    @keyframes rotate_pacman_half_up {0% {transform: rotate(270deg)}50% {transform: rotate(1turn)}to {transform: rotate(270deg)}}
+
+    @-webkit-keyframes rotate_pacman_half_down {0% {transform: rotate(90deg)}50% {transform: rotate(0deg)}to {transform: rotate(90deg)}}
+
+    @keyframes rotate_pacman_half_down {0% {transform: rotate(90deg)}50% {transform: rotate(0deg)}to {transform: rotate(90deg)}}
+
+    @-webkit-keyframes pacman-balls {75% {opacity: .7}to {transform: translate(-100px, -6.25px)}}
+
+    @keyframes pacman-balls {75% {opacity: .7}to {transform: translate(-100px, -6.25px)}}
+
+
+    .loading-image div:nth-child(3),
+    .loading-image div:nth-child(4),
+    .loading-image div:nth-child(5),
+    .loading-image div:nth-child(6){
+        background-color: #49b1f5;
+        width: 15px;
+        height: 15px;
+        border-radius: 100%;
+        margin: 2px;
+        width: 10px;
+        height: 10px;
+        position: absolute;
+        transform: translateY(-6.25px);
+        top: 25px;
+        left: 100px;
+    }
+    .loading-text{
+        margin-bottom: 20vh;
+        text-align: center;
+        color: #2c3e50;
+        font-size: 2rem;
+        box-sizing: border-box;
+        padding: 0 10px;
+        text-shadow: 0 2px 10px rgba(0,0,0,0.2);
+    }
+    @media only screen and (max-width: 500px) {
+         .loading-text{
+            font-size: 1.5rem;
+         }
+    }
+    .fadeout {
+        opacity: 0;
+        filter: alpha(opacity=0);
+    }
+    /* logo出现动画 */
+    @-webkit-keyframes fadeInDown{0%{opacity:0;-webkit-transform:translate3d(0,-100%,0);transform:translate3d(0,-100%,0)}100%{opacity:1;-webkit-transform:none;transform:none}}
+    @keyframes fadeInDown{0%{opacity:0;-webkit-transform:translate3d(0,-100%,0);}}
+ </style>
+ <script>
+(function () {
+    const loaded = function(){
+       setTimeout(function(){
+            const loader = document.getElementById("loading-container");
+            loader.className="fadeout" ;//使用渐隐的方法淡出loading page
+            // document.getElementById("body-wrap").style.display="flex";
+            setTimeout(function(){
+                loader.style.display="none";
+            },2500); 
+        },1000);//强制显示loading page 1s  
+    };
+    loaded();
+})()
+</script>
+
+ 
+
+<body>
+    
+    
+        <div id="loading-container">
+             <p class="loading-text">嘘~  小破站正在拼命加载中 . . . </p> 
+             <div class="loading-image">
+                 <div></div>
+                 <div></div>
+                 <div></div>
+                 <div></div> 
+                 <div></div>
+             </div>
+        </div>
+    
+
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" id="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span diyFont" id="logo-title">xiezhrspace</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/#" class="waves-effect waves-light">
+
+      
+      <span>归档</span>
+      <i class="fas fa-chevron-down" aria-hidden="true" style="zoom: 0.6;"></i>
+    </a>
+    <ul class="sub-nav menus_item_child ">
+      
+      <li>
+        <a href="/tags">
+          
+          <span>标签</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/categories">
+          
+          <span>分类</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/archives">
+          
+          <span>时间轴</span>
+        </a>
+      </li>
+      
+    </ul>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/artitalk" class="waves-effect waves-light">
+      
+      <span>说说</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/#" class="waves-effect waves-light">
+
+      
+      <span>媒体</span>
+      <i class="fas fa-chevron-down" aria-hidden="true" style="zoom: 0.6;"></i>
+    </a>
+    <ul class="sub-nav menus_item_child ">
+      
+      <li>
+        <a href="/books">
+          
+          <span>读书</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/musics">
+          
+          <span>音乐</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/movies">
+          
+          <span>电影</span>
+        </a>
+      </li>
+      
+    </ul>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/#" class="waves-effect waves-light">
+
+      
+      <span>资源分享</span>
+      <i class="fas fa-chevron-down" aria-hidden="true" style="zoom: 0.6;"></i>
+    </a>
+    <ul class="sub-nav menus_item_child ">
+      
+      <li>
+        <a href="/share-tools">
+          
+          <span>常用工具</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/e-book">
+          
+          <span>电子书</span>
+        </a>
+      </li>
+      
+    </ul>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/#" class="waves-effect waves-light">
+
+      
+      <span>交流</span>
+      <i class="fas fa-chevron-down" aria-hidden="true" style="zoom: 0.6;"></i>
+    </a>
+    <ul class="sub-nav menus_item_child ">
+      
+      <li>
+        <a href="/contact">
+          
+          <span>留言</span>
+        </a>
+      </li>
+      
+      <li>
+        <a target="_blank" rel="noopener" href="http://chat.xiezhrspace.cn">
+          
+          <span>聊天室</span>
+        </a>
+      </li>
+      
+    </ul>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/friends" class="waves-effect waves-light">
+      
+      <span>友情链接</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/#" class="waves-effect waves-light">
+
+      
+      <span>实验室</span>
+      <i class="fas fa-chevron-down" aria-hidden="true" style="zoom: 0.6;"></i>
+    </a>
+    <ul class="sub-nav menus_item_child ">
+      
+      <li>
+        <a href="/sponsorship">
+          
+          <i class="fas fa-money" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>赞助墙</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/status">
+          
+          <i class="fas fa-flush" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>检测监控</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/epidemic">
+          
+          <span>疫情实况</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/rain-code">
+          
+          <span>代码雨</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/mykeep">
+          
+          <span>我的Keep</span>
+        </a>
+      </li>
+      
+    </ul>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+<style>
+  #logo-title{
+  }
+
+  #logo-img{
+    
+  }
+  #mobile-logo-img{}
+</style>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img" id="mobile-logo-img">
+        
+        <div class="logo-name">xiezhrspace
+        <div class="logo-desc">
+            
+            爱学习 爱编程 爱分享 再小的帆也能远航
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			<!-- 
+				<i class="fas fa-fw fa-link"></i>
+			 -->
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="javascript:;">
+			<!-- 
+				<i class="fas fa-fw fa-link"></i>
+			 -->
+			归档
+			<span class="m-icon"><i class="fas fa-chevron-right"></i></span>
+		</a>
+            <ul  style="background:  ;" >
+              
+                <li>
+
+                  <a href="/tags " style="margin-left:75px">
+				  
+		          <span>标签</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/categories " style="margin-left:75px">
+				  
+		          <span>分类</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/archives " style="margin-left:75px">
+				  
+		          <span>时间轴</span>
+                  </a>
+                </li>
+              
+            </ul>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/artitalk" class="waves-effect waves-light">
+			<!-- 
+				<i class="fas fa-fw fa-link"></i>
+			 -->
+			说说
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="javascript:;">
+			<!-- 
+				<i class="fas fa-fw fa-link"></i>
+			 -->
+			媒体
+			<span class="m-icon"><i class="fas fa-chevron-right"></i></span>
+		</a>
+            <ul  style="background:  ;" >
+              
+                <li>
+
+                  <a href="/books " style="margin-left:75px">
+				  
+		          <span>读书</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/musics " style="margin-left:75px">
+				  
+		          <span>音乐</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/movies " style="margin-left:75px">
+				  
+		          <span>电影</span>
+                  </a>
+                </li>
+              
+            </ul>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="javascript:;">
+			<!-- 
+				<i class="fas fa-fw fa-link"></i>
+			 -->
+			资源分享
+			<span class="m-icon"><i class="fas fa-chevron-right"></i></span>
+		</a>
+            <ul  style="background:  ;" >
+              
+                <li>
+
+                  <a href="/share-tools " style="margin-left:75px">
+				  
+		          <span>常用工具</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/e-book " style="margin-left:75px">
+				  
+		          <span>电子书</span>
+                  </a>
+                </li>
+              
+            </ul>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			<!-- 
+				<i class="fas fa-fw fa-link"></i>
+			 -->
+			关于
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="javascript:;">
+			<!-- 
+				<i class="fas fa-fw fa-link"></i>
+			 -->
+			交流
+			<span class="m-icon"><i class="fas fa-chevron-right"></i></span>
+		</a>
+            <ul  style="background:  ;" >
+              
+                <li>
+
+                  <a href="/contact " style="margin-left:75px">
+				  
+		          <span>留言</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a target="_blank" rel="noopener" href="http://chat.xiezhrspace.cn " style="margin-left:75px">
+				  
+		          <span>聊天室</span>
+                  </a>
+                </li>
+              
+            </ul>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/friends" class="waves-effect waves-light">
+			<!-- 
+				<i class="fas fa-fw fa-link"></i>
+			 -->
+			友情链接
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="javascript:;">
+			<!-- 
+				<i class="fas fa-fw fa-link"></i>
+			 -->
+			实验室
+			<span class="m-icon"><i class="fas fa-chevron-right"></i></span>
+		</a>
+            <ul  style="background:  ;" >
+              
+                <li>
+
+                  <a href="/sponsorship " style="margin-left:75px">
+				  
+				   <i class="fa fas fa-money" style="position: absolute;left:50px" ></i>
+			      
+		          <span>赞助墙</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/status " style="margin-left:75px">
+				  
+				   <i class="fa fas fa-flush" style="position: absolute;left:50px" ></i>
+			      
+		          <span>检测监控</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/epidemic " style="margin-left:75px">
+				  
+		          <span>疫情实况</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/rain-code " style="margin-left:75px">
+				  
+		          <span>代码雨</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/mykeep " style="margin-left:75px">
+				  
+		          <span>我的Keep</span>
+                  </a>
+                </li>
+              
+            </ul>
+          
+        </li>
+        
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+    </nav>
+
+</header>
+
+    
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/xiezhr/xiezhrblog-cdn-source@main/blog-img/1650379983091Linux-cover.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">快速上手Linux核心命令（五）：文本处理三剑客</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/xiezhr/xiezhrblog-cdn-source/source/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        margin: 35px 0 15px 0;
+        padding-left: 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content {
+        height: calc(100vh - 250px);
+        overflow: auto;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+
+        position: absolute;
+        right: 23.5vw;
+        display: block;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!--评论区样式调整-->
+<style>
+    .v[data-class="v"] .vwrap .vheader .vinput {
+        width: 32%;
+        border-bottom: 1px dashed #dedede;
+      }
+</style>
+<!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/Linux/">
+                                <span class="chip bg-color">Linux</span>
+                            </a>
+                        
+                            <a href="/tags/Linux-%E6%A0%B8%E5%BF%83%E5%91%BD%E4%BB%A4/">
+                                <span class="chip bg-color">Linux 核心命令</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/Linux/" class="post-category">
+                                Linux
+                            </a>
+                        
+                            <a href="/categories/Linux/Linux-%E6%A0%B8%E5%BF%83%E5%91%BD%E4%BB%A4/" class="post-category">
+                                Linux 核心命令
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2022-04-17
+                </div>
+                
+
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
+                    2022-04-23
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
+                    6.5k
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
+                    29 分
+                </div>
+                
+
+                
+                    <div id="busuanzi_container_page_pv" class="info-break-policy">
+                        <i class="far fa-eye fa-fw"></i>阅读次数:&nbsp;&nbsp;
+                        <span id="busuanzi_value_page_pv"></span>
+                    </div>
+				
+            </div>
+        </div>
+        <hr class="clearfix">
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <p>剑仙来镇楼~ O(∩_∩)O</p>
+<p><img src="https://cdn.jsdelivr.net/gh/xiezhr/xiezhrblog-cdn-source@main/blog-img/1650168068042jx1.gif"></p>
+<h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>上一篇中已经预告，我们这篇主要说Linux文本处理<strong>三剑客</strong>。他们分别是<strong>grep</strong>、<strong>sed</strong>、<strong>awk</strong> 。既然能被业界称为三剑客，可见其在Linux命令中占有举足轻重得地位。所以呢，这里也专门写一篇文章说一说其用法。</p>
+<p><img src="%E5%BF%AB%E9%80%9F%E4%B8%8A%E6%89%8BLinux%E6%A0%B8%E5%BF%83%E5%91%BD%E4%BB%A4%EF%BC%88%E4%BA%94%EF%BC%89%EF%BC%9A%E6%96%87%E6%9C%AC%E5%A4%84%E7%90%86%E4%B8%89%E5%89%91%E5%AE%A2/16491664103691649166409492.png"></p>
+<h3 id="正则表达式"><a href="#正则表达式" class="headerlink" title="正则表达式"></a>正则表达式</h3><p>三剑客一般会配合着正则表达式一起使用，为了更好的掌握三剑客，这里<strong>简单</strong>介绍下正则表达式的使用。</p>
+<blockquote>
+<p>正则表达式是由普通字符（例如字符 a 到 z）以及特殊字符（称为”元字符”）组成。在搜索文本时，与要搜索的字符串进行匹配</p>
+</blockquote>
+<p>举个栗子</p>
+<pre class=" language-shell"><code class="language-shell">*.txt   # 表示任意以.txt结尾的文件
+</code></pre>
+<p>这里就不列出所有的了，我们只把常用的拿出来</p>
+<p><strong>1、特殊字符</strong></p>
+<p>注：如果需要匹配一下字符，需要在字符前加<strong>\</strong>进行转义</p>
+<table>
+<thead>
+<tr>
+<th>特殊字符</th>
+<th>特殊字符说明</th>
+<th>例子</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>$</strong></td>
+<td>匹配字符串的结尾位置</td>
+<td>**x$**匹配以”x”结尾的字符串</td>
+</tr>
+<tr>
+<td><strong>^</strong></td>
+<td>匹配字符串的开头位置</td>
+<td><strong>^abc</strong> 匹配以”abc”开头的字符串</td>
+</tr>
+<tr>
+<td><strong>.</strong></td>
+<td>匹配任意一个字符，除了换行符外</td>
+<td></td>
+</tr>
+<tr>
+<td>*****</td>
+<td>匹配前面的0次或多次的子表达式</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>+</strong></td>
+<td>匹配前面字符有 1 个或多个</td>
+<td></td>
+</tr>
+<tr>
+<td>.*</td>
+<td>匹配任意一个字符有 0 个或多个，也就是能匹配任意的字符</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>{}</strong></td>
+<td>匹配前面字符的数量范围</td>
+<td>{2}表示<strong>重复两次</strong>，{2，}表示<strong>至少重复两次</strong>，{2-4} <strong>重复2-4次</strong></td>
+</tr>
+<tr>
+<td><strong>[]</strong></td>
+<td>括号中可以包含表示字符集的表达式</td>
+<td><img src="%E5%BF%AB%E9%80%9F%E4%B8%8A%E6%89%8BLinux%E6%A0%B8%E5%BF%83%E5%91%BD%E4%BB%A4%EF%BC%88%E4%BA%94%EF%BC%89%EF%BC%9A%E6%96%87%E6%9C%AC%E5%A4%84%E7%90%86%E4%B8%89%E5%89%91%E5%AE%A2/1649470939258a-z-1649470958893.png"></td>
+</tr>
+</tbody></table>
+<p><strong>2、非打印字符</strong></p>
+<table>
+<thead>
+<tr>
+<th>字符</th>
+<th>字符说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>\f</td>
+<td>匹配一个换页符</td>
+</tr>
+<tr>
+<td>\n</td>
+<td>匹配一个换行符</td>
+</tr>
+<tr>
+<td>\r</td>
+<td>匹配一个回车符</td>
+</tr>
+<tr>
+<td>\t</td>
+<td>匹配一个制表符</td>
+</tr>
+<tr>
+<td>\s</td>
+<td>配任何空白字符，包括空格、制表符、换页符</td>
+</tr>
+<tr>
+<td>\S</td>
+<td>匹配任何非空白字符</td>
+</tr>
+</tbody></table>
+<h3 id="第一剑客-grep"><a href="#第一剑客-grep" class="headerlink" title="第一剑客 grep"></a>第一剑客 grep</h3><p><strong>1、简介</strong></p>
+<p>grep:文本过滤工具。 用于查找文件里符合条件的字符串，一般配合正则表达式一起使用。</p>
+<p> grep 只支持匹配而不能替换匹配的内容，替换的功能可以由 sed 来完成。 </p>
+<p><strong>2、语法格式</strong></p>
+<pre class=" language-shell"><code class="language-shell">grep [参数选项] [匹配模式][查找得文件]
+</code></pre>
+<p>上面说的匹配模式就是你需要找得东西，可以是普通<strong>文字符号</strong>，也可以是正则表达式。</p>
+<p><strong>3、参数说明</strong></p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>参数说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>-A</td>
+<td>除了显示匹配内容行之外，还显示该行之<strong>后</strong>的N行</td>
+</tr>
+<tr>
+<td>-B</td>
+<td>除了显示匹配内容行之外，还显示该行之<strong>前</strong>的N行</td>
+</tr>
+<tr>
+<td>-C</td>
+<td>除了显示匹配内容行之外，还显示该行之<strong>前后</strong>的N行</td>
+</tr>
+<tr>
+<td>-c</td>
+<td>统计匹配的行数</td>
+</tr>
+<tr>
+<td>-e</td>
+<td><strong>实现多个选项间的逻辑 or 关系</strong></td>
+</tr>
+<tr>
+<td>-E</td>
+<td><strong>支持扩展的正则表达式</strong></td>
+</tr>
+<tr>
+<td>-i</td>
+<td><strong>忽略大小写</strong></td>
+</tr>
+<tr>
+<td>-n</td>
+<td>显示匹配行和行号</td>
+</tr>
+<tr>
+<td>-o</td>
+<td>仅显示匹配到的字符串</td>
+</tr>
+<tr>
+<td>-q</td>
+<td>不输出任何信息，脚本中常用</td>
+</tr>
+<tr>
+<td>-v</td>
+<td><strong>显示不被匹配到的行或者说排除某些行</strong></td>
+</tr>
+<tr>
+<td>-w</td>
+<td>显示匹配整个<strong>单词</strong></td>
+</tr>
+<tr>
+<td>–color</td>
+<td>为grep过滤的匹配字符串<strong>添加颜色</strong>，以突出显示</td>
+</tr>
+</tbody></table>
+<p><strong>4、实践操作</strong></p>
+<p>后面的示例都是以操作下面文本为例</p>
+<pre class=" language-shell"><code class="language-shell"># 下面是我们演示所使用的文本文件
+[root@xiezhr test]# cat xiezhr.txt 
+90后，毕业于某不知名本科院校，通信工程专业
+目前从事IT类工作，工作生活于春城昆明
+天天被各种奇葩业务折腾得死去活来，但依然保有对各项技术热忱得追求和美好生活得向往
+个人公众号：XiezhrSpace
+个人博客：www.xiezhrspace.cn
+个人微信号：xie_zhr
+把分享变成一种习惯，再小的帆也能远航
+头像连接：https://gitee.com/xiezhr/image-learn-bed/raw/master/image/avatar.jpg
+欢迎您的关注！
+</code></pre>
+<p>① 把包含<strong>字符串</strong>xiezhr的行过滤出来</p>
+<pre class=" language-shell"><code class="language-shell">[root@xiezhr test]# grep "xiezhr" xiezhr.txt 
+个人博客：www.xiezhrspace.cn
+头像连接：https://gitee.com/xiezhr/image-learn-bed/raw/master/image/avatar.jpg
+</code></pre>
+<p>② 把以“个人”<strong>开头</strong>的行过滤出来或者把cn<strong>结尾</strong>的行过滤出来</p>
+<pre class=" language-shell"><code class="language-shell">[root@xiezhr test]# grep "^个人" xiezhr.txt 
+个人公众号：XiezhrSpace
+个人博客：www.xiezhrspace.cn
+个人微信号：xie_zhr
+
+[root@xiezhr test]# grep "cn$" xiezhr.txt 
+个人博客：www.xiezhrspace.cn
+</code></pre>
+<p>③把匹配xie_zhr 的行及<strong>后</strong>边的两行显示出来</p>
+<pre class=" language-shell"><code class="language-shell">[root@xiezhr test]# grep -A2 "xie_zhr" xiezhr.txt 
+个人微信号：xie_zhr
+把分享变成一种习惯，再小的帆也能远航
+头像连接：https://gitee.com/xiezhr/image-learn-bed/raw/master/image/avatar.jpg
+</code></pre>
+<p>④把匹配xie_zhr 的行及<strong>前</strong>边的两行显示出来</p>
+<pre class=" language-shell"><code class="language-shell">[root@xiezhr test]# grep -B2 "xie_zhr" xiezhr.txt 
+个人公众号：XiezhrSpace
+个人博客：www.xiezhrspace.cn
+个人微信号：xie_zhr
+</code></pre>
+<p>⑤把匹配xie_zhr 的行及<strong>前后</strong>的两行显示出来</p>
+<pre class=" language-shell"><code class="language-shell">[root@xiezhr test]# grep -C2 "xie_zhr" xiezhr.txt 
+个人公众号：XiezhrSpace
+个人博客：www.xiezhrspace.cn
+个人微信号：xie_zhr
+把分享变成一种习惯，再小的帆也能远航
+头像连接：https://gitee.com/xiezhr/image-learn-bed/raw/master/image/avatar.jpg
+</code></pre>
+<p>⑥ 过滤某个关键字，并显示<strong>行号</strong></p>
+<pre class=" language-shell"><code class="language-shell">[root@xiezhr test]# grep -n "xie_zhr" xiezhr.txt 
+6:个人微信号：xie_zhr
+</code></pre>
+<p>⑦  过滤<strong>不包含</strong>某关键词，并输出行号 </p>
+<pre class=" language-shell"><code class="language-shell">[root@xiezhr test]# grep -n -v "xie_zhr" xiezhr.txt 
+1:90后，毕业于某不知名本科院校，通信工程专业
+2:目前从事IT类工作，工作生活于春城昆明
+3:天天被各种奇葩业务折腾得死去活来，但依然保有对各项技术热忱得追求和美好生活得向往
+4:个人公众号：XiezhrSpace
+5:个人博客：www.xiezhrspace.cn
+7:把分享变成一种习惯，再小的帆也能远航
+8:头像连接：https://gitee.com/xiezhr/image-learn-bed/raw/master/image/avatar.jpg
+9:欢迎您的关注！
+</code></pre>
+<p>⑧删除掉空行、和注释行</p>
+<ul>
+<li>“|” 表示或</li>
+<li>“^$” 表示空行</li>
+<li>“#”表示注释符号</li>
+</ul>
+<pre class=" language-shell"><code class="language-shell"> [root@xiezhr test]# grep -Ev "^$|#" xiezhr.txt
+</code></pre>
+<p>⑨ 同时过滤<strong>多个不同字符串</strong>，并为过滤的内容<strong>添加颜色突出显示</strong></p>
+<pre class=" language-shell"><code class="language-shell">[root@xiezhr test]# grep -e "xie" -e "cn" --color=auto xiezhr.txt 
+个人博客：www.xiezhrspace.cn
+个人微信号：xie_zhr
+头像连接：https://gitee.com/xiezhr/image-learn-bed/raw/master/image/avatar.jpg
+## 上面等同于
+[root@xiezhr test]# grep -E "xie|cn"  --color=auto xiezhr.txt 
+个人博客：www.xiezhrspace.cn
+个人微信号：xie_zhr
+头像连接：https://gitee.com/xiezhr/image-learn-bed/raw/master/image/avatar.jpg
+</code></pre>
+<p>⑩ 过滤字符串xiezhr <strong>不区分大小写</strong></p>
+<pre class=" language-shell"><code class="language-shell">[root@xiezhr test]# grep -i "xiezhr" xiezhr.txt 
+个人公众号：XiezhrSpace
+个人博客：www.xiezhrspace.cn
+头像连接：https://gitee.com/xiezhr/image-learn-bed/raw/master/image/avatar.jpg
+</code></pre>
+<p> ⑪ 计算匹配字符串的数量</p>
+<pre class=" language-shell"><code class="language-shell">[root@xiezhr test]# grep -c "xie" xiezhr.txt 
+3
+</code></pre>
+<h3 id="第二剑客-sed"><a href="#第二剑客-sed" class="headerlink" title="第二剑客 sed"></a>第二剑客 sed</h3><p><strong>1、简介</strong></p>
+<p>sed 是 <strong>s</strong>tream <strong>ed</strong>itor 的缩写，简称流编辑器。</p>
+<p>是操作、转换和过滤文本内容的强大工具。可以快速对文本进行增删改查，过滤（过滤指定字符串）、取行（取出指定行）是查询功能中最常用的。</p>
+<p><strong>2、语法格式</strong></p>
+<pre class=" language-shell"><code class="language-shell">sed [参数选项] [sed内置命令字符][输入文件]
+</code></pre>
+<ul>
+<li>sed内置命令字符：可以是单个命令，也可以是多个命令参数的组合</li>
+<li>输入文件：sed需要处理的文件，可选项，sed还可以从标准输入（如管道）中获取输入</li>
+</ul>
+<p><strong>3、工作原理</strong></p>
+<blockquote>
+<p>为了更好理解sed，这里说一说sed工作模式</p>
+</blockquote>
+<p> Sed是从文件或管道中读取一行，处理一行，输出一行；再读取一行，再处理一行，再输出一行，直到最后一行。每当处理一行时，把当前处理的行存储在临时缓冲区中，称为<strong>模式空间（Pattern Space）</strong>，接着用sed命令处理缓冲区中的内容，处理完成后，把缓冲区的内容送往屏幕。接着处理下一行，这样不断重复，直到文件末尾 </p>
+<p><img src="%E5%BF%AB%E9%80%9F%E4%B8%8A%E6%89%8BLinux%E6%A0%B8%E5%BF%83%E5%91%BD%E4%BB%A4%EF%BC%88%E4%BA%94%EF%BC%89%EF%BC%9A%E6%96%87%E6%9C%AC%E5%A4%84%E7%90%86%E4%B8%89%E5%89%91%E5%AE%A2/16493443873561649344386938-1649344431717.png"></p>
+<p><strong>4、参数说明</strong></p>
+<p>命令参数</p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>参数说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>-n</td>
+<td>取消默认的sed输出，常与sed内置命令p连用</td>
+</tr>
+<tr>
+<td>-i</td>
+<td><strong>直接修改文件内容</strong>，而不是输出到终端。如果不使用-i参数，sed只是<strong>修改内存中的内容</strong>，不会影响磁盘上的<strong>实际文件</strong></td>
+</tr>
+</tbody></table>
+<p>常用内置命令字符</p>
+<table>
+<thead>
+<tr>
+<th>解释说明</th>
+<th>sed内置命令字符</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>a</td>
+<td>append,表示追加文本，在指定行后添加一行或多行文本</td>
+</tr>
+<tr>
+<td>d</td>
+<td>delete，表示删除匹配行文本</td>
+</tr>
+<tr>
+<td>i</td>
+<td>insert,表示插入文本，在指定行前添加一行或多行文本</td>
+</tr>
+<tr>
+<td>p</td>
+<td>print,表示打印匹配行的内容，通常与-n参数一起使用</td>
+</tr>
+<tr>
+<td>s/regexp/replacestr</td>
+<td>replace ，表示可以用replacestr（可以是特殊字符&amp;、$等）字符串，替换正则表达式regexp所匹配的内容</td>
+</tr>
+</tbody></table>
+<p><strong>4、实践操作</strong></p>
+<p>这个是我们要操作的文本哈</p>
+<pre class=" language-shell"><code class="language-shell">[root@xiezhr test]# cat file.txt 
+blog:www.xiezhrspace.cn 
+email:1666397814@qq.com
+QQ:2544458199
+img:/xiezhr.png
+age:18
+professional:Software engineer
+</code></pre>
+<p><strong>① 替换子命令s</strong></p>
+<p>基本用法</p>
+<pre class=" language-shell"><code class="language-shell"># 1.将文本中"xiezhrspace"字符串替换成“xiezhr”
+[root@xiezhr test]# sed 's/xiezhrspace/xiezhr/' file.txt 
+blog:www.xiezhr.cn 
+email:1666397814@qq.com
+QQ:2544458199
+img:/xiezhr.png
+age:18
+professional:Software engineer
+# 2 在每行行首加上“#”
+[root@xiezhr test]# sed 's/^/#/g' file.txt
+#blog:www.xiezhrspace.cn 
+#email:1666397814@qq.com
+#QQ:2544458199
+#img:/xiezhr.png
+#age:18
+#professional:Software engineer
+
+# 3.在每行行尾加上“*”
+[root@xiezhr test]# sed 's/$/ */g' file.txt
+blog:www.xiezhrspace.cn  *
+email:1666397814@qq.com *
+QQ:2544458199 *
+img:/xiezhr.png *
+age:18 *
+professional:Software engineer *
+</code></pre>
+<p>带正则表达式的使用</p>
+<pre class=" language-shell"><code class="language-shell"># 将所有的数字替换成“*”
+[root@xiezhr test]# sed 's/[0-9]/*/g' file.txt 
+blog:www.xiezhrspace.cn 
+email:**********@qq.com
+QQ:**********
+img:/xiezhr.png
+age:**
+professional:Software engineer
+</code></pre>
+<p>多个匹配</p>
+<pre class=" language-shell"><code class="language-shell"># 将1-3行 1替换成2；3到结尾行数字替换成“*”
+[root@xiezhr test]# sed '1,3s/1/2/g; 3,$s/[0-9]/*/g' file.txt 
+blog:www.xiezhrspace.cn 
+email:2666397824@qq.com
+QQ:**********
+img:/xiezhr.png
+age:**
+professional:Software engineer
+</code></pre>
+<p>其他用法</p>
+<pre class=" language-shell"><code class="language-shell"># 将替换后的内容写入到新的文件中
+[root@xiezhr test]# sed 's/QQ/qq/w file1.txt' file.txt 
+blog:www.xiezhrspace.cn 
+email:1666397814@qq.com
+qq:2544458199
+img:/xiezhr.png
+age:18
+professional:Software engineer
+[root@xiezhr test]# cat file1.txt 
+qq:2544458199
+</code></pre>
+<p>**注意： sed 修改匹配到的内容后，默认行为是不保存到原文件，直接输出修改后模式空间的内容，如果要修改原文件需要指定 <code>-i</code> 选项 **</p>
+<p><strong>② 追加行子命令a</strong></p>
+<pre class=" language-shell"><code class="language-shell"># 1.将所有行下面都追加“-----------------------------------”
+[root@xiezhr test]# sed 'a -----------------------------------' file.txt 
+blog:www.xiezhrspace.cn 
+-----------------------------------
+email:1666397814@qq.com
+-----------------------------------
+QQ:2544458199
+-----------------------------------
+img:/xiezhr.png
+-----------------------------------
+age:18
+-----------------------------------
+professional:Software engineer
+-----------------------------------
+
+# 2.将1-2 行后面追加一行“************************************”
+[root@xiezhr test]# sed '1,2a ******************************' file.txt 
+blog:www.xiezhrspace.cn 
+******************************
+email:1666397814@qq.com
+******************************
+QQ:2544458199
+img:/xiezhr.png
+age:18
+professional:Software engineer
+</code></pre>
+<p><strong>③ 插入行子命令i</strong></p>
+<pre class=" language-shell"><code class="language-shell"># 在1-2行前面插入一行“******************************”
+[root@xiezhr test]# sed '1,2i ******************************' file.txt 
+******************************
+blog:www.xiezhrspace.cn 
+******************************
+email:1666397814@qq.com
+QQ:2544458199
+img:/xiezhr.png
+age:18
+professional:Software engineer
+</code></pre>
+<p><strong>④ 删除行子命令d</strong></p>
+<pre class=" language-shell"><code class="language-shell">#1.将文中1-2行删除
+[root@xiezhr test]# sed '1,2d' file.txt 
+QQ:2544458199
+img:/xiezhr.png
+age:18
+professional:Software engineer
+#2.删除文件中所有的数字
+[root@xiezhr test]# sed 's/[0-9]//g' file.txt
+blog:www.xiezhrspace.cn 
+email:@qq.com
+QQ:
+img:/xiezhr.png
+age:
+professional:Software engineer
+# 3.删除所有空白行
+[root@xiezhr test]# sed '/^$/d' file.txt
+blog:www.xiezhrspace.cn 
+email:1666397814@qq.com
+QQ:2544458199
+img:/xiezhr.png
+age:18
+professional:Software engineer
+</code></pre>
+<p>⑥ 打印指定行子命令</p>
+<pre class=" language-shell"><code class="language-shell"># 打印file 第二行内容（这里如果不加参数“-n”的话，打印出来的不仅仅是第二行，这个是为什么呢? 这是因为sed有个默认输出功能，我们需要把默认输出取消掉，所以带上了-n参数）
+# -n p 可以理解为一队cp,p出现了一般都会用-n参数
+[root@xiezhr test]# sed -n '2p' file.txt 
+email:1666397814@qq.com
+# 打印2-3行内容
+[root@xiezhr test]# sed -n '2,3p' file.txt 
+email:1666397814@qq.com
+QQ:2544458199
+</code></pre>
+<h3 id="第三-剑客-awk"><a href="#第三-剑客-awk" class="headerlink" title="第三 剑客 awk"></a>第三 剑客 awk</h3><p><strong>1、简介</strong></p>
+<p>awk 是Linux中最强大的工具，没有之一哈(●’◡’●)。本来不想说的，怕吓到你。其实awk 还是一种编程语言哦。</p>
+<p>awk可以用来处理数据和生成报告，处理的数据可以是一个或多个文件。</p>
+<p>那么，awk具体能干些啥呢？</p>
+<table>
+<thead>
+<tr>
+<th>序号</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td>能够将给定的文本内容，按照我们期望的格式输出，打印成报表</td>
+</tr>
+<tr>
+<td>2</td>
+<td>分析系统日志，快速分析挖掘出我们关心的数据，并生成统计信息</td>
+</tr>
+<tr>
+<td>3</td>
+<td>很方便的统计数据，常用于网站访问量、访问IP统计等</td>
+</tr>
+<tr>
+<td>4</td>
+<td>参与数组计算与去重</td>
+</tr>
+<tr>
+<td>5</td>
+<td>显示出某个范围内的内容</td>
+</tr>
+</tbody></table>
+<p><strong>2、语法格式</strong></p>
+<pre class=" language-shell"><code class="language-shell">grep [参数选项] [条件动作][文件]
+</code></pre>
+<p><strong>3、工作原理</strong></p>
+<p>为了能更好的掌握awk这一剑法，我们有必要了解下其原理。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/xiezhr/xiezhrblog-cdn-source@main/blog-img/1649947650302awk%E5%B7%A5%E4%BD%9C%E5%8E%9F%E7%90%86.png"></p>
+<p>结合上图，执行流程如下</p>
+<ol>
+<li>首先 ，执行关键字<strong>BEGIN块</strong>的内容，即<strong>BEGIN</strong>后花括号**{}**里的命令；</li>
+<li> 完成 BEGIN 块的执行，开始执行<strong>BODY块</strong>；</li>
+<li> 逐行读取数据，默认读到 <strong>\n</strong> 分割的内容为一条 <strong>记录</strong>，也就是所谓的<strong>行</strong>；</li>
+<li> 将<strong>记录</strong>按照指定的分隔符划分为 <strong>字段</strong>，也就是<strong>列</strong> ；**$0** 则表示所有域(即一行内容)，**$1** 表示第一列，**$n** 表示第 n 列;</li>
+<li>循环执行<strong>BODY块</strong>中的命令，每读取一行，执行一次BODY块命令，直到数据的最后一行处理完为止；</li>
+<li>最后执行<strong>END块</strong>命令，END块一般输出最终结果</li>
+</ol>
+<p><strong>BEGIN</strong>（开始块）</p>
+<p>语法格式</p>
+<pre class=" language-shell"><code class="language-shell">BEGIN &#123;awk-commands&#125;
+</code></pre>
+<p> <strong>开始块</strong>就是在程序启动的时候执行的代码部分，并且它在整个过程中只**执行一次 **</p>
+<p>一般情况下，我们会在开始块中 **初始化一些变量 **；</p>
+<p><strong>注：</strong> 开始块部分是<strong>可选的</strong>，可以有也可以没有。BEGIN是<strong>关键字</strong>，必须要<strong>大写</strong></p>
+<p><strong>BODY</strong>（主体块）</p>
+<p>语法格式</p>
+<pre class=" language-shell"><code class="language-shell">/pattern/ &#123;awk-commands&#125;
+</code></pre>
+<p> 每一个输入的行都会执行一次主体部分的命令 </p>
+<p><strong>注：</strong> 在主体块部分没有关键字存在 </p>
+<p><strong>END</strong>（结束块）</p>
+<p>语法格式</p>
+<pre class=" language-shell"><code class="language-shell">END &#123;awk-commands&#125;
+</code></pre>
+<p><strong>注：</strong>结束块是在程序结束时执行的代码。 END 也是 AWK 的<strong>关键字</strong>，它也必须<strong>大写</strong>。 与开始块相似，结束块也是<strong>可选的</strong>。</p>
+<p> 以上可以简单总结为：<strong>记录</strong> <em>(Record)</em> 就是<strong>行</strong>，<strong>字段</strong> <em>(Field)</em> 就是<strong>列</strong>，<code>BEGIN</code> 是预处理阶段，<code>body</code> 是 awk 真正工作的阶段，<code>END</code> 是最后处理阶段。 </p>
+<p><strong>4、参数说明</strong></p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>参数说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>-F</td>
+<td>指定字段分隔符</td>
+</tr>
+<tr>
+<td>-v</td>
+<td>定义或修改一个awk内部的变量</td>
+</tr>
+</tbody></table>
+<p><strong>5、内置变量</strong></p>
+<blockquote>
+<p>每一行是一条<strong>记录（Record）</strong>,通过分隔符分割的每一列是一个<strong>字段（Field）</strong></p>
+</blockquote>
+<ul>
+<li><code>NR</code>： 表示当前的行数； </li>
+<li> <code>NF</code>: 表示当前的列数； </li>
+<li> <code>RS </code>: 行分隔符，默认是换行； </li>
+<li> <code>FS  </code>: 列分隔符，默认是空格和制表符； </li>
+<li><code>OFS</code>: 输出列分隔符，用于打印时分割字段，默认为空格 </li>
+<li> <code>ORS </code>: 输出行分隔符，用于打印时分割记录，默认为换行符 </li>
+</ul>
+<p><strong>6、常用函数</strong></p>
+<blockquote>
+<p>awk 内藏了大量功能强大且有用的函数，当然了，你也可以定义自己的函数</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>函数</th>
+<th>函数功能</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>gsub(r, s, t)</code></td>
+<td>指定的目标范围（t）内，用r替换s；t省略时，默认为$0作为参数，即整行文本</td>
+</tr>
+<tr>
+<td><code>index(s, t)</code></td>
+<td>返回子串 t 在 s 中的位置</td>
+</tr>
+<tr>
+<td><code>length(s)</code></td>
+<td>返回s的长度</td>
+</tr>
+<tr>
+<td><code>split(s,a,fs)  </code></td>
+<td>分割字符串，并将分割后的各字段存放在数组 a 中</td>
+</tr>
+<tr>
+<td><code>substr(s, p, n)</code></td>
+<td>截取字符串。sub(r,s)  用$0中最左边最长的子串代替s；substr(s,p)  返回字符串s中从p开始到最后的字符串；substr(s,p,n)  返回字符串s中从p开始长度为n的字符串</td>
+</tr>
+<tr>
+<td><code>tolower(s)</code></td>
+<td>将字符串s转换为小写</td>
+</tr>
+<tr>
+<td><code>toupper(s)</code></td>
+<td>将字符串转换为大写</td>
+</tr>
+</tbody></table>
+<p><strong>7、输出格式</strong></p>
+<blockquote>
+<p>awk  提供 <code>printf</code> 函数进行格式化输出功能</p>
+</blockquote>
+<p>语法格式（如果你学过C语言，那么这个你应该很熟悉了）</p>
+<pre class=" language-shell"><code class="language-shell">printf("%12s,%02d,%0.2f\n",s,d,g);
+</code></pre>
+<p>常用的格式化方式：</p>
+<ul>
+<li><code>%d</code> 十进制有符号整数</li>
+<li><code>%u</code> 十进制无符号整数</li>
+<li><code>%f</code> 浮点数</li>
+<li><code>%s</code> 字符串</li>
+<li><code>%c</code> 单个字符</li>
+<li><code>%e</code> 指数形式的浮点数</li>
+<li><code>%x</code> <code>%X</code> 无符号以十六进制表示的整数</li>
+<li><code>%0</code> 无符号以八进制表示的整数</li>
+<li><code>%g</code> 自动选择合适的表示法</li>
+<li><code>\n</code> 换行符</li>
+<li><code>\t</code> Tab符</li>
+</ul>
+<p>上面我们悄悄的提到awk也是一种编程语言，相信你还没有忘记吧。不信的话你回头看看(●’◡’●)</p>
+<p>既然是编程语言，那么它肯定是支持 条件语句、循环语句、数组、函数等的</p>
+<p><strong>8、实践操作</strong></p>
+<p>光说不练假把式，上面说了这么多其用法。接下来我们就实际操练一番呗</p>
+<p>以下操作都是基于myfile.txt 文本来操作的，内容如下</p>
+<pre class=" language-shell"><code class="language-shell">[root@xiezhr test]# cat myfile.txt 
+-rw-r--r-- 1 root   root     44 Mar 26 14:43 a1.txt
+-rw-r--r-- 1 root   root     65 Mar 26 14:56 a2.txt
+-rw-r--r-- 1 root   xiezhr   92 Mar 26 15:00 a.txt
+-rwxr-xr-x 1 xiezhr xiezhr    0 Mar 14 22:37 c.txt
+drwxr-xr-x 2 xiezhr xiezhr 4096 Mar 26 21:46 dir
+-rw-r--r-- 1 root   root      0 Mar 17 23:03 dir2
+drwxr-xr-x 2 root   xiezhr 4096 Mar 17 23:03 dir3
+drwxr-xr-x 2 root   root   4096 Mar 18 20:48 dir5
+drwxr-xr-x 2 root   root   4096 Mar 18 21:18 dir6
+drwxr-xr-x 2 root   root   4096 Mar 13 15:27 dir_bak
+-rw-r--r-- 1 root   root     14 Apr  9 11:23 file1.txt
+-rw-r--r-- 1 root   root    117 Apr  9 11:04 file.txt
+-rw-r--r-- 1 root   root    132 Mar 17 00:18 movie.tar.gz
+-rw-r--r-- 1 root   root     15 Mar 26 10:41 m.tx
+-rw-r--r-- 1 root   root      0 Apr 17 10:27 myfile.txt
+-rw-r--r-- 1 root   root    192 Mar 26 14:28 test1.txt
+-rw-r--r-- 1 root   root      6 Mar 26 10:05 test2.txt
+-rw-r--r-- 1 root   root     10 Mar 26 10:24 test3.txt
+-rw-r--r-- 1 root   root     44 Mar 17 22:27 test.txt
+-rw-r--r-- 1 root   root      0 Mar 11 22:52 tt.txt
+-rw-r--r-- 1 root   root     31 Mar 26 21:08 xaa
+-rw-r--r-- 1 root   root     45 Mar 26 21:08 xab
+-rw-r--r-- 1 root   root     16 Mar 26 21:08 xac
+-rw-r--r-- 1 root   root    527 Apr  9 10:55 xiezhr.txt
+</code></pre>
+<p>① 显示文件中第3行</p>
+<pre class=" language-shell"><code class="language-shell">[root@xiezhr test]# awk 'NR==3' myfile.txt 
+-rw-r--r-- 1 root   xiezhr   92 Mar 26 15:00 a.txt
+</code></pre>
+<p><strong>NR</strong>在上面已经提到过了，表示行号。<strong>NR==3</strong> 表示第三行。**==<strong>表示等于，</strong>=**表示赋值，这里别写错了哈。 </p>
+<p>② 显示3到5行</p>
+<pre class=" language-shell"><code class="language-shell">[root@xiezhr test]# awk 'NR==3,NR==5' myfile.txt 
+-rw-r--r-- 1 root   xiezhr   92 Mar 26 15:00 a.txt
+-rwxr-xr-x 1 xiezhr xiezhr    0 Mar 14 22:37 c.txt
+drwxr-xr-x 2 xiezhr xiezhr 4096 Mar 26 21:46 dir
+</code></pre>
+<p>③ 显示输出文件中的1、3、5 列</p>
+<pre class=" language-shell"><code class="language-shell">[root@xiezhr test]# awk '&#123;print $1,$3,$5&#125;' myfile.txt 
+-rw-r--r-- root 44
+-rw-r--r-- root 65
+-rw-r--r-- root 92
+-rwxr-xr-x xiezhr 0
+drwxr-xr-x xiezhr 4096
+-rw-r--r-- root 0
+drwxr-xr-x root 4096
+drwxr-xr-x root 4096
+drwxr-xr-x root 4096
+drwxr-xr-x root 4096
+-rw-r--r-- root 14
+-rw-r--r-- root 117
+-rw-r--r-- root 132
+-rw-r--r-- root 15
+-rw-r--r-- root 0
+-rw-r--r-- root 192
+-rw-r--r-- root 6
+-rw-r--r-- root 10
+-rw-r--r-- root 44
+-rw-r--r-- root 0
+-rw-r--r-- root 31
+-rw-r--r-- root 45
+-rw-r--r-- root 16
+-rw-r--r-- root 527
+</code></pre>
+<p>还有一种写法，这次我们来打印1、3和最后一列（之所以要打印最后一列，是因为我们要引入新的知识点O(∩_∩)O）</p>
+<pre class=" language-shell"><code class="language-shell">[root@xiezhr test]# awk -F " " '&#123;print $1,$2,$NF&#125;' myfile.txt 
+-rw-r--r-- 1 a1.txt
+-rw-r--r-- 1 a2.txt
+-rw-r--r-- 1 a.txt
+-rwxr-xr-x 1 c.txt
+drwxr-xr-x 2 dir
+-rw-r--r-- 1 dir2
+drwxr-xr-x 2 dir3
+drwxr-xr-x 2 dir5
+drwxr-xr-x 2 dir6
+drwxr-xr-x 2 dir_bak
+-rw-r--r-- 1 file1.txt
+-rw-r--r-- 1 file.txt
+-rw-r--r-- 1 movie.tar.gz
+-rw-r--r-- 1 m.tx
+-rw-r--r-- 1 myfile.txt
+-rw-r--r-- 1 test1.txt
+-rw-r--r-- 1 test2.txt
+-rw-r--r-- 1 test3.txt
+-rw-r--r-- 1 test.txt
+-rw-r--r-- 1 tt.txt
+-rw-r--r-- 1 xaa
+-rw-r--r-- 1 xab
+-rw-r--r-- 1 xac
+-rw-r--r-- 1 xiezhr.txt
+</code></pre>
+<ul>
+<li><strong>-F</strong> 指定分隔符，F要是大写哦</li>
+<li><strong>NF</strong>表示最后一列，**$1** 表示第一列，**$2** 表示第二列，**$3<strong>表示第三列…….依次类推，但是</strong>$0**表示一整行</li>
+</ul>
+<p>④格式输出我们想要的内容。</p>
+<pre class=" language-shell"><code class="language-shell">[root@xiezhr test]# awk '&#123;printf "%-4s,%-2s,%-4s\n",$1,$3,$5&#125;' myfile.txt 
+-rw-r--r--,root,44  
+-rw-r--r--,root,65  
+-rw-r--r--,root,92  
+-rwxr-xr-x,xiezhr,0   
+drwxr-xr-x,xiezhr,4096
+-rw-r--r--,root,0   
+drwxr-xr-x,root,4096
+drwxr-xr-x,root,4096
+drwxr-xr-x,root,4096
+drwxr-xr-x,root,4096
+...
+</code></pre>
+<ul>
+<li>学过C语言的你可能已经发现了，这里的格式输出跟<strong>C</strong>语言中printf用法是一样的</li>
+<li>%s 表示占位符</li>
+<li>-4 表示列宽为4，且左对齐</li>
+</ul>
+<p>⑤ 过滤出第四列是xiezhr,第七列是17的记录</p>
+<pre class=" language-shell"><code class="language-shell">[root@xiezhr test]# awk '$4=="xiezhr" && $7==17 &#123;print $0&#125;' myfile.txt 
+drwxr-xr-x 2 root   xiezhr 4096 Mar 17 23:03 dir3
+</code></pre>
+<p>⑥ 指定”|”分隔符,并打印出来</p>
+<pre class=" language-shell"><code class="language-shell">[root@xiezhr test]# awk '&#123;print $1,"|",$3&#125;' myfile.txt 
+-rw-r--r-- | root
+-rw-r--r-- | root
+-rw-r--r-- | root
+-rwxr-xr-x | xiezhr
+drwxr-xr-x | xiezhr
+-rw-r--r-- | root
+drwxr-xr-x | root
+drwxr-xr-x | root
+drwxr-xr-x | root
+drwxr-xr-x | root
+-rw-r--r-- | root
+-rw-r--r-- | root
+-rw-r--r-- | root
+-rw-r--r-- | root
+-rw-r--r-- | root
+-rw-r--r-- | root
+-rw-r--r-- | root
+-rw-r--r-- | root
+-rw-r--r-- | root
+-rw-r--r-- | root
+-rw-r--r-- | root
+-rw-r--r-- | root
+-rw-r--r-- | root
+-rw-r--r-- | root
+</code></pre>
+<p>⑦ 条件(<strong>正则表达式</strong>)匹配（过滤出xiezhr用户的所有文件，以及最后一行）</p>
+<pre class=" language-shell"><code class="language-shell">[root@xiezhr test]# awk '$3 ~/xiezhr/ || NR==NF &#123;print NR,$0&#125;' myfile.txt 
+4 -rwxr-xr-x 1 xiezhr xiezhr    0 Mar 14 22:37 c.txt
+5 drwxr-xr-x 2 xiezhr xiezhr 4096 Mar 26 21:46 dir
+9 drwxr-xr-x 2 root   root   4096 Mar 18 21:18 dir6
+</code></pre>
+<p>⑧ <strong>gsub替换内容</strong>(我们把文件中的-rw-r–r– 替换成xiezhrspace)</p>
+<pre><code>[root@xiezhr test]# awk &#39;&#123;gsub(&quot;-rw-r--r--&quot;,&quot;xiezhrspace&quot;,$0);print $0&#125;&#39; myfile.txt 
+xiezhrspace 1 root   root     44 Mar 26 14:43 a1.txt
+xiezhrspace 1 root   root     65 Mar 26 14:56 a2.txt
+xiezhrspace 1 root   xiezhr   92 Mar 26 15:00 a.txt
+-rwxr-xr-x 1 xiezhr xiezhr    0 Mar 14 22:37 c.txt
+drwxr-xr-x 2 xiezhr xiezhr 4096 Mar 26 21:46 dir
+xiezhrspace 1 root   root      0 Mar 17 23:03 dir2
+drwxr-xr-x 2 root   xiezhr 4096 Mar 17 23:03 dir3
+drwxr-xr-x 2 root   root   4096 Mar 18 20:48 dir5
+drwxr-xr-x 2 root   root   4096 Mar 18 21:18 dir6
+drwxr-xr-x 2 root   root   4096 Mar 13 15:27 dir_bak
+xiezhrspace 1 root   root     14 Apr  9 11:23 file1.txt
+xiezhrspace 1 root   root    117 Apr  9 11:04 file.txt
+xiezhrspace 1 root   root    132 Mar 17 00:18 movie.tar.gz
+xiezhrspace 1 root   root     15 Mar 26 10:41 m.tx
+xiezhrspace 1 root   root      0 Apr 17 10:27 myfile.txt
+xiezhrspace 1 root   root    192 Mar 26 14:28 test1.txt
+xiezhrspace 1 root   root      6 Mar 26 10:05 test2.txt
+xiezhrspace 1 root   root     10 Mar 26 10:24 test3.txt
+xiezhrspace 1 root   root     44 Mar 17 22:27 test.txt
+xiezhrspace 1 root   root      0 Mar 11 22:52 tt.txt
+xiezhrspace 1 root   root     31 Mar 26 21:08 xaa
+xiezhrspace 1 root   root     45 Mar 26 21:08 xab
+xiezhrspace 1 root   root     16 Mar 26 21:08 xac
+xiezhrspace 1 root   root    527 Apr  9 10:55 xiezhr.txt
+</code></pre>
+<ul>
+<li>这里用了akw 的查找替换功能，即gsub函数，gsub在上面已经具体说过了，如果忘记了可以返回去看看</li>
+</ul>
+<p>⑨ if语句（前面说过<strong>awk还是一种编程语言</strong>，可能你也是半信半疑的，这里就来演示一下awk的if语句，让你见识一下，😄）</p>
+<pre class=" language-shell"><code class="language-shell">[root@xiezhr test]# awk '&#123;if($3=="root") print > "root.txt";else if($3=="xiezhr") print > "xiezhr1.txt";else print > "other.txt"&#125;' myfile.txt 
+[root@xiezhr test]# cat root.txt 
+-rw-r--r-- 1 root   root     44 Mar 26 14:43 a1.txt
+-rw-r--r-- 1 root   root     65 Mar 26 14:56 a2.txt
+-rw-r--r-- 1 root   xiezhr   92 Mar 26 15:00 a.txt
+-rw-r--r-- 1 root   root      0 Mar 17 23:03 dir2
+drwxr-xr-x 2 root   xiezhr 4096 Mar 17 23:03 dir3
+drwxr-xr-x 2 root   root   4096 Mar 18 20:48 dir5
+drwxr-xr-x 2 root   root   4096 Mar 18 21:18 dir6
+drwxr-xr-x 2 root   root   4096 Mar 13 15:27 dir_bak
+-rw-r--r-- 1 root   root     14 Apr  9 11:23 file1.txt
+-rw-r--r-- 1 root   root    117 Apr  9 11:04 file.txt
+-rw-r--r-- 1 root   root    132 Mar 17 00:18 movie.tar.gz
+-rw-r--r-- 1 root   root     15 Mar 26 10:41 m.tx
+-rw-r--r-- 1 root   root      0 Apr 17 10:27 myfile.txt
+-rw-r--r-- 1 root   root    192 Mar 26 14:28 test1.txt
+-rw-r--r-- 1 root   root      6 Mar 26 10:05 test2.txt
+-rw-r--r-- 1 root   root     10 Mar 26 10:24 test3.txt
+-rw-r--r-- 1 root   root     44 Mar 17 22:27 test.txt
+-rw-r--r-- 1 root   root      0 Mar 11 22:52 tt.txt
+-rw-r--r-- 1 root   root     31 Mar 26 21:08 xaa
+-rw-r--r-- 1 root   root     45 Mar 26 21:08 xab
+-rw-r--r-- 1 root   root     16 Mar 26 21:08 xac
+-rw-r--r-- 1 root   root    527 Apr  9 10:55 xiezhr.txt
+[root@xiezhr test]# cat xiezhr1.txt 
+-rwxr-xr-x 1 xiezhr xiezhr    0 Mar 14 22:37 c.txt
+drwxr-xr-x 2 xiezhr xiezhr 4096 Mar 26 21:46 dir
+</code></pre>
+<ul>
+<li>由于**$3第三列**只有”root” 和“xiezhr” 所以上述语句执行后生成了root.txt 和xiezhr1.txt 。other.txt 并没有生成</li>
+</ul>
+<p>⑩ <strong>统计</strong> 当前目录下<code>.txt</code>  和<code>.tar.gz</code>  文件占用的空间大小</p>
+<pre class=" language-shell"><code class="language-shell">[root@xiezhr test]# ls -l *.txt *.tar.gz |  awk '&#123;sum+=$5&#125; END&#123;print sum&#125;' 
+3753
+</code></pre>
+<ul>
+<li> 第 5 列表示文件大小，每读取一行就会将该文件大小计算到 <code>sum</code> 变量中 </li>
+<li> 在最后 <code>END</code> 阶段打印出 <code>sum</code>，也就是所有文件的大小总和。 </li>
+</ul>
+<p>认真的你不知道有没有发现一个规律，上面的列子中用到<strong>print</strong> 都会带上**{}**。别问我为什么，因为我也不知道</p>
+<p>可能是<strong>print比较怕见生人吧，所以带了一层面纱。O(∩_∩)O</strong></p>
+<h3 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h3><ul>
+<li>grep 更适合单纯的查找或匹配文本</li>
+<li> sed 更适合编辑匹配到的文本</li>
+<li> awk 更适合格式化文本，对文本进行较复杂格式处理</li>
+</ul>
+<p>到这里呢，Linux三剑客也说的差不多了。当然了，上面说的只是其中的部分用法，而且也比较简单。</p>
+<p>如果你需要了解更多关于Linux三剑客的知识，可以查阅相关书籍哈，更多实用小技巧需要你自己去探索总结哦。</p>
+<p>是不是发现少了什么？别找了，😄你要的剑仙在此</p>
+<p><img src="https://cdn.jsdelivr.net/gh/xiezhr/xiezhrblog-cdn-source@main/blog-img/1650168083041jx2.gif"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/xiezhr/xiezhrblog-cdn-source@main/blog-img/1650168328053jx.jpg"></p>
+<p>这期内容就到这，下期根据思维导图就到了vi、vim 文本编辑器的使用了。</p>
+<p>敬请期待哦(●’◡’●)</p>
+<p>专栏目录：<a target="_blank" rel="noopener" href="https://blog.csdn.net/rong09_13/article/details/123303512">快速上手Linux核心命令专栏目录</a></p>
+<p>上一篇：<a target="_blank" rel="noopener" href="https://blog.csdn.net/rong09_13/article/details/123765097">快速上手Linux核心命令（四）：文件内容相关命令</a></p>
+<p>下一篇：<a href="#">快速上手Linux核心命令（六）：vivim 文本编辑（博主正在玩命更新中）</a></p>
+
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="/about" rel="external nofollow noreferrer">xiezhr</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="https://www.xiezhrspace.cn/archives/87a8e6ef.html">https://www.xiezhrspace.cn/archives/87a8e6ef.html</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="/about" target="_blank">xiezhr</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/Linux/">
+                                    <span class="chip bg-color">Linux</span>
+                                </a>
+                            
+                                <a href="/tags/Linux-%E6%A0%B8%E5%BF%83%E5%91%BD%E4%BB%A4/">
+                                    <span class="chip bg-color">Linux 核心命令</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="qq,wechat,weibo,douban" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+                <style>
+    #reward {
+        margin: 40px 0;
+        text-align: center;
+    }
+
+    #reward .reward-link {
+        font-size: 1.4rem;
+        line-height: 38px;
+    }
+
+    #reward .btn-floating:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    #rewardModal {
+        width: 320px;
+        height: 350px;
+    }
+
+    #rewardModal .reward-title {
+        margin: 15px auto;
+        padding-bottom: 5px;
+    }
+
+    #rewardModal .modal-content {
+        padding: 10px;
+    }
+
+    #rewardModal .close {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 1.3rem;
+        line-height: 20px;
+        cursor: pointer;
+    }
+
+    #rewardModal .close:hover {
+        color: #ef5350;
+        transform: scale(1.3);
+        -moz-transform:scale(1.3);
+        -webkit-transform:scale(1.3);
+        -o-transform:scale(1.3);
+    }
+
+    #rewardModal .reward-tabs {
+        margin: 0 auto;
+        width: 210px;
+    }
+
+    .reward-tabs .tabs {
+        height: 38px;
+        margin: 10px auto;
+        padding-left: 0;
+    }
+
+    .reward-content ul {
+        padding-left: 0 !important;
+    }
+
+    .reward-tabs .tabs .tab {
+        height: 38px;
+        line-height: 38px;
+    }
+
+    .reward-tabs .tab a {
+        color: #fff;
+        background-color: #ccc;
+    }
+
+    .reward-tabs .tab a:hover {
+        background-color: #ccc;
+        color: #fff;
+    }
+
+    .reward-tabs .wechat-tab .active {
+        color: #fff !important;
+        background-color: #22AB38 !important;
+    }
+
+    .reward-tabs .alipay-tab .active {
+        color: #fff !important;
+        background-color: #019FE8 !important;
+    }
+
+    .reward-tabs .reward-img {
+        width: 210px;
+        height: 210px;
+    }
+</style>
+
+<div id="reward">
+    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-medium waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close modal-close"><i class="fas fa-times"></i></a>
+            <h4 class="reward-title">你的赏识是我前进的动力</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs row">
+                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
+                    </ul>
+                    <div id="alipay">
+                        <img src="https://cdn.jsdelivr.net/gh/xiezhr/xiezhrblog-cdn-source/source/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                    <div id="wechat">
+                        <img src="https://cdn.jsdelivr.net/gh/xiezhr/xiezhrblog-cdn-source/source/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('.tabs').tabs();
+    });
+</script>
+
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+        <style>
+    .valine-card {
+        margin: 1.5rem auto;
+    }
+
+    .valine-card .card-content {
+        padding: 20px 20px 5px 20px;
+    }
+
+    #vcomments textarea {
+        
+        box-sizing: border-box;
+        /* background: url("https://cdn.jsdelivr.net/gh/xiezhr/xiezhrblog-cdn-source/source/medias/comment_bg.webp") 100% 100% no-repeat; */
+        background-image: url("https://cdn.jsdelivr.net/gh/xiezhr/xiezhrblog-cdn-source/source/medias/simiao.gif");
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position:right;
+        resize:vertical;
+    }
+
+    #vcomments p {
+        margin: 2px 2px 10px;
+        font-size: 1.05rem;
+        line-height: 1.78rem;
+    }
+
+    #vcomments blockquote p {
+        text-indent: 0.2rem;
+    }
+
+    #vcomments a {
+        padding: 0 2px;
+        color: #4cbf30;
+        font-weight: 500;
+        text-decoration: none;
+    }
+
+    #vcomments img {
+        max-width: 100%;
+        height: auto;
+        cursor: pointer;
+    }
+
+    #vcomments ol li {
+        list-style-type: decimal;
+    }
+
+    #vcomments ol,
+    ul {
+        display: block;
+        padding-left: 2em;
+        word-spacing: 0.05rem;
+    }
+
+    #vcomments ul li,
+    ol li {
+        display: list-item;
+        line-height: 1.8rem;
+        font-size: 1rem;
+    }
+
+    #vcomments ul li {
+        list-style-type: disc;
+    }
+
+    #vcomments ul ul li {
+        list-style-type: circle;
+    }
+
+    #vcomments table, th, td {
+        padding: 12px 13px;
+        border: 1px solid #dfe2e5;
+    }
+
+    #vcomments table, th, td {
+        border: 0;
+    }
+
+    table tr:nth-child(2n), thead {
+        background-color: #fafafa;
+    }
+
+    #vcomments table th {
+        background-color: #f2f2f2;
+        min-width: 80px;
+    }
+
+    #vcomments table td {
+        min-width: 80px;
+    }
+
+    #vcomments h1 {
+        font-size: 1.85rem;
+        font-weight: bold;
+        line-height: 2.2rem;
+    }
+
+    #vcomments h2 {
+        font-size: 1.65rem;
+        font-weight: bold;
+        line-height: 1.9rem;
+    }
+
+    #vcomments h3 {
+        font-size: 1.45rem;
+        font-weight: bold;
+        line-height: 1.7rem;
+    }
+
+    #vcomments h4 {
+        font-size: 1.25rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    #vcomments h5 {
+        font-size: 1.1rem;
+        font-weight: bold;
+        line-height: 1.4rem;
+    }
+
+    #vcomments h6 {
+        font-size: 1rem;
+        line-height: 1.3rem;
+    }
+
+    #vcomments p {
+        font-size: 1rem;
+        line-height: 1.5rem;
+    }
+
+    #vcomments hr {
+        margin: 12px 0;
+        border: 0;
+        border-top: 1px solid #ccc;
+    }
+
+    #vcomments blockquote {
+        margin: 15px 0;
+        border-left: 5px solid #42b983;
+        padding: 1rem 0.8rem 0.3rem 0.8rem;
+        color: #666;
+        background-color: rgba(66, 185, 131, .1);
+    }
+
+    #vcomments pre {
+        font-family: monospace, monospace;
+        padding: 1.2em;
+        margin: .5em 0;
+        background: #272822;
+        overflow: auto;
+        border-radius: 0.3em;
+        tab-size: 4;
+    }
+
+    #vcomments code {
+        font-family: monospace, monospace;
+        padding: 1px 3px;
+        font-size: 0.92rem;
+        color: #e96900;
+        background-color: #f8f8f8;
+        border-radius: 2px;
+    }
+
+    #vcomments pre code {
+        font-family: monospace, monospace;
+        padding: 0;
+        color: #e8eaf6;
+        background-color: #272822;
+    }
+
+    #vcomments pre[class*="language-"] {
+        padding: 1.2em;
+        margin: .5em 0;
+    }
+
+    #vcomments code[class*="language-"],
+    pre[class*="language-"] {
+        color: #e8eaf6;
+    }
+
+    #vcomments [type="checkbox"]:not(:checked), [type="checkbox"]:checked {
+        position: inherit;
+        margin-left: -1.3rem;
+        margin-right: 0.4rem;
+        margin-top: -1px;
+        vertical-align: middle;
+        left: unset;
+        visibility: visible;
+    }
+
+    #vcomments b,
+    strong {
+        font-weight: bold;
+    }
+
+    #vcomments dfn {
+        font-style: italic;
+    }
+
+    #vcomments small {
+        font-size: 85%;
+    }
+
+    #vcomments cite {
+        font-style: normal;
+    }
+
+    #vcomments mark {
+        background-color: #fcf8e3;
+        padding: .2em;
+    }
+
+    #vcomments table, th, td {
+        padding: 12px 13px;
+        border: 1px solid #dfe2e5;
+    }
+
+    table tr:nth-child(2n), thead {
+        background-color: #fafafa;
+    }
+
+    #vcomments table th {
+        background-color: #f2f2f2;
+        min-width: 80px;
+    }
+
+    #vcomments table td {
+        min-width: 80px;
+    }
+
+    #vcomments [type="checkbox"]:not(:checked), [type="checkbox"]:checked {
+        position: inherit;
+        margin-left: -1.3rem;
+        margin-right: 0.4rem;
+        margin-top: -1px;
+        vertical-align: middle;
+        left: unset;
+        visibility: visible;
+    }
+
+    
+</style>
+
+<div class="card valine-card" data-aos="fade-up">
+    <div class="comment_headling" style="font-size: 20px; font-weight: 700; position: relative; padding-left: 20px; top: 15px; padding-bottom: 5px;">
+        <i class="fas fa-comments fa-fw" aria-hidden="true"></i>
+        <span>评论</span>
+    </div>
+    <div id="vcomments" class="card-content" style="display: grid">
+    </div>
+</div>
+
+<script src="/libs/valine/av-min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/small-rose/small-rose.github.io/libs/valine/Valine.min.js"></script>
+
+<script>
+    // new Valine({
+    //     el: '#vcomments',
+    //     appId: 'nLFYjWbdxNXHi8ECkNbad7eo-gzGzoHsz',
+    //     appKey: 'EN6vxfxOV7eBy6HlfVE4jhGI',
+    //     notify: 'true' === 'true',
+    //     verify: 'true' === 'true',
+    //     visitor: 'true' === 'true',
+    //     avatar: 'monsterid',
+    //     pageSize: '10',
+    //     lang: 'zh-cn',
+    //     placeholder: '欢迎你留下宝贵的意见 ^-^&#39;'
+    // });
+
+    let metaPlaceholder = {"nick":"昵称/QQ号(必填)","mail":"邮箱(必填)","link":"网址(https://)"} ;
+    //这里要换行
+    new Valine({
+            el: '#vcomments',
+            appId: 'nLFYjWbdxNXHi8ECkNbad7eo-gzGzoHsz',
+            appKey: 'EN6vxfxOV7eBy6HlfVE4jhGI',
+            notify: 'true' === 'true',
+            verify: 'true' === 'true',
+            visitor: 'true' === 'true',
+            avatar: 'monsterid',
+            pageSize: '10',
+            lang: 'zh-CN',
+            placeholder: '欢迎你留下宝贵的意见 ^-^&#39;',
+            meta: ["nick", "mail", "link"],
+            recordIP: 'true' === 'true',
+            enableQQ: 'monsterid',
+            requiredFields: ["1610cd43778f1d972a92503426346411"],
+            master: ["1610cd43778f1d972a92503426346411"],
+            friends: ["c08508165c8eba9a77f8c2853xxxx09e", "901345d4c91ddfd8db0f175bbcfff0c8", "1512958e18378c98b498d5effe3e76ff"],
+            tagMeta: ["博主", "小伙伴", "访客"],
+            metaPlaceholder: metaPlaceholder,
+
+        });
+
+</script>
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/archives/5e828fba.html">
+                    <div class="card-image">
+                        
+                        <img src="https://cdn.jsdelivr.net/gh/xiezhr/xiezhrblog-cdn-source@main/blog-img/16486525760531648652575549.png" class="responsive-img" alt="gitee图床不能白嫖了，心态崩了">
+                        
+                        <span class="card-title">gitee图床不能白嫖了，心态崩了</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            gitee图床不能白嫖了，心态崩了
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2022-04-17
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/gitee/" class="post-category">
+                                    gitee
+                                </a>
+                            
+                            <a href="/categories/gitee/%E5%9B%BE%E5%BA%8A/" class="post-category">
+                                    图床
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/gitee/">
+                        <span class="chip bg-color">gitee</span>
+                    </a>
+                    
+                    <a href="/tags/%E5%9B%BE%E5%BA%8A/">
+                        <span class="chip bg-color">图床</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/archives/51ec36be.html">
+                    <div class="card-image">
+                        
+                        <img src="https://cdn.jsdelivr.net/gh/xiezhr/xiezhrblog-cdn-source@main/blog-img/1650379983091Linux-cover.jpg" class="responsive-img" alt="快速上手Linux核心命令（四）：文件内容相关命令">
+                        
+                        <span class="card-title">快速上手Linux核心命令（四）：文件内容相关命令</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            快速上手Linux核心命令（四）：文件内容相关命令
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-03-26
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Linux/" class="post-category">
+                                    Linux
+                                </a>
+                            
+                            <a href="/categories/Linux/Linux-%E6%A0%B8%E5%BF%83%E5%91%BD%E4%BB%A4/" class="post-category">
+                                    Linux 核心命令
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Linux/">
+                        <span class="chip bg-color">Linux</span>
+                    </a>
+                    
+                    <a href="/tags/Linux-%E6%A0%B8%E5%BF%83%E5%91%BD%E4%BB%A4/">
+                        <span class="chip bg-color">Linux 核心命令</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+<script>
+    $('#articleContent').on('copy', function (e) {
+        // IE8 or earlier browser is 'undefined'
+        if (typeof window.getSelection === 'undefined') return;
+
+        var selection = window.getSelection();
+        // if the selection is short let's not annoy our users.
+        if (('' + selection).length < Number.parseInt('300')) {
+            return;
+        }
+
+        // create a div outside of the visible area and fill it with the selected text.
+        var bodyElement = document.getElementsByTagName('body')[0];
+        var newdiv = document.createElement('div');
+        newdiv.style.position = 'absolute';
+        newdiv.style.left = '-99999px';
+        bodyElement.appendChild(newdiv);
+        newdiv.appendChild(selection.getRangeAt(0).cloneContents());
+
+        // we need a <pre> tag workaround.
+        // otherwise the text inside "pre" loses all the line breaks!
+        //if (selection.getRangeAt(0).commonAncestorContainer.nodeName === 'PRE') {
+          //  newdiv.innerHTML = "<pre>" + newdiv.innerHTML + "</pre>";
+        //}
+        newdiv.innerHTML = "<pre>" + newdiv.innerHTML + "</pre>";
+        var url = document.location.href;
+        newdiv.innerHTML += '<br />'
+            + '来源: xiezhrspace<br />'
+            + '文章作者: xiezhr<br />'
+            + '文章链接: <a href="' + url + '">' + url + '</a><br />'
+            + '本文章著作权归作者所有，任何形式的转载都请注明出处。';
+
+        selection.selectAllChildren(newdiv);
+        window.setTimeout(function () {bodyElement.removeChild(newdiv);}, 200);
+    });
+</script>
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+<!-- 代码块折行 -->
+
+<style type="text/css">
+code[class*="language-"], pre[class*="language-"] { white-space: pre !important; }
+</style>
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="https://cdn.jsdelivr.net/gh/xiezhr/xiezhrblog-cdn-source/source/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+
+
+    <style>
+    .youpaiyunlogo {
+        height: 26px;
+        display: inline-block;
+        vertical-align: top;
+    }
+</style>
+<footer class="page-footer bg-color">
+    
+    <div class="container row center-align" style="margin-bottom: 15px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            <span id="year">2020</span>
+            <a href="/about" target="_blank">xiezhr</a>
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            <br>
+            
+            &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
+                class="white-color">90k</span>&nbsp;字
+            
+            
+            
+            
+            
+            
+            <span id="busuanzi_container_site_pv">
+                |&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;<span id="busuanzi_value_site_pv"
+                    class="white-color"></span>&nbsp;次
+            </span>
+            
+            
+            <span id="busuanzi_container_site_uv">
+                |&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;<span id="busuanzi_value_site_uv"
+                    class="white-color"></span>&nbsp;人
+            </span>
+            
+            <br>
+            
+            <span id="sitetime">载入运行时间...</span>
+            <script>
+                function siteTime() {
+                    var seconds = 1000;
+                    var minutes = seconds * 60;
+                    var hours = minutes * 60;
+                    var days = hours * 24;
+                    var years = days * 365;
+                    var today = new Date();
+                    var startYear = "2020";
+                    var startMonth = "11";
+                    var startDate = "17";
+                    var startHour = "9";
+                    var startMinute = "1";
+                    var startSecond = "1";
+                    var todayYear = today.getFullYear();
+                    var todayMonth = today.getMonth() + 1;
+                    var todayDate = today.getDate();
+                    var todayHour = today.getHours();
+                    var todayMinute = today.getMinutes();
+                    var todaySecond = today.getSeconds();
+                    var t1 = Date.UTC(startYear, startMonth, startDate, startHour, startMinute, startSecond);
+                    var t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond);
+                    var diff = t2 - t1;
+                    var diffYears = Math.floor(diff / years);
+                    var diffDays = Math.floor((diff / days) - diffYears * 365);
+                    var diffHours = Math.floor((diff - (diffYears * 365 + diffDays) * days) / hours);
+                    var diffMinutes = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours) /
+                        minutes);
+                    var diffSeconds = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours -
+                        diffMinutes * minutes) / seconds);
+                    if (startYear == todayYear) {
+                        document.getElementById("year").innerHTML = todayYear;
+                        document.getElementById("sitetime").innerHTML = "小破站已在各种灾难中安全运行 " + diffDays + " 天 " + diffHours +
+                            " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
+                    } else {
+                        document.getElementById("year").innerHTML = startYear + " - " + todayYear;
+                        document.getElementById("sitetime").innerHTML = "小破站已在各种灾难中安全运行 " + diffYears + " 年 " + diffDays +
+                            " 天 " + diffHours + " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
+                    }
+                }
+                setInterval(siteTime, 1000);
+            </script>
+            
+            <br>
+            
+            <span id="icp"><img src="/medias/icp.png" style="vertical-align: text-bottom;" />
+                <a href="http://www.beian.miit.gov.cn" target="_blank">滇ICP备2020008901号</a>
+            </span>
+            
+            <a href="https://www.upyun.com/?utm_source=lianmeng&amp;utm_medium=referra" target="_blank" title="本站由又拍云 提供CDN加速/云存储服务" >
+                <img src="https://cdn2.sublimerui.top/2021/01/09/4a78e24138103.png"class="youpaiyunlogo"/>
+            </a>
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/xiezhr" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+    <a href="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/wx.jpg" class="tooltipped" target="_blank" data-tooltip="微信联系我: https://gitee.com/xiezhr/image-learn-bed/raw/master/image/wx.jpg" data-position="top" data-delay="50">
+        <i class="fab fa-weixin"></i>
+    </a>
+
+
+
+    <a href="https://www.jianshu.com/u/2b57477b4c5a" class="tooltipped" target="_blank" data-tooltip="关注我的简书: https://www.jianshu.com/u/2b57477b4c5a" data-position="top" data-delay="50">
+        <i class="fab fa-jianshu">简</i>
+    </a>
+
+
+
+    <a href="https://blog.csdn.net/rong09_13" class="tooltipped" target="_blank" data-tooltip="关注我的CSDN: https://blog.csdn.net/rong09_13" data-position="top" data-delay="50">
+        <i class="fab fa-csdn">C</i>
+    </a>
+
+
+
+    <a href="https://juejin.im/user/1829211147871415/posts" class="tooltipped" target="_blank" data-tooltip="关注我的掘金: https://juejin.im/user/1829211147871415/posts" data-position="top" data-delay="50">
+        <i class="fab fa-juejin">掘</i>
+    </a>
+
+
+
+    <a href="mailto:1666397814@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=1666397814" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 1666397814" data-position="top" data-delay="50">
+        <i class="fab fa-qq"></i>
+    </a>
+
+
+
+
+
+    <a href="https://www.zhihu.com/people/rong-xie-49-35" class="tooltipped" target="_blank" data-tooltip="关注我的知乎: https://www.zhihu.com/people/rong-xie-49-35" data-position="top" data-delay="50">
+        <i class="fab fa-zhihu1">知</i>
+    </a>
+
+
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/gh/xiezhr/xiezhrblog-cdn-source/source/js/search.js"></script>
+<script type="text/javascript">
+$(function () {
+    searchFunc('/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <style>
+    .top-scroll .btn-floating {
+        background: rgb(73, 177, 245);
+        width: 38px;
+        height: 38px;
+    }
+
+</style>
+
+<!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="https://cdn.jsdelivr.net/gh/xiezhr/xiezhrblog-cdn-source/source/libs/materialize/materialize.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/xiezhr/xiezhrblog-cdn-source/source/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/xiezhr/xiezhrblog-cdn-source/source/libs/aos/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/xiezhr/xiezhrblog-cdn-source/source/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/xiezhr/xiezhrblog-cdn-source/source/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/xiezhr/xiezhrblog-cdn-source/source/js/matery.js"></script>
+
+    
+    <!-- 自动更改网站标题 -->
+    <script type="text/javascript">
+        var OriginTitile=document.title,st;
+        document.addEventListener("visibilitychange",function(){
+            document.hidden?(document.title="ヽ(●-`Д´-)ノ你要玩捉迷藏嘛",clearTimeout(st)):(document.title="(Ő∀Ő3)ノ欢迎回来！",st=setTimeout(function(){document.title=OriginTitile},3e3))
+        })
+    </script>
+
+    <div id="weather-v2-plugin-simple"></div>
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    
+    <script async src="https://cdn.jsdelivr.net/gh/xiezhr/xiezhrblog-cdn-source/source/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+    
+    <script type="text/javascript" color="0,0,255"
+        pointColor="0,0,255" opacity='0.7'
+        zIndex="-1" count="120"
+        src="https://cdn.jsdelivr.net/gh/xiezhr/xiezhrblog-cdn-source/source/libs/background/canvas-nest.js"></script>
+    
+
+    
+
+    
+
+    
+    <script src="https://cdn.jsdelivr.net/gh/xiezhr/xiezhrblog-cdn-source/source/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+    <!--添加全局深色模式-->
+    <script> 
+        if (localStorage.getItem('dark') === '1') { 
+            document.body.classList.add('dark'); 
+        } else if (new Date().getHours() >= 22 || new Date().getHours() < 7) {
+             document.body.classList.add('dark'); 
+        } else if (matchMedia('(prefers-color-scheme: dark)').matches) { 
+            document.body.classList.add('dark'); 
+        } 
+    </script> 
+    <a onclick="switchNightMode()" id="sma"> 
+        <i class="fa fa-moon-o" id="nightMode" aria-hidden="true"></i> 
+    </a>
+</body>
+
+</html>
