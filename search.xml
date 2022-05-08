@@ -1,6 +1,339 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>快速上手Linux核心命令（六）：Linux的文本编辑器vi和vim</title>
+    <url>/archives/bf5092d7.html</url>
+    <content><![CDATA[<h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>上一篇中已经预告，我们这篇主要说Linux中vi/vim 编辑器。它是我们使用Linux系统不可缺少的工具，学会了，你就可以在Linux世界里畅通无阻，学废了，常用操作你也会了，也是够用了，O(∩_∩)O</p>
+<h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><p>vi是Linux系统下标准编辑器，就相当于Windows系统中的记事本一样。功能不输给最新的文本编辑器。vim可以看作是vi的升级版本，具有代码补全、编译即错误跳转等程序编辑能力，可以用多种颜色的方式来显示一些特殊信息。</p>
+<h3 id="小试牛刀"><a href="#小试牛刀" class="headerlink" title="小试牛刀"></a>小试牛刀</h3><p>下面我们演示一下，这么建立一个xiezhr.txt文件，并往xiezhr.txt 中添加内容</p>
+<p>① 输入如下命令进入vi/vim（<strong>vi/vim 文件名</strong> 就能够进入 vi/vim 的普通模式了。注： <strong>vi/vim 后面一定要加文件名，不管该文件存在与否</strong>）</p>
+<pre class=" language-shell"><code class="language-shell">vim xiezhr.txt
+</code></pre>
+<p><img src="https://img-blog.csdnimg.cn/img_convert/3caf709918a3c398169e4ff00a83d4b4.png"></p>
+<p>② 按下 【<strong>i</strong>】 进入输入模式(也称为编辑模式)，开始编辑文字<br><img src="https://img-blog.csdnimg.cn/img_convert/a48a9c7c4be398dc437f5d7c91bfd291.png"></p>
+<p>③ 文件编辑完后我们怎么保存退出呢？ 这时候我们按下【<strong>Esc</strong>】键，发现界面上–INSERT–不见了，这是我们已经退出了输入模式，这时我们再按下【**:**】即可进入底线命令模式。<br><img src="https://img-blog.csdnimg.cn/img_convert/9f568a583952aaf69eecabf899b38fbc.png"></p>
+<p>④ 我们再输入【wq】即可保存xiezhr.txt文档并退出<br><img src="https://img-blog.csdnimg.cn/img_convert/11c0fc5230fb9b016c362e657e72ef0e.png"></p>
+<p>以上就是vi/vim基本操作，是不是很简单哦(●’◡’●)</p>
+<p>当然这只是vi/vim 最基本的操作。它的强大之处可能是你想都想不到的。如果你想了解更多vi/vim操作，可去查查相关资料。</p>
+<h3 id="vi-vim-工作原理及三种模式"><a href="#vi-vim-工作原理及三种模式" class="headerlink" title="vi/vim 工作原理及三种模式"></a>vi/vim 工作原理及三种模式</h3><p>vi/vim 共分为三种模式，分别是<strong>普通模式（Command mode），输入模式（Insert mode）和底线命令行模式（Last line mode）</strong></p>
+<p>根据上面的例子，我们再结合下图，你应该对<strong>vi/vim</strong>工作原理及三模式了如指掌了吧 O(∩_∩)O</p>
+<p><img src="https://img-blog.csdnimg.cn/img_convert/ab30a2668c8a77cd571202285660d995.png"></p>
+<h3 id="常用快捷键"><a href="#常用快捷键" class="headerlink" title="常用快捷键"></a>常用快捷键</h3><p>三种模式下操作快捷键说明</p>
+<p>一、一般模式</p>
+<p>1、移动光标</p>
+<table>
+<thead>
+<tr>
+<th>按钮</th>
+<th>操作说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>【h、j、k、l】</td>
+<td>分别控制光标左、下、上、右移一格</td>
+</tr>
+<tr>
+<td>【ctrl+b】</td>
+<td>屏幕往”后”移动一页</td>
+</tr>
+<tr>
+<td>【n<space>】</td>
+<td>光标向右移动n个字符</td>
+</tr>
+<tr>
+<td>【Home】</td>
+<td>移动到这一行的最前面字符处:0数字，但不能用数字小键盘上的数字</td>
+</tr>
+<tr>
+<td>【End】</td>
+<td>移动到这一行的最后面字符处:$，我测试好像不行</td>
+</tr>
+<tr>
+<td>【w】</td>
+<td>光标跳到下个字的开头</td>
+</tr>
+<tr>
+<td>【e】</td>
+<td>光标跳到下个字的字尾</td>
+</tr>
+<tr>
+<td>【H】</td>
+<td>光标移动到这个屏幕的最上方那一行的第一个字符</td>
+</tr>
+<tr>
+<td>【M】</td>
+<td>光标移动到这个屏幕的中间那一行的第一个字符</td>
+</tr>
+<tr>
+<td>【L】</td>
+<td>光标移动到这个屏幕的最下方那一行的第一个字符</td>
+</tr>
+<tr>
+<td>【G】</td>
+<td>移动到这个文件的最后一行</td>
+</tr>
+<tr>
+<td>【nG】</td>
+<td>移动到这个文件的第n行(可配合:set nu)</td>
+</tr>
+<tr>
+<td>【gg】</td>
+<td>移动到这个文件的第一行，相当于1G</td>
+</tr>
+<tr>
+<td>【n<Enter>】</td>
+<td>光标向下移动n行</td>
+</tr>
+</tbody></table>
+<p>2、 查找与替换 </p>
+<table>
+<thead>
+<tr>
+<th>按钮</th>
+<th>操作手册</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>【/word】</td>
+<td>向光标向下寻找一个名称为word的字符串</td>
+</tr>
+<tr>
+<td>【?word】</td>
+<td>向光标向上寻找一个名称为word的字符串</td>
+</tr>
+<tr>
+<td>【n】</td>
+<td>代表重复前一个查找的动作</td>
+</tr>
+<tr>
+<td>【N】</td>
+<td>与n刚好相反，为【反向】进行行前一个查找动作</td>
+</tr>
+<tr>
+<td>【:n1,n2s/word1/word2/g】</td>
+<td>n1与n2为数字，在第n1与n2行之间查找word1 这个字符串，并将该字符串替换为word2</td>
+</tr>
+<tr>
+<td>【:1,$s/word1/word2/g】</td>
+<td>从第一行到最后一行查找word1字符串，并将该字符串替换为word2</td>
+</tr>
+<tr>
+<td>【:1,$s/word1/word2/gc】</td>
+<td>从第一行到最后一行查找word1字符串，并将该字符串替换为word2 ，且在替换前提示用户确认是否进行替换</td>
+</tr>
+</tbody></table>
+<p>3、 删除、复制与粘贴 </p>
+<table>
+<thead>
+<tr>
+<th>按键</th>
+<th>操作说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>【x】</td>
+<td>为向后删除一个字符 (相当于【del】键</td>
+</tr>
+<tr>
+<td>【X】</td>
+<td>为向前删除一个字符(相当于【backspace】键)</td>
+</tr>
+<tr>
+<td>【nx】</td>
+<td>连续向后删除n个字符</td>
+</tr>
+<tr>
+<td>【dd】</td>
+<td>删除光标所在行</td>
+</tr>
+<tr>
+<td>【ndd】</td>
+<td>删除光标所在的向下n行</td>
+</tr>
+<tr>
+<td>【d1G】</td>
+<td>删除光标所在行到第一行的所有数据</td>
+</tr>
+<tr>
+<td>【dG】</td>
+<td>删除光标所在到最后一行的所有数据</td>
+</tr>
+<tr>
+<td>【d$】</td>
+<td>删除光标所在处，到该行的最后一个字符</td>
+</tr>
+<tr>
+<td>【d0】</td>
+<td>删除光标所在处，到该行的最前一个字符</td>
+</tr>
+<tr>
+<td>【yy】</td>
+<td>复制光标所在的那一行</td>
+</tr>
+<tr>
+<td>【nyy】</td>
+<td>复制光标所在的向下n列</td>
+</tr>
+<tr>
+<td>【y1G】</td>
+<td>复制光标所在行到第一行的所有数据</td>
+</tr>
+<tr>
+<td>【yG】</td>
+<td>复制光标所在行到最后一行的所有数据</td>
+</tr>
+<tr>
+<td>【y0】</td>
+<td>复制光标所在的那个字符到该行行首的所有数据</td>
+</tr>
+<tr>
+<td>【y$】</td>
+<td>复制光标所在的那个字符到该行行尾的所有数据</td>
+</tr>
+<tr>
+<td>【p】</td>
+<td>将已复制的数据在光标下一行粘贴上</td>
+</tr>
+<tr>
+<td>【P】</td>
+<td>则为贴在光标的上一行</td>
+</tr>
+<tr>
+<td>【u】</td>
+<td>恢复前一个操作</td>
+</tr>
+<tr>
+<td>【Ctrl+r】</td>
+<td>重做上一个操作</td>
+</tr>
+<tr>
+<td>【.】</td>
+<td>是重复前一个操作</td>
+</tr>
+</tbody></table>
+<p>二、一般模式、编辑模式（插入模式）切换</p>
+<table>
+<thead>
+<tr>
+<th>按键</th>
+<th>操作说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>【i】</td>
+<td>从目前光标所在处插入</td>
+</tr>
+<tr>
+<td>【I】</td>
+<td>在目前所在行的第一个非空格符处开始插入</td>
+</tr>
+<tr>
+<td>【a】</td>
+<td>从目前光标所在的下一个字符处开始插入</td>
+</tr>
+<tr>
+<td>【A】</td>
+<td>从光标所在行的最后一个字符处开始插入</td>
+</tr>
+<tr>
+<td>【o】</td>
+<td>在目前光标所在的下一行处插入新的一行</td>
+</tr>
+<tr>
+<td>【O】</td>
+<td>为在目前光标所在处的上一行插入新的一行</td>
+</tr>
+<tr>
+<td>【r】</td>
+<td>只会取代光标所在的那一个字符一次</td>
+</tr>
+<tr>
+<td>【R】</td>
+<td>会一直取代光标所在的文字，直到按下 ESC 为止；</td>
+</tr>
+<tr>
+<td>【Esc】</td>
+<td>退出编辑模式（插入模式），回到一般模式</td>
+</tr>
+</tbody></table>
+<p>三、一般模式、命令行模式切换</p>
+<table>
+<thead>
+<tr>
+<th>按键</th>
+<th>操作</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>【:w】</td>
+<td>保存编辑的内容</td>
+</tr>
+<tr>
+<td>【:w!】</td>
+<td>强制写入该文件，但跟你对该文件的权限有关</td>
+</tr>
+<tr>
+<td>【:q】</td>
+<td>离开vi</td>
+</tr>
+<tr>
+<td>【:q!】</td>
+<td>不想保存修改强制离开</td>
+</tr>
+<tr>
+<td>【:wq】</td>
+<td>保存后离开</td>
+</tr>
+<tr>
+<td>【:x】</td>
+<td>保存后离开</td>
+</tr>
+<tr>
+<td>【ZZ】</td>
+<td>若文件没有更动，则不保存离开，若文件已经被更改过，则保存后离开</td>
+</tr>
+<tr>
+<td>【:w filename】</td>
+<td>将编辑的数据保存成另一个文件（类似另存）</td>
+</tr>
+<tr>
+<td>【:r filename】</td>
+<td>在编辑的数据中，读入另一个文件的数据。即将【filename】 这个文件的内容加到光标所在行后面。</td>
+</tr>
+<tr>
+<td>【:n1,n2 w filename】</td>
+<td>将n1到n2的内容保存成filename这个文件。</td>
+</tr>
+<tr>
+<td>【:! command】</td>
+<td>暂时离开vi 到命令行模式下执行command的显示结果！例如 【:! ls /home】即可在 vi 当中察看/home底下以ls输出的文件信息！</td>
+</tr>
+<tr>
+<td>【:set nu】</td>
+<td>显示行号</td>
+</tr>
+<tr>
+<td>【:set nonu】</td>
+<td>与 set nu 相反，为取消行</td>
+</tr>
+</tbody></table>
+<h3 id="命令行图解"><a href="#命令行图解" class="headerlink" title="命令行图解"></a>命令行图解</h3><p>上面一下列举了好多按键，你会说我怎么记得住呢？ 其实没必要把所有的都记住了，常用的就那么几个。敲得多了自然就记住了，记不住得再来翻一翻这篇文章就好了😄。</p>
+<p>下面呢从网上找了两张vi/vim命令行图解，希望对你有帮助。</p>
+<p><img src="https://img-blog.csdnimg.cn/img_convert/bdcdb84c414c2493e5856597b89be9f0.gif"><br><img src="https://img-blog.csdnimg.cn/c4c26d0a20c24658804f196eea123e44.png#pic_center" alt="在这里插入图片描述"></p>
+<p>这期内容就到这，下期根据思维导图就到Linux系统信息相关命令的使用了。</p>
+<p>涉及到的命令有： uname、 hostname 、 du 、 echo、 whereis 、 date 、 which 等等</p>
+<p>敬请期待哦(●’◡’●)</p>
+]]></content>
+      <categories>
+        <category>Linux</category>
+        <category>Linux 核心命令</category>
+      </categories>
+      <tags>
+        <tag>Linux</tag>
+        <tag>Linux 核心命令</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>你写注释，她帮你写代码</title>
     <url>/archives/19bb1fb2.html</url>
     <content><![CDATA[<p>打开邮箱看到如下邮件后还是小激动了一番，之前申请使用 Copilot 插件通过了</p>
