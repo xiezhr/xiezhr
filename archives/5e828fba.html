@@ -731,7 +731,7 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/xiezhr/xiezhrblog-cdn-source@main/blog-img/16486525760531648652575549.png')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://fastly.jsdelivr.net/gh/xiezhr/xiezhrblog-cdn-source@main/blog-img/16486525760531648652575549.png')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
@@ -900,7 +900,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-04-23
+                    2022-06-03
                 </div>
                 
 
@@ -931,47 +931,47 @@
             <div id="articleContent">
                 <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>大概上周五晚上吧，想着可以正常下班了。也没啥事，正好可以逛逛自己的小破站，看看有没有小伙伴留言什么的。</p>
 <p>然后发现小破站图片显示不出来了。。。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/xiezhr/xiezhrblog-cdn-source@main/blog-img/16486501630851648650163047.png"></p>
-<img src="https://cdn.jsdelivr.net/gh/xiezhr/xiezhrblog-cdn-source@main/blog-img/1648650584056img-no.png" style="zoom:50%;" />
+<p><img src="https://fastly.jsdelivr.net/gh/xiezhr/xiezhrblog-cdn-source@main/blog-img/16486501630851648650163047.png"></p>
+<img src="https://fastly.jsdelivr.net/gh/xiezhr/xiezhrblog-cdn-source@main/blog-img/1648650584056img-no.png" style="zoom:50%;" />
 
 
 
 <p>一开始也没在意，想着可能是Gitee又挂了，可能一会就好了，那就再等等吧。。。</p>
 <p>正好可以把之前没写完的博客给写完。写着写着还是得用到图片，就抱着试一试得心态，可能这回gitee可能好了。然后传了一张图片，好家伙，可以正常上传到仓库的，但是图片显示不出来。</p>
-<img src="https://cdn.jsdelivr.net/gh/xiezhr/xiezhrblog-cdn-source@main/blog-img/1648649989055gitee-img-bed.png" alt="图床" style="zoom:50%;" />
+<img src="https://fastly.jsdelivr.net/gh/xiezhr/xiezhrblog-cdn-source@main/blog-img/1648649989055gitee-img-bed.png" alt="图床" style="zoom:50%;" />
 
 
 
 <h3 id="寻找原因"><a href="#寻找原因" class="headerlink" title="寻找原因"></a>寻找原因</h3><p>那这会是什么原因呢，一种不祥的预感就来了，是不是Gitee加了防盗链机制。</p>
 <p>为了确认是不是我个人的原因，然后就在群里问小伙伴们，发现大家也是类似的情况。</p>
 <p>这时还没死心，毕竟上面少说也有几百张图片啊。就向官方求助了。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/xiezhr/xiezhrblog-cdn-source@main/blog-img/16486525760531648652575549.png"></p>
+<p><img src="https://fastly.jsdelivr.net/gh/xiezhr/xiezhrblog-cdn-source@main/blog-img/16486525760531648652575549.png"></p>
 <p>官方给出的回复是一直都禁用图床的</p>
-<p><img src="https://cdn.jsdelivr.net/gh/xiezhr/xiezhrblog-cdn-source@main/blog-img/1648653965052gitee-xz.png"></p>
+<p><img src="https://fastly.jsdelivr.net/gh/xiezhr/xiezhrblog-cdn-source@main/blog-img/1648653965052gitee-xz.png"></p>
 <p>想看具体协议规则的可以访问<a target="_blank" rel="noopener" href="https://gitee.com/terms">https://gitee.com/terms</a> 自行查看。</p>
 <p>再后面就看到了自己关注的博主也发文，卧槽，这回应该是实锤了，是真的用不了了啊。。。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/xiezhr/xiezhrblog-cdn-source@main/blog-img/16486527360551648652735895.png"></p>
+<p><img src="https://fastly.jsdelivr.net/gh/xiezhr/xiezhrblog-cdn-source@main/blog-img/16486527360551648652735895.png"></p>
 <h3 id="补救"><a href="#补救" class="headerlink" title="补救"></a>补救</h3><p>竟然Gitee不能白嫖了，我们自然会想到Github了。小伙伴们可能会觉的用GitHub会不会慢，其实GitHub+jsDelivr 也还好。自己亲自验证了，可以正常使用，最主要是<strong>免费免费免费</strong></p>
 <p>不用白不用，下面就说一说<strong>怎么使用GitHub+jsDelivr 免费搭建自己的图床？</strong></p>
 <p>Ⅰ 第一步当然是注册一个GitHub账号了</p>
 <p>网址：<a target="_blank" rel="noopener" href="https://github.com/">https://github.com/</a></p>
 <p>具体注册流程就不说了</p>
 <p>Ⅱ 创建一个存放图片的仓库</p>
-<p><img src="https://cdn.jsdelivr.net/gh/xiezhr/xiezhrblog-cdn-source@main/blog-img/16486547370521648654736255.png"></p>
-<p><img src="https://cdn.jsdelivr.net/gh/xiezhr/xiezhrblog-cdn-source@main/blog-img/16486552049041648655204849.png"></p>
-<p><img src="https://cdn.jsdelivr.net/gh/xiezhr/xiezhrblog-cdn-source@main/blog-img/16486552828841648655282163.png"></p>
+<p><img src="https://fastly.jsdelivr.net/gh/xiezhr/xiezhrblog-cdn-source@main/blog-img/16486547370521648654736255.png"></p>
+<p><img src="https://fastly.jsdelivr.net/gh/xiezhr/xiezhrblog-cdn-source@main/blog-img/16486552049041648655204849.png"></p>
+<p><img src="https://fastly.jsdelivr.net/gh/xiezhr/xiezhrblog-cdn-source@main/blog-img/16486552828841648655282163.png"></p>
 <p>Ⅲ 生成token</p>
 <p>【Settings 】→【Developer settings】→【Personal access tokens<code>】→【</code>generate new token】</p>
 <p>① 点击头像下的【<strong>Settings</strong> 】</p>
-<p><img src="https://cdn.jsdelivr.net/gh/xiezhr/xiezhrblog-cdn-source@main/blog-img/16486556098791648655608923.png"></p>
+<p><img src="https://fastly.jsdelivr.net/gh/xiezhr/xiezhrblog-cdn-source@main/blog-img/16486556098791648655608923.png"></p>
 <p>② 选择【<strong>Developer settings</strong>】（左下角最后一个）</p>
 <p><img src="C:\Users\xiezhr\AppData\Roaming\Typora\typora-user-images\1648655702261.png" alt="1648655702261"></p>
 <p>③ 选择【<strong>Personal access tokens</strong>】</p>
-<p><img src="https://cdn.jsdelivr.net/gh/xiezhr/xiezhrblog-cdn-source@main/blog-img/16486557648851648655764786.png"></p>
+<p><img src="https://fastly.jsdelivr.net/gh/xiezhr/xiezhrblog-cdn-source@main/blog-img/16486557648851648655764786.png"></p>
 <p>④ 选择【<strong>Generate new token</strong>】(我的这里已经建了两个了)</p>
 <p><img src="C:\Users\xiezhr\AppData\Roaming\Typora\typora-user-images\1648655894421.png" alt="1648655894421"></p>
-<p><img src="https://cdn.jsdelivr.net/gh/xiezhr/xiezhrblog-cdn-source@main/blog-img/16486562848801648656284436.png"></p>
-<p><img src="https://cdn.jsdelivr.net/gh/xiezhr/xiezhrblog-cdn-source@main/blog-img/16486564468791648656446628.png"></p>
+<p><img src="https://fastly.jsdelivr.net/gh/xiezhr/xiezhrblog-cdn-source@main/blog-img/16486562848801648656284436.png"></p>
+<p><img src="https://fastly.jsdelivr.net/gh/xiezhr/xiezhrblog-cdn-source@main/blog-img/16486564468791648656446628.png"></p>
 <p>Ⅳ 下载Picgo 或者其他连接工具</p>
 <p>一、picgo工具下载</p>
 <p>① 简介：<strong>PicGo: 一个用于快速上传图片并获取图片 URL 链接的工具</strong> </p>
@@ -986,28 +986,28 @@
 <li><code>Imgur</code> v1.6.0</li>
 </ul>
 <p>官方地址：<a target="_blank" rel="noopener" href="https://picgo.github.io/PicGo-Doc/">https://picgo.github.io/PicGo-Doc/</a></p>
-<p><img src="https://cdn.jsdelivr.net/gh/xiezhr/xiezhrblog-cdn-source@main/blog-img/16486567838851648656782963.png"></p>
+<p><img src="https://fastly.jsdelivr.net/gh/xiezhr/xiezhrblog-cdn-source@main/blog-img/16486567838851648656782963.png"></p>
 <p>下载地址：<a target="_blank" rel="noopener" href="https://github.com/Molunerfinn/PicGo/releases">https://github.com/Molunerfinn/PicGo/releases</a></p>
 <p>也可以到我的网盘下载：<a target="_blank" rel="noopener" href="https://pan.baidu.com/s/10uDqjGPqDUad9aXYeqODtw">https://pan.baidu.com/s/10uDqjGPqDUad9aXYeqODtw</a>    提取码：cqcp </p>
 <p>下载安装完后如下图所示</p>
-<p><img src="https://cdn.jsdelivr.net/gh/xiezhr/xiezhrblog-cdn-source@main/blog-img/16486569458861648656945048.png"></p>
+<p><img src="https://fastly.jsdelivr.net/gh/xiezhr/xiezhrblog-cdn-source@main/blog-img/16486569458861648656945048.png"></p>
 <p>二、uTool 工具下载，并安装图床工具</p>
 <p>① 到官网下载即可：<a target="_blank" rel="noopener" href="https://u.tools/">https://u.tools/</a></p>
-<p><img src="https://cdn.jsdelivr.net/gh/xiezhr/xiezhrblog-cdn-source@main/blog-img/16486572228781648657222750.png"></p>
+<p><img src="https://fastly.jsdelivr.net/gh/xiezhr/xiezhrblog-cdn-source@main/blog-img/16486572228781648657222750.png"></p>
 <p>②安装图床插件</p>
-<p><img src="https://cdn.jsdelivr.net/gh/xiezhr/xiezhrblog-cdn-source@main/blog-img/16486571748781648657174043.png"></p>
+<p><img src="https://fastly.jsdelivr.net/gh/xiezhr/xiezhrblog-cdn-source@main/blog-img/16486571748781648657174043.png"></p>
 <p>Ⅴ 配置图床</p>
 <p>① PicGo配置</p>
-<p>注：设置自定义域名，我的是<strong><a target="_blank" rel="noopener" href="https://cdn.jsdelivr.net/gh/xiezhr/xiezhrblog-cdn-source">https://cdn.jsdelivr.net/gh/xiezhr/xiezhrblog-cdn-source</a> 一般是<a target="_blank" rel="noopener" href="https://cdn.jsdelivr.net/gh/+github%E7%94%A8%E6%88%B7+">https://cdn.jsdelivr.net/gh/+github用户+</a> 仓库</strong></p>
-<p><img src="https://cdn.jsdelivr.net/gh/xiezhr/xiezhrblog-cdn-source@main/blog-img/16486575658821648657565515.png"></p>
+<p>注：设置自定义域名，我的是<strong><a target="_blank" rel="noopener" href="https://fastly.jsdelivr.net/gh/xiezhr/xiezhrblog-cdn-source">https://fastly.jsdelivr.net/gh/xiezhr/xiezhrblog-cdn-source</a> 一般是<a target="_blank" rel="noopener" href="https://fastly.jsdelivr.net/gh/+github%E7%94%A8%E6%88%B7+">https://fastly.jsdelivr.net/gh/+github用户+</a> 仓库</strong></p>
+<p><img src="https://fastly.jsdelivr.net/gh/xiezhr/xiezhrblog-cdn-source@main/blog-img/16486575658821648657565515.png"></p>
 <p>② uTool图床设置（配置与PicGo工具类似）</p>
 <p><strong>注：看了截图，你会发现这里没有向PicGo一样配置自定义域名，那么是不是不能进行CDN加速了呢？其实啊插件作者自动给我们加上了</strong> 我们只需复制连接就可以了使用了</p>
-<p><img src="https://cdn.jsdelivr.net/gh/xiezhr/xiezhrblog-cdn-source@main/blog-img/16486578666451648657866126.png"></p>
+<p><img src="https://fastly.jsdelivr.net/gh/xiezhr/xiezhrblog-cdn-source@main/blog-img/16486578666451648657866126.png"></p>
 <p>Ⅵ 上传图片</p>
 <p>参照上面的配置，我们的图床就算是配置好了</p>
 <p>接下来，我们上传一张图片试试，(●’◡’●)</p>
 <p>① PicGo 工具使用</p>
-<p><img src="https://cdn.jsdelivr.net/gh/xiezhr/xiezhrblog-cdn-source@main/blog-img/16486582476431648658247152.png"></p>
+<p><img src="https://fastly.jsdelivr.net/gh/xiezhr/xiezhrblog-cdn-source@main/blog-img/16486582476431648658247152.png"></p>
 <p>② uTool 图床插件使用</p>
 <p><img src="C:\Users\xiezhr\AppData\Roaming\Typora\typora-user-images\1648658398668.png" alt="1648658398668"></p>
 <p>大功告成，图片上传成功 (●’◡’●)</p>
@@ -1256,7 +1256,7 @@
         
         box-sizing: border-box;
         /* background: url("https://fastly.jsdelivr.net/gh/xiezhr/xiezhrblog-cdn-source/source/medias/comment_bg.webp") 100% 100% no-repeat; */
-        background-image: url("https://fastly.jsdelivr.net/gh/xiezhr/xiezhrblog-cdn-source/source/medias/simiao.gif");
+        background-image: url("https://fastly.jsdelivr.net/gh/xiezhr/xiezhrblog-cdn-source/source/medias/comment_bg.webp");
         background-size: contain;
         background-repeat: no-repeat;
         background-position:right;
@@ -1555,7 +1555,7 @@
                 <a href="/archives/19bb1fb2.html">
                     <div class="card-image">
                         
-                        <img src="https://cdn.jsdelivr.net/gh/xiezhr/xiezhrblog-cdn-source@main/blog-img/1650700838522fly.png" class="responsive-img" alt="你写注释，她帮你写代码">
+                        <img src="https://fastly.jsdelivr.net/gh/xiezhr/xiezhrblog-cdn-source@main/blog-img/1650700838522fly.png" class="responsive-img" alt="你写注释，她帮你写代码">
                         
                         <span class="card-title">你写注释，她帮你写代码</span>
                     </div>
@@ -1619,7 +1619,7 @@
                 <a href="/archives/87a8e6ef.html">
                     <div class="card-image">
                         
-                        <img src="https://cdn.jsdelivr.net/gh/xiezhr/xiezhrblog-cdn-source@main/blog-img/1650379983091Linux-cover.jpg" class="responsive-img" alt="快速上手Linux核心命令（五）：文本处理三剑客">
+                        <img src="https://fastly.jsdelivr.net/gh/xiezhr/xiezhrblog-cdn-source@main/blog-img/1650379983091Linux-cover.jpg" class="responsive-img" alt="快速上手Linux核心命令（五）：文本处理三剑客">
                         
                         <span class="card-title">快速上手Linux核心命令（五）：文本处理三剑客</span>
                     </div>
@@ -1855,7 +1855,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">91.9k</span>&nbsp;字
+                class="white-color">102.1k</span>&nbsp;字
             
             
             

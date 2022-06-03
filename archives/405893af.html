@@ -1,0 +1,3198 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="Linux,Linux 核心命令">
+    <meta name="description" content="">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="baidu-site-verification" content="code-uutUfowLsm" />
+    <meta name="msvalidate.01" content="F999DE5405A9F0E56508AD3016F4E45E" />
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <title>快速上手Linux核心命令（八）：网络相关命令 | xiezhrspace</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="https://fastly.jsdelivr.net/gh/xiezhr/xiezhrblog-cdn-source/source/libs/awesome/css/all.css">
+    <link rel="stylesheet" type="text/css" href="https://fastly.jsdelivr.net/gh/xiezhr/xiezhrblog-cdn-source/source/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="https://fastly.jsdelivr.net/gh/xiezhr/xiezhrblog-cdn-source/source/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="https://fastly.jsdelivr.net/gh/xiezhr/xiezhrblog-cdn-source/source/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="https://fastly.jsdelivr.net/gh/xiezhr/xiezhrblog-cdn-source/source/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="https://fastly.jsdelivr.net/gh/xiezhr/xiezhrblog-cdn-source/source/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="https://fastly.jsdelivr.net/gh/xiezhr/xiezhrblog-cdn-source/source/css/my.css">
+    
+    <link rel="stylesheet" type="text/css" href="https://fastly.jsdelivr.net/gh/xiezhr/xiezhrblog-cdn-source/source/libs/artitalk/artitalk.min.css">
+    <!--引入春节样式-->
+    <link rel="stylesheet" type="text/css" href="../../css/spring.css">
+    <!--引入黑夜样式-->
+    <link rel="stylesheet" type="text/css" href="../../css/moon.css">
+    
+
+    <script src="https://fastly.jsdelivr.net/gh/xiezhr/xiezhrblog-cdn-source/source/libs/jquery/jquery.min.js"></script>
+
+    
+        <link type="text/css" href="/js/live2d_assets/waifu.css">
+    
+
+    
+
+<!-- 元宵节灯笼样式开始 -->
+
+<!-- 元宵节灯笼样式结束 -->
+
+    
+
+<meta name="generator" content="Hexo 5.4.0"><link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+
+
+
+
+
+    <style type="text/css" lang="css">
+    #loading-container{
+        position: fixed;
+        top: 0;
+        left: 0;
+        min-height: 100vh;
+        width: 100vw;
+        z-index: 9999;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background: #FFF;
+        text-align: center;
+        /* loader页面消失采用渐隐的方式*/
+        -webkit-transition: opacity 1s ease;
+        -moz-transition: opacity 1s ease;
+        -o-transition: opacity 1s ease;
+        transition: opacity 1s ease;
+    }
+    .loading-image{
+        width: 120px;
+        height: 50px;
+        transform: translate(-50%);
+    }
+
+    .loading-image div:nth-child(2) {
+        -webkit-animation: pacman-balls 1s linear 0s infinite;
+        animation: pacman-balls 1s linear 0s infinite
+    }
+
+    .loading-image div:nth-child(3) {
+        -webkit-animation: pacman-balls 1s linear .33s infinite;
+        animation: pacman-balls 1s linear .33s infinite
+    }
+
+    .loading-image div:nth-child(4) {
+        -webkit-animation: pacman-balls 1s linear .66s infinite;
+        animation: pacman-balls 1s linear .66s infinite
+    }
+
+    .loading-image div:nth-child(5) {
+        -webkit-animation: pacman-balls 1s linear .99s infinite;
+        animation: pacman-balls 1s linear .99s infinite
+    }
+
+   .loading-image div:first-of-type {
+        width: 0;
+        height: 0;
+        border: 25px solid #49b1f5;
+        border-right-color: transparent;
+        border-radius: 25px;
+        -webkit-animation: rotate_pacman_half_up .5s 0s infinite;
+        animation: rotate_pacman_half_up .5s 0s infinite;
+    }
+    .loading-image div:nth-child(2) {
+        width: 0;
+        height: 0;
+        border: 25px solid #49b1f5;
+        border-right-color: transparent;
+        border-radius: 25px;
+        -webkit-animation: rotate_pacman_half_down .5s 0s infinite;
+        animation: rotate_pacman_half_down .5s 0s infinite;
+        margin-top: -50px;
+    }
+    @-webkit-keyframes rotate_pacman_half_up {0% {transform: rotate(270deg)}50% {transform: rotate(1turn)}to {transform: rotate(270deg)}}
+
+    @keyframes rotate_pacman_half_up {0% {transform: rotate(270deg)}50% {transform: rotate(1turn)}to {transform: rotate(270deg)}}
+
+    @-webkit-keyframes rotate_pacman_half_down {0% {transform: rotate(90deg)}50% {transform: rotate(0deg)}to {transform: rotate(90deg)}}
+
+    @keyframes rotate_pacman_half_down {0% {transform: rotate(90deg)}50% {transform: rotate(0deg)}to {transform: rotate(90deg)}}
+
+    @-webkit-keyframes pacman-balls {75% {opacity: .7}to {transform: translate(-100px, -6.25px)}}
+
+    @keyframes pacman-balls {75% {opacity: .7}to {transform: translate(-100px, -6.25px)}}
+
+
+    .loading-image div:nth-child(3),
+    .loading-image div:nth-child(4),
+    .loading-image div:nth-child(5),
+    .loading-image div:nth-child(6){
+        background-color: #49b1f5;
+        width: 15px;
+        height: 15px;
+        border-radius: 100%;
+        margin: 2px;
+        width: 10px;
+        height: 10px;
+        position: absolute;
+        transform: translateY(-6.25px);
+        top: 25px;
+        left: 100px;
+    }
+    .loading-text{
+        margin-bottom: 20vh;
+        text-align: center;
+        color: #2c3e50;
+        font-size: 2rem;
+        box-sizing: border-box;
+        padding: 0 10px;
+        text-shadow: 0 2px 10px rgba(0,0,0,0.2);
+    }
+    @media only screen and (max-width: 500px) {
+         .loading-text{
+            font-size: 1.5rem;
+         }
+    }
+    .fadeout {
+        opacity: 0;
+        filter: alpha(opacity=0);
+    }
+    /* logo出现动画 */
+    @-webkit-keyframes fadeInDown{0%{opacity:0;-webkit-transform:translate3d(0,-100%,0);transform:translate3d(0,-100%,0)}100%{opacity:1;-webkit-transform:none;transform:none}}
+    @keyframes fadeInDown{0%{opacity:0;-webkit-transform:translate3d(0,-100%,0);}}
+ </style>
+ <script>
+(function () {
+    const loaded = function(){
+       setTimeout(function(){
+            const loader = document.getElementById("loading-container");
+            loader.className="fadeout" ;//使用渐隐的方法淡出loading page
+            // document.getElementById("body-wrap").style.display="flex";
+            setTimeout(function(){
+                loader.style.display="none";
+            },2500); 
+        },1000);//强制显示loading page 1s  
+    };
+    loaded();
+})()
+</script>
+
+ 
+
+<body>
+    
+    
+        <div id="loading-container">
+             <p class="loading-text">嘘~  小破站正在拼命加载中 . . . </p> 
+             <div class="loading-image">
+                 <div></div>
+                 <div></div>
+                 <div></div>
+                 <div></div> 
+                 <div></div>
+             </div>
+        </div>
+    
+
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" id="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span diyFont" id="logo-title">xiezhrspace</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/#" class="waves-effect waves-light">
+
+      
+      <span>归档</span>
+      <i class="fas fa-chevron-down" aria-hidden="true" style="zoom: 0.6;"></i>
+    </a>
+    <ul class="sub-nav menus_item_child ">
+      
+      <li>
+        <a href="/tags">
+          
+          <span>标签</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/categories">
+          
+          <span>分类</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/archives">
+          
+          <span>时间轴</span>
+        </a>
+      </li>
+      
+    </ul>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/artitalk" class="waves-effect waves-light">
+      
+      <span>说说</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/#" class="waves-effect waves-light">
+
+      
+      <span>媒体</span>
+      <i class="fas fa-chevron-down" aria-hidden="true" style="zoom: 0.6;"></i>
+    </a>
+    <ul class="sub-nav menus_item_child ">
+      
+      <li>
+        <a href="/books">
+          
+          <span>读书</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/musics">
+          
+          <span>音乐</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/movies">
+          
+          <span>电影</span>
+        </a>
+      </li>
+      
+    </ul>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/#" class="waves-effect waves-light">
+
+      
+      <span>资源分享</span>
+      <i class="fas fa-chevron-down" aria-hidden="true" style="zoom: 0.6;"></i>
+    </a>
+    <ul class="sub-nav menus_item_child ">
+      
+      <li>
+        <a href="/share-tools">
+          
+          <span>常用工具</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/e-book">
+          
+          <span>电子书</span>
+        </a>
+      </li>
+      
+    </ul>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/#" class="waves-effect waves-light">
+
+      
+      <span>交流</span>
+      <i class="fas fa-chevron-down" aria-hidden="true" style="zoom: 0.6;"></i>
+    </a>
+    <ul class="sub-nav menus_item_child ">
+      
+      <li>
+        <a href="/contact">
+          
+          <span>留言</span>
+        </a>
+      </li>
+      
+      <li>
+        <a target="_blank" rel="noopener" href="http://chat.xiezhrspace.cn">
+          
+          <span>聊天室</span>
+        </a>
+      </li>
+      
+    </ul>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/friends" class="waves-effect waves-light">
+      
+      <span>友情链接</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/#" class="waves-effect waves-light">
+
+      
+      <span>实验室</span>
+      <i class="fas fa-chevron-down" aria-hidden="true" style="zoom: 0.6;"></i>
+    </a>
+    <ul class="sub-nav menus_item_child ">
+      
+      <li>
+        <a href="/sponsorship">
+          
+          <i class="fas fa-money" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>赞助墙</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/status">
+          
+          <i class="fas fa-flush" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>检测监控</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/epidemic">
+          
+          <span>疫情实况</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/rain-code">
+          
+          <span>代码雨</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/mykeep">
+          
+          <span>我的Keep</span>
+        </a>
+      </li>
+      
+    </ul>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+<style>
+  #logo-title{
+  }
+
+  #logo-img{
+    
+  }
+  #mobile-logo-img{}
+</style>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img" id="mobile-logo-img">
+        
+        <div class="logo-name">xiezhrspace
+        <div class="logo-desc">
+            
+            爱学习 爱编程 爱分享 再小的帆也能远航
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			<!-- 
+				<i class="fas fa-fw fa-link"></i>
+			 -->
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="javascript:;">
+			<!-- 
+				<i class="fas fa-fw fa-link"></i>
+			 -->
+			归档
+			<span class="m-icon"><i class="fas fa-chevron-right"></i></span>
+		</a>
+            <ul  style="background:  ;" >
+              
+                <li>
+
+                  <a href="/tags " style="margin-left:75px">
+				  
+		          <span>标签</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/categories " style="margin-left:75px">
+				  
+		          <span>分类</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/archives " style="margin-left:75px">
+				  
+		          <span>时间轴</span>
+                  </a>
+                </li>
+              
+            </ul>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/artitalk" class="waves-effect waves-light">
+			<!-- 
+				<i class="fas fa-fw fa-link"></i>
+			 -->
+			说说
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="javascript:;">
+			<!-- 
+				<i class="fas fa-fw fa-link"></i>
+			 -->
+			媒体
+			<span class="m-icon"><i class="fas fa-chevron-right"></i></span>
+		</a>
+            <ul  style="background:  ;" >
+              
+                <li>
+
+                  <a href="/books " style="margin-left:75px">
+				  
+		          <span>读书</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/musics " style="margin-left:75px">
+				  
+		          <span>音乐</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/movies " style="margin-left:75px">
+				  
+		          <span>电影</span>
+                  </a>
+                </li>
+              
+            </ul>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="javascript:;">
+			<!-- 
+				<i class="fas fa-fw fa-link"></i>
+			 -->
+			资源分享
+			<span class="m-icon"><i class="fas fa-chevron-right"></i></span>
+		</a>
+            <ul  style="background:  ;" >
+              
+                <li>
+
+                  <a href="/share-tools " style="margin-left:75px">
+				  
+		          <span>常用工具</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/e-book " style="margin-left:75px">
+				  
+		          <span>电子书</span>
+                  </a>
+                </li>
+              
+            </ul>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			<!-- 
+				<i class="fas fa-fw fa-link"></i>
+			 -->
+			关于
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="javascript:;">
+			<!-- 
+				<i class="fas fa-fw fa-link"></i>
+			 -->
+			交流
+			<span class="m-icon"><i class="fas fa-chevron-right"></i></span>
+		</a>
+            <ul  style="background:  ;" >
+              
+                <li>
+
+                  <a href="/contact " style="margin-left:75px">
+				  
+		          <span>留言</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a target="_blank" rel="noopener" href="http://chat.xiezhrspace.cn " style="margin-left:75px">
+				  
+		          <span>聊天室</span>
+                  </a>
+                </li>
+              
+            </ul>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/friends" class="waves-effect waves-light">
+			<!-- 
+				<i class="fas fa-fw fa-link"></i>
+			 -->
+			友情链接
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="javascript:;">
+			<!-- 
+				<i class="fas fa-fw fa-link"></i>
+			 -->
+			实验室
+			<span class="m-icon"><i class="fas fa-chevron-right"></i></span>
+		</a>
+            <ul  style="background:  ;" >
+              
+                <li>
+
+                  <a href="/sponsorship " style="margin-left:75px">
+				  
+				   <i class="fa fas fa-money" style="position: absolute;left:50px" ></i>
+			      
+		          <span>赞助墙</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/status " style="margin-left:75px">
+				  
+				   <i class="fa fas fa-flush" style="position: absolute;left:50px" ></i>
+			      
+		          <span>检测监控</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/epidemic " style="margin-left:75px">
+				  
+		          <span>疫情实况</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/rain-code " style="margin-left:75px">
+				  
+		          <span>代码雨</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/mykeep " style="margin-left:75px">
+				  
+		          <span>我的Keep</span>
+                  </a>
+                </li>
+              
+            </ul>
+          
+        </li>
+        
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+    </nav>
+
+</header>
+
+    
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://fastly.jsdelivr.net/gh/xiezhr/xiezhrblog-cdn-source@main/blog-img/1650379983091Linux-cover.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">快速上手Linux核心命令（八）：网络相关命令</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="https://fastly.jsdelivr.net/gh/xiezhr/xiezhrblog-cdn-source/source/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        margin: 35px 0 15px 0;
+        padding-left: 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content {
+        height: calc(100vh - 250px);
+        overflow: auto;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+
+        position: absolute;
+        right: 23.5vw;
+        display: block;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!--评论区样式调整-->
+<style>
+    .v[data-class="v"] .vwrap .vheader .vinput {
+        width: 32%;
+        border-bottom: 1px dashed #dedede;
+      }
+</style>
+<!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/Linux/">
+                                <span class="chip bg-color">Linux</span>
+                            </a>
+                        
+                            <a href="/tags/Linux-%E6%A0%B8%E5%BF%83%E5%91%BD%E4%BB%A4/">
+                                <span class="chip bg-color">Linux 核心命令</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/Linux/" class="post-category">
+                                Linux
+                            </a>
+                        
+                            <a href="/categories/Linux/Linux-%E6%A0%B8%E5%BF%83%E5%91%BD%E4%BB%A4/" class="post-category">
+                                Linux 核心命令
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2022-06-03
+                </div>
+                
+
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
+                    2022-06-03
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
+                    7.4k
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
+                    35 分
+                </div>
+                
+
+                
+                    <div id="busuanzi_container_page_pv" class="info-break-policy">
+                        <i class="far fa-eye fa-fw"></i>阅读次数:&nbsp;&nbsp;
+                        <span id="busuanzi_value_page_pv"></span>
+                    </div>
+				
+            </div>
+        </div>
+        <hr class="clearfix">
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>这期呢主要说一说Linux中与网络相关命令，一共包含19个命令</p>
+<p><img src="https://fastly.jsdelivr.net/gh/xiezhr/xiezhrblog-cdn-source@main/blog-img/16534853280981653485327268.png"></p>
+<h3 id="测试主机之间网络是否联通"><a href="#测试主机之间网络是否联通" class="headerlink" title="测试主机之间网络是否联通"></a>测试主机之间网络是否联通</h3><p>1、简介</p>
+<blockquote>
+<p>ping 命令不管是在Windows还是Linux都是比较常用的命令。命令用于测试主机之间的网络连通性</p>
+</blockquote>
+<p>2、语法格式</p>
+<pre class=" language-shell"><code class="language-shell">ping [参数选项] [目标主机]
+</code></pre>
+<p>3、参数说明</p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>参数说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>-c</td>
+<td>指定报文次数，若不指定，ping命令将一直发送报文</td>
+</tr>
+<tr>
+<td>-i</td>
+<td>相邻两次发送报文的时间间隔，默认时间间隔是1s</td>
+</tr>
+<tr>
+<td>-s</td>
+<td>设置发送数据包大小，默认为56字节，加上8字节ICMP头，共64字节数据包</td>
+</tr>
+</tbody></table>
+<p><strong>还有其他的参数，这里就不一一列举了。。。。</strong></p>
+<p>4、实践操作</p>
+<p>①测试与目标主机的网络连通性</p>
+<pre class=" language-shell"><code class="language-shell"># 网络正常情况
+[root@xiezhr ~]# ping www.xiezhrspace.cn
+PING www.xiezhrspace.cn (42.192.46.248) 56(84) bytes of data.
+64 bytes from 42.192.46.248 (42.192.46.248): icmp_seq=1 ttl=63 time=0.233 ms
+64 bytes from 42.192.46.248 (42.192.46.248): icmp_seq=2 ttl=63 time=0.215 ms
+64 bytes from 42.192.46.248 (42.192.46.248): icmp_seq=3 ttl=63 time=0.230 ms
+64 bytes from 42.192.46.248 (42.192.46.248): icmp_seq=4 ttl=63 time=0.235 ms
+64 bytes from 42.192.46.248 (42.192.46.248): icmp_seq=5 ttl=63 time=0.235 ms
+64 bytes from 42.192.46.248 (42.192.46.248): icmp_seq=6 ttl=63 time=0.246 ms
+64 bytes from 42.192.46.248 (42.192.46.248): icmp_seq=7 ttl=63 time=0.243 ms
+64 bytes from 42.192.46.248 (42.192.46.248): icmp_seq=8 ttl=63 time=0.215 ms
+64 bytes from 42.192.46.248 (42.192.46.248): icmp_seq=9 ttl=63 time=0.227 ms
+
+# 网络不正常
+[root@xiezhr ~]# ping 10.10.114.56
+PING 10.10.114.56 (10.10.114.56) 56(84) bytes of data.
+</code></pre>
+<p>上面命令执行后会一直发送报文，相当于<strong>windows中的ping <a target="_blank" rel="noopener" href="http://www.baidu.com/">www.baidu.com</a> -t</strong> </p>
+<p>② 指定发送报文的次数</p>
+<pre class=" language-shell"><code class="language-shell"># 发送报文4次后自动退出
+[root@xiezhr ~]# ping -c 4 www.xiezhrspace.cn
+PING www.xiezhrspace.cn (42.192.46.248) 56(84) bytes of data.
+64 bytes from 42.192.46.248 (42.192.46.248): icmp_seq=1 ttl=63 time=0.230 ms
+64 bytes from 42.192.46.248 (42.192.46.248): icmp_seq=2 ttl=63 time=0.248 ms
+64 bytes from 42.192.46.248 (42.192.46.248): icmp_seq=3 ttl=63 time=0.226 ms
+64 bytes from 42.192.46.248 (42.192.46.248): icmp_seq=4 ttl=63 time=0.214 ms
+
+--- www.xiezhrspace.cn ping statistics ---
+4 packets transmitted, 4 received, 0% packet loss, time 3021ms
+rtt min/avg/max/mdev = 0.214/0.229/0.248/0.019 ms
+</code></pre>
+<p>③ 多参数使用情况</p>
+<pre class=" language-shell"><code class="language-shell">[root@xiezhr ~]# ping -c 4 -i 3 -s 1024 -t 255 www.xiezhrspace.cn
+PING www.xiezhrspace.cn (42.192.46.248) 1024(1052) bytes of data.
+1032 bytes from 42.192.46.248 (42.192.46.248): icmp_seq=1 ttl=63 time=0.214 ms
+1032 bytes from 42.192.46.248 (42.192.46.248): icmp_seq=2 ttl=63 time=0.250 ms
+1032 bytes from 42.192.46.248 (42.192.46.248): icmp_seq=3 ttl=63 time=0.226 ms
+1032 bytes from 42.192.46.248 (42.192.46.248): icmp_seq=4 ttl=63 time=0.261 ms
+
+--- www.xiezhrspace.cn ping statistics ---
+4 packets transmitted, 4 received, 0% packet loss, time 9027ms
+rtt min/avg/max/mdev = 0.214/0.237/0.261/0.026 ms
+</code></pre>
+<p>上面列子中参数解释</p>
+<ul>
+<li>-c 4 : <strong>发送4次报文</strong></li>
+<li>-i  3：<strong>每隔3s发送一次报文</strong></li>
+<li>-s 1024: <strong>每次发送数据报文大小为1024字节</strong></li>
+<li>-t 255:  **发送数据包的ttl值为255 **</li>
+</ul>
+<h3 id="ifconfig-配置或显示网络信息"><a href="#ifconfig-配置或显示网络信息" class="headerlink" title="ifconfig 配置或显示网络信息"></a>ifconfig 配置或显示网络信息</h3><p>1、简介</p>
+<blockquote>
+<p>ifconfig  命令类似于Windows 下的ipconfig 。不知道大家会不会混淆在一起，反正我是经常混淆了在一起(●’◡’●)。命令用于显示网卡IP地址等参数信息</p>
+</blockquote>
+<p>2、语法格式</p>
+<pre class=" language-shell"><code class="language-shell">ifconfig [网路接口] [参数选项]
+</code></pre>
+<p><strong>网络接口指的是：eth0、eth1和lo 分别表示第一块网卡、第二块网卡和回环接口。该选项是非必填项</strong></p>
+<p>3、 参数说明</p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>参数说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>-a</td>
+<td>显示所有网络接口信息，包括活动的和非活动的</td>
+</tr>
+<tr>
+<td>-up</td>
+<td>激活指定网络接口</td>
+</tr>
+<tr>
+<td>-down</td>
+<td>关闭指定网络接口</td>
+</tr>
+<tr>
+<td>hw</td>
+<td>设置网络接口的物理地址（MAC地址）</td>
+</tr>
+</tbody></table>
+<p>4、实践操作</p>
+<p>①显示当前系统开启的所有网络接口信息</p>
+<pre class=" language-shell"><code class="language-shell">[root@xiezhr ~]# ifconfig
+eth0: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500
+        inet 172.17.0.4  netmask 255.255.240.0  broadcast 172.17.15.255
+        inet6 fe80::5054:ff:fe19:f6d0  prefixlen 64  scopeid 0x20<link>
+        ether 52:54:00:19:f6:d0  txqueuelen 1000  (Ethernet)
+        RX packets 254776100  bytes 26271134342 (24.4 GiB)
+        RX errors 0  dropped 0  overruns 0  frame 0
+        TX packets 331164543  bytes 72224346549 (67.2 GiB)
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+
+lo: flags=73<UP,LOOPBACK,RUNNING>  mtu 65536
+        inet 127.0.0.1  netmask 255.0.0.0
+        inet6 ::1  prefixlen 128  scopeid 0x10<host>
+        loop  txqueuelen 1000  (Local Loopback)
+        RX packets 143816  bytes 10756556 (10.2 MiB)
+        RX errors 0  dropped 0  overruns 0  frame 0
+        TX packets 143816  bytes 10756556 (10.2 MiB)
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+</code></pre>
+<ul>
+<li>eth0表示第一块网卡、第二块为eth1，依次类推；lo表示回环接口</li>
+</ul>
+<p>②显示指定网卡eth0信息</p>
+<pre class=" language-shell"><code class="language-shell">[root@xiezhr ~]# ifconfig eth0
+eth0: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500
+        inet 172.17.0.4  netmask 255.255.240.0  broadcast 172.17.15.255
+        inet6 fe80::5054:ff:fe19:f6d0  prefixlen 64  scopeid 0x20<link>
+        ether 52:54:00:19:f6:d0  txqueuelen 1000  (Ethernet)
+        RX packets 254778009  bytes 26271295935 (24.4 GiB)
+        RX errors 0  dropped 0  overruns 0  frame 0
+        TX packets 331166449  bytes 72224671528 (67.2 GiB)
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+</code></pre>
+<p>③ 启动关闭网卡</p>
+<pre class=" language-shell"><code class="language-shell"># 关闭网卡
+[root@xiezhr ~]# ifconfig eth0 down
+# 启动网卡
+[root@xiezhr ~]# ifconfig eth0 up
+</code></pre>
+<p>④ 设置网卡IP</p>
+<pre class=" language-shell"><code class="language-shell">[root@xiezhr ~] ifconfig eth0 192.168.205.98 
+</code></pre>
+<h3 id="route-显示或管理路由表"><a href="#route-显示或管理路由表" class="headerlink" title="route 显示或管理路由表"></a>route 显示或管理路由表</h3><p>1、简介</p>
+<blockquote>
+<p>route 命令用来显示或管理Linux的路由表</p>
+</blockquote>
+<p>2、路由小科普</p>
+<p>说到路由，不得不简单做下科普。这里只是简单通俗介绍一下，如果需要了解更多请查阅相关资料哈</p>
+<p><strong>路由表与生活中的路标指示牌类似，指示牌指引着我们该往什么地方走；而路由表则指引着数据包该去向何方。</strong></p>
+<p><img src="https://fastly.jsdelivr.net/gh/xiezhr/xiezhrblog-cdn-source@main/blog-img/16534898360901653489835968.png"></p>
+<p>不得不说技术源于生活，又服务于生活。</p>
+<p>那么，两台计算机之间是怎么传输数据的呢？</p>
+<ul>
+<li>数据的传输必须要又网络来完成，而网络是由两台计算机之间一个或多个节点构成的</li>
+<li>数据传输由一台计算机传送到第一个网络节点，然后这个网络节点会根据“约定”将数据传宋到另一个网络节点，另一个网络节点再根据“约定”将数据传输到下一个节点，直到把数据传输到另一台计算机。 这里的“约定”就是我们上面说的路由表</li>
+<li>路由表说白了就是指定了一些规则，标明数据报文该何去何从</li>
+<li>路由分为静态路由和动态路由。</li>
+<li>我们通过route命令手动加入的路由属于静态路由；动态路由时无需手动加入的，其路由规则时不同计算机彼此相互交换路由规则而来的</li>
+</ul>
+<p>3、语法格式</p>
+<pre class=" language-shell"><code class="language-shell">route [参数选项]
+</code></pre>
+<p>4、参数说明</p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>参数说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>-n</td>
+<td>直接使用ip地址，不进行DNS解析主机名</td>
+</tr>
+<tr>
+<td>add</td>
+<td>添加路由信息</td>
+</tr>
+<tr>
+<td>del</td>
+<td>删除路由信息</td>
+</tr>
+<tr>
+<td>-net</td>
+<td>到一个网络的路由，参数后面接的是一个网络号地址</td>
+</tr>
+<tr>
+<td>-host</td>
+<td>到一个主机的路由，参数后面接的时一个主机地址</td>
+</tr>
+<tr>
+<td>netmask NM</td>
+<td>为添加的路由指定网络掩码</td>
+</tr>
+<tr>
+<td>gw GW</td>
+<td>为发往木匾网络/主机的任何分组指定网关</td>
+</tr>
+<tr>
+<td>dev If</td>
+<td>指定有哪个网络设备出去，后面接网络设备名 如：eth0</td>
+</tr>
+</tbody></table>
+<p>5、实践操作</p>
+<p>① 查看当前系统路由表信息</p>
+<pre class=" language-shell"><code class="language-shell">[root@xiezhr ~]# route 
+Kernel IP routing table
+Destination     Gateway         Genmask         Flags Metric Ref    Use Iface
+default         gateway         0.0.0.0         UG    0      0        0 eth0
+link-local      0.0.0.0         255.255.0.0     U     1002   0        0 eth0
+172.17.0.0      0.0.0.0         255.255.240.0   U     0      0        0 eth0
+</code></pre>
+<ul>
+<li>Destination :网络号，也就是network的意思</li>
+<li>Gateway：连出网关地址，也就是说该网络时通过该IP连接出去的，0.0.0.0，则表示该路由直接由本机传送出去。如果由具体IP，表示本条路由必须经过该IP转接才能连接出去</li>
+<li>Genmask：表示子网掩码</li>
+<li>Flags：路由标记信息<ul>
+<li>U :表示此路由当前为启动状态</li>
+<li>H：目标路由是一个主机（IP）而非网络</li>
+<li>R：使用动态路由时，恢复路由信息标识</li>
+<li>G：表示他需要通过外部的注解来转接传递数据</li>
+<li>M：表示路由已经被修改</li>
+<li>D：已经由服务设定为动态路由</li>
+</ul>
+</li>
+<li>Metric ：表示需要经过几个网络节点才能到达路由的目标网络地址</li>
+<li>Ref：参考到此路由规则的数目</li>
+<li>Use：有几个转送数据包参考到了此路由规则</li>
+<li>Iface：路由对应的网络设备接口</li>
+</ul>
+<p>② 添加或删除路由</p>
+<pre class=" language-shell"><code class="language-shell"># 删除默认网关方法1
+[root@xiezhr ~]# route del default
+# 删除默认网关方法2
+[root@xiezhr ~]# route del default gw 10.0.0.2
+# 添加网关
+[root@xiezhr ~]# route add default gw 10.0.0.2 dev eth0
+</code></pre>
+<h3 id="netstat-查看网络状况"><a href="#netstat-查看网络状况" class="headerlink" title="netstat 查看网络状况"></a>netstat 查看网络状况</h3><p>1、简介</p>
+<blockquote>
+<p>netstat 命令用于显示本机网络的连接状态、运行端口和路由表等信息</p>
+</blockquote>
+<p>2、语法格式</p>
+<pre class=" language-shell"><code class="language-shell">netstat [参数选项]
+</code></pre>
+<p>3、参数说明</p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>参数说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>-n</td>
+<td>显示数字形式的地址而不是去解析主机、端口或用户名</td>
+</tr>
+<tr>
+<td>-a</td>
+<td>显示处于监听状态和非监听状态的socket信息</td>
+</tr>
+<tr>
+<td>-c&lt;秒数&gt;</td>
+<td>后面跟的秒数表示每隔几秒就刷新显示一次</td>
+</tr>
+<tr>
+<td>-t</td>
+<td>显示所有的TCP连接情况</td>
+</tr>
+<tr>
+<td>-u</td>
+<td>显示所有的UDP连接情况</td>
+</tr>
+<tr>
+<td>-p</td>
+<td>显示socket所属进程的PID和名称</td>
+</tr>
+</tbody></table>
+<p>4、实践操作</p>
+<p>① 显示详细的所有连接信息</p>
+<pre class=" language-shell"><code class="language-shell">[root@xiezhr ~]# netstat -an
+Active Internet connections (servers and established)
+Proto Recv-Q Send-Q Local Address           Foreign Address         State      
+tcp        0      0 0.0.0.0:80              0.0.0.0:*               LISTEN     
+tcp        0      0 172.17.0.4:80           103.127.81.10:33832     SYN_RECV   
+tcp        0      0 172.17.0.4:80           154.221.22.70:44617     SYN_RECV   
+tcp        0      0 172.17.0.4:80           103.195.150.7:31982     SYN_RECV 
+。。。
+udp        0      0 0.0.0.0:68              0.0.0.0:*                          
+udp        0      0 172.17.0.4:123          0.0.0.0:*                          
+udp        0      0 127.0.0.1:123           0.0.0.0:*                          
+udp6       0      0 fe80::5054:ff:fe19::123 :::*                               
+udp6       0      0 ::1:123                 :::*                               
+Active UNIX domain sockets (servers and established)
+Proto RefCnt Flags       Type       State         I-Node   Path
+unix  2      [ ACC ]     STREAM     LISTENING     12804    /var/run/lsm/ipc/simc
+unix  2      [ ACC ]     STREAM     LISTENING     12810    /var/run/lsm/ipc/sim
+</code></pre>
+<p>简单说明下上面显示内容的含义</p>
+<table>
+<thead>
+<tr>
+<th>列数</th>
+<th>名称</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>第一列</td>
+<td>Proto</td>
+<td>socket使用的协议（TCP/UDP/RAW）</td>
+</tr>
+<tr>
+<td>第二列</td>
+<td>Recv-Q</td>
+<td>接收到但是还未处理的字节数</td>
+</tr>
+<tr>
+<td>第三列</td>
+<td>Send-Q</td>
+<td>已经发送但是未被远程主机确认收到的字节数</td>
+</tr>
+<tr>
+<td>第四列</td>
+<td>Local Address</td>
+<td>本机主机地址和端口</td>
+</tr>
+<tr>
+<td>第五列</td>
+<td>Froeign Address</td>
+<td>远程主机地址和端口</td>
+</tr>
+<tr>
+<td>第六列</td>
+<td>State</td>
+<td>tcp状态</td>
+</tr>
+</tbody></table>
+<p>② 显示所有TCP、UDP正在监听的连接信息</p>
+<pre class=" language-shell"><code class="language-shell">[root@xiezhr ~]# netstat -lntup
+Active Internet connections (only servers)
+Proto Recv-Q Send-Q Local Address           Foreign Address         State       PID/Program name    
+tcp        0      0 0.0.0.0:80              0.0.0.0:*               LISTEN      2812/nginx: master  
+tcp        0      0 0.0.0.0:22              0.0.0.0:*               LISTEN      980/sshd            
+tcp        0      0 0.0.0.0:443             0.0.0.0:*               LISTEN      2812/nginx: master  
+tcp        0      0 0.0.0.0:65535           0.0.0.0:*               LISTEN      17087/./proc        
+tcp6       0      0 :::80                   :::*                    LISTEN      2812/nginx: master  
+tcp6       0      0 :::3000                 :::*                    LISTEN      27339/PM2 v4.5.1: G 
+tcp6       0      0 :::443                  :::*                    LISTEN      2812/nginx: master  
+udp        0      0 0.0.0.0:68              0.0.0.0:*                           809/dhclient        
+udp        0      0 172.17.0.4:123          0.0.0.0:*                           546/ntpd            
+udp        0      0 127.0.0.1:123           0.0.0.0:*                           546/ntpd            
+udp6       0      0 fe80::5054:ff:fe19::123 :::*                                546/ntpd            
+udp6       0      0 ::1:123                 :::*                                546/ntpd 
+</code></pre>
+<p>③ 显示当前系统的路由表</p>
+<pre class=" language-shell"><code class="language-shell">[root@xiezhr ~]# netstat -rn
+Kernel IP routing table
+Destination     Gateway         Genmask         Flags   MSS Window  irtt Iface
+0.0.0.0         172.17.0.1      0.0.0.0         UG        0 0          0 eth0
+169.254.0.0     0.0.0.0         255.255.0.0     U         0 0          0 eth0
+172.17.0.0      0.0.0.0         255.255.240.0   U         0 0          0 eth0
+</code></pre>
+<p>④ 显示网络的接口状况</p>
+<pre class=" language-shell"><code class="language-shell">[root@xiezhr ~]# netstat -i
+Kernel Interface table
+Iface             MTU    RX-OK RX-ERR RX-DRP RX-OVR    TX-OK TX-ERR TX-DRP TX-OVR Flg
+eth0             1500 257171559      0      0 0      334662383      0      0      0 BMRU
+lo              65536   144476      0      0 0        144476      0      0      0 LRU
+</code></pre>
+<h3 id="telnet-远程登录主机"><a href="#telnet-远程登录主机" class="headerlink" title="telnet 远程登录主机"></a>telnet 远程登录主机</h3><p>1、简介</p>
+<blockquote>
+<p>telnet以前用于远程登录主机，但是其安全性不好。因此现在一般采用更加安全的SSH，这个后面也会说到。</p>
+<p>现在telnet命令主要用于判断远端服务器端口是否开发</p>
+</blockquote>
+<p>2、语法格式</p>
+<pre class=" language-shell"><code class="language-shell">telnet [参数选项] [主机名或IP] [端口]
+</code></pre>
+<p>3、实际操作</p>
+<p>①测试端口是否开放</p>
+<pre class=" language-shell"><code class="language-shell">[root@xiezhr ~]# telnet 112.112.17.172 31189
+</code></pre>
+<h3 id="ssh-安全的远程登录主机"><a href="#ssh-安全的远程登录主机" class="headerlink" title="ssh 安全的远程登录主机"></a>ssh 安全的远程登录主机</h3><p>1、简介</p>
+<blockquote>
+<p>ssh命令用于安全的登录远程服务器，实现对服务器的远程管理。取代了telnet命令</p>
+</blockquote>
+<p>2、语法格式</p>
+<pre class=" language-shell"><code class="language-shell">ssh [参数选项] [用户名@] [主机名或IP地址] [远程执行的名]
+</code></pre>
+<p>3、参数说明</p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>参数说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>-p</td>
+<td>指定ssh登录端口，如果忽略则默认为22端口</td>
+</tr>
+<tr>
+<td>-t</td>
+<td>强制分配伪终端，可以在远程机器上执行任何全屏幕程序。</td>
+</tr>
+<tr>
+<td>-v</td>
+<td>调试模式</td>
+</tr>
+</tbody></table>
+<p>4、实践操作</p>
+<p>① 远程登录服务器</p>
+<pre class=" language-shell"><code class="language-shell">[root@xiezhr ~]# ssh 220.165.5.45
+</code></pre>
+<p>②远程执行命令</p>
+<pre class=" language-shell"><code class="language-shell">[root@xiezhr ~]# ssh 10.0.0.26 "free -m"
+</code></pre>
+<h3 id="wget-命令行下载工具"><a href="#wget-命令行下载工具" class="headerlink" title="wget 命令行下载工具"></a>wget 命令行下载工具</h3><p>1、简介</p>
+<blockquote>
+<p>wget 用于从网络上下载某些资料。只要Linux连接互联网，就可以直接从网络上下载自己所需的文件</p>
+</blockquote>
+<ul>
+<li>支持断点下载</li>
+<li>支持ftp和http下载方式</li>
+<li>支持代理服务器</li>
+<li>非常稳定。如果由于网络原因下载失败，wget 会不断尝试，直到整个文件下载完毕。如果服务器打断了下载过程，当再次连接服务器时，会从停止的地方继续下载。【这对下载大文件非常有用】</li>
+</ul>
+<p>2、语法格式</p>
+<pre class=" language-shell"><code class="language-shell">wget [参数选项] [下载地址]
+</code></pre>
+<p>3、参数说明</p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>参数说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>-O</td>
+<td>指定保存的文件名后下载文件</td>
+</tr>
+<tr>
+<td>–limit-rate</td>
+<td>限速下载</td>
+</tr>
+<tr>
+<td>-b</td>
+<td>转入后台执行命令</td>
+</tr>
+<tr>
+<td>-c</td>
+<td>断点续传</td>
+</tr>
+<tr>
+<td>–tries=number</td>
+<td>设置重置次数</td>
+</tr>
+<tr>
+<td>–spider</td>
+<td>模拟爬虫访问</td>
+</tr>
+</tbody></table>
+<p>4、实践操作</p>
+<p>① wget下载单个文件</p>
+<pre class=" language-shell"><code class="language-shell">[root@xiezhr /]# wget https://xiezhrspace.cn/medias/logo.png
+--2022-05-30 23:08:24--  https://xiezhrspace.cn/medias/logo.png
+Resolving xiezhrspace.cn (xiezhrspace.cn)... ::1, ::1
+Connecting to xiezhrspace.cn (xiezhrspace.cn)|::1|:443... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 112674 (110K) [image/png]
+Saving to: ‘logo.png’
+
+100%[========================================================================================================================================================================>] 112,674     --.-K/s   in 0s      
+
+2022-05-30 23:08:24 (433 MB/s) - ‘logo.png’ saved [112674/112674]
+</code></pre>
+<p>②使用-O参数，指定下载文件的保存文件名</p>
+<pre class=" language-shell"><code class="language-shell">[root@xiezhr test]# wget -O /home/test/logo.png https://www.xiezhrspace.cn/medias/logo.png
+--2022-05-30 23:14:03--  https://www.xiezhrspace.cn/medias/logo.png
+Resolving www.xiezhrspace.cn (www.xiezhrspace.cn)... 42.192.46.248
+Connecting to www.xiezhrspace.cn (www.xiezhrspace.cn)|42.192.46.248|:443... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 112674 (110K) [image/png]
+Saving to: ‘/home/test/logo.png’
+
+100%[========================================================================================================================================================================>] 112,674     --.-K/s   in 0.01s   
+
+2022-05-30 23:14:03 (9.78 MB/s) - ‘/home/test/logo.png’ saved [112674/112674]
+
+[root@xiezhr test]# cd /home/test/
+[root@xiezhr test]# ll
+total 208
+-rw-r--r-- 1 root   root   112674 Nov 29  2020 logo.png
+</code></pre>
+<p>③ 限速3kb/s下载</p>
+<pre class=" language-shell"><code class="language-shell">[root@xiezhr test]# wget --limit-rate=3k https://www.xiezhrspace.cn/medias/logo.png
+--2022-05-30 23:15:57--  https://www.xiezhrspace.cn/medias/logo.png
+Resolving www.xiezhrspace.cn (www.xiezhrspace.cn)... 42.192.46.248
+Connecting to www.xiezhrspace.cn (www.xiezhrspace.cn)|42.192.46.248|:443... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 112674 (110K) [image/png]
+Saving to: ‘logo.png.1’
+
+100%[========================================================================================================================================================================>] 112,674     3.00KB/s   in 37s    
+
+2022-05-30 23:16:34 (3.00 KB/s) - ‘logo.png.1’ saved [112674/112674]
+</code></pre>
+<p>④ 断点续传下载大文件</p>
+<pre class=" language-shell"><code class="language-shell">[root@xiezhr test]# wget -c https://mirrors.aliyun.com/centos/7/isos/x86_64/CentOS-7-x86_64-DVD-1611.iso
+</code></pre>
+<p>⑤后台下载文件</p>
+<pre class=" language-shell"><code class="language-shell">[root@xiezhr test]# wget -b https://www.xiezhrspace.cn/medias/logo.png
+Continuing in background, pid 4526.
+Output will be written to ‘wget-log’.
+</code></pre>
+<p>⑥ 有些网站会根据判断代理名称是不是浏览器而拒绝你的下载请求，这时候就可以伪装代理下载</p>
+<pre class=" language-shell"><code class="language-shell">[root@xiezhr test]# wget -b https://www.xiezhrspace.cn/medias/logo.png
+Continuing in background, pid 4526.
+Output will be written to ‘wget-log’.
+[root@xiezhr test]# clear
+[root@xiezhr test]# wget --user-agent="Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.75 Safari/537.36" https://www.xiezhrspace.cn/medias/logo.png
+--2022-05-30 23:29:27--  https://www.xiezhrspace.cn/medias/logo.png
+Resolving www.xiezhrspace.cn (www.xiezhrspace.cn)... 42.192.46.248
+Connecting to www.xiezhrspace.cn (www.xiezhrspace.cn)|42.192.46.248|:443... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 112674 (110K) [image/png]
+Saving to: ‘logo.png.3’
+
+100%[========================================================================================================================================================================>] 112,674     --.-K/s   in 0.01s   
+
+2022-05-30 23:29:27 (9.85 MB/s) - ‘logo.png.3’ saved [112674/112674]
+</code></pre>
+<p>⑦ 监控网站URL是否正常</p>
+<pre class=" language-shell"><code class="language-shell"># 采用静默方式访问网站，3秒超时，重试1次，模拟爬虫方式进行访问
+[root@xiezhr test]# wget -q -T 3 --tries=1 --spider www.xiezhrspace.cn
+# 返回0表示正常
+[root@xiezhr test]# echo $?
+0
+</code></pre>
+<h3 id="ip网络配置工具"><a href="#ip网络配置工具" class="headerlink" title="ip网络配置工具"></a>ip网络配置工具</h3><p>1、简介</p>
+<blockquote>
+<p>ip 命令用于显示或管理Linux系统的路由、网络设备、策略路由和隧道</p>
+</blockquote>
+<p>2、语法格式</p>
+<pre class=" language-shell"><code class="language-shell">ip [参数选项] [网络对象] [操作命令]
+</code></pre>
+<p>3、参数说明</p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>参数说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>-s</td>
+<td>输出更详细的信息</td>
+</tr>
+<tr>
+<td>-r</td>
+<td>显示主机时，不适用ip地址，而是使用主机的域名</td>
+</tr>
+<tr>
+<td>-V</td>
+<td>显示命令的版本信息</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+<p>3、网络对象及对应操作命令</p>
+<table>
+<thead>
+<tr>
+<th>网络对象</th>
+<th>网络对象说明</th>
+<th>对应操作命令</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>link</td>
+<td>网络设备</td>
+<td>set：修改设备属性、show:显示设备属性</td>
+</tr>
+<tr>
+<td>address</td>
+<td>设备的协议地址（IP地址）</td>
+<td>add:添加协议地址、del:删除协议地址、flush:清除协议地址、show:查看协议地址</td>
+</tr>
+<tr>
+<td>addrlabel</td>
+<td>协议地址标签管理</td>
+<td>add、del、list、flush</td>
+</tr>
+<tr>
+<td>neighbour</td>
+<td>arp或ndisc缓存表</td>
+<td></td>
+</tr>
+<tr>
+<td>route</td>
+<td>路由表</td>
+<td>add、change、relpace、delete、show、flush</td>
+</tr>
+<tr>
+<td>rule</td>
+<td>策略路由表</td>
+<td>add、delete、flush、show</td>
+</tr>
+<tr>
+<td>maddress</td>
+<td>多播地址</td>
+<td>show、add、delete</td>
+</tr>
+<tr>
+<td>mroute</td>
+<td>多播路由缓存表</td>
+<td>show</td>
+</tr>
+<tr>
+<td>tunnel</td>
+<td>IP隧道</td>
+<td>add、change、delete、prl、show</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+<p>4、实践操作</p>
+<pre class=" language-shell"><code class="language-shell">ip link show                     # 显示网络接口信息
+ip link set eth0 up             # 开启网卡
+ip link set eth0 down            # 关闭网卡
+ip link set eth0 promisc on      # 开启网卡的混合模式
+ip link set eth0 promisc offi    # 关闭网卡的混个模式
+ip link set eth0 txqueuelen 1200 # 设置网卡队列长度
+ip link set eth0 mtu 1400        # 设置网卡最大传输单元
+ip addr show     # 显示网卡IP信息
+ip addr add 192.168.0.1/24 dev eth0 # 设置eth0网卡IP地址192.168.0.1
+ip addr del 192.168.0.1/24 dev eth0 # 删除eth0网卡IP地址
+
+ip route show # 显示系统路由
+ip route add default via 192.168.1.254   # 设置系统默认路由
+ip route list                 # 查看路由信息
+ip route add 192.168.4.0/24  via  192.168.0.254 dev eth0 # 设置192.168.4.0网段的网关为192.168.0.254,数据走eth0接口
+ip route add default via  192.168.0.254  dev eth0        # 设置默认网关为192.168.0.254
+ip route del 192.168.4.0/24   # 删除192.168.4.0网段的网关
+ip route del default          # 删除默认路由
+ip route delete 192.168.1.0/24 dev eth0 # 删除路由
+</code></pre>
+<h3 id="tcpdump-监听网络流量"><a href="#tcpdump-监听网络流量" class="headerlink" title="tcpdump 监听网络流量"></a>tcpdump 监听网络流量</h3><p>1、简介</p>
+<blockquote>
+<p>tcpdump 命令是一个包分析工具。可以将网络中传输的数据包的“头”完全截获下来以提供分析。</p>
+</blockquote>
+<p>2、语法格式</p>
+<pre class=" language-shell"><code class="language-shell">tcpdump [参数选项] [表达式]
+</code></pre>
+<p>3、参数说明</p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>参数说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>-c</td>
+<td>接收指定数据包数目后退出命令</td>
+</tr>
+<tr>
+<td>-i</td>
+<td>指定要监听数据包的网络接口</td>
+</tr>
+<tr>
+<td>-n</td>
+<td>不精细DNS解析，加快显示速度</td>
+</tr>
+<tr>
+<td>-nn</td>
+<td>不将协议和端口数字等转换成名字</td>
+</tr>
+<tr>
+<td>-q</td>
+<td>以快速输出的方式运行，输出的信息比较简洁</td>
+</tr>
+</tbody></table>
+<p>4、实践操作</p>
+<p>① 不带参数监听网络</p>
+<pre class=" language-shell"><code class="language-shell">[root@xiezhr ~]# tcpdump
+tcpdump: verbose output suppressed, use -v or -vv for full protocol decode
+listening on eth0, link-type EN10MB (Ethernet), capture size 262144 bytes
+21:49:34.194426 IP xiezhr.ssh > 39.130.60.147.54868: Flags [P.], seq 2354337386:2354337582, ack 602321997, win 255, length 196
+21:49:34.194837 IP xiezhr.55410 > 183.60.82.98.domain: 13037+ PTR? 147.60.130.39.in-addr.arpa. (44)
+21:49:34.241013 IP 39.130.60.147.54868 > xiezhr.ssh: Flags [.], ack 0, win 511, length 0
+21:49:34.260399 IP 183.60.82.98.domain > xiezhr.55410: 13037 NXDomain 0/1/0 (93)
+21:49:34.261639 IP xiezhr.44621 > 183.60.83.19.domain: 25778+ PTR? 4.0.17.172.in-addr.arpa. (41)
+21:49:34.262436 IP 183.60.83.19.domain > xiezhr.44621: 25778 NXDomain 0/1/0 (100)
+</code></pre>
+<p>② 精简输出信息</p>
+<pre class=" language-shell"><code class="language-shell">[root@xiezhr ~]# tcpdump -q
+tcpdump: verbose output suppressed, use -v or -vv for full protocol decode
+listening on eth0, link-type EN10MB (Ethernet), capture size 262144 bytes
+21:51:39.084015 IP xiezhr.ssh > 39.130.60.147.54868: tcp 196
+21:51:39.084415 IP xiezhr.54183 > 183.60.83.19.domain: UDP, length 44
+21:51:39.084690 IP 183.60.83.19.domain > xiezhr.54183: UDP, length 93
+21:51:39.095563 IP xiezhr.37447 > 183.60.82.98.domain: UDP, length 41
+21:51:39.095795 IP 183.60.82.98.domain > xiezhr.37447: UDP, length 100
+21:51:39.107963 IP xiezhr.57539 > 183.60.83.19.domain: UDP, length 43
+21:51:39.108025 IP xiezhr.ssh > 39.130.60.147.54868: tcp 100
+21:51:39.108749 IP 183.60.83.19.domain > xiezhr.57539: UDP, length 107
+21:51:39.118945 IP xiezhr.51494 > 183.60.82.98.domain: UDP, length 43
+21:51:39.119024 IP xiezhr.ssh > 39.130.60.147.54868: tcp 180
+21:51:39.119165 IP 183.60.82.98.domain > xiezhr.51494: UDP, length 107
+21:51:39.130005 IP xiezhr.ssh > 39.130.60.147.54868: tcp 596
+21:51:39.130036 IP xiezhr.ssh > 39.130.60.147.54868: tcp 100
+</code></pre>
+<p>③监听指定网卡收到的数据包</p>
+<pre class=" language-shell"><code class="language-shell">[root@xiezhr ~]# tcpdump -i eth0
+tcpdump: verbose output suppressed, use -v or -vv for full protocol decode
+listening on eth0, link-type EN10MB (Ethernet), capture size 262144 bytes
+21:52:41.482275 IP 169.254.0.4.http > xiezhr.45330: Flags [.], ack 31739111, win 136, length 0
+21:52:41.486536 IP xiezhr.48369 > 183.60.82.98.domain: 56337+ PTR? 4.0.17.172.in-addr.arpa. (41)
+^C21:52:41.487054 IP xiezhr.ssh > 39.130.60.147.54868: Flags [P.], seq 2354686734:2354686930, ack 602325169, win 255, length 196
+</code></pre>
+<p>④ 监听指定主机数据包</p>
+<pre class=" language-shell"><code class="language-shell">[root@xiezhr ~]# tcpdump -n host 220.165.5.50 
+tcpdump: verbose output suppressed, use -v or -vv for full protocol decode
+listening on eth0, link-type EN10MB (Ethernet), capture size 262144 bytes
+</code></pre>
+<p>⑤ 监听指定端口数据包</p>
+<pre class=" language-shell"><code class="language-shell">[root@xiezhr ~]# tcpdump -nn port 22
+tcpdump: verbose output suppressed, use -v or -vv for full protocol decode
+listening on eth0, link-type EN10MB (Ethernet), capture size 262144 bytes
+21:54:39.961652 IP 172.17.0.4.22 > 39.130.60.147.54868: Flags [P.], seq 2354867994:2354868190, ack 602329953, win 255, length 196
+21:54:39.961828 IP 172.17.0.4.22 > 39.130.60.147.54868: Flags [P.], seq 196:376, ack 1, win 255, length 180
+21:54:39.961860 IP 172.17.0.4.22 > 39.130.60.147.54868: Flags [P.], seq 376:524, ack 1, win 255, length 148
+21:54:39.961888 IP 172.17.0.4.22 > 39.130.60.147.54868: Flags [P.], seq 524:672, ack 1, win 255, length 148
+21:54:39.961916 IP 172.17.0.4.22 > 39.130.60.147.54868: Flags [P.], seq 672:820, ack 1, win 255, length 148
+21:54:39.961943 IP 172.17.0.4.22 > 39.130.60.147.54868: Flags [P.], seq 820:968, ack 1, win 255, length 148
+21:54:39.961971 IP 172.17.0.4.22 > 39.130.60.147.54868: Flags [P.], seq 968:1116, ack 1, win 255, length 148
+21:54:39.961998 IP 172.17.0.4.22 > 39.130.60.147.54868: Flags [P.], seq 1116:1264, ack 1, win 255, length 148
+</code></pre>
+<h3 id="nmap-网络探测工具和安全-端口扫描器"><a href="#nmap-网络探测工具和安全-端口扫描器" class="headerlink" title="nmap 网络探测工具和安全/端口扫描器"></a>nmap 网络探测工具和安全/端口扫描器</h3><p>1、简介</p>
+<blockquote>
+<p>nmap 是一款开源的网络探测和安全审核工具。其作用是快速扫描大型网络，并发现网络上有哪些主机，主机提供哪些服务，并探测操作系统的类型及版本信息</p>
+</blockquote>
+<p>如果系统没有nmap命令，可通过一下命令安装</p>
+<pre class=" language-shell"><code class="language-shell">yum -y install nmap
+</code></pre>
+<p>2、语法格式</p>
+<pre class=" language-shell"><code class="language-shell">nmap [扫描类型] [通用选项] [扫描目标]
+</code></pre>
+<p>3、参数说明</p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>参数说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>-sS</td>
+<td>TCP同步扫描</td>
+</tr>
+<tr>
+<td>-sn</td>
+<td>不进行端口扫描，只检查主机正在运行</td>
+</tr>
+<tr>
+<td>-v</td>
+<td>显示扫描过程中的详细信息</td>
+</tr>
+<tr>
+<td>-n</td>
+<td>不进行DNS解析，加快扫描速度</td>
+</tr>
+<tr>
+<td>-p&lt;端口&gt;</td>
+<td>指定扫描端口，可以是一个单独的端口，也可以是逗号分隔的多个端口</td>
+</tr>
+</tbody></table>
+<p>4、实践操作</p>
+<p>① 查看主机当前开放的端口</p>
+<pre class=" language-shell"><code class="language-shell">[root@xiezhr ~]# nmap 127.0.0.1 
+</code></pre>
+<p>②扫描主机的指定端口</p>
+<pre class=" language-shell"><code class="language-shell">[root@xiezhr ~]#  nmap -p 1024-65535 127.0.0.1
+</code></pre>
+<p>③扫描局域网内所有IP</p>
+<pre class=" language-shell"><code class="language-shell">[root@xiezhr ~]# nmap 10.0.0.0/24
+</code></pre>
+<h3 id="ifup-激活网络接口"><a href="#ifup-激活网络接口" class="headerlink" title="ifup 激活网络接口"></a>ifup 激活网络接口</h3><p>1、简介</p>
+<blockquote>
+<p>ifup 用于激活指定的网络接口</p>
+</blockquote>
+<p>2、语法格式</p>
+<pre class=" language-shell"><code class="language-shell">ifup [网络接口]
+</code></pre>
+<p>3、实践操作</p>
+<p>激活网络接口</p>
+<pre class=" language-shell"><code class="language-shell">[root@xiezhr ~]# ifup eht0
+</code></pre>
+<h3 id="ifdown-禁用网络接口"><a href="#ifdown-禁用网络接口" class="headerlink" title="ifdown 禁用网络接口"></a>ifdown 禁用网络接口</h3><p>1、简介</p>
+<blockquote>
+<p>ifdown命令与上面说的ifup命令刚好作用相反，用于禁用网络接口</p>
+</blockquote>
+<p>2、语法格式</p>
+<pre class=" language-shell"><code class="language-shell">ifdown [网络接口]
+</code></pre>
+<p>3、实践操作</p>
+<p>禁用网络接口</p>
+<pre class=" language-shell"><code class="language-shell">[root@xiezhr ~]# ifdown eht1
+</code></pre>
+<h3 id="arp-管理系统的arp缓存"><a href="#arp-管理系统的arp缓存" class="headerlink" title="arp 管理系统的arp缓存"></a>arp 管理系统的arp缓存</h3><p>1、简介</p>
+<blockquote>
+<p>首先我们先来看看什么是arp? arp是地址解析协议，主要功能是通过ip地址获取物理地址（MAC地址）</p>
+<p>arp命令用于操作本机arp缓存，可以显示、删除、添加指定IP地址与MAC地址对应关系</p>
+</blockquote>
+<p>2、语法格式</p>
+<pre class=" language-shell"><code class="language-shell">arp [参数选项]
+</code></pre>
+<p>3、参数说明</p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>参数说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>-n</td>
+<td>显示数字IP地址</td>
+</tr>
+<tr>
+<td>-s &lt;主机或MAC地址&gt;</td>
+<td>指定主机的IP地址与MAC地址静态映射关系</td>
+</tr>
+<tr>
+<td>-d&lt;主机&gt;</td>
+<td>从arp缓存区中删除指定主机的arp条目</td>
+</tr>
+</tbody></table>
+<p>4、实践操作</p>
+<p>① 显示arp缓存区的所有条目</p>
+<pre class=" language-shell"><code class="language-shell">[root@xiezhr ~]# arp
+Address                  HWtype  HWaddress           Flags Mask            Iface
+169.254.0.79             ether   fe:ee:00:2e:16:9a   C                     eth0
+169.254.128.6            ether   fe:ee:00:2e:16:9a   C                     eth0
+169.254.0.4              ether   fe:ee:00:2e:16:9a   C                     eth0
+169.254.128.4            ether   fe:ee:00:2e:16:9a   C                     eth0
+169.254.0.2              ether   fe:ee:00:2e:16:9a   C                     eth0
+169.254.0.15             ether   fe:ee:00:2e:16:9a   C                     eth0
+169.254.0.55             ether   fe:ee:00:2e:16:9a   C                     eth0
+169.254.0.81             ether   fe:ee:00:2e:16:9a   C                     eth0
+169.254.0.82             ether   fe:ee:00:2e:16:9a   C                     eth0
+169.254.0.83             ether   fe:ee:00:2e:16:9a   C                     eth0
+169.254.0.80             ether   fe:ee:00:2e:16:9a   C                     eth0
+172.17.0.5               ether   fe:ee:00:2e:16:9a   C                     eth0
+gateway                  ether   fe:ee:00:2e:16:9a   C                     eth0
+169.254.0.23             ether   fe:ee:00:2e:16:9a   C                     eth0
+</code></pre>
+<p>② 查询指定主机的arp条目</p>
+<pre class=" language-shell"><code class="language-shell">[root@xiezhr ~]# arp -n 42.192.46.248
+42.192.46.248 (42.192.46.248) -- no entrys
+</code></pre>
+<p>③ 静态绑定IP地址与MAC地址</p>
+<pre class=" language-shell"><code class="language-shell">[root@xiezhr ~]#  arp -s 10.0.0.100 00:0c:29:c0:5e:df
+</code></pre>
+<h3 id="ss-查看网络状况"><a href="#ss-查看网络状况" class="headerlink" title="ss 查看网络状况"></a>ss 查看网络状况</h3><p>1、简介</p>
+<blockquote>
+<p>ss 命令用于查看网络状态信息，包括TCP、UDP连接、端口。</p>
+</blockquote>
+<p>如果系统没有该命令，需要自己安装一下</p>
+<pre class=" language-shell"><code class="language-shell">yum -y install iproute
+</code></pre>
+<p>2、语法格式</p>
+<pre class=" language-shell"><code class="language-shell">ss [参数选项] [过滤器]
+</code></pre>
+<p>3、参数说明</p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>参数说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>-n</td>
+<td>显示IP地址不进行DNS解析</td>
+</tr>
+<tr>
+<td>-a</td>
+<td>显示所有socket连接</td>
+</tr>
+<tr>
+<td>-l</td>
+<td>显示所有监听socket</td>
+</tr>
+<tr>
+<td>-p</td>
+<td>显示使用socket的进程</td>
+</tr>
+<tr>
+<td>-t</td>
+<td>仅显示TCP的socket</td>
+</tr>
+<tr>
+<td>-u</td>
+<td>仅显示UCP的socket</td>
+</tr>
+</tbody></table>
+<p>4、实践操作</p>
+<p>① 显示所有的socket连接</p>
+<pre class=" language-shell"><code class="language-shell">  [root@xiezhr ~]# ss -an
+Netid  State      Recv-Q Send-Q        Local Address:Port       Peer Address:Port              
+nl     UNCONN     0      0                         0:0                      *                   
+nl     UNCONN     0      0                         0:546                    *                   
+nl     UNCONN     0      0                         0:546                    *                   
+nl     UNCONN     4352   0                         4:30221                  *                   
+nl     UNCONN     768    0                         4:0                      *                   
+nl     UNCONN     0      0                         6:0                          
+</code></pre>
+<p>② 显示所有正在监听的TCP和UDP连接</p>
+<pre class=" language-shell"><code class="language-shell">Netid  State   Recv-Q  Send-Q  Local                               Address:Port  Peer                                                      Address:Port
+udp    UNCONN  0       0       *:68                                *:*           users:(("dhclient",pid=809,fd=6))
+udp    UNCONN  0       0       172.17.0.4:123                      *:*           users:(("ntpd",pid=546,fd=19))
+udp    UNCONN  0       0       127.0.0.1:123                       *:*           users:(("ntpd",pid=546,fd=16))
+udp    UNCONN  0       0       [fe80::5054:ff:fe19:f6d0]%eth0:123  [::]:*        users:(("ntpd",pid=546,fd=20))
+udp    UNCONN  0       0       [::1]:123                           [::]:*        users:(("ntpd",pid=546,fd=17))
+tcp    LISTEN  0       128     *:80                                *:*           users:(("nginx",pid=26238,fd=6),("nginx",pid=2812,fd=6))
+tcp    LISTEN  0       128     *:22                                *:*           users:(("sshd",pid=980,fd=3))
+tcp    LISTEN  0       128     *:443                               *:*           users:(("nginx",pid=26238,fd=8),("nginx",pid=2812,fd=8))
+tcp    LISTEN  0       1       *:65535                             *:*           users:(("proc",pid=17087,fd=3))
+tcp    LISTEN  0       128     [::]:80                             [::]:*        users:(("nginx",pid=26238,fd=7),("nginx",pid=2812,fd=7))
+tcp    LISTEN  0       128     [::]:3000                           [::]:*        users:(("PM2                                              v4.5.1:       God",pid=27339,fd=20))
+tcp    LISTEN  0       128     [::]:443                            [::]:*        users:(("nginx",pid=26238,fd=9),("nginx",pid=2812,fd=9))
+</code></pre>
+<h3 id="nc-多功能网络工具"><a href="#nc-多功能网络工具" class="headerlink" title="nc 多功能网络工具"></a>nc 多功能网络工具</h3><p>1、简介</p>
+<blockquote>
+<p>nc 是一个多功能、可靠、强大的网络工具，可以建立TCP连接，发送UDP数据包，监听端口，处理IPv4和IPv6数据包</p>
+</blockquote>
+<p>如果系统没有nc命令，可以通过一下命令手动安装</p>
+<pre class=" language-shell"><code class="language-shell">yum -y install nc
+</code></pre>
+<p>2、语法格式</p>
+<pre class=" language-shell"><code class="language-shell">nc [参数选项]
+</code></pre>
+<p>3、参数说明</p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>参数说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>-l</td>
+<td>指定监听端口，然后一直等待网络连接</td>
+</tr>
+<tr>
+<td>-z</td>
+<td>表示zero,表示扫描时不发送任何数据</td>
+</tr>
+<tr>
+<td>-v</td>
+<td>显示详细输出</td>
+</tr>
+</tbody></table>
+<p>4、实践操作</p>
+<p>①TCP端口扫描</p>
+<pre class=" language-shell"><code class="language-shell">[root@xiezhr ]# nc -v -z -w2 192.168.0.3 1-100 
+192.168.0.3: inverse host lookup failed: Unknown host
+(UNKNOWN) [192.168.0.3] 80 (http) open
+(UNKNOWN) [192.168.0.3] 23 (telnet) open
+(UNKNOWN) [192.168.0.3] 22 (ssh) open
+</code></pre>
+<p>②扫描指定端口</p>
+<pre class=" language-shell"><code class="language-shell">[root@xiezhr ~]# nc -nvv 192.168.0.1 80 //扫描 80端口
+(UNKNOWN) [192.168.0.1] 80 (?) open
+y  //用户输入
+</code></pre>
+<h3 id="mail-发送和接收文件"><a href="#mail-发送和接收文件" class="headerlink" title="mail 发送和接收文件"></a>mail 发送和接收文件</h3><p>1、简介</p>
+<blockquote>
+<p>mail命令是命令行的电子邮件接收和发送工具</p>
+</blockquote>
+<p>2、语法格式</p>
+<pre class=" language-shell"><code class="language-shell">mail [参数选项]
+</code></pre>
+<p>3、参数说明</p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>参数说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>-s</td>
+<td>指定邮件主题</td>
+</tr>
+<tr>
+<td>-a</td>
+<td>发送邮件附件，多个附件使用多次-a选项即可</td>
+</tr>
+</tbody></table>
+<h3 id="nslookup-域名查询工具"><a href="#nslookup-域名查询工具" class="headerlink" title="nslookup 域名查询工具"></a>nslookup 域名查询工具</h3><p>1、简介</p>
+<blockquote>
+<p>nslookup 命令是常用的域名查询工具</p>
+</blockquote>
+<p>如果系统没有该命令，需要按照以下方式自己安装下</p>
+<pre class=" language-shell"><code class="language-shell">yum -y install bind-utils
+</code></pre>
+<p>2、语法格式</p>
+<pre class=" language-shell"><code class="language-shell">nslookup [参数选项] [域名/IP] [DNS服务器]
+</code></pre>
+<p>3、参数说明</p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>参数说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>server&lt;域名服务器&gt;</td>
+<td>指定解析域名的服务器地址</td>
+</tr>
+<tr>
+<td>set 关键字=值</td>
+<td>设置查询关键字（域名属性的值）<br />all(全部) 查询域名有关的所有信息<br />domain=name 指定查询域名<br />port=端口号 指定域名服务器使用的端口号<br />type=类型名 指定域名查询类型<br />retry=&lt;次数&gt;指定查询时重试册数<br />timeout= 秒数 指定查询的超时时间</td>
+</tr>
+</tbody></table>
+<h3 id="dig-域名查询工具"><a href="#dig-域名查询工具" class="headerlink" title="dig 域名查询工具"></a>dig 域名查询工具</h3><p>1、简介</p>
+<blockquote>
+<p>dig 是常用的域名查询工具，可以用于测试域名系统的工作是否正常</p>
+</blockquote>
+<p>2、语法格式</p>
+<pre class=" language-shell"><code class="language-shell">dig [参数选项]
+</code></pre>
+<p>3、参数说明</p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>参数说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>@&lt;DNS服务器地址&gt;</td>
+<td>指定进行域名解析的域名服务器</td>
+</tr>
+<tr>
+<td>-t</td>
+<td>指定要查询的DNS数据类型，如A、MX和PTR</td>
+</tr>
+<tr>
+<td>+trace</td>
+<td>从跟域开始跟踪查询结果</td>
+</tr>
+</tbody></table>
+<p>4、实践操作</p>
+<p>① 查询指定域名的IP地址</p>
+<pre class=" language-shell"><code class="language-shell">[root@xiezhr init.d]# dig www.xiezhrspace.cn
+
+; <<>> DiG 9.11.4-P2-RedHat-9.11.4-16.P2.el7_8.6 <<>> www.xiezhrspace.cn
+;; global options: +cmd
+;; Got answer:
+;; ->>HEADER<<- opcode: QUERY, status: NOERROR, id: 43520
+;; flags: qr rd ra; QUERY: 1, ANSWER: 1, AUTHORITY: 0, ADDITIONAL: 0
+
+;; QUESTION SECTION:
+;www.xiezhrspace.cn.            IN      A
+
+;; ANSWER SECTION:
+www.xiezhrspace.cn.     600     IN      A       42.192.46.248
+
+;; Query time: 76 msec
+;; SERVER: 183.60.82.98#53(183.60.82.98)
+;; WHEN: Fri Jun 03 09:28:46 CST 2022
+;; MSG SIZE  rcvd: 52
+</code></pre>
+<p>② 查询MX类型的域名信息</p>
+<pre class=" language-shell"><code class="language-shell">[root@xiezhr init.d]# dig -t MX www.xiezhrspce.cn
+
+; <<>> DiG 9.11.4-P2-RedHat-9.11.4-16.P2.el7_8.6 <<>> -t MX www.xiezhrspce.cn
+;; global options: +cmd
+;; Got answer:
+;; ->>HEADER<<- opcode: QUERY, status: NXDOMAIN, id: 62926
+;; flags: qr rd ra; QUERY: 1, ANSWER: 0, AUTHORITY: 1, ADDITIONAL: 0
+
+;; QUESTION SECTION:
+;www.xiezhrspce.cn.             IN      MX
+
+;; AUTHORITY SECTION:
+cn.                     594     IN      SOA     a.dns.cn. root.cnnic.cn. 2029763095 7200 3600 2419200 21600
+
+;; Query time: 76 msec
+;; SERVER: 183.60.82.98#53(183.60.82.98)
+;; WHEN: Fri Jun 03 09:29:54 CST 2022
+;; MSG SIZE  rcvd: 88
+</code></pre>
+<p>③ 显示完整DNS解析过程</p>
+<pre class=" language-shell"><code class="language-shell">[root@xiezhr init.d]# dig @223.5.5.5 www.xiezhrspace.cn +trace
+
+; <<>> DiG 9.11.4-P2-RedHat-9.11.4-16.P2.el7_8.6 <<>> @223.5.5.5 www.xiezhrspace.cn +trace
+; (1 server found)
+;; global options: +cmd
+.                       3323    IN      NS      k.root-servers.net.
+.                       3323    IN      NS      g.root-servers.net.
+.                       3323    IN      NS      m.root-servers.net.
+.                       3323    IN      NS      f.root-servers.net.
+.                       3323    IN      NS      c.root-servers.net.
+.                       3323    IN      NS      e.root-servers.net.
+.                       3323    IN      NS      d.root-servers.net.
+.                       3323    IN      NS      l.root-servers.net.
+.                       3323    IN      NS      i.root-servers.net.
+...
+</code></pre>
+<h3 id="host-域名查询工具"><a href="#host-域名查询工具" class="headerlink" title="host 域名查询工具"></a>host 域名查询工具</h3><p>1、简介</p>
+<blockquote>
+<p>host 命令用于查询DNS工具，可以将指定主机名转换为IP地址</p>
+</blockquote>
+<p>2、语法格式</p>
+<pre class=" language-shell"><code class="language-shell">host [参数选项]
+</code></pre>
+<p>3、参数说明</p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>参数说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>-a</td>
+<td>显示详细的DNS信息</td>
+</tr>
+<tr>
+<td>-t</td>
+<td>指定查询的域名信息类型，可以是“A”、”ALL“、”MX“、”NS“</td>
+</tr>
+</tbody></table>
+<p>4、实践操作</p>
+<p>① DNS查询</p>
+<pre class=" language-shell"><code class="language-shell">[root@xiezhr init.d]# host www.xiezhrspace.cn
+www.xiezhrspace.cn has address 42.192.46.248
+</code></pre>
+<p>② 查询详细信息</p>
+<pre class=" language-shell"><code class="language-shell">[root@xiezhr init.d]# host -a www.xiezhrspace.cn
+Trying "www.xiezhrspace.cn"
+;; ->>HEADER<<- opcode: QUERY, status: NOERROR, id: 41474
+;; flags: qr rd ra; QUERY: 1, ANSWER: 1, AUTHORITY: 0, ADDITIONAL: 0
+
+;; QUESTION SECTION:
+;www.xiezhrspace.cn.            IN      ANY
+
+;; ANSWER SECTION:
+www.xiezhrspace.cn.     600     IN      A       42.192.46.248
+
+Received 52 bytes from 183.60.82.98#53 in 65 ms
+</code></pre>
+<p>这期主要是说了Linux系统网络相关命令，大概内容就这些了。下期根据思维导图就到了文件备份与压缩相关的命令了。这些命令呢比较基础，但也是比较重要的</p>
+<p>涉及到的命令有： tar、gzip、zip、unzip、scp、rsync等等</p>
+<p>敬请期待哦(●’◡’●)</p>
+
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="/about" rel="external nofollow noreferrer">xiezhr</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="https://www.xiezhrspace.cn/archives/405893af.html">https://www.xiezhrspace.cn/archives/405893af.html</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="/about" target="_blank">xiezhr</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/Linux/">
+                                    <span class="chip bg-color">Linux</span>
+                                </a>
+                            
+                                <a href="/tags/Linux-%E6%A0%B8%E5%BF%83%E5%91%BD%E4%BB%A4/">
+                                    <span class="chip bg-color">Linux 核心命令</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="qq,wechat,weibo,douban" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+                <style>
+    #reward {
+        margin: 40px 0;
+        text-align: center;
+    }
+
+    #reward .reward-link {
+        font-size: 1.4rem;
+        line-height: 38px;
+    }
+
+    #reward .btn-floating:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    #rewardModal {
+        width: 320px;
+        height: 350px;
+    }
+
+    #rewardModal .reward-title {
+        margin: 15px auto;
+        padding-bottom: 5px;
+    }
+
+    #rewardModal .modal-content {
+        padding: 10px;
+    }
+
+    #rewardModal .close {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 1.3rem;
+        line-height: 20px;
+        cursor: pointer;
+    }
+
+    #rewardModal .close:hover {
+        color: #ef5350;
+        transform: scale(1.3);
+        -moz-transform:scale(1.3);
+        -webkit-transform:scale(1.3);
+        -o-transform:scale(1.3);
+    }
+
+    #rewardModal .reward-tabs {
+        margin: 0 auto;
+        width: 210px;
+    }
+
+    .reward-tabs .tabs {
+        height: 38px;
+        margin: 10px auto;
+        padding-left: 0;
+    }
+
+    .reward-content ul {
+        padding-left: 0 !important;
+    }
+
+    .reward-tabs .tabs .tab {
+        height: 38px;
+        line-height: 38px;
+    }
+
+    .reward-tabs .tab a {
+        color: #fff;
+        background-color: #ccc;
+    }
+
+    .reward-tabs .tab a:hover {
+        background-color: #ccc;
+        color: #fff;
+    }
+
+    .reward-tabs .wechat-tab .active {
+        color: #fff !important;
+        background-color: #22AB38 !important;
+    }
+
+    .reward-tabs .alipay-tab .active {
+        color: #fff !important;
+        background-color: #019FE8 !important;
+    }
+
+    .reward-tabs .reward-img {
+        width: 210px;
+        height: 210px;
+    }
+</style>
+
+<div id="reward">
+    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-medium waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close modal-close"><i class="fas fa-times"></i></a>
+            <h4 class="reward-title">你的赏识是我前进的动力</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs row">
+                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
+                    </ul>
+                    <div id="alipay">
+                        <img src="https://fastly.jsdelivr.net/gh/xiezhr/xiezhrblog-cdn-source/source/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                    <div id="wechat">
+                        <img src="https://fastly.jsdelivr.net/gh/xiezhr/xiezhrblog-cdn-source/source/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('.tabs').tabs();
+    });
+</script>
+
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+        <style>
+    .valine-card {
+        margin: 1.5rem auto;
+    }
+
+    .valine-card .card-content {
+        padding: 20px 20px 5px 20px;
+    }
+
+    #vcomments textarea {
+        
+        box-sizing: border-box;
+        /* background: url("https://fastly.jsdelivr.net/gh/xiezhr/xiezhrblog-cdn-source/source/medias/comment_bg.webp") 100% 100% no-repeat; */
+        background-image: url("https://fastly.jsdelivr.net/gh/xiezhr/xiezhrblog-cdn-source/source/medias/simiao.gif");
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position:right;
+        resize:vertical;
+    }
+
+    #vcomments p {
+        margin: 2px 2px 10px;
+        font-size: 1.05rem;
+        line-height: 1.78rem;
+    }
+
+    #vcomments blockquote p {
+        text-indent: 0.2rem;
+    }
+
+    #vcomments a {
+        padding: 0 2px;
+        color: #4cbf30;
+        font-weight: 500;
+        text-decoration: none;
+    }
+
+    #vcomments img {
+        max-width: 100%;
+        height: auto;
+        cursor: pointer;
+    }
+
+    #vcomments ol li {
+        list-style-type: decimal;
+    }
+
+    #vcomments ol,
+    ul {
+        display: block;
+        padding-left: 2em;
+        word-spacing: 0.05rem;
+    }
+
+    #vcomments ul li,
+    ol li {
+        display: list-item;
+        line-height: 1.8rem;
+        font-size: 1rem;
+    }
+
+    #vcomments ul li {
+        list-style-type: disc;
+    }
+
+    #vcomments ul ul li {
+        list-style-type: circle;
+    }
+
+    #vcomments table, th, td {
+        padding: 12px 13px;
+        border: 1px solid #dfe2e5;
+    }
+
+    #vcomments table, th, td {
+        border: 0;
+    }
+
+    table tr:nth-child(2n), thead {
+        background-color: #fafafa;
+    }
+
+    #vcomments table th {
+        background-color: #f2f2f2;
+        min-width: 80px;
+    }
+
+    #vcomments table td {
+        min-width: 80px;
+    }
+
+    #vcomments h1 {
+        font-size: 1.85rem;
+        font-weight: bold;
+        line-height: 2.2rem;
+    }
+
+    #vcomments h2 {
+        font-size: 1.65rem;
+        font-weight: bold;
+        line-height: 1.9rem;
+    }
+
+    #vcomments h3 {
+        font-size: 1.45rem;
+        font-weight: bold;
+        line-height: 1.7rem;
+    }
+
+    #vcomments h4 {
+        font-size: 1.25rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    #vcomments h5 {
+        font-size: 1.1rem;
+        font-weight: bold;
+        line-height: 1.4rem;
+    }
+
+    #vcomments h6 {
+        font-size: 1rem;
+        line-height: 1.3rem;
+    }
+
+    #vcomments p {
+        font-size: 1rem;
+        line-height: 1.5rem;
+    }
+
+    #vcomments hr {
+        margin: 12px 0;
+        border: 0;
+        border-top: 1px solid #ccc;
+    }
+
+    #vcomments blockquote {
+        margin: 15px 0;
+        border-left: 5px solid #42b983;
+        padding: 1rem 0.8rem 0.3rem 0.8rem;
+        color: #666;
+        background-color: rgba(66, 185, 131, .1);
+    }
+
+    #vcomments pre {
+        font-family: monospace, monospace;
+        padding: 1.2em;
+        margin: .5em 0;
+        background: #272822;
+        overflow: auto;
+        border-radius: 0.3em;
+        tab-size: 4;
+    }
+
+    #vcomments code {
+        font-family: monospace, monospace;
+        padding: 1px 3px;
+        font-size: 0.92rem;
+        color: #e96900;
+        background-color: #f8f8f8;
+        border-radius: 2px;
+    }
+
+    #vcomments pre code {
+        font-family: monospace, monospace;
+        padding: 0;
+        color: #e8eaf6;
+        background-color: #272822;
+    }
+
+    #vcomments pre[class*="language-"] {
+        padding: 1.2em;
+        margin: .5em 0;
+    }
+
+    #vcomments code[class*="language-"],
+    pre[class*="language-"] {
+        color: #e8eaf6;
+    }
+
+    #vcomments [type="checkbox"]:not(:checked), [type="checkbox"]:checked {
+        position: inherit;
+        margin-left: -1.3rem;
+        margin-right: 0.4rem;
+        margin-top: -1px;
+        vertical-align: middle;
+        left: unset;
+        visibility: visible;
+    }
+
+    #vcomments b,
+    strong {
+        font-weight: bold;
+    }
+
+    #vcomments dfn {
+        font-style: italic;
+    }
+
+    #vcomments small {
+        font-size: 85%;
+    }
+
+    #vcomments cite {
+        font-style: normal;
+    }
+
+    #vcomments mark {
+        background-color: #fcf8e3;
+        padding: .2em;
+    }
+
+    #vcomments table, th, td {
+        padding: 12px 13px;
+        border: 1px solid #dfe2e5;
+    }
+
+    table tr:nth-child(2n), thead {
+        background-color: #fafafa;
+    }
+
+    #vcomments table th {
+        background-color: #f2f2f2;
+        min-width: 80px;
+    }
+
+    #vcomments table td {
+        min-width: 80px;
+    }
+
+    #vcomments [type="checkbox"]:not(:checked), [type="checkbox"]:checked {
+        position: inherit;
+        margin-left: -1.3rem;
+        margin-right: 0.4rem;
+        margin-top: -1px;
+        vertical-align: middle;
+        left: unset;
+        visibility: visible;
+    }
+
+    
+</style>
+
+<div class="card valine-card" data-aos="fade-up">
+    <div class="comment_headling" style="font-size: 20px; font-weight: 700; position: relative; padding-left: 20px; top: 15px; padding-bottom: 5px;">
+        <i class="fas fa-comments fa-fw" aria-hidden="true"></i>
+        <span>评论</span>
+    </div>
+    <div id="vcomments" class="card-content" style="display: grid">
+    </div>
+</div>
+
+<script src="/libs/valine/av-min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/small-rose/small-rose.github.io/libs/valine/Valine.min.js"></script>
+
+<script>
+    // new Valine({
+    //     el: '#vcomments',
+    //     appId: 'nLFYjWbdxNXHi8ECkNbad7eo-gzGzoHsz',
+    //     appKey: 'EN6vxfxOV7eBy6HlfVE4jhGI',
+    //     notify: 'true' === 'true',
+    //     verify: 'true' === 'true',
+    //     visitor: 'true' === 'true',
+    //     avatar: 'monsterid',
+    //     pageSize: '10',
+    //     lang: 'zh-cn',
+    //     placeholder: '欢迎你留下宝贵的意见 ^-^&#39;'
+    // });
+
+    let metaPlaceholder = {"nick":"昵称/QQ号(必填)","mail":"邮箱(必填)","link":"网址(https://)"} ;
+    //这里要换行
+    new Valine({
+            el: '#vcomments',
+            appId: 'nLFYjWbdxNXHi8ECkNbad7eo-gzGzoHsz',
+            appKey: 'EN6vxfxOV7eBy6HlfVE4jhGI',
+            notify: 'true' === 'true',
+            verify: 'true' === 'true',
+            visitor: 'true' === 'true',
+            avatar: 'monsterid',
+            pageSize: '10',
+            lang: 'zh-CN',
+            placeholder: '欢迎你留下宝贵的意见 ^-^&#39;',
+            meta: ["nick", "mail", "link"],
+            recordIP: 'true' === 'true',
+            enableQQ: 'monsterid',
+            requiredFields: ["1610cd43778f1d972a92503426346411"],
+            master: ["1610cd43778f1d972a92503426346411"],
+            friends: ["c08508165c8eba9a77f8c2853xxxx09e", "901345d4c91ddfd8db0f175bbcfff0c8", "1512958e18378c98b498d5effe3e76ff"],
+            tagMeta: ["博主", "小伙伴", "访客"],
+            metaPlaceholder: metaPlaceholder,
+
+        });
+
+</script>
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
+            <div class="card">
+                <a href="/archives/405893af.html">
+                    <div class="card-image">
+                        
+                        <img src="https://fastly.jsdelivr.net/gh/xiezhr/xiezhrblog-cdn-source@main/blog-img/1650379983091Linux-cover.jpg" class="responsive-img" alt="快速上手Linux核心命令（八）：网络相关命令">
+                        
+                        <span class="card-title">快速上手Linux核心命令（八）：网络相关命令</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            快速上手Linux核心命令（八）：网络相关命令
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-06-03
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Linux/" class="post-category">
+                                    Linux
+                                </a>
+                            
+                            <a href="/categories/Linux/Linux-%E6%A0%B8%E5%BF%83%E5%91%BD%E4%BB%A4/" class="post-category">
+                                    Linux 核心命令
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Linux/">
+                        <span class="chip bg-color">Linux</span>
+                    </a>
+                    
+                    <a href="/tags/Linux-%E6%A0%B8%E5%BF%83%E5%91%BD%E4%BB%A4/">
+                        <span class="chip bg-color">Linux 核心命令</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/archives/6eb97e84.html">
+                    <div class="card-image">
+                        
+                        <img src="https://fastly.jsdelivr.net/gh/xiezhr/xiezhrblog-cdn-source@main/blog-img/1650379983091Linux-cover.jpg" class="responsive-img" alt="快速上手Linux核心命令（七）：Linux系统信息相关命令">
+                        
+                        <span class="card-title">快速上手Linux核心命令（七）：Linux系统信息相关命令</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            快速上手Linux核心命令（七）：Linux系统信息相关命令
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-05-20
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Linux/" class="post-category">
+                                    Linux
+                                </a>
+                            
+                            <a href="/categories/Linux/Linux-%E6%A0%B8%E5%BF%83%E5%91%BD%E4%BB%A4/" class="post-category">
+                                    Linux 核心命令
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Linux/">
+                        <span class="chip bg-color">Linux</span>
+                    </a>
+                    
+                    <a href="/tags/Linux-%E6%A0%B8%E5%BF%83%E5%91%BD%E4%BB%A4/">
+                        <span class="chip bg-color">Linux 核心命令</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+<script>
+    $('#articleContent').on('copy', function (e) {
+        // IE8 or earlier browser is 'undefined'
+        if (typeof window.getSelection === 'undefined') return;
+
+        var selection = window.getSelection();
+        // if the selection is short let's not annoy our users.
+        if (('' + selection).length < Number.parseInt('300')) {
+            return;
+        }
+
+        // create a div outside of the visible area and fill it with the selected text.
+        var bodyElement = document.getElementsByTagName('body')[0];
+        var newdiv = document.createElement('div');
+        newdiv.style.position = 'absolute';
+        newdiv.style.left = '-99999px';
+        bodyElement.appendChild(newdiv);
+        newdiv.appendChild(selection.getRangeAt(0).cloneContents());
+
+        // we need a <pre> tag workaround.
+        // otherwise the text inside "pre" loses all the line breaks!
+        //if (selection.getRangeAt(0).commonAncestorContainer.nodeName === 'PRE') {
+          //  newdiv.innerHTML = "<pre>" + newdiv.innerHTML + "</pre>";
+        //}
+        newdiv.innerHTML = "<pre>" + newdiv.innerHTML + "</pre>";
+        var url = document.location.href;
+        newdiv.innerHTML += '<br />'
+            + '来源: xiezhrspace<br />'
+            + '文章作者: xiezhr<br />'
+            + '文章链接: <a href="' + url + '">' + url + '</a><br />'
+            + '本文章著作权归作者所有，任何形式的转载都请注明出处。';
+
+        selection.selectAllChildren(newdiv);
+        window.setTimeout(function () {bodyElement.removeChild(newdiv);}, 200);
+    });
+</script>
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+<!-- 代码块折行 -->
+
+<style type="text/css">
+code[class*="language-"], pre[class*="language-"] { white-space: pre !important; }
+</style>
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="https://fastly.jsdelivr.net/gh/xiezhr/xiezhrblog-cdn-source/source/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+
+
+    <style>
+    .youpaiyunlogo {
+        height: 26px;
+        display: inline-block;
+        vertical-align: top;
+    }
+</style>
+<footer class="page-footer bg-color">
+    
+    <div class="container row center-align" style="margin-bottom: 15px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            <span id="year">2020</span>
+            <a href="/about" target="_blank">xiezhr</a>
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            <br>
+            
+            &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
+                class="white-color">102.1k</span>&nbsp;字
+            
+            
+            
+            
+            
+            
+            <span id="busuanzi_container_site_pv">
+                |&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;<span id="busuanzi_value_site_pv"
+                    class="white-color"></span>&nbsp;次
+            </span>
+            
+            
+            <span id="busuanzi_container_site_uv">
+                |&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;<span id="busuanzi_value_site_uv"
+                    class="white-color"></span>&nbsp;人
+            </span>
+            
+            <br>
+            
+            <span id="sitetime">载入运行时间...</span>
+            <script>
+                function siteTime() {
+                    var seconds = 1000;
+                    var minutes = seconds * 60;
+                    var hours = minutes * 60;
+                    var days = hours * 24;
+                    var years = days * 365;
+                    var today = new Date();
+                    var startYear = "2020";
+                    var startMonth = "11";
+                    var startDate = "17";
+                    var startHour = "9";
+                    var startMinute = "1";
+                    var startSecond = "1";
+                    var todayYear = today.getFullYear();
+                    var todayMonth = today.getMonth() + 1;
+                    var todayDate = today.getDate();
+                    var todayHour = today.getHours();
+                    var todayMinute = today.getMinutes();
+                    var todaySecond = today.getSeconds();
+                    var t1 = Date.UTC(startYear, startMonth, startDate, startHour, startMinute, startSecond);
+                    var t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond);
+                    var diff = t2 - t1;
+                    var diffYears = Math.floor(diff / years);
+                    var diffDays = Math.floor((diff / days) - diffYears * 365);
+                    var diffHours = Math.floor((diff - (diffYears * 365 + diffDays) * days) / hours);
+                    var diffMinutes = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours) /
+                        minutes);
+                    var diffSeconds = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours -
+                        diffMinutes * minutes) / seconds);
+                    if (startYear == todayYear) {
+                        document.getElementById("year").innerHTML = todayYear;
+                        document.getElementById("sitetime").innerHTML = "小破站已在各种灾难中安全运行 " + diffDays + " 天 " + diffHours +
+                            " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
+                    } else {
+                        document.getElementById("year").innerHTML = startYear + " - " + todayYear;
+                        document.getElementById("sitetime").innerHTML = "小破站已在各种灾难中安全运行 " + diffYears + " 年 " + diffDays +
+                            " 天 " + diffHours + " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
+                    }
+                }
+                setInterval(siteTime, 1000);
+            </script>
+            
+            <br>
+            
+            <span id="icp"><img src="/medias/icp.png" style="vertical-align: text-bottom;" />
+                <a href="http://www.beian.miit.gov.cn" target="_blank">滇ICP备2020008901号</a>
+            </span>
+            
+            <a href="https://www.upyun.com/?utm_source=lianmeng&amp;utm_medium=referra" target="_blank" title="本站由又拍云 提供CDN加速/云存储服务" >
+                <img src="https://cdn2.sublimerui.top/2021/01/09/4a78e24138103.png"class="youpaiyunlogo"/>
+            </a>
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/xiezhr" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+    <a href="https://cdn.jsdelivr.net/gh/xiezhr/xiezhrblog-cdn-source@main/blog-img/1653405669657wx.jpg" class="tooltipped" target="_blank" data-tooltip="微信联系我: https://cdn.jsdelivr.net/gh/xiezhr/xiezhrblog-cdn-source@main/blog-img/1653405669657wx.jpg" data-position="top" data-delay="50">
+        <i class="fab fa-weixin"></i>
+    </a>
+
+
+
+    <a href="https://www.jianshu.com/u/2b57477b4c5a" class="tooltipped" target="_blank" data-tooltip="关注我的简书: https://www.jianshu.com/u/2b57477b4c5a" data-position="top" data-delay="50">
+        <i class="fab fa-jianshu">简</i>
+    </a>
+
+
+
+    <a href="https://blog.csdn.net/rong09_13" class="tooltipped" target="_blank" data-tooltip="关注我的CSDN: https://blog.csdn.net/rong09_13" data-position="top" data-delay="50">
+        <i class="fab fa-csdn">C</i>
+    </a>
+
+
+
+    <a href="https://juejin.im/user/1829211147871415/posts" class="tooltipped" target="_blank" data-tooltip="关注我的掘金: https://juejin.im/user/1829211147871415/posts" data-position="top" data-delay="50">
+        <i class="fab fa-juejin">掘</i>
+    </a>
+
+
+
+    <a href="mailto:1666397814@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=1666397814" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 1666397814" data-position="top" data-delay="50">
+        <i class="fab fa-qq"></i>
+    </a>
+
+
+
+
+
+    <a href="https://www.zhihu.com/people/rong-xie-49-35" class="tooltipped" target="_blank" data-tooltip="关注我的知乎: https://www.zhihu.com/people/rong-xie-49-35" data-position="top" data-delay="50">
+        <i class="fab fa-zhihu1">知</i>
+    </a>
+
+
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script src="https://fastly.jsdelivr.net/gh/xiezhr/xiezhrblog-cdn-source/source/js/search.js"></script>
+<script type="text/javascript">
+$(function () {
+    searchFunc('/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <style>
+    .top-scroll .btn-floating {
+        background: rgb(73, 177, 245);
+        width: 38px;
+        height: 38px;
+    }
+
+</style>
+
+<!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="https://fastly.jsdelivr.net/gh/xiezhr/xiezhrblog-cdn-source/source/libs/materialize/materialize.min.js"></script>
+    <script src="https://fastly.jsdelivr.net/gh/xiezhr/xiezhrblog-cdn-source/source/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="https://fastly.jsdelivr.net/gh/xiezhr/xiezhrblog-cdn-source/source/libs/aos/aos.js"></script>
+    <script src="https://fastly.jsdelivr.net/gh/xiezhr/xiezhrblog-cdn-source/source/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="https://fastly.jsdelivr.net/gh/xiezhr/xiezhrblog-cdn-source/source/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="https://fastly.jsdelivr.net/gh/xiezhr/xiezhrblog-cdn-source/source/js/matery.js"></script>
+
+    
+    <!-- 自动更改网站标题 -->
+    <script type="text/javascript">
+        var OriginTitile=document.title,st;
+        document.addEventListener("visibilitychange",function(){
+            document.hidden?(document.title="ヽ(●-`Д´-)ノ你要玩捉迷藏嘛",clearTimeout(st)):(document.title="(Ő∀Ő3)ノ欢迎回来！",st=setTimeout(function(){document.title=OriginTitile},3e3))
+        })
+    </script>
+
+    <div id="weather-v2-plugin-simple"></div>
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    
+    <script async src="https://fastly.jsdelivr.net/gh/xiezhr/xiezhrblog-cdn-source/source/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+    
+    <script type="text/javascript" color="0,0,255"
+        pointColor="0,0,255" opacity='0.7'
+        zIndex="-1" count="120"
+        src="https://fastly.jsdelivr.net/gh/xiezhr/xiezhrblog-cdn-source/source/libs/background/canvas-nest.js"></script>
+    
+
+    
+
+    
+
+    
+    <script src="https://fastly.jsdelivr.net/gh/xiezhr/xiezhrblog-cdn-source/source/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+    <!--添加全局深色模式-->
+    <script> 
+        if (localStorage.getItem('dark') === '1') { 
+            document.body.classList.add('dark'); 
+        } else if (new Date().getHours() >= 22 || new Date().getHours() < 7) {
+             document.body.classList.add('dark'); 
+        } else if (matchMedia('(prefers-color-scheme: dark)').matches) { 
+            document.body.classList.add('dark'); 
+        } 
+    </script> 
+    <a onclick="switchNightMode()" id="sma"> 
+        <i class="fa fa-moon-o" id="nightMode" aria-hidden="true"></i> 
+    </a>
+</body>
+
+</html>
