@@ -12642,8 +12642,7 @@ ftpd.bat res/conf/ftpd-typical.xml
   <entry>
     <title>工作中，我们经常用到哪些SQL语句呢？</title>
     <url>/archives/e3ef4d8b.html</url>
-    <content><![CDATA[<p><img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/%E8%89%BE%E6%96%AF2.jpg"></p>
-<ul>
+    <content><![CDATA[<ul>
 <li><p>工作中我们基本上每天都要与数据库打交道，数据库的知识点呢也特别多，全部记住呢也是不可能的，也没必要把所有的记住（有些语句命令可能我们一辈子都用不到）。</p>
 </li>
 <li><p>所以呢在工作之余，把工作中经常用到的一些语句整理出来，忘记的时候可以当做字典来查。</p>
