@@ -731,7 +731,7 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('https://fastly.jsdelivr.net/gh/xiezhr/xiezhrblog-cdn-source/source/cover/backup2.png')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://img-blog.csdnimg.cn/0f0c1fbd9aae4ae39d536d93248790dc.png')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
@@ -900,21 +900,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-06-03
+                    2023-01-09
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.3k
+                    1.1k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    5 分
+                    4 分
                 </div>
                 
 
@@ -929,14 +929,8 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="1-序言"><a href="#1-序言" class="headerlink" title="1 序言"></a>1 序言</h2><p>最近相信大家都被这则新闻刷屏了吧，欧洲云计算巨头 OVH 位于法国斯特拉斯堡的机房近日发生严重火灾，</p>
-<p>大火彻底摧毁了五层高、占地 500 平方米的 SBG2 数据中心，引发火灾的原因尚不清楚，但当地报纸称 115 位消防员投入 6 个小时才将其扑灭。经过长达 6 个小时的持续燃烧，SBG2 内的数据恐怕已经彻底丢失。</p>
-<p>大火对欧洲范围内的众多网站造成严重影响。据 Netcraft 称，目前跨 464000 个域的多达 360 万个网站皆已下线。<br><img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/ovh%E7%81%AB%E7%81%BE.png"></p>
-<p><img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/ovh%E7%81%AB%E7%81%BE2.png"></p>
-<p>数据是无价的，所以生产环境中定时备份数据库显得尤为重要。备份能防止服务器故障、天灾人祸和人为误操作带来的数据丢失。</p>
-<p>顺便趁此机会，把上上周的坑给填了，本来应该上周完成的。</p>
-<p><img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/20210320134115.gif"></p>
-<p>上上周说了怎么在Linux环境下定时备份数据库，今天就整理下windows server 环境下怎么备份数据库。</p>
+                <h2 id="1-序言"><a href="#1-序言" class="headerlink" title="1 序言"></a>1 序言</h2><p>数据是无价的，所以生产环境中定时备份数据库显得尤为重要。备份能防止服务器故障、天灾人祸和人为误操作带来的数据丢失。</p>
+<p>上一篇文章我们说了Linux环境下的数据备份。这一篇就把之前留下的坑给填上了。<br>这一篇我们说一说winserver2012环境下如何做好数据库备份？</p>
 <p>工作中虽然大部分生产环境首选服务器是Linux，Linux的性能毋庸置疑。但是也不排除会用的windows server作为服务器的情况</p>
 <p>这里呢还是以这几年工作中接触到的几种常见数据库为例吧。</p>
 <ul>
@@ -963,7 +957,7 @@ echo hello world
 pause & exit
 </code></pre>
 <h3 id="2-2-2-批处理常用命令介绍"><a href="#2-2-2-批处理常用命令介绍" class="headerlink" title="2.2.2 批处理常用命令介绍"></a>2.2.2 批处理常用命令介绍</h3><p>本来在这里加了一堆批处理常用命令，发现篇幅太长了。那就后面单独弄一篇总结Windows批处理常用命令吧（又给自己挖了一个坑）。</p>
-<p><img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/20210320134418.gif"></p>
+<p><img src="https://img-blog.csdnimg.cn/86f5ad1599de45b599367f3d67d7c93d.gif#pic_center" alt="在这里插入图片描述"></p>
 <h2 id="3-各个数据库备份脚本"><a href="#3-各个数据库备份脚本" class="headerlink" title="3 各个数据库备份脚本"></a>3 各个数据库备份脚本</h2><p>将需要备份的脚本添加到backup.bat中</p>
 <h3 id="3-1-Oracle数据库"><a href="#3-1-Oracle数据库" class="headerlink" title="3.1 Oracle数据库"></a>3.1 Oracle数据库</h3><pre class=" language-bat"><code class="language-bat">@echo off
 echo 当前的盘符及路径:%~dp0
@@ -1015,19 +1009,18 @@ set RAR_CMD="C:\Program Files\WinRAR\Rar.exe"
 %RAR_CMD% a -df  "E:\mongodb4.1.7\backup\backup_%Ymd%.rar"   "E:\mongodb4.1.7\backup\backup_%Ymd%.js"   
 </code></pre>
 <h2 id="4-添加任务计划定时备份数据库"><a href="#4-添加任务计划定时备份数据库" class="headerlink" title="4 添加任务计划定时备份数据库"></a>4 添加任务计划定时备份数据库</h2><p>① 首先打开系统的管理工具，选择《任务计划程序》</p>
-<p><img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/%E4%BB%BB%E5%8A%A1%E8%AE%A1%E5%88%92%E7%A8%8B%E5%BA%8F.png"></p>
+<p><img src="https://img-blog.csdnimg.cn/b81582d5ba5549b790739bfeaba6c670.png" alt="在这里插入图片描述"></p>
 <p>② 点击创建基本任务，输入这个定时任务的名称，比如我这边就是做一个db1数据库的备份</p>
-<p><img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/%E5%88%9B%E5%BB%BA%E5%9F%BA%E6%9C%AC%E4%BB%BB%E5%8A%A1.png"></p>
+<p><img src="https://img-blog.csdnimg.cn/4396e0c4e51f4a1590896d73fb8bba68.png"></p>
 <p>③ 点击下一步选择定时任务执行频率</p>
-<p><img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/%E4%BB%BB%E5%8A%A1%E5%BC%80%E5%A7%8B.png"></p>
+<p><img src="https://img-blog.csdnimg.cn/f3191dc072724e299e44b4f27413a9b4.png" alt="在这里插入图片描述"></p>
 <p>④ 点击下一步选择任务开始时间 今晚0点10分开始</p>
-<p><img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/%E5%BC%80%E5%A7%8B%E6%97%B6%E9%97%B4.png"></p>
+<p><img src="https://img-blog.csdnimg.cn/d8b150346abc4c328a7850017b1da885.png" alt="在这里插入图片描述"></p>
 <p>⑤ 选择执行的操作，此处选择上面已经添加好的backup.bat批处理脚本，因此选择《启动程序》</p>
-<p><img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/%E5%90%AF%E5%8A%A8%E7%A8%8B%E5%BA%8F.png"><br><img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/%E6%B7%BB%E5%8A%A0backup%E6%89%B9%E5%A4%84%E7%90%86.png"></p>
+<p><img src="https://img-blog.csdnimg.cn/64036c472aad4a79b8def338794c3c05.png" alt="在这里插入图片描述"></p>
+<p><img src="https://img-blog.csdnimg.cn/8ae49494cd54487897207efddb762b0e.png" alt="在这里插入图片描述"></p>
 <p>⑥ 完成</p>
-<p><img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/%E5%AE%8C%E6%88%90.png"></p>
-<p><img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/20210320134902.gif"></p>
-<p>推荐阅读</p>
+<p><img src="https://img-blog.csdnimg.cn/27d074ac7f9e4e01aa8728d5321a28d2.png" alt="在这里插入图片描述"><br>推荐阅读</p>
 <ul>
 <li><a target="_blank" rel="noopener" href="http://xiezhrspace.cn/archives/a3ea155e.html">数据库备份真的很重要！很重要！很重要！Linux篇</a></li>
 </ul>
@@ -1272,7 +1265,7 @@ set RAR_CMD="C:\Program Files\WinRAR\Rar.exe"
         
         box-sizing: border-box;
         /* background: url("https://fastly.jsdelivr.net/gh/xiezhr/xiezhrblog-cdn-source/source/medias/comment_bg.webp") 100% 100% no-repeat; */
-        background-image: url("https://fastly.jsdelivr.net/gh/xiezhr/xiezhrblog-cdn-source/source/medias/hongmiaosi.gif");
+        background-image: url("https://fastly.jsdelivr.net/gh/xiezhr/xiezhrblog-cdn-source/source/medias/simiao.gif");
         background-size: contain;
         background-repeat: no-repeat;
         background-position:right;
@@ -1571,7 +1564,7 @@ set RAR_CMD="C:\Program Files\WinRAR\Rar.exe"
                 <a href="/archives/6c7596dd.html">
                     <div class="card-image">
                         
-                        <img src="https://fastly.jsdelivr.net/gh/xiezhr/xiezhrblog-cdn-source@main/blog-img/1650381243097bathc.png" class="responsive-img" alt="打开windows批处理大门">
+                        <img src="https://img-blog.csdnimg.cn/f93b69ca673744e29c508832dc0e6153.png" class="responsive-img" alt="打开windows批处理大门">
                         
                         <span class="card-title">打开windows批处理大门</span>
                     </div>
@@ -1635,7 +1628,7 @@ set RAR_CMD="C:\Program Files\WinRAR\Rar.exe"
                 <a href="/archives/a3ea155e.html">
                     <div class="card-image">
                         
-                        <img src="https://fastly.jsdelivr.net/gh/xiezhr/xiezhrblog-cdn-source/source/cover/backup1.png" class="responsive-img" alt="数据库定时备份linux篇">
+                        <img src="https://img-blog.csdnimg.cn/a009d0e74d874329bf2b35e6dd4a6996.png" class="responsive-img" alt="数据库定时备份linux篇">
                         
                         <span class="card-title">数据库定时备份linux篇</span>
                     </div>

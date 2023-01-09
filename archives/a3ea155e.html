@@ -731,7 +731,7 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('https://fastly.jsdelivr.net/gh/xiezhr/xiezhrblog-cdn-source/source/cover/backup1.png')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://img-blog.csdnimg.cn/a009d0e74d874329bf2b35e6dd4a6996.png')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
@@ -900,14 +900,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-06-03
+                    2023-01-09
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    2.5k
+                    2.7k
                 </div>
                 
 
@@ -929,7 +929,10 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="1-序言"><a href="#1-序言" class="headerlink" title="1 序言"></a>1 序言</h2><p>数据是无价的，所以生产环境中定时备份数据库显得尤为重要。备份能防止服务器故障和人为误操作带来的数据丢失。</p>
+                <h2 id="1-序言"><a href="#1-序言" class="headerlink" title="1 序言"></a>1 序言</h2><p>相信大家都还记得这则新闻吧，欧洲云计算巨头 OVH 位于法国斯特拉斯堡的机房发生严重火灾，大火彻底摧毁了五层高、占地 500 平方米的 SBG2 数据中心。</p>
+<p>当地报纸称 115 位消防员投入 6 个小时才将其扑灭。经过长达 6 个小时的持续燃烧，SBG2 内的数据恐怕已经彻底丢失。</p>
+<p>大火对欧洲范围内的众多网站造成严重影响。据 Netcraft 称，目前跨 464000 个域的多达 360 万个网站皆已下线。<br><img src="https://img-blog.csdnimg.cn/18fafb2eba384f6784846dcf8785fef9.png" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/3788a33d084b4a0f91538ce31bbf6a5b.png" alt="在这里插入图片描述"></p>
+<p>数据是无价的，所以生产环境中定时备份数据库显得尤为重要。备份能防止服务器故障和人为误操作带来的数据丢失。</p>
 <p>生产环境中linux操作系统也是服务器的首选，所以我们今天就以linux为例，说一说数据库备份。</p>
 <p>具体以什么数据库为例呢，就以这几年工作中接触到的几种常见数据库为例吧。</p>
 <ul>
@@ -938,7 +941,7 @@
 <li>postgresql</li>
 <li>mongoDB</li>
 </ul>
-<p>在这里呢也给自己挖一个坑，工作中呢也用到winserver 作为服务器的情况，所以呢下周也整理更新下winserver 环境下数据库备份。</p>
+<p>在这里呢也给自己挖一个坑，工作中呢也用到winserver 作为服务器的情况，所以呢后面也整理更新下winserver 环境下数据库备份。</p>
 <h2 id="2-crond-相关知识点"><a href="#2-crond-相关知识点" class="headerlink" title="2 crond 相关知识点"></a>2 crond 相关知识点</h2><h3 id="2-1-crond-是什么？"><a href="#2-1-crond-是什么？" class="headerlink" title="2.1 crond 是什么？"></a>2.1 crond 是什么？</h3><ul>
 <li>crond任务调度相当于我们日常生活中的闹钟。可以在某个时间点执行特定的命令和程序。</li>
 <li>linux系统自身定期执行的任务工作：例如轮询系统日志、备份系统数据、清理系统缓存、杀毒等等</li>
@@ -958,7 +961,7 @@
 ②每个段之间必须要有空格。
 </code></pre>
 <p>② crontab语法格式中时间段的含义表</p>
-<p><img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/u=186462863,671954497&fm=11&gp=0.jpg"></p>
+<p><img src="https://img-blog.csdnimg.cn/3c5fb241560542cd8b366e8e2b454487.png" alt="在这里插入图片描述"></p>
 <table>
 <thead>
 <tr>
@@ -1069,7 +1072,7 @@ root     19552 15271  0 16:10 pts/1    00:00:00 grep --color=auto crond
 <pre class=" language-shell"><code class="language-shell">[root@xiezhr home]# crontab -e
 */5 * * * * /home/my.sh
 </code></pre>
-<p><img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/crontab.png"></p>
+<p><img src="https://img-blog.csdnimg.cn/1865d155543c4954b981382ce4e66c62.png" alt="在这里插入图片描述"></p>
 <h2 id="3-各个数据库备份脚本"><a href="#3-各个数据库备份脚本" class="headerlink" title="3 各个数据库备份脚本"></a>3 各个数据库备份脚本</h2><h3 id="3-1-Oracle数据库"><a href="#3-1-Oracle数据库" class="headerlink" title="3.1 Oracle数据库"></a>3.1 Oracle数据库</h3><pre class=" language-sql"><code class="language-sql"><span class="token comment" spellcheck="true">#!/bin/bash</span>
 export ORACLE_HOME<span class="token operator">=</span><span class="token operator">/</span>u01<span class="token operator">/</span>app<span class="token operator">/</span>oracle<span class="token operator">/</span>product<span class="token operator">/</span><span class="token number">11.2</span><span class="token punctuation">.</span><span class="token number">0</span><span class="token operator">/</span>db_1<span class="token punctuation">;</span>
 export ORACLE_SID<span class="token operator">=</span>orcl<span class="token punctuation">;</span>
@@ -1170,6 +1173,8 @@ find $TAR_DIR<span class="token operator">/</span> <span class="token operator">
 <pre class=" language-shell"><code class="language-shell">[root@xiezhr home]# crontab -e
 0 1 * * * /home/bakcup/backup.sh
 </code></pre>
+<p>本期到此就结束了，下一期我们说一说winserver环境下数据库备份。</p>
+<p>敬请期待哦 (●’◡’●)</p>
 <p>推荐阅读</p>
 <ul>
 <li><a target="_blank" rel="noopener" href="http://xiezhrspace.cn/archives/5060cc60.html">数据库备份真的很重要！很重要！很重要！winserver篇</a></li>
@@ -1714,7 +1719,7 @@ find $TAR_DIR<span class="token operator">/</span> <span class="token operator">
                 <a href="/archives/5060cc60.html">
                     <div class="card-image">
                         
-                        <img src="https://fastly.jsdelivr.net/gh/xiezhr/xiezhrblog-cdn-source/source/cover/backup2.png" class="responsive-img" alt="数据库备份真的很重要！很重要！很重要">
+                        <img src="https://img-blog.csdnimg.cn/0f0c1fbd9aae4ae39d536d93248790dc.png" class="responsive-img" alt="数据库备份真的很重要！很重要！很重要">
                         
                         <span class="card-title">数据库备份真的很重要！很重要！很重要</span>
                     </div>
