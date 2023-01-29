@@ -1,0 +1,2598 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="Linux,Linux 核心命令,Linux用户相关命令">
+    <meta name="description" content="">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="baidu-site-verification" content="code-uutUfowLsm" />
+    <meta name="msvalidate.01" content="F999DE5405A9F0E56508AD3016F4E45E" />
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <title>快速上手Linux核心命令（十一）：Linux用户相关命令 | xiezhrspace</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="https://fastly.jsdelivr.net/gh/xiezhr/xiezhrblog-cdn-source/source/libs/awesome/css/all.css">
+    <link rel="stylesheet" type="text/css" href="https://fastly.jsdelivr.net/gh/xiezhr/xiezhrblog-cdn-source/source/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="https://fastly.jsdelivr.net/gh/xiezhr/xiezhrblog-cdn-source/source/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="https://fastly.jsdelivr.net/gh/xiezhr/xiezhrblog-cdn-source/source/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="https://fastly.jsdelivr.net/gh/xiezhr/xiezhrblog-cdn-source/source/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="https://fastly.jsdelivr.net/gh/xiezhr/xiezhrblog-cdn-source/source/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="https://fastly.jsdelivr.net/gh/xiezhr/xiezhrblog-cdn-source/source/css/my.css">
+    
+    <link rel="stylesheet" type="text/css" href="https://fastly.jsdelivr.net/gh/xiezhr/xiezhrblog-cdn-source/source/libs/artitalk/artitalk.min.css">
+    <!--引入春节样式-->
+    <link rel="stylesheet" type="text/css" href="../../css/spring.css">
+    <!--引入黑夜样式-->
+    <link rel="stylesheet" type="text/css" href="../../css/moon.css">
+    
+
+    <script src="https://fastly.jsdelivr.net/gh/xiezhr/xiezhrblog-cdn-source/source/libs/jquery/jquery.min.js"></script>
+
+    
+        <link type="text/css" href="/js/live2d_assets/waifu.css">
+    
+
+    
+
+<!-- 元宵节灯笼样式开始 -->
+
+<!-- 元宵节灯笼样式结束 -->
+
+    
+
+<meta name="generator" content="Hexo 5.4.0"><link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+
+
+
+
+
+    <style type="text/css" lang="css">
+    #loading-container{
+        position: fixed;
+        top: 0;
+        left: 0;
+        min-height: 100vh;
+        width: 100vw;
+        z-index: 9999;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background: #FFF;
+        text-align: center;
+        /* loader页面消失采用渐隐的方式*/
+        -webkit-transition: opacity 1s ease;
+        -moz-transition: opacity 1s ease;
+        -o-transition: opacity 1s ease;
+        transition: opacity 1s ease;
+    }
+    .loading-image{
+        width: 120px;
+        height: 50px;
+        transform: translate(-50%);
+    }
+
+    .loading-image div:nth-child(2) {
+        -webkit-animation: pacman-balls 1s linear 0s infinite;
+        animation: pacman-balls 1s linear 0s infinite
+    }
+
+    .loading-image div:nth-child(3) {
+        -webkit-animation: pacman-balls 1s linear .33s infinite;
+        animation: pacman-balls 1s linear .33s infinite
+    }
+
+    .loading-image div:nth-child(4) {
+        -webkit-animation: pacman-balls 1s linear .66s infinite;
+        animation: pacman-balls 1s linear .66s infinite
+    }
+
+    .loading-image div:nth-child(5) {
+        -webkit-animation: pacman-balls 1s linear .99s infinite;
+        animation: pacman-balls 1s linear .99s infinite
+    }
+
+   .loading-image div:first-of-type {
+        width: 0;
+        height: 0;
+        border: 25px solid #49b1f5;
+        border-right-color: transparent;
+        border-radius: 25px;
+        -webkit-animation: rotate_pacman_half_up .5s 0s infinite;
+        animation: rotate_pacman_half_up .5s 0s infinite;
+    }
+    .loading-image div:nth-child(2) {
+        width: 0;
+        height: 0;
+        border: 25px solid #49b1f5;
+        border-right-color: transparent;
+        border-radius: 25px;
+        -webkit-animation: rotate_pacman_half_down .5s 0s infinite;
+        animation: rotate_pacman_half_down .5s 0s infinite;
+        margin-top: -50px;
+    }
+    @-webkit-keyframes rotate_pacman_half_up {0% {transform: rotate(270deg)}50% {transform: rotate(1turn)}to {transform: rotate(270deg)}}
+
+    @keyframes rotate_pacman_half_up {0% {transform: rotate(270deg)}50% {transform: rotate(1turn)}to {transform: rotate(270deg)}}
+
+    @-webkit-keyframes rotate_pacman_half_down {0% {transform: rotate(90deg)}50% {transform: rotate(0deg)}to {transform: rotate(90deg)}}
+
+    @keyframes rotate_pacman_half_down {0% {transform: rotate(90deg)}50% {transform: rotate(0deg)}to {transform: rotate(90deg)}}
+
+    @-webkit-keyframes pacman-balls {75% {opacity: .7}to {transform: translate(-100px, -6.25px)}}
+
+    @keyframes pacman-balls {75% {opacity: .7}to {transform: translate(-100px, -6.25px)}}
+
+
+    .loading-image div:nth-child(3),
+    .loading-image div:nth-child(4),
+    .loading-image div:nth-child(5),
+    .loading-image div:nth-child(6){
+        background-color: #49b1f5;
+        width: 15px;
+        height: 15px;
+        border-radius: 100%;
+        margin: 2px;
+        width: 10px;
+        height: 10px;
+        position: absolute;
+        transform: translateY(-6.25px);
+        top: 25px;
+        left: 100px;
+    }
+    .loading-text{
+        margin-bottom: 20vh;
+        text-align: center;
+        color: #2c3e50;
+        font-size: 2rem;
+        box-sizing: border-box;
+        padding: 0 10px;
+        text-shadow: 0 2px 10px rgba(0,0,0,0.2);
+    }
+    @media only screen and (max-width: 500px) {
+         .loading-text{
+            font-size: 1.5rem;
+         }
+    }
+    .fadeout {
+        opacity: 0;
+        filter: alpha(opacity=0);
+    }
+    /* logo出现动画 */
+    @-webkit-keyframes fadeInDown{0%{opacity:0;-webkit-transform:translate3d(0,-100%,0);transform:translate3d(0,-100%,0)}100%{opacity:1;-webkit-transform:none;transform:none}}
+    @keyframes fadeInDown{0%{opacity:0;-webkit-transform:translate3d(0,-100%,0);}}
+ </style>
+ <script>
+(function () {
+    const loaded = function(){
+       setTimeout(function(){
+            const loader = document.getElementById("loading-container");
+            loader.className="fadeout" ;//使用渐隐的方法淡出loading page
+            // document.getElementById("body-wrap").style.display="flex";
+            setTimeout(function(){
+                loader.style.display="none";
+            },2500); 
+        },1000);//强制显示loading page 1s  
+    };
+    loaded();
+})()
+</script>
+
+ 
+
+<body>
+    
+    
+        <div id="loading-container">
+             <p class="loading-text">嘘~  小破站正在拼命加载中 . . . </p> 
+             <div class="loading-image">
+                 <div></div>
+                 <div></div>
+                 <div></div>
+                 <div></div> 
+                 <div></div>
+             </div>
+        </div>
+    
+
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" id="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span diyFont" id="logo-title">xiezhrspace</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/#" class="waves-effect waves-light">
+
+      
+      <span>归档</span>
+      <i class="fas fa-chevron-down" aria-hidden="true" style="zoom: 0.6;"></i>
+    </a>
+    <ul class="sub-nav menus_item_child ">
+      
+      <li>
+        <a href="/tags">
+          
+          <span>标签</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/categories">
+          
+          <span>分类</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/archives">
+          
+          <span>时间轴</span>
+        </a>
+      </li>
+      
+    </ul>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/artitalk" class="waves-effect waves-light">
+      
+      <span>说说</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/#" class="waves-effect waves-light">
+
+      
+      <span>媒体</span>
+      <i class="fas fa-chevron-down" aria-hidden="true" style="zoom: 0.6;"></i>
+    </a>
+    <ul class="sub-nav menus_item_child ">
+      
+      <li>
+        <a href="/books">
+          
+          <span>读书</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/musics">
+          
+          <span>音乐</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/movies">
+          
+          <span>电影</span>
+        </a>
+      </li>
+      
+    </ul>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/#" class="waves-effect waves-light">
+
+      
+      <span>资源分享</span>
+      <i class="fas fa-chevron-down" aria-hidden="true" style="zoom: 0.6;"></i>
+    </a>
+    <ul class="sub-nav menus_item_child ">
+      
+      <li>
+        <a href="/share-tools">
+          
+          <span>常用工具</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/e-book">
+          
+          <span>电子书</span>
+        </a>
+      </li>
+      
+    </ul>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/#" class="waves-effect waves-light">
+
+      
+      <span>交流</span>
+      <i class="fas fa-chevron-down" aria-hidden="true" style="zoom: 0.6;"></i>
+    </a>
+    <ul class="sub-nav menus_item_child ">
+      
+      <li>
+        <a href="/contact">
+          
+          <span>留言</span>
+        </a>
+      </li>
+      
+      <li>
+        <a target="_blank" rel="noopener" href="http://chat.xiezhrspace.cn">
+          
+          <span>聊天室</span>
+        </a>
+      </li>
+      
+    </ul>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/friends" class="waves-effect waves-light">
+      
+      <span>友情链接</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/#" class="waves-effect waves-light">
+
+      
+      <span>实验室</span>
+      <i class="fas fa-chevron-down" aria-hidden="true" style="zoom: 0.6;"></i>
+    </a>
+    <ul class="sub-nav menus_item_child ">
+      
+      <li>
+        <a href="/sponsorship">
+          
+          <i class="fas fa-money" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>赞助墙</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/status">
+          
+          <i class="fas fa-flush" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>检测监控</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/epidemic">
+          
+          <span>疫情实况</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/rain-code">
+          
+          <span>代码雨</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/mykeep">
+          
+          <span>我的Keep</span>
+        </a>
+      </li>
+      
+    </ul>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+<style>
+  #logo-title{
+  }
+
+  #logo-img{
+    
+  }
+  #mobile-logo-img{}
+</style>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img" id="mobile-logo-img">
+        
+        <div class="logo-name">xiezhrspace
+        <div class="logo-desc">
+            
+            爱学习 爱编程 爱分享 再小的帆也能远航
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			<!-- 
+				<i class="fas fa-fw fa-link"></i>
+			 -->
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="javascript:;">
+			<!-- 
+				<i class="fas fa-fw fa-link"></i>
+			 -->
+			归档
+			<span class="m-icon"><i class="fas fa-chevron-right"></i></span>
+		</a>
+            <ul  style="background:  ;" >
+              
+                <li>
+
+                  <a href="/tags " style="margin-left:75px">
+				  
+		          <span>标签</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/categories " style="margin-left:75px">
+				  
+		          <span>分类</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/archives " style="margin-left:75px">
+				  
+		          <span>时间轴</span>
+                  </a>
+                </li>
+              
+            </ul>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/artitalk" class="waves-effect waves-light">
+			<!-- 
+				<i class="fas fa-fw fa-link"></i>
+			 -->
+			说说
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="javascript:;">
+			<!-- 
+				<i class="fas fa-fw fa-link"></i>
+			 -->
+			媒体
+			<span class="m-icon"><i class="fas fa-chevron-right"></i></span>
+		</a>
+            <ul  style="background:  ;" >
+              
+                <li>
+
+                  <a href="/books " style="margin-left:75px">
+				  
+		          <span>读书</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/musics " style="margin-left:75px">
+				  
+		          <span>音乐</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/movies " style="margin-left:75px">
+				  
+		          <span>电影</span>
+                  </a>
+                </li>
+              
+            </ul>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="javascript:;">
+			<!-- 
+				<i class="fas fa-fw fa-link"></i>
+			 -->
+			资源分享
+			<span class="m-icon"><i class="fas fa-chevron-right"></i></span>
+		</a>
+            <ul  style="background:  ;" >
+              
+                <li>
+
+                  <a href="/share-tools " style="margin-left:75px">
+				  
+		          <span>常用工具</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/e-book " style="margin-left:75px">
+				  
+		          <span>电子书</span>
+                  </a>
+                </li>
+              
+            </ul>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			<!-- 
+				<i class="fas fa-fw fa-link"></i>
+			 -->
+			关于
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="javascript:;">
+			<!-- 
+				<i class="fas fa-fw fa-link"></i>
+			 -->
+			交流
+			<span class="m-icon"><i class="fas fa-chevron-right"></i></span>
+		</a>
+            <ul  style="background:  ;" >
+              
+                <li>
+
+                  <a href="/contact " style="margin-left:75px">
+				  
+		          <span>留言</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a target="_blank" rel="noopener" href="http://chat.xiezhrspace.cn " style="margin-left:75px">
+				  
+		          <span>聊天室</span>
+                  </a>
+                </li>
+              
+            </ul>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/friends" class="waves-effect waves-light">
+			<!-- 
+				<i class="fas fa-fw fa-link"></i>
+			 -->
+			友情链接
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="javascript:;">
+			<!-- 
+				<i class="fas fa-fw fa-link"></i>
+			 -->
+			实验室
+			<span class="m-icon"><i class="fas fa-chevron-right"></i></span>
+		</a>
+            <ul  style="background:  ;" >
+              
+                <li>
+
+                  <a href="/sponsorship " style="margin-left:75px">
+				  
+				   <i class="fa fas fa-money" style="position: absolute;left:50px" ></i>
+			      
+		          <span>赞助墙</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/status " style="margin-left:75px">
+				  
+				   <i class="fa fas fa-flush" style="position: absolute;left:50px" ></i>
+			      
+		          <span>检测监控</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/epidemic " style="margin-left:75px">
+				  
+		          <span>疫情实况</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/rain-code " style="margin-left:75px">
+				  
+		          <span>代码雨</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/mykeep " style="margin-left:75px">
+				  
+		          <span>我的Keep</span>
+                  </a>
+                </li>
+              
+            </ul>
+          
+        </li>
+        
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+    </nav>
+
+</header>
+
+    
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://img-blog.csdnimg.cn/78bdb2e0a19c46c8b08ef026f0e9460f.jpeg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">快速上手Linux核心命令（十一）：Linux用户相关命令</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="https://fastly.jsdelivr.net/gh/xiezhr/xiezhrblog-cdn-source/source/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        margin: 35px 0 15px 0;
+        padding-left: 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content {
+        height: calc(100vh - 250px);
+        overflow: auto;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+
+        position: absolute;
+        right: 23.5vw;
+        display: block;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!--评论区样式调整-->
+<style>
+    .v[data-class="v"] .vwrap .vheader .vinput {
+        width: 32%;
+        border-bottom: 1px dashed #dedede;
+      }
+</style>
+<!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/Linux/">
+                                <span class="chip bg-color">Linux</span>
+                            </a>
+                        
+                            <a href="/tags/Linux-%E6%A0%B8%E5%BF%83%E5%91%BD%E4%BB%A4/">
+                                <span class="chip bg-color">Linux 核心命令</span>
+                            </a>
+                        
+                            <a href="/tags/Linux%E7%94%A8%E6%88%B7%E7%9B%B8%E5%85%B3%E5%91%BD%E4%BB%A4/">
+                                <span class="chip bg-color">Linux用户相关命令</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/Linux/" class="post-category">
+                                Linux
+                            </a>
+                        
+                            <a href="/categories/Linux/Linux-%E6%A0%B8%E5%BF%83%E5%91%BD%E4%BB%A4/" class="post-category">
+                                Linux 核心命令
+                            </a>
+                        
+                            <a href="/categories/Linux/Linux-%E6%A0%B8%E5%BF%83%E5%91%BD%E4%BB%A4/Linux%E7%94%A8%E6%88%B7%E7%9B%B8%E5%85%B3%E5%91%BD%E4%BB%A4/" class="post-category">
+                                Linux用户相关命令
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2022-09-11
+                </div>
+                
+
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
+                    2023-01-29
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
+                    6.6k
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
+                    28 分
+                </div>
+                
+
+                
+                    <div id="busuanzi_container_page_pv" class="info-break-policy">
+                        <i class="far fa-eye fa-fw"></i>阅读次数:&nbsp;&nbsp;
+                        <span id="busuanzi_value_page_pv"></span>
+                    </div>
+				
+            </div>
+        </div>
+        <hr class="clearfix">
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <p>@<a href="Linux%E7%94%A8%E6%88%B7%E7%9B%B8%E5%85%B3%E5%91%BD%E4%BB%A4">TOC</a></p>
+<h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>上一篇中已经预告，我们这篇主要说一说<strong>Linux中用户相关</strong>的命令。<br>可能各位小伙伴用的Windows会比较多一点，在Windows操作系统中，我们知道有Administrator用户，Administrator 是Windows系统中的管理员用户，有着最高的权限。<br>用户登录Administrator后可以创建Gust等用户，修改密码并且给Gust用户分配相应的权限。<br>同样的在Linux中，root就相当于Administrator用户，具有着最高权限。登录root 用户可以创建用户、修改用户密码、给用户分配角色等等。<br>下面思维导图中列出了我们需要掌握的19个命令<br> <img src="https://img-blog.csdnimg.cn/eee9de1f24a2454e93f8634f8a864a38.png" alt="在这里插入图片描述"></p>
+<h3 id="useradd-创建用户"><a href="#useradd-创建用户" class="headerlink" title="useradd 创建用户"></a>useradd 创建用户</h3><p>1、简介</p>
+<blockquote>
+<p>useradd 命令用户创建新的用户或者更改用户信息</p>
+</blockquote>
+<p>2、原理<br><img src="https://img-blog.csdnimg.cn/d5207c70b4a44b2b9e00b74e8f8ec364.png" alt="在这里插入图片描述"></p>
+<p>3、语法格式</p>
+<pre class=" language-shell"><code class="language-shell">useradd [参数选项] [用户名]
+或
+useradd -D [参数选项]
+</code></pre>
+<p>4、参数说明<br>① 不加选项-D参数<br>|参数选项|参数说明|<br>|–|–|<br>|-c comment| 加上<strong>备注信息</strong>，会保存到passwd备注栏中（第五列）|<br>|-d home_dir| 新用户每次登录时使用的<strong>家目录</strong>|<br>|-e expire_date| <strong>用户终止日期</strong>|<br>|-f inactive_days| 用户过期几日后永久停权|<br>|-g initial_group| 指定用户对应的用户组。用户组必须是系统现在已存在的名词|<br>|-G group,[…]|定义此用户为多个不同组的成员。每个用户组使用逗号（，）分割|<br>|-m | 用户目录如不存在则自动建立|<br>|-M| 不建立家目录，优先于、etc/login.defs文件设定。【创建虚拟用户时一般不需要建立家目录，部署应用服务时则需要创建虚拟用户】|<br>|-n| 默认情况下用户的用户组和用户名称是相同的。通过该参数，就不会生成与用户名一样的用户组了|<br>|-s shell| 用户登录后使用的<strong>Shell名称</strong>。默认不填写，系统会使用配置文件（/etc/default/useradd）中的预设值|<br>|-u uid| 用户ID值。这个值是<strong>唯一的</strong>|</p>
+<p>② 加-D选项参数<br>|参数选项|参数说明|<br>|–|–|<br>|-b defalut_home|定义用户家目录的基本目录，当用户家目录不存在时，此目录将作为家目录生效|<br>|-e defalut_expire_date| 用户<strong>账号停止日期</strong> |<br>|-f defalut_inactive| 用户过期几日后停权|<br>|-g defalut_group| 新用户起始用户组名或ID。用户组名必须为现已存在的名称|<br>|-s default_shell| 用户登录后使用<strong>Shell名称</strong>|</p>
+<p>5、实践操作<br>①  不加任何参数添加用户</p>
+<pre class=" language-shell"><code class="language-shell"># 创建xiezhrspace 用户
+[root@xiezhr ~]# useradd xiezhrspace
+# /home/ 路径下新生成一个xiezhrspace 目录。这个就是xiezhrspace用户的家目录
+[root@xiezhr ~]# ls -ld /home/xiezhrspace
+drwx------ 2 xiezhrspace xiezhrspace 4096 Aug 29 23:05 /home/xiezhrspace
+</code></pre>
+<p>在前面我们说过创建一个新用户会在/etc/shadow、/etc/group 和/etc/gshsdow 文件中生成相关信息，具体是不是这样的呢？<br>我们去看一看(●’◡’●)</p>
+<pre class=" language-shell"><code class="language-shell"># 在创建用户时候没有指定密码，但是shadow还是生成了一行信息
+[root@xiezhr ~]# grep -w xiezhrspace /etc/shadow
+xiezhrspace:!!:19233:0:99999:7:::
+
+# 创建用户时，默认会创建与用户名同名的用户组
+[root@xiezhr ~]# grep -w xiezhrspace /etc/group
+xiezhrspace:x:1002:
+
+#组密码文件中也会增加一条信息
+[root@xiezhr ~]# grep -w xiezhrspace /etc/gshadow
+xiezhrspace:!::
+</code></pre>
+<p>② 创建一个组，并将新建用户归于这个组</p>
+<pre class=" language-shell"><code class="language-shell"># 创建一个gid 为808 的用户组
+[root@xiezhr ~]# groupadd -g 808 xiezhrgroup
+# 创建一个uid为908的用户xietest,并将用户归于xiezhrgroup组
+[root@xiezhr ~]# useradd -g xiezhrgroup -u 908 xietest
+# 查看用户信息
+[root@xiezhr ~]# id xietest
+uid=908(xietest) gid=808(xiezhrgroup) groups=808(xiezhrgroup)
+</code></pre>
+<p>③  -M -s参数的使用（在生产环境中<strong>部署Nginx、MySQL等服务经常使用</strong>）</p>
+<pre class=" language-shell"><code class="language-shell"># -M 不创建见目录
+# -s 指定登录后的Shell
+# /sbin/nologin  表示禁止登陆
+[root@xiezhr ~]# useradd -M -s /sbin/nologin xiaofang
+[root@xiezhr ~]# ls -ld /home/xiaofang
+ls: cannot access /home/xiaofang: No such file or directory
+[root@xiezhr ~]# grep -w xiaofang /etc/passwd
+xiaofang:x:1003:1003::/home/xiaofang:/sbin/nologin
+</code></pre>
+<p>/etc/passwd 文件说明<br>|xiaofang|x|1003|1003||/home/xiaofang|/sbin/nologin|<br>|–|–|–|–|–|–|–|<br>|用户名称|账号密码|账号UID|账号组GID|用户说明|用户家目录|shell解释器|</p>
+<h3 id="usermod-修改用户信息"><a href="#usermod-修改用户信息" class="headerlink" title="usermod 修改用户信息"></a>usermod 修改用户信息</h3><p>1、简介</p>
+<blockquote>
+<p>usermod 命令用于修改系统已经存在的用户账号信息</p>
+</blockquote>
+<p>2、语法格式</p>
+<pre class=" language-shell"><code class="language-shell">usermod [参数选项] [用户名]
+</code></pre>
+<p>3、参数选项<br>|参数|参数说明|<br>|–|–|<br>|-c comment|修改用户password文件中用户的说明栏，与useradd -c 功能相同|<br>|-d home_dir|修改用户的家目录 与useradd -d 功能相同|<br>|-e expire_date| 修改用户终止日期 与useradd -e 功能相同|<br>|-f inactive_days| 修改用户过期后几日永久停权 与useradd -f 功能相同|<br>|-g initial_group|修改用户对应的用户组 与useradd -g 功能相同 |<br>|-G group,[……]|修改此用户为多个不同组的成员 与useradd -G功能相同|<br>|-m|用户目录如果不存在则自动建立|<br>|-M| 不建立用户家目录。一般创建虚拟用户时不建立家目录。不是nginx、redis等服务是需要创建虚拟用户|<br>|-n|默认情况下，用户的用户组与用户的名称相同|<br>|-s shell|修改用户登入后使用的Shell名称 与useradd -s 功能相同|<br>|-u uid|修改用户的ID值 与useradd -u 功能相同|<br>|-a|追加用户到用户组 仅与-G参数连用|<br>|-l|修改用户账号名称|<br>|-L|锁定用户密码，不让用户改密码|<br>|-U|解除密码锁定|</p>
+<p>4、实践操作<br>将前面创建的xiezhr 用户的用户注释修改为“测试用户”,UID 修改为888，归属修改为用户组root、xiezhr 成员，其Shell类型为/sbin/nologin,设置家目录为/home/xiezhr 用户过期时间为2022-10-02 ，过期后15天停权</p>
+<pre class=" language-shell"><code class="language-shell">[root@xiezhr ~]# usermod -u 888 -s /sbin/nologin -c "测试用户" -G root -e "2022/10/02" -f 30 -d /home/xiezhr xiezhr
+[root@xiezhr ~]# grep -w xiezhr /etc/passwd
+xiezhr:x:888:1001:测试用户:/home/xiezhr:/sbin/nologin
+[root@xiezhr ~]# id xiezhr
+uid=888(xiezhr) gid=1001(xiezhr) groups=1001(xiezhr),0(root)
+[root@xiezhr ~]# grep -w xiezhr /etc/shadow
+xiezhr:!!:19233:0:99999:7:30:19267:
+[root@xiezhr ~]# chage -l xiezhr
+Last password change                                    : Aug 29, 2022
+Password expires                                        : never
+Password inactive                                       : never
+Account expires                                         : Oct 02, 2022
+Minimum number of days between password change          : 0
+Maximum number of days between password change          : 99999
+Number of days of warning before password expires       : 7
+</code></pre>
+<h3 id="userdel-删除用户"><a href="#userdel-删除用户" class="headerlink" title="userdel 删除用户"></a>userdel 删除用户</h3><p>1、简介</p>
+<blockquote>
+<p>userdel 命令用户删除指定的用户及与该用户相关的文件</p>
+</blockquote>
+<p>2、语法格式</p>
+<pre class=" language-shell"><code class="language-shell">userdel [参属选项] [用户名]
+</code></pre>
+<p>3、参数选项<br>|参数|参数说明|<br>|–|–|<br>|-f|强制删除用户，即使用户当前登录|<br>|-r|删除用户的同时，删除与用户相关的所有文件|</p>
+<p>4、实践操作<br>① 不加参数删除用户</p>
+<pre class=" language-shell"><code class="language-shell">[root@xiezhr home]# tail -4 /etc/passwd
+xiezhr:x:888:1001:测试用户:/home/xiezhr:/sbin/nologin
+xiezhrspace:x:1002:1002::/home/xiezhrspace:/bin/bash
+xietest:x:908:808::/home/xietest:/bin/bash
+xiaofang:x:1003:1003::/home/xiaofang:/sbin/nologin
+[root@xiezhr home]# ll /home/xietest/ -ld
+drwx------ 2 xietest xiezhrgroup 4096 Aug 29 23:16 /home/xietest/
+[root@xiezhr home]# userdel xietest 
+[root@xiezhr home]# grep -w xietest /etc/passwd
+[root@xiezhr home]# ll /home/xietest/ -ld
+drwx------ 2 908 xiezhrgroup 4096 Aug 29 23:16 /home/xietest/
+</code></pre>
+<p>② 加 -r 参数删除用户及加目录</p>
+<pre class=" language-shell"><code class="language-shell">[root@xiezhr home]# ls -ld /home/xiezhr001/
+drwx------ 2 xiezhr001 xiezhr001 4096 Sep  4 19:50 /home/xiezhr001/
+[root@xiezhr home]# grep -w xiezhr001 /etc/passwd
+xiezhr001:x:1005:1005::/home/xiezhr001:/bin/bash
+[root@xiezhr home]# userdel -r xiezhr001 
+[root@xiezhr home]# grep -w xiezhr001 /etc/passwd
+[root@xiezhr home]# ls -ld /home/xiezhr001/
+ls: cannot access /home/xiezhr001/: No such file or directory
+</code></pre>
+<p><strong>注意</strong></p>
+<ul>
+<li>在实际工作中，尽量不要使用userdel删除用户，只需要在/etc/passwd里注释用户就可以了。</li>
+<li>在使用**-r**参数一定要慎重，-r参数会将家目录下所有文件和目录都删除，该过程是不可逆的</li>
+</ul>
+<h3 id="groupadd-创建新的用户组"><a href="#groupadd-创建新的用户组" class="headerlink" title="groupadd 创建新的用户组"></a>groupadd 创建新的用户组</h3><p>1、简介</p>
+<blockquote>
+<p>groupadd 用于创建新的用户组。实际工作中一般也不用，因为useradd命令在创建用户的时候也会创建一个同名的用户组</p>
+</blockquote>
+<p>2、语法格式</p>
+<pre class=" language-shell"><code class="language-shell">groupadd [参数选项] [用户组]
+</code></pre>
+<p>3、参数选项<br>|参数|参数说明|<br>|–|–|<br>|-g gid| 指定用户组的gid,除非接-o参数，否则ID值唯一且不为负，如果不指定-g参数，则gid从500开始|<br>|-f|新增一个账户，强制覆盖一个已存在的组账号|</p>
+<p>4、实践操作<br>指定gid添加用户组</p>
+<pre class=" language-shell"><code class="language-shell"># 添加GID为123的test1用户组
+[root@xiezhr ~]# groupadd -g 123 test
+[root@xiezhr ~]# tail -l /etc/group
+test:x:123:
+[root@xiezhr ~]# tail -l /etc/gshadow
+test:!::
+</code></pre>
+<h3 id="groupdel-删除用户组"><a href="#groupdel-删除用户组" class="headerlink" title="groupdel 删除用户组"></a>groupdel 删除用户组</h3><p>1、简介</p>
+<blockquote>
+<p>groupdel 命令用户删除指定的用户组，一般不用</p>
+</blockquote>
+<p>2、语法格式</p>
+<pre class=" language-shell"><code class="language-shell">groupdel [用户组]
+</code></pre>
+<p>3、实践操作<br>删除test用户组</p>
+<pre class=" language-shell"><code class="language-shell">[root@xiezhr ~]# groupdel test 
+[root@xiezhr ~]# grep -w test /etc/group
+</code></pre>
+<h3 id="passwd-修改用户密码"><a href="#passwd-修改用户密码" class="headerlink" title="passwd 修改用户密码"></a>passwd 修改用户密码</h3><p>1、简介</p>
+<blockquote>
+<p>passwd 命令用于修改用户密码及密码过期使劲啊等，工作中会经常用到。<br>普通用户和超级用户都可以运行passwd命令，普通用户只能更改自身密码，超级用户root则可以设置或修改所有用户的密码</p>
+</blockquote>
+<p>2、语法格式</p>
+<pre class=" language-shell"><code class="language-shell">passwd [参数选项] [用户名]
+</code></pre>
+<p>3、参数选项<br>|参数|参数说明|<br>|–|–|<br>|-k|为密码已经过期的用户更新有效期|<br>|-l | 锁定用户，被锁定的用户不能登录。<strong>仅root用户有此权限</strong>|<br>|–stdin|从标准输入读取密码字符串|<br>|-u|解除对用户的锁定，<strong>仅root用户有此权限</strong>|<br>|-d|删除用户密码，使密码为空。<strong>仅root用户有此权限</strong>|<br>|-e|是用户密码立即过期，将用户下次登录时强制要求用户修改密码。<strong>仅root用户有此权限</strong>|<br>|-n|设置修改该密码的最短天数 。<strong>仅root用户有此权限</strong>|<br>|-x|设置修改密码的最长天数。<strong>仅root用户有此权限</strong>|<br>|-w|设置用户在密码过期前收到警告信息的天数。<strong>仅root用户有此权限</strong>|<br>|-i|设置密码过期多少天后禁用账户。<strong>仅root用户有此权限</strong>|<br>|-S|显示用户密码相关的简单描述。<strong>仅root用户有此权限</strong>|</p>
+<p>4、实践操作<br>① 修改用户自身密码</p>
+<pre class=" language-shell"><code class="language-shell">[root@xiezhr ~]# passwd                # 修改root用户自身密码
+Changing password for user root.      
+New password:                          # 输入修改的密码，系统不会显示
+Retype new password:                   # 再次输入密码
+passwd: all authentication tokens updated successfully.       # 设置成功了
+</code></pre>
+<p>② 设置及修改普通用户密码</p>
+<pre class=" language-shell"><code class="language-shell">[root@xiezhr ~]# passwd xiezhr
+Changing password for user xiezhr.
+New password: 
+BAD PASSWORD: The password is shorter than 8 characters
+Retype new password: 
+passwd: all authentication tokens updated successfully.
+</code></pre>
+<p>③ 显示账号密码信息</p>
+<pre class=" language-shell"><code class="language-shell">[root@xiezhr ~]# passwd -S xiezhr
+xiezhr PS 2022-09-05 0 99999 7 30 (Password set, MD5 crypt.)
+</code></pre>
+<p>④一条命令修改密码</p>
+<pre class=" language-shell"><code class="language-shell">[root@xiezhr ~]# echo "123456"|passwd --stdin xiezhr
+Changing password for user xiezhr.
+passwd: all authentication tokens updated successfully.
+</code></pre>
+<p>⑤ 设置xiezhr用户7天内不能更改密码，60天以后必须修改密码，过期10天通知用户，过期30天后禁止用户登录</p>
+<pre class=" language-shell"><code class="language-shell">[root@xiezhr ~]# passwd -n 7 -x 60 -w 10 -i 30 xiezhr
+Adjusting aging data for user xiezhr.
+passwd: Success
+</code></pre>
+<h3 id="chage-修改用户密码有效期"><a href="#chage-修改用户密码有效期" class="headerlink" title="chage 修改用户密码有效期"></a>chage 修改用户密码有效期</h3><p>1、简介</p>
+<blockquote>
+<p>chage 命令用于查看或修改用户密码有效期</p>
+</blockquote>
+<p>2、语法格式</p>
+<pre class=" language-shell"><code class="language-shell">chage [参数选项] [用户名]
+</code></pre>
+<p>3 、参数选项<br>|参数|参数说明|<br>|–|–|<br>|-d| 设置上一次密码更改的日期|<br>|-E|账号过期的日期。日期格式：YYYY-MM-DD|<br>|-I|设置密码过期多少天后禁用账户|<br>|-l|显示账号有效期信息|<br>|-m|密码可更改的最小天数。默认为0，即任何时候都可以修改|<br>|-M|密码保持有效的最大天数|<br>|-W|密码到期前，提前收到警告信息天数|<br>4、实践操作<br>设置xiezhr用户7天内不能更改密码，60天以后必须修改密码，过期10天通知xiezhr 用户，过期30天后禁止用户登录</p>
+<pre class=" language-shell"><code class="language-shell">[root@xiezhr ~]# chage -m 7 -M 60 -W 10 -I 30 xiezhr
+</code></pre>
+<h3 id="批量更新用户密码"><a href="#批量更新用户密码" class="headerlink" title="批量更新用户密码"></a>批量更新用户密码</h3><p>1、简介</p>
+<blockquote>
+<p>chpasswd 命令用于从标准输入中读取一定格式的用户名、密码来批量更新用户的密码，格式为“用户名：密码“</p>
+</blockquote>
+<p>2、语法格式</p>
+<pre class=" language-shell"><code class="language-shell">chpasswd [参数选项]
+</code></pre>
+<p>3、参数选项<br>|参数|参数说明|<br>|–|–|<br>|-c|默认格式是明文密码，使用-e参数则需要加密的密码|<br>4、实践操作<br>批量修改密码</p>
+<pre class=" language-shell"><code class="language-shell">[root@xiezhr ~]# chpasswd   # 输入chpasswd后，回车
+xiezhr:123456               # 格式为用户名:密码
+testxiezhr:123456           # 一行一个
+                            # 新行按Ctrl+D 结束
+</code></pre>
+<h3 id="su-切换用户"><a href="#su-切换用户" class="headerlink" title="su 切换用户"></a>su 切换用户</h3><p>1、简介</p>
+<blockquote>
+<p>su 命令用户将当前用户切换到指定用户或以指定用户的身份执行命令或程序</p>
+</blockquote>
+<p>2、语法格式</p>
+<pre class=" language-shell"><code class="language-shell">su [参数选项] [用户名]
+</code></pre>
+<p>3、参数选项<br>|参数|参数说明|<br>|–|–|<br>|-， -l, –login| 切换用户的同时，将用户的家目录/系统环境等重新按切换后的用户初始化|<br>|-c| 向Shell 传递单个命令|</p>
+<p>4、实践操作<br>① 切换到普通用户</p>
+<pre class=" language-shell"><code class="language-shell"># 切换到testxiezhr用户，不用输入密码即可切换
+[root@xiezhr ~]# su - testxiezhr
+</code></pre>
+<p>②切换到root用户</p>
+<pre class=" language-shell"><code class="language-shell"># 虽然已经切换到了root用户，但是家目录还是testxiezhr。环境变量还是testxiezhr用户的，**这种切换问题很严重**
+[testxiezhr@xiezhr ~]$ su root
+Password:                          # 普通用户切换到root用户需要输入密码
+[root@xiezhr testxiezhr]# pwd
+/home/testxiezhr
+# 正确切换方式
+[root@xiezhr testxiezhr]# exit
+exit
+[testxiezhr@xiezhr ~]$ su - root
+Password:                                               # 需要输入密码
+Last login: Mon Sep  5 21:13:39 CST 2022 on pts/3
+[root@xiezhr ~]# pwd
+/root
+</code></pre>
+<p><strong>注意：</strong><br>[x]  “su 用户名”  虽然能切换到对应用户，但切换后的环境变量信息还是切换之前用户的<br>[√] ** ”su - 用户名“ 不但可以切换到对应用户，还能将环境变量一起切换**</p>
+<h3 id="visudo-编辑sudoers文件"><a href="#visudo-编辑sudoers文件" class="headerlink" title="visudo 编辑sudoers文件"></a>visudo 编辑sudoers文件</h3><p>1、简介</p>
+<blockquote>
+<p>visudo命令是专门用来编辑 /etc/sudoers这个文件的，同时提供语法检查等功能。 /etc/sudoers文件是sudo命令的配置文件。sudo命令在下一个命令你会看到。而为什么不用vi/vim来直接编辑/etc/sudoers文件呢？ 因为如果使用vim 编辑sudoer文件时没有语法校验，编辑错了会导致授权无法生效</p>
+</blockquote>
+<p>2、语法格式</p>
+<pre class=" language-shell"><code class="language-shell">visudo [参数选项]
+</code></pre>
+<p>3、参数选项<br>|参数|参数说明|<br>|–|–|<br>|-c| 手动执行语法检查|</p>
+<p>4、实践操作<br>①将xiezhr用户提权为root身份，testxiezhr 用户具有添加和删除用户的权限</p>
+<pre class=" language-shell"><code class="language-shell"># 以下命令相当于 vim /etc/sudoers    进行编辑sudoers文件
+[root@xiezhr ~]# visudo
+
+#在/etc/sudoers 文件中添加如下权限
+xiezhr ALL=(ALL)        ALL                                     # 此行时将xiezhr用户提权为root身份
+testxiezhr ALL=(ALL)     /usr/sbin/useradd, /usr/sbin/userdel   # 授予可以以root身份添加和删除用户权限
+</code></pre>
+<p>上面操作说明<br>|待授权的用户或组|机器=(授权角色)|可以执行的命令|<br>|–|–|–|<br>|testxiezhr|ALL=(ALL)|/usr/sbin/useradd,/usr/sbin/userdel|</p>
+<p>② 通过-c参数校验语法是否正确<br>通过① 我们已经对xiezhr用户和testxiezhr用户做了不同的授权，那么怎么判断授权的语法是否正确呢</p>
+<pre class=" language-shell"><code class="language-shell">[root@xiezhr ~]# visudo -c
+/etc/sudoers: parsed OK
+/etc/sudoers.d/90-cloud-init-users: parsed OK
+</code></pre>
+<p><strong>直接root用户下操作不就可以了么？为什么要通过sudo授权呢？</strong><br>我们希望一个用户具有root权限去干活，但是又不希望这个用户威胁系统安全。</p>
+<h3 id="sudo-以另一个用户身份执行命令"><a href="#sudo-以另一个用户身份执行命令" class="headerlink" title="sudo 以另一个用户身份执行命令"></a>sudo 以另一个用户身份执行命令</h3><p>1、简介</p>
+<blockquote>
+<p>sudo 命令可以让普通用户拥有超级用户的权限去执行指定的命令或程序。普通用户不需要知道root密码就可以得到授权，授权我们在上面已经说过</p>
+</blockquote>
+<p>2、语法格式</p>
+<pre class=" language-shell"><code class="language-shell">sudo [参数选项]
+</code></pre>
+<p>3、参数选项<br>|参数|参数说明|<br>|–|–|<br>|-l|列出当前用户可以执行的命令。只有在sudoers 文件里的用户才能使用该选项|<br>|-h|列出使用方法，并退出|<br>|-H|将环境变量中的HOME（家目录）指定为要变更身份的使用者家目录|<br>|-V|显示版本信息，并退出|<br>|-v|sudo在第一次执行时，或者在N分钟内没有执行，则会询问密码，参数用于重新做一次确认|<br>|-u|以指定用户的身份执行命令|<br>|-k|清除时间戳上的实践，下次再次使用sudo时要再此输入密码|<br>|-K|与k类似，同时还删除时间戳文件|<br>|-b|在后台执行指定命令|<br>|-p|更改询问密码时的提示语|<br>|-e|不执行命令，而是修改文件，相当于sudo edit|</p>
+<p>4、sudo 工作原理<br><img src="https://img-blog.csdnimg.cn/dd7f64c6da8345c9b9a32e7d6f00b91d.png" alt="sudo工作原理"></p>
+<p>5、实践操作<br><strong>创建一个testuser 用户，并对testuser进行sudo授权管理。授权完成后sudo操作</strong></p>
+<pre class=" language-shell"><code class="language-shell"># 1、创建testuser 用户
+[root@xiezhr ~]# useradd testuser
+# 2、将testuser 用户密码修改为******
+[root@xiezhr ~]# passwd testuser
+Changing password for user testuser.
+New password: 
+BAD PASSWORD: The password is shorter than 8 characters
+Retype new password: 
+passwd: all authentication tokens updated successfully.
+# 3、执行以下命令后添加 `testuser ALL=(ALL)        ALL  ` 对testuser用户进行sudo授权 参照下图
+[root@xiezhr ~]# visudo
+testuser ALL=(ALL)        ALL
+# 4、登录testuser 用户，查看 当前用户被授予的sudo权限集合
+[testuser@xiezhr ~]$ sudo -l
+Matching Defaults entries for testuser on xiezhr:
+    !visiblepw, always_set_home, match_group_by_gid, always_query_group_plugin, env_reset, env_keep="COLORS DISPLAY HOSTNAME HISTSIZE KDEDIR LS_COLORS",
+    env_keep+="MAIL PS1 PS2 QTDIR USERNAME LANG LC_ADDRESS LC_CTYPE", env_keep+="LC_COLLATE LC_IDENTIFICATION LC_MEASUREMENT LC_MESSAGES",
+    env_keep+="LC_MONETARY LC_NAME LC_NUMERIC LC_PAPER LC_TELEPHONE", env_keep+="LC_TIME LC_ALL LANGUAGE LINGUAS _XKB_CHARSET XAUTHORITY",
+    secure_path=/sbin\:/bin\:/usr/sbin\:/usr/bin
+
+User testuser may run the following commands on xiezhr:
+    (ALL) ALL
+
+# 5、登录testuser用户，执行ls /root 发现时没有权限的
+[testuser@xiezhr ~]$ ls /root
+ls: cannot open directory /root: Permission denied
+# 6、当加上sudo 后 再执行ls /root （第一次需要输入testuser用户密码，上面原理图介绍过），发现可以访问/root 路径了，此时testuser 具有了
+[testuser@xiezhr ~]$ sudo ls /root
+
+We trust you have received the usual lecture from the local System
+Administrator. It usually boils down to these three things:
+
+    #1) Respect the privacy of others.
+    #2) Think before you type.
+    #3) With great power comes great responsibility.
+
+[sudo] password for testuser: 
+bdcdb84c414c2493e5856597b89be9f0.gif
+</code></pre>
+<p>6、 sudo 小结</p>
+<ul>
+<li>对用户进行sudo授权后，所有用户执行命令 格式为 <strong>sudo + [命令]</strong></li>
+<li><strong>sudo - l</strong> 命令可以查看当前用户被授予的sudo权限集合</li>
+<li>当我们在授权用户下执行sudo时，如果需要输入密码。此时输入密码是<strong>当前用户的密码</strong></li>
+</ul>
+<h3 id="id-显示用户与用户组信息"><a href="#id-显示用户与用户组信息" class="headerlink" title="id 显示用户与用户组信息"></a>id 显示用户与用户组信息</h3><p>1、简介</p>
+<blockquote>
+<p>id 命令可以显示指定用户的ID（UID）和组ID（GID）等有效信息</p>
+</blockquote>
+<p>2、语法格式</p>
+<pre class=" language-shell"><code class="language-shell">id [参数选项] [用户名]
+</code></pre>
+<p>3、参数选项<br>|参数|参数说明|<br>|–|–|<br>|-g|显示用户所属群组的ID|<br>|-G|显示用户所属附加群组的ID|<br>|-n|显示用户，所属群组或附加群组的名称|<br>|-r|显示实际ID|<br>|-u|显示用户ID|</p>
+<p>4、实践操作<br>显示用户的UID和GID</p>
+<pre class=" language-shell"><code class="language-shell"># id 后不跟用户，默认时当前登录用户
+[root@xiezhr home]# id
+uid=0(root) gid=0(root) groups=0(root)
+# 显示指定用户信息
+[root@xiezhr home]# id testxiezhr
+uid=1006(testxiezhr) gid=1006(testxiezhr) groups=1006(testxiezhr)
+# 显示当前登录用户名称
+[root@xiezhr home]# id -gn
+root
+# 显示当前登录用户GID
+[root@xiezhr home]# id -g
+0
+# 显示当前登录用户UID
+[root@xiezhr home]# id -u
+0
+</code></pre>
+<h3 id="w-显示已登录用户信息"><a href="#w-显示已登录用户信息" class="headerlink" title="w 显示已登录用户信息"></a>w 显示已登录用户信息</h3><p>1、简介</p>
+<blockquote>
+<p>w命令可以显示已经登录系统的用户，并显示用户正在执行的命令</p>
+</blockquote>
+<p>2、语法格式</p>
+<pre class=" language-shell"><code class="language-shell">w [参数选项] [用户]
+</code></pre>
+<p>3、参数选项<br>|参数|参数说明|<br>|–|–|<br>|-h|不显示前两行标题信息|<br>|-u|忽略执行程序的名称以及CPU时间信息|<br>|-s|使用短输出格式|</p>
+<p>4、实践操作<br>① 显示已登录用户信息</p>
+<pre class=" language-shell"><code class="language-shell">[testuser@xiezhr ~]$ w
+ 21:21:42 up 609 days, 7 min,  4 users,  load average: 2.66, 2.99, 3.17
+USER     TTY      FROM             LOGIN@   IDLE   JCPU   PCPU WHAT
+root     pts/0    39.130.60.62     20:33   48:22   0.02s  0.02s -bash
+root     pts/1    39.130.60.62     20:55   13:10   0.07s  0.02s -bash
+root     pts/2    39.130.60.62     21:04   16:54   0.02s  0.02s -bash
+root     pts/3    39.130.60.62     21:21    6.00s  0.04s  0.00s w
+</code></pre>
+<p><strong>w命令执行结果说明</strong></p>
+<ul>
+<li>第一行依次显示当前的系统时间、系统从启动到现在已经运行的时间、登录到系统中的用户数和系统平均负载</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>列名</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>USER</td>
+<td>登录系统的用户</td>
+</tr>
+<tr>
+<td>TTY</td>
+<td>用户使用的TTY名称</td>
+</tr>
+<tr>
+<td>FROM</td>
+<td>用户从哪里登录进来，一般显示远程登录主机的IP地址或主机名</td>
+</tr>
+<tr>
+<td>LOGIN@</td>
+<td>用户登录的日期和时间</td>
+</tr>
+<tr>
+<td>IDLE</td>
+<td>显示终端空闲的时间</td>
+</tr>
+<tr>
+<td>JCPU</td>
+<td>表示该终端上的所有进程及子进程使用系统的总时间</td>
+</tr>
+<tr>
+<td>PCPU</td>
+<td>当前活动进程使用的系统时间</td>
+</tr>
+<tr>
+<td>WHAT</td>
+<td>当前用户执行的进程名称和选项</td>
+</tr>
+</tbody></table>
+<p>② -h 参数</p>
+<pre class=" language-shell"><code class="language-shell">[root@xiezhr ~]# w -h
+root     pts/0    39.130.60.62     20:33    1:04m  0.02s  0.02s -bash
+root     pts/1    39.130.60.62     20:55   28:55   0.07s  0.02s -bash
+root     pts/2    39.130.60.62     21:04   32:39   0.02s  0.02s -bash
+root     pts/3    39.130.60.62     21:21   15:51   0.04s  0.02s -bash
+root     pts/4    39.130.60.62     21:37    3.00s  0.02s  0.00s w -h
+</code></pre>
+<h3 id="显示已登录用户信息"><a href="#显示已登录用户信息" class="headerlink" title="显示已登录用户信息"></a>显示已登录用户信息</h3><p> 1、简介</p>
+<blockquote>
+<p>who 命令用于显示已经登录系统的用户，以及系统的启动时间等信息</p>
+</blockquote>
+<p>2、语法格式</p>
+<pre class=" language-shell"><code class="language-shell">who [参数选项]
+</code></pre>
+<p>3、参数选项<br>|参数|参数说明|<br>|–|–|<br>|-a|显示所有信息|<br>|-b|显示系统启动时间|<br>|-d|显示已结束的进程|<br>|-H|显示标题，默认是不显示的|<br>|-l|显示登录进程|</p>
+<p>4、实践操作<br>① 不带参数显示所有信息</p>
+<pre class=" language-shell"><code class="language-shell">[root@xiezhr ~]# who
+root     pts/0        2022-09-11 20:33 (39.130.60.62)
+root     pts/1        2022-09-11 20:55 (39.130.60.62)
+root     pts/2        2022-09-11 21:04 (39.130.60.62)
+root     pts/3        2022-09-11 21:21 (39.130.60.62)
+root     pts/4        2022-09-11 21:37 (39.130.60.62)
+root     pts/5        2022-09-11 22:19 (39.130.60.62)
+</code></pre>
+<p>② 显示系统启动时间</p>
+<pre class=" language-shell"><code class="language-shell">[root@xiezhr ~]# who -b
+         system boot  2021-01-10 21:14
+</code></pre>
+<p>③ 显示已结束的进程</p>
+<pre class=" language-shell"><code class="language-shell">[root@xiezhr ~]# who -d
+</code></pre>
+<p>④ 显示标题</p>
+<pre class=" language-shell"><code class="language-shell">[root@xiezhr ~]# who -H
+NAME     LINE         TIME             COMMENT
+root     pts/0        2022-09-11 20:33 (39.130.60.62)
+root     pts/1        2022-09-11 20:55 (39.130.60.62)
+root     pts/2        2022-09-11 21:04 (39.130.60.62)
+root     pts/3        2022-09-11 21:21 (39.130.60.62)
+root     pts/4        2022-09-11 21:37 (39.130.60.62)
+root     pts/5        2022-09-11 22:19 (39.130.60.62)
+</code></pre>
+<p>⑤ 显示带标题的所有信息</p>
+<pre class=" language-shell"><code class="language-shell"> [root@xiezhr ~]# who -H -a
+NAME       LINE         TIME             IDLE          PID COMMENT  EXIT
+           system boot  2021-01-10 21:14
+           run-level 3  2021-01-10 21:14
+LOGIN      ttyS0        2021-01-10 21:14              1009 id=tyS0
+LOGIN      tty1         2021-01-10 21:14              1008 id=tty1
+root     + pts/0        2022-09-11 20:33 01:50       23396 (39.130.60.62)
+root     + pts/1        2022-09-11 20:55 01:15       27638 (39.130.60.62)
+root     + pts/2        2022-09-11 21:04 01:19       29660 (39.130.60.62)
+root     + pts/3        2022-09-11 21:21 01:02         405 (39.130.60.62)
+root     + pts/4        2022-09-11 21:37 00:46        3587 (39.130.60.62)
+root     + pts/5        2022-09-11 22:19   .         11675 (39.130.60.62)
+</code></pre>
+<p>以上显示的各项含义</p>
+<blockquote>
+<p>名称 [状态] 线路  时间 [活动] [进程标识] （主机名）</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>列名</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>NAME</td>
+<td>名称： 用户登录名</td>
+</tr>
+<tr>
+<td></td>
+<td>状态：表示线路对用户是否都是可写的</td>
+</tr>
+<tr>
+<td>LINE</td>
+<td>线路： pts/0 pts/1等等</td>
+</tr>
+<tr>
+<td>TIME</td>
+<td>时间：用户登录系统的时间</td>
+</tr>
+<tr>
+<td>IDLE</td>
+<td>活动：某用户最后一次活动到现在的时间；. 表示一分钟内线路活动</td>
+</tr>
+<tr>
+<td>PID</td>
+<td>进程表示：用户进程id</td>
+</tr>
+<tr>
+<td>COMMENT</td>
+<td>主机名</td>
+</tr>
+</tbody></table>
+<h3 id="users-显示已登录用户"><a href="#users-显示已登录用户" class="headerlink" title="users 显示已登录用户"></a>users 显示已登录用户</h3><p>1、简介</p>
+<blockquote>
+<p>users 命令用于显示已经登录的用户。一个用户登录多次则会显示多次</p>
+</blockquote>
+<p>2、实践操作</p>
+<pre class=" language-shell"><code class="language-shell">[root@xiezhr ~]# users
+root root root root root root
+</code></pre>
+<h3 id="whoami-显示当前登录的用户"><a href="#whoami-显示当前登录的用户" class="headerlink" title="whoami 显示当前登录的用户"></a>whoami 显示当前登录的用户</h3><p>1、简介</p>
+<blockquote>
+<p>whoami 命令用于显示当前登录的用户。是英文who am i 的简写</p>
+</blockquote>
+<p>2、实践操作</p>
+<pre class=" language-shell"><code class="language-shell">[root@xiezhr ~]# whoami
+root
+[root@xiezhr ~]# su - testuser
+Last login: Sun Sep 11 21:21:40 CST 2022 on pts/3
+[testuser@xiezhr ~]$ whoami
+testuser
+</code></pre>
+<h3 id="last-显示用户登录列表"><a href="#last-显示用户登录列表" class="headerlink" title="last 显示用户登录列表"></a>last 显示用户登录列表</h3><p>1、简介</p>
+<blockquote>
+<p>last命令用于显示最近登录的用户列表</p>
+</blockquote>
+<p>2、语法格式</p>
+<pre class=" language-shell"><code class="language-shell">last [参数选项]
+</code></pre>
+<p>3、参数选项<br>|参数|参数说明|<br>|–|–|<br>|- num|指定显示结果的行数|</p>
+<p>4、实践操作<br> ① 不加参数显示</p>
+<pre class=" language-shell"><code class="language-shell">[root@xiezhr ~]# last
+root     pts/6        39.130.60.62     Sun Sep 11 22:42   still logged in   
+root     pts/0        39.130.60.62     Sun Sep 11 22:37   still logged in 
+root     pts/1        39.130.60.29     Sun Nov 29 09:09 - down   (01:02)    
+root     pts/0        39.130.60.29     Sun Nov 29 08:49 - down   (01:23)    
+root     pts/0        112.112.17.172   Fri Nov  6 12:50 - 15:45  (02:55)    
+
+wtmp begins Fri Nov  6 12:50:41 2020
+</code></pre>
+<p>② -num 参数，显示指定显示行数</p>
+<pre class=" language-shell"><code class="language-shell">[root@xiezhr ~]# last -5
+root     pts/6        39.130.60.62     Sun Sep 11 22:42   still logged in   
+root     pts/0        39.130.60.62     Sun Sep 11 22:37   still logged in   
+root     pts/5        39.130.60.62     Sun Sep 11 22:19   still logged in   
+root     pts/4        39.130.60.62     Sun Sep 11 21:37   still logged in   
+root     pts/3        39.130.60.62     Sun Sep 11 21:21   still logged in   
+
+wtmp begins Fri Nov  6 12:50:41 2020
+</code></pre>
+<h3 id="lastb-显示用户登录失败的记录"><a href="#lastb-显示用户登录失败的记录" class="headerlink" title="lastb 显示用户登录失败的记录"></a>lastb 显示用户登录失败的记录</h3><p>1、简介</p>
+<blockquote>
+<p>lastb命令用于显示用户登录失败的记录</p>
+</blockquote>
+<p>2、语法格式</p>
+<pre class=" language-shell"><code class="language-shell">lastb [参数选项]
+</code></pre>
+<p>3、参数说明<br>|参数|参数说明|<br>|–|–|<br>|-num|指定显示结果的行数|<br>4、实践操作</p>
+<pre class=" language-shell"><code class="language-shell">[root@xiezhr ~]# lastb -5
+         ssh:notty    159.75.56.103    Sun Sep 11 21:18 - 21:18  (00:00)    
+ltecl4r0 ssh:notty    45.141.84.126    Sun Sep 11 20:33 - 20:33  (00:00)    
+ltecl4r0 ssh:notty    45.141.84.126    Sun Sep 11 20:33 - 20:33  (00:00)    
+1admin0  ssh:notty    45.141.84.126    Sun Sep 11 20:32 - 20:32  (00:00)    
+1admin0  ssh:notty    45.141.84.126    Sun Sep 11 20:32 - 20:32  (00:00)    
+
+btmp begins Thu Sep  1 03:31:03 2022
+</code></pre>
+<h3 id="lastlog-显示所有用户最近登录记录"><a href="#lastlog-显示所有用户最近登录记录" class="headerlink" title="lastlog 显示所有用户最近登录记录"></a>lastlog 显示所有用户最近登录记录</h3><p>1、简介</p>
+<blockquote>
+<p>lastlog 命令用于显示用户最近登录的记录，便于查看系统是否异常</p>
+</blockquote>
+<p>2、实践操作</p>
+<pre class=" language-shell"><code class="language-shell">[root@xiezhr ~]# lastlog
+Username         Port     From             Latest
+root             pts/6                     Sun Sep 11 22:45:57 +0800 2022
+bin                                        **Never logged in**
+daemon                                     **Never logged in**
+adm                                        **Never logged in**
+lp                                         **Never logged in**
+test                                       **Never logged in**
+testxiezhr       pts/0                     Thu Sep  8 21:53:58 +0800 2022
+testuser         pts/6                     Sun Sep 11 22:42:24 +0800 2022
+</code></pre>
+<p><strong>注意：</strong><br>当有从不登录的用户突然登录系统了，就要考虑是不是有用户入侵系统了</p>
+<p>这期内容就到这，下期根据思维导图就到Linux磁盘与文件系统相关命令的使用了。<br>涉及到的命令有： fdisk、df、mount、dd、unmount、sync、等等<br>敬请期待哦(●’◡’●)</p>
+<p>专栏目录：<a target="_blank" rel="noopener" href="https://blog.csdn.net/rong09_13/article/details/123303512">快速上手Linux核心命令专栏目录</a></p>
+<p>上一篇：<a target="_blank" rel="noopener" href="http://t.csdn.cn/CNzOq">快速上手Linux核心命令（十一）：Linux安装软件</a><br>下一篇：<a href="#">快速上手Linux核心命令（十二）：磁盘与文件系统相关命令（博主正在玩命更新中）</a></p>
+
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="/about" rel="external nofollow noreferrer">xiezhr</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="https://www.xiezhrspace.cn/archives/50bbf5e6.html">https://www.xiezhrspace.cn/archives/50bbf5e6.html</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="/about" target="_blank">xiezhr</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/Linux/">
+                                    <span class="chip bg-color">Linux</span>
+                                </a>
+                            
+                                <a href="/tags/Linux-%E6%A0%B8%E5%BF%83%E5%91%BD%E4%BB%A4/">
+                                    <span class="chip bg-color">Linux 核心命令</span>
+                                </a>
+                            
+                                <a href="/tags/Linux%E7%94%A8%E6%88%B7%E7%9B%B8%E5%85%B3%E5%91%BD%E4%BB%A4/">
+                                    <span class="chip bg-color">Linux用户相关命令</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="qq,wechat,weibo,douban" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+                <style>
+    #reward {
+        margin: 40px 0;
+        text-align: center;
+    }
+
+    #reward .reward-link {
+        font-size: 1.4rem;
+        line-height: 38px;
+    }
+
+    #reward .btn-floating:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    #rewardModal {
+        width: 320px;
+        height: 350px;
+    }
+
+    #rewardModal .reward-title {
+        margin: 15px auto;
+        padding-bottom: 5px;
+    }
+
+    #rewardModal .modal-content {
+        padding: 10px;
+    }
+
+    #rewardModal .close {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 1.3rem;
+        line-height: 20px;
+        cursor: pointer;
+    }
+
+    #rewardModal .close:hover {
+        color: #ef5350;
+        transform: scale(1.3);
+        -moz-transform:scale(1.3);
+        -webkit-transform:scale(1.3);
+        -o-transform:scale(1.3);
+    }
+
+    #rewardModal .reward-tabs {
+        margin: 0 auto;
+        width: 210px;
+    }
+
+    .reward-tabs .tabs {
+        height: 38px;
+        margin: 10px auto;
+        padding-left: 0;
+    }
+
+    .reward-content ul {
+        padding-left: 0 !important;
+    }
+
+    .reward-tabs .tabs .tab {
+        height: 38px;
+        line-height: 38px;
+    }
+
+    .reward-tabs .tab a {
+        color: #fff;
+        background-color: #ccc;
+    }
+
+    .reward-tabs .tab a:hover {
+        background-color: #ccc;
+        color: #fff;
+    }
+
+    .reward-tabs .wechat-tab .active {
+        color: #fff !important;
+        background-color: #22AB38 !important;
+    }
+
+    .reward-tabs .alipay-tab .active {
+        color: #fff !important;
+        background-color: #019FE8 !important;
+    }
+
+    .reward-tabs .reward-img {
+        width: 210px;
+        height: 210px;
+    }
+</style>
+
+<div id="reward">
+    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-medium waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close modal-close"><i class="fas fa-times"></i></a>
+            <h4 class="reward-title">你的赏识是我前进的动力</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs row">
+                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
+                    </ul>
+                    <div id="alipay">
+                        <img src="https://fastly.jsdelivr.net/gh/xiezhr/xiezhrblog-cdn-source/source/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                    <div id="wechat">
+                        <img src="https://fastly.jsdelivr.net/gh/xiezhr/xiezhrblog-cdn-source/source/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('.tabs').tabs();
+    });
+</script>
+
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+        <style>
+    .valine-card {
+        margin: 1.5rem auto;
+    }
+
+    .valine-card .card-content {
+        padding: 20px 20px 5px 20px;
+    }
+
+    #vcomments textarea {
+        
+        box-sizing: border-box;
+        /* background: url("https://fastly.jsdelivr.net/gh/xiezhr/xiezhrblog-cdn-source/source/medias/comment_bg.webp") 100% 100% no-repeat; */
+        background-image: url("https://fastly.jsdelivr.net/gh/xiezhr/xiezhrblog-cdn-source/source/medias/comment_bg.webp");
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position:right;
+        resize:vertical;
+    }
+
+    #vcomments p {
+        margin: 2px 2px 10px;
+        font-size: 1.05rem;
+        line-height: 1.78rem;
+    }
+
+    #vcomments blockquote p {
+        text-indent: 0.2rem;
+    }
+
+    #vcomments a {
+        padding: 0 2px;
+        color: #4cbf30;
+        font-weight: 500;
+        text-decoration: none;
+    }
+
+    #vcomments img {
+        max-width: 100%;
+        height: auto;
+        cursor: pointer;
+    }
+
+    #vcomments ol li {
+        list-style-type: decimal;
+    }
+
+    #vcomments ol,
+    ul {
+        display: block;
+        padding-left: 2em;
+        word-spacing: 0.05rem;
+    }
+
+    #vcomments ul li,
+    ol li {
+        display: list-item;
+        line-height: 1.8rem;
+        font-size: 1rem;
+    }
+
+    #vcomments ul li {
+        list-style-type: disc;
+    }
+
+    #vcomments ul ul li {
+        list-style-type: circle;
+    }
+
+    #vcomments table, th, td {
+        padding: 12px 13px;
+        border: 1px solid #dfe2e5;
+    }
+
+    #vcomments table, th, td {
+        border: 0;
+    }
+
+    table tr:nth-child(2n), thead {
+        background-color: #fafafa;
+    }
+
+    #vcomments table th {
+        background-color: #f2f2f2;
+        min-width: 80px;
+    }
+
+    #vcomments table td {
+        min-width: 80px;
+    }
+
+    #vcomments h1 {
+        font-size: 1.85rem;
+        font-weight: bold;
+        line-height: 2.2rem;
+    }
+
+    #vcomments h2 {
+        font-size: 1.65rem;
+        font-weight: bold;
+        line-height: 1.9rem;
+    }
+
+    #vcomments h3 {
+        font-size: 1.45rem;
+        font-weight: bold;
+        line-height: 1.7rem;
+    }
+
+    #vcomments h4 {
+        font-size: 1.25rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    #vcomments h5 {
+        font-size: 1.1rem;
+        font-weight: bold;
+        line-height: 1.4rem;
+    }
+
+    #vcomments h6 {
+        font-size: 1rem;
+        line-height: 1.3rem;
+    }
+
+    #vcomments p {
+        font-size: 1rem;
+        line-height: 1.5rem;
+    }
+
+    #vcomments hr {
+        margin: 12px 0;
+        border: 0;
+        border-top: 1px solid #ccc;
+    }
+
+    #vcomments blockquote {
+        margin: 15px 0;
+        border-left: 5px solid #42b983;
+        padding: 1rem 0.8rem 0.3rem 0.8rem;
+        color: #666;
+        background-color: rgba(66, 185, 131, .1);
+    }
+
+    #vcomments pre {
+        font-family: monospace, monospace;
+        padding: 1.2em;
+        margin: .5em 0;
+        background: #272822;
+        overflow: auto;
+        border-radius: 0.3em;
+        tab-size: 4;
+    }
+
+    #vcomments code {
+        font-family: monospace, monospace;
+        padding: 1px 3px;
+        font-size: 0.92rem;
+        color: #e96900;
+        background-color: #f8f8f8;
+        border-radius: 2px;
+    }
+
+    #vcomments pre code {
+        font-family: monospace, monospace;
+        padding: 0;
+        color: #e8eaf6;
+        background-color: #272822;
+    }
+
+    #vcomments pre[class*="language-"] {
+        padding: 1.2em;
+        margin: .5em 0;
+    }
+
+    #vcomments code[class*="language-"],
+    pre[class*="language-"] {
+        color: #e8eaf6;
+    }
+
+    #vcomments [type="checkbox"]:not(:checked), [type="checkbox"]:checked {
+        position: inherit;
+        margin-left: -1.3rem;
+        margin-right: 0.4rem;
+        margin-top: -1px;
+        vertical-align: middle;
+        left: unset;
+        visibility: visible;
+    }
+
+    #vcomments b,
+    strong {
+        font-weight: bold;
+    }
+
+    #vcomments dfn {
+        font-style: italic;
+    }
+
+    #vcomments small {
+        font-size: 85%;
+    }
+
+    #vcomments cite {
+        font-style: normal;
+    }
+
+    #vcomments mark {
+        background-color: #fcf8e3;
+        padding: .2em;
+    }
+
+    #vcomments table, th, td {
+        padding: 12px 13px;
+        border: 1px solid #dfe2e5;
+    }
+
+    table tr:nth-child(2n), thead {
+        background-color: #fafafa;
+    }
+
+    #vcomments table th {
+        background-color: #f2f2f2;
+        min-width: 80px;
+    }
+
+    #vcomments table td {
+        min-width: 80px;
+    }
+
+    #vcomments [type="checkbox"]:not(:checked), [type="checkbox"]:checked {
+        position: inherit;
+        margin-left: -1.3rem;
+        margin-right: 0.4rem;
+        margin-top: -1px;
+        vertical-align: middle;
+        left: unset;
+        visibility: visible;
+    }
+
+    
+</style>
+
+<div class="card valine-card" data-aos="fade-up">
+    <div class="comment_headling" style="font-size: 20px; font-weight: 700; position: relative; padding-left: 20px; top: 15px; padding-bottom: 5px;">
+        <i class="fas fa-comments fa-fw" aria-hidden="true"></i>
+        <span>评论</span>
+    </div>
+    <div id="vcomments" class="card-content" style="display: grid">
+    </div>
+</div>
+
+<script src="/libs/valine/av-min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/small-rose/small-rose.github.io/libs/valine/Valine.min.js"></script>
+
+<script>
+    // new Valine({
+    //     el: '#vcomments',
+    //     appId: 'nLFYjWbdxNXHi8ECkNbad7eo-gzGzoHsz',
+    //     appKey: 'EN6vxfxOV7eBy6HlfVE4jhGI',
+    //     notify: 'true' === 'true',
+    //     verify: 'true' === 'true',
+    //     visitor: 'true' === 'true',
+    //     avatar: 'monsterid',
+    //     pageSize: '10',
+    //     lang: 'zh-cn',
+    //     placeholder: '欢迎你留下宝贵的意见 ^-^&#39;'
+    // });
+
+    let metaPlaceholder = {"nick":"昵称/QQ号(必填)","mail":"邮箱(必填)","link":"网址(https://)"} ;
+    //这里要换行
+    new Valine({
+            el: '#vcomments',
+            appId: 'nLFYjWbdxNXHi8ECkNbad7eo-gzGzoHsz',
+            appKey: 'EN6vxfxOV7eBy6HlfVE4jhGI',
+            notify: 'true' === 'true',
+            verify: 'true' === 'true',
+            visitor: 'true' === 'true',
+            avatar: 'monsterid',
+            pageSize: '10',
+            lang: 'zh-CN',
+            placeholder: '欢迎你留下宝贵的意见 ^-^&#39;',
+            meta: ["nick", "mail", "link"],
+            recordIP: 'true' === 'true',
+            enableQQ: 'monsterid',
+            requiredFields: ["1610cd43778f1d972a92503426346411"],
+            master: ["1610cd43778f1d972a92503426346411"],
+            friends: ["c08508165c8eba9a77f8c2853xxxx09e", "901345d4c91ddfd8db0f175bbcfff0c8", "1512958e18378c98b498d5effe3e76ff"],
+            tagMeta: ["博主", "小伙伴", "访客"],
+            metaPlaceholder: metaPlaceholder,
+
+        });
+
+</script>
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/archives/5cf1771e.html">
+                    <div class="card-image">
+                        
+                        <img src="https://img-blog.csdnimg.cn/78bdb2e0a19c46c8b08ef026f0e9460f.jpeg" class="responsive-img" alt="【必知必会的MySQL知识】④DQL语言">
+                        
+                        <span class="card-title">【必知必会的MySQL知识】④DQL语言</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            【必知必会的MySQL知识】④DQL语言
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2022-09-22
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A%E7%9A%84MySQL%E7%9F%A5%E8%AF%86/" class="post-category">
+                                    必知必会的MySQL知识
+                                </a>
+                            
+                            <a href="/categories/%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A%E7%9A%84MySQL%E7%9F%A5%E8%AF%86/DQL%E8%AF%AD%E8%A8%80/" class="post-category">
+                                    DQL语言
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A%E7%9A%84MySQL%E7%9F%A5%E8%AF%86/">
+                        <span class="chip bg-color">必知必会的MySQL知识</span>
+                    </a>
+                    
+                    <a href="/tags/DQL%E8%AF%AD%E8%A8%80/">
+                        <span class="chip bg-color">DQL语言</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/archives/98273844.html">
+                    <div class="card-image">
+                        
+                        <img src="https://img-blog.csdnimg.cn/5cbba9b0a2fa486e9b1686df3e2966ed.jpeg" class="responsive-img" alt="【必知必会的MySQL知识】③DML语言">
+                        
+                        <span class="card-title">【必知必会的MySQL知识】③DML语言</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            【必知必会的MySQL知识】③DML语言
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-09-04
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/MySQL/" class="post-category">
+                                    MySQL
+                                </a>
+                            
+                            <a href="/categories/MySQL/DML%E8%AF%AD%E8%A8%80/" class="post-category">
+                                    DML语言
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/MySQL/">
+                        <span class="chip bg-color">MySQL</span>
+                    </a>
+                    
+                    <a href="/tags/DML%E8%AF%AD%E8%A8%80/">
+                        <span class="chip bg-color">DML语言</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+<script>
+    $('#articleContent').on('copy', function (e) {
+        // IE8 or earlier browser is 'undefined'
+        if (typeof window.getSelection === 'undefined') return;
+
+        var selection = window.getSelection();
+        // if the selection is short let's not annoy our users.
+        if (('' + selection).length < Number.parseInt('300')) {
+            return;
+        }
+
+        // create a div outside of the visible area and fill it with the selected text.
+        var bodyElement = document.getElementsByTagName('body')[0];
+        var newdiv = document.createElement('div');
+        newdiv.style.position = 'absolute';
+        newdiv.style.left = '-99999px';
+        bodyElement.appendChild(newdiv);
+        newdiv.appendChild(selection.getRangeAt(0).cloneContents());
+
+        // we need a <pre> tag workaround.
+        // otherwise the text inside "pre" loses all the line breaks!
+        //if (selection.getRangeAt(0).commonAncestorContainer.nodeName === 'PRE') {
+          //  newdiv.innerHTML = "<pre>" + newdiv.innerHTML + "</pre>";
+        //}
+        newdiv.innerHTML = "<pre>" + newdiv.innerHTML + "</pre>";
+        var url = document.location.href;
+        newdiv.innerHTML += '<br />'
+            + '来源: xiezhrspace<br />'
+            + '文章作者: xiezhr<br />'
+            + '文章链接: <a href="' + url + '">' + url + '</a><br />'
+            + '本文章著作权归作者所有，任何形式的转载都请注明出处。';
+
+        selection.selectAllChildren(newdiv);
+        window.setTimeout(function () {bodyElement.removeChild(newdiv);}, 200);
+    });
+</script>
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+<!-- 代码块折行 -->
+
+<style type="text/css">
+code[class*="language-"], pre[class*="language-"] { white-space: pre !important; }
+</style>
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="https://fastly.jsdelivr.net/gh/xiezhr/xiezhrblog-cdn-source/source/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+
+
+    <style>
+    .youpaiyunlogo {
+        height: 26px;
+        display: inline-block;
+        vertical-align: top;
+    }
+</style>
+<footer class="page-footer bg-color">
+    
+    <div class="container row center-align" style="margin-bottom: 15px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            <span id="year">2020</span>
+            <a href="/about" target="_blank">xiezhr</a>
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            <br>
+            
+            &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
+                class="white-color">170.7k</span>&nbsp;字
+            
+            
+            
+            
+            
+            
+            <span id="busuanzi_container_site_pv">
+                |&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;<span id="busuanzi_value_site_pv"
+                    class="white-color"></span>&nbsp;次
+            </span>
+            
+            
+            <span id="busuanzi_container_site_uv">
+                |&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;<span id="busuanzi_value_site_uv"
+                    class="white-color"></span>&nbsp;人
+            </span>
+            
+            <br>
+            
+            <span id="sitetime">载入运行时间...</span>
+            <script>
+                function siteTime() {
+                    var seconds = 1000;
+                    var minutes = seconds * 60;
+                    var hours = minutes * 60;
+                    var days = hours * 24;
+                    var years = days * 365;
+                    var today = new Date();
+                    var startYear = "2020";
+                    var startMonth = "11";
+                    var startDate = "17";
+                    var startHour = "9";
+                    var startMinute = "1";
+                    var startSecond = "1";
+                    var todayYear = today.getFullYear();
+                    var todayMonth = today.getMonth() + 1;
+                    var todayDate = today.getDate();
+                    var todayHour = today.getHours();
+                    var todayMinute = today.getMinutes();
+                    var todaySecond = today.getSeconds();
+                    var t1 = Date.UTC(startYear, startMonth, startDate, startHour, startMinute, startSecond);
+                    var t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond);
+                    var diff = t2 - t1;
+                    var diffYears = Math.floor(diff / years);
+                    var diffDays = Math.floor((diff / days) - diffYears * 365);
+                    var diffHours = Math.floor((diff - (diffYears * 365 + diffDays) * days) / hours);
+                    var diffMinutes = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours) /
+                        minutes);
+                    var diffSeconds = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours -
+                        diffMinutes * minutes) / seconds);
+                    if (startYear == todayYear) {
+                        document.getElementById("year").innerHTML = todayYear;
+                        document.getElementById("sitetime").innerHTML = "小破站已在各种灾难中安全运行 " + diffDays + " 天 " + diffHours +
+                            " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
+                    } else {
+                        document.getElementById("year").innerHTML = startYear + " - " + todayYear;
+                        document.getElementById("sitetime").innerHTML = "小破站已在各种灾难中安全运行 " + diffYears + " 年 " + diffDays +
+                            " 天 " + diffHours + " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
+                    }
+                }
+                setInterval(siteTime, 1000);
+            </script>
+            
+            <br>
+            
+            <span id="icp"><img src="/medias/icp.png" style="vertical-align: text-bottom;" />
+                <a href="https://beian.miit.gov.cn/" target="_blank">滇ICP备2020008901号</a>
+            </span>
+            
+            <a href="https://www.upyun.com/?utm_source=lianmeng&amp;utm_medium=referra" target="_blank" title="本站由又拍云 提供CDN加速/云存储服务" >
+                <img src="https://cdn2.sublimerui.top/2021/01/09/4a78e24138103.png"class="youpaiyunlogo"/>
+            </a>
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/xiezhr" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+    <a href="https://cdn.jsdelivr.net/gh/xiezhr/xiezhrblog-cdn-source@main/blog-img/1653405669657wx.jpg" class="tooltipped" target="_blank" data-tooltip="微信联系我: https://cdn.jsdelivr.net/gh/xiezhr/xiezhrblog-cdn-source@main/blog-img/1653405669657wx.jpg" data-position="top" data-delay="50">
+        <i class="fab fa-weixin"></i>
+    </a>
+
+
+
+    <a href="https://www.jianshu.com/u/2b57477b4c5a" class="tooltipped" target="_blank" data-tooltip="关注我的简书: https://www.jianshu.com/u/2b57477b4c5a" data-position="top" data-delay="50">
+        <i class="fab fa-jianshu">简</i>
+    </a>
+
+
+
+    <a href="https://blog.csdn.net/rong09_13" class="tooltipped" target="_blank" data-tooltip="关注我的CSDN: https://blog.csdn.net/rong09_13" data-position="top" data-delay="50">
+        <i class="fab fa-csdn">C</i>
+    </a>
+
+
+
+    <a href="https://juejin.im/user/1829211147871415/posts" class="tooltipped" target="_blank" data-tooltip="关注我的掘金: https://juejin.im/user/1829211147871415/posts" data-position="top" data-delay="50">
+        <i class="fab fa-juejin">掘</i>
+    </a>
+
+
+
+    <a href="mailto:1666397814@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=1666397814" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 1666397814" data-position="top" data-delay="50">
+        <i class="fab fa-qq"></i>
+    </a>
+
+
+
+
+
+    <a href="https://www.zhihu.com/people/rong-xie-49-35" class="tooltipped" target="_blank" data-tooltip="关注我的知乎: https://www.zhihu.com/people/rong-xie-49-35" data-position="top" data-delay="50">
+        <i class="fab fa-zhihu1">知</i>
+    </a>
+
+
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script src="https://fastly.jsdelivr.net/gh/xiezhr/xiezhrblog-cdn-source/source/js/search.js"></script>
+<script type="text/javascript">
+$(function () {
+    searchFunc('/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <style>
+    .top-scroll .btn-floating {
+        background: rgb(73, 177, 245);
+        width: 38px;
+        height: 38px;
+    }
+
+</style>
+
+<!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="https://fastly.jsdelivr.net/gh/xiezhr/xiezhrblog-cdn-source/source/libs/materialize/materialize.min.js"></script>
+    <script src="https://fastly.jsdelivr.net/gh/xiezhr/xiezhrblog-cdn-source/source/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="https://fastly.jsdelivr.net/gh/xiezhr/xiezhrblog-cdn-source/source/libs/aos/aos.js"></script>
+    <script src="https://fastly.jsdelivr.net/gh/xiezhr/xiezhrblog-cdn-source/source/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="https://fastly.jsdelivr.net/gh/xiezhr/xiezhrblog-cdn-source/source/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="https://fastly.jsdelivr.net/gh/xiezhr/xiezhrblog-cdn-source/source/js/matery.js"></script>
+
+    
+    <!-- 自动更改网站标题 -->
+    <script type="text/javascript">
+        var OriginTitile=document.title,st;
+        document.addEventListener("visibilitychange",function(){
+            document.hidden?(document.title="ヽ(●-`Д´-)ノ你要玩捉迷藏嘛",clearTimeout(st)):(document.title="(Ő∀Ő3)ノ欢迎回来！",st=setTimeout(function(){document.title="从0到1每天学一点点"},3e3))
+        })
+    </script>
+
+    <div id="weather-v2-plugin-simple"></div>
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    
+    <script async src="https://fastly.jsdelivr.net/gh/xiezhr/xiezhrblog-cdn-source/source/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+    
+    <script type="text/javascript" color="0,0,255"
+        pointColor="0,0,255" opacity='0.7'
+        zIndex="-1" count="120"
+        src="https://fastly.jsdelivr.net/gh/xiezhr/xiezhrblog-cdn-source/source/libs/background/canvas-nest.js"></script>
+    
+
+    
+
+    
+
+    
+    <script src="https://fastly.jsdelivr.net/gh/xiezhr/xiezhrblog-cdn-source/source/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+    <!--添加全局深色模式-->
+    <script> 
+        if (localStorage.getItem('dark') === '1') { 
+            document.body.classList.add('dark'); 
+        } else if (new Date().getHours() >= 22 || new Date().getHours() < 7) {
+             document.body.classList.add('dark'); 
+        } else if (matchMedia('(prefers-color-scheme: dark)').matches) { 
+            document.body.classList.add('dark'); 
+        } 
+    </script> 
+    <a onclick="switchNightMode()" id="sma"> 
+        <i class="fa fa-moon-o" id="nightMode" aria-hidden="true"></i> 
+    </a>
+</body>
+
+</html>
