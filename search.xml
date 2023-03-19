@@ -3,85 +3,85 @@
   <entry>
     <title>或许你想要的画图工具在这里</title>
     <url>/archives/e471b694.html</url>
-    <content><![CDATA[<p>之前文章发布后，有小伙伴问下面的画怎么画的（偷偷告诉你，其实我是用铅笔+水彩笔画的），哈哈，开玩笑了。其实这些图都是用<code>Excalidraw</code> 画出来的。<br><img src="https://img-blog.csdnimg.cn/b803745f7a9c4e12bf1ac2818b3a7066.png" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/e657bf71a3ab4eb0b856cfbfbe0180c8.png" alt="在这里插入图片描述"></p>
+    <content><![CDATA[<p>之前文章发布后，有小伙伴问下面的画怎么画的（偷偷告诉你，其实我是用铅笔+水彩笔画的），哈哈，开玩笑了。其实这些图都是用<code>Excalidraw</code> 画出来的。<br><img src="http://blog.xiezhrspace.cn/blog-img/b803745f7a9c4e12bf1ac2818b3a7066.png" alt="在这里插入图片描述"><br><img src="http://blog.xiezhrspace.cn/blog-img/8acf4d766946449a8ddf6109c2f557a0.png" alt="在这里插入图片描述"></p>
 <p>我们平常不管是工作中，还是在日常写文章，都会接触到不少画图工具。</p>
 <p>我们对ProcessOn、draw.io 等这些优秀的画图软件可以说是不陌生了。</p>
 <p>自己平常写文章也用它们来画图。可以用来画流程图、思维导图、原型图、组织结构图、网络拓扑图等等。</p>
 <p>但是，这些用久了之后吧，感觉画出来的都方方正正的、显得特别正式。当然了，这个要是放到PPT上面用于对产品的讲解、又或是用于述职报告等都是是非常不错的选择。</p>
 <p>不过呢，今天呢给你介绍一款非常漂亮小众的手绘画图工具。</p>
 <p>听到手绘这个词，你会不会眼前一亮呢。</p>
-<h3 id="1-绘图工具比较"><a href="#1-绘图工具比较" class="headerlink" title="1 绘图工具比较"></a>1 绘图工具比较</h3><p>我们平常画出来的图大多是这样的<br><img src="https://img-blog.csdnimg.cn/ac88df96efab4f7aa8520913eff9e051.png" alt="在这里插入图片描述"></p>
-<p><img src="https://img-blog.csdnimg.cn/8acf4d766946449a8ddf6109c2f557a0.png" alt="在这里插入图片描述"><br>但是，今天我们推荐的这款画图软件，它画出来的图是这样的<br><img src="https://img-blog.csdnimg.cn/fa9920f60d5642cea913bd5b75e6bc8d.png" alt="小人"><br>啊，这 怎么有点丑，重新画几个。下面看起来好看多了，O(∩_∩)O<br><img src="https://img-blog.csdnimg.cn/3da938b0f2f345258db628ce201b8bb8.png" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/0c10c1e0af0a4ddcbd4ca4fd9165794e.png" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/8d6c805b89544adcae0e91e8c75d4079.png" alt="异常处理"></p>
+<h3 id="1-绘图工具比较"><a href="#1-绘图工具比较" class="headerlink" title="1 绘图工具比较"></a>1 绘图工具比较</h3><p>我们平常画出来的图大多是这样的<br><img src="http://blog.xiezhrspace.cn/blog-img/ac88df96efab4f7aa8520913eff9e051.png" alt="在这里插入图片描述"></p>
+<p><img src="http://blog.xiezhrspace.cn/blog-img/e657bf71a3ab4eb0b856cfbfbe0180c8.png" alt="在这里插入图片描述"><br>但是，今天我们推荐的这款画图软件，它画出来的图是这样的<br><img src="http://blog.xiezhrspace.cn/blog-img/3da938b0f2f345258db628ce201b8bb8.png" alt="小人"><br>啊，这 怎么有点丑，重新画几个。下面看起来好看多了，O(∩_∩)O<br><img src="http://blog.xiezhrspace.cn/blog-img/8d6c805b89544adcae0e91e8c75d4079.png" alt="在这里插入图片描述"><br><img src="http://blog.xiezhrspace.cn/blog-img/a22104a04e1746ce99ad237c14277951.png" alt="在这里插入图片描述"><br><img src="http://blog.xiezhrspace.cn/blog-img/51d4b672c6f64c91a2b57b44c64a0e12.png" alt="异常处理"></p>
 <p>这样的风格是不是你喜欢的呢？</p>
 <h3 id="2-excalidraw-介绍"><a href="#2-excalidraw-介绍" class="headerlink" title="2 excalidraw 介绍"></a>2 excalidraw 介绍</h3><blockquote>
 <p>Excalidraw 是一款轻量的手绘风格电子白板工具。无论是 Windows / macOS / linux，甚至是手机，打开浏览器就能使用，能简单地画出美观漂亮的流程图、示意图和开发架构图等常用图片。不仅可以画图、还可以作为会议画板使用。</p>
 </blockquote>
 <p>Excalidraw 是一款开源软件，不需要安装、不需要注册就可以免费使用。</p>
 <p>GitHub地址：<strong><a href="https://github.com/excalidraw/excalidraw">https://github.com/excalidraw/excalidraw</a></strong><br>twitter地址：<strong><a href="https://twitter.com/excalidraw">https://twitter.com/excalidraw</a></strong></p>
-<p>目前已经有<strong>41.9k</strong> star了<br><img src="https://img-blog.csdnimg.cn/a22104a04e1746ce99ad237c14277951.png" alt="在这里插入图片描述"><br>作者呢也在持续更新<br><img src="https://img-blog.csdnimg.cn/c341d7115d2240888dd6e6f540c328de.png" alt="在这里插入图片描述"></p>
+<p>目前已经有<strong>41.9k</strong> star了<br><img src="http://blog.xiezhrspace.cn/blog-img/fa9920f60d5642cea913bd5b75e6bc8d.png" alt="在这里插入图片描述"><br>作者呢也在持续更新<br><img src="http://blog.xiezhrspace.cn/blog-img/bf3d6ee6e49348b59d851f6ff740fe27.png" alt="在这里插入图片描述"></p>
 <h3 id="3-excalidraw-使用"><a href="#3-excalidraw-使用" class="headerlink" title="3 excalidraw 使用"></a>3 excalidraw 使用</h3><blockquote>
 <p>excalidraw 可以直接浏览器打开使用其SaaS版本，或者自己部署 又或者集成到自己软件中</p>
 </blockquote>
 <p>excalidraw 地址：<strong><a href="https://excalidraw.com/">https://excalidraw.com/</a></strong></p>
-<p>浏览器输入地址打开即可使用，使用起来也很简单，都不用去学<br><img src="https://img-blog.csdnimg.cn/bf3d6ee6e49348b59d851f6ff740fe27.png" alt="在这里插入图片描述"></p>
+<p>浏览器输入地址打开即可使用，使用起来也很简单，都不用去学<br><img src="http://blog.xiezhrspace.cn/blog-img/edf13cddde424900b3c8c227b8ef8013.png" alt="在这里插入图片描述"></p>
 <h4 id="3-1-快速绘制基本图形"><a href="#3-1-快速绘制基本图形" class="headerlink" title="3.1 快速绘制基本图形"></a>3.1 快速绘制基本图形</h4><p>可以快速绘制 <strong>矩形</strong>、<strong>菱形</strong>、<strong>椭圆</strong>、<strong>箭头</strong>、<strong>线</strong>、<strong>文字</strong> 等基本图形</p>
 <p>[video(video-YVOMhS5K-1677154987998)(type-csdn)(url-<a href="https://live.csdn.net/v/embed/277640)(image-https://video-community.csdnimg.cn/vod-84deb4/8b106df0b2c371edbfb66723a78f0102/snapshots/8d1023ca07b04ccda9d9c55512a06c60-00004.jpg?auth_key=4830678850-0-0-e6d61e6478e834ccbb2b3c69d1c5a67f)(title-%E7%BB%98%E5%9B%BE)%5D">https://live.csdn.net/v/embed/277640)(image-https://video-community.csdnimg.cn/vod-84deb4/8b106df0b2c371edbfb66723a78f0102/snapshots/8d1023ca07b04ccda9d9c55512a06c60-00004.jpg?auth_key=4830678850-0-0-e6d61e6478e834ccbb2b3c69d1c5a67f)(title-绘图)]</a></p>
 <h5 id="3-1-1-矩形、菱形、椭圆绘制"><a href="#3-1-1-矩形、菱形、椭圆绘制" class="headerlink" title="3.1.1  矩形、菱形、椭圆绘制"></a>3.1.1  矩形、菱形、椭圆绘制</h5><p>① 绘制图形</p>
 <blockquote>
-<p>选中矩形（快捷键2）或菱形（快捷键3）或椭圆（快捷键4）–&gt;拖动鼠标即可画出各种大小图形<br><img src="https://img-blog.csdnimg.cn/51d4b672c6f64c91a2b57b44c64a0e12.png" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/edf13cddde424900b3c8c227b8ef8013.png" alt="在这里插入图片描述"><br>小技巧：选中要绘制的基本图形，按住<code>shift</code> 可以绘制正方形、圆形</p>
+<p>选中矩形（快捷键2）或菱形（快捷键3）或椭圆（快捷键4）–&gt;拖动鼠标即可画出各种大小图形<br><img src="http://blog.xiezhrspace.cn/blog-img/c341d7115d2240888dd6e6f540c328de.png" alt="在这里插入图片描述"><br><img src="http://blog.xiezhrspace.cn/blog-img/b5555b6469604e1e8f3d43a2fa6aa12d.png" alt="在这里插入图片描述"><br>小技巧：选中要绘制的基本图形，按住<code>shift</code> 可以绘制正方形、圆形</p>
 </blockquote>
-<p>② 调整边框颜色<br><img src="https://img-blog.csdnimg.cn/75ecdfbd0af746f7b05a0d512064374c.png" alt="在这里插入图片描述"><br>② 填充背景<br><img src="https://img-blog.csdnimg.cn/27c6d858278f411a81542e561e25dbda.png" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/b5555b6469604e1e8f3d43a2fa6aa12d.png" alt="在这里插入图片描述"></p>
-<p>还可以选择填充效果<br><img src="https://img-blog.csdnimg.cn/afb59af8c33a40f5b85a22ec9e68d3eb.png" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/e394addc1ea84724a97ea18422eedd71.png" alt="在这里插入图片描述"></p>
-<p>③ 边框样式<br><img src="https://img-blog.csdnimg.cn/29387ed872244d7a8453c1e7cfb15ca1.png" alt="在这里插入图片描述"><br>还可以选择边框线条风格<br><img src="https://img-blog.csdnimg.cn/104160bc913b4587aca7059c22c61109.png" alt="在这里插入图片描述"></p>
+<p>② 调整边框颜色<br><img src="http://blog.xiezhrspace.cn/blog-img/75ecdfbd0af746f7b05a0d512064374c.png" alt="在这里插入图片描述"><br>② 填充背景<br><img src="http://blog.xiezhrspace.cn/blog-img/e394addc1ea84724a97ea18422eedd71.png" alt="在这里插入图片描述"><br><img src="http://blog.xiezhrspace.cn/blog-img/afb59af8c33a40f5b85a22ec9e68d3eb.png" alt="在这里插入图片描述"></p>
+<p>还可以选择填充效果<br><img src="http://blog.xiezhrspace.cn/blog-img/27c6d858278f411a81542e561e25dbda.png" alt="在这里插入图片描述"><br><img src="http://blog.xiezhrspace.cn/blog-img/0c10c1e0af0a4ddcbd4ca4fd9165794e.png" alt="在这里插入图片描述"></p>
+<p>③ 边框样式<br><img src="http://blog.xiezhrspace.cn/blog-img/7aa7dd5dd7b74e89899204e30013d9aa.png" alt="在这里插入图片描述"><br>还可以选择边框线条风格<br><img src="http://blog.xiezhrspace.cn/blog-img/81e3eec653b249b4beb26c5fce2871e9.png" alt="在这里插入图片描述"></p>
 <h5 id="3-1-2-曲线、直线绘制"><a href="#3-1-2-曲线、直线绘制" class="headerlink" title="3.1.2 曲线、直线绘制"></a>3.1.2 曲线、直线绘制</h5><p>① 线条绘制</p>
 <blockquote>
-<p>选中箭头（快捷键5）或线条（快捷键6）==&gt;点击创建多个点/拖到创建直线<br><img src="https://img-blog.csdnimg.cn/7aa7dd5dd7b74e89899204e30013d9aa.png" alt="在这里插入图片描述"></p>
+<p>选中箭头（快捷键5）或线条（快捷键6）==&gt;点击创建多个点/拖到创建直线<br><img src="http://blog.xiezhrspace.cn/blog-img/29387ed872244d7a8453c1e7cfb15ca1.png" alt="在这里插入图片描述"></p>
 </blockquote>
-<p><img src="https://img-blog.csdnimg.cn/81e3eec653b249b4beb26c5fce2871e9.png" alt="在这里插入图片描述"><br>拖动上图中的紫色小圆点也可以调整线条幅度</p>
-<p>② 选择线条样式<br><img src="https://img-blog.csdnimg.cn/6fbc8a43f0d6493190a65257aac2f778.png" alt="在这里插入图片描述"></p>
+<p><img src="http://blog.xiezhrspace.cn/blog-img/a3e82d42e2cd4ae2866c65bd5e55470e.png" alt="在这里插入图片描述"><br>拖动上图中的紫色小圆点也可以调整线条幅度</p>
+<p>② 选择线条样式<br><img src="http://blog.xiezhrspace.cn/blog-img/6fbc8a43f0d6493190a65257aac2f778.png" alt="在这里插入图片描述"></p>
 <h4 id="3-2-图形对齐"><a href="#3-2-图形对齐" class="headerlink" title="3.2 图形对齐"></a>3.2 图形对齐</h4><blockquote>
-<p>选中需要对齐的图形==&gt;选择对齐方式<br><img src="https://img-blog.csdnimg.cn/4904367c96924be3bc11d3f2a9231f97.png" alt="在这里插入图片描述"><br>上述图形分别<strong>左对齐</strong>、<strong>右对齐</strong>后效果<br><img src="https://img-blog.csdnimg.cn/a3e82d42e2cd4ae2866c65bd5e55470e.png" alt="在这里插入图片描述"></p>
+<p>选中需要对齐的图形==&gt;选择对齐方式<br><img src="http://blog.xiezhrspace.cn/blog-img/104160bc913b4587aca7059c22c61109.png" alt="在这里插入图片描述"><br>上述图形分别<strong>左对齐</strong>、<strong>右对齐</strong>后效果<br><img src="http://blog.xiezhrspace.cn/blog-img/031ec34e5cd7451982a06c0ab28cf6c9.png" alt="在这里插入图片描述"></p>
 </blockquote>
 <h4 id="3-4-插入图片"><a href="#3-4-插入图片" class="headerlink" title="3.4 插入图片"></a>3.4 插入图片</h4><blockquote>
-<p>选择插入图片（快捷键9）==&gt; 选择需要插入的图片<br><img src="https://img-blog.csdnimg.cn/031ec34e5cd7451982a06c0ab28cf6c9.png" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/e818e65b49c0447b9413c3d125252a4e.png" alt="在这里插入图片描述"></p>
+<p>选择插入图片（快捷键9）==&gt; 选择需要插入的图片<br><img src="http://blog.xiezhrspace.cn/blog-img/7f1d2ec97994420597584e530fe3e0f6.png" alt="在这里插入图片描述"><br><img src="http://blog.xiezhrspace.cn/blog-img/158a240ae93f413abcb9c7dd5dab6917.png" alt="在这里插入图片描述"></p>
 </blockquote>
 <h4 id="3-5-橡皮擦删除元素"><a href="#3-5-橡皮擦删除元素" class="headerlink" title="3.5  橡皮擦删除元素"></a>3.5  橡皮擦删除元素</h4><blockquote>
 <p>选中需要擦除的元素==&gt;点击橡皮擦（快捷键0）擦除元素</p>
 </blockquote>
-<p><img src="https://img-blog.csdnimg.cn/f481d8d887ee438592bf51a7fdb4b76a.png" alt="在这里插入图片描述"></p>
+<p><img src="http://blog.xiezhrspace.cn/blog-img/4904367c96924be3bc11d3f2a9231f97.png" alt="在这里插入图片描述"></p>
 <h4 id="3-5-添加个人素材库"><a href="#3-5-添加个人素材库" class="headerlink" title="3.5 添加个人素材库"></a>3.5 添加个人素材库</h4><blockquote>
 <p>上面这些图形还不够用，也可以添加别人绘制好的素材为我所用。</p>
 </blockquote>
-<p>① 点击右上角的素材库<br><img src="https://img-blog.csdnimg.cn/7f1d2ec97994420597584e530fe3e0f6.png" alt="在这里插入图片描述"><br>②预览我们需要的素材<br><img src="https://img-blog.csdnimg.cn/158a240ae93f413abcb9c7dd5dab6917.png" alt="在这里插入图片描述"><br>③ 添加到素材库<br><img src="https://img-blog.csdnimg.cn/814de6f3c9ae4da5ad471b743b9d20e5.png" alt="在这里插入图片描述"><br>④绘制火柴人<br><img src="https://img-blog.csdnimg.cn/b09dee94f1ab479481848d1c1625d067.png" alt="在这里插入图片描述"></p>
+<p>① 点击右上角的素材库<br><img src="http://blog.xiezhrspace.cn/blog-img/2e89334781094cd3a82f489b8faee5ac.png" alt="在这里插入图片描述"><br>②预览我们需要的素材<br><img src="http://blog.xiezhrspace.cn/blog-img/f481d8d887ee438592bf51a7fdb4b76a.png" alt="在这里插入图片描述"><br>③ 添加到素材库<br><img src="http://blog.xiezhrspace.cn/blog-img/814de6f3c9ae4da5ad471b743b9d20e5.png" alt="在这里插入图片描述"><br>④绘制火柴人<br><img src="http://blog.xiezhrspace.cn/blog-img/e818e65b49c0447b9413c3d125252a4e.png" alt="在这里插入图片描述"></p>
 <h4 id="3-6-添加文字"><a href="#3-6-添加文字" class="headerlink" title="3.6 添加文字"></a>3.6 添加文字</h4><blockquote>
-<p>点击文字（快捷键8）==&gt;敲入文字<br><img src="https://img-blog.csdnimg.cn/2e89334781094cd3a82f489b8faee5ac.png" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/600e6b359ef747dbb1a826ba80c7e428.png" alt="在这里插入图片描述"></p>
+<p>点击文字（快捷键8）==&gt;敲入文字<br><img src="http://blog.xiezhrspace.cn/blog-img/13692753bdbc4cc688e2d676344213b9.png" alt="在这里插入图片描述"><br><img src="http://blog.xiezhrspace.cn/blog-img/3899a27ed6c64e4b8133eb348ae55591.png" alt="在这里插入图片描述"></p>
 </blockquote>
 <h4 id="3-6-导入表格数据"><a href="#3-6-导入表格数据" class="headerlink" title="3.6 导入表格数据"></a>3.6 导入表格数据</h4><blockquote>
 <p>它还有一个很厉害的功能，就是根据excel中的数据生成柱状图、折线图</p>
 </blockquote>
-<p>① 准备数据<br><img src="https://img-blog.csdnimg.cn/13692753bdbc4cc688e2d676344213b9.png" alt="在这里插入图片描述"></p>
-<p>②粘贴到Excalidraw<br><img src="https://img-blog.csdnimg.cn/3899a27ed6c64e4b8133eb348ae55591.png" alt="在这里插入图片描述"><br>③ 简单表格来了<br><img src="https://img-blog.csdnimg.cn/1f820426577f499c9379964b508e0b7d.png" alt="在这里插入图片描述"></p>
+<p>① 准备数据<br><img src="http://blog.xiezhrspace.cn/blog-img/600e6b359ef747dbb1a826ba80c7e428.png" alt="在这里插入图片描述"></p>
+<p>②粘贴到Excalidraw<br><img src="http://blog.xiezhrspace.cn/blog-img/e87e52e6707640a9abbeb9b3e4cc9d85.png" alt="在这里插入图片描述"><br>③ 简单表格来了<br><img src="http://blog.xiezhrspace.cn/blog-img/5d5ba178befd4b2aad0470c5cedb0367.png" alt="在这里插入图片描述"></p>
 <h4 id="3-7-实时协作"><a href="#3-7-实时协作" class="headerlink" title="3.7 实时协作"></a>3.7 实时协作</h4><blockquote>
-<p>可以多个人协同绘制。只需要将链接分享给需要协作的用户即可同时编辑<br><img src="https://img-blog.csdnimg.cn/c081c23d97244798a735098529cc5411.png" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/e87e52e6707640a9abbeb9b3e4cc9d85.png" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/5d5ba178befd4b2aad0470c5cedb0367.png" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/7be44296b51e4beab3c3dc6708d5300f.png" alt="在这里插入图片描述"></p>
+<p>可以多个人协同绘制。只需要将链接分享给需要协作的用户即可同时编辑<br><img src="http://blog.xiezhrspace.cn/blog-img/c081c23d97244798a735098529cc5411.png" alt="在这里插入图片描述"><br><img src="http://blog.xiezhrspace.cn/blog-img/b09dee94f1ab479481848d1c1625d067.png" alt="在这里插入图片描述"><br><img src="http://blog.xiezhrspace.cn/blog-img/1f820426577f499c9379964b508e0b7d.png" alt="在这里插入图片描述"><br><img src="http://blog.xiezhrspace.cn/blog-img/f77fecb3f39148ccabcb49e66d92900e.png" alt="在这里插入图片描述"></p>
 </blockquote>
 <h4 id="3-8-保存文件"><a href="#3-8-保存文件" class="headerlink" title="3.8 保存文件"></a>3.8 保存文件</h4><blockquote>
-<p>可以将我们绘制好的图保存到本地为.excalidraw 后缀的文件<br><img src="https://img-blog.csdnimg.cn/f77fecb3f39148ccabcb49e66d92900e.png" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/9bbaabac078d4be9b0a7ed6b9481d2f7.png" alt="在这里插入图片描述"></p>
+<p>可以将我们绘制好的图保存到本地为.excalidraw 后缀的文件<br><img src="http://blog.xiezhrspace.cn/blog-img/6237b711bb634b9088f4e459acd8ad48.png" alt="在这里插入图片描述"><br><img src="http://blog.xiezhrspace.cn/blog-img/9bbaabac078d4be9b0a7ed6b9481d2f7.png" alt="在这里插入图片描述"></p>
 </blockquote>
 <h4 id="3-8-导入绘图文件"><a href="#3-8-导入绘图文件" class="headerlink" title="3.8 导入绘图文件"></a>3.8 导入绘图文件</h4><blockquote>
-<p>可以将上一步导出的文件<br><img src="https://img-blog.csdnimg.cn/6237b711bb634b9088f4e459acd8ad48.png" alt="在这里插入图片描述"></p>
+<p>可以将上一步导出的文件<br><img src="http://blog.xiezhrspace.cn/blog-img/ca13e66302014eb4a8df3ee30c969b5e.png" alt="在这里插入图片描述"></p>
 </blockquote>
 <h4 id="3-9-导出成图片"><a href="#3-9-导出成图片" class="headerlink" title="3.9 导出成图片"></a>3.9 导出成图片</h4><blockquote>
 <p>可以将绘制好的导出成图片。导出图片…==&gt;选择文件格式（PNG、SVG）</p>
 </blockquote>
-<p><img src="https://img-blog.csdnimg.cn/ca13e66302014eb4a8df3ee30c969b5e.png" alt="在这里插入图片描述"></p>
-<p><img src="https://img-blog.csdnimg.cn/05df7cbf873e462cbc4668961f130dcb.png" alt="在这里插入图片描述"></p>
+<p><img src="http://blog.xiezhrspace.cn/blog-img/05df7cbf873e462cbc4668961f130dcb.png" alt="在这里插入图片描述"></p>
+<p><img src="http://blog.xiezhrspace.cn/blog-img/8fd65a6120594d4baee342edf77bf11d.png" alt="在这里插入图片描述"></p>
 <h3 id="4-本地部署"><a href="#4-本地部署" class="headerlink" title="4 本地部署"></a>4 本地部署</h3><blockquote>
 <p>文章开头我们就说过，<code>Excalidraw</code>是一个开源项目。我们可以将其从<code>GitHub</code> 上<code>clone</code> 下来，然后进行本地化部署。</p>
 </blockquote>
-<p>既然有SaaS版本可以在线使用，为啥还要进行本地化部署呢？<br>不知道小伙伴有没有发现，之前我们插入的文字中，**<em>英文是手写体,但中文不是**</em>，中文就显得格格不入。<br><img src="https://img-blog.csdnimg.cn/600e6b359ef747dbb1a826ba80c7e428.png" alt="在这里插入图片描述"><br>为了解决以上问题我们就可以将代码<code>clone</code> 进行修改，添加字体后编译、部署到<code>Gitee Page</code> 或者<code>GitHub Page</code>。<br>部署都是免费的，由于<code>Gitee</code> 在国内访问速度还是挺快的 ，所以我们选择<code>Gitee Page</code> 部署。<br>这个是我部署好的地址：<strong><a href="https://xiezhr.gitee.io/excalidraw/">https://xiezhr.gitee.io/excalidraw/</a></strong></p>
-<p>这个是其他博主部署到<code>GitHub Page</code>上的，<strong>支持中文手写字体</strong> 可以放心使用<br><img src="https://img-blog.csdnimg.cn/8fd65a6120594d4baee342edf77bf11d.png" alt="在这里插入图片描述"></p>
+<p>既然有SaaS版本可以在线使用，为啥还要进行本地化部署呢？<br>不知道小伙伴有没有发现，之前我们插入的文字中，**<em>英文是手写体,但中文不是**</em>，中文就显得格格不入。<br><img src="http://blog.xiezhrspace.cn/blog-img/3899a27ed6c64e4b8133eb348ae55591.png" alt="在这里插入图片描述"><br>为了解决以上问题我们就可以将代码<code>clone</code> 进行修改，添加字体后编译、部署到<code>Gitee Page</code> 或者<code>GitHub Page</code>。<br>部署都是免费的，由于<code>Gitee</code> 在国内访问速度还是挺快的 ，所以我们选择<code>Gitee Page</code> 部署。<br>这个是我部署好的地址：<strong><a href="https://xiezhr.gitee.io/excalidraw/">https://xiezhr.gitee.io/excalidraw/</a></strong></p>
+<p>这个是其他博主部署到<code>GitHub Page</code>上的，<strong>支持中文手写字体</strong> 可以放心使用<br><img src="http://blog.xiezhrspace.cn/blog-img/7be44296b51e4beab3c3dc6708d5300f.png" alt="在这里插入图片描述"></p>
 <p>由于前端不太熟，本地编译后中文手写字体可以了，但是发布到<code>Gitee Page</code> 后还有点问题。</p>
-<p>等后面解决后再出一篇部署相关的，又给自己挖了个坑~   (⊙﹏⊙)<br><img src="https://img-blog.csdnimg.cn/bdae966bf8714acea7428cf6b305cc27.gif" alt="在这里插入图片描述"></p>
+<p>等后面解决后再出一篇部署相关的，又给自己挖了个坑~   (⊙﹏⊙)<br><img src="http://blog.xiezhrspace.cn/blog-img/bdae966bf8714acea7428cf6b305cc27.gif" alt="在这里插入图片描述"></p>
 <p>本次内容到此就结束了，各位小伙伴们，我们下期再见~ (●’◡’●)</p>
 ]]></content>
       <categories>
@@ -6951,173 +6951,6 @@ testuser         pts/6                     Sun Sep 11 22:42:24 +0800 2022
       </tags>
   </entry>
   <entry>
-    <title>【必知必会的MySQL知识】⑤DCL语言</title>
-    <url>/archives/80b35a31.html</url>
-    <content><![CDATA[<h3 id="一、概述"><a href="#一、概述" class="headerlink" title="一、概述"></a>一、概述</h3><blockquote>
-<p>数据控制语言，用来定义访问权限和安全级别。主要包含包括<strong>grant</strong>，<strong>revoke</strong> 关键字</p>
-<ul>
-<li>grant   授予权限</li>
-<li>revoke 回收权限</li>
-</ul>
-</blockquote>
-<h3 id="二-、授权"><a href="#二-、授权" class="headerlink" title="二 、授权"></a>二 、授权</h3><h4 id="2-1-语法格式"><a href="#2-1-语法格式" class="headerlink" title="2.1 语法格式"></a>2.1 语法格式</h4><pre class=" language-sql"><code class="language-sql"><span class="token keyword">GRANT</span> priv_type <span class="token punctuation">[</span><span class="token punctuation">(</span>column_list<span class="token punctuation">)</span><span class="token punctuation">]</span>  <span class="token punctuation">[</span><span class="token punctuation">,</span> priv_type <span class="token punctuation">[</span><span class="token punctuation">(</span>column_list<span class="token punctuation">)</span><span class="token punctuation">]</span><span class="token punctuation">]</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
-<span class="token keyword">ON</span> <span class="token punctuation">[</span>object_type<span class="token punctuation">]</span> priv_level
-<span class="token keyword">TO</span> <span class="token keyword">user</span> <span class="token punctuation">[</span>IDENTIFIED <span class="token keyword">BY</span> <span class="token punctuation">[</span>PASSWORD<span class="token punctuation">]</span> <span class="token string">'password'</span><span class="token punctuation">]</span>
-<span class="token punctuation">[</span><span class="token punctuation">,</span> <span class="token keyword">user</span><span class="token punctuation">[</span>IDENTIFIED <span class="token keyword">BY</span> <span class="token punctuation">[</span>PASSWORD<span class="token punctuation">]</span> <span class="token string">'password'</span><span class="token punctuation">]</span><span class="token punctuation">]</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
-<span class="token punctuation">[</span><span class="token keyword">WITH</span> with_option <span class="token punctuation">[</span>with_option<span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">]</span>
-</code></pre>
-<h4 id="2-2-语法说明"><a href="#2-2-语法说明" class="headerlink" title="2.2 语法说明"></a>2.2 语法说明</h4><table>
-<thead>
-<tr>
-<th>参数</th>
-<th>参数说明</th>
-</tr>
-</thead>
-<tbody><tr>
-<td><code> priv_type</code></td>
-<td>参数表示权限类型</td>
-</tr>
-<tr>
-<td><code>columns_list</code></td>
-<td>参数表示权限作用于哪些列上，省略该参数时，表示作用于整个表</td>
-</tr>
-<tr>
-<td><code>object_type</code></td>
-<td>参数用于指定权限对象</td>
-</tr>
-<tr>
-<td><code>priv_level </code></td>
-<td>参数用于指定权限级别</td>
-</tr>
-<tr>
-<td><code>user</code></td>
-<td>参数表示用户账户；由用户名和主机名构成，格式是“‘username’@’hostname’”</td>
-</tr>
-<tr>
-<td><code>IDENTIFIED BY</code></td>
-<td>参数用来为用户设置密码</td>
-</tr>
-<tr>
-<td><code>password</code></td>
-<td>参数是用户的新密码</td>
-</tr>
-<tr>
-<td><code>WITH </code></td>
-<td>一个或多个<strong>with_option</strong> 参数</td>
-</tr>
-</tbody></table>
-<p> <strong>with_option</strong> 参数一共5个选项<br> |with_option参数|参数说明|<br> |–|–|<br>|<code>GRANT OPTION</code>|被授权的用户可以将这些权限赋予给别的用户|<br>|<code>MAX_QUERIES_PER_HOUR count</code>|设置每个小时可以允许执行 count 次查询|<br>| <code>MAX_UPDATES_PER_HOUR count</code>|设置每个小时可以允许执行 count 次更新|<br>| <code>MAX_CONNECTIONS_PER_HOUR count</code>|设置每小时可以建立 count 个连接|<br>|<code>MAX_USER_CONNECTIONS count</code>|设置单个用户可以同时具有的 count 个连接|</p>
-<h4 id="2-3-权限类型"><a href="#2-3-权限类型" class="headerlink" title="2.3  权限类型"></a>2.3  权限类型</h4><p>权限类型分类<br>|权限类型|说明|<br>|–|–|<br>|<code>数据库权限</code>|和一个具体的数据库中的所有表相关。例如，可以在已有的数据库 mytest 中创建新表的权限|<br>|<code>表权限</code>|和一个具体表中的所有数据相关。例如，可以使用 SELECT 语句查询表 students 的所有数据的权限|<br>|<code>列权限</code>|和表中的一个具体列相关。例如，可以使用 UPDATE 语句更新表 students 中 name 列的值的权限|<br>|<code>用户权限</code>|和 MySQL 中所有的数据库相关。例如，可以删除已有的数据库或者创建一个新的数据库的权限|</p>
-<p>① 授予数据<strong>库</strong>权限时，&lt;权限类型&gt;可以指定为以下值<br>| 权限名称                       | 对应user表中的字段    | 说明                                                         |<br>| —————————— | ——————— | ———————————————————— |<br>|<code>SELECT </code>                        | <strong>Select_priv</strong>          | 表示授予用户可以使用 SELECT 语句访问特定数据库中所有表和视图的权限。 |<br>| <code>INSERT</code>                         | <strong>Insert_priv</strong>         | 表示授予用户可以使用 INSERT 语句向特定数据库中所有表添加数据行的权限。 |<br>|<code>DELETE</code>                        |<strong>Delete_priv</strong>           | 表示授予用户可以使用 DELETE 语句删除特定数据库中所有表的数据行的权限。 |<br>|<code>UPDATE</code>                        | <strong>Update_priv</strong>           | 表示授予用户可以使用 UPDATE 语句更新特定数据库中所有数据表的值的权限。 |<br>| <code>REFERENCES </code>                    | <strong>References_priv</strong>      | 表示授予用户可以创建指向特定的数据库中的表外键的权限。       |<br>|<code>CREATE   </code>                     | <strong>Create_priv</strong>          | 表示授权用户可以使用 CREATE TABLE 语句在特定数据库中创建新表的权限。 |<br>|<code>ALTER</code>                         | <strong>Alter_priv</strong>            | 表示授予用户可以使用 ALTER TABLE 语句修改特定数据库中所有数据表的权限。 |<br>| <code>SHOW VIEW  </code>                    | <strong>Show_view_priv</strong>        | 表示授予用户可以查看特定数据库中已有视图的视图定义的权限。   |<br>|<code> CREATE ROUTINE</code>                 | <strong>Create_routine_priv</strong>   | 表示授予用户可以为特定的数据库创建存储过程和存储函数的权限。 |<br>| <code>ALTER ROUTINE </code>                 | <strong>Alter_routine_priv</strong>    | 表示授予用户可以更新和删除数据库中已有的存储过程和存储函数的权限。 |<br>| <code>INDEX </code>                       | <strong>Index_priv</strong>            | 表示授予用户可以在特定数据库中的所有数据表上定义和删除索引的权限。 |<br>|<code>DROP</code>                       | <strong>Drop_priv</strong>             | 表示授予用户可以删除特定数据库中所有表和视图的权限。         |<br>| <code>CREATE TEMPORARY TABLES</code>        |<strong>Create_tmp_table_priv</strong> | 表示授予用户可以在特定数据库中创建临时表的权限。             |<br>| <code>CREATE VIEW</code>                    | <strong>Create_view_priv</strong>      | 表示授予用户可以在特定数据库中创建新的视图的权限。           |<br>| <code>EXECUTE ROUTINE</code>                | <strong>Execute_priv</strong>          | 表示授予用户可以调用特定数据库的存储过程和存储函数的权限。   |<br>|<code> LOCK TABLES</code>                    | <strong>Lock_tables_priv</strong>      | 表示授予用户可以锁定特定数据库的已有数据表的权限。           |<br>| <code>ALL 或 ALL PRIVILEGES 或 SUPER</code> | <strong>Super_priv</strong>            | 表示以上所有权限/超级权限                                    |</p>
-<p>② 授予<strong>表</strong>权限时，&lt;权限类型&gt;可以指定为以下值：<br>| 权限名称                       | 对应user表中的字段 | 说明                                                       |<br>| —————————— | —————— | ———————————————————- |<br>| <code>SELECT</code>                         | <strong>Select_priv</strong>        | 授予用户可以使用 SELECT 语句进行访问特定表的权限           |<br>| <code>INSERT</code>                         | <strong>Insert_priv</strong>        | 授予用户可以使用 INSERT 语句向一个特定表中添加数据行的权限 |<br>|  <code>DELETE</code>                         | <strong>Delete_priv</strong>        | 授予用户可以使用 DELETE 语句从一个特定表中删除数据行的权限 |<br>|  <code>DROP</code>                           | <strong>Drop_priv</strong>          | 授予用户可以删除数据表的权限                               |<br>|  <code>UPDATE</code>                         | <strong>Update_priv</strong>        | 授予用户可以使用 UPDATE 语句更新特定数据表的权限           |<br>|  <code>ALTER</code>                          | <strong>Alter_priv</strong>         | 授予用户可以使用 ALTER TABLE 语句修改数据表的权限          |<br>|  <code>REFERENCES</code>                     | <strong>References_priv</strong>    | 授予用户可以创建一个外键来参照特定数据表的权限             |<br>|  <code>CREATE</code>                         | <strong>Create_priv</strong>        | 授予用户可以使用特定的名字创建一个数据表的权限             |<br>|  <code>INDEX </code>                          | <strong>Index_priv</strong>         | 授予用户可以在表上定义索引的权限                           |<br>|  <code>ALL 或 ALL PRIVILEGES 或 SUPER </code> | <strong>Super_priv</strong>         | 所有的权限名                                               |</p>
-<p>③ 授予<strong>列</strong>权限时，&lt;权限类型&gt;可以指定以下值<br>| 权限名称                       | 对应user表中的字段 | 说明                                                       |<br>| —————————— | —————— | ———————————————————- |<br>| <code>SELECT</code>                         | <strong>Select_priv</strong>        | 授予用户可以使用 SELECT 语句进行访问特定表的权限           |<br>| <code>INSERT</code>                         | <strong>Insert_priv</strong>        | 授予用户可以使用 INSERT 语句向一个特定表中添加数据行的权限 |<br>|  <code>UPDATE</code>                         | <strong>Update_priv</strong>        | 授予用户可以使用 UPDATE 语句更新特定数据表的权限           |</p>
-<p>④授予<strong>用户</strong>权限时，&lt;权限类型&gt; 除了可以指定为授予数据库权限，还可以指定以下值<br>| 权限名称                        | 说明                                                       |<br>| ——————————  | ————————————————— |<br>|<code>CREATE USER</code>|表示授予用户可以创建和删除新用户的权限|<br>|<code>SHOW DATABASES</code>|表示授予用户可以使用 SHOW DATABASES 语句查看所有已有的数据库的定义的权限|</p>
-<h4 id="2-4-权限级别"><a href="#2-4-权限级别" class="headerlink" title="2.4 权限级别"></a>2.4 权限级别</h4><table>
-<thead>
-<tr>
-<th>权限级别</th>
-<th>说明</th>
-</tr>
-</thead>
-<tbody><tr>
-<td><code>*</code></td>
-<td>表示当前数据库中的所有表</td>
-</tr>
-<tr>
-<td><code>*.*</code></td>
-<td>表示所有数据库中的所有表</td>
-</tr>
-<tr>
-<td><code>db_name.*</code></td>
-<td>表示某个数据库中的所有表，db_name 指定数据库名</td>
-</tr>
-<tr>
-<td><code>db_name.tbl_name</code></td>
-<td>表示某个数据库中的某个表或视图，db_name 指定数据库名，tbl_name 指定表名或视图名</td>
-</tr>
-<tr>
-<td><code>db_name.routine_name</code></td>
-<td>表示某个数据库中的某个存储过程或函数，routine_name 指定存储过程名或函数名</td>
-</tr>
-<tr>
-<td><code>TO 子句</code></td>
-<td>如果权限被授予给一个不存在的用户，MySQL 会自动执行一条 CREATE USER 语句来创建这个用户，但同时必须为该用户设置密码</td>
-</tr>
-</tbody></table>
-<h3 id="三、-回收权限"><a href="#三、-回收权限" class="headerlink" title="三、 回收权限"></a>三、 回收权限</h3><h4 id="3-1-语法格式"><a href="#3-1-语法格式" class="headerlink" title="3.1 语法格式"></a>3.1 语法格式</h4><pre class=" language-sql"><code class="language-sql"><span class="token keyword">REVOKE</span> priv_type <span class="token punctuation">[</span><span class="token punctuation">(</span>column_list<span class="token punctuation">)</span><span class="token punctuation">]</span>
-<span class="token punctuation">[</span><span class="token punctuation">,</span> priv_type <span class="token punctuation">[</span><span class="token punctuation">(</span>column_list<span class="token punctuation">)</span><span class="token punctuation">]</span><span class="token punctuation">]</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
-<span class="token keyword">ON</span> <span class="token punctuation">[</span>object_type<span class="token punctuation">]</span> priv_level
-<span class="token keyword">FROM</span> <span class="token keyword">user</span> <span class="token punctuation">[</span><span class="token punctuation">,</span> <span class="token keyword">user</span><span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
-</code></pre>
-<h4 id="3-2-语法说明"><a href="#3-2-语法说明" class="headerlink" title="3.2 语法说明"></a>3.2 语法说明</h4><table>
-<thead>
-<tr>
-<th>参数</th>
-<th>参数说明</th>
-</tr>
-</thead>
-<tbody><tr>
-<td><code>priv_type</code></td>
-<td>参数表示权限的类型</td>
-</tr>
-<tr>
-<td><code>column_list</code></td>
-<td>参数表示权限作用于哪些列上，没有该参数时作用于整个表上</td>
-</tr>
-<tr>
-<td><code>user</code></td>
-<td>参数由用户名和主机名构成，格式为“username’@’hostname’”</td>
-</tr>
-</tbody></table>
-<h4 id="3-3-注意事项"><a href="#3-3-注意事项" class="headerlink" title="3.3 注意事项"></a>3.3 注意事项</h4><ul>
-<li>REVOKE 语法和 GRANT 语句的语法格式相似，但具有相反的效果。</li>
-<li>要使用 REVOKE 语句，必须拥有 MySQL 数据库的全局 CREATE USER 权限或 UPDATE 权限</li>
-</ul>
-<h3 id="四-、实践操作"><a href="#四-、实践操作" class="headerlink" title="四 、实践操作"></a>四 、实践操作</h3><p>① 运维童鞋想要查询所有用户的权限</p>
-<pre class=" language-sql"><code class="language-sql"><span class="token keyword">select</span> <span class="token operator">*</span> <span class="token keyword">FROM</span> mysql<span class="token punctuation">.</span><span class="token keyword">user</span><span class="token punctuation">;</span>
-</code></pre>
-<p><img src="https://img-blog.csdnimg.cn/82478dc655e448859b95316d38a984bc.png" alt="在这里插入图片描述"><br>②运维童鞋想要创建一个新的用户testXiezhr,密码为testXiezhr。并授予test用户所有的数据<strong>查询、插入权限</strong></p>
-<pre class=" language-sql"><code class="language-sql"><span class="token comment" spellcheck="true"># 创建用户并授权</span>
-mysql<span class="token operator">></span> <span class="token keyword">GRANT</span> <span class="token keyword">SELECT</span><span class="token punctuation">,</span><span class="token keyword">INSERT</span> <span class="token keyword">ON</span> <span class="token operator">*</span><span class="token punctuation">.</span><span class="token operator">*</span>
-    <span class="token operator">-</span><span class="token operator">></span>      <span class="token keyword">TO</span> <span class="token string">'testXiezhr'</span>@'localhost<span class="token string">'
-    ->      IDENTIFIED BY '</span>testXiezhr'
-    <span class="token operator">-</span><span class="token operator">></span>       <span class="token keyword">WITH</span> <span class="token keyword">GRANT</span> <span class="token keyword">OPTION</span><span class="token punctuation">;</span>
-Query OK<span class="token punctuation">,</span> <span class="token number">0</span> <span class="token keyword">rows</span> affected<span class="token punctuation">,</span> <span class="token number">1</span> warning <span class="token punctuation">(</span><span class="token number">0.01</span> sec<span class="token punctuation">)</span>
-<span class="token comment" spellcheck="true"># 使用 SHOW GRANTS 语句查询用户 testXiezhr的权限</span>
-mysql<span class="token operator">></span> <span class="token keyword">show</span> grants <span class="token keyword">for</span> <span class="token string">'testXiezhr'</span><span class="token variable">@localhost</span><span class="token punctuation">;</span>
-<span class="token operator">+</span><span class="token comment" spellcheck="true">---------------------------------------------------------------------------+</span>
-<span class="token operator">|</span> Grants <span class="token keyword">for</span> testXiezhr<span class="token variable">@localhost</span>                                           <span class="token operator">|</span>
-<span class="token operator">+</span><span class="token comment" spellcheck="true">---------------------------------------------------------------------------+</span>
-<span class="token operator">|</span> <span class="token keyword">GRANT</span> <span class="token keyword">SELECT</span><span class="token punctuation">,</span> <span class="token keyword">INSERT</span> <span class="token keyword">ON</span> <span class="token operator">*</span><span class="token punctuation">.</span><span class="token operator">*</span> <span class="token keyword">TO</span> <span class="token string">'testXiezhr'</span><span class="token variable">@'localhost'</span> <span class="token keyword">WITH</span> <span class="token keyword">GRANT</span> <span class="token keyword">OPTION</span> <span class="token operator">|</span>
-<span class="token operator">+</span><span class="token comment" spellcheck="true">---------------------------------------------------------------------------+</span>
-<span class="token number">1</span> <span class="token keyword">row</span> <span class="token operator">in</span> <span class="token keyword">set</span> <span class="token punctuation">(</span><span class="token number">0.00</span> sec<span class="token punctuation">)</span>
-</code></pre>
-<p>③ 运维童鞋想要<strong>收回</strong>testXiezhr用户的插入权限</p>
-<pre class=" language-sql"><code class="language-sql"><span class="token comment" spellcheck="true"># 使用revoke关键字收回insert 权限</span>
-mysql<span class="token operator">></span> <span class="token keyword">REVOKE</span> <span class="token keyword">INSERT</span> <span class="token keyword">ON</span> <span class="token operator">*</span><span class="token punctuation">.</span><span class="token operator">*</span> <span class="token keyword">FROM</span> <span class="token string">'testXiezhr'</span><span class="token variable">@'localhost'</span><span class="token punctuation">;</span>
-Query OK<span class="token punctuation">,</span> <span class="token number">0</span> <span class="token keyword">rows</span> affected <span class="token punctuation">(</span><span class="token number">0.00</span> sec<span class="token punctuation">)</span>
-<span class="token comment" spellcheck="true">#使用 SHOW GRANTS 语句查询用户 testXiezhr的权限，我们发现insert 权限没有了</span>
-mysql<span class="token operator">></span> <span class="token keyword">show</span> grants <span class="token keyword">for</span> <span class="token string">'testXiezhr'</span><span class="token variable">@localhost</span><span class="token punctuation">;</span>
-<span class="token operator">+</span><span class="token comment" spellcheck="true">-------------------------------------------------------------------+</span>
-<span class="token operator">|</span> Grants <span class="token keyword">for</span> testXiezhr<span class="token variable">@localhost</span>                                   <span class="token operator">|</span>
-<span class="token operator">+</span><span class="token comment" spellcheck="true">-------------------------------------------------------------------+</span>
-<span class="token operator">|</span> <span class="token keyword">GRANT</span> <span class="token keyword">SELECT</span> <span class="token keyword">ON</span> <span class="token operator">*</span><span class="token punctuation">.</span><span class="token operator">*</span> <span class="token keyword">TO</span> <span class="token string">'testXiezhr'</span><span class="token variable">@'localhost'</span> <span class="token keyword">WITH</span> <span class="token keyword">GRANT</span> <span class="token keyword">OPTION</span> <span class="token operator">|</span>
-<span class="token operator">+</span><span class="token comment" spellcheck="true">-------------------------------------------------------------------+</span>
-<span class="token number">1</span> <span class="token keyword">row</span> <span class="token operator">in</span> <span class="token keyword">set</span> <span class="token punctuation">(</span><span class="token number">0.00</span> sec<span class="token punctuation">)</span>
-</code></pre>
-]]></content>
-      <categories>
-        <category>MySQL</category>
-        <category>DCL</category>
-        <category>DCL语言</category>
-      </categories>
-      <tags>
-        <tag>MySQL</tag>
-        <tag>DCL</tag>
-        <tag>DCL语言</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>【必知必会的MySQL知识】③DML语言</title>
     <url>/archives/98273844.html</url>
     <content><![CDATA[<h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>前面的两篇文章中，我们已经对MySQL有了基本了解。<br>并且知道了怎么用工具连接数据库？怎么创建数据库？怎么创建表？<br>这一篇呢我们就来看看怎么在我们创建的表中插入数据、删除数据和修改数据。也就是上一篇文章中提到的<strong>DML 数据操作语言</strong></p>
@@ -7640,6 +7473,173 @@ mysql<span class="token operator">></span> <span class="token keyword">select</s
       <tags>
         <tag>MySQL</tag>
         <tag>DML语言</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>【必知必会的MySQL知识】⑤DCL语言</title>
+    <url>/archives/80b35a31.html</url>
+    <content><![CDATA[<h3 id="一、概述"><a href="#一、概述" class="headerlink" title="一、概述"></a>一、概述</h3><blockquote>
+<p>数据控制语言，用来定义访问权限和安全级别。主要包含包括<strong>grant</strong>，<strong>revoke</strong> 关键字</p>
+<ul>
+<li>grant   授予权限</li>
+<li>revoke 回收权限</li>
+</ul>
+</blockquote>
+<h3 id="二-、授权"><a href="#二-、授权" class="headerlink" title="二 、授权"></a>二 、授权</h3><h4 id="2-1-语法格式"><a href="#2-1-语法格式" class="headerlink" title="2.1 语法格式"></a>2.1 语法格式</h4><pre class=" language-sql"><code class="language-sql"><span class="token keyword">GRANT</span> priv_type <span class="token punctuation">[</span><span class="token punctuation">(</span>column_list<span class="token punctuation">)</span><span class="token punctuation">]</span>  <span class="token punctuation">[</span><span class="token punctuation">,</span> priv_type <span class="token punctuation">[</span><span class="token punctuation">(</span>column_list<span class="token punctuation">)</span><span class="token punctuation">]</span><span class="token punctuation">]</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+<span class="token keyword">ON</span> <span class="token punctuation">[</span>object_type<span class="token punctuation">]</span> priv_level
+<span class="token keyword">TO</span> <span class="token keyword">user</span> <span class="token punctuation">[</span>IDENTIFIED <span class="token keyword">BY</span> <span class="token punctuation">[</span>PASSWORD<span class="token punctuation">]</span> <span class="token string">'password'</span><span class="token punctuation">]</span>
+<span class="token punctuation">[</span><span class="token punctuation">,</span> <span class="token keyword">user</span><span class="token punctuation">[</span>IDENTIFIED <span class="token keyword">BY</span> <span class="token punctuation">[</span>PASSWORD<span class="token punctuation">]</span> <span class="token string">'password'</span><span class="token punctuation">]</span><span class="token punctuation">]</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+<span class="token punctuation">[</span><span class="token keyword">WITH</span> with_option <span class="token punctuation">[</span>with_option<span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">]</span>
+</code></pre>
+<h4 id="2-2-语法说明"><a href="#2-2-语法说明" class="headerlink" title="2.2 语法说明"></a>2.2 语法说明</h4><table>
+<thead>
+<tr>
+<th>参数</th>
+<th>参数说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code> priv_type</code></td>
+<td>参数表示权限类型</td>
+</tr>
+<tr>
+<td><code>columns_list</code></td>
+<td>参数表示权限作用于哪些列上，省略该参数时，表示作用于整个表</td>
+</tr>
+<tr>
+<td><code>object_type</code></td>
+<td>参数用于指定权限对象</td>
+</tr>
+<tr>
+<td><code>priv_level </code></td>
+<td>参数用于指定权限级别</td>
+</tr>
+<tr>
+<td><code>user</code></td>
+<td>参数表示用户账户；由用户名和主机名构成，格式是“‘username’@’hostname’”</td>
+</tr>
+<tr>
+<td><code>IDENTIFIED BY</code></td>
+<td>参数用来为用户设置密码</td>
+</tr>
+<tr>
+<td><code>password</code></td>
+<td>参数是用户的新密码</td>
+</tr>
+<tr>
+<td><code>WITH </code></td>
+<td>一个或多个<strong>with_option</strong> 参数</td>
+</tr>
+</tbody></table>
+<p> <strong>with_option</strong> 参数一共5个选项<br> |with_option参数|参数说明|<br> |–|–|<br>|<code>GRANT OPTION</code>|被授权的用户可以将这些权限赋予给别的用户|<br>|<code>MAX_QUERIES_PER_HOUR count</code>|设置每个小时可以允许执行 count 次查询|<br>| <code>MAX_UPDATES_PER_HOUR count</code>|设置每个小时可以允许执行 count 次更新|<br>| <code>MAX_CONNECTIONS_PER_HOUR count</code>|设置每小时可以建立 count 个连接|<br>|<code>MAX_USER_CONNECTIONS count</code>|设置单个用户可以同时具有的 count 个连接|</p>
+<h4 id="2-3-权限类型"><a href="#2-3-权限类型" class="headerlink" title="2.3  权限类型"></a>2.3  权限类型</h4><p>权限类型分类<br>|权限类型|说明|<br>|–|–|<br>|<code>数据库权限</code>|和一个具体的数据库中的所有表相关。例如，可以在已有的数据库 mytest 中创建新表的权限|<br>|<code>表权限</code>|和一个具体表中的所有数据相关。例如，可以使用 SELECT 语句查询表 students 的所有数据的权限|<br>|<code>列权限</code>|和表中的一个具体列相关。例如，可以使用 UPDATE 语句更新表 students 中 name 列的值的权限|<br>|<code>用户权限</code>|和 MySQL 中所有的数据库相关。例如，可以删除已有的数据库或者创建一个新的数据库的权限|</p>
+<p>① 授予数据<strong>库</strong>权限时，&lt;权限类型&gt;可以指定为以下值<br>| 权限名称                       | 对应user表中的字段    | 说明                                                         |<br>| —————————— | ——————— | ———————————————————— |<br>|<code>SELECT </code>                        | <strong>Select_priv</strong>          | 表示授予用户可以使用 SELECT 语句访问特定数据库中所有表和视图的权限。 |<br>| <code>INSERT</code>                         | <strong>Insert_priv</strong>         | 表示授予用户可以使用 INSERT 语句向特定数据库中所有表添加数据行的权限。 |<br>|<code>DELETE</code>                        |<strong>Delete_priv</strong>           | 表示授予用户可以使用 DELETE 语句删除特定数据库中所有表的数据行的权限。 |<br>|<code>UPDATE</code>                        | <strong>Update_priv</strong>           | 表示授予用户可以使用 UPDATE 语句更新特定数据库中所有数据表的值的权限。 |<br>| <code>REFERENCES </code>                    | <strong>References_priv</strong>      | 表示授予用户可以创建指向特定的数据库中的表外键的权限。       |<br>|<code>CREATE   </code>                     | <strong>Create_priv</strong>          | 表示授权用户可以使用 CREATE TABLE 语句在特定数据库中创建新表的权限。 |<br>|<code>ALTER</code>                         | <strong>Alter_priv</strong>            | 表示授予用户可以使用 ALTER TABLE 语句修改特定数据库中所有数据表的权限。 |<br>| <code>SHOW VIEW  </code>                    | <strong>Show_view_priv</strong>        | 表示授予用户可以查看特定数据库中已有视图的视图定义的权限。   |<br>|<code> CREATE ROUTINE</code>                 | <strong>Create_routine_priv</strong>   | 表示授予用户可以为特定的数据库创建存储过程和存储函数的权限。 |<br>| <code>ALTER ROUTINE </code>                 | <strong>Alter_routine_priv</strong>    | 表示授予用户可以更新和删除数据库中已有的存储过程和存储函数的权限。 |<br>| <code>INDEX </code>                       | <strong>Index_priv</strong>            | 表示授予用户可以在特定数据库中的所有数据表上定义和删除索引的权限。 |<br>|<code>DROP</code>                       | <strong>Drop_priv</strong>             | 表示授予用户可以删除特定数据库中所有表和视图的权限。         |<br>| <code>CREATE TEMPORARY TABLES</code>        |<strong>Create_tmp_table_priv</strong> | 表示授予用户可以在特定数据库中创建临时表的权限。             |<br>| <code>CREATE VIEW</code>                    | <strong>Create_view_priv</strong>      | 表示授予用户可以在特定数据库中创建新的视图的权限。           |<br>| <code>EXECUTE ROUTINE</code>                | <strong>Execute_priv</strong>          | 表示授予用户可以调用特定数据库的存储过程和存储函数的权限。   |<br>|<code> LOCK TABLES</code>                    | <strong>Lock_tables_priv</strong>      | 表示授予用户可以锁定特定数据库的已有数据表的权限。           |<br>| <code>ALL 或 ALL PRIVILEGES 或 SUPER</code> | <strong>Super_priv</strong>            | 表示以上所有权限/超级权限                                    |</p>
+<p>② 授予<strong>表</strong>权限时，&lt;权限类型&gt;可以指定为以下值：<br>| 权限名称                       | 对应user表中的字段 | 说明                                                       |<br>| —————————— | —————— | ———————————————————- |<br>| <code>SELECT</code>                         | <strong>Select_priv</strong>        | 授予用户可以使用 SELECT 语句进行访问特定表的权限           |<br>| <code>INSERT</code>                         | <strong>Insert_priv</strong>        | 授予用户可以使用 INSERT 语句向一个特定表中添加数据行的权限 |<br>|  <code>DELETE</code>                         | <strong>Delete_priv</strong>        | 授予用户可以使用 DELETE 语句从一个特定表中删除数据行的权限 |<br>|  <code>DROP</code>                           | <strong>Drop_priv</strong>          | 授予用户可以删除数据表的权限                               |<br>|  <code>UPDATE</code>                         | <strong>Update_priv</strong>        | 授予用户可以使用 UPDATE 语句更新特定数据表的权限           |<br>|  <code>ALTER</code>                          | <strong>Alter_priv</strong>         | 授予用户可以使用 ALTER TABLE 语句修改数据表的权限          |<br>|  <code>REFERENCES</code>                     | <strong>References_priv</strong>    | 授予用户可以创建一个外键来参照特定数据表的权限             |<br>|  <code>CREATE</code>                         | <strong>Create_priv</strong>        | 授予用户可以使用特定的名字创建一个数据表的权限             |<br>|  <code>INDEX </code>                          | <strong>Index_priv</strong>         | 授予用户可以在表上定义索引的权限                           |<br>|  <code>ALL 或 ALL PRIVILEGES 或 SUPER </code> | <strong>Super_priv</strong>         | 所有的权限名                                               |</p>
+<p>③ 授予<strong>列</strong>权限时，&lt;权限类型&gt;可以指定以下值<br>| 权限名称                       | 对应user表中的字段 | 说明                                                       |<br>| —————————— | —————— | ———————————————————- |<br>| <code>SELECT</code>                         | <strong>Select_priv</strong>        | 授予用户可以使用 SELECT 语句进行访问特定表的权限           |<br>| <code>INSERT</code>                         | <strong>Insert_priv</strong>        | 授予用户可以使用 INSERT 语句向一个特定表中添加数据行的权限 |<br>|  <code>UPDATE</code>                         | <strong>Update_priv</strong>        | 授予用户可以使用 UPDATE 语句更新特定数据表的权限           |</p>
+<p>④授予<strong>用户</strong>权限时，&lt;权限类型&gt; 除了可以指定为授予数据库权限，还可以指定以下值<br>| 权限名称                        | 说明                                                       |<br>| ——————————  | ————————————————— |<br>|<code>CREATE USER</code>|表示授予用户可以创建和删除新用户的权限|<br>|<code>SHOW DATABASES</code>|表示授予用户可以使用 SHOW DATABASES 语句查看所有已有的数据库的定义的权限|</p>
+<h4 id="2-4-权限级别"><a href="#2-4-权限级别" class="headerlink" title="2.4 权限级别"></a>2.4 权限级别</h4><table>
+<thead>
+<tr>
+<th>权限级别</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>*</code></td>
+<td>表示当前数据库中的所有表</td>
+</tr>
+<tr>
+<td><code>*.*</code></td>
+<td>表示所有数据库中的所有表</td>
+</tr>
+<tr>
+<td><code>db_name.*</code></td>
+<td>表示某个数据库中的所有表，db_name 指定数据库名</td>
+</tr>
+<tr>
+<td><code>db_name.tbl_name</code></td>
+<td>表示某个数据库中的某个表或视图，db_name 指定数据库名，tbl_name 指定表名或视图名</td>
+</tr>
+<tr>
+<td><code>db_name.routine_name</code></td>
+<td>表示某个数据库中的某个存储过程或函数，routine_name 指定存储过程名或函数名</td>
+</tr>
+<tr>
+<td><code>TO 子句</code></td>
+<td>如果权限被授予给一个不存在的用户，MySQL 会自动执行一条 CREATE USER 语句来创建这个用户，但同时必须为该用户设置密码</td>
+</tr>
+</tbody></table>
+<h3 id="三、-回收权限"><a href="#三、-回收权限" class="headerlink" title="三、 回收权限"></a>三、 回收权限</h3><h4 id="3-1-语法格式"><a href="#3-1-语法格式" class="headerlink" title="3.1 语法格式"></a>3.1 语法格式</h4><pre class=" language-sql"><code class="language-sql"><span class="token keyword">REVOKE</span> priv_type <span class="token punctuation">[</span><span class="token punctuation">(</span>column_list<span class="token punctuation">)</span><span class="token punctuation">]</span>
+<span class="token punctuation">[</span><span class="token punctuation">,</span> priv_type <span class="token punctuation">[</span><span class="token punctuation">(</span>column_list<span class="token punctuation">)</span><span class="token punctuation">]</span><span class="token punctuation">]</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+<span class="token keyword">ON</span> <span class="token punctuation">[</span>object_type<span class="token punctuation">]</span> priv_level
+<span class="token keyword">FROM</span> <span class="token keyword">user</span> <span class="token punctuation">[</span><span class="token punctuation">,</span> <span class="token keyword">user</span><span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+</code></pre>
+<h4 id="3-2-语法说明"><a href="#3-2-语法说明" class="headerlink" title="3.2 语法说明"></a>3.2 语法说明</h4><table>
+<thead>
+<tr>
+<th>参数</th>
+<th>参数说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>priv_type</code></td>
+<td>参数表示权限的类型</td>
+</tr>
+<tr>
+<td><code>column_list</code></td>
+<td>参数表示权限作用于哪些列上，没有该参数时作用于整个表上</td>
+</tr>
+<tr>
+<td><code>user</code></td>
+<td>参数由用户名和主机名构成，格式为“username’@’hostname’”</td>
+</tr>
+</tbody></table>
+<h4 id="3-3-注意事项"><a href="#3-3-注意事项" class="headerlink" title="3.3 注意事项"></a>3.3 注意事项</h4><ul>
+<li>REVOKE 语法和 GRANT 语句的语法格式相似，但具有相反的效果。</li>
+<li>要使用 REVOKE 语句，必须拥有 MySQL 数据库的全局 CREATE USER 权限或 UPDATE 权限</li>
+</ul>
+<h3 id="四-、实践操作"><a href="#四-、实践操作" class="headerlink" title="四 、实践操作"></a>四 、实践操作</h3><p>① 运维童鞋想要查询所有用户的权限</p>
+<pre class=" language-sql"><code class="language-sql"><span class="token keyword">select</span> <span class="token operator">*</span> <span class="token keyword">FROM</span> mysql<span class="token punctuation">.</span><span class="token keyword">user</span><span class="token punctuation">;</span>
+</code></pre>
+<p><img src="https://img-blog.csdnimg.cn/82478dc655e448859b95316d38a984bc.png" alt="在这里插入图片描述"><br>②运维童鞋想要创建一个新的用户testXiezhr,密码为testXiezhr。并授予test用户所有的数据<strong>查询、插入权限</strong></p>
+<pre class=" language-sql"><code class="language-sql"><span class="token comment" spellcheck="true"># 创建用户并授权</span>
+mysql<span class="token operator">></span> <span class="token keyword">GRANT</span> <span class="token keyword">SELECT</span><span class="token punctuation">,</span><span class="token keyword">INSERT</span> <span class="token keyword">ON</span> <span class="token operator">*</span><span class="token punctuation">.</span><span class="token operator">*</span>
+    <span class="token operator">-</span><span class="token operator">></span>      <span class="token keyword">TO</span> <span class="token string">'testXiezhr'</span>@'localhost<span class="token string">'
+    ->      IDENTIFIED BY '</span>testXiezhr'
+    <span class="token operator">-</span><span class="token operator">></span>       <span class="token keyword">WITH</span> <span class="token keyword">GRANT</span> <span class="token keyword">OPTION</span><span class="token punctuation">;</span>
+Query OK<span class="token punctuation">,</span> <span class="token number">0</span> <span class="token keyword">rows</span> affected<span class="token punctuation">,</span> <span class="token number">1</span> warning <span class="token punctuation">(</span><span class="token number">0.01</span> sec<span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true"># 使用 SHOW GRANTS 语句查询用户 testXiezhr的权限</span>
+mysql<span class="token operator">></span> <span class="token keyword">show</span> grants <span class="token keyword">for</span> <span class="token string">'testXiezhr'</span><span class="token variable">@localhost</span><span class="token punctuation">;</span>
+<span class="token operator">+</span><span class="token comment" spellcheck="true">---------------------------------------------------------------------------+</span>
+<span class="token operator">|</span> Grants <span class="token keyword">for</span> testXiezhr<span class="token variable">@localhost</span>                                           <span class="token operator">|</span>
+<span class="token operator">+</span><span class="token comment" spellcheck="true">---------------------------------------------------------------------------+</span>
+<span class="token operator">|</span> <span class="token keyword">GRANT</span> <span class="token keyword">SELECT</span><span class="token punctuation">,</span> <span class="token keyword">INSERT</span> <span class="token keyword">ON</span> <span class="token operator">*</span><span class="token punctuation">.</span><span class="token operator">*</span> <span class="token keyword">TO</span> <span class="token string">'testXiezhr'</span><span class="token variable">@'localhost'</span> <span class="token keyword">WITH</span> <span class="token keyword">GRANT</span> <span class="token keyword">OPTION</span> <span class="token operator">|</span>
+<span class="token operator">+</span><span class="token comment" spellcheck="true">---------------------------------------------------------------------------+</span>
+<span class="token number">1</span> <span class="token keyword">row</span> <span class="token operator">in</span> <span class="token keyword">set</span> <span class="token punctuation">(</span><span class="token number">0.00</span> sec<span class="token punctuation">)</span>
+</code></pre>
+<p>③ 运维童鞋想要<strong>收回</strong>testXiezhr用户的插入权限</p>
+<pre class=" language-sql"><code class="language-sql"><span class="token comment" spellcheck="true"># 使用revoke关键字收回insert 权限</span>
+mysql<span class="token operator">></span> <span class="token keyword">REVOKE</span> <span class="token keyword">INSERT</span> <span class="token keyword">ON</span> <span class="token operator">*</span><span class="token punctuation">.</span><span class="token operator">*</span> <span class="token keyword">FROM</span> <span class="token string">'testXiezhr'</span><span class="token variable">@'localhost'</span><span class="token punctuation">;</span>
+Query OK<span class="token punctuation">,</span> <span class="token number">0</span> <span class="token keyword">rows</span> affected <span class="token punctuation">(</span><span class="token number">0.00</span> sec<span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true">#使用 SHOW GRANTS 语句查询用户 testXiezhr的权限，我们发现insert 权限没有了</span>
+mysql<span class="token operator">></span> <span class="token keyword">show</span> grants <span class="token keyword">for</span> <span class="token string">'testXiezhr'</span><span class="token variable">@localhost</span><span class="token punctuation">;</span>
+<span class="token operator">+</span><span class="token comment" spellcheck="true">-------------------------------------------------------------------+</span>
+<span class="token operator">|</span> Grants <span class="token keyword">for</span> testXiezhr<span class="token variable">@localhost</span>                                   <span class="token operator">|</span>
+<span class="token operator">+</span><span class="token comment" spellcheck="true">-------------------------------------------------------------------+</span>
+<span class="token operator">|</span> <span class="token keyword">GRANT</span> <span class="token keyword">SELECT</span> <span class="token keyword">ON</span> <span class="token operator">*</span><span class="token punctuation">.</span><span class="token operator">*</span> <span class="token keyword">TO</span> <span class="token string">'testXiezhr'</span><span class="token variable">@'localhost'</span> <span class="token keyword">WITH</span> <span class="token keyword">GRANT</span> <span class="token keyword">OPTION</span> <span class="token operator">|</span>
+<span class="token operator">+</span><span class="token comment" spellcheck="true">-------------------------------------------------------------------+</span>
+<span class="token number">1</span> <span class="token keyword">row</span> <span class="token operator">in</span> <span class="token keyword">set</span> <span class="token punctuation">(</span><span class="token number">0.00</span> sec<span class="token punctuation">)</span>
+</code></pre>
+]]></content>
+      <categories>
+        <category>MySQL</category>
+        <category>DCL</category>
+        <category>DCL语言</category>
+      </categories>
+      <tags>
+        <tag>MySQL</tag>
+        <tag>DCL</tag>
+        <tag>DCL语言</tag>
       </tags>
   </entry>
   <entry>
