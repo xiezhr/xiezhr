@@ -731,7 +731,7 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('https://img-blog.csdnimg.cn/82924775432341098001e7e7f2fbd1ef.png')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('http://blog.xiezhrspace.cn/blog-img/82924775432341098001e7e7f2fbd1ef.png')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
@@ -860,12 +860,12 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/Java/">
-                                <span class="chip bg-color">Java</span>
-                            </a>
-                        
                             <a href="/tags/ChatGPT/">
                                 <span class="chip bg-color">ChatGPT</span>
+                            </a>
+                        
+                            <a href="/tags/Java/">
+                                <span class="chip bg-color">Java</span>
                             </a>
                         
                             <a href="/tags/Java%E6%8E%A5%E5%85%A5Chat-GPT/">
@@ -908,7 +908,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2023-01-29
+                    2023-03-21
                 </div>
                 
 
@@ -937,19 +937,19 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h3 id="0-前言"><a href="#0-前言" class="headerlink" title="0 前言"></a>0 前言</h3><p>之前文章中我们聊过怎么注册使用最近很火的ChatGPT？这期我们来看看怎么在Java中调用ChatGPT接口。<br>传送门 <a target="_blank" rel="noopener" href="http://t.csdn.cn/OrC91"><strong>花了1块钱体验一把最近很火的ChatGPT</strong></a><br><img src="https://img-blog.csdnimg.cn/7ec82071cd3f4b71a0e1e404eebb4973.jpeg" alt="在这里插入图片描述"></p>
-<p>之后又有大佬将ChatGPT接入微信，以微信机器人的身份出来给我们提供服务。<br>传送门 <a target="_blank" rel="noopener" href="http://t.csdn.cn/NVpyF"><strong>ChatGPT新玩法来了，微信聊天机器人</strong></a><br><img src="https://img-blog.csdnimg.cn/0bece8983c44449bbcafeecf99f67b81.jpeg" alt="在这里插入图片描述"><br>但是出于各种原因，微信上的机器人已经暂时用不了了（不是她高冷哈。。。），至于后面还能不能恢复还不知道。<br><img src="https://img-blog.csdnimg.cn/2500b12711c343b7a94a3a1f49c843f2.jpeg" alt="在这里插入图片描述"></p>
-<p><img src="https://img-blog.csdnimg.cn/dad5160d91ea4f95b793ee5d43294922.jpeg" alt="在这里插入图片描述"></p>
+                <h3 id="0-前言"><a href="#0-前言" class="headerlink" title="0 前言"></a>0 前言</h3><p>之前文章中我们聊过怎么注册使用最近很火的ChatGPT？这期我们来看看怎么在Java中调用ChatGPT接口。<br>传送门 <a target="_blank" rel="noopener" href="http://t.csdn.cn/OrC91"><strong>花了1块钱体验一把最近很火的ChatGPT</strong></a><br><img src="http://blog.xiezhrspace.cn/blog-img/7ec82071cd3f4b71a0e1e404eebb4973.jpeg" alt="在这里插入图片描述"></p>
+<p>之后又有大佬将ChatGPT接入微信，以微信机器人的身份出来给我们提供服务。<br>传送门 <a target="_blank" rel="noopener" href="http://t.csdn.cn/NVpyF"><strong>ChatGPT新玩法来了，微信聊天机器人</strong></a><br><img src="http://blog.xiezhrspace.cn/blog-img/0bece8983c44449bbcafeecf99f67b81.jpeg" alt="在这里插入图片描述"><br>但是出于各种原因，微信上的机器人已经暂时用不了了（不是她高冷哈。。。），至于后面还能不能恢复还不知道。<br><img src="http://blog.xiezhrspace.cn/blog-img/2500b12711c343b7a94a3a1f49c843f2.jpeg" alt="在这里插入图片描述"></p>
+<p><img src="http://blog.xiezhrspace.cn/blog-img/dad5160d91ea4f95b793ee5d43294922.jpeg" alt="在这里插入图片描述"></p>
 <h3 id="1-还想体验的小伙伴可以试试"><a href="#1-还想体验的小伙伴可以试试" class="headerlink" title="1 还想体验的小伙伴可以试试"></a>1 还想体验的小伙伴可以试试</h3><p>处于种种原因，还是有不少小伙伴跟我一样遇到各种坑，没能体验上ChatGPT。</p>
 <ul>
 <li>没有科学上网工具</li>
-<li>手机号注册不上<br><img src="https://img-blog.csdnimg.cn/b6b37ee250794b4fa345005691b7f3a6.png" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/37f97e0722d34fc8a1f0f8333e386003.png" alt="在这里插入图片描述"><br>就在昨天，收到CSDN猿如意官方账号的通知，大概意思就是【猿如意】上线了GhatGPT功能，邀请去测评，在这里也可以体验ChatGPT。<br><img src="https://img-blog.csdnimg.cn/921b2300a43a4dd8add2c371197d4558.jpeg" alt="在这里插入图片描述"><br>官方地址在这：<a target="_blank" rel="noopener" href="https://devbit.csdn.net/?source=csdn_ad_article&stype=chat">猿如意下载地址</a><br>支持Mac、Windows、Linux各个平台下载<br><img src="https://img-blog.csdnimg.cn/36887e736bbe4c39a55f22d4cdd315c6.png" alt="在这里插入图片描述"><br>安装完成后就可以体验了<br><img src="https://img-blog.csdnimg.cn/1a9df0e399c942ca997733128b6b1abd.png" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/17b760e6c1b34a6ea0e525905dcc588d.png" alt="在这里插入图片描述"></li>
+<li>手机号注册不上<br><img src="http://blog.xiezhrspace.cn/blog-img/b6b37ee250794b4fa345005691b7f3a6.png" alt="在这里插入图片描述"><br><img src="http://blog.xiezhrspace.cn/blog-img/37f97e0722d34fc8a1f0f8333e386003.png" alt="在这里插入图片描述"><br>就在昨天，收到CSDN猿如意官方账号的通知，大概意思就是【猿如意】上线了GhatGPT功能，邀请去测评，在这里也可以体验ChatGPT。<br><img src="http://blog.xiezhrspace.cn/blog-img/921b2300a43a4dd8add2c371197d4558.jpeg" alt="在这里插入图片描述"><br>官方地址在这：<a target="_blank" rel="noopener" href="https://devbit.csdn.net/?source=csdn_ad_article&stype=chat">猿如意下载地址</a><br>支持Mac、Windows、Linux各个平台下载<br><img src="http://blog.xiezhrspace.cn/blog-img/36887e736bbe4c39a55f22d4cdd315c6.png" alt="在这里插入图片描述"><br>安装完成后就可以体验了<br><img src="http://blog.xiezhrspace.cn/blog-img/1a9df0e399c942ca997733128b6b1abd.png" alt="在这里插入图片描述"><br><img src="http://blog.xiezhrspace.cn/blog-img/17b760e6c1b34a6ea0e525905dcc588d.png" alt="在这里插入图片描述"></li>
 </ul>
 <p>不管怎么说，Chat GPT还是给我们带来了很多惊喜，尤其对于我们程序员来说，是一个不错的助手。接下来，我们说一说怎么用Java程序接入Chat GPT</p>
-<h3 id="2-Java接入前准备"><a href="#2-Java接入前准备" class="headerlink" title="2 Java接入前准备"></a>2 Java接入前准备</h3><p>我们需要在如下网址获取获取<strong>API keys</strong>，之前注册过ChatGPT账号的可以直接用之前账号登录就可以了，没有的需要去申请一个账号<br><a target="_blank" rel="noopener" href="https://beta.openai.com/account/api-keys">https://beta.openai.com/account/api-keys</a><br><img src="https://img-blog.csdnimg.cn/f99fb52bffdc4c4ea417c7d66564eb6a.png" alt="在这里插入图片描述"><br>点击上面截图按钮后官方会帮我们创建一个<strong>密钥</strong>，这个密钥十分重要，自己保存好。后面接口调用都会用到它<br><img src="https://img-blog.csdnimg.cn/4cb0789cdc004dbd8aacc42a24b26498.png" alt="在这里插入图片描述"></p>
+<h3 id="2-Java接入前准备"><a href="#2-Java接入前准备" class="headerlink" title="2 Java接入前准备"></a>2 Java接入前准备</h3><p>我们需要在如下网址获取获取<strong>API keys</strong>，之前注册过ChatGPT账号的可以直接用之前账号登录就可以了，没有的需要去申请一个账号<br><a target="_blank" rel="noopener" href="https://beta.openai.com/account/api-keys">https://beta.openai.com/account/api-keys</a><br><img src="http://blog.xiezhrspace.cn/blog-img/f99fb52bffdc4c4ea417c7d66564eb6a.png" alt="在这里插入图片描述"><br>点击上面截图按钮后官方会帮我们创建一个<strong>密钥</strong>，这个密钥十分重要，自己保存好。后面接口调用都会用到它<br><img src="http://blog.xiezhrspace.cn/blog-img/4cb0789cdc004dbd8aacc42a24b26498.png" alt="在这里插入图片描述"></p>
 <h3 id="3-官方支持接入语言"><a href="#3-官方支持接入语言" class="headerlink" title="3 官方支持接入语言"></a>3 官方支持接入语言</h3><p>我们登录下面网址，可以看到ChatGPT 已经支持很多语言接入了<br><a target="_blank" rel="noopener" href="https://beta.openai.com/docs/libraries/community-libraries">https://beta.openai.com/docs/libraries/community-libraries</a></p>
-<p><img src="https://img-blog.csdnimg.cn/f9336338a1764d1c94ad81f208ac2004.png" alt="在这里插入图片描述"><br>点击上方连接，可以跳转到一个GitHub地址<a target="_blank" rel="noopener" href="https://github.com/TheoKanning/openai-java">openai-java</a>，Theo Kanning开发者已经帮我们写好了例子,我们参考他开源的项目调用即可<br><img src="https://img-blog.csdnimg.cn/c312fa8572c9435398ac6328376ee299.png" alt="在这里插入图片描述"></p>
-<h3 id="4-调用费用"><a href="#4-调用费用" class="headerlink" title="4 调用费用"></a>4 调用费用</h3><p>程序<strong>接入到 chatGPT</strong>，所调用的接口，要<strong>收费的</strong>。<br>不过新注册的账号，前3 个月免费使用，总消费额度<strong>不超过 18 美元</strong>。<br>我的账号是到2023年4月1日，这期间只要调用费用不超过18美元相当于是<strong>免费使用</strong><br><img src="https://img-blog.csdnimg.cn/26dbc6cc57b443c7a561dc5617f02ed7.png" alt="在这里插入图片描述"></p>
+<p><img src="http://blog.xiezhrspace.cn/blog-img/f9336338a1764d1c94ad81f208ac2004.png" alt="在这里插入图片描述"><br>点击上方连接，可以跳转到一个GitHub地址<a target="_blank" rel="noopener" href="https://github.com/TheoKanning/openai-java">openai-java</a>，Theo Kanning开发者已经帮我们写好了例子,我们参考他开源的项目调用即可<br><img src="http://blog.xiezhrspace.cn/blog-img/c312fa8572c9435398ac6328376ee299.png" alt="在这里插入图片描述"></p>
+<h3 id="4-调用费用"><a href="#4-调用费用" class="headerlink" title="4 调用费用"></a>4 调用费用</h3><p>程序<strong>接入到 chatGPT</strong>，所调用的接口，要<strong>收费的</strong>。<br>不过新注册的账号，前3 个月免费使用，总消费额度<strong>不超过 18 美元</strong>。<br>我的账号是到2023年4月1日，这期间只要调用费用不超过18美元相当于是<strong>免费使用</strong><br><img src="http://blog.xiezhrspace.cn/blog-img/26dbc6cc57b443c7a561dc5617f02ed7.png" alt="在这里插入图片描述"></p>
 <h3 id="5-接口调用说明"><a href="#5-接口调用说明" class="headerlink" title="5 接口调用说明"></a>5 接口调用说明</h3><p>以上准备工作做好之后，我们就可以开始接入ChatGPT了。<br>下面是官网给出的<strong>调用例子</strong>（只是其中一个使用场景），这些<strong>参数</strong>我们应该都很熟悉了吧</p>
 <pre class=" language-java"><code class="language-java">curl https<span class="token operator">:</span><span class="token operator">/</span><span class="token operator">/</span>api<span class="token punctuation">.</span>openai<span class="token punctuation">.</span>com<span class="token operator">/</span>v1<span class="token operator">/</span>completions \
   <span class="token operator">-</span>H <span class="token string">"Content-Type: application/json"</span> \
@@ -967,19 +967,19 @@
 </code></pre>
 <p>这里我们不展开说了，就说一说其中几个比较重要的</p>
 <ul>
-<li><strong>model</strong> 接入模型<br>OpenAI API提供了一系列具有不同功能和价格点的模型 可以到如下地址查看<br><a target="_blank" rel="noopener" href="https://beta.openai.com/docs/models">https://beta.openai.com/docs/models</a><br><img src="https://img-blog.csdnimg.cn/1c3c2131f4504fdd9069ba214353a64d.png" alt="在这里插入图片描述"><br>其中，GPT-3是最为智能的模型，也是收费最高的，后面代码中我们将使用其中的text-davinci-003<br><img src="https://img-blog.csdnimg.cn/3d7f962b14ff4c7083a607a2050226c8.png" alt="在这里插入图片描述"></li>
-<li><strong>使用场景</strong><br>官网给我们列出来很多使用场景，可以在如下地址查看<br><a target="_blank" rel="noopener" href="https://beta.openai.com/examples">https://beta.openai.com/examples</a><br>①Answers（问答场景）<br><img src="https://img-blog.csdnimg.cn/0575d6005cb146bfbba06d7c42614ee6.png" alt="在这里插入图片描述"><br>②Classification（分类场景）<br><img src="https://img-blog.csdnimg.cn/efb241592ce64d569bd3500731a3f7ed.png" alt="在这里插入图片描述"><br>③Code(代码场景)<br><img src="https://img-blog.csdnimg.cn/65838ff6511e424b84ce2fee00908270.png" alt="在这里插入图片描述"><br>④ Conversation（谈话场景）<br><img src="https://img-blog.csdnimg.cn/70618f44e7a74ec7aa2f82bfb645fb8e.png" alt="在这里插入图片描述"><br>⑤Translation（翻译场景）<br><img src="https://img-blog.csdnimg.cn/bdbebe5f4db045e3b6cd19508fb0226d.png" alt="在这里插入图片描述"></li>
+<li><strong>model</strong> 接入模型<br>OpenAI API提供了一系列具有不同功能和价格点的模型 可以到如下地址查看<br><a target="_blank" rel="noopener" href="https://beta.openai.com/docs/models">https://beta.openai.com/docs/models</a><br><img src="http://blog.xiezhrspace.cn/blog-img/1c3c2131f4504fdd9069ba214353a64d.png" alt="在这里插入图片描述"><br>其中，GPT-3是最为智能的模型，也是收费最高的，后面代码中我们将使用其中的text-davinci-003<br><img src="http://blog.xiezhrspace.cn/blog-img/3d7f962b14ff4c7083a607a2050226c8.png" alt="在这里插入图片描述"></li>
+<li><strong>使用场景</strong><br>官网给我们列出来很多使用场景，可以在如下地址查看<br><a target="_blank" rel="noopener" href="https://beta.openai.com/examples">https://beta.openai.com/examples</a><br>①Answers（问答场景）<br><img src="http://blog.xiezhrspace.cn/blog-img/0575d6005cb146bfbba06d7c42614ee6.png" alt="在这里插入图片描述"><br>②Classification（分类场景）<br><img src="http://blog.xiezhrspace.cn/blog-img/efb241592ce64d569bd3500731a3f7ed.png" alt="在这里插入图片描述"><br>③Code(代码场景)<br><img src="http://blog.xiezhrspace.cn/blog-img/65838ff6511e424b84ce2fee00908270.png" alt="在这里插入图片描述"><br>④ Conversation（谈话场景）<br><img src="http://blog.xiezhrspace.cn/blog-img/70618f44e7a74ec7aa2f82bfb645fb8e.png" alt="在这里插入图片描述"><br>⑤Translation（翻译场景）<br><img src="http://blog.xiezhrspace.cn/blog-img/bdbebe5f4db045e3b6cd19508fb0226d.png" alt="在这里插入图片描述"></li>
 </ul>
-<p>⑥Transformation（转换场景）<br><img src="https://img-blog.csdnimg.cn/f5479c92e79e463699bcd9d1fb13c6d5.png" alt="在这里插入图片描述"></p>
+<p>⑥Transformation（转换场景）<br><img src="http://blog.xiezhrspace.cn/blog-img/f5479c92e79e463699bcd9d1fb13c6d5.png" alt="在这里插入图片描述"></p>
 <h3 id="6-代码实现"><a href="#6-代码实现" class="headerlink" title="6 代码实现"></a>6 代码实现</h3><p>以上说到的场景很多，数了数，有49种场景。代码中，我们就挑其中的几种场景实现以下，<br>其他的场景感兴趣的小伙伴自己去实现。<br>我们已<strong>Q&amp;A</strong> 场景为例，只要点场景图标，就可以跳到该场景调用实例了。具体如下</p>
-<p><img src="https://img-blog.csdnimg.cn/c345e10c56ec4eacbbb79084e16817e0.png" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/168664cd102e46389c49d21d44d789ba.png" alt="在这里插入图片描述"></p>
+<p><img src="http://blog.xiezhrspace.cn/blog-img/c345e10c56ec4eacbbb79084e16817e0.png" alt="在这里插入图片描述"><br><img src="http://blog.xiezhrspace.cn/blog-img/168664cd102e46389c49d21d44d789ba.png" alt="在这里插入图片描述"></p>
 <h4 id="6-1-postman调用"><a href="#6-1-postman调用" class="headerlink" title="6.1 postman调用"></a>6.1 postman调用</h4><blockquote>
 <p>我们先来用postman工具调用试试，看看能不能调通。</p>
 </blockquote>
 <p>如果没有<strong>postman工具</strong>的小伙伴可以到下面地址下载，我帮你们准备好了</p>
 <p>链接：<a target="_blank" rel="noopener" href="https://pan.baidu.com/s/1ASJgyMRAw7RFmteiPXmzSA">https://pan.baidu.com/s/1ASJgyMRAw7RFmteiPXmzSA</a><br>提取码：v3ca</p>
-<p>①选择请求方式，接入地址，添加自己账号创建的Token<br><img src="https://img-blog.csdnimg.cn/387fd2af803147529d6b02195ad64ab9.png" alt="在这里插入图片描述"><br>② 请求头中添加Content-Type类型为json<br><img src="https://img-blog.csdnimg.cn/7eccbd33bc6f48d48fd198882ae21101.png" alt="在这里插入图片描述"><br>③拼接json格式的入参<br><img src="https://img-blog.csdnimg.cn/79b231f2ed9541c0b098ec9251dd58b1.png" alt="在这里插入图片描述"><br>④ 调用成功，返回我们想要的结果了<br><img src="https://img-blog.csdnimg.cn/49a4db0164c1448ead75ad5d81b488b7.png" alt="在这里插入图片描述"></p>
-<h4 id="6-2-Java调用"><a href="#6-2-Java调用" class="headerlink" title="6.2 Java调用"></a>6.2 Java调用</h4><p>postman工具中调用成功了，那么代码中怎么实现呢？<br>① 我们用idea创建一个maven项目<br><img src="https://img-blog.csdnimg.cn/569a2210d418400cadff9bfec812c100.png" alt="在这里插入图片描述"><br>② 添加依赖</p>
+<p>①选择请求方式，接入地址，添加自己账号创建的Token<br><img src="http://blog.xiezhrspace.cn/blog-img/387fd2af803147529d6b02195ad64ab9.png" alt="在这里插入图片描述"><br>② 请求头中添加Content-Type类型为json<br><img src="http://blog.xiezhrspace.cn/blog-img/7eccbd33bc6f48d48fd198882ae21101.png" alt="在这里插入图片描述"><br>③拼接json格式的入参<br><img src="http://blog.xiezhrspace.cn/blog-img/79b231f2ed9541c0b098ec9251dd58b1.png" alt="在这里插入图片描述"><br>④ 调用成功，返回我们想要的结果了<br><img src="http://blog.xiezhrspace.cn/blog-img/49a4db0164c1448ead75ad5d81b488b7.png" alt="在这里插入图片描述"></p>
+<h4 id="6-2-Java调用"><a href="#6-2-Java调用" class="headerlink" title="6.2 Java调用"></a>6.2 Java调用</h4><p>postman工具中调用成功了，那么代码中怎么实现呢？<br>① 我们用idea创建一个maven项目<br><img src="http://blog.xiezhrspace.cn/blog-img/569a2210d418400cadff9bfec812c100.png" alt="在这里插入图片描述"><br>② 添加依赖</p>
 <blockquote>
 <p>依赖只需引入Hutool即可，我们使用Hutool工具发送http post请求，json对象封装等等。</p>
 </blockquote>
@@ -1094,7 +1094,7 @@
 </code></pre>
 <p>我们将上面调用返回的url 放到浏览器地址栏即可查看图片。接口参数中 “n” 不要设置太大哈，有时候返回的图片，怎么说呢。ai的审美不一定跟我们一致，不过第一个url的也还行 哈哈哈~(●’◡’●)</p>
 <h3 id="7-小结"><a href="#7-小结" class="headerlink" title="7 小结"></a>7 小结</h3><p>通过上面的例子展示，Java调用ChatGpt 接口是不是很简单呢。如果大家遇到啥问题可以关注文章末尾公众号咨询哈 (●’◡’●)<br>简单归简单，但是每次请求都要花费money，不知道$18 能支撑多久。<br>经过一波测试调用后花费了$0.27,折合人名币￥1.88.大家省着点调用吧，长期下来也不便宜。</p>
-<p><img src="https://img-blog.csdnimg.cn/7c36eee421224c9c9eb8b0bc19058856.png" alt="在这里插入图片描述"><br>本期内容到这就结束了，各位小伙伴们，我们下期见 (●’◡’●)</p>
+<p><img src="http://blog.xiezhrspace.cn/blog-img/7c36eee421224c9c9eb8b0bc19058856.png" alt="在这里插入图片描述"><br>本期内容到这就结束了，各位小伙伴们，我们下期见 (●’◡’●)</p>
 
             </div>
             <hr/>
@@ -1158,12 +1158,12 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/Java/">
-                                    <span class="chip bg-color">Java</span>
-                                </a>
-                            
                                 <a href="/tags/ChatGPT/">
                                     <span class="chip bg-color">ChatGPT</span>
+                                </a>
+                            
+                                <a href="/tags/Java/">
+                                    <span class="chip bg-color">Java</span>
                                 </a>
                             
                                 <a href="/tags/Java%E6%8E%A5%E5%85%A5Chat-GPT/">
@@ -1340,7 +1340,7 @@
         
         box-sizing: border-box;
         /* background: url("https://fastly.jsdelivr.net/gh/xiezhr/xiezhrblog-cdn-source/source/medias/comment_bg.webp") 100% 100% no-repeat; */
-        background-image: url("https://fastly.jsdelivr.net/gh/xiezhr/xiezhrblog-cdn-source/source/medias/simiao.gif");
+        background-image: url("https://fastly.jsdelivr.net/gh/xiezhr/xiezhrblog-cdn-source/source/medias/hongmiaosi.gif");
         background-size: contain;
         background-repeat: no-repeat;
         background-position:right;
@@ -1639,7 +1639,7 @@
                 <a href="/archives/34bd5bd5.html">
                     <div class="card-image">
                         
-                        <img src="https://img-blog.csdnimg.cn/e65a31b1db0d4159a9fdaab0435fe27d.gif" class="responsive-img" alt="对于搞钱我们是认真的">
+                        <img src="http://blog.xiezhrspace.cn/blog-img/e65a31b1db0d4159a9fdaab0435fe27d.gif" class="responsive-img" alt="对于搞钱我们是认真的">
                         
                         <span class="card-title">对于搞钱我们是认真的</span>
                     </div>
@@ -1695,7 +1695,7 @@
                 <a href="/archives/ad2723af.html">
                     <div class="card-image">
                         
-                        <img src="https://img-blog.csdnimg.cn/62b1120cc905433d8018b9b0949d608e.png" class="responsive-img" alt="ChatGPT新玩法来了，微信聊天机器人">
+                        <img src="http://blog.xiezhrspace.cn/blog-img/62b1120cc905433d8018b9b0949d608e-1679403143720-1.png" class="responsive-img" alt="ChatGPT新玩法来了，微信聊天机器人">
                         
                         <span class="card-title">ChatGPT新玩法来了，微信聊天机器人</span>
                     </div>
@@ -1939,7 +1939,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">182k</span>&nbsp;字
+                class="white-color">183k</span>&nbsp;字
             
             
             

@@ -731,7 +731,7 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('https://img-blog.csdnimg.cn/6d7f0ae5b2b84335a9d6827ec3d7ba79.png')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('http://blog.xiezhrspace.cn/blog-img/6d7f0ae5b2b84335a9d6827ec3d7ba79.png')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
@@ -908,7 +908,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2023-02-11
+                    2023-03-21
                 </div>
                 
 
@@ -937,7 +937,7 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>去年又重新刷了路遥的《平凡的世界》，最近也在朋友推荐下，来看了路遥的另一部成名作《人生》。<br>故事中的主人公高加林，虽生在农村，面朝黄土背朝天，却不甘心像父辈一样或者，一心想着摆脱民语的束缚，追求他的理想生活。<br>然而命运多舛，在他所想象的理想生活中，一次次跌倒，最终不得不承认自己的平凡，生活总得继续。<br>现实世界如此，代码世界里，我们也希望一切都是理想的。<br>我们希望用户输入的数据格式永远是正确的，打开的资源也一定存在，用户的硬件是正常的，用户的操作系统四稳定的，用户的网络也一定是畅通的等等<br><img src="https://img-blog.csdnimg.cn/9ca56979fe3e47809abd315c5fd9a3d7.png" alt="还敢抛异常"><br>然而事与愿违，愿望是好的，现实是残酷的。<br>引入异常机制的目的就在于，当“人生”中出现异常时，能够将其捕获并处理，保证我们能更好的走下去，不至于出现一点插曲，就停滞不前。</p>
+                <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>去年又重新刷了路遥的《平凡的世界》，最近也在朋友推荐下，来看了路遥的另一部成名作《人生》。<br>故事中的主人公高加林，虽生在农村，面朝黄土背朝天，却不甘心像父辈一样或者，一心想着摆脱民语的束缚，追求他的理想生活。<br>然而命运多舛，在他所想象的理想生活中，一次次跌倒，最终不得不承认自己的平凡，生活总得继续。<br>现实世界如此，代码世界里，我们也希望一切都是理想的。<br>我们希望用户输入的数据格式永远是正确的，打开的资源也一定存在，用户的硬件是正常的，用户的操作系统四稳定的，用户的网络也一定是畅通的等等<br><img src="http://blog.xiezhrspace.cn/blog-img/9ca56979fe3e47809abd315c5fd9a3d7.png" alt="还敢抛异常"><br>然而事与愿违，愿望是好的，现实是残酷的。<br>引入异常机制的目的就在于，当“人生”中出现异常时，能够将其捕获并处理，保证我们能更好的走下去，不至于出现一点插曲，就停滞不前。</p>
 <h3 id="一、异常引入"><a href="#一、异常引入" class="headerlink" title="一、异常引入"></a>一、异常引入</h3><p>因此呢就出现了异常处理，我们把可能出现异常的业务代码放到try块中定义，把异常处理放到catch块中进行处理，保证程序遇到异常依然能继续运行，保证程序的健壮性。</p>
 <p>① 我们来看看高加林的一生中各种异常的处理</p>
 <pre class=" language-java"><code class="language-java"><span class="token keyword">try</span><span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
@@ -1004,9 +1004,9 @@ Exception in thread <span class="token string">"main"</span> java<span class="to
 <li>Error(错误)：Java虚拟机无法解决的严重问题，<del>我们没办法通过 catch 来进行捕获</del> 。如：内存溢出（<code>OutOfMemoryError</code>）、Java 虚拟机运行错误（<code>Virtual MachineError</code>）、类定义错误（<code>NoClassDefFoundError</code>）等。error  是严重错误，Java虚拟机会选择线程终止</li>
 <li>Exception(异常)：编程错误或偶尔的外在因素导致的一般问题，程序本身可以处理的异常，可以通过 <code>catch</code> 来进行捕获。<code>Exception</code>  又可以分 <strong>运行时异常</strong>（程序运行时发生的异常）和<strong>编译时异常</strong>（程序编译期间产生的异常，必须要处理的异常，否则代码没法编译通过）。</li>
 </ul>
-<p><img src="https://img-blog.csdnimg.cn/b803745f7a9c4e12bf1ac2818b3a7066.png" alt="在这里插入图片描述"></p>
-<h3 id="三、异常继承体系"><a href="#三、异常继承体系" class="headerlink" title="三、异常继承体系"></a>三、异常继承体系</h3><p><strong>注</strong>：虚线为实现，实线为继承<br><img src="https://img-blog.csdnimg.cn/007be618d88749b688f8c72c4e7af146.png" alt="在这里插入图片描述"></p>
-<h3 id="四、常见运行异常"><a href="#四、常见运行异常" class="headerlink" title="四、常见运行异常"></a>四、常见运行异常</h3><h4 id="4-1-NullPointerException-空指针异常"><a href="#4-1-NullPointerException-空指针异常" class="headerlink" title="4.1 NullPointerException 空指针异常"></a>4.1 NullPointerException 空指针异常</h4><p><img src="https://img-blog.csdnimg.cn/cd69ce8f9d004e03824630631b18b8cd.png" alt="在这里插入图片描述"></p>
+<p><img src="http://blog.xiezhrspace.cn/blog-img/b803745f7a9c4e12bf1ac2818b3a7066.png" alt="在这里插入图片描述"></p>
+<h3 id="三、异常继承体系"><a href="#三、异常继承体系" class="headerlink" title="三、异常继承体系"></a>三、异常继承体系</h3><p><strong>注</strong>：虚线为实现，实线为继承<br><img src="http://blog.xiezhrspace.cn/blog-img/007be618d88749b688f8c72c4e7af146.png" alt="在这里插入图片描述"></p>
+<h3 id="四、常见运行异常"><a href="#四、常见运行异常" class="headerlink" title="四、常见运行异常"></a>四、常见运行异常</h3><h4 id="4-1-NullPointerException-空指针异常"><a href="#4-1-NullPointerException-空指针异常" class="headerlink" title="4.1 NullPointerException 空指针异常"></a>4.1 NullPointerException 空指针异常</h4><p><img src="http://blog.xiezhrspace.cn/blog-img/cd69ce8f9d004e03824630631b18b8cd.png" alt="在这里插入图片描述"></p>
 <pre class=" language-java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">ExceptionTest</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
     <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span>String<span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
        String str <span class="token operator">=</span> null<span class="token punctuation">;</span>
@@ -1017,7 +1017,7 @@ Exception in thread <span class="token string">"main"</span> java<span class="to
 Exception in thread <span class="token string">"main"</span> java<span class="token punctuation">.</span>lang<span class="token punctuation">.</span>NullPointerException
     at ExceptionTest<span class="token punctuation">.</span><span class="token function">main</span><span class="token punctuation">(</span>ExceptionTest<span class="token punctuation">.</span>java<span class="token operator">:</span><span class="token number">4</span><span class="token punctuation">)</span>
 </code></pre>
-<h4 id="4-2-ArithmeticException-数学运算异常"><a href="#4-2-ArithmeticException-数学运算异常" class="headerlink" title="4.2 ArithmeticException 数学运算异常"></a>4.2 ArithmeticException 数学运算异常</h4><p><img src="https://img-blog.csdnimg.cn/6b8896eb169249638600ad3f157d8571.png" alt="在这里插入图片描述"></p>
+<h4 id="4-2-ArithmeticException-数学运算异常"><a href="#4-2-ArithmeticException-数学运算异常" class="headerlink" title="4.2 ArithmeticException 数学运算异常"></a>4.2 ArithmeticException 数学运算异常</h4><p><img src="http://blog.xiezhrspace.cn/blog-img/6b8896eb169249638600ad3f157d8571.png" alt="在这里插入图片描述"></p>
 <pre class=" language-java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">ExceptionTest</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
     <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span>String<span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
       <span class="token keyword">int</span> num1<span class="token operator">=</span><span class="token number">7</span><span class="token punctuation">;</span>
@@ -1029,7 +1029,7 @@ Exception in thread <span class="token string">"main"</span> java<span class="to
 Exception in thread <span class="token string">"main"</span> java<span class="token punctuation">.</span>lang<span class="token punctuation">.</span>ArithmeticException<span class="token operator">:</span> <span class="token operator">/</span> by zero
     at ExceptionTest<span class="token punctuation">.</span><span class="token function">main</span><span class="token punctuation">(</span>ExceptionTest<span class="token punctuation">.</span>java<span class="token operator">:</span><span class="token number">5</span><span class="token punctuation">)</span>
 </code></pre>
-<h4 id="4-3-ArrayIndexOutOfBoundsException-数组下标越界异常"><a href="#4-3-ArrayIndexOutOfBoundsException-数组下标越界异常" class="headerlink" title="4.3 ArrayIndexOutOfBoundsException 数组下标越界异常"></a>4.3 ArrayIndexOutOfBoundsException 数组下标越界异常</h4><p><img src="https://img-blog.csdnimg.cn/d025528c98af46ac89ab51bee41ae000.png" alt="在这里插入图片描述"></p>
+<h4 id="4-3-ArrayIndexOutOfBoundsException-数组下标越界异常"><a href="#4-3-ArrayIndexOutOfBoundsException-数组下标越界异常" class="headerlink" title="4.3 ArrayIndexOutOfBoundsException 数组下标越界异常"></a>4.3 ArrayIndexOutOfBoundsException 数组下标越界异常</h4><p><img src="http://blog.xiezhrspace.cn/blog-img/d025528c98af46ac89ab51bee41ae000.png" alt="在这里插入图片描述"></p>
 <pre class=" language-java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">ExceptionTest</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
     <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span>String<span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
       String strarr<span class="token punctuation">[</span><span class="token punctuation">]</span> <span class="token operator">=</span><span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span><span class="token string">"个人博客"</span><span class="token punctuation">,</span><span class="token string">"www.xiezhrspace.cn"</span><span class="token punctuation">,</span><span class="token string">"公众号"</span><span class="token punctuation">,</span><span class="token string">"XiezhrSpace"</span><span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span><span class="token punctuation">;</span>
@@ -1047,7 +1047,7 @@ XiezhrSpace
 Exception in thread <span class="token string">"main"</span> java<span class="token punctuation">.</span>lang<span class="token punctuation">.</span>ArrayIndexOutOfBoundsException<span class="token operator">:</span> <span class="token number">4</span>
     at ExceptionTest<span class="token punctuation">.</span><span class="token function">main</span><span class="token punctuation">(</span>ExceptionTest<span class="token punctuation">.</span>java<span class="token operator">:</span><span class="token number">5</span><span class="token punctuation">)</span>
 </code></pre>
-<h4 id="4-4-ClassCastException-类型转换异常"><a href="#4-4-ClassCastException-类型转换异常" class="headerlink" title="4.4 ClassCastException 类型转换异常"></a>4.4 ClassCastException 类型转换异常</h4><p><img src="https://img-blog.csdnimg.cn/7748e6f1427345f0bf7eea1f84e99405.png" alt="在这里插入图片描述"></p>
+<h4 id="4-4-ClassCastException-类型转换异常"><a href="#4-4-ClassCastException-类型转换异常" class="headerlink" title="4.4 ClassCastException 类型转换异常"></a>4.4 ClassCastException 类型转换异常</h4><p><img src="http://blog.xiezhrspace.cn/blog-img/7748e6f1427345f0bf7eea1f84e99405.png" alt="在这里插入图片描述"></p>
 <pre class=" language-java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">ExceptionTest</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
     <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span>String<span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
         Class1 class1 <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Class2</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment" spellcheck="true">//向上转型</span>
@@ -1065,7 +1065,7 @@ Exception in thread <span class="token string">"main"</span> java<span class="to
 Exception in thread <span class="token string">"main"</span> java<span class="token punctuation">.</span>lang<span class="token punctuation">.</span>ClassCastException<span class="token operator">:</span> Class2 cannot be cast to Class3
     at ExceptionTest<span class="token punctuation">.</span><span class="token function">main</span><span class="token punctuation">(</span>ExceptionTest<span class="token punctuation">.</span>java<span class="token operator">:</span><span class="token number">5</span><span class="token punctuation">)</span>
 </code></pre>
-<h4 id="4-5-NumberFormatException-数字格式不正确异常"><a href="#4-5-NumberFormatException-数字格式不正确异常" class="headerlink" title="4.5 NumberFormatException 数字格式不正确异常"></a>4.5 NumberFormatException 数字格式不正确异常</h4><p><img src="https://img-blog.csdnimg.cn/8e29ab8d0ec443abab9f5f6496cc77fb.png" alt="在这里插入图片描述"></p>
+<h4 id="4-5-NumberFormatException-数字格式不正确异常"><a href="#4-5-NumberFormatException-数字格式不正确异常" class="headerlink" title="4.5 NumberFormatException 数字格式不正确异常"></a>4.5 NumberFormatException 数字格式不正确异常</h4><p><img src="http://blog.xiezhrspace.cn/blog-img/8e29ab8d0ec443abab9f5f6496cc77fb.png" alt="在这里插入图片描述"></p>
 <pre class=" language-java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">ExceptionTest</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
     <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span>String<span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
       String str1 <span class="token operator">=</span><span class="token string">"123"</span><span class="token punctuation">;</span>
@@ -1083,12 +1083,12 @@ Exception in thread <span class="token string">"main"</span> java<span class="to
     at ExceptionTest<span class="token punctuation">.</span><span class="token function">main</span><span class="token punctuation">(</span>ExceptionTest<span class="token punctuation">.</span>java<span class="token operator">:</span><span class="token number">6</span><span class="token punctuation">)</span>
 </code></pre>
 <h3 id="五、常见编译时异常"><a href="#五、常见编译时异常" class="headerlink" title="五、常见编译时异常"></a>五、常见编译时异常</h3><blockquote>
-<p>编译期间就必须处理的异常，否则代码不能通过编译<br><img src="https://img-blog.csdnimg.cn/bea1ac3ff72642b6b608ca3df6c99cdf.png" alt="在这里插入图片描述"></p>
+<p>编译期间就必须处理的异常，否则代码不能通过编译<br><img src="http://blog.xiezhrspace.cn/blog-img/bea1ac3ff72642b6b608ca3df6c99cdf.png" alt="在这里插入图片描述"></p>
 </blockquote>
-<h4 id="5-1-FileNotFoundException-操作一个不存在的文件时候发生异常"><a href="#5-1-FileNotFoundException-操作一个不存在的文件时候发生异常" class="headerlink" title="5.1 FileNotFoundException 操作一个不存在的文件时候发生异常"></a>5.1 FileNotFoundException 操作一个不存在的文件时候发生异常</h4><p><img src="https://img-blog.csdnimg.cn/b9fc32b5286f407f8f0360d7d2890fc6.png" alt="在这里插入图片描述"></p>
-<h4 id="5-2-ClassNotFoundException-加载类，类不存在时异常"><a href="#5-2-ClassNotFoundException-加载类，类不存在时异常" class="headerlink" title="5.2 ClassNotFoundException 加载类，类不存在时异常"></a>5.2 ClassNotFoundException 加载类，类不存在时异常</h4><p><img src="https://img-blog.csdnimg.cn/14f1b2625ec94a9289c15ac16dd779c2.png" alt="在这里插入图片描述"></p>
-<h4 id="5-3-SQLException-操作数据库，查询表时发生异常"><a href="#5-3-SQLException-操作数据库，查询表时发生异常" class="headerlink" title="5.3 SQLException 操作数据库，查询表时发生异常"></a>5.3 SQLException 操作数据库，查询表时发生异常</h4><p><img src="https://img-blog.csdnimg.cn/dd8ba2430c9840a6982fb397a9746587.png" alt="在这里插入图片描述"></p>
-<h4 id="5-4-IllegalArgumentException-参数不匹配时发生异常"><a href="#5-4-IllegalArgumentException-参数不匹配时发生异常" class="headerlink" title="5.4 IllegalArgumentException 参数不匹配时发生异常"></a>5.4 IllegalArgumentException 参数不匹配时发生异常</h4><p><img src="https://img-blog.csdnimg.cn/7310d54fe57d4745b851f9286903c7ec.png" alt="在这里插入图片描述"></p>
+<h4 id="5-1-FileNotFoundException-操作一个不存在的文件时候发生异常"><a href="#5-1-FileNotFoundException-操作一个不存在的文件时候发生异常" class="headerlink" title="5.1 FileNotFoundException 操作一个不存在的文件时候发生异常"></a>5.1 FileNotFoundException 操作一个不存在的文件时候发生异常</h4><p><img src="http://blog.xiezhrspace.cn/blog-img/b9fc32b5286f407f8f0360d7d2890fc6.png" alt="在这里插入图片描述"></p>
+<h4 id="5-2-ClassNotFoundException-加载类，类不存在时异常"><a href="#5-2-ClassNotFoundException-加载类，类不存在时异常" class="headerlink" title="5.2 ClassNotFoundException 加载类，类不存在时异常"></a>5.2 ClassNotFoundException 加载类，类不存在时异常</h4><p><img src="http://blog.xiezhrspace.cn/blog-img/14f1b2625ec94a9289c15ac16dd779c2.png" alt="在这里插入图片描述"></p>
+<h4 id="5-3-SQLException-操作数据库，查询表时发生异常"><a href="#5-3-SQLException-操作数据库，查询表时发生异常" class="headerlink" title="5.3 SQLException 操作数据库，查询表时发生异常"></a>5.3 SQLException 操作数据库，查询表时发生异常</h4><p><img src="http://blog.xiezhrspace.cn/blog-img/dd8ba2430c9840a6982fb397a9746587.png" alt="在这里插入图片描述"></p>
+<h4 id="5-4-IllegalArgumentException-参数不匹配时发生异常"><a href="#5-4-IllegalArgumentException-参数不匹配时发生异常" class="headerlink" title="5.4 IllegalArgumentException 参数不匹配时发生异常"></a>5.4 IllegalArgumentException 参数不匹配时发生异常</h4><p><img src="http://blog.xiezhrspace.cn/blog-img/7310d54fe57d4745b851f9286903c7ec.png" alt="在这里插入图片描述"></p>
 <h3 id="六、异常处理"><a href="#六、异常处理" class="headerlink" title="六、异常处理"></a>六、异常处理</h3><blockquote>
 <p>Java 的异常处理通过 5 个关键字来实现：<code>try</code>、<code>catch</code>、<code>throw</code>、<code>throws</code> 和<code>finally</code>。<br><code>try catch</code> 语句用于捕获并自行处理异常<br><code>finally</code> 语句用于在任何情况下（除特殊情况外）都必须执行的代码<br><code>throw</code> 手动生成异常对象<br><code>throws</code> 将发生的异常抛出，交给调用者处理，最顶级的处理者是<code>JVM</code></p>
 </blockquote>
@@ -1097,7 +1097,7 @@ Exception in thread <span class="token string">"main"</span> java<span class="to
 <li>throws ：将发生的异常抛出，交给调用者处理，最顶级处理者是<code>JVM</code></li>
 </ul>
 <p><strong>注：</strong> try-catch-finally 和throws 任选一种即可</p>
-<h4 id="6-2-异常处理"><a href="#6-2-异常处理" class="headerlink" title="6.2 异常处理"></a>6.2 异常处理</h4><h5 id="6-2-1-try-catch-finally"><a href="#6-2-1-try-catch-finally" class="headerlink" title="6.2.1 try-catch-finally"></a>6.2.1 try-catch-finally</h5><p>①原理图<br><img src="https://img-blog.csdnimg.cn/8d6c805b89544adcae0e91e8c75d4079.png" alt="在这里插入图片描述"><br>②语法结构</p>
+<h4 id="6-2-异常处理"><a href="#6-2-异常处理" class="headerlink" title="6.2 异常处理"></a>6.2 异常处理</h4><h5 id="6-2-1-try-catch-finally"><a href="#6-2-1-try-catch-finally" class="headerlink" title="6.2.1 try-catch-finally"></a>6.2.1 try-catch-finally</h5><p>①原理图<br><img src="http://blog.xiezhrspace.cn/blog-img/8d6c805b89544adcae0e91e8c75d4079.png" alt="在这里插入图片描述"><br>②语法结构</p>
 <pre class=" language-java"><code class="language-java"><span class="token keyword">try</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
     逻辑程序块  <span class="token comment" spellcheck="true">//可能有异常的代码</span>
 <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span> <span class="token keyword">catch</span><span class="token punctuation">(</span>Exception e<span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
@@ -1234,7 +1234,7 @@ java<span class="token punctuation">.</span>lang<span class="token punctuation">
 欢迎你关注
 </code></pre>
 <p><strong>分析：</strong> 以上代码，首先在定义 readFile() 方法时用 <code>throws</code> 关键字声明在该方法中可能产生的异常，然后在 <code>main()</code> 方法中调用<code>readFile() </code>方法，并使用 <code>catch</code> 语句捕获产生的异常</p>
-<p>④ 异常处理流程图<br><img src="https://img-blog.csdnimg.cn/e657bf71a3ab4eb0b856cfbfbe0180c8.png" alt="在这里插入图片描述"></p>
+<p>④ 异常处理流程图<br><img src="http://blog.xiezhrspace.cn/blog-img/e657bf71a3ab4eb0b856cfbfbe0180c8.png" alt="在这里插入图片描述"></p>
 <p>注意：子类方法声明抛出的异常类型应该是父类方法声明抛出的异常类型的子类或相同，子类方法声明抛出的异常不允许比父类方法声明抛出的异常多。</p>
 <p>//下面程序编译就报错，原因时子类抛出比父类还大的异常</p>
 <pre class=" language-java"><code class="language-java"> <span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">OverrideThrows</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
@@ -1451,7 +1451,7 @@ java<span class="token punctuation">.</span>util<span class="token punctuation">
 <li><code>Checked Exception</code> 受检查异常 Java 代码在编译过程中，如果受检查异常没有被 catch或者throws 关键字处理的话，就没办法通过编译</li>
 <li>常见的受检查异常有： IO 相关的异常、<code>ClassNotFoundException</code> 、<code>SQLException</code></li>
 <li>例如，下面就是</li>
-<li><img src="https://img-blog.csdnimg.cn/2858a34ef0614f55bbe07e0bb30101ec.png" alt="在这里插入图片描述"></li>
+<li><img src="http://blog.xiezhrspace.cn/blog-img/2858a34ef0614f55bbe07e0bb30101ec.png" alt="在这里插入图片描述"></li>
 <li><code>Unchecked Exception</code> 即 不受检查异常 ，Java 代码在编译过程中 ，我们即使不处理不受检查异常也可以正常通过编译。</li>
 <li>我们经常看到的有以下几种<br><code>NullPointerException</code> ：空指针错误<br><code>IllegalArgumentException</code> ：参数错误比如方法入参类型错误<br><code>NumberFormatException</code>：字符串转换为数字格式错误<br><code>ArrayIndexOutOfBoundsException</code>：数组越界错误<br><code>ClassCastException</code>：类型转换错误<br><code>ArithmeticException</code>：算术错误<br><code>SecurityException </code>：安全错误比如权限不够<br><code>UnsupportedOperationException</code>：不支持的操作错误比如重复创建同一用户</li>
 </ul>
@@ -1479,7 +1479,7 @@ java<span class="token punctuation">.</span>util<span class="token punctuation">
 <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
 </code></pre>
 <p><strong>分析</strong> 上面这段代码就是说，只要是代码运行过程中有异常就会进行捕获，并输出出这个异常。然后我们随便编写一个会发生异常的代码，测试出来的异常是这样的。</p>
-<p><img src="https://img-blog.csdnimg.cn/cbe74994d0c345b2b8193bbdb0fffd1b.png" alt="在这里插入图片描述"><br>这对于前后端分离来说这样的报错对用户并不好，前后端分离之后唯一的交互就是json了，我们也希望将后端的异常变成json返回给前端处理。</p>
+<p><img src="http://blog.xiezhrspace.cn/blog-img/cbe74994d0c345b2b8193bbdb0fffd1b.png" alt="在这里插入图片描述"><br>这对于前后端分离来说这样的报错对用户并不好，前后端分离之后唯一的交互就是json了，我们也希望将后端的异常变成json返回给前端处理。</p>
 <h4 id="9-2-用枚举类型记录已知错误信息与成功信息"><a href="#9-2-用枚举类型记录已知错误信息与成功信息" class="headerlink" title="9.2 用枚举类型记录已知错误信息与成功信息"></a>9.2 用枚举类型记录已知错误信息与成功信息</h4><blockquote>
 <p><code>ErrorEnum</code>枚举类中定义了常见的错误码以及错误的提示信息。<br><code>SuccEnum</code> 枚举类中定义了成功码及成功提示信息</p>
 </blockquote>
@@ -1737,9 +1737,9 @@ public class ResultUtil &#123;
     <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
 <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
 </code></pre>
-<h4 id="9-8-接口测试"><a href="#9-8-接口测试" class="headerlink" title="9.8  接口测试"></a>9.8  接口测试</h4><h5 id="9-8-1-获取没有异常的数据返回"><a href="#9-8-1-获取没有异常的数据返回" class="headerlink" title="9.8.1 获取没有异常的数据返回"></a>9.8.1 获取没有异常的数据返回</h5><p><code>http://localhost:8090/result/getUser</code><br><img src="https://img-blog.csdnimg.cn/b8462915d93141aeab758ff09d83fe3a.png" alt="在这里插入图片描述"></p>
-<h5 id="9-8-2-自定义异常返回"><a href="#9-8-2-自定义异常返回" class="headerlink" title="9.8.2 自定义异常返回"></a>9.8.2 自定义异常返回</h5><p><code>http://localhost:8090/result/getDefException</code><br><img src="https://img-blog.csdnimg.cn/382970f7139a4913833b65b0a54d14af.png" alt="在这里插入图片描述"><br><code>http://localhost:8090/result/getException?name=xiezhr&amp;pwd=123</code><br><img src="https://img-blog.csdnimg.cn/3b16cb27ec124c67b337b927df8c24f5.png" alt="在这里插入图片描述"></p>
-<h5 id="9-8-3-其他的异常-返回"><a href="#9-8-3-其他的异常-返回" class="headerlink" title="9.8.3  其他的异常 返回"></a>9.8.3  其他的异常 返回</h5><p><code>http://localhost:8090/result/getException?name=ff&amp;pwd=abc</code><br><img src="https://img-blog.csdnimg.cn/a989e0a0781545b8bf20ac3193c9f60b.png" alt="在这里插入图片描述"></p>
+<h4 id="9-8-接口测试"><a href="#9-8-接口测试" class="headerlink" title="9.8  接口测试"></a>9.8  接口测试</h4><h5 id="9-8-1-获取没有异常的数据返回"><a href="#9-8-1-获取没有异常的数据返回" class="headerlink" title="9.8.1 获取没有异常的数据返回"></a>9.8.1 获取没有异常的数据返回</h5><p><code>http://localhost:8090/result/getUser</code><br><img src="http://blog.xiezhrspace.cn/blog-img/b8462915d93141aeab758ff09d83fe3a.png" alt="在这里插入图片描述"></p>
+<h5 id="9-8-2-自定义异常返回"><a href="#9-8-2-自定义异常返回" class="headerlink" title="9.8.2 自定义异常返回"></a>9.8.2 自定义异常返回</h5><p><code>http://localhost:8090/result/getDefException</code><br><img src="http://blog.xiezhrspace.cn/blog-img/382970f7139a4913833b65b0a54d14af.png" alt="在这里插入图片描述"><br><code>http://localhost:8090/result/getException?name=xiezhr&amp;pwd=123</code><br><img src="http://blog.xiezhrspace.cn/blog-img/3b16cb27ec124c67b337b927df8c24f5.png" alt="在这里插入图片描述"></p>
+<h5 id="9-8-3-其他的异常-返回"><a href="#9-8-3-其他的异常-返回" class="headerlink" title="9.8.3  其他的异常 返回"></a>9.8.3  其他的异常 返回</h5><p><code>http://localhost:8090/result/getException?name=ff&amp;pwd=abc</code><br><img src="http://blog.xiezhrspace.cn/blog-img/a989e0a0781545b8bf20ac3193c9f60b.png" alt="在这里插入图片描述"></p>
 <h3 id="十、异常处理及规约"><a href="#十、异常处理及规约" class="headerlink" title="十、异常处理及规约"></a>十、异常处理及规约</h3><p>异常的处理⽅式有两种。 1、 ⾃⼰处理。 2、 向上抛， 交给调⽤者处理。</p>
 <p>异常， 千万不能捕获了之后什么也不做。 或者只是使⽤e.printStacktrace。</p>
 <p>具体的处理⽅式的选择其实原则⽐较简明： ⾃⼰明确的知道如何处理的， 就要处理掉。 不知道如何处理的， 就交给调⽤者处理。</p>
@@ -2066,7 +2066,7 @@ public class ResultUtil &#123;
         
         box-sizing: border-box;
         /* background: url("https://fastly.jsdelivr.net/gh/xiezhr/xiezhrblog-cdn-source/source/medias/comment_bg.webp") 100% 100% no-repeat; */
-        background-image: url("https://fastly.jsdelivr.net/gh/xiezhr/xiezhrblog-cdn-source/source/medias/simiao.gif");
+        background-image: url("https://fastly.jsdelivr.net/gh/xiezhr/xiezhrblog-cdn-source/source/medias/hongmiaosi.gif");
         background-size: contain;
         background-repeat: no-repeat;
         background-position:right;
@@ -2421,7 +2421,7 @@ public class ResultUtil &#123;
                 <a href="/archives/82098078.html">
                     <div class="card-image">
                         
-                        <img src="https://img-blog.csdnimg.cn/e602122e038747f895616fcee1c2c03c.jpeg" class="responsive-img" alt="2022这一年">
+                        <img src="http://blog.xiezhrspace.cn/blog-img/e602122e038747f895616fcee1c2c03c.jpeg" class="responsive-img" alt="2022这一年">
                         
                         <span class="card-title">2022这一年</span>
                     </div>
@@ -2665,7 +2665,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">182k</span>&nbsp;字
+                class="white-color">183k</span>&nbsp;字
             
             
             

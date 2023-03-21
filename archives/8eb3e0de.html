@@ -731,7 +731,7 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('https://img-blog.csdnimg.cn/5cbba9b0a2fa486e9b1686df3e2966ed.jpeg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('http://blog.xiezhrspace.cn/blog-img/5cbba9b0a2fa486e9b1686df3e2966ed.jpeg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
@@ -900,7 +900,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2023-01-29
+                    2023-03-21
                 </div>
                 
 
@@ -930,7 +930,7 @@
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>这两天，我们经常逛的好多网站、app首页都变灰了，原因大家应该都知道了</p>
-<h3 id="网站变灰"><a href="#网站变灰" class="headerlink" title="网站变灰"></a>网站变灰</h3><p>①B站<br><img src="https://img-blog.csdnimg.cn/7288391a82084881bc056ebfd2b32861.png" alt="这是B站"><br>②爱奇艺<br><img src="https://img-blog.csdnimg.cn/1ba34fc1a4cb4a19ac9feb6530158382.png" alt="这是爱奇艺"><br>③ 腾讯视频<br><img src="https://img-blog.csdnimg.cn/0414e9a7e3cd405aa70e7bde192ccf42.png" alt="这是腾讯视频"><br>④ csdn<br><img src="https://img-blog.csdnimg.cn/89b98fc35b774f709d9f15d564fcc055.png" alt="这是csdn"><br>⑤百度<br><img src="https://img-blog.csdnimg.cn/0b21a93bce434a9db132b0c000c0777c.png" alt="这是百度"></p>
+<h3 id="网站变灰"><a href="#网站变灰" class="headerlink" title="网站变灰"></a>网站变灰</h3><p>①B站<br><img src="http://blog.xiezhrspace.cn/blog-img/7288391a82084881bc056ebfd2b32861.png" alt="这是B站"><br>②爱奇艺<br><img src="http://blog.xiezhrspace.cn/blog-img/1ba34fc1a4cb4a19ac9feb6530158382.png" alt="这是爱奇艺"><br>③ 腾讯视频<br><img src="http://blog.xiezhrspace.cn/blog-img/0414e9a7e3cd405aa70e7bde192ccf42.png" alt="这是腾讯视频"><br>④ csdn<br><img src="http://blog.xiezhrspace.cn/blog-img/89b98fc35b774f709d9f15d564fcc055.png" alt="这是csdn"><br>⑤百度<br><img src="http://blog.xiezhrspace.cn/blog-img/0b21a93bce434a9db132b0c000c0777c.png" alt="这是百度"></p>
 <h3 id="怎么实现的呢？"><a href="#怎么实现的呢？" class="headerlink" title="怎么实现的呢？"></a>怎么实现的呢？</h3><p>难道这些网站开发商在网站开发的时候都准备一套灰色主题的UI么？<br>好奇心的驱使下，开始疯狂的询问度娘，果真还是找到了这么一个网站。</p>
 <p>①官方文档地址<br>【<code>https://developer.mozilla.org/zh-CN/docs/Web/CSS/filter</code>】</p>
 <p>网站这个页面对<code>CSS</code>属性 <code>filter </code>的用法做了详细介绍，这里截取几个重要部分出来，对<code>filter</code>属性感兴趣的小伙伴可以在以上官网查看详细内容<br>② 简介</p>
@@ -965,7 +965,7 @@
 <span class="token property">filter</span><span class="token punctuation">:</span> revert<span class="token punctuation">;</span>
 <span class="token property">filter</span><span class="token punctuation">:</span> unset<span class="token punctuation">;</span>
 </code></pre>
-<p>④ 样例<br><img src="https://img-blog.csdnimg.cn/065492fa49a244178483fec115dfd130.png" alt="在这里插入图片描述"></p>
+<p>④ 样例<br><img src="http://blog.xiezhrspace.cn/blog-img/065492fa49a244178483fec115dfd130.png" alt="在这里插入图片描述"></p>
 <h3 id="来看看网站有没有用CSS-filter"><a href="#来看看网站有没有用CSS-filter" class="headerlink" title="来看看网站有没有用CSS filter"></a>来看看网站有没有用CSS filter</h3><p>我们打开B站首页，然后<code>f12</code> 呼出开发者工具，发现确实有如下样式</p>
 <pre class=" language-css"><code class="language-css">html<span class="token number">.</span>gray &amp;<span class="token hexcode">#123</span><span class="token punctuation">;</span>
     <span class="token property">filter</span><span class="token punctuation">:</span> <span class="token function">grayscale</span><span class="token punctuation">(</span><span class="token number">85%</span><span class="token punctuation">)</span> <span class="token function">saturate</span><span class="token punctuation">(</span><span class="token number">80%</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
@@ -978,11 +978,11 @@
     <span class="token property">-webkit-filter</span><span class="token punctuation">:</span> <span class="token function">grayscale</span><span class="token punctuation">(</span><span class="token number">.85</span><span class="token punctuation">)</span> <span class="token function">saturate</span><span class="token punctuation">(</span><span class="token number">.8</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 &amp;<span class="token hexcode">#125</span><span class="token punctuation">;</span>
 </code></pre>
-<p><img src="https://img-blog.csdnimg.cn/88c7bcb9154e4cd9874e8f481c80813a.png" alt="在这里插入图片描述"></p>
+<p><img src="http://blog.xiezhrspace.cn/blog-img/88c7bcb9154e4cd9874e8f481c80813a.png" alt="在这里插入图片描述"></p>
 <p>找到了样式，那么接下来我们拿个人小破站【<a target="_blank" rel="noopener" href="http://www.xiezhrspace.cn】试试效果/">www.xiezhrspace.cn】试试效果</a></p>
-<p>没添加CSS样式的样子<br><img src="https://img-blog.csdnimg.cn/f001531ef3b44df2aff2a05d3759743c.png" alt="在这里插入图片描述"></p>
-<p>添加CSS样式之后<br><img src="https://img-blog.csdnimg.cn/72ca768513834a37aedaffe36e3da0b4.png" alt="在这里插入图片描述"><br>好家伙，还真变成全灰的了</p>
-<h3 id="CSS样式兼容性"><a href="#CSS样式兼容性" class="headerlink" title="CSS样式兼容性"></a>CSS样式兼容性</h3><p>个人试了谷歌浏览器、火狐浏览器都是可以通过以上CSS样式实现网页变灰的，IE亲测不行。<br>下面是官方给出的各个浏览器兼容情况<br><img src="https://img-blog.csdnimg.cn/ac84b15255784ddabf56d9604897eb5d.png" alt="兼容性"></p>
+<p>没添加CSS样式的样子<br><img src="http://blog.xiezhrspace.cn/blog-img/f001531ef3b44df2aff2a05d3759743c.png" alt="在这里插入图片描述"></p>
+<p>添加CSS样式之后<br><img src="http://blog.xiezhrspace.cn/blog-img/72ca768513834a37aedaffe36e3da0b4.png" alt="在这里插入图片描述"><br>好家伙，还真变成全灰的了</p>
+<h3 id="CSS样式兼容性"><a href="#CSS样式兼容性" class="headerlink" title="CSS样式兼容性"></a>CSS样式兼容性</h3><p>个人试了谷歌浏览器、火狐浏览器都是可以通过以上CSS样式实现网页变灰的，IE亲测不行。<br>下面是官方给出的各个浏览器兼容情况<br><img src="http://blog.xiezhrspace.cn/blog-img/ac84b15255784ddabf56d9604897eb5d.png" alt="兼容性"></p>
 <p>原以为很难实现的功能，原来只需要几行代码就实现了。</p>
 <p>本期内容就到这了，我们下期再见(●’◡’●)</p>
 
@@ -1226,7 +1226,7 @@
         
         box-sizing: border-box;
         /* background: url("https://fastly.jsdelivr.net/gh/xiezhr/xiezhrblog-cdn-source/source/medias/comment_bg.webp") 100% 100% no-repeat; */
-        background-image: url("https://fastly.jsdelivr.net/gh/xiezhr/xiezhrblog-cdn-source/source/medias/comment_bg.webp");
+        background-image: url("https://fastly.jsdelivr.net/gh/xiezhr/xiezhrblog-cdn-source/source/medias/hongmiaosi.gif");
         background-size: contain;
         background-repeat: no-repeat;
         background-position:right;
@@ -1525,7 +1525,7 @@
                 <a href="/archives/ad2723af.html">
                     <div class="card-image">
                         
-                        <img src="https://img-blog.csdnimg.cn/62b1120cc905433d8018b9b0949d608e.png" class="responsive-img" alt="ChatGPT新玩法来了，微信聊天机器人">
+                        <img src="http://blog.xiezhrspace.cn/blog-img/62b1120cc905433d8018b9b0949d608e-1679403143720-1.png" class="responsive-img" alt="ChatGPT新玩法来了，微信聊天机器人">
                         
                         <span class="card-title">ChatGPT新玩法来了，微信聊天机器人</span>
                     </div>
@@ -1589,7 +1589,7 @@
                 <a href="/archives/52fe8ce9.html">
                     <div class="card-image">
                         
-                        <img src="https://img-blog.csdnimg.cn/2c92215be9164238b9545e2be7258115.png" class="responsive-img" alt="花了1块钱体验一把最近很火的ChatGPT">
+                        <img src="http://blog.xiezhrspace.cn/blog-img/2c92215be9164238b9545e2be7258115.png" class="responsive-img" alt="花了1块钱体验一把最近很火的ChatGPT">
                         
                         <span class="card-title">花了1块钱体验一把最近很火的ChatGPT</span>
                     </div>
@@ -1833,7 +1833,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">182k</span>&nbsp;字
+                class="white-color">183k</span>&nbsp;字
             
             
             

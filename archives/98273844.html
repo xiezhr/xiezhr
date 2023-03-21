@@ -731,7 +731,7 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('https://img-blog.csdnimg.cn/5cbba9b0a2fa486e9b1686df3e2966ed.jpeg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('http://blog.xiezhrspace.cn/blog-img/5cbba9b0a2fa486e9b1686df3e2966ed.jpeg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
@@ -900,7 +900,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2023-01-29
+                    2023-03-21
                 </div>
                 
 
@@ -957,8 +957,8 @@ Query OK<span class="token punctuation">,</span> <span class="token number">0</s
 <p>② 当然了，我们可以通过上一篇文章中说到的工具之一建库、建表</p>
 <p>这里以sqlyog工具为例，建立<strong>db_xiezhr</strong>数据库，并创建用<strong>user_profile</strong>户信息表</p>
 <ul>
-<li>建立<strong>db_xiezhr</strong>数据库<br><img src="https://img-blog.csdnimg.cn/a1a34b33e4ee417296c29d281853972c.png" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/52c817b99b5149a9b679ceeac6b7e3d6.png" alt="在这里插入图片描述"></li>
-<li>创建用<strong>user_profile</strong>户信息表<br><img src="https://img-blog.csdnimg.cn/8d434a94130841e898f6c4b0a8beda98.png" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/d18f1a4c0b6248be9c92350df345601f.png" alt="在这里插入图片描述"><br>以上，我们数据库和数据表就都已经创建成功了</li>
+<li>建立<strong>db_xiezhr</strong>数据库<br><img src="http://blog.xiezhrspace.cn/blog-img/a1a34b33e4ee417296c29d281853972c.png" alt="在这里插入图片描述"><br><img src="http://blog.xiezhrspace.cn/blog-img/52c817b99b5149a9b679ceeac6b7e3d6.png" alt="在这里插入图片描述"></li>
+<li>创建用<strong>user_profile</strong>户信息表<br><img src="http://blog.xiezhrspace.cn/blog-img/8d434a94130841e898f6c4b0a8beda98.png" alt="在这里插入图片描述"><br><img src="http://blog.xiezhrspace.cn/blog-img/d18f1a4c0b6248be9c92350df345601f.png" alt="在这里插入图片描述"><br>以上，我们数据库和数据表就都已经创建成功了</li>
 </ul>
 <h3 id="插入数据"><a href="#插入数据" class="headerlink" title="插入数据"></a>插入数据</h3><h4 id="语法格式"><a href="#语法格式" class="headerlink" title="语法格式"></a>语法格式</h4><pre class=" language-sql"><code class="language-sql"><span class="token comment" spellcheck="true">#方式一：</span>
 <span class="token keyword">INSERT</span> <span class="token keyword">INTO</span> 表名 <span class="token keyword">VALUES</span><span class="token punctuation">(</span>值<span class="token punctuation">,</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
@@ -1092,7 +1092,7 @@ VALUES
   <span class="token punctuation">)</span> <span class="token punctuation">;</span>  
   
 </code></pre>
-<h4 id="将检索出来的数据插入表"><a href="#将检索出来的数据插入表" class="headerlink" title="将检索出来的数据插入表"></a>将检索出来的数据插入表</h4><p>这里有两张表，一张是user_profile，数据如下<br><img src="https://img-blog.csdnimg.cn/fff215587f1241008fca4df51b452853.png" alt="在这里插入图片描述"><br>一张表是tmp_user_profile，数据如下<br><img src="https://img-blog.csdnimg.cn/8f4d0be970b048c6860deb21b42772bc.png" alt="在这里插入图片描述"><br>我们需要将tmp_user_profile 表中数据插入到user_profile 表中,可以通过如下脚本实现</p>
+<h4 id="将检索出来的数据插入表"><a href="#将检索出来的数据插入表" class="headerlink" title="将检索出来的数据插入表"></a>将检索出来的数据插入表</h4><p>这里有两张表，一张是user_profile，数据如下<br><img src="http://blog.xiezhrspace.cn/blog-img/fff215587f1241008fca4df51b452853.png" alt="在这里插入图片描述"><br>一张表是tmp_user_profile，数据如下<br><img src="http://blog.xiezhrspace.cn/blog-img/8f4d0be970b048c6860deb21b42772bc.png" alt="在这里插入图片描述"><br>我们需要将tmp_user_profile 表中数据插入到user_profile 表中,可以通过如下脚本实现</p>
 <pre class=" language-sql"><code class="language-sql"><span class="token keyword">INSERT</span> <span class="token keyword">INTO</span> <span class="token punctuation">`</span>user_profile<span class="token punctuation">`</span> <span class="token punctuation">(</span>
   <span class="token punctuation">`</span>id<span class="token punctuation">`</span><span class="token punctuation">,</span>
   <span class="token punctuation">`</span>device_id<span class="token punctuation">`</span><span class="token punctuation">,</span>
@@ -1112,7 +1112,7 @@ VALUES
   <span class="token punctuation">`</span>province<span class="token punctuation">`</span> 
   <span class="token keyword">FROM</span> tmp_user_profile<span class="token punctuation">;</span>
 </code></pre>
-<p>执行完上面脚本后，user_profile表中数据<br><img src="https://img-blog.csdnimg.cn/110d8b85794046fcae66fd97ef4d5ba5.png" alt="在这里插入图片描述"></p>
+<p>执行完上面脚本后，user_profile表中数据<br><img src="http://blog.xiezhrspace.cn/blog-img/110d8b85794046fcae66fd97ef4d5ba5.png" alt="在这里插入图片描述"></p>
 <h3 id="更新数据"><a href="#更新数据" class="headerlink" title="更新数据"></a>更新数据</h3><h4 id="准备两张表"><a href="#准备两张表" class="headerlink" title="准备两张表"></a>准备两张表</h4><ul>
 <li> 下面我们建两张表，一张表为 product 表，用来存放产品信息，其中有产品价格字段 saleprice；另外一张表是 product_price 表。</li>
 </ul>
@@ -1682,7 +1682,7 @@ mysql<span class="token operator">></span> <span class="token keyword">select</s
         
         box-sizing: border-box;
         /* background: url("https://fastly.jsdelivr.net/gh/xiezhr/xiezhrblog-cdn-source/source/medias/comment_bg.webp") 100% 100% no-repeat; */
-        background-image: url("https://fastly.jsdelivr.net/gh/xiezhr/xiezhrblog-cdn-source/source/medias/simiao.gif");
+        background-image: url("https://fastly.jsdelivr.net/gh/xiezhr/xiezhrblog-cdn-source/source/medias/comment_bg.webp");
         background-size: contain;
         background-repeat: no-repeat;
         background-position:right;
@@ -1981,7 +1981,7 @@ mysql<span class="token operator">></span> <span class="token keyword">select</s
                 <a href="/archives/50bbf5e6.html">
                     <div class="card-image">
                         
-                        <img src="https://img-blog.csdnimg.cn/78bdb2e0a19c46c8b08ef026f0e9460f.jpeg" class="responsive-img" alt="快速上手Linux核心命令（十一）：Linux用户相关命令">
+                        <img src="http://blog.xiezhrspace.cn/blog-img/78bdb2e0a19c46c8b08ef026f0e9460f.jpeg" class="responsive-img" alt="快速上手Linux核心命令（十一）：Linux用户相关命令">
                         
                         <span class="card-title">快速上手Linux核心命令（十一）：Linux用户相关命令</span>
                     </div>
@@ -2045,7 +2045,7 @@ mysql<span class="token operator">></span> <span class="token keyword">select</s
                 <a href="/archives/80b35a31.html">
                     <div class="card-image">
                         
-                        <img src="https://img-blog.csdnimg.cn/5cbba9b0a2fa486e9b1686df3e2966ed.jpeg" class="responsive-img" alt="【必知必会的MySQL知识】⑤DCL语言">
+                        <img src="http://blog.xiezhrspace.cn/blog-img/5cbba9b0a2fa486e9b1686df3e2966ed.jpeg" class="responsive-img" alt="【必知必会的MySQL知识】⑤DCL语言">
                         
                         <span class="card-title">【必知必会的MySQL知识】⑤DCL语言</span>
                     </div>
@@ -2289,7 +2289,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">182k</span>&nbsp;字
+                class="white-color">183k</span>&nbsp;字
             
             
             

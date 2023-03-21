@@ -731,7 +731,7 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('https://img-blog.csdnimg.cn/c015b893c6c94fdeba49b34af4d20dd2.jpeg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('http://blog.xiezhrspace.cn/blog-img/c015b893c6c94fdeba49b34af4d20dd2.jpeg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
@@ -908,7 +908,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2023-01-29
+                    2023-03-21
                 </div>
                 
 
@@ -941,10 +941,10 @@
 <p>这是表里的数据，一共7328976 条数据，接近800万</p>
 <pre class=" language-sql"><code class="language-sql"><span class="token keyword">select</span> <span class="token function">count</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span> <span class="token keyword">from</span> t_material_new<span class="token punctuation">;</span>
 </code></pre>
-<p><img src="https://img-blog.csdnimg.cn/d90a09bb3c564a9795e3d1725c5e88e4.png" alt="在这里插入图片描述"><br>这是我们想要的结果，根据<strong>耗材名称</strong>、<strong>生产企业名称</strong> 或其他字段<strong>模糊</strong>查询出我们想要的结果集</p>
+<p><img src="http://blog.xiezhrspace.cn/blog-img/d90a09bb3c564a9795e3d1725c5e88e4.png" alt="在这里插入图片描述"><br>这是我们想要的结果，根据<strong>耗材名称</strong>、<strong>生产企业名称</strong> 或其他字段<strong>模糊</strong>查询出我们想要的结果集</p>
 <pre class=" language-sql"><code class="language-sql"><span class="token keyword">select</span> <span class="token operator">*</span> <span class="token keyword">from</span> t_material_new t <span class="token keyword">where</span> <span class="token punctuation">(</span>t<span class="token punctuation">.</span>耗材名称 <span class="token operator">like</span> <span class="token string">'%一次性%'</span> <span class="token punctuation">)</span> <span class="token operator">and</span> <span class="token punctuation">(</span>t<span class="token punctuation">.</span>生产企业名称 <span class="token operator">like</span> <span class="token string">'%洁瑞医用制品%'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 </code></pre>
-<p><img src="https://img-blog.csdnimg.cn/98512e568bda43f085771f198c5e1a8c.png" alt="在这里插入图片描述"></p>
+<p><img src="http://blog.xiezhrspace.cn/blog-img/98512e568bda43f085771f198c5e1a8c.png" alt="在这里插入图片描述"></p>
 <h3 id="二、常规思路"><a href="#二、常规思路" class="headerlink" title="二、常规思路"></a>二、常规思路</h3><p>一听到要模糊查询，我们想到得关键字当然是<strong>like</strong>了。</p>
 <p> like我们常用的有以下三种匹配方式</p>
 <ul>
@@ -956,22 +956,22 @@
 <pre class=" language-sql"><code class="language-sql"><span class="token comment" spellcheck="true">-- 1、查询包含关键字记录 需要花费5.61s</span>
 <span class="token keyword">select</span> <span class="token operator">*</span> <span class="token keyword">from</span> t_material_new t <span class="token keyword">where</span> <span class="token punctuation">(</span>t<span class="token punctuation">.</span>耗材名称 <span class="token operator">like</span> <span class="token string">'%一次性%'</span> <span class="token punctuation">)</span> <span class="token operator">and</span> <span class="token punctuation">(</span>t<span class="token punctuation">.</span>生产企业名称 <span class="token operator">like</span> <span class="token string">'%洁瑞医用制品%'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 </code></pre>
-<p><img src="https://img-blog.csdnimg.cn/95f646d447ee4e10a37212792d645482.png" alt="在这里插入图片描述"><br>2、<strong>字段 like ‘关键字%’</strong>  方式</p>
+<p><img src="http://blog.xiezhrspace.cn/blog-img/95f646d447ee4e10a37212792d645482.png" alt="在这里插入图片描述"><br>2、<strong>字段 like ‘关键字%’</strong>  方式</p>
 <pre class=" language-sql"><code class="language-sql"><span class="token comment" spellcheck="true">-- 2、查询以”关键字”开始的记录  花费0.203s</span>
 <span class="token keyword">select</span> <span class="token operator">*</span> <span class="token keyword">from</span> t_material_new t <span class="token keyword">where</span> <span class="token punctuation">(</span>t<span class="token punctuation">.</span>耗材名称 <span class="token operator">like</span> <span class="token string">'真空采血%'</span><span class="token punctuation">)</span> <span class="token operator">and</span> <span class="token punctuation">(</span>t<span class="token punctuation">.</span>生产企业名称 <span class="token operator">like</span> <span class="token string">'重庆三丰医疗器%'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 </code></pre>
-<p><img src="https://img-blog.csdnimg.cn/80a059ac587f4c3ea5eaeee775e4abf8.png" alt="在这里插入图片描述"><br>3、 <strong>字段 like ‘%关键字’</strong> 方式</p>
+<p><img src="http://blog.xiezhrspace.cn/blog-img/80a059ac587f4c3ea5eaeee775e4abf8.png" alt="在这里插入图片描述"><br>3、 <strong>字段 like ‘%关键字’</strong> 方式</p>
 <pre class=" language-sql"><code class="language-sql"><span class="token number">3</span>、查询以”关键字”结束的记录 花费<span class="token number">0</span><span class="token punctuation">.</span>484s
 <span class="token keyword">select</span> <span class="token operator">*</span> <span class="token keyword">from</span> t_material_new t <span class="token keyword">where</span> <span class="token punctuation">(</span>t<span class="token punctuation">.</span>耗材名称 <span class="token operator">like</span> <span class="token string">'%肠内'</span><span class="token punctuation">)</span> <span class="token operator">and</span> <span class="token punctuation">(</span>t<span class="token punctuation">.</span>生产企业名称 <span class="token operator">like</span> <span class="token string">'%疗器械有限公司'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 </code></pre>
-<p><img src="https://img-blog.csdnimg.cn/a948d134dbd0426c900abf9a2f039f87.png" alt="在这里插入图片描述"><br>通过以上测试，我们可以得出以下结论</p>
+<p><img src="http://blog.xiezhrspace.cn/blog-img/a948d134dbd0426c900abf9a2f039f87.png" alt="在这里插入图片描述"><br>通过以上测试，我们可以得出以下结论</p>
 <ul>
 <li><strong>字段 like ‘%关键字%’</strong>  没法走索引，效率极低</li>
 <li> <strong>字段 like ‘关键字%’</strong>  和 <strong>字段 like ‘%关键字’</strong>  可以走到索引，查询效率可以接受</li>
 </ul>
 <p>我们让用户通过第二种、或第三种方式检索也不太现实。<br>那就只能想想办法看能不能优化了。</p>
-<h3 id="四、寻找解决方案"><a href="#四、寻找解决方案" class="headerlink" title="四、寻找解决方案"></a>四、寻找解决方案</h3><p>遇到问题总是要解决的，然后就去请教大佬了。<br><img src="https://img-blog.csdnimg.cn/dcbbb6ad49134dafba1d01856b698a46.jpeg" alt="在这里插入图片描述"></p>
-<p><img src="https://img-blog.csdnimg.cn/9c413791951847389c6f48e534a14e1d.png" alt="在这里插入图片描述"><br>咨询后小结：<br>（1）建立函数索引 </p>
+<h3 id="四、寻找解决方案"><a href="#四、寻找解决方案" class="headerlink" title="四、寻找解决方案"></a>四、寻找解决方案</h3><p>遇到问题总是要解决的，然后就去请教大佬了。<br><img src="http://blog.xiezhrspace.cn/blog-img/dcbbb6ad49134dafba1d01856b698a46.jpeg" alt="在这里插入图片描述"></p>
+<p><img src="http://blog.xiezhrspace.cn/blog-img/9c413791951847389c6f48e534a14e1d.png" alt="在这里插入图片描述"><br>咨询后小结：<br>（1)建立函数索引 </p>
 <blockquote>
 <p>原来函数也是可以建立索引的，get到新技能了。但是这里的由于函数入参内容的不确定性，没法建立函数索引。这种方案便被否决了</p>
 </blockquote>
@@ -979,7 +979,7 @@
 <blockquote>
 <p>作为一名资深打工人，提升硬件质量当然不是由我能决定的了。</p>
 </blockquote>
-<p>以上两种方案都不行，那就只能另辟蹊径了。<br>问了度娘之后，从网上有找到了两种相对靠谱的方案。<br><img src="https://img-blog.csdnimg.cn/1a9efb5abaf2482fa3a98299b3347538.jpeg" alt="在这里插入图片描述"><br><strong>1、将like 关键字替换为instr 函数</strong><br><strong>2、建立全文索引</strong></p>
+<p>以上两种方案都不行，那就只能另辟蹊径了。<br>问了度娘之后，从网上有找到了两种相对靠谱的方案。<br><img src="http://blog.xiezhrspace.cn/blog-img/1a9efb5abaf2482fa3a98299b3347538.jpeg" alt="在这里插入图片描述"><br><strong>1、将like 关键字替换为instr 函数</strong><br><strong>2、建立全文索引</strong></p>
 <h3 id="四、说干就干，实现它"><a href="#四、说干就干，实现它" class="headerlink" title="四、说干就干，实现它"></a>四、说干就干，实现它</h3><h4 id="1-将like-改为instr函数"><a href="#1-将like-改为instr函数" class="headerlink" title="1 将like 改为instr函数"></a>1 将like 改为instr函数</h4><p>① 函数简介</p>
 <blockquote>
 <p>instr 俗称字符查找函数。用于查找目标字符串在源字符串中出现的位置</p>
@@ -1060,14 +1060,14 @@ ctx_ddl<span class="token punctuation">.</span>add_stopword<span class="token pu
 <span class="token keyword">create</span> <span class="token keyword">index</span> INDEX_MATERIAL_PROD <span class="token keyword">on</span> t_material_new<span class="token punctuation">(</span>生产企业名称<span class="token punctuation">)</span> indextype <span class="token operator">is</span> CTXSYS<span class="token punctuation">.</span>CONTEXT parameters<span class="token punctuation">(</span><span class="token string">'lexer my_lexer stoplist my_stoplist'</span><span class="token punctuation">)</span><span class="token punctuation">;</span> 
 </code></pre>
 <p>创建完索引后，我们会发现当前用户下，关于<strong>INDEX_MATERIAL_NAME</strong> 索引多了四个表，关于<br><strong>INDEX_MATERIAL_PROD</strong> 也多了四个表。</p>
-<p><img src="https://img-blog.csdnimg.cn/64f782e49d65421386448caa9d7c6869.png" alt="在这里插入图片描述"><img src="https://img-blog.csdnimg.cn/7165cb6a3cff404eb2ba26626292c869.png" alt="在这里插入图片描述"><br>其中t_material_new表中【耗材名称】字段被拆分后的词组保存在dr$index_material_name$i表中<br>其中t_material_new表中【生产企业名称】字段被拆分后的词组保存在dr$index_material_prod$i表中</p>
+<p><img src="http://blog.xiezhrspace.cn/blog-img/64f782e49d65421386448caa9d7c6869.png" alt="在这里插入图片描述"><img src="http://blog.xiezhrspace.cn/blog-img/7165cb6a3cff404eb2ba26626292c869.png" alt="在这里插入图片描述"><br>其中t_material_new表中【耗材名称】字段被拆分后的词组保存在dr$index_material_name$i表中<br>其中t_material_new表中【生产企业名称】字段被拆分后的词组保存在dr$index_material_prod$i表中</p>
 <p>我们来查询下表的具体内容看看</p>
 <pre class=" language-sql"><code class="language-sql"><span class="token keyword">select</span> <span class="token operator">*</span> <span class="token keyword">from</span> dr$index_material_name$i<span class="token punctuation">;</span>
 </code></pre>
-<p><img src="https://img-blog.csdnimg.cn/dd2d3bb6c4f54321988b0272fcbd760f.png" alt="在这里插入图片描述"></p>
+<p><img src="http://blog.xiezhrspace.cn/blog-img/dd2d3bb6c4f54321988b0272fcbd760f.png" alt="在这里插入图片描述"></p>
 <pre class=" language-sql"><code class="language-sql"><span class="token keyword">select</span> <span class="token operator">*</span> <span class="token keyword">from</span> dr$index_material_prod$i<span class="token punctuation">;</span>
 </code></pre>
-<p><img src="https://img-blog.csdnimg.cn/0b43569269d24f09be15fa859de2a203.png" alt="在这里插入图片描述"><br>⑥ 如何使用索引？</p>
+<p><img src="http://blog.xiezhrspace.cn/blog-img/0b43569269d24f09be15fa859de2a203.png" alt="在这里插入图片描述"><br>⑥ 如何使用索引？</p>
 <pre class=" language-sql"><code class="language-sql"><span class="token comment" spellcheck="true">-- 将以上查询sql改下为用全文索引的查询方式 （查询出我们想要的结果集仅仅需要0.312秒）</span>
 <span class="token keyword">select</span> <span class="token operator">*</span> <span class="token keyword">from</span> t_material_new t <span class="token keyword">where</span> <span class="token keyword">contains</span><span class="token punctuation">(</span>t<span class="token punctuation">.</span>耗材名称<span class="token punctuation">,</span><span class="token string">'一次性'</span><span class="token punctuation">)</span><span class="token operator">></span><span class="token number">0</span> <span class="token operator">and</span> <span class="token keyword">contains</span><span class="token punctuation">(</span>t<span class="token punctuation">.</span>生产企业名称<span class="token punctuation">,</span> <span class="token string">'洁瑞医用制品'</span><span class="token punctuation">)</span><span class="token operator">></span><span class="token number">0</span><span class="token punctuation">;</span> 
 </code></pre>
@@ -1086,7 +1086,7 @@ ctx_ddl<span class="token punctuation">.</span>sync_index<span class="token punc
 </code></pre>
 <p>当然了我们可以在表t_material_new 上写一个oracle的触发器，当添加、删除、修改操作时，进行索引分词更新；或者创建定时任务定时更新也可以。</p>
 <p>定时任务的建立可以参照之前写过的文章<br><a target="_blank" rel="noopener" href="https://blog.csdn.net/rong09_13/article/details/111982212">Oralce定时任务实际应用</a></p>
-<p>到此，Oracle模糊查询优化就算完成了，但是还想分享一个小技巧。<br>怎么将excel 表格中的数据快速导入到Oracle数据库中呢？<br>要是数据少，都好说。当数据量到几十万、或者几百万的时候就比较难了。<br>这里推荐用<strong>Navicat工具导入</strong><br><img src="https://img-blog.csdnimg.cn/b8cb1ca3858a4370a76704fc355eff22.png" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/da705bd138784e92a2207cf0045ce0dd.png" alt="在这里插入图片描述"></p>
+<p>到此，Oracle模糊查询优化就算完成了，但是还想分享一个小技巧。<br>怎么将excel 表格中的数据快速导入到Oracle数据库中呢？<br>要是数据少，都好说。当数据量到几十万、或者几百万的时候就比较难了。<br>这里推荐用<strong>Navicat工具导入</strong><br><img src="http://blog.xiezhrspace.cn/blog-img/b8cb1ca3858a4370a76704fc355eff22.png" alt="在这里插入图片描述"><br><img src="http://blog.xiezhrspace.cn/blog-img/da705bd138784e92a2207cf0045ce0dd.png" alt="在这里插入图片描述"></p>
 <p>个人亲自实测，导入速度还是挺快的。</p>
 <p>以上就是文章的全部内容了，希望对你有所帮助</p>
 
@@ -1633,7 +1633,7 @@ ctx_ddl<span class="token punctuation">.</span>sync_index<span class="token punc
                 <a href="/archives/405893af.html">
                     <div class="card-image">
                         
-                        <img src="https://img-blog.csdnimg.cn/78bdb2e0a19c46c8b08ef026f0e9460f.jpeg" class="responsive-img" alt="快速上手Linux核心命令（八）：网络相关命令">
+                        <img src="http://blog.xiezhrspace.cn/blog-img/78bdb2e0a19c46c8b08ef026f0e9460f.jpeg" class="responsive-img" alt="快速上手Linux核心命令（八）：网络相关命令">
                         
                         <span class="card-title">快速上手Linux核心命令（八）：网络相关命令</span>
                     </div>
@@ -1689,7 +1689,7 @@ ctx_ddl<span class="token punctuation">.</span>sync_index<span class="token punc
                 <a href="/archives/d78c207d.html">
                     <div class="card-image">
                         
-                        <img src="https://img-blog.csdnimg.cn/8b3ae391a2614375a090824f76c37e02.jpeg" class="responsive-img" alt="想吃菌子，当然是自己上山找了">
+                        <img src="http://blog.xiezhrspace.cn/blog-img/8b3ae391a2614375a090824f76c37e02.jpeg" class="responsive-img" alt="想吃菌子，当然是自己上山找了">
                         
                         <span class="card-title">想吃菌子，当然是自己上山找了</span>
                     </div>
@@ -1925,7 +1925,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">182k</span>&nbsp;字
+                class="white-color">183k</span>&nbsp;字
             
             
             
