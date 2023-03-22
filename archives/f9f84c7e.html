@@ -731,7 +731,7 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('https://img-blog.csdnimg.cn/5e8c7675a28541d18dad6d5ba6ae8128.jpeg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('http://blog.xiezhrspace.cn/blog-img/5e8c7675a28541d18dad6d5ba6ae8128.jpeg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
@@ -900,7 +900,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2023-01-09
+                    2023-03-22
                 </div>
                 
 
@@ -939,7 +939,7 @@
 <p>今天我们就来介绍一个开源的ftp服务器，Apache FTPServerFtpServer也就这次的主角，Apache FTPServer是一个100％纯Java的FTP服务器。FTPServer可独立运行作为Windows服务或Unix/ Linux后台程序或是被嵌入在Java应用程序中。</p>
 <p>接下来我们就以FtpServer为例，搭建ftp服务。</p>
 <h2 id="2-下载Apache-FTPServer"><a href="#2-下载Apache-FTPServer" class="headerlink" title="2.下载Apache FTPServer"></a>2.下载Apache FTPServer</h2><p>可以到官网下载:<a target="_blank" rel="noopener" href="http://mina.apache.org/ftpserver-project/downloads.html">http://mina.apache.org/ftpserver-project/downloads.html</a> 目前最新版本是Apache FtpServer 1.1.1 Release，出于稳定考虑我这里下载的就是1.0.6版本</p>
-<h2 id="3-下载并解压压缩包"><a href="#3-下载并解压压缩包" class="headerlink" title="3.下载并解压压缩包"></a>3.下载并解压压缩包</h2><p>将下载下来的压缩包解压到本地，我的是放在D盘根目录下，其目录结构如下图：<br><img src="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/150418212047.png"></p>
+<h2 id="3-下载并解压压缩包"><a href="#3-下载并解压压缩包" class="headerlink" title="3.下载并解压压缩包"></a>3.下载并解压压缩包</h2><p>将下载下来的压缩包解压到本地，我的是放在D盘根目录下，其目录结构如下图：<br><img src="http://blog.xiezhrspace.cn/blog-img/150418212047.png"></p>
 <h2 id="4-修改配置文件"><a href="#4-修改配置文件" class="headerlink" title="4.修改配置文件"></a>4.修改配置文件</h2><h3 id="4-1-修改users-properties配置文件"><a href="#4-1-修改users-properties配置文件" class="headerlink" title="4.1 修改users.properties配置文件"></a>4.1 修改users.properties配置文件</h3><p>配置文件路径：<br>D:\apache-ftpserver-1.0.6\res\conf\users.properties<br>在此配置文件中可以增加用户,如果不希望匿名登录的话，可以将匿名用户这个配置注释掉</p>
 <pre class=" language-properties"><code class="language-properties"><span class="token comment" spellcheck="true"># Password is "admin"</span>
 <span class="token attr-name">ftpserver.user.admin.userpassword</span><span class="token punctuation">=</span><span class="token attr-value">admin</span>
@@ -1003,8 +1003,8 @@
 ftpd.bat res/conf/ftpd-typical.xml
 </code></pre>
 <p><strong>注意</strong>：由于ftpserver是纯java编写的，所以第二条命令的执行需要在环境变量中配置java环境JAVA_HOME。java环境此处省去，不会可以自行百度</p>
-<p>输入完命令之后如下图所示，当出现FtpServer started 出现即启动成功<br><img src="https://img-blog.csdnimg.cn/4ea420e2a8c4480bb1660ee399b0b11f.png"></p>
-<h2 id="6-访问FTP"><a href="#6-访问FTP" class="headerlink" title="6.访问FTP"></a>6.访问FTP</h2><p>在游览器中，输入<a href="ftp://ip:2121进行访问，如果端口修改了，要换成对应的端口，ip就是FTP所在的服务器的ip，访问如下图所示：">ftp://ip:2121进行访问，如果端口修改了，要换成对应的端口，ip就是FTP所在的服务器的ip，访问如下图所示：</a><br><img src="https://img-blog.csdnimg.cn/4138e7b0d4554ee998e0e06af43aa763.png"></p>
+<p>输入完命令之后如下图所示，当出现FtpServer started 出现即启动成功<br><img src="http://blog.xiezhrspace.cn/blog-img/4ea420e2a8c4480bb1660ee399b0b11f.png"></p>
+<h2 id="6-访问FTP"><a href="#6-访问FTP" class="headerlink" title="6.访问FTP"></a>6.访问FTP</h2><p>在游览器中，输入<a href="ftp://ip:2121进行访问，如果端口修改了，要换成对应的端口，ip就是FTP所在的服务器的ip，访问如下图所示：">ftp://ip:2121进行访问，如果端口修改了，要换成对应的端口，ip就是FTP所在的服务器的ip，访问如下图所示：</a><br><img src="http://blog.xiezhrspace.cn/blog-img/4138e7b0d4554ee998e0e06af43aa763.png"></p>
 <p>当然我们也能通过工具直接访问，进行上传和下载文件操作<br>下面提供一个比较好用的免安装工具给大家，大家可以放心食用。</p>
 <p>winscp553   <a target="_blank" rel="noopener" href="https://pan.baidu.com/s/1HIdJdJIoHtDk3wu3wLh7vA">百度云下载链接</a>    提取码：sncs</p>
 <h2 id="7-ftp-的启动与关闭"><a href="#7-ftp-的启动与关闭" class="headerlink" title="7.ftp 的启动与关闭"></a>7.ftp 的启动与关闭</h2><p>将dos命令窗口关掉，ftp服务即关闭<br>那么我们怎么样启动ftp服务呢，</p>
@@ -1260,7 +1260,7 @@ ftpd.bat res/conf/ftpd-typical.xml
         
         box-sizing: border-box;
         /* background: url("https://fastly.jsdelivr.net/gh/xiezhr/xiezhrblog-cdn-source/source/medias/comment_bg.webp") 100% 100% no-repeat; */
-        background-image: url("https://fastly.jsdelivr.net/gh/xiezhr/xiezhrblog-cdn-source/source/medias/hongmiaosi.gif");
+        background-image: url("https://fastly.jsdelivr.net/gh/xiezhr/xiezhrblog-cdn-source/source/medias/simiao.gif");
         background-size: contain;
         background-repeat: no-repeat;
         background-position:right;
@@ -1559,7 +1559,7 @@ ftpd.bat res/conf/ftpd-typical.xml
                 <a href="/archives/c14c115.html">
                     <div class="card-image">
                         
-                        <img src="https://img-blog.csdnimg.cn/306d886deafa4c1eb1b4c76d7aa22daa.jpeg" class="responsive-img" alt="如何使用jsDelivr+Github 实现免费CDN加速?">
+                        <img src="http://blog.xiezhrspace.cn/blog-img/306d886deafa4c1eb1b4c76d7aa22daa.jpeg" class="responsive-img" alt="如何使用jsDelivr+Github 实现免费CDN加速?">
                         
                         <span class="card-title">如何使用jsDelivr+Github 实现免费CDN加速?</span>
                     </div>
@@ -1619,7 +1619,7 @@ ftpd.bat res/conf/ftpd-typical.xml
                 <a href="/archives/e3ef4d8b.html">
                     <div class="card-image">
                         
-                        <img src="https://img-blog.csdnimg.cn/f759c885a7bf4d2f83b39d0a6845dc18.jpeg" class="responsive-img" alt="工作中，我们经常用到哪些SQL语句呢？">
+                        <img src="http://blog.xiezhrspace.cn/blog-img/f759c885a7bf4d2f83b39d0a6845dc18.jpeg" class="responsive-img" alt="工作中，我们经常用到哪些SQL语句呢？">
                         
                         <span class="card-title">工作中，我们经常用到哪些SQL语句呢？</span>
                     </div>
