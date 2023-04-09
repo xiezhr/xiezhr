@@ -1,6 +1,166 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>来体验了下AI绘图</title>
+    <url>/archives/901538cd.html</url>
+    <content><![CDATA[<p>2023年真的是AI大爆发的一年，当我们还沉浸在chatGPT的时候。AI绘图也随之火爆出圈，</p>
+<p>不管是在朋友圈、B站、抖音都能刷到各种“AI小姐姐”。</p>
+<table>
+<thead>
+<tr>
+<th><img src="http://blog.xiezhrspace.cn/blog-img/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20230401162143.jpg" alt="微信图片_20230401162143"></th>
+<th><img src="http://blog.xiezhrspace.cn/blog-img/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20230401162204.jpg" alt="微信图片_20230401162204"></th>
+<th><img src="http://blog.xiezhrspace.cn/blog-img/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20230401162212.jpg" alt="微信图片_20230401162212"></th>
+</tr>
+</thead>
+</table>
+<p>AI绘图真的可以这么逼真了么，这不得亲自去体验下</p>
+<p>AI绘图工具也挺多，今天我们使用的是Stable Diffusion 这一绘图工具。</p>
+<p>Stable Diffusion被认为是目前最强的 AI 绘画工具，而且已经完全开源，可以支持本地部署。</p>
+<p>最近火出圈的AI绘图，大多也是出自于Stable Diffusion</p>
+<h3 id="github地址"><a href="#github地址" class="headerlink" title="github地址"></a>github地址</h3><p>github地址：<a href="https://github.com/AUTOMATIC1111/stable-diffusion-webui">https://github.com/AUTOMATIC1111/stable-diffusion-webui</a></p>
+<p>看到这，不少小伙伴可能望而止步了，得自己部署，我也没学过python，这么麻烦，不玩了。</p>
+<p>继续往下看，其实网上不少大佬已经把各种资源、所需插件都打包好了。</p>
+<p>只需下载整合包，一键启动就可以开始绘图，小白也可以轻松上手</p>
+<h3 id="整合-包下载"><a href="#整合-包下载" class="headerlink" title="整合 包下载"></a>整合 包下载</h3><p>这里可以跳转到 <strong>秋葉大佬</strong>得整合包进行下载</p>
+<p><a href="https://www.bilibili.com/video/BV17d4y1C73R">https://www.bilibili.com/video/BV17d4y1C73R</a></p>
+<p>下载完后是如下一个压缩包（大小9.98G），压缩包中包含了启动器</p>
+<p><img src="http://blog.xiezhrspace.cn/blog-img/image-20230401171447589.png" alt="image-20230401171447589"></p>
+<h3 id="启动使用"><a href="#启动使用" class="headerlink" title="启动使用"></a>启动使用</h3><p>①启动</p>
+<p>解压上面得压缩包，进到文件中找到，<strong>A启动器.exe文件</strong>，双击即可启动</p>
+<p><img src="http://blog.xiezhrspace.cn/blog-img/image-20230401171640706.png" alt="image-20230401171640706"></p>
+<p><img src="http://blog.xiezhrspace.cn/blog-img/image-20230401171927617.png" alt="image-20230401171927617"></p>
+<p>②界面简介</p>
+<p>点击上面中【一键启动】，即可开启一个web页面（<a href="http://127.0.0.1:7861/%EF%BC%89">http://127.0.0.1:7861/）</a></p>
+<p><img src="http://blog.xiezhrspace.cn/blog-img/image-20230401173832259.png" alt="image-20230401173832259"></p>
+<p>  在上图中，我们只要输入正向咒语、反向咒语 然后点击右边的【生成】，等上一会就会在图片区生成图片。</p>
+<p>AI绘图是不是很简单呢</p>
+<p>当你看到第一次生成图片的时候很大可能都不太满意，这跟自己想象的怎么不一样呢。这差距也太大了。。。</p>
+<p>这是因为你还没学咒语呢，接着往下看，我们一起来学一学基本咒语</p>
+<h3 id="咒语和魔法学习"><a href="#咒语和魔法学习" class="headerlink" title="咒语和魔法学习"></a>咒语和魔法学习</h3><blockquote>
+<p>说明：在这里个人喜欢把各种<code>模型</code>当作是魔法，<code>正向提示语</code>和<code>反向提示词</code>当作是咒语。</p>
+<p>想要使用一个高超的魔术，魔法和咒语都是必不可少而且非常重要的</p>
+</blockquote>
+<p>1 、咒语</p>
+<p>① 正向咒语</p>
+<blockquote>
+<p>正向咒语是我们想要图片中出现的内容</p>
+</blockquote>
+<p>像 <code>1 girl ,best quality  </code> 这样的描述词（需要发挥你的想象了）</p>
+<p>② 反向咒语</p>
+<blockquote>
+<p>反向咒语是我们图片上不想出现的内容，如果不加可能会出现三头六臂的情况</p>
+</blockquote>
+<p>像 <code>lowres, bad anatomy, bad hands, text, error, missing fingers, extra digit, fewer digits, cropped, worst quality, low quality, normal quality, jpeg artifacts, signature, watermark, username, blurry </code></p>
+<p>咒语简单语法说明，我们以girl 这个tag为例进行说明</p>
+<ul>
+<li>不管是正向咒语还是反向咒语，每个tag之间用“，”号分割</li>
+<li>小括号用于加权重，(girl) 表示加1.1倍权重 （(girl))  表示加1.1*1.1=1.21 倍权重</li>
+<li>中括号用于减权重，[girl]  表示减1.1倍权重</li>
+<li>：+倍数用于加权重，(girl:1.5) 表示加1.5倍权重</li>
+</ul>
+<p>2、魔法</p>
+<p>①常见的模型可以分为三大类</p>
+<ul>
+<li><p>大模型：标准的 latent-diffusion 模型。拥有完整的 TextEncoder、U-Net、VAE 。</p>
+</li>
+<li><p>小模型：用于微调大模型的小模型。常见的小模型可以分为：<code>Textual inversion (常说的Embedding模型)</code>、<code>Hypernetwork模型</code>、<code>LoRA</code></p>
+</li>
+<li><p>VAE 模型：类似于滤镜的东西。会影响画面的色彩及一些小细节</p>
+</li>
+</ul>
+<p>注：对于新手来说，区分好这三种模型非常重要，要不然你可能和我刚刚绘图是一样，一头雾水</p>
+<p>②各种模型所在地(下面所说的路径都是基于webui根路径下的相对路径)</p>
+<ul>
+<li><p>大模型</p>
+<p>常见格式为 ckpt ,大小在GB级别，随便一个大模型都是2G、4G 或者更大，放在了<code>models\Stable-diffusion</code> 路径下面</p>
+<p><img src="http://blog.xiezhrspace.cn/blog-img/image-20230401183155450.png" alt="image-20230401183155450"></p>
+<p>使用方法：在web页面左上角选择大模型</p>
+<p><img src="http://blog.xiezhrspace.cn/blog-img/image-20230401183801712.png" alt="image-20230401183801712"></p>
+</li>
+</ul>
+<ul>
+<li><p>小模型</p>
+<p>① embedding 模型  </p>
+<p>常见格式为 pt、png图片、webp图片。大小一般在 KB 级别，放在<code>embeddings</code>路径下面</p>
+<p><img src="http://blog.xiezhrspace.cn/blog-img/image-20230401183631258.png" alt="image-20230401183631258"></p>
+</li>
+</ul>
+<p>​    使用方法：</p>
+<p>​    生成图片的时候需要带上 文件名 作为 tag。例如：我们在正向咒语中加上这样的tag <code>yaguru magiku</code> </p>
+<p>   ② Hypernetwork 模型</p>
+<p>​    常见格式为 pt。大小一般在几十兆到几百兆不等 也有更大的。放在了<code>models\hypernetworks</code> 路径下面</p>
+<p><img src="http://blog.xiezhrspace.cn/blog-img/image-20230401190315316.png" alt="image-20230401190315316"></p>
+<p>  使用方法：</p>
+<p><img src="http://blog.xiezhrspace.cn/blog-img/image-20230401195946688.png" alt="image-20230401195946688"></p>
+<p>​    </p>
+<p>  ③ LoRA模型</p>
+<p>​    常见格式为 pt、ckpt。大小一般在MB级别，也有更大的。放在了<code>models\Lora</code> 路径下面</p>
+<p><img src="http://blog.xiezhrspace.cn/blog-img/image-20230401184521354.png" alt="image-20230401184521354"></p>
+<p> 使用方法：</p>
+<p>点击一个模型以后会向提示词列表添加类似这么一个tag， <a href="lora:模型名:权重">lora:模型名:权重</a> 也可以直接用这个tag调用lora模型。 </p>
+<p><img src="http://blog.xiezhrspace.cn/blog-img/image-20230401185045863.png" alt="image-20230401185045863"></p>
+<ul>
+<li><p>VAE模型</p>
+<p>常见格式为 .pt 、ckpt ，大小在MB级别。放在了<code>models\VAE</code> 路径下面</p>
+<p><img src="http://blog.xiezhrspace.cn/blog-img/image-20230401185246966.png" alt="image-20230401185246966"></p>
+</li>
+</ul>
+<p>使用方法：</p>
+<p><img src="http://blog.xiezhrspace.cn/blog-img/image-20230401190119045.png" alt="image-20230401190119045"></p>
+<p>上面提到了各种路径，其实在启动器的这个模块我们可以快随找到</p>
+<p><img src="http://blog.xiezhrspace.cn/blog-img/image-20230401203253781.png" alt="image-20230401203253781"></p>
+<h3 id="借鉴模仿咒语"><a href="#借鉴模仿咒语" class="headerlink" title="借鉴模仿咒语"></a>借鉴模仿咒语</h3><p>通过上面的一波学习后，不知道你有没有学废了呢</p>
+<p>反正通过我自己写出来的咒语，然后会生成各种“进化的人类” 😅</p>
+<p>这怎么能行呢，我们能不能去<del>抄袭</del>（模仿）一下别人的咒语呢，当然可以了。</p>
+<p>只有你想不到的，没有网友做不到的。大佬们训练好的很多模型。还有很多咒语、魔法</p>
+<p><a href="https://civitai.com/">https://civitai.com</a></p>
+<p><img src="http://blog.xiezhrspace.cn/blog-img/image-20230401201242891.png" alt="image-20230401201242891"></p>
+<p>我们找个国风的模型下载并使用</p>
+<p><img src="http://blog.xiezhrspace.cn/blog-img/image-20230401201522002.png" alt="image-20230401201522002"></p>
+<h3 id="体验一下"><a href="#体验一下" class="headerlink" title="体验一下"></a>体验一下</h3><p>各种魔法、咒语都准备好之后，我们就来试试魔法效果</p>
+<p>正向咒语</p>
+<pre class=" language-java"><code class="language-java">best quality<span class="token punctuation">,</span> masterpiece<span class="token punctuation">,</span> highres<span class="token punctuation">,</span> 1girl<span class="token punctuation">,</span>china dress<span class="token punctuation">,</span>hair ornament<span class="token punctuation">,</span>necklace<span class="token punctuation">,</span> jewelry<span class="token punctuation">,</span>Beautiful face<span class="token punctuation">,</span>upon_body<span class="token punctuation">,</span> tyndall effect<span class="token punctuation">,</span>photorealistic<span class="token punctuation">,</span> dark studio<span class="token punctuation">,</span> rim lighting<span class="token punctuation">,</span> two tone lighting<span class="token punctuation">,</span><span class="token punctuation">(</span>high detailed skin<span class="token operator">:</span><span class="token number">1.2</span><span class="token punctuation">)</span><span class="token punctuation">,</span> 8k uhd<span class="token punctuation">,</span> dslr<span class="token punctuation">,</span> soft lighting<span class="token punctuation">,</span> high quality<span class="token punctuation">,</span> volumetric lighting<span class="token punctuation">,</span> candid<span class="token punctuation">,</span> Photograph<span class="token punctuation">,</span> high resolution<span class="token punctuation">,</span> 4k<span class="token punctuation">,</span> 8k<span class="token punctuation">,</span> Bokeh <span class="token operator">&lt;</span>lora<span class="token operator">:</span>GuoFeng3<span class="token punctuation">.</span>2_Lora<span class="token operator">:</span><span class="token number">1</span><span class="token operator">></span>
+</code></pre>
+<p>反向咒语</p>
+<pre class=" language-java"><code class="language-java"><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">(</span>simple background<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">,</span>monochrome <span class="token punctuation">,</span>lowres<span class="token punctuation">,</span> bad anatomy<span class="token punctuation">,</span> bad hands<span class="token punctuation">,</span> text<span class="token punctuation">,</span> error<span class="token punctuation">,</span> missing fingers<span class="token punctuation">,</span> extra digit<span class="token punctuation">,</span> fewer digits<span class="token punctuation">,</span> cropped<span class="token punctuation">,</span> worst quality<span class="token punctuation">,</span> low quality<span class="token punctuation">,</span> normal quality<span class="token punctuation">,</span> jpeg artifacts<span class="token punctuation">,</span> signature<span class="token punctuation">,</span> watermark<span class="token punctuation">,</span> username<span class="token punctuation">,</span> blurry<span class="token punctuation">,</span> lowres<span class="token punctuation">,</span> bad anatomy<span class="token punctuation">,</span> bad hands<span class="token punctuation">,</span> text<span class="token punctuation">,</span> error<span class="token punctuation">,</span> extra digit<span class="token punctuation">,</span> fewer digits<span class="token punctuation">,</span> cropped<span class="token punctuation">,</span> worst quality<span class="token punctuation">,</span> low quality<span class="token punctuation">,</span> normal quality<span class="token punctuation">,</span> jpeg artifacts<span class="token punctuation">,</span> signature<span class="token punctuation">,</span> watermark<span class="token punctuation">,</span> username<span class="token punctuation">,</span> blurry<span class="token punctuation">,</span> ugly<span class="token punctuation">,</span>pregnant<span class="token punctuation">,</span>vore<span class="token punctuation">,</span>duplicate<span class="token punctuation">,</span>morbid<span class="token punctuation">,</span>mut ilated<span class="token punctuation">,</span>tran nsexual<span class="token punctuation">,</span> hermaphrodite<span class="token punctuation">,</span><span class="token keyword">long</span> neck<span class="token punctuation">,</span>mutated hands<span class="token punctuation">,</span>poorly drawn hands<span class="token punctuation">,</span>poorly drawn face<span class="token punctuation">,</span>mutation<span class="token punctuation">,</span>deformed<span class="token punctuation">,</span>blurry<span class="token punctuation">,</span>bad anatomy<span class="token punctuation">,</span>bad proportions<span class="token punctuation">,</span>malformed limbs<span class="token punctuation">,</span>extra limbs<span class="token punctuation">,</span>cloned face<span class="token punctuation">,</span>disfigured<span class="token punctuation">,</span>gross proportions<span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">(</span>missing arms<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">(</span>missing legs<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">(</span>extra arms<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">(</span>extra legs<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">,</span>pubic hair<span class="token punctuation">,</span> plump<span class="token punctuation">,</span>bad legs<span class="token punctuation">,</span>error legs<span class="token punctuation">,</span>username<span class="token punctuation">,</span>blurry<span class="token punctuation">,</span>bad feet
+</code></pre>
+<p><img src="http://blog.xiezhrspace.cn/blog-img/image-20230401202243928.png" alt="image-20230401202243928"></p>
+<p>又找了几段咒语试了下，生成的图片如下，是你想要的结果么？</p>
+<table>
+<thead>
+<tr>
+<th><img src="http://blog.xiezhrspace.cn/blog-img/00001-740346198.png" alt="00001-740346198"></th>
+<th><img src="http://blog.xiezhrspace.cn/blog-img/001.png" alt="001"></th>
+</tr>
+</thead>
+<tbody><tr>
+<td><img src="http://blog.xiezhrspace.cn/blog-img/00003-336154301.png" alt="00003-336154301"></td>
+<td><img src="http://blog.xiezhrspace.cn/blog-img/00000-3023078233.png" alt="00000-3023078233"></td>
+</tr>
+</tbody></table>
+<h3 id="AI模型训练"><a href="#AI模型训练" class="headerlink" title="AI模型训练"></a>AI模型训练</h3><p>如果之前的模型都没有自己想要的，也可以自己去训练模型。</p>
+<p>我是没训练过了😂，也是刚开始探索这新大陆。</p>
+<p>这里必须得说<strong>勿用技术做恶 ，别把AI技术用错了方向</strong>。</p>
+<p><strong>请勿用该技术从事诈骗等违法行为，请遵守《互联网信息服务深度合成管理规定》等法律法规。</strong></p>
+<p>前几天看到这样一则新闻就是活生生得例子</p>
+<p><img src="http://blog.xiezhrspace.cn/blog-img/image-20230401214423518.png" alt="image-20230401214423518"></p>
+<p>本来前面的示例中想画一个汉服小姐姐的。</p>
+<p>也好不容易找到有作者训练出了模型，结果可能就是因为上述这些侵权违法行为，作者闭训练好的模型和其他lora模型的下载</p>
+<p><img src="http://blog.xiezhrspace.cn/blog-img/image-20230401215913303.png" alt="image-20230401215913303"></p>
+<h3 id="最后"><a href="#最后" class="headerlink" title="最后"></a>最后</h3><p>本期内容到此就结束了，感谢各位小伙伴的阅读。</p>
+<p>自己也是刚开始研究学习AI绘图，如果有什么说错的地方欢迎大家指正。</p>
+<p>如果大家发现什么好玩的也希望能一起分享出来</p>
+<p><strong>勿用技术做恶 ，别把AI技术用错了方向</strong></p>
+]]></content>
+      <categories>
+        <category>AI,AI绘图</category>
+      </categories>
+      <tags>
+        <tag>AI,AI绘图</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>或许你想要的画图工具在这里</title>
     <url>/archives/e471b694.html</url>
     <content><![CDATA[<p>之前文章发布后，有小伙伴问下面的画怎么画的（偷偷告诉你，其实我是用铅笔+水彩笔画的），哈哈，开玩笑了。其实这些图都是用<code>Excalidraw</code> 画出来的。<br><img src="http://blog.xiezhrspace.cn/blog-img/b803745f7a9c4e12bf1ac2818b3a7066.png" alt="在这里插入图片描述"><br><img src="http://blog.xiezhrspace.cn/blog-img/8acf4d766946449a8ddf6109c2f557a0.png" alt="在这里插入图片描述"></p>
