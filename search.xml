@@ -1,6 +1,273 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>第一眼看到就喜欢上了</title>
+    <url>/archives/b7c4c825.html</url>
+    <content><![CDATA[<p>有多少小伙伴是被标题  <del>骗</del> 吸引进来的呢，小编可不是标题党。</p>
+<p>今天给大家推荐的是一款开源<strong>3D</strong> 博客，确实是第一眼看到就喜欢上了。</p>
+<p>相信大家跟我一样，曾经可能花费大量的时间和精力打造过自己的专属博客。只为自己的博客看上去与众不同，酷炫新颖。</p>
+<p>我们会给博客加上不一样的标题，音乐、图片、二次元等多种交互内容，但不管怎么“装扮”，看多了也会审美疲劳。</p>
+<p>废话不多说，我们先来看看这款博客</p>
+<p><img src="http://blog.xiezhrspace.cn/blog-img/3dblog.gif" alt="3dblog"></p>
+<p>博客以一辆3D汽车开始，不管是看文章，还是其他一系列的后续都要通过操作小汽车完成。</p>
+<p>第一眼看到真的是让人眼前一亮，彻底颠覆了我对博客的认知，原来博客也可以这么酷炫。</p>
+<h3 id="一、博客简介"><a href="#一、博客简介" class="headerlink" title="一、博客简介"></a>一、博客简介</h3><h4 id="1-1-项目基本情况"><a href="#1-1-项目基本情况" class="headerlink" title="1.1 项目基本情况"></a>1.1 项目基本情况</h4><p> ① 项目地址：<a href="https://github.com/brunosimon/folio-2019">https://github.com/brunosimon/folio-2019</a></p>
+<p> ② 项目在线体验地址： <a href="https://bruno-simon.com/">https://bruno-simon.com/</a></p>
+<p>项目目前已有 <strong>3.7k</strong> stars ⭐</p>
+<h4 id="1-2-小游戏"><a href="#1-2-小游戏" class="headerlink" title="1.2  小游戏"></a>1.2  小游戏</h4><p>不得不说这博客交互性真的很强。在看博客的同时，还可以玩各种小游戏，真正做到了，游戏学习两不误。</p>
+<p>我们来看看它都有些什么游戏呢？</p>
+<p>①驾驶着小汽车，我们第一个路过的就是“泡沫墙体”小游戏</p>
+<p><img src="http://blog.xiezhrspace.cn/blog-img/image-20230424222449357.png" alt="泡沫墙体"></p>
+<p>②下一站我们来到了保龄球馆</p>
+<p><img src="http://blog.xiezhrspace.cn/blog-img/image-20230424222659289.png" alt="保龄球馆"></p>
+<p>③ 如果以上游戏你都还不满意，这里还有“野外越野”</p>
+<p><img src="http://blog.xiezhrspace.cn/blog-img/image-20230424222927812.png" alt="野外越野"></p>
+<h4 id="1-3-作者构建的小世界"><a href="#1-3-作者构建的小世界" class="headerlink" title="1.3 作者构建的小世界"></a>1.3 作者构建的小世界</h4><p>我们根据作者构建的小世界猜想，他一定是一个非常有趣的人，博客描绘出的画面或许就是作者生活的写照吧。</p>
+<p>每一个小场景或许都是作者日常生活的点点滴滴。</p>
+<p>在作者构建的场景中，从健身、游戏、看电影等日常活动，我们能够想到“一人一狗一世界”，多么惬意的生活。</p>
+<p>这何尝不是我们梦寐以求的生活呢，简单充实而又洒脱。</p>
+<p><img src="http://blog.xiezhrspace.cn/blog-img/image-20230424224552687.png" alt="生活点点滴滴"></p>
+<h4 id="1-4-联系作者"><a href="#1-4-联系作者" class="headerlink" title="1.4 联系作者"></a>1.4 联系作者</h4><p>顺着作者的精心制作的指示标【INFORMATION】,我们来到了作者的个人信息展示页面</p>
+<p><img src="http://blog.xiezhrspace.cn/blog-img/image-20230424225237436.png" alt="INFORMATION指示标"></p>
+<p><img src="http://blog.xiezhrspace.cn/blog-img/image-20230424225439603.png" alt="作者相关"></p>
+<p>在这里我们可以通过twiter、GitHub、email 联系到作者</p>
+<h3 id="二、部署项目"><a href="#二、部署项目" class="headerlink" title="二、部署项目"></a>二、部署项目</h3><p>看了这么多在线演示，怎么才能将项目跑起来呢。</p>
+<p>我们只需要进入到项目GitHub地址：<a href="https://github.com/brunosimon/folio-2019">https://github.com/brunosimon/folio-2019</a> 然后再readme.md中已经介绍了具体步骤</p>
+<p>其实就跟我们平常启动vue\react项目一样，安装依赖，然后启动</p>
+<pre class=" language-javascript"><code class="language-javascript"># <span class="token number">1</span><span class="token punctuation">.</span>下载项目
+git clone git@github<span class="token punctuation">.</span>com<span class="token punctuation">:</span>brunosimon<span class="token operator">/</span>folio<span class="token number">-2019</span><span class="token punctuation">.</span>git
+# <span class="token number">2</span><span class="token punctuation">.</span>安装了 Parcel（Web 应用打包工具）
+npm install <span class="token operator">-</span>g parcel<span class="token operator">-</span>bundler
+# <span class="token number">3</span><span class="token punctuation">.</span>安装依赖（仅第一次需要）
+npm i
+# <span class="token number">4</span><span class="token punctuation">.</span>运行
+npm run dev
+</code></pre>
+<p><img src="http://blog.xiezhrspace.cn/blog-img/image-20230424231115735.png" alt="image-20230424231115735"></p>
+<p>浏览器输入：<a href="http://localhost:8080/">http://localhost:8080</a> 即可访问</p>
+<p><img src="http://blog.xiezhrspace.cn/blog-img/image-20230424231217039.png" alt="image-20230424231217039"></p>
+<h3 id="三、项目概述"><a href="#三、项目概述" class="headerlink" title="三、项目概述"></a>三、项目概述</h3><p>以下总结来自与<strong>HelloGitHub</strong>大佬</p>
+<p><img src="http://blog.xiezhrspace.cn/blog-img/image-20230424231526965.png" alt="博客项目结构图"></p>
+<p>好多看不懂，没关系，我们就大概了解项目用到的技术，然后能够将自己博客展现出来即可。</p>
+<p>我们找到熟悉的<code>src</code> 文件夹，里面的就是核心代码。打开文件夹，相信你已经知道了，入口就是<code>index.js</code></p>
+<pre class=" language-javascript"><code class="language-javascript"><span class="token keyword">import</span> <span class="token string">'./style/main.css'</span>
+<span class="token keyword">import</span> Application <span class="token keyword">from</span> <span class="token string">'./javascript/Application.js'</span>
+
+window<span class="token punctuation">.</span>application <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Application</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+    $canvas<span class="token punctuation">:</span> document<span class="token punctuation">.</span><span class="token function">querySelector</span><span class="token punctuation">(</span><span class="token string">'.js-canvas'</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    useComposer<span class="token punctuation">:</span> <span class="token boolean">true</span>
+<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span><span class="token punctuation">)</span>
+</code></pre>
+<p>一说到3D，想必大家想到的就是<code>Three.js</code>。 <code>Three.js</code> 是3D的<code>JavaScript</code>库</p>
+<p>地址：<a href="https://github.com/mrdoob/three.js">https://github.com/mrdoob/three.js</a></p>
+<p>项目中用到的另一个库是<code>dat.gui.js</code> 它是一个用于在 JavaScript 中更改变量的轻量级图形用户界面</p>
+<p>感兴趣的小伙伴可以找相关资料深入研究学习一下</p>
+<h3 id="四、打造自己的3D博客"><a href="#四、打造自己的3D博客" class="headerlink" title="四、打造自己的3D博客"></a>四、打造自己的3D博客</h3><p>说了这么多，既然是作为博客系统。那么我们最最最关心的就是：<strong>怎么将自己的文章展示出来呢？</strong></p>
+<p>我们顺着小世界上的【<strong>PROJECTS</strong>】“<strong>路标</strong>“就可以找到项目文章列表，当然了，这里展示的是作者的，我们接下来要做的就是把内容换成自己的。</p>
+<p><img src="http://blog.xiezhrspace.cn/blog-img/image-20230424233742496.png" alt="image-20230424233742496"></p>
+<p>我们找到<code>ProjectsSection.js</code> 文件，并在文件中找到<code>setList</code>,这里列出来的就是文章列表,修改如下</p>
+<pre class=" language-js"><code class="language-js"> <span class="token function">setList</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>list <span class="token operator">=</span> <span class="token punctuation">[</span>
+            <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+                name<span class="token punctuation">:</span> <span class="token string">'www.xiezhrspace.cn'</span><span class="token punctuation">,</span>
+                imageSources<span class="token punctuation">:</span>
+                <span class="token punctuation">[</span>
+                    projectsxiezhrspaceSources
+                <span class="token punctuation">]</span><span class="token punctuation">,</span>
+                floorTexture<span class="token punctuation">:</span> <span class="token keyword">this</span><span class="token punctuation">.</span>resources<span class="token punctuation">.</span>items<span class="token punctuation">.</span>projectsThreejsJourneyFloorTexture<span class="token punctuation">,</span>
+                link<span class="token punctuation">:</span>
+                <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+                    href<span class="token punctuation">:</span> <span class="token string">'http://www.xiezhrspace.cn'</span><span class="token punctuation">,</span>
+                    x<span class="token punctuation">:</span> <span class="token operator">-</span> <span class="token number">4.8</span><span class="token punctuation">,</span>
+                    y<span class="token punctuation">:</span> <span class="token operator">-</span> <span class="token number">2</span><span class="token punctuation">,</span>
+                    halfExtents<span class="token punctuation">:</span>
+                    <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+                        x<span class="token punctuation">:</span> <span class="token number">3.2</span><span class="token punctuation">,</span>
+                        y<span class="token punctuation">:</span> <span class="token number">1.5</span>
+                    <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+                <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span><span class="token punctuation">,</span>
+                distinctions<span class="token punctuation">:</span>
+                <span class="token punctuation">[</span>
+                    <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span> type<span class="token punctuation">:</span> <span class="token string">'fwa'</span><span class="token punctuation">,</span> x<span class="token punctuation">:</span> <span class="token number">2.95</span><span class="token punctuation">,</span> y<span class="token punctuation">:</span> <span class="token number">3.15</span> <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+                <span class="token punctuation">]</span>
+            <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+       <span class="token punctuation">]</span>
+  <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+</code></pre>
+<p>结合上面代码，改动主要有<code>imageSources </code>、<code>floorTexture</code> 、<code>href</code></p>
+<p>① <code>imageSources</code> ： 就是“广告牌” 上面现实的内容，这里我们通过引入图片方式展现。</p>
+<p>图片的引用规则我们模仿之前的即可</p>
+<pre class=" language-js"><code class="language-js"><span class="token keyword">import</span> projectsxiezhrspaceSources <span class="token keyword">from</span> <span class="token string">'../../../models/projects/pots/xiezhrspace001.jpg'</span>
+</code></pre>
+<p>然后就是再imageSource中展示</p>
+<pre class=" language-js"><code class="language-js">imageSources<span class="token punctuation">:</span>
+<span class="token punctuation">[</span>
+    projectsxiezhrspaceSources
+<span class="token punctuation">]</span>
+</code></pre>
+<p>② <code>floorTexture </code>:即地板上的贴图。这个在哪修改呢？ 我们找到<code>Resources.js</code>文件，将下面代码中的图片换成我们自己的即可</p>
+<pre class=" language-ja"><code class="language-ja">import projectsThreejsJourneyFloorSource from '../models/projects/threejsJourney/xiezhrfloor.png' 
+</code></pre>
+<p>然后就是在<code>floorTexture</code> 中使用了</p>
+<pre class=" language-js"><code class="language-js"> floorTexture<span class="token punctuation">:</span> <span class="token keyword">this</span><span class="token punctuation">.</span>resources<span class="token punctuation">.</span>items<span class="token punctuation">.</span>projectsThreejsJourneyFloorTexture
+</code></pre>
+<p>③<code>herf</code> : 文章跳转路径。这里我们将路径设置成自己文章地址即可</p>
+<p>经过以上以上更改后，我们重新编译发布项目后，我们就拥有了自己的3D博客，效果如下，是不是很酷呢。</p>
+<p><img src="http://blog.xiezhrspace.cn/blog-img/image-20230430221142465.png" alt="image-20230430221142465"></p>
+<p>以上就是本期全部内容，我们下期再见  (●’◡’●)</p>
+<p>如果你也对这3D博客感兴趣的话，赶紧去弄一个呗。</p>
+]]></content>
+      <categories>
+        <category>博客,3D,3D博客,开源系统</category>
+      </categories>
+      <tags>
+        <tag>博客,3D,3D博客,开源系统</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>给你安利一款不需要魔法就能免费使用的idea插件Bito-ChatGPT</title>
+    <url>/archives/3184dba.html</url>
+    <content><![CDATA[<h3 id="一-、写在前面"><a href="#一-、写在前面" class="headerlink" title="一 、写在前面"></a>一 、写在前面</h3><p>chatGPT火了之后，基于chatGPT的应用、插件可谓是满天飞。</p>
+<p>而使用这些应用、插件要么需要openAI账号、要么需要魔法、要么需要money。</p>
+<p>而且有些用着用着就不能用了，就像下面这样。</p>
+<p><img src="http://blog.xiezhrspace.cn/blog-img/image-20230427233149679.png" alt="image-20230427233149679"></p>
+<p>有的呢可能会限制字符，超过多少字符就不能免费使用了</p>
+<p>今天要给你安利的是<strong>Bito</strong>这款插件，它呢你不需要会魔法，而且可以免费使用。</p>
+<h3 id="二、Bito是什么？"><a href="#二、Bito是什么？" class="headerlink" title="二、Bito是什么？"></a>二、Bito是什么？</h3><p>我们来看看官方是怎么回答的？</p>
+<h2 id="🔑🔑-What-does-Bito-AI-do"><a href="#🔑🔑-What-does-Bito-AI-do" class="headerlink" title="🔑🔑 What does Bito AI do?"></a>🔑🔑 <strong>What does Bito AI do?</strong></h2><p><a href="https://bito.ai/">Bito</a> helps developers dramatically accelerate their impact by bringing <strong>GPT-4 and ChatGPT to your IDE and CLI</strong>. We use OpenAI’s models, and you don’t have to have an OpenAI key. Bito can save you an hour a day!. Bito AI makes it easy to write code, understand syntax, write test cases, explain code, comment code, check security, and even explain high level concepts.</p>
+<p>翻译一下就是</p>
+<p>Bito通过将GPT-4和ChatGPT引入您的IDE和CLI来帮助开发人员提高其效率。即使您没有OpenAI的密钥也可以使用。Bito AI使编写代码、理解语法、编写测试用例、解释代码、注释代码、检查安全性，甚至解释高级概念变得容易。</p>
+<h3 id="三-、安装Bito"><a href="#三-、安装Bito" class="headerlink" title="三 、安装Bito"></a>三 、安装Bito</h3><p>①在IntelliJ IDEA 的菜单栏中选择“File” -&gt; “Settings”</p>
+<p>②选择“Settings”弹窗中的“Plugins”选项卡，然后点击“Marketplace”tab页</p>
+<p>③在搜索框中输入“Bito”即可找到我们的插件</p>
+<p>④点击点击“Install”按钮进行安装</p>
+<p><img src="http://blog.xiezhrspace.cn/blog-img/image-20230428065630675.png" alt="image-20230428065630675"></p>
+<p>从上面截图可以看到，<strong>Bito</strong>插件目前已经有88.9K的下载量了，然后最新版本是1.0.134</p>
+<p>注意：<strong>Bito对于idea版本是有要求的，它要求最低版本是2021.1+ 。如果你的idea版本太低需要升级后才能使用</strong></p>
+<p>升级可以参考【<a href="http://www.exception.site】这个站点的文章,过多的不方便多说,你懂滴(●&/#39;%E2%97%A1&#39;%E2%97%8F)">www.exception.site】这个站点的文章，过多的不方便多说，你懂滴(●&#39;◡&#39;●)</a></p>
+<p>为了体验这个版本，小编特意将用了好久的idea从2019.3 升级到了2023.1 (●’◡’●)</p>
+<p><img src="http://blog.xiezhrspace.cn/blog-img/image-20230428070217902.png" alt="image-20230428070217902"></p>
+<p>⑤ 安装完成后，在idea右侧会出现一个“Bito”图标</p>
+<p><img src="http://blog.xiezhrspace.cn/blog-img/image-20230428070600423.png" alt="image-20230428070600423"></p>
+<h3 id="四、使用Bito"><a href="#四、使用Bito" class="headerlink" title="四、使用Bito"></a>四、使用Bito</h3><h4 id="4-1-创建个人工作空间"><a href="#4-1-创建个人工作空间" class="headerlink" title="4.1 创建个人工作空间"></a>4.1 创建个人工作空间</h4><p>安装上面步骤安装完成之后，我们只需要注册一下，或者加入其他团队就可以使用了。</p>
+<p>具体步骤参照如下截图，全程不需要魔法</p>
+<p>① 填写邮箱获取验证码</p>
+<p><img src="http://blog.xiezhrspace.cn/blog-img/image-20230428072125594.png" alt="image-20230428072125594"></p>
+<p><img src="http://blog.xiezhrspace.cn/blog-img/image-20230428072300485.png" alt="image-20230428072300485"></p>
+<p>②加入或者创建工作空间</p>
+<table>
+<thead>
+<tr>
+<th>–① 可以加入别人工作空间</th>
+<th>–②可以自己创建工作空间</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><img src="http://blog.xiezhrspace.cn/blog-img/image-20230428072712558.png" alt="image-20230428072712558"></td>
+<td><img src="http://blog.xiezhrspace.cn/blog-img/image-20230428072839285.png" alt="image-20230428072839285"></td>
+</tr>
+</tbody></table>
+<table>
+<thead>
+<tr>
+<th>–③ 跳过不必要步骤</th>
+<th>–④跳过不必要步骤</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><img src="http://blog.xiezhrspace.cn/blog-img/image-20230428072946092.png" alt="image-20230428072946092"></td>
+<td><img src="http://blog.xiezhrspace.cn/blog-img/image-20230428073024771.png" alt="image-20230428073024771"></td>
+</tr>
+</tbody></table>
+<p>直到弹出下面框说明可以使用了</p>
+<p><img src="http://blog.xiezhrspace.cn/blog-img/image-20230428073310023.png" alt="image-20230428073310023"></p>
+<h4 id="4-2-使用Bito"><a href="#4-2-使用Bito" class="headerlink" title="4.2 使用Bito"></a>4.2 使用Bito</h4><h5 id="4-2-1-问任何技术问题（Ask-any-technical-question）"><a href="#4-2-1-问任何技术问题（Ask-any-technical-question）" class="headerlink" title="4.2.1 问任何技术问题（Ask any technical question）"></a>4.2.1 问任何技术问题（Ask any technical question）</h5><p> 我们让它来写又给调用OPENAPI的示例</p>
+<table>
+<thead>
+<tr>
+<th><img src="http://blog.xiezhrspace.cn/blog-img/image-20230428073715761.png" alt="image-20230428073715761"></th>
+</tr>
+</thead>
+</table>
+<h5 id="4-2-2-解释这段代码（Explain-this-code）"><a href="#4-2-2-解释这段代码（Explain-this-code）" class="headerlink" title="4.2.2 解释这段代码（Explain this code）"></a>4.2.2 解释这段代码（Explain this code）</h5><table>
+<thead>
+<tr>
+<th>–①选择Explain this code</th>
+<th>–②翻译我们选择的代码</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><img src="http://blog.xiezhrspace.cn/blog-img/image-20230428074949327.png" alt="image-20230428074949327"></td>
+<td><img src="http://blog.xiezhrspace.cn/blog-img/image-20230428075037216.png" alt="image-20230428075037216"></td>
+</tr>
+</tbody></table>
+<h5 id="4-2-3-生成注释信息（Generate-Comment）"><a href="#4-2-3-生成注释信息（Generate-Comment）" class="headerlink" title="4.2.3  生成注释信息（Generate Comment）"></a>4.2.3  生成注释信息（Generate Comment）</h5><table>
+<thead>
+<tr>
+<th>–① 选择生成注释信息</th>
+<th>–② 帮我们生成选中代码的注释信息</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><img src="http://blog.xiezhrspace.cn/blog-img/image-20230428075703459.png" alt="image-20230428075703459"></td>
+<td><img src="http://blog.xiezhrspace.cn/blog-img/image-20230428075748507.png" alt="image-20230428075748507"></td>
+</tr>
+</tbody></table>
+<h5 id="4-2-4-性能检查（Performance-Check）"><a href="#4-2-4-性能检查（Performance-Check）" class="headerlink" title="4.2.4 性能检查（Performance Check）"></a>4.2.4 性能检查（Performance Check）</h5><table>
+<thead>
+<tr>
+<th>–①选择性能检查</th>
+<th>–② 给出相关建议和代码，并和原来代码进行比对</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><img src="http://blog.xiezhrspace.cn/blog-img/image-20230429090714109.png" alt="image-20230429090714109"></td>
+<td><img src="http://blog.xiezhrspace.cn/blog-img/image-20230429090758426.png" alt="image-20230429090758426"></td>
+</tr>
+</tbody></table>
+<h5 id="4-2-5-安全性检查（Security-Check）"><a href="#4-2-5-安全性检查（Security-Check）" class="headerlink" title="4.2.5 安全性检查（Security Check）"></a>4.2.5 安全性检查（Security Check）</h5><table>
+<thead>
+<tr>
+<th>– 选择安全性检查</th>
+<th>–② 给出安全性建议并跟源代码对比</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><img src="http://blog.xiezhrspace.cn/blog-img/image-20230429091257336.png" alt="image-20230429091257336"></td>
+<td><img src="http://blog.xiezhrspace.cn/blog-img/image-20230429091450339.png" alt="image-20230429091450339"></td>
+</tr>
+</tbody></table>
+<h5 id="4-2-6-代码风格检查（Style-Check）"><a href="#4-2-6-代码风格检查（Style-Check）" class="headerlink" title="4.2.6 代码风格检查（Style Check）"></a>4.2.6 代码风格检查（Style Check）</h5><table>
+<thead>
+<tr>
+<th>– ①选择代码风格检查</th>
+<th>–② 给出建议</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><img src="http://blog.xiezhrspace.cn/blog-img/image-20230429091904565.png" alt="image-20230429091904565"></td>
+<td><img src="http://blog.xiezhrspace.cn/blog-img/image-20230429092220238.png" alt="image-20230429092220238"></td>
+</tr>
+</tbody></table>
+<h3 id="五-、小结"><a href="#五-、小结" class="headerlink" title="五 、小结"></a>五 、小结</h3><ul>
+<li><p>不需要使用魔法并且可以免费使用</p>
+</li>
+<li><p>仔细看文章的小伙伴可能发现了，在使用过程中产生的提示、建议、注释都是英文的，这有点不太友好</p>
+</li>
+<li><p>可以合理地去应用这些插件来提升效率，但不能过度地对其产生 “依赖”</p>
+</li>
+</ul>
+<p>本期内容到此就结束了，希望对你有所帮助。我们下期再见 (●’◡’●)</p>
+]]></content>
+      <categories>
+        <category>idea插件,ChatGPT,免费,人工智能</category>
+      </categories>
+      <tags>
+        <tag>idea插件,ChatGPT,免费,人工智能</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Java中的容器大杂烩-集合</title>
     <url>/archives/9036fbf0.html</url>
     <content><![CDATA[<h3 id="一、-集合引入"><a href="#一、-集合引入" class="headerlink" title="一、 集合引入"></a>一、 集合引入</h3><p>在Java中，我们经常用到数组来存储数据。</p>
@@ -19297,9 +19564,9 @@ pull：更新到本地
         <category>Java</category>
       </categories>
       <tags>
+        <tag>Java</tag>
         <tag>IntelliJ IDEA</tag>
         <tag>IDEA</tag>
-        <tag>Java</tag>
       </tags>
   </entry>
   <entry>
@@ -19415,8 +19682,8 @@ pull：更新到本地
         <category>年终总结</category>
       </categories>
       <tags>
-        <tag>2021</tag>
         <tag>年终总结</tag>
+        <tag>2021</tag>
       </tags>
   </entry>
   <entry>
