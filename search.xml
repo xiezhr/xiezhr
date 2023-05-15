@@ -1,6 +1,61 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>感是感兴趣，但是我不配</title>
+    <url>/archives/3c89decf.html</url>
+    <content><![CDATA[<p><img src="http://blog.xiezhrspace.cn/blog-img/%E7%BC%96%E8%BE%91.png" alt="编辑"></p>
+<p>首先收到这样的消息还是挺高兴的，居然有小编来找我了，能得到别人的认可内心还是非常激动的。</p>
+<p>最近呢，打算把之前写的博客都搬运到博客园。</p>
+<p>虽然很久很久之前就听说博客园，但是一直没在上面发布过自己的博客。</p>
+<p>究其原因呢，可能是第一次打开博客园觉得它的界面相比其他网站界面有点丑（我可不是外貌协会的）吧。</p>
+<p>直到前段时间看到不少大佬都在公众号发关于【博客园求助的消息】，才又一次把目光和焦点转向了博客园</p>
+<table>
+<thead>
+<tr>
+<th>–</th>
+<th>–</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><img src="http://blog.xiezhrspace.cn/blog-img/image-20230425224759640.png" alt="image-20230425224759640"></td>
+<td><img src="http://blog.xiezhrspace.cn/blog-img/image-20230425225515573.png" alt="image-20230425225515573"></td>
+</tr>
+<tr>
+<td><img src="http://blog.xiezhrspace.cn/blog-img/image-20230425225114842.png" alt="image-20230425225114842"></td>
+<td><img src="http://blog.xiezhrspace.cn/blog-img/image-20230425225156167.png" alt="image-20230425225156167"></td>
+</tr>
+<tr>
+<td><img src="http://blog.xiezhrspace.cn/blog-img/image-20230425225538062.png" alt="image-20230425225538062"></td>
+<td><img src="http://blog.xiezhrspace.cn/blog-img/image-20230425225555850.png" alt="image-20230425225555850"></td>
+</tr>
+</tbody></table>
+<p>看到都在发这个消息，处于好奇便默默的点开了博客园。</p>
+<p>果然在首页有那么一条【特别头条】园子的商业化努力-困境求助</p>
+<p><img src="http://blog.xiezhrspace.cn/blog-img/image-20230425231202063.png" alt="image-20230425231202063"></p>
+<p>点开一看，看来博客园是真的处在非常困难的阶段</p>
+<p><img src="http://blog.xiezhrspace.cn/blog-img/image-20230425231412579.png" alt="image-20230425231412579"></p>
+<p>其实，就这几天将博客搬运到博客园，一波操作下来之后，发现博客园真的挺不错的。</p>
+<p>博客园给人的第一感觉就是：<strong>简洁、干净、纯粹、克制。</strong>  </p>
+<p>有种相见恨晚的感觉，怪不得不少老博主都不愿离开博客园。</p>
+<p>并在博客园身陷囹圄之境，献出了自己的力量</p>
+<p><img src="http://blog.xiezhrspace.cn/blog-img/image-20230425232739027.png" alt="image-20230425232739027"></p>
+<p>然后没想到的是在博客园发布了三篇之前写的博客之后，就收到了小编的消息（也就是开头说的那个）。</p>
+<p>出版自己的书，这何尝不是我们梦寐以求的呢。在平常呢会关注不少同行业大佬，在这些大佬中也有不少出版过自己的开发相关书籍，而且也非常畅销。</p>
+<p>在自己内心深处是这样想的，能出书的作者肯定都是一个方向或者一个领域很厉害很厉害的人。他们有着丰富的阅历，完善的知识体系及充足的知识储备。</p>
+<p>等甩开那激动狂躁的内心，静下心来好好想想，虽然自己在程序员这条不归路 上已经走了好久好久了，但自己几斤几两还是心里还是有数的。</p>
+<p><strong>你知道的越多，你不知道的就越多</strong></p>
+<p>这些年下来吧，感觉自己的知识储备也比较零散杂乱。从自己的博客就可以看出来，各方面的博客都写了些，但好像没有特别精的。</p>
+<p>距离大佬们还是有很大的差距的。</p>
+<p>扯得有点远了，出版一本属于自己的开发类的书籍，虽然现在还没具体想法，暂且将它作为一个长一点的flag吧。</p>
+]]></content>
+      <categories>
+        <category>出版书籍,程序人生</category>
+      </categories>
+      <tags>
+        <tag>出版书籍,程序人生</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>第一眼看到就喜欢上了</title>
     <url>/archives/b7c4c825.html</url>
     <content><![CDATA[<p>有多少小伙伴是被标题  <del>骗</del> 吸引进来的呢，小编可不是标题党。</p>
@@ -8602,6 +8657,173 @@ testuser         pts/6                     Sun Sep 11 22:42:24 +0800 2022
       </tags>
   </entry>
   <entry>
+    <title>【必知必会的MySQL知识】⑤DCL语言</title>
+    <url>/archives/80b35a31.html</url>
+    <content><![CDATA[<h3 id="一、概述"><a href="#一、概述" class="headerlink" title="一、概述"></a>一、概述</h3><blockquote>
+<p>数据控制语言，用来定义访问权限和安全级别。主要包含包括<strong>grant</strong>，<strong>revoke</strong> 关键字</p>
+<ul>
+<li>grant   授予权限</li>
+<li>revoke 回收权限</li>
+</ul>
+</blockquote>
+<h3 id="二-、授权"><a href="#二-、授权" class="headerlink" title="二 、授权"></a>二 、授权</h3><h4 id="2-1-语法格式"><a href="#2-1-语法格式" class="headerlink" title="2.1 语法格式"></a>2.1 语法格式</h4><pre class=" language-sql"><code class="language-sql"><span class="token keyword">GRANT</span> priv_type <span class="token punctuation">[</span><span class="token punctuation">(</span>column_list<span class="token punctuation">)</span><span class="token punctuation">]</span>  <span class="token punctuation">[</span><span class="token punctuation">,</span> priv_type <span class="token punctuation">[</span><span class="token punctuation">(</span>column_list<span class="token punctuation">)</span><span class="token punctuation">]</span><span class="token punctuation">]</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+<span class="token keyword">ON</span> <span class="token punctuation">[</span>object_type<span class="token punctuation">]</span> priv_level
+<span class="token keyword">TO</span> <span class="token keyword">user</span> <span class="token punctuation">[</span>IDENTIFIED <span class="token keyword">BY</span> <span class="token punctuation">[</span>PASSWORD<span class="token punctuation">]</span> <span class="token string">'password'</span><span class="token punctuation">]</span>
+<span class="token punctuation">[</span><span class="token punctuation">,</span> <span class="token keyword">user</span><span class="token punctuation">[</span>IDENTIFIED <span class="token keyword">BY</span> <span class="token punctuation">[</span>PASSWORD<span class="token punctuation">]</span> <span class="token string">'password'</span><span class="token punctuation">]</span><span class="token punctuation">]</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+<span class="token punctuation">[</span><span class="token keyword">WITH</span> with_option <span class="token punctuation">[</span>with_option<span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">]</span>
+</code></pre>
+<h4 id="2-2-语法说明"><a href="#2-2-语法说明" class="headerlink" title="2.2 语法说明"></a>2.2 语法说明</h4><table>
+<thead>
+<tr>
+<th>参数</th>
+<th>参数说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code> priv_type</code></td>
+<td>参数表示权限类型</td>
+</tr>
+<tr>
+<td><code>columns_list</code></td>
+<td>参数表示权限作用于哪些列上，省略该参数时，表示作用于整个表</td>
+</tr>
+<tr>
+<td><code>object_type</code></td>
+<td>参数用于指定权限对象</td>
+</tr>
+<tr>
+<td><code>priv_level </code></td>
+<td>参数用于指定权限级别</td>
+</tr>
+<tr>
+<td><code>user</code></td>
+<td>参数表示用户账户；由用户名和主机名构成，格式是“‘username’@’hostname’”</td>
+</tr>
+<tr>
+<td><code>IDENTIFIED BY</code></td>
+<td>参数用来为用户设置密码</td>
+</tr>
+<tr>
+<td><code>password</code></td>
+<td>参数是用户的新密码</td>
+</tr>
+<tr>
+<td><code>WITH </code></td>
+<td>一个或多个<strong>with_option</strong> 参数</td>
+</tr>
+</tbody></table>
+<p> <strong>with_option</strong> 参数一共5个选项<br> |with_option参数|参数说明|<br> |–|–|<br>|<code>GRANT OPTION</code>|被授权的用户可以将这些权限赋予给别的用户|<br>|<code>MAX_QUERIES_PER_HOUR count</code>|设置每个小时可以允许执行 count 次查询|<br>| <code>MAX_UPDATES_PER_HOUR count</code>|设置每个小时可以允许执行 count 次更新|<br>| <code>MAX_CONNECTIONS_PER_HOUR count</code>|设置每小时可以建立 count 个连接|<br>|<code>MAX_USER_CONNECTIONS count</code>|设置单个用户可以同时具有的 count 个连接|</p>
+<h4 id="2-3-权限类型"><a href="#2-3-权限类型" class="headerlink" title="2.3  权限类型"></a>2.3  权限类型</h4><p>权限类型分类<br>|权限类型|说明|<br>|–|–|<br>|<code>数据库权限</code>|和一个具体的数据库中的所有表相关。例如，可以在已有的数据库 mytest 中创建新表的权限|<br>|<code>表权限</code>|和一个具体表中的所有数据相关。例如，可以使用 SELECT 语句查询表 students 的所有数据的权限|<br>|<code>列权限</code>|和表中的一个具体列相关。例如，可以使用 UPDATE 语句更新表 students 中 name 列的值的权限|<br>|<code>用户权限</code>|和 MySQL 中所有的数据库相关。例如，可以删除已有的数据库或者创建一个新的数据库的权限|</p>
+<p>① 授予数据<strong>库</strong>权限时，&lt;权限类型&gt;可以指定为以下值<br>| 权限名称                       | 对应user表中的字段    | 说明                                                         |<br>| —————————— | ——————— | ———————————————————— |<br>|<code>SELECT </code>                        | <strong>Select_priv</strong>          | 表示授予用户可以使用 SELECT 语句访问特定数据库中所有表和视图的权限。 |<br>| <code>INSERT</code>                         | <strong>Insert_priv</strong>         | 表示授予用户可以使用 INSERT 语句向特定数据库中所有表添加数据行的权限。 |<br>|<code>DELETE</code>                        |<strong>Delete_priv</strong>           | 表示授予用户可以使用 DELETE 语句删除特定数据库中所有表的数据行的权限。 |<br>|<code>UPDATE</code>                        | <strong>Update_priv</strong>           | 表示授予用户可以使用 UPDATE 语句更新特定数据库中所有数据表的值的权限。 |<br>| <code>REFERENCES </code>                    | <strong>References_priv</strong>      | 表示授予用户可以创建指向特定的数据库中的表外键的权限。       |<br>|<code>CREATE   </code>                     | <strong>Create_priv</strong>          | 表示授权用户可以使用 CREATE TABLE 语句在特定数据库中创建新表的权限。 |<br>|<code>ALTER</code>                         | <strong>Alter_priv</strong>            | 表示授予用户可以使用 ALTER TABLE 语句修改特定数据库中所有数据表的权限。 |<br>| <code>SHOW VIEW  </code>                    | <strong>Show_view_priv</strong>        | 表示授予用户可以查看特定数据库中已有视图的视图定义的权限。   |<br>|<code> CREATE ROUTINE</code>                 | <strong>Create_routine_priv</strong>   | 表示授予用户可以为特定的数据库创建存储过程和存储函数的权限。 |<br>| <code>ALTER ROUTINE </code>                 | <strong>Alter_routine_priv</strong>    | 表示授予用户可以更新和删除数据库中已有的存储过程和存储函数的权限。 |<br>| <code>INDEX </code>                       | <strong>Index_priv</strong>            | 表示授予用户可以在特定数据库中的所有数据表上定义和删除索引的权限。 |<br>|<code>DROP</code>                       | <strong>Drop_priv</strong>             | 表示授予用户可以删除特定数据库中所有表和视图的权限。         |<br>| <code>CREATE TEMPORARY TABLES</code>        |<strong>Create_tmp_table_priv</strong> | 表示授予用户可以在特定数据库中创建临时表的权限。             |<br>| <code>CREATE VIEW</code>                    | <strong>Create_view_priv</strong>      | 表示授予用户可以在特定数据库中创建新的视图的权限。           |<br>| <code>EXECUTE ROUTINE</code>                | <strong>Execute_priv</strong>          | 表示授予用户可以调用特定数据库的存储过程和存储函数的权限。   |<br>|<code> LOCK TABLES</code>                    | <strong>Lock_tables_priv</strong>      | 表示授予用户可以锁定特定数据库的已有数据表的权限。           |<br>| <code>ALL 或 ALL PRIVILEGES 或 SUPER</code> | <strong>Super_priv</strong>            | 表示以上所有权限/超级权限                                    |</p>
+<p>② 授予<strong>表</strong>权限时，&lt;权限类型&gt;可以指定为以下值：<br>| 权限名称                       | 对应user表中的字段 | 说明                                                       |<br>| —————————— | —————— | ———————————————————- |<br>| <code>SELECT</code>                         | <strong>Select_priv</strong>        | 授予用户可以使用 SELECT 语句进行访问特定表的权限           |<br>| <code>INSERT</code>                         | <strong>Insert_priv</strong>        | 授予用户可以使用 INSERT 语句向一个特定表中添加数据行的权限 |<br>|  <code>DELETE</code>                         | <strong>Delete_priv</strong>        | 授予用户可以使用 DELETE 语句从一个特定表中删除数据行的权限 |<br>|  <code>DROP</code>                           | <strong>Drop_priv</strong>          | 授予用户可以删除数据表的权限                               |<br>|  <code>UPDATE</code>                         | <strong>Update_priv</strong>        | 授予用户可以使用 UPDATE 语句更新特定数据表的权限           |<br>|  <code>ALTER</code>                          | <strong>Alter_priv</strong>         | 授予用户可以使用 ALTER TABLE 语句修改数据表的权限          |<br>|  <code>REFERENCES</code>                     | <strong>References_priv</strong>    | 授予用户可以创建一个外键来参照特定数据表的权限             |<br>|  <code>CREATE</code>                         | <strong>Create_priv</strong>        | 授予用户可以使用特定的名字创建一个数据表的权限             |<br>|  <code>INDEX </code>                          | <strong>Index_priv</strong>         | 授予用户可以在表上定义索引的权限                           |<br>|  <code>ALL 或 ALL PRIVILEGES 或 SUPER </code> | <strong>Super_priv</strong>         | 所有的权限名                                               |</p>
+<p>③ 授予<strong>列</strong>权限时，&lt;权限类型&gt;可以指定以下值<br>| 权限名称                       | 对应user表中的字段 | 说明                                                       |<br>| —————————— | —————— | ———————————————————- |<br>| <code>SELECT</code>                         | <strong>Select_priv</strong>        | 授予用户可以使用 SELECT 语句进行访问特定表的权限           |<br>| <code>INSERT</code>                         | <strong>Insert_priv</strong>        | 授予用户可以使用 INSERT 语句向一个特定表中添加数据行的权限 |<br>|  <code>UPDATE</code>                         | <strong>Update_priv</strong>        | 授予用户可以使用 UPDATE 语句更新特定数据表的权限           |</p>
+<p>④授予<strong>用户</strong>权限时，&lt;权限类型&gt; 除了可以指定为授予数据库权限，还可以指定以下值<br>| 权限名称                        | 说明                                                       |<br>| ——————————  | ————————————————— |<br>|<code>CREATE USER</code>|表示授予用户可以创建和删除新用户的权限|<br>|<code>SHOW DATABASES</code>|表示授予用户可以使用 SHOW DATABASES 语句查看所有已有的数据库的定义的权限|</p>
+<h4 id="2-4-权限级别"><a href="#2-4-权限级别" class="headerlink" title="2.4 权限级别"></a>2.4 权限级别</h4><table>
+<thead>
+<tr>
+<th>权限级别</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>*</code></td>
+<td>表示当前数据库中的所有表</td>
+</tr>
+<tr>
+<td><code>*.*</code></td>
+<td>表示所有数据库中的所有表</td>
+</tr>
+<tr>
+<td><code>db_name.*</code></td>
+<td>表示某个数据库中的所有表，db_name 指定数据库名</td>
+</tr>
+<tr>
+<td><code>db_name.tbl_name</code></td>
+<td>表示某个数据库中的某个表或视图，db_name 指定数据库名，tbl_name 指定表名或视图名</td>
+</tr>
+<tr>
+<td><code>db_name.routine_name</code></td>
+<td>表示某个数据库中的某个存储过程或函数，routine_name 指定存储过程名或函数名</td>
+</tr>
+<tr>
+<td><code>TO 子句</code></td>
+<td>如果权限被授予给一个不存在的用户，MySQL 会自动执行一条 CREATE USER 语句来创建这个用户，但同时必须为该用户设置密码</td>
+</tr>
+</tbody></table>
+<h3 id="三、-回收权限"><a href="#三、-回收权限" class="headerlink" title="三、 回收权限"></a>三、 回收权限</h3><h4 id="3-1-语法格式"><a href="#3-1-语法格式" class="headerlink" title="3.1 语法格式"></a>3.1 语法格式</h4><pre class=" language-sql"><code class="language-sql"><span class="token keyword">REVOKE</span> priv_type <span class="token punctuation">[</span><span class="token punctuation">(</span>column_list<span class="token punctuation">)</span><span class="token punctuation">]</span>
+<span class="token punctuation">[</span><span class="token punctuation">,</span> priv_type <span class="token punctuation">[</span><span class="token punctuation">(</span>column_list<span class="token punctuation">)</span><span class="token punctuation">]</span><span class="token punctuation">]</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+<span class="token keyword">ON</span> <span class="token punctuation">[</span>object_type<span class="token punctuation">]</span> priv_level
+<span class="token keyword">FROM</span> <span class="token keyword">user</span> <span class="token punctuation">[</span><span class="token punctuation">,</span> <span class="token keyword">user</span><span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+</code></pre>
+<h4 id="3-2-语法说明"><a href="#3-2-语法说明" class="headerlink" title="3.2 语法说明"></a>3.2 语法说明</h4><table>
+<thead>
+<tr>
+<th>参数</th>
+<th>参数说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>priv_type</code></td>
+<td>参数表示权限的类型</td>
+</tr>
+<tr>
+<td><code>column_list</code></td>
+<td>参数表示权限作用于哪些列上，没有该参数时作用于整个表上</td>
+</tr>
+<tr>
+<td><code>user</code></td>
+<td>参数由用户名和主机名构成，格式为“username’@’hostname’”</td>
+</tr>
+</tbody></table>
+<h4 id="3-3-注意事项"><a href="#3-3-注意事项" class="headerlink" title="3.3 注意事项"></a>3.3 注意事项</h4><ul>
+<li>REVOKE 语法和 GRANT 语句的语法格式相似，但具有相反的效果。</li>
+<li>要使用 REVOKE 语句，必须拥有 MySQL 数据库的全局 CREATE USER 权限或 UPDATE 权限</li>
+</ul>
+<h3 id="四-、实践操作"><a href="#四-、实践操作" class="headerlink" title="四 、实践操作"></a>四 、实践操作</h3><p>① 运维童鞋想要查询所有用户的权限</p>
+<pre class=" language-sql"><code class="language-sql"><span class="token keyword">select</span> <span class="token operator">*</span> <span class="token keyword">FROM</span> mysql<span class="token punctuation">.</span><span class="token keyword">user</span><span class="token punctuation">;</span>
+</code></pre>
+<p><img src="http://blog.xiezhrspace.cn/blog-img/82478dc655e448859b95316d38a984bc.png" alt="在这里插入图片描述"><br>②运维童鞋想要创建一个新的用户testXiezhr,密码为testXiezhr。并授予test用户所有的数据<strong>查询、插入权限</strong></p>
+<pre class=" language-sql"><code class="language-sql"><span class="token comment" spellcheck="true"># 创建用户并授权</span>
+mysql<span class="token operator">></span> <span class="token keyword">GRANT</span> <span class="token keyword">SELECT</span><span class="token punctuation">,</span><span class="token keyword">INSERT</span> <span class="token keyword">ON</span> <span class="token operator">*</span><span class="token punctuation">.</span><span class="token operator">*</span>
+    <span class="token operator">-</span><span class="token operator">></span>      <span class="token keyword">TO</span> <span class="token string">'testXiezhr'</span>@'localhost<span class="token string">'
+    ->      IDENTIFIED BY '</span>testXiezhr'
+    <span class="token operator">-</span><span class="token operator">></span>       <span class="token keyword">WITH</span> <span class="token keyword">GRANT</span> <span class="token keyword">OPTION</span><span class="token punctuation">;</span>
+Query OK<span class="token punctuation">,</span> <span class="token number">0</span> <span class="token keyword">rows</span> affected<span class="token punctuation">,</span> <span class="token number">1</span> warning <span class="token punctuation">(</span><span class="token number">0.01</span> sec<span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true"># 使用 SHOW GRANTS 语句查询用户 testXiezhr的权限</span>
+mysql<span class="token operator">></span> <span class="token keyword">show</span> grants <span class="token keyword">for</span> <span class="token string">'testXiezhr'</span><span class="token variable">@localhost</span><span class="token punctuation">;</span>
+<span class="token operator">+</span><span class="token comment" spellcheck="true">---------------------------------------------------------------------------+</span>
+<span class="token operator">|</span> Grants <span class="token keyword">for</span> testXiezhr<span class="token variable">@localhost</span>                                           <span class="token operator">|</span>
+<span class="token operator">+</span><span class="token comment" spellcheck="true">---------------------------------------------------------------------------+</span>
+<span class="token operator">|</span> <span class="token keyword">GRANT</span> <span class="token keyword">SELECT</span><span class="token punctuation">,</span> <span class="token keyword">INSERT</span> <span class="token keyword">ON</span> <span class="token operator">*</span><span class="token punctuation">.</span><span class="token operator">*</span> <span class="token keyword">TO</span> <span class="token string">'testXiezhr'</span><span class="token variable">@'localhost'</span> <span class="token keyword">WITH</span> <span class="token keyword">GRANT</span> <span class="token keyword">OPTION</span> <span class="token operator">|</span>
+<span class="token operator">+</span><span class="token comment" spellcheck="true">---------------------------------------------------------------------------+</span>
+<span class="token number">1</span> <span class="token keyword">row</span> <span class="token operator">in</span> <span class="token keyword">set</span> <span class="token punctuation">(</span><span class="token number">0.00</span> sec<span class="token punctuation">)</span>
+</code></pre>
+<p>③ 运维童鞋想要<strong>收回</strong>testXiezhr用户的插入权限</p>
+<pre class=" language-sql"><code class="language-sql"><span class="token comment" spellcheck="true"># 使用revoke关键字收回insert 权限</span>
+mysql<span class="token operator">></span> <span class="token keyword">REVOKE</span> <span class="token keyword">INSERT</span> <span class="token keyword">ON</span> <span class="token operator">*</span><span class="token punctuation">.</span><span class="token operator">*</span> <span class="token keyword">FROM</span> <span class="token string">'testXiezhr'</span><span class="token variable">@'localhost'</span><span class="token punctuation">;</span>
+Query OK<span class="token punctuation">,</span> <span class="token number">0</span> <span class="token keyword">rows</span> affected <span class="token punctuation">(</span><span class="token number">0.00</span> sec<span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true">#使用 SHOW GRANTS 语句查询用户 testXiezhr的权限，我们发现insert 权限没有了</span>
+mysql<span class="token operator">></span> <span class="token keyword">show</span> grants <span class="token keyword">for</span> <span class="token string">'testXiezhr'</span><span class="token variable">@localhost</span><span class="token punctuation">;</span>
+<span class="token operator">+</span><span class="token comment" spellcheck="true">-------------------------------------------------------------------+</span>
+<span class="token operator">|</span> Grants <span class="token keyword">for</span> testXiezhr<span class="token variable">@localhost</span>                                   <span class="token operator">|</span>
+<span class="token operator">+</span><span class="token comment" spellcheck="true">-------------------------------------------------------------------+</span>
+<span class="token operator">|</span> <span class="token keyword">GRANT</span> <span class="token keyword">SELECT</span> <span class="token keyword">ON</span> <span class="token operator">*</span><span class="token punctuation">.</span><span class="token operator">*</span> <span class="token keyword">TO</span> <span class="token string">'testXiezhr'</span><span class="token variable">@'localhost'</span> <span class="token keyword">WITH</span> <span class="token keyword">GRANT</span> <span class="token keyword">OPTION</span> <span class="token operator">|</span>
+<span class="token operator">+</span><span class="token comment" spellcheck="true">-------------------------------------------------------------------+</span>
+<span class="token number">1</span> <span class="token keyword">row</span> <span class="token operator">in</span> <span class="token keyword">set</span> <span class="token punctuation">(</span><span class="token number">0.00</span> sec<span class="token punctuation">)</span>
+</code></pre>
+]]></content>
+      <categories>
+        <category>MySQL</category>
+        <category>DCL</category>
+        <category>DCL语言</category>
+      </categories>
+      <tags>
+        <tag>MySQL</tag>
+        <tag>DCL</tag>
+        <tag>DCL语言</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>【必知必会的MySQL知识】③DML语言</title>
     <url>/archives/98273844.html</url>
     <content><![CDATA[<h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>前面的两篇文章中，我们已经对MySQL有了基本了解。<br>并且知道了怎么用工具连接数据库？怎么创建数据库？怎么创建表？<br>这一篇呢我们就来看看怎么在我们创建的表中插入数据、删除数据和修改数据。也就是上一篇文章中提到的<strong>DML 数据操作语言</strong></p>
@@ -9124,173 +9346,6 @@ mysql<span class="token operator">></span> <span class="token keyword">select</s
       <tags>
         <tag>MySQL</tag>
         <tag>DML语言</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>【必知必会的MySQL知识】⑤DCL语言</title>
-    <url>/archives/80b35a31.html</url>
-    <content><![CDATA[<h3 id="一、概述"><a href="#一、概述" class="headerlink" title="一、概述"></a>一、概述</h3><blockquote>
-<p>数据控制语言，用来定义访问权限和安全级别。主要包含包括<strong>grant</strong>，<strong>revoke</strong> 关键字</p>
-<ul>
-<li>grant   授予权限</li>
-<li>revoke 回收权限</li>
-</ul>
-</blockquote>
-<h3 id="二-、授权"><a href="#二-、授权" class="headerlink" title="二 、授权"></a>二 、授权</h3><h4 id="2-1-语法格式"><a href="#2-1-语法格式" class="headerlink" title="2.1 语法格式"></a>2.1 语法格式</h4><pre class=" language-sql"><code class="language-sql"><span class="token keyword">GRANT</span> priv_type <span class="token punctuation">[</span><span class="token punctuation">(</span>column_list<span class="token punctuation">)</span><span class="token punctuation">]</span>  <span class="token punctuation">[</span><span class="token punctuation">,</span> priv_type <span class="token punctuation">[</span><span class="token punctuation">(</span>column_list<span class="token punctuation">)</span><span class="token punctuation">]</span><span class="token punctuation">]</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
-<span class="token keyword">ON</span> <span class="token punctuation">[</span>object_type<span class="token punctuation">]</span> priv_level
-<span class="token keyword">TO</span> <span class="token keyword">user</span> <span class="token punctuation">[</span>IDENTIFIED <span class="token keyword">BY</span> <span class="token punctuation">[</span>PASSWORD<span class="token punctuation">]</span> <span class="token string">'password'</span><span class="token punctuation">]</span>
-<span class="token punctuation">[</span><span class="token punctuation">,</span> <span class="token keyword">user</span><span class="token punctuation">[</span>IDENTIFIED <span class="token keyword">BY</span> <span class="token punctuation">[</span>PASSWORD<span class="token punctuation">]</span> <span class="token string">'password'</span><span class="token punctuation">]</span><span class="token punctuation">]</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
-<span class="token punctuation">[</span><span class="token keyword">WITH</span> with_option <span class="token punctuation">[</span>with_option<span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">]</span>
-</code></pre>
-<h4 id="2-2-语法说明"><a href="#2-2-语法说明" class="headerlink" title="2.2 语法说明"></a>2.2 语法说明</h4><table>
-<thead>
-<tr>
-<th>参数</th>
-<th>参数说明</th>
-</tr>
-</thead>
-<tbody><tr>
-<td><code> priv_type</code></td>
-<td>参数表示权限类型</td>
-</tr>
-<tr>
-<td><code>columns_list</code></td>
-<td>参数表示权限作用于哪些列上，省略该参数时，表示作用于整个表</td>
-</tr>
-<tr>
-<td><code>object_type</code></td>
-<td>参数用于指定权限对象</td>
-</tr>
-<tr>
-<td><code>priv_level </code></td>
-<td>参数用于指定权限级别</td>
-</tr>
-<tr>
-<td><code>user</code></td>
-<td>参数表示用户账户；由用户名和主机名构成，格式是“‘username’@’hostname’”</td>
-</tr>
-<tr>
-<td><code>IDENTIFIED BY</code></td>
-<td>参数用来为用户设置密码</td>
-</tr>
-<tr>
-<td><code>password</code></td>
-<td>参数是用户的新密码</td>
-</tr>
-<tr>
-<td><code>WITH </code></td>
-<td>一个或多个<strong>with_option</strong> 参数</td>
-</tr>
-</tbody></table>
-<p> <strong>with_option</strong> 参数一共5个选项<br> |with_option参数|参数说明|<br> |–|–|<br>|<code>GRANT OPTION</code>|被授权的用户可以将这些权限赋予给别的用户|<br>|<code>MAX_QUERIES_PER_HOUR count</code>|设置每个小时可以允许执行 count 次查询|<br>| <code>MAX_UPDATES_PER_HOUR count</code>|设置每个小时可以允许执行 count 次更新|<br>| <code>MAX_CONNECTIONS_PER_HOUR count</code>|设置每小时可以建立 count 个连接|<br>|<code>MAX_USER_CONNECTIONS count</code>|设置单个用户可以同时具有的 count 个连接|</p>
-<h4 id="2-3-权限类型"><a href="#2-3-权限类型" class="headerlink" title="2.3  权限类型"></a>2.3  权限类型</h4><p>权限类型分类<br>|权限类型|说明|<br>|–|–|<br>|<code>数据库权限</code>|和一个具体的数据库中的所有表相关。例如，可以在已有的数据库 mytest 中创建新表的权限|<br>|<code>表权限</code>|和一个具体表中的所有数据相关。例如，可以使用 SELECT 语句查询表 students 的所有数据的权限|<br>|<code>列权限</code>|和表中的一个具体列相关。例如，可以使用 UPDATE 语句更新表 students 中 name 列的值的权限|<br>|<code>用户权限</code>|和 MySQL 中所有的数据库相关。例如，可以删除已有的数据库或者创建一个新的数据库的权限|</p>
-<p>① 授予数据<strong>库</strong>权限时，&lt;权限类型&gt;可以指定为以下值<br>| 权限名称                       | 对应user表中的字段    | 说明                                                         |<br>| —————————— | ——————— | ———————————————————— |<br>|<code>SELECT </code>                        | <strong>Select_priv</strong>          | 表示授予用户可以使用 SELECT 语句访问特定数据库中所有表和视图的权限。 |<br>| <code>INSERT</code>                         | <strong>Insert_priv</strong>         | 表示授予用户可以使用 INSERT 语句向特定数据库中所有表添加数据行的权限。 |<br>|<code>DELETE</code>                        |<strong>Delete_priv</strong>           | 表示授予用户可以使用 DELETE 语句删除特定数据库中所有表的数据行的权限。 |<br>|<code>UPDATE</code>                        | <strong>Update_priv</strong>           | 表示授予用户可以使用 UPDATE 语句更新特定数据库中所有数据表的值的权限。 |<br>| <code>REFERENCES </code>                    | <strong>References_priv</strong>      | 表示授予用户可以创建指向特定的数据库中的表外键的权限。       |<br>|<code>CREATE   </code>                     | <strong>Create_priv</strong>          | 表示授权用户可以使用 CREATE TABLE 语句在特定数据库中创建新表的权限。 |<br>|<code>ALTER</code>                         | <strong>Alter_priv</strong>            | 表示授予用户可以使用 ALTER TABLE 语句修改特定数据库中所有数据表的权限。 |<br>| <code>SHOW VIEW  </code>                    | <strong>Show_view_priv</strong>        | 表示授予用户可以查看特定数据库中已有视图的视图定义的权限。   |<br>|<code> CREATE ROUTINE</code>                 | <strong>Create_routine_priv</strong>   | 表示授予用户可以为特定的数据库创建存储过程和存储函数的权限。 |<br>| <code>ALTER ROUTINE </code>                 | <strong>Alter_routine_priv</strong>    | 表示授予用户可以更新和删除数据库中已有的存储过程和存储函数的权限。 |<br>| <code>INDEX </code>                       | <strong>Index_priv</strong>            | 表示授予用户可以在特定数据库中的所有数据表上定义和删除索引的权限。 |<br>|<code>DROP</code>                       | <strong>Drop_priv</strong>             | 表示授予用户可以删除特定数据库中所有表和视图的权限。         |<br>| <code>CREATE TEMPORARY TABLES</code>        |<strong>Create_tmp_table_priv</strong> | 表示授予用户可以在特定数据库中创建临时表的权限。             |<br>| <code>CREATE VIEW</code>                    | <strong>Create_view_priv</strong>      | 表示授予用户可以在特定数据库中创建新的视图的权限。           |<br>| <code>EXECUTE ROUTINE</code>                | <strong>Execute_priv</strong>          | 表示授予用户可以调用特定数据库的存储过程和存储函数的权限。   |<br>|<code> LOCK TABLES</code>                    | <strong>Lock_tables_priv</strong>      | 表示授予用户可以锁定特定数据库的已有数据表的权限。           |<br>| <code>ALL 或 ALL PRIVILEGES 或 SUPER</code> | <strong>Super_priv</strong>            | 表示以上所有权限/超级权限                                    |</p>
-<p>② 授予<strong>表</strong>权限时，&lt;权限类型&gt;可以指定为以下值：<br>| 权限名称                       | 对应user表中的字段 | 说明                                                       |<br>| —————————— | —————— | ———————————————————- |<br>| <code>SELECT</code>                         | <strong>Select_priv</strong>        | 授予用户可以使用 SELECT 语句进行访问特定表的权限           |<br>| <code>INSERT</code>                         | <strong>Insert_priv</strong>        | 授予用户可以使用 INSERT 语句向一个特定表中添加数据行的权限 |<br>|  <code>DELETE</code>                         | <strong>Delete_priv</strong>        | 授予用户可以使用 DELETE 语句从一个特定表中删除数据行的权限 |<br>|  <code>DROP</code>                           | <strong>Drop_priv</strong>          | 授予用户可以删除数据表的权限                               |<br>|  <code>UPDATE</code>                         | <strong>Update_priv</strong>        | 授予用户可以使用 UPDATE 语句更新特定数据表的权限           |<br>|  <code>ALTER</code>                          | <strong>Alter_priv</strong>         | 授予用户可以使用 ALTER TABLE 语句修改数据表的权限          |<br>|  <code>REFERENCES</code>                     | <strong>References_priv</strong>    | 授予用户可以创建一个外键来参照特定数据表的权限             |<br>|  <code>CREATE</code>                         | <strong>Create_priv</strong>        | 授予用户可以使用特定的名字创建一个数据表的权限             |<br>|  <code>INDEX </code>                          | <strong>Index_priv</strong>         | 授予用户可以在表上定义索引的权限                           |<br>|  <code>ALL 或 ALL PRIVILEGES 或 SUPER </code> | <strong>Super_priv</strong>         | 所有的权限名                                               |</p>
-<p>③ 授予<strong>列</strong>权限时，&lt;权限类型&gt;可以指定以下值<br>| 权限名称                       | 对应user表中的字段 | 说明                                                       |<br>| —————————— | —————— | ———————————————————- |<br>| <code>SELECT</code>                         | <strong>Select_priv</strong>        | 授予用户可以使用 SELECT 语句进行访问特定表的权限           |<br>| <code>INSERT</code>                         | <strong>Insert_priv</strong>        | 授予用户可以使用 INSERT 语句向一个特定表中添加数据行的权限 |<br>|  <code>UPDATE</code>                         | <strong>Update_priv</strong>        | 授予用户可以使用 UPDATE 语句更新特定数据表的权限           |</p>
-<p>④授予<strong>用户</strong>权限时，&lt;权限类型&gt; 除了可以指定为授予数据库权限，还可以指定以下值<br>| 权限名称                        | 说明                                                       |<br>| ——————————  | ————————————————— |<br>|<code>CREATE USER</code>|表示授予用户可以创建和删除新用户的权限|<br>|<code>SHOW DATABASES</code>|表示授予用户可以使用 SHOW DATABASES 语句查看所有已有的数据库的定义的权限|</p>
-<h4 id="2-4-权限级别"><a href="#2-4-权限级别" class="headerlink" title="2.4 权限级别"></a>2.4 权限级别</h4><table>
-<thead>
-<tr>
-<th>权限级别</th>
-<th>说明</th>
-</tr>
-</thead>
-<tbody><tr>
-<td><code>*</code></td>
-<td>表示当前数据库中的所有表</td>
-</tr>
-<tr>
-<td><code>*.*</code></td>
-<td>表示所有数据库中的所有表</td>
-</tr>
-<tr>
-<td><code>db_name.*</code></td>
-<td>表示某个数据库中的所有表，db_name 指定数据库名</td>
-</tr>
-<tr>
-<td><code>db_name.tbl_name</code></td>
-<td>表示某个数据库中的某个表或视图，db_name 指定数据库名，tbl_name 指定表名或视图名</td>
-</tr>
-<tr>
-<td><code>db_name.routine_name</code></td>
-<td>表示某个数据库中的某个存储过程或函数，routine_name 指定存储过程名或函数名</td>
-</tr>
-<tr>
-<td><code>TO 子句</code></td>
-<td>如果权限被授予给一个不存在的用户，MySQL 会自动执行一条 CREATE USER 语句来创建这个用户，但同时必须为该用户设置密码</td>
-</tr>
-</tbody></table>
-<h3 id="三、-回收权限"><a href="#三、-回收权限" class="headerlink" title="三、 回收权限"></a>三、 回收权限</h3><h4 id="3-1-语法格式"><a href="#3-1-语法格式" class="headerlink" title="3.1 语法格式"></a>3.1 语法格式</h4><pre class=" language-sql"><code class="language-sql"><span class="token keyword">REVOKE</span> priv_type <span class="token punctuation">[</span><span class="token punctuation">(</span>column_list<span class="token punctuation">)</span><span class="token punctuation">]</span>
-<span class="token punctuation">[</span><span class="token punctuation">,</span> priv_type <span class="token punctuation">[</span><span class="token punctuation">(</span>column_list<span class="token punctuation">)</span><span class="token punctuation">]</span><span class="token punctuation">]</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
-<span class="token keyword">ON</span> <span class="token punctuation">[</span>object_type<span class="token punctuation">]</span> priv_level
-<span class="token keyword">FROM</span> <span class="token keyword">user</span> <span class="token punctuation">[</span><span class="token punctuation">,</span> <span class="token keyword">user</span><span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
-</code></pre>
-<h4 id="3-2-语法说明"><a href="#3-2-语法说明" class="headerlink" title="3.2 语法说明"></a>3.2 语法说明</h4><table>
-<thead>
-<tr>
-<th>参数</th>
-<th>参数说明</th>
-</tr>
-</thead>
-<tbody><tr>
-<td><code>priv_type</code></td>
-<td>参数表示权限的类型</td>
-</tr>
-<tr>
-<td><code>column_list</code></td>
-<td>参数表示权限作用于哪些列上，没有该参数时作用于整个表上</td>
-</tr>
-<tr>
-<td><code>user</code></td>
-<td>参数由用户名和主机名构成，格式为“username’@’hostname’”</td>
-</tr>
-</tbody></table>
-<h4 id="3-3-注意事项"><a href="#3-3-注意事项" class="headerlink" title="3.3 注意事项"></a>3.3 注意事项</h4><ul>
-<li>REVOKE 语法和 GRANT 语句的语法格式相似，但具有相反的效果。</li>
-<li>要使用 REVOKE 语句，必须拥有 MySQL 数据库的全局 CREATE USER 权限或 UPDATE 权限</li>
-</ul>
-<h3 id="四-、实践操作"><a href="#四-、实践操作" class="headerlink" title="四 、实践操作"></a>四 、实践操作</h3><p>① 运维童鞋想要查询所有用户的权限</p>
-<pre class=" language-sql"><code class="language-sql"><span class="token keyword">select</span> <span class="token operator">*</span> <span class="token keyword">FROM</span> mysql<span class="token punctuation">.</span><span class="token keyword">user</span><span class="token punctuation">;</span>
-</code></pre>
-<p><img src="http://blog.xiezhrspace.cn/blog-img/82478dc655e448859b95316d38a984bc.png" alt="在这里插入图片描述"><br>②运维童鞋想要创建一个新的用户testXiezhr,密码为testXiezhr。并授予test用户所有的数据<strong>查询、插入权限</strong></p>
-<pre class=" language-sql"><code class="language-sql"><span class="token comment" spellcheck="true"># 创建用户并授权</span>
-mysql<span class="token operator">></span> <span class="token keyword">GRANT</span> <span class="token keyword">SELECT</span><span class="token punctuation">,</span><span class="token keyword">INSERT</span> <span class="token keyword">ON</span> <span class="token operator">*</span><span class="token punctuation">.</span><span class="token operator">*</span>
-    <span class="token operator">-</span><span class="token operator">></span>      <span class="token keyword">TO</span> <span class="token string">'testXiezhr'</span>@'localhost<span class="token string">'
-    ->      IDENTIFIED BY '</span>testXiezhr'
-    <span class="token operator">-</span><span class="token operator">></span>       <span class="token keyword">WITH</span> <span class="token keyword">GRANT</span> <span class="token keyword">OPTION</span><span class="token punctuation">;</span>
-Query OK<span class="token punctuation">,</span> <span class="token number">0</span> <span class="token keyword">rows</span> affected<span class="token punctuation">,</span> <span class="token number">1</span> warning <span class="token punctuation">(</span><span class="token number">0.01</span> sec<span class="token punctuation">)</span>
-<span class="token comment" spellcheck="true"># 使用 SHOW GRANTS 语句查询用户 testXiezhr的权限</span>
-mysql<span class="token operator">></span> <span class="token keyword">show</span> grants <span class="token keyword">for</span> <span class="token string">'testXiezhr'</span><span class="token variable">@localhost</span><span class="token punctuation">;</span>
-<span class="token operator">+</span><span class="token comment" spellcheck="true">---------------------------------------------------------------------------+</span>
-<span class="token operator">|</span> Grants <span class="token keyword">for</span> testXiezhr<span class="token variable">@localhost</span>                                           <span class="token operator">|</span>
-<span class="token operator">+</span><span class="token comment" spellcheck="true">---------------------------------------------------------------------------+</span>
-<span class="token operator">|</span> <span class="token keyword">GRANT</span> <span class="token keyword">SELECT</span><span class="token punctuation">,</span> <span class="token keyword">INSERT</span> <span class="token keyword">ON</span> <span class="token operator">*</span><span class="token punctuation">.</span><span class="token operator">*</span> <span class="token keyword">TO</span> <span class="token string">'testXiezhr'</span><span class="token variable">@'localhost'</span> <span class="token keyword">WITH</span> <span class="token keyword">GRANT</span> <span class="token keyword">OPTION</span> <span class="token operator">|</span>
-<span class="token operator">+</span><span class="token comment" spellcheck="true">---------------------------------------------------------------------------+</span>
-<span class="token number">1</span> <span class="token keyword">row</span> <span class="token operator">in</span> <span class="token keyword">set</span> <span class="token punctuation">(</span><span class="token number">0.00</span> sec<span class="token punctuation">)</span>
-</code></pre>
-<p>③ 运维童鞋想要<strong>收回</strong>testXiezhr用户的插入权限</p>
-<pre class=" language-sql"><code class="language-sql"><span class="token comment" spellcheck="true"># 使用revoke关键字收回insert 权限</span>
-mysql<span class="token operator">></span> <span class="token keyword">REVOKE</span> <span class="token keyword">INSERT</span> <span class="token keyword">ON</span> <span class="token operator">*</span><span class="token punctuation">.</span><span class="token operator">*</span> <span class="token keyword">FROM</span> <span class="token string">'testXiezhr'</span><span class="token variable">@'localhost'</span><span class="token punctuation">;</span>
-Query OK<span class="token punctuation">,</span> <span class="token number">0</span> <span class="token keyword">rows</span> affected <span class="token punctuation">(</span><span class="token number">0.00</span> sec<span class="token punctuation">)</span>
-<span class="token comment" spellcheck="true">#使用 SHOW GRANTS 语句查询用户 testXiezhr的权限，我们发现insert 权限没有了</span>
-mysql<span class="token operator">></span> <span class="token keyword">show</span> grants <span class="token keyword">for</span> <span class="token string">'testXiezhr'</span><span class="token variable">@localhost</span><span class="token punctuation">;</span>
-<span class="token operator">+</span><span class="token comment" spellcheck="true">-------------------------------------------------------------------+</span>
-<span class="token operator">|</span> Grants <span class="token keyword">for</span> testXiezhr<span class="token variable">@localhost</span>                                   <span class="token operator">|</span>
-<span class="token operator">+</span><span class="token comment" spellcheck="true">-------------------------------------------------------------------+</span>
-<span class="token operator">|</span> <span class="token keyword">GRANT</span> <span class="token keyword">SELECT</span> <span class="token keyword">ON</span> <span class="token operator">*</span><span class="token punctuation">.</span><span class="token operator">*</span> <span class="token keyword">TO</span> <span class="token string">'testXiezhr'</span><span class="token variable">@'localhost'</span> <span class="token keyword">WITH</span> <span class="token keyword">GRANT</span> <span class="token keyword">OPTION</span> <span class="token operator">|</span>
-<span class="token operator">+</span><span class="token comment" spellcheck="true">-------------------------------------------------------------------+</span>
-<span class="token number">1</span> <span class="token keyword">row</span> <span class="token operator">in</span> <span class="token keyword">set</span> <span class="token punctuation">(</span><span class="token number">0.00</span> sec<span class="token punctuation">)</span>
-</code></pre>
-]]></content>
-      <categories>
-        <category>MySQL</category>
-        <category>DCL</category>
-        <category>DCL语言</category>
-      </categories>
-      <tags>
-        <tag>MySQL</tag>
-        <tag>DCL</tag>
-        <tag>DCL语言</tag>
       </tags>
   </entry>
   <entry>
@@ -19564,9 +19619,9 @@ pull：更新到本地
         <category>Java</category>
       </categories>
       <tags>
-        <tag>Java</tag>
         <tag>IntelliJ IDEA</tag>
         <tag>IDEA</tag>
+        <tag>Java</tag>
       </tags>
   </entry>
   <entry>
@@ -19682,8 +19737,8 @@ pull：更新到本地
         <category>年终总结</category>
       </categories>
       <tags>
-        <tag>年终总结</tag>
         <tag>2021</tag>
+        <tag>年终总结</tag>
       </tags>
   </entry>
   <entry>
