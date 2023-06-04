@@ -1,6 +1,794 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title></title>
+    <url>/archives/0.html</url>
+    <content><![CDATA[<h3 id="一-、前言"><a href="#一-、前言" class="headerlink" title="一 、前言"></a>一 、前言</h3><p>上一期中大概介绍了下kettle，并已经把kettle下载安装完了。</p>
+<p>这一期我们就来简单体验下kettle怎么进行数据转换的。</p>
+<h3 id="二-、体验小目标"><a href="#二-、体验小目标" class="headerlink" title="二 、体验小目标"></a>二 、体验小目标</h3><p>我们这里呢就来两个小案例。</p>
+<ul>
+<li>将csv文件通过kettle转换成excel文件</li>
+<li>将excel文件通过kettle写入到数据库表中</li>
+</ul>
+<h3 id="三、-kettle核心概念介绍"><a href="#三、-kettle核心概念介绍" class="headerlink" title="三、 kettle核心概念介绍"></a>三、 kettle核心概念介绍</h3><blockquote>
+<p>kettle 被称为可视化编程语言，可以完成复杂的etl工作流。kettle里的代码就是转换和作业。</p>
+</blockquote>
+<p>所以呢，我们首先就来说说转换和作业。</p>
+<h4 id="3-1-转换"><a href="#3-1-转换" class="headerlink" title="3.1 转换"></a>3.1 转换</h4><p>从下面截图中，我们看到转换包含了很多核心对象，说明其包含了很多功能。后面有得我们学的了(开个玩笑）</p>
+<table>
+<thead>
+<tr>
+<th>–转换包含元素</th>
+<th>–转换核心对象</th>
+<th></th>
+</tr>
+</thead>
+<tbody><tr>
+<td><img src="http://blog.xiezhrspace.cn/blog-img/image-20230527205850887.png" alt="转换核心元素"></td>
+<td><img src="http://blog.xiezhrspace.cn/blog-img/image-20230527205945965.png" alt="转换核心对象"></td>
+<td><img src="http://blog.xiezhrspace.cn/blog-img/image-20230527210008608.png" alt="转换核心对象"></td>
+</tr>
+</tbody></table>
+<ul>
+<li><p><strong>转换（transaformation）</strong>负责数据的输入、转换、校验和输出等，kettle中转换完成了<strong>ETL</strong>的全部工作</p>
+</li>
+<li><p><strong>转换</strong>由多个<strong>步骤</strong> (Step) 组成。包含各种文件格式的数据输入/输出 （如csv文件输入、sql文件输出、sql脚本执行、各种查询等等）</p>
+</li>
+<li><p>如果各个步骤之间需要数据库操作，我们就需要建立<strong>DB连接</strong></p>
+</li>
+<li><p>各个步骤之间使用<strong>跳（Hops）</strong>来连接。我们可以将跳理解为一条道路，数据有一个<strong>步骤</strong>（驿站）通过<strong>跳</strong>（道路）流向下一<strong>步骤</strong>（驿站）</p>
+</li>
+<li><p>kettle中最小的数据单元是<strong>行</strong></p>
+</li>
+</ul>
+<p><img src="http://blog.xiezhrspace.cn/blog-img/image-20230527211425877.png" alt="转换"></p>
+<h5 id="3-1-1-步骤-Stepz"><a href="#3-1-1-步骤-Stepz" class="headerlink" title="3.1.1  步骤(Stepz)"></a>3.1.1  步骤(Stepz)</h5><p><strong>步骤</strong>是转换里的基本组成部分，上面截图中包含了两个步骤①<strong>CSV文件输入</strong>②<strong>Excel输出</strong></p>
+<ul>
+<li><p>每个步骤都会涉及到<strong>读</strong>、<strong>写</strong>数据行</p>
+</li>
+<li><p>步骤将数据写到与之相连的一个或多个输出<strong>跳（hop）</strong>，再传送到跳的另一端的<strong>步骤</strong></p>
+</li>
+<li><p>大多数的步骤都可以有<strong>多个输出跳</strong>。一个步骤的数据发送可以被设置为<strong>分发</strong>和<strong>复制</strong></p>
+<p><img src="http://blog.xiezhrspace.cn/blog-img/image-20230527212552068.png" alt="image-20230527212552068"></p>
+</li>
+</ul>
+<h5 id="3-1-2-跳（Hop）"><a href="#3-1-2-跳（Hop）" class="headerlink" title="3.1.2 跳（Hop）"></a>3.1.2 跳（Hop）</h5><blockquote>
+<p><strong>跳</strong>是两个步骤(驿站)之间的道路(带箭头的连线)</p>
+</blockquote>
+<ul>
+<li><p><strong>跳</strong>是两个步骤之间的<strong>数据行缓存</strong></p>
+</li>
+<li><p>当行集<strong>满</strong>了，向行集写数据的步骤将<strong>停止</strong>写入，<strong>直到</strong>行集里又有了<strong>空间</strong>。</p>
+</li>
+<li><p>当行集<strong>空</strong>了，从行集读取数据的步骤<strong>停止</strong>读取，<strong>直到</strong>行集里又有可读的数据行</p>
+</li>
+</ul>
+<p><img src="http://blog.xiezhrspace.cn/blog-img/image-20230527212925992.png" alt="image-20230527212925992"></p>
+<p>可以通过如下方式查看和修改行缓存大小</p>
+<table>
+<thead>
+<tr>
+<th>①右键转换–&gt;设置</th>
+<th>② 选择”杂项”tab页</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><img src="http://blog.xiezhrspace.cn/blog-img/image-20230527213910795.png" alt="image-20230527213910795"></td>
+<td><img src="http://blog.xiezhrspace.cn/blog-img/image-20230527213956315.png" alt="image-20230527213956315"></td>
+</tr>
+</tbody></table>
+<h5 id="3-1-3-元素据"><a href="#3-1-3-元素据" class="headerlink" title="3.1.3 元素据"></a>3.1.3 元素据</h5><blockquote>
+<p>每个步骤在输出<strong>数据行</strong>时都有<strong>对字段的描述</strong>，这种描述就是数据行的<strong>元数据</strong></p>
+</blockquote>
+<p>通常包含下面一些信息。</p>
+<p>①<strong>名称</strong>：数据行里的字段名是唯一的。</p>
+<p>②<strong>数据类型</strong>：字段的数据类型。</p>
+<p>③<strong>格式</strong>：数据显示的方式，如Integer的#、0.00。</p>
+<p>④<strong>长度</strong>：字符串的长度或者BigNumber类型的长度。</p>
+<p>⑤<strong>精度</strong>：BigNumber数据类型的十进制精度。</p>
+<p>⑥<strong>货币符号</strong>：￥</p>
+<p>⑦<strong>小数点符号</strong>:十进制数据的小数点格式。不同文化背景下小数点符号是不同的，一般是点（.）或逗号（，）。</p>
+<p>⑧<strong>分组符号</strong>：数值类型数据的分组符号，不同文化背景下数字里的分组符号也是不同的，一般是点（.）或逗号（，）或单引号（’） </p>
+<p>这里的输入文件十csv格式数据,所以分组符号十逗号”,”</p>
+<p><img src="http://blog.xiezhrspace.cn/blog-img/image-20230527221440326.png" alt="image-20230527221440326"></p>
+<h5 id="3-1-4-数据类型"><a href="#3-1-4-数据类型" class="headerlink" title="3.1.4  数据类型"></a>3.1.4  数据类型</h5><blockquote>
+<p>数据以<strong>数据行</strong>(可以理解为一个表格中的一行) 的形式沿着步骤移动,每个数据行又有多个<strong>字段元素</strong>(可以理解为一个单元格)构成</p>
+</blockquote>
+<p>就像在excel中,每个单元格都可以设置数据格式一样,这里数据行中的字段也有自己的数据类型.</p>
+<p>常见的数据类型有以下几种</p>
+<table>
+<thead>
+<tr>
+<th>–数据类型</th>
+<th>–说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>String</code></td>
+<td>字符类型数据</td>
+</tr>
+<tr>
+<td><code>Number</code></td>
+<td>双精度浮点数</td>
+</tr>
+<tr>
+<td><code>Integer</code></td>
+<td>带符号长整型（64位）</td>
+</tr>
+<tr>
+<td><code>BigNumber</code></td>
+<td>任意精度数据</td>
+</tr>
+<tr>
+<td><code>Date</code></td>
+<td>带毫秒精度的日期时间值</td>
+</tr>
+<tr>
+<td><code>Boolean</code></td>
+<td>取值为true和false的布尔值类型</td>
+</tr>
+<tr>
+<td><code>Binary</code></td>
+<td>二进制字段可以包含图像、声音、视频及其他类型的二进制数据</td>
+</tr>
+</tbody></table>
+<p><img src="http://blog.xiezhrspace.cn/blog-img/image-20230527222428190.png" alt="数据类型"></p>
+<h5 id="3-1-5-并发执行"><a href="#3-1-5-并发执行" class="headerlink" title="3.1.5 并发执行"></a>3.1.5 并发执行</h5><blockquote>
+<p>我们经常需要处理大量的数据,所以设计了<strong>跳</strong>这样的<strong>行集缓存</strong>规则,使得每个步骤就是一个<strong>独立线程</strong>.所有步骤都以并发方式执行.</p>
+<p>当转换启动后，所有步骤都<strong>同时启动</strong>，从它们的输入跳中读取数据，并把处理过的数据写到输出跳.</p>
+<p>直到输入跳里不再有数据，就中止步骤的运行。</p>
+<p>当所有的步骤都中止了，整个转换就中止了</p>
+</blockquote>
+<p>如果想要一个<strong>任务</strong>沿着指定的顺序执行，那么就要使用下面所讲的“<strong>作业</strong>”来做流程控制</p>
+<h4 id="3-2-作业"><a href="#3-2-作业" class="headerlink" title="3.2 作业"></a>3.2 作业</h4><blockquote>
+<p>负责定义一个完成整个工作流的控制,如将转换的结果发送邮件给相关人员.</p>
+<p>因为转换（transformation）以并行方式执行，所以必须存在一个串行的调度工具来执行转换，这就是 Kettle中的作业</p>
+</blockquote>
+<h3 id="四、实践操作"><a href="#四、实践操作" class="headerlink" title="四、实践操作"></a>四、实践操作</h3><h4 id="4-1-案例1-将csv文件转换成excel文件"><a href="#4-1-案例1-将csv文件转换成excel文件" class="headerlink" title="4.1 案例1 将csv文件转换成excel文件"></a>4.1 案例1 将csv文件转换成excel文件</h4><h5 id="4-1-1-在kettle中新建一个转换"><a href="#4-1-1-在kettle中新建一个转换" class="headerlink" title="4.1.1 在kettle中新建一个转换"></a>4.1.1 在kettle中新建一个转换</h5><p><img src="http://blog.xiezhrspace.cn/blog-img/image-20230527225102911.png" alt="新建转换"></p>
+<h5 id="4-1-2选择输入控件并设置"><a href="#4-1-2选择输入控件并设置" class="headerlink" title="4.1.2选择输入控件并设置"></a>4.1.2选择输入控件并设置</h5><p>核心对象–&gt;输入–&gt;CSV文件输入  (将控件拖入工作区)</p>
+<table>
+<thead>
+<tr>
+<th>① 选择CSV文件输入控件</th>
+<th>②将控件拖入工作区</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><img src="http://blog.xiezhrspace.cn/blog-img/image-20230527225351565.png" alt="选择"></td>
+<td><img src="http://blog.xiezhrspace.cn/blog-img/image-20230527225544375.png" alt="拖入"></td>
+</tr>
+<tr>
+<td>③ 选择源文件</td>
+<td>④ 检查csv数据是否正常读出</td>
+</tr>
+<tr>
+<td><img src="http://blog.xiezhrspace.cn/blog-img/image-20230527230020821.png" alt="选择源文件"></td>
+<td><img src="http://blog.xiezhrspace.cn/blog-img/image-20230527230337160.png" alt="读取数据"></td>
+</tr>
+</tbody></table>
+<h5 id="4-1-3-选择输出控件并设置"><a href="#4-1-3-选择输出控件并设置" class="headerlink" title="4.1.3 选择输出控件并设置"></a>4.1.3 选择输出控件并设置</h5><table>
+<thead>
+<tr>
+<th>① 选择Excel输出控件</th>
+<th>②将控件拖入工作区</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><img src="http://blog.xiezhrspace.cn/blog-img/image-20230527230537467.png" alt="image-20230527230537467"></td>
+<td><img src="http://blog.xiezhrspace.cn/blog-img/image-20230527230704599.png" alt="拖入工作区"></td>
+</tr>
+<tr>
+<td>③ 设置输出文件名</td>
+<td></td>
+</tr>
+<tr>
+<td><img src="http://blog.xiezhrspace.cn/blog-img/image-20230527231014203.png" alt="image-20230527231014203"></td>
+<td></td>
+</tr>
+</tbody></table>
+<h5 id="4-1-4-按住shift-通过跳将输入输出两步骤连接起来"><a href="#4-1-4-按住shift-通过跳将输入输出两步骤连接起来" class="headerlink" title="4.1.4 按住shift 通过跳将输入输出两步骤连接起来"></a>4.1.4 按住<strong>shift</strong> 通过<strong>跳</strong>将输入输出两步骤连接起来</h5><p><img src="http://blog.xiezhrspace.cn/blog-img/image-20230527231441251.png" alt="image-20230527231441251"></p>
+<h5 id="4-1-5-点击启动按钮执行转换"><a href="#4-1-5-点击启动按钮执行转换" class="headerlink" title="4.1.5 点击启动按钮执行转换"></a>4.1.5 点击启动按钮执行转换</h5><p><img src="http://blog.xiezhrspace.cn/blog-img/image-20230527231624181.png" alt="image-20230527231624181"></p>
+<h5 id="4-1-6查看日志-并检查是否成功"><a href="#4-1-6查看日志-并检查是否成功" class="headerlink" title="4.1.6查看日志,并检查是否成功"></a>4.1.6查看日志,并检查是否成功</h5><table>
+<thead>
+<tr>
+<th>①日志没报错</th>
+<th>②文件也写入成功了</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><img src="http://blog.xiezhrspace.cn/blog-img/image-20230527231913544.png" alt="image-20230527231913544"></td>
+<td><img src="http://blog.xiezhrspace.cn/blog-img/image-20230527232017215.png" alt="image-20230527232017215"></td>
+</tr>
+</tbody></table>
+<h4 id="4-2-案列2-将excel文件导入MySQL数据库"><a href="#4-2-案列2-将excel文件导入MySQL数据库" class="headerlink" title="4.2 案列2 将excel文件导入MySQL数据库"></a>4.2 案列2 将excel文件导入MySQL数据库</h4><h5 id="4-2-1和上面步骤一样我们需要新建一个转换"><a href="#4-2-1和上面步骤一样我们需要新建一个转换" class="headerlink" title="4.2.1和上面步骤一样我们需要新建一个转换"></a>4.2.1和上面步骤一样我们需要新建一个转换</h5><p><img src="http://blog.xiezhrspace.cn/blog-img/image-20230527232639978.png" alt="案例2转换"></p>
+<h5 id="4-2-2-新建数据库连接"><a href="#4-2-2-新建数据库连接" class="headerlink" title="4.2.2 新建数据库连接"></a>4.2.2 新建数据库连接</h5><blockquote>
+<p>由于案例2需要涉及到MySQL数据库,所以我们需要建立<strong>DB连接</strong></p>
+</blockquote>
+<p>①下载MySQL驱动(需要下载对应版本的) 我用的是MySQL5.7 ,所以这里下载5.1.37 版本驱动</p>
+<p>官方地址:<a href="https://downloads.mysql.com/archives/c-j/">https://downloads.mysql.com/archives/c-j/</a></p>
+<p><img src="http://blog.xiezhrspace.cn/blog-img/image-20230527234940955.png" alt="MySQL驱动下载"></p>
+<p>② 将下载的好的MySQL驱动包放入lib文件夹下</p>
+<p><img src="http://blog.xiezhrspace.cn/blog-img/image-20230527235228467.png" alt="驱动包路径"></p>
+<p>③新建DB连接</p>
+<p><img src="http://blog.xiezhrspace.cn/blog-img/image-20230527235403720.png" alt="image-20230527235403720"></p>
+<p><strong>注:</strong> 如果没有下载驱动包或者驱动包版本与MySQL版本不一致,会包如下错误</p>
+<p><img src="http://blog.xiezhrspace.cn/blog-img/image-20230527232529353.png" alt="驱动包不对报错"></p>
+<h5 id="4-2-3-拖入Excel输入控件并设置"><a href="#4-2-3-拖入Excel输入控件并设置" class="headerlink" title="4.2.3  拖入Excel输入控件并设置"></a>4.2.3  拖入Excel输入控件并设置</h5><p>① 将Excel输入控件拖入工作区</p>
+<p><img src="http://blog.xiezhrspace.cn/blog-img/image-20230528085917326.png" alt="Excel输入控件拖入工作区"></p>
+<p>②设置Excel输入控件</p>
+<p><img src="http://blog.xiezhrspace.cn/blog-img/image-20230528090155378.png" alt="设置源文件"></p>
+<p><img src="http://blog.xiezhrspace.cn/blog-img/image-20230528090511477.png" alt="添加文件"></p>
+<p><img src="http://blog.xiezhrspace.cn/blog-img/image-20230528090915659.png" alt="获取工作表"></p>
+<p><img src="http://blog.xiezhrspace.cn/blog-img/image-20230528091101563.png" alt="获取数据字段"></p>
+<p>直到点击预览记录后获取到如下截图所示数据，说明输入设置成功了</p>
+<p><img src="http://blog.xiezhrspace.cn/blog-img/image-20230528091227111.png" alt="预览到数据"></p>
+<h5 id="4-2-4-拖入表输出控件并设置"><a href="#4-2-4-拖入表输出控件并设置" class="headerlink" title="4.2.4 拖入表输出控件并设置"></a>4.2.4 拖入表输出控件并设置</h5><p>① 将表输出控件拖入工作区</p>
+<p><img src="http://blog.xiezhrspace.cn/blog-img/image-20230528094307635.png" alt="表输出控件拖入工作区"></p>
+<p>② 通过<strong>跳</strong> 将输入输出控件连接起来</p>
+<p><img src="http://blog.xiezhrspace.cn/blog-img/image-20230528094815796.png" alt="跳连接"></p>
+<p>③设置需要导入数据的目标表</p>
+<p><img src="http://blog.xiezhrspace.cn/blog-img/image-20230528094516065.png" alt="选择目标表"></p>
+<p>④ 匹配数据库字段</p>
+<p><img src="http://blog.xiezhrspace.cn/blog-img/image-20230528095130024.png" alt="匹配数据库字段"></p>
+<h5 id="4-2-5-点击启动按钮进行转换"><a href="#4-2-5-点击启动按钮进行转换" class="headerlink" title="4.2.5 点击启动按钮进行转换"></a>4.2.5 点击启动按钮进行转换</h5><p><img src="http://blog.xiezhrspace.cn/blog-img/image-20230528095444390.png" alt="image-20230528095444390"></p>
+<h5 id="4-2-6-查看日志并检查MySQL数据表中是否有数据"><a href="#4-2-6-查看日志并检查MySQL数据表中是否有数据" class="headerlink" title="4.2.6 查看日志并检查MySQL数据表中是否有数据"></a>4.2.6 查看日志并检查MySQL数据表中是否有数据</h5><p>①日志显示转换成功</p>
+<p><img src="http://blog.xiezhrspace.cn/blog-img/image-20230528095741119.png" alt="日志显示成功"></p>
+<p>② 我们再来看看数据库test的t_tv 表中也有数据了</p>
+<p><img src="http://blog.xiezhrspace.cn/blog-img/image-20230528095831318.png" alt="image-20230528095831318"></p>
+<p>到此通过两个案例小试牛刀之后都转换成功了，是不是有点小成就感呢。</p>
+<p>其实这只是kettle工具的冰山一角，从kettle那么多核心对象可以看得出来，它还有很多很多很多得玩法等着我们去开启。</p>
+<p>本期内容到此就结束了，希望内容对你有所帮助，我们下期再见 (●’◡’●)</p>
+]]></content>
+  </entry>
+  <entry>
+    <title>快速上手kettl （三）壶中可以放些啥？</title>
+    <url>/archives/80b937aa.html</url>
+    <content><![CDATA[<h3 id="序言"><a href="#序言" class="headerlink" title="序言"></a>序言</h3><p>快速上手kettle开篇中，我们将kettle比作壶，并对这个壶做了简单介绍。</p>
+<p>而上一期中我们实现了①将csv文件通过kettle转换成excel文件；</p>
+<p>②将excel文件通过kettle写入到MySQL数据库表中 这两个案例。</p>
+<p>相信大家跟我一样，对kettle已经有了初步认识，并且对这强大的工具产生了兴趣。</p>
+<p>今天这小节，我们来看看kettle 这“壶”里面到底能放些啥东西？</p>
+<h3 id="一-、kettle这壶能装些啥"><a href="#一-、kettle这壶能装些啥" class="headerlink" title="一 、kettle这壶能装些啥"></a>一 、kettle这壶能装些啥</h3><p>启动kettle，在转换–&gt;输入下面有很多东西，如下截图。有图可以看出这kettle“真能装”。</p>
+<p>可以把各种五花八门的数据丢到这壶里，kettle也是来者不拒。我们日常能用到的数据基本都能往里面塞。</p>
+<table>
+<thead>
+<tr>
+<th>–kettle能装的东西</th>
+<th>–kettle能装的东西</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><img src="http://blog.xiezhrspace.cn/blog-img/image-20230529212100343.png" alt="输入1"></td>
+<td><img src="http://blog.xiezhrspace.cn/blog-img/image-20230529212117176.png" alt="输入2"></td>
+</tr>
+</tbody></table>
+<p>一眼望去，能看到不少“大熟人”，<strong>Access输入</strong>、<strong>CSV文件输入</strong>、<strong>Excel输入</strong>、<strong>JSON输入</strong>、<strong>XML输入</strong>、<strong>文本文件输入</strong>、<strong>YAML输入</strong>、<strong>表输入</strong>等等</p>
+<p>不知道你对上面提到的“大熟人”了不了解，其实不了解也没关系。</p>
+<p>在后面的模块中，会把这些“大熟人”分别介绍给你。并且保证你过目不忘，再次遇到就能“称兄道弟”</p>
+<h3 id="二、Access输入"><a href="#二、Access输入" class="headerlink" title="二、Access输入"></a>二、Access输入</h3><blockquote>
+<p>Access是微软公司开发的一个数据库管理软件.它像个保险柜，可以帮你存储和管理各种各样的数据。</p>
+</blockquote>
+<p>Access是我们平常会用到数据库，接下来我们就新建一个Access数据库为例，来简单说一说怎么使用Access这个输入控件</p>
+<h4 id="2-1-准备Acess数据库和表"><a href="#2-1-准备Acess数据库和表" class="headerlink" title="2.1 准备Acess数据库和表"></a>2.1 准备Acess数据库和表</h4><table>
+<thead>
+<tr>
+<th align="left">新建一个access数据库，并建一个云襄传的表，然后往里面添加一些数据</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><img src="http://blog.xiezhrspace.cn/blog-img/image-20230529231426525.png" alt="云襄传"></td>
+</tr>
+</tbody></table>
+<h4 id="2-2-新建一个转换并设置"><a href="#2-2-新建一个转换并设置" class="headerlink" title="2.2 新建一个转换并设置"></a>2.2 新建一个转换并设置</h4><table>
+<thead>
+<tr>
+<th>–①将Access输入控件拖入工作区</th>
+<th>–②选择2.1新建的云襄传.accdb</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><img src="http://blog.xiezhrspace.cn/blog-img/image-20230529231939231.png" alt="image-20230529231939231"></td>
+<td><img src="http://blog.xiezhrspace.cn/blog-img/image-20230529232115886.png" alt="image-20230529232115886"></td>
+</tr>
+<tr>
+<td>–③添加文件</td>
+<td>–④ 选择数据库中数据表</td>
+</tr>
+<tr>
+<td><img src="http://blog.xiezhrspace.cn/blog-img/image-20230529232332208.png" alt="image-20230529232332208"></td>
+<td><img src="http://blog.xiezhrspace.cn/blog-img/image-20230529232521630.png" alt="image-20230529232521630"></td>
+</tr>
+<tr>
+<td>–④ 获取字段</td>
+<td>–⑤ 预览数据</td>
+</tr>
+<tr>
+<td><img src="http://blog.xiezhrspace.cn/blog-img/image-20230529232645861.png" alt="image-20230529232645861"></td>
+<td><img src="http://blog.xiezhrspace.cn/blog-img/image-20230529232754443.png" alt="image-20230529232754443"></td>
+</tr>
+</tbody></table>
+<h4 id="2-3-启动转换预览数据"><a href="#2-3-启动转换预览数据" class="headerlink" title="2.3 启动转换预览数据"></a>2.3 启动转换预览数据</h4><table>
+<thead>
+<tr>
+<th>–①启动转换</th>
+<th>–②预览数据</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><img src="http://blog.xiezhrspace.cn/blog-img/image-20230529232957930.png" alt="image-20230529232957930"></td>
+<td><img src="http://blog.xiezhrspace.cn/blog-img/image-20230529233131829.png" alt="image-20230529233131829"></td>
+</tr>
+</tbody></table>
+<p><strong>注：</strong> <strong>启动执行转换后，Preview date tab页面如果加载出数据说明输入控件配置是成功的</strong></p>
+<h3 id="三、CSV文件输入"><a href="#三、CSV文件输入" class="headerlink" title="三、CSV文件输入"></a>三、CSV文件输入</h3><blockquote>
+<p>CSV文件是一个用逗号分隔的固定格式的文本文件，这种文件后缀名为.csv，可以用Excel或者文本编辑器打开。</p>
+<p>在日常工作中，我们经常会需要将CSV文件转换为其他格式的数据</p>
+</blockquote>
+<h4 id="3-1-准备csv文件，并将csv输入控件拖入工作区"><a href="#3-1-准备csv文件，并将csv输入控件拖入工作区" class="headerlink" title="3.1 准备csv文件，并将csv输入控件拖入工作区"></a>3.1 准备csv文件，并将csv输入控件拖入工作区</h4><p><img src="http://blog.xiezhrspace.cn/blog-img/image-20230531072743328.png" alt="csv输入控件"></p>
+<h4 id="3-2-csv输入控件设置"><a href="#3-2-csv输入控件设置" class="headerlink" title="3.2 csv输入控件设置"></a>3.2 csv输入控件设置</h4><p><img src="http://blog.xiezhrspace.cn/blog-img/image-20230531073458267.png" alt="csv文件输入设置"></p>
+<h4 id="3-3-预览csv文件内容"><a href="#3-3-预览csv文件内容" class="headerlink" title="3.3 预览csv文件内容"></a>3.3 预览csv文件内容</h4><blockquote>
+<p>可以在设置界面点击<strong>【预览】</strong> 按钮查看csv数据，也可以启动步骤预览数据、</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>– 预览按钮预览数据</th>
+<th>–启动步骤预览csv文件</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><img src="http://blog.xiezhrspace.cn/blog-img/image-20230531073713076.png" alt="预览文件"></td>
+<td><img src="http://blog.xiezhrspace.cn/blog-img/image-20230531074028281.png" alt="image-20230531074028281"></td>
+</tr>
+</tbody></table>
+<h3 id="四、文本文件输入"><a href="#四、文本文件输入" class="headerlink" title="四、文本文件输入"></a>四、文本文件输入</h3><blockquote>
+<p>我们经常需要将服务器上的日志文件（文本文件）数据或者其他文本数据提取出来，然后放到excel，这样查看起来就很方便</p>
+</blockquote>
+<h4 id="4-1-准备txt格式文本文件，并将控件拖入工作区"><a href="#4-1-准备txt格式文本文件，并将控件拖入工作区" class="headerlink" title="4.1 准备txt格式文本文件，并将控件拖入工作区"></a>4.1 准备txt格式文本文件，并将控件拖入工作区</h4><p><img src="http://blog.xiezhrspace.cn/blog-img/image-20230531075731561.png" alt="拖入工作区"></p>
+<h4 id="4-2-文本输入控件设置"><a href="#4-2-文本输入控件设置" class="headerlink" title="4.2 文本输入控件设置"></a>4.2 文本输入控件设置</h4><table>
+<thead>
+<tr>
+<th>–①选择txt文本文件</th>
+<th>–②预览文件内容</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><img src="http://blog.xiezhrspace.cn/blog-img/image-20230531080155920.png" alt="选择文本文件"></td>
+<td><img src="http://blog.xiezhrspace.cn/blog-img/image-20230531080015420.png" alt="预览内容"></td>
+</tr>
+<tr>
+<td>–③设置分割符</td>
+<td>–④ 获取字段</td>
+</tr>
+<tr>
+<td><img src="http://blog.xiezhrspace.cn/blog-img/image-20230531080334152.png" alt="设置分隔符"></td>
+<td><img src="http://blog.xiezhrspace.cn/blog-img/image-20230531080701302.png" alt="获取字段"></td>
+</tr>
+</tbody></table>
+<h4 id="4-3-启动步骤，浏览数据"><a href="#4-3-启动步骤，浏览数据" class="headerlink" title="4.3 启动步骤，浏览数据"></a>4.3 启动步骤，浏览数据</h4><p><img src="http://blog.xiezhrspace.cn/blog-img/image-20230531080912316.png" alt="启动步骤"></p>
+<h3 id="五、Excel输入"><a href="#五、Excel输入" class="headerlink" title="五、Excel输入"></a>五、Excel输入</h3><blockquote>
+<p>excel 对于我们来说并不陌生，时我们平常接触到最多的文件格式</p>
+</blockquote>
+<h4 id="5-1-准备excel文件，并将控件拖入工作区"><a href="#5-1-准备excel文件，并将控件拖入工作区" class="headerlink" title="5.1 准备excel文件，并将控件拖入工作区"></a>5.1 准备excel文件，并将控件拖入工作区</h4><p><img src="http://blog.xiezhrspace.cn/blog-img/image-20230531221809761.png" alt="拖入控件"></p>
+<h4 id="5-2-Excel控件设置"><a href="#5-2-Excel控件设置" class="headerlink" title="5.2  Excel控件设置"></a>5.2  Excel控件设置</h4><table>
+<thead>
+<tr>
+<th>–① 选择excel文件</th>
+<th>–② 获取工作表名称</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><img src="http://blog.xiezhrspace.cn/blog-img/image-20230531222321178.png" alt="image-20230531222321178"></td>
+<td><img src="http://blog.xiezhrspace.cn/blog-img/image-20230531222514990.png" alt="image-20230531222514990"></td>
+</tr>
+<tr>
+<td>– ③ 获取字段，并设置数据格式</td>
+<td>–④ 预览数据</td>
+</tr>
+<tr>
+<td><img src="http://blog.xiezhrspace.cn/blog-img/image-20230531223004644.png" alt="image-20230531223004644"></td>
+<td><img src="http://blog.xiezhrspace.cn/blog-img/image-20230531223338937.png" alt="image-20230531223338937"></td>
+</tr>
+</tbody></table>
+<h4 id="5-3-启动转换，预览数据"><a href="#5-3-启动转换，预览数据" class="headerlink" title="5.3 启动转换，预览数据"></a>5.3 启动转换，预览数据</h4><p>上一步【预览记录】 如果有数据显示出来，基本上excel设置时成功的了</p>
+<p>当然我们可以启动转换，然后预览excel文件中的数据</p>
+<p><img src="http://blog.xiezhrspace.cn/blog-img/image-20230531223637622.png" alt="image-20230531223637622"></p>
+<h3 id="六-、json文件输入"><a href="#六-、json文件输入" class="headerlink" title="六 、json文件输入"></a>六 、json文件输入</h3><blockquote>
+<p>json 可以算是现在市面上用的比较多的数据结构了，是JavaScript对象，是一种轻量级的数据交换格式。</p>
+<p>可以很方便的在不同语言之间传递</p>
+</blockquote>
+<h4 id="6-1-json基本组成"><a href="#6-1-json基本组成" class="headerlink" title="6.1 json基本组成"></a>6.1 json基本组成</h4><ul>
+<li>对象：**{ }**</li>
+<li>数组：**[ ]**</li>
+<li>属性：<strong>key:value</strong></li>
+</ul>
+<h4 id="6-2-JSON-Path"><a href="#6-2-JSON-Path" class="headerlink" title="6.2 JSON Path"></a>6.2 JSON Path</h4><blockquote>
+<p>JSON Path 用来定位json节点数据</p>
+</blockquote>
+<p>Json Path 包含两种写法</p>
+<ul>
+<li><p>点记法：$.store.book[0].title</p>
+</li>
+<li><p>括号记法：$ [ ‘ store ’ ] [ ‘ book ’ ]  [  0  ] [ ‘title’ ]</p>
+</li>
+</ul>
+<p>使用过程中一些常用<strong>符号</strong> 含义</p>
+<table>
+<thead>
+<tr>
+<th>–</th>
+<th>–</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>$</code></td>
+<td>查询根节点对象，用于表示一个json数据，可以数组或对象</td>
+</tr>
+<tr>
+<td><code>@</code></td>
+<td>表示当前节点对象，类似于Java中的this对象</td>
+</tr>
+<tr>
+<td><code>*</code></td>
+<td>可以表示一个数字或字符</td>
+</tr>
+<tr>
+<td><code>&#39;&#39;</code></td>
+<td>类似于递归搜索</td>
+</tr>
+<tr>
+<td><code>.&lt;name&gt;</code></td>
+<td>表示一个子节点</td>
+</tr>
+<tr>
+<td><code>[&#39;&lt;name&gt;&#39;(,&#39;&lt;name&gt;&#39;)]</code></td>
+<td>表示一个或多个子节点</td>
+</tr>
+<tr>
+<td><code>[&lt;number&gt;(,&lt;number&gt;)]</code></td>
+<td>表示一个或多个数组下标</td>
+</tr>
+<tr>
+<td><code>[start:end]</code></td>
+<td>数组片段，区间为（start,end） 不包含end</td>
+</tr>
+<tr>
+<td><code>[?(&lt;expression&gt;)]</code></td>
+<td>过滤器表达式，结果为Boolean类型</td>
+</tr>
+</tbody></table>
+<p>上面说了一些常用符号的使用，我们就以实际的json为例，来看看json里的节点怎么取</p>
+<pre class=" language-json"><code class="language-json">&amp;#<span class="token number">123</span><span class="token punctuation">;</span>
+    <span class="token property">"data"</span><span class="token operator">:</span>&amp;#<span class="token number">123</span><span class="token punctuation">;</span>
+        <span class="token property">"longSeason"</span><span class="token operator">:</span><span class="token punctuation">[</span>
+            &amp;#<span class="token number">123</span><span class="token punctuation">;</span>   <span class="token property">"actor"</span><span class="token operator">:</span><span class="token string">"范伟"</span><span class="token punctuation">,</span>
+                <span class="token property">"role"</span><span class="token operator">:</span><span class="token string">"王响"</span><span class="token punctuation">,</span>
+                <span class="token property">"sex"</span><span class="token operator">:</span><span class="token string">"男"</span><span class="token punctuation">,</span>
+                <span class="token property">"age"</span><span class="token operator">:</span><span class="token number">56</span>
+            &amp;#<span class="token number">125</span><span class="token punctuation">;</span><span class="token punctuation">,</span>
+            &amp;#<span class="token number">123</span><span class="token punctuation">;</span>   <span class="token property">"actor"</span><span class="token operator">:</span><span class="token string">"秦昊"</span><span class="token punctuation">,</span>
+                <span class="token property">"role"</span><span class="token operator">:</span><span class="token string">"龚彪"</span><span class="token punctuation">,</span>
+                <span class="token property">"sex"</span><span class="token operator">:</span><span class="token string">"男"</span><span class="token punctuation">,</span>
+                <span class="token property">"age"</span><span class="token operator">:</span><span class="token number">40</span>
+            &amp;#<span class="token number">125</span><span class="token punctuation">;</span><span class="token punctuation">,</span>
+            &amp;#<span class="token number">123</span><span class="token punctuation">;</span>   <span class="token property">"actor"</span><span class="token operator">:</span><span class="token string">"李庚希"</span><span class="token punctuation">,</span>
+                <span class="token property">"role"</span><span class="token operator">:</span><span class="token string">"沈默"</span><span class="token punctuation">,</span>
+                <span class="token property">"sex"</span><span class="token operator">:</span><span class="token string">"女"</span><span class="token punctuation">,</span>
+                <span class="token property">"age"</span><span class="token operator">:</span><span class="token number">18</span>
+            &amp;#<span class="token number">125</span><span class="token punctuation">;</span><span class="token punctuation">,</span>
+            &amp;#<span class="token number">123</span><span class="token punctuation">;</span>   <span class="token property">"actor"</span><span class="token operator">:</span><span class="token string">"陈明昊"</span><span class="token punctuation">,</span>
+                <span class="token property">"role"</span><span class="token operator">:</span><span class="token string">"马德胜"</span><span class="token punctuation">,</span>
+                <span class="token property">"sex"</span><span class="token operator">:</span><span class="token string">"男"</span><span class="token punctuation">,</span>
+                <span class="token property">"age"</span><span class="token operator">:</span><span class="token number">55</span>
+            &amp;#<span class="token number">125</span><span class="token punctuation">;</span>
+        <span class="token punctuation">]</span><span class="token punctuation">,</span>
+        <span class="token property">"surname"</span><span class="token operator">:</span><span class="token punctuation">[</span>
+            &amp;#<span class="token number">123</span><span class="token punctuation">;</span>   <span class="token property">"actor"</span><span class="token operator">:</span><span class="token string">"陈晓"</span><span class="token punctuation">,</span>
+                <span class="token property">"role"</span><span class="token operator">:</span><span class="token string">"云襄"</span><span class="token punctuation">,</span>
+                <span class="token property">"sex"</span><span class="token operator">:</span><span class="token string">"男"</span><span class="token punctuation">,</span>
+                <span class="token property">"age"</span><span class="token operator">:</span><span class="token number">28</span>
+            &amp;#<span class="token number">125</span><span class="token punctuation">;</span><span class="token punctuation">,</span>
+            &amp;#<span class="token number">123</span><span class="token punctuation">;</span>   <span class="token property">"actor"</span><span class="token operator">:</span><span class="token string">"毛晓彤"</span><span class="token punctuation">,</span>
+                <span class="token property">"role"</span><span class="token operator">:</span><span class="token string">"舒亚男"</span><span class="token punctuation">,</span>
+                <span class="token property">"sex"</span><span class="token operator">:</span><span class="token string">"女"</span><span class="token punctuation">,</span>
+                <span class="token property">"age"</span><span class="token operator">:</span><span class="token number">18</span>
+            &amp;#<span class="token number">125</span><span class="token punctuation">;</span><span class="token punctuation">,</span>
+            &amp;#<span class="token number">123</span><span class="token punctuation">;</span>   <span class="token property">"actor"</span><span class="token operator">:</span><span class="token string">"许龄月"</span><span class="token punctuation">,</span>
+                <span class="token property">"role"</span><span class="token operator">:</span><span class="token string">"柯梦兰"</span><span class="token punctuation">,</span>
+                <span class="token property">"sex"</span><span class="token operator">:</span><span class="token string">"女"</span><span class="token punctuation">,</span>
+                <span class="token property">"age"</span><span class="token operator">:</span><span class="token number">18</span>
+            &amp;#<span class="token number">125</span><span class="token punctuation">;</span><span class="token punctuation">,</span>
+            &amp;#<span class="token number">123</span><span class="token punctuation">;</span>
+               <span class="token property">"actor"</span><span class="token operator">:</span><span class="token string">"刘冠麟"</span><span class="token punctuation">,</span>
+               <span class="token property">"role"</span><span class="token operator">:</span><span class="token string">"金十两"</span><span class="token punctuation">,</span>
+               <span class="token property">"sex"</span><span class="token operator">:</span><span class="token string">"男"</span><span class="token punctuation">,</span>
+               <span class="token property">"age"</span><span class="token operator">:</span><span class="token number">35</span>
+
+            &amp;#<span class="token number">125</span><span class="token punctuation">;</span><span class="token punctuation">,</span>
+            &amp;#<span class="token number">123</span><span class="token punctuation">;</span>   <span class="token property">"actor"</span><span class="token operator">:</span><span class="token string">"唐晓天"</span><span class="token punctuation">,</span>
+                <span class="token property">"role"</span><span class="token operator">:</span><span class="token string">"苏鸣玉"</span><span class="token punctuation">,</span>
+                <span class="token property">"sex"</span><span class="token operator">:</span><span class="token string">"男"</span><span class="token punctuation">,</span>
+                <span class="token property">"age"</span><span class="token operator">:</span><span class="token number">25</span>
+            &amp;#<span class="token number">125</span><span class="token punctuation">;</span>
+
+        <span class="token punctuation">]</span>
+    &amp;#<span class="token number">125</span><span class="token punctuation">;</span>
+
+&amp;#<span class="token number">125</span><span class="token punctuation">;</span>
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>–取出漫长季节中所有演员</th>
+<th>–结果</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>$.data.longSeason[*].actor</td>
+<td>[“范伟”,”秦昊”,”李庚希”,”陈明昊”]</td>
+</tr>
+<tr>
+<td>$..longSeason..actor</td>
+<td>[“范伟”,”秦昊”,”李庚希”,”陈明昊”]</td>
+</tr>
+</tbody></table>
+<h4 id="6-3-实践操作"><a href="#6-3-实践操作" class="headerlink" title="6.3 实践操作"></a>6.3 实践操作</h4><h5 id="6-3-1-准备json文件，并将json-input控件拖入工作区"><a href="#6-3-1-准备json文件，并将json-input控件拖入工作区" class="headerlink" title="6.3.1 准备json文件，并将json input控件拖入工作区"></a>6.3.1 准备json文件，并将json input控件拖入工作区</h5><p><img src="http://blog.xiezhrspace.cn/blog-img/image-20230601223937889.png" alt="拖入工作区"></p>
+<h5 id="6-3-2-JSON-控件设置"><a href="#6-3-2-JSON-控件设置" class="headerlink" title="6.3.2 JSON 控件设置"></a>6.3.2 JSON 控件设置</h5><table>
+<thead>
+<tr>
+<th>–① 选择json文件并添加</th>
+<th>–② 选择字段</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><img src="http://blog.xiezhrspace.cn/blog-img/image-20230601224229271.png" alt="选择并添加"></td>
+<td><img src="http://blog.xiezhrspace.cn/blog-img/image-20230601224550176.png" alt="image-20230601224550176"></td>
+</tr>
+<tr>
+<td>– ③ 查看表达式</td>
+<td>– ④ 预览节点数据</td>
+</tr>
+<tr>
+<td><img src="http://blog.xiezhrspace.cn/blog-img/image-20230601224803349.png" alt="image-20230601224803349"></td>
+<td><img src="http://blog.xiezhrspace.cn/blog-img/image-20230601224938534.png" alt="image-20230601224938534"></td>
+</tr>
+</tbody></table>
+<h5 id="6-3-3-启动转换，预览数据"><a href="#6-3-3-启动转换，预览数据" class="headerlink" title="6.3.3 启动转换，预览数据"></a>6.3.3 启动转换，预览数据</h5><p><img src="http://blog.xiezhrspace.cn/blog-img/image-20230601225145733.png" alt="启动转换预览数据"></p>
+<h3 id="七、xml-输入"><a href="#七、xml-输入" class="headerlink" title="七、xml 输入"></a>七、xml 输入</h3><blockquote>
+<p>xml是一种可扩展标记语言，XML 和上面说的json一样用来传输和存储数据</p>
+</blockquote>
+<h4 id="7-1-准备xml文件"><a href="#7-1-准备xml文件" class="headerlink" title="7.1 准备xml文件"></a>7.1 准备xml文件</h4><p>我们后面的演示都用下面的xml为例子</p>
+<pre class=" language-xml"><code class="language-xml"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>data</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>longSeason</span><span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>actor</span><span class="token punctuation">></span></span>范伟<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>actor</span><span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>role</span><span class="token punctuation">></span></span>王响<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>role</span><span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>sex</span><span class="token punctuation">></span></span>男<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>sex</span><span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>age</span><span class="token punctuation">></span></span>56<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>age</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>longSeason</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>longSeason</span><span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>actor</span><span class="token punctuation">></span></span>秦昊<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>actor</span><span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>role</span><span class="token punctuation">></span></span>龚彪<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>role</span><span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>sex</span><span class="token punctuation">></span></span>男<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>sex</span><span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>age</span><span class="token punctuation">></span></span>40<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>age</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>longSeason</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>longSeason</span><span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>actor</span><span class="token punctuation">></span></span>李庚希<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>actor</span><span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>role</span><span class="token punctuation">></span></span>沈默<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>role</span><span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>sex</span><span class="token punctuation">></span></span>女<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>sex</span><span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>age</span><span class="token punctuation">></span></span>18<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>age</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>longSeason</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>longSeason</span><span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>actor</span><span class="token punctuation">></span></span>陈明昊<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>actor</span><span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>role</span><span class="token punctuation">></span></span>马德胜<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>role</span><span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>sex</span><span class="token punctuation">></span></span>男<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>sex</span><span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>age</span><span class="token punctuation">></span></span>55<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>age</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>longSeason</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>surname</span><span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>actor</span><span class="token punctuation">></span></span>陈晓<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>actor</span><span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>role</span><span class="token punctuation">></span></span>云襄<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>role</span><span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>sex</span><span class="token punctuation">></span></span>男<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>sex</span><span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>age</span><span class="token punctuation">></span></span>28<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>age</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>surname</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>surname</span><span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>actor</span><span class="token punctuation">></span></span>毛晓彤<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>actor</span><span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>role</span><span class="token punctuation">></span></span>舒亚男<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>role</span><span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>sex</span><span class="token punctuation">></span></span>女<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>sex</span><span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>age</span><span class="token punctuation">></span></span>18<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>age</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>surname</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>surname</span><span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>actor</span><span class="token punctuation">></span></span>许龄月<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>actor</span><span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>role</span><span class="token punctuation">></span></span>柯梦兰<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>role</span><span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>sex</span><span class="token punctuation">></span></span>女<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>sex</span><span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>age</span><span class="token punctuation">></span></span>18<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>age</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>surname</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>surname</span><span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>actor</span><span class="token punctuation">></span></span>刘冠麟<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>actor</span><span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>role</span><span class="token punctuation">></span></span>金十两<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>role</span><span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>sex</span><span class="token punctuation">></span></span>男<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>sex</span><span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>age</span><span class="token punctuation">></span></span>35<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>age</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>surname</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>surname</span><span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>actor</span><span class="token punctuation">></span></span>唐晓天<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>actor</span><span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>role</span><span class="token punctuation">></span></span>苏鸣玉<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>role</span><span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>sex</span><span class="token punctuation">></span></span>男<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>sex</span><span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>age</span><span class="token punctuation">></span></span>25<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>age</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>surname</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>data</span><span class="token punctuation">></span></span>
+</code></pre>
+<h4 id="7-2-XPath"><a href="#7-2-XPath" class="headerlink" title="7.2 XPath"></a>7.2 XPath</h4><p>在说json输入控件中，我么介绍了JSON Path， 这里是xml输入控件，也有类似<strong>XPath</strong> 来定位xml中节点的位置</p>
+<table>
+<thead>
+<tr>
+<th>–表达式</th>
+<th>–描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>nodename</td>
+<td>选取此节点的所有节点</td>
+</tr>
+<tr>
+<td>/</td>
+<td>从根节点选取</td>
+</tr>
+<tr>
+<td>//</td>
+<td>从匹配选择的当前节点选择文档中的节点，而不考虑他们的位置</td>
+</tr>
+<tr>
+<td>.</td>
+<td>选取当前节点</td>
+</tr>
+<tr>
+<td>..</td>
+<td>选取当前节点的父节点</td>
+</tr>
+<tr>
+<td>@</td>
+<td>属性</td>
+</tr>
+</tbody></table>
+<table>
+<thead>
+<tr>
+<th>–取出漫长季节中所有演员</th>
+<th>–结果</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>/data/longSeason/actor</td>
+<td>[“范伟”,”秦昊”,”李庚希”,”陈明昊”]</td>
+</tr>
+</tbody></table>
+<h4 id="7-3-实践操作"><a href="#7-3-实践操作" class="headerlink" title="7.3 实践操作"></a>7.3 实践操作</h4><h5 id="7-3-1-将xml输入控件拖入工作区"><a href="#7-3-1-将xml输入控件拖入工作区" class="headerlink" title="7.3.1 将xml输入控件拖入工作区"></a>7.3.1 将xml输入控件拖入工作区</h5><p><img src="http://blog.xiezhrspace.cn/blog-img/image-20230601232215755.png" alt="image-20230601232215755"></p>
+<h5 id="7-3-2-xml控件设置"><a href="#7-3-2-xml控件设置" class="headerlink" title="7.3.2 xml控件设置"></a>7.3.2 xml控件设置</h5><table>
+<thead>
+<tr>
+<th>–① 选择xml文件并添加</th>
+<th>– ② 获取xml文档读取路径</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><img src="http://blog.xiezhrspace.cn/blog-img/image-20230601232407505.png" alt="添加文件"></td>
+<td><img src="http://blog.xiezhrspace.cn/blog-img/image-20230601232538051.png" alt="读取循环路径"></td>
+</tr>
+<tr>
+<td>– ③ 获取字段</td>
+<td>– ④ 预览</td>
+</tr>
+<tr>
+<td><img src="http://blog.xiezhrspace.cn/blog-img/image-20230601232743607.png" alt="获取字段"></td>
+<td><img src="http://blog.xiezhrspace.cn/blog-img/image-20230601232915072.png" alt="预览"></td>
+</tr>
+</tbody></table>
+<h5 id="7-3-3-启动转换，预览数据"><a href="#7-3-3-启动转换，预览数据" class="headerlink" title="7.3.3 启动转换，预览数据"></a>7.3.3 启动转换，预览数据</h5><p><img src="http://blog.xiezhrspace.cn/blog-img/image-20230601233132670.png" alt="image-20230601233132670"></p>
+<h3 id="八、表输入"><a href="#八、表输入" class="headerlink" title="八、表输入"></a>八、表输入</h3><blockquote>
+<p>由于涉及到数据库表相关操作，所以我们新建转换之后需要先建立DB连接。</p>
+</blockquote>
+<p>建立DB连接的方式我们在上一小节小试牛刀中已经提过，这里就不展开了。我们还是以MySQL为例子来说表输入。</p>
+<p><img src="http://blog.xiezhrspace.cn/blog-img/image-20230603080159233.png" alt="DB连接"></p>
+<h4 id="8-1-将表输入控件拖入工作区"><a href="#8-1-将表输入控件拖入工作区" class="headerlink" title="8.1 将表输入控件拖入工作区"></a>8.1 将表输入控件拖入工作区</h4><p><img src="http://blog.xiezhrspace.cn/blog-img/image-20230603080323531.png" alt="image-20230603080323531"></p>
+<h4 id="8-2-表输入控件设置"><a href="#8-2-表输入控件设置" class="headerlink" title="8.2 表输入控件设置"></a>8.2 表输入控件设置</h4><table>
+<thead>
+<tr>
+<th>– ①获取SQL查询语句</th>
+<th>– ② 点击【预览】按钮预览表数据</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><img src="http://blog.xiezhrspace.cn/blog-img/image-20230603080641559.png" alt="获取sql语句"></td>
+<td><img src="http://blog.xiezhrspace.cn/blog-img/image-20230603080755724.png" alt="image-20230603080755724"></td>
+</tr>
+</tbody></table>
+<h4 id="8-3-启动转换，预览表数据"><a href="#8-3-启动转换，预览表数据" class="headerlink" title="8.3 启动转换，预览表数据"></a>8.3 启动转换，预览表数据</h4><p><img src="http://blog.xiezhrspace.cn/blog-img/image-20230603080938749.png" alt="预览表数据"></p>
+<h3 id="九、-生成记录"><a href="#九、-生成记录" class="headerlink" title="九、 生成记录"></a>九、 生成记录</h3><blockquote>
+<p>在日常工作中我们经常需要批量造一些测试数据，通过生成记录这个输入控件就可以完成。</p>
+</blockquote>
+<h4 id="9-1-将生成记录控件拖入工作区"><a href="#9-1-将生成记录控件拖入工作区" class="headerlink" title="9.1 将生成记录控件拖入工作区"></a>9.1 将生成记录控件拖入工作区</h4><p><img src="http://blog.xiezhrspace.cn/blog-img/image-20230603081811452.png" alt="生成记录拖入工作区"></p>
+<h4 id="9-2-生成记录控件设置"><a href="#9-2-生成记录控件设置" class="headerlink" title="9.2 生成记录控件设置"></a>9.2 生成记录控件设置</h4><table>
+<thead>
+<tr>
+<th>– ①  填写需要数据的相关信息</th>
+<th>– ② 预览生成的数据</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><img src="http://blog.xiezhrspace.cn/blog-img/image-20230603082158964.png" alt="image-20230603082158964"></td>
+<td><img src="http://blog.xiezhrspace.cn/blog-img/image-20230603082254603.png" alt="image-20230603082254603"></td>
+</tr>
+</tbody></table>
+<h4 id="9-3-启动转换，预览数据"><a href="#9-3-启动转换，预览数据" class="headerlink" title="9.3 启动转换，预览数据"></a>9.3 启动转换，预览数据</h4><p><img src="http://blog.xiezhrspace.cn/blog-img/image-20230603082537913.png" alt="启动转换预览数据"></p>
+<p>到此，10条测试数据就造好了</p>
+<h3 id="十、小结"><a href="#十、小结" class="headerlink" title="十、小结"></a>十、小结</h3><p>本篇文章我们主要是说了九个kettle的常用输入控件（<strong>kettle壶里能放写啥东西进去</strong>）。</p>
+<p>kettle的输入控件就代表着kettle能处理一些什么格式的数据，其实它还有其他输入控件，这里就不一一例举了。</p>
+<p>大家如果感兴趣，可以将输入下面的每个控件都去试试。</p>
+<p>本期内容到此就结束了，希望对你有所帮助。</p>
+<p>这一期说了<strong>输入控件</strong>，那下一期就到了<strong>输出控件</strong>了</p>
+<p>我们下一期再见 (●’◡’●)</p>
+]]></content>
+      <categories>
+        <category>kettle,大数据</category>
+      </categories>
+      <tags>
+        <tag>kettle,大数据</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>快速上手kettl(一) 壶之简介</title>
+    <url>/archives/44e1a33c.html</url>
+    <content><![CDATA[<h3 id="一、前言"><a href="#一、前言" class="headerlink" title="一、前言"></a>一、前言</h3><p>最近由于工作需要，需要用到kettle工具进行数据迁移转换。特意找资料学习了一下，kettle基本操作算是学会了。</p>
+<p>所学的也结合实际工作进行了验证。为了防止以后用到忘记了，便写了几篇文章记录一下。</p>
+<p><img src="http://blog.xiezhrspace.cn/blog-img/image-20230525223905076.png" alt="快速上手kettle"></p>
+<h3 id="二-、ETL简介"><a href="#二-、ETL简介" class="headerlink" title="二 、ETL简介"></a>二 、ETL简介</h3><blockquote>
+<p>ETL ( Extract-Transform-Load的缩写,即<font color='red' size=4>数据抽取、转换、装载</font>的过程) 。在企业种我们经常会遇到各种数据的处理,转换,迁移,所以了解并掌握一种etl工具的使用，对开发人员来说必不可少,这里我要学习的ETL工具是Kettle ! 。</p>
+</blockquote>
+<h3 id="三、Kettle-简介"><a href="#三、Kettle-简介" class="headerlink" title="三、Kettle 简介"></a>三、Kettle 简介</h3><h4 id="3-1-kettle是什么？"><a href="#3-1-kettle是什么？" class="headerlink" title="3.1 kettle是什么？"></a>3.1 kettle是什么？</h4><p>Kettle 是一款国外的开源ETL工具，纯java编写，可以在Windows、Linux、Unix上运行，绿色无需安装，数据抽取高效稳定。</p>
+<p>顾名思义，Kettle 翻译为中文是<font color='red' size=4>水壶</font>,寓意着把所有乱七八糟的数据放到一个壶里，最终以一种<font color='red' size=4>指定格式</font>流出</p>
+<p><img src="http://blog.xiezhrspace.cn/blog-img/image-20230524215333176.png" alt="水壶"></p>
+<h4 id="3-2-kettle两种设计"><a href="#3-2-kettle两种设计" class="headerlink" title="3.2 kettle两种设计"></a>3.2 kettle两种设计</h4><p><img src="http://blog.xiezhrspace.cn/blog-img/image-20230524221219273.png" alt="kettle两种设计"></p>
+<p><img src="http://blog.xiezhrspace.cn/blog-img/image-20230524223148609.png" alt="转换和作业"></p>
+<ul>
+<li>Kettle中有两种脚本文件，<code>transformation</code>和<code>job</code>，<code>transformation</code>完成数据基本转换，<code>job</code>完成整个工作流程的控制</li>
+<li>转换是数据流，作业是步骤流</li>
+<li>作业的每一个步骤，必须等待前面的步骤执行完，后面的步骤才会执行。</li>
+<li>转换会一次性把所有控件都启动（一个控件对应一个线程）</li>
+<li>数据流会从第一个控件开始，一条记录一条记录的流向最后控件</li>
+</ul>
+<h4 id="3-3-kettle核心组件"><a href="#3-3-kettle核心组件" class="headerlink" title="3.3 kettle核心组件"></a>3.3 kettle核心组件</h4><p>外国人起名字挺有意思的，kettle的核心组件就是一套烹饪厨具。kettle的作者应该是一位吃货 (●’◡’●)</p>
+<p><img src="http://blog.xiezhrspace.cn/blog-img/image-20230524224727340.png" alt="kettle核心组件"></p>
+<h4 id="3-4-kettle-优点"><a href="#3-4-kettle-优点" class="headerlink" title="3.4 kettle 优点"></a>3.4 kettle 优点</h4><p><img src="http://blog.xiezhrspace.cn/blog-img/image-20230524225149636.png" alt="kettle 优点"></p>
+<h3 id="四、Kettle安装"><a href="#四、Kettle安装" class="headerlink" title="四、Kettle安装"></a>四、Kettle安装</h3><h4 id="4-1-下载地址"><a href="#4-1-下载地址" class="headerlink" title="4.1 下载地址"></a>4.1 下载地址</h4><p>① 官网地址</p>
+<p><a href="https://community.hitachivantara.com/docs/DOC-1009855">https://community.hitachivantara.com/docs/DOC-1009855</a></p>
+<p>官网地址国内下载可能很慢很慢，小伙伴们可以通过以下国内镜像地址下载</p>
+<p>②国内镜像地址<br><a href="http://mirror.bit.edu.cn/pentaho/Pentaho%208.2/client-tools/">http://mirror.bit.edu.cn/pentaho/Pentaho%208.2/client-tools/</a></p>
+<h4 id="4-2-kettle目录及文件介绍"><a href="#4-2-kettle目录及文件介绍" class="headerlink" title="4.2 kettle目录及文件介绍"></a>4.2 kettle目录及文件介绍</h4><table>
+<thead>
+<tr>
+<th><img src="http://blog.xiezhrspace.cn/blog-img/image-20230525215801766.png" alt="目录结构"></th>
+</tr>
+</thead>
+<tbody><tr>
+<td><img src="http://blog.xiezhrspace.cn/blog-img/image-20230525221340766.png" alt="image-20230525221340766"></td>
+</tr>
+</tbody></table>
+<h4 id="4-3-kettle-安装"><a href="#4-3-kettle-安装" class="headerlink" title="4.3 kettle 安装"></a>4.3 kettle 安装</h4><p><strong>Kettle是java开发的，所以需要安装jdk,我们这里安装经典的jdk8</strong></p>
+<p>至于jdk怎么安装，这里就不细说了，如果不知道的小伙伴百度即可</p>
+<p>jdk安装完成后，我们将4.1 下载的安装包解压到自己想放置的路径即可</p>
+<h4 id="4-4-kettle界面介绍"><a href="#4-4-kettle界面介绍" class="headerlink" title="4.4 kettle界面介绍"></a>4.4 kettle界面介绍</h4><p>双击Spoon.bat 即可打开如下界面</p>
+<p><img src="http://blog.xiezhrspace.cn/blog-img/image-20230525222641934.png" alt="首页"></p>
+<p><img src="http://blog.xiezhrspace.cn/blog-img/image-20230525223231858.png" alt="转换组件"></p>
+<p><img src="http://blog.xiezhrspace.cn/blog-img/image-20230525223415131.png" alt="作业组件"></p>
+<p>本期内容到此就结束了 (●’◡’●)</p>
+<p>下一篇：<a href="#">快速上手kettle（二）：kettle初体验(小编正在玩命更新中)</a></p>
+]]></content>
+      <categories>
+        <category>kettle,大数据</category>
+      </categories>
+      <tags>
+        <tag>kettle,大数据</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>感是感兴趣，但是我不配</title>
     <url>/archives/3c89decf.html</url>
     <content><![CDATA[<p><img src="http://blog.xiezhrspace.cn/blog-img/%E7%BC%96%E8%BE%91.png" alt="编辑"></p>
@@ -8657,173 +9445,6 @@ testuser         pts/6                     Sun Sep 11 22:42:24 +0800 2022
       </tags>
   </entry>
   <entry>
-    <title>【必知必会的MySQL知识】⑤DCL语言</title>
-    <url>/archives/80b35a31.html</url>
-    <content><![CDATA[<h3 id="一、概述"><a href="#一、概述" class="headerlink" title="一、概述"></a>一、概述</h3><blockquote>
-<p>数据控制语言，用来定义访问权限和安全级别。主要包含包括<strong>grant</strong>，<strong>revoke</strong> 关键字</p>
-<ul>
-<li>grant   授予权限</li>
-<li>revoke 回收权限</li>
-</ul>
-</blockquote>
-<h3 id="二-、授权"><a href="#二-、授权" class="headerlink" title="二 、授权"></a>二 、授权</h3><h4 id="2-1-语法格式"><a href="#2-1-语法格式" class="headerlink" title="2.1 语法格式"></a>2.1 语法格式</h4><pre class=" language-sql"><code class="language-sql"><span class="token keyword">GRANT</span> priv_type <span class="token punctuation">[</span><span class="token punctuation">(</span>column_list<span class="token punctuation">)</span><span class="token punctuation">]</span>  <span class="token punctuation">[</span><span class="token punctuation">,</span> priv_type <span class="token punctuation">[</span><span class="token punctuation">(</span>column_list<span class="token punctuation">)</span><span class="token punctuation">]</span><span class="token punctuation">]</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
-<span class="token keyword">ON</span> <span class="token punctuation">[</span>object_type<span class="token punctuation">]</span> priv_level
-<span class="token keyword">TO</span> <span class="token keyword">user</span> <span class="token punctuation">[</span>IDENTIFIED <span class="token keyword">BY</span> <span class="token punctuation">[</span>PASSWORD<span class="token punctuation">]</span> <span class="token string">'password'</span><span class="token punctuation">]</span>
-<span class="token punctuation">[</span><span class="token punctuation">,</span> <span class="token keyword">user</span><span class="token punctuation">[</span>IDENTIFIED <span class="token keyword">BY</span> <span class="token punctuation">[</span>PASSWORD<span class="token punctuation">]</span> <span class="token string">'password'</span><span class="token punctuation">]</span><span class="token punctuation">]</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
-<span class="token punctuation">[</span><span class="token keyword">WITH</span> with_option <span class="token punctuation">[</span>with_option<span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">]</span>
-</code></pre>
-<h4 id="2-2-语法说明"><a href="#2-2-语法说明" class="headerlink" title="2.2 语法说明"></a>2.2 语法说明</h4><table>
-<thead>
-<tr>
-<th>参数</th>
-<th>参数说明</th>
-</tr>
-</thead>
-<tbody><tr>
-<td><code> priv_type</code></td>
-<td>参数表示权限类型</td>
-</tr>
-<tr>
-<td><code>columns_list</code></td>
-<td>参数表示权限作用于哪些列上，省略该参数时，表示作用于整个表</td>
-</tr>
-<tr>
-<td><code>object_type</code></td>
-<td>参数用于指定权限对象</td>
-</tr>
-<tr>
-<td><code>priv_level </code></td>
-<td>参数用于指定权限级别</td>
-</tr>
-<tr>
-<td><code>user</code></td>
-<td>参数表示用户账户；由用户名和主机名构成，格式是“‘username’@’hostname’”</td>
-</tr>
-<tr>
-<td><code>IDENTIFIED BY</code></td>
-<td>参数用来为用户设置密码</td>
-</tr>
-<tr>
-<td><code>password</code></td>
-<td>参数是用户的新密码</td>
-</tr>
-<tr>
-<td><code>WITH </code></td>
-<td>一个或多个<strong>with_option</strong> 参数</td>
-</tr>
-</tbody></table>
-<p> <strong>with_option</strong> 参数一共5个选项<br> |with_option参数|参数说明|<br> |–|–|<br>|<code>GRANT OPTION</code>|被授权的用户可以将这些权限赋予给别的用户|<br>|<code>MAX_QUERIES_PER_HOUR count</code>|设置每个小时可以允许执行 count 次查询|<br>| <code>MAX_UPDATES_PER_HOUR count</code>|设置每个小时可以允许执行 count 次更新|<br>| <code>MAX_CONNECTIONS_PER_HOUR count</code>|设置每小时可以建立 count 个连接|<br>|<code>MAX_USER_CONNECTIONS count</code>|设置单个用户可以同时具有的 count 个连接|</p>
-<h4 id="2-3-权限类型"><a href="#2-3-权限类型" class="headerlink" title="2.3  权限类型"></a>2.3  权限类型</h4><p>权限类型分类<br>|权限类型|说明|<br>|–|–|<br>|<code>数据库权限</code>|和一个具体的数据库中的所有表相关。例如，可以在已有的数据库 mytest 中创建新表的权限|<br>|<code>表权限</code>|和一个具体表中的所有数据相关。例如，可以使用 SELECT 语句查询表 students 的所有数据的权限|<br>|<code>列权限</code>|和表中的一个具体列相关。例如，可以使用 UPDATE 语句更新表 students 中 name 列的值的权限|<br>|<code>用户权限</code>|和 MySQL 中所有的数据库相关。例如，可以删除已有的数据库或者创建一个新的数据库的权限|</p>
-<p>① 授予数据<strong>库</strong>权限时，&lt;权限类型&gt;可以指定为以下值<br>| 权限名称                       | 对应user表中的字段    | 说明                                                         |<br>| —————————— | ——————— | ———————————————————— |<br>|<code>SELECT </code>                        | <strong>Select_priv</strong>          | 表示授予用户可以使用 SELECT 语句访问特定数据库中所有表和视图的权限。 |<br>| <code>INSERT</code>                         | <strong>Insert_priv</strong>         | 表示授予用户可以使用 INSERT 语句向特定数据库中所有表添加数据行的权限。 |<br>|<code>DELETE</code>                        |<strong>Delete_priv</strong>           | 表示授予用户可以使用 DELETE 语句删除特定数据库中所有表的数据行的权限。 |<br>|<code>UPDATE</code>                        | <strong>Update_priv</strong>           | 表示授予用户可以使用 UPDATE 语句更新特定数据库中所有数据表的值的权限。 |<br>| <code>REFERENCES </code>                    | <strong>References_priv</strong>      | 表示授予用户可以创建指向特定的数据库中的表外键的权限。       |<br>|<code>CREATE   </code>                     | <strong>Create_priv</strong>          | 表示授权用户可以使用 CREATE TABLE 语句在特定数据库中创建新表的权限。 |<br>|<code>ALTER</code>                         | <strong>Alter_priv</strong>            | 表示授予用户可以使用 ALTER TABLE 语句修改特定数据库中所有数据表的权限。 |<br>| <code>SHOW VIEW  </code>                    | <strong>Show_view_priv</strong>        | 表示授予用户可以查看特定数据库中已有视图的视图定义的权限。   |<br>|<code> CREATE ROUTINE</code>                 | <strong>Create_routine_priv</strong>   | 表示授予用户可以为特定的数据库创建存储过程和存储函数的权限。 |<br>| <code>ALTER ROUTINE </code>                 | <strong>Alter_routine_priv</strong>    | 表示授予用户可以更新和删除数据库中已有的存储过程和存储函数的权限。 |<br>| <code>INDEX </code>                       | <strong>Index_priv</strong>            | 表示授予用户可以在特定数据库中的所有数据表上定义和删除索引的权限。 |<br>|<code>DROP</code>                       | <strong>Drop_priv</strong>             | 表示授予用户可以删除特定数据库中所有表和视图的权限。         |<br>| <code>CREATE TEMPORARY TABLES</code>        |<strong>Create_tmp_table_priv</strong> | 表示授予用户可以在特定数据库中创建临时表的权限。             |<br>| <code>CREATE VIEW</code>                    | <strong>Create_view_priv</strong>      | 表示授予用户可以在特定数据库中创建新的视图的权限。           |<br>| <code>EXECUTE ROUTINE</code>                | <strong>Execute_priv</strong>          | 表示授予用户可以调用特定数据库的存储过程和存储函数的权限。   |<br>|<code> LOCK TABLES</code>                    | <strong>Lock_tables_priv</strong>      | 表示授予用户可以锁定特定数据库的已有数据表的权限。           |<br>| <code>ALL 或 ALL PRIVILEGES 或 SUPER</code> | <strong>Super_priv</strong>            | 表示以上所有权限/超级权限                                    |</p>
-<p>② 授予<strong>表</strong>权限时，&lt;权限类型&gt;可以指定为以下值：<br>| 权限名称                       | 对应user表中的字段 | 说明                                                       |<br>| —————————— | —————— | ———————————————————- |<br>| <code>SELECT</code>                         | <strong>Select_priv</strong>        | 授予用户可以使用 SELECT 语句进行访问特定表的权限           |<br>| <code>INSERT</code>                         | <strong>Insert_priv</strong>        | 授予用户可以使用 INSERT 语句向一个特定表中添加数据行的权限 |<br>|  <code>DELETE</code>                         | <strong>Delete_priv</strong>        | 授予用户可以使用 DELETE 语句从一个特定表中删除数据行的权限 |<br>|  <code>DROP</code>                           | <strong>Drop_priv</strong>          | 授予用户可以删除数据表的权限                               |<br>|  <code>UPDATE</code>                         | <strong>Update_priv</strong>        | 授予用户可以使用 UPDATE 语句更新特定数据表的权限           |<br>|  <code>ALTER</code>                          | <strong>Alter_priv</strong>         | 授予用户可以使用 ALTER TABLE 语句修改数据表的权限          |<br>|  <code>REFERENCES</code>                     | <strong>References_priv</strong>    | 授予用户可以创建一个外键来参照特定数据表的权限             |<br>|  <code>CREATE</code>                         | <strong>Create_priv</strong>        | 授予用户可以使用特定的名字创建一个数据表的权限             |<br>|  <code>INDEX </code>                          | <strong>Index_priv</strong>         | 授予用户可以在表上定义索引的权限                           |<br>|  <code>ALL 或 ALL PRIVILEGES 或 SUPER </code> | <strong>Super_priv</strong>         | 所有的权限名                                               |</p>
-<p>③ 授予<strong>列</strong>权限时，&lt;权限类型&gt;可以指定以下值<br>| 权限名称                       | 对应user表中的字段 | 说明                                                       |<br>| —————————— | —————— | ———————————————————- |<br>| <code>SELECT</code>                         | <strong>Select_priv</strong>        | 授予用户可以使用 SELECT 语句进行访问特定表的权限           |<br>| <code>INSERT</code>                         | <strong>Insert_priv</strong>        | 授予用户可以使用 INSERT 语句向一个特定表中添加数据行的权限 |<br>|  <code>UPDATE</code>                         | <strong>Update_priv</strong>        | 授予用户可以使用 UPDATE 语句更新特定数据表的权限           |</p>
-<p>④授予<strong>用户</strong>权限时，&lt;权限类型&gt; 除了可以指定为授予数据库权限，还可以指定以下值<br>| 权限名称                        | 说明                                                       |<br>| ——————————  | ————————————————— |<br>|<code>CREATE USER</code>|表示授予用户可以创建和删除新用户的权限|<br>|<code>SHOW DATABASES</code>|表示授予用户可以使用 SHOW DATABASES 语句查看所有已有的数据库的定义的权限|</p>
-<h4 id="2-4-权限级别"><a href="#2-4-权限级别" class="headerlink" title="2.4 权限级别"></a>2.4 权限级别</h4><table>
-<thead>
-<tr>
-<th>权限级别</th>
-<th>说明</th>
-</tr>
-</thead>
-<tbody><tr>
-<td><code>*</code></td>
-<td>表示当前数据库中的所有表</td>
-</tr>
-<tr>
-<td><code>*.*</code></td>
-<td>表示所有数据库中的所有表</td>
-</tr>
-<tr>
-<td><code>db_name.*</code></td>
-<td>表示某个数据库中的所有表，db_name 指定数据库名</td>
-</tr>
-<tr>
-<td><code>db_name.tbl_name</code></td>
-<td>表示某个数据库中的某个表或视图，db_name 指定数据库名，tbl_name 指定表名或视图名</td>
-</tr>
-<tr>
-<td><code>db_name.routine_name</code></td>
-<td>表示某个数据库中的某个存储过程或函数，routine_name 指定存储过程名或函数名</td>
-</tr>
-<tr>
-<td><code>TO 子句</code></td>
-<td>如果权限被授予给一个不存在的用户，MySQL 会自动执行一条 CREATE USER 语句来创建这个用户，但同时必须为该用户设置密码</td>
-</tr>
-</tbody></table>
-<h3 id="三、-回收权限"><a href="#三、-回收权限" class="headerlink" title="三、 回收权限"></a>三、 回收权限</h3><h4 id="3-1-语法格式"><a href="#3-1-语法格式" class="headerlink" title="3.1 语法格式"></a>3.1 语法格式</h4><pre class=" language-sql"><code class="language-sql"><span class="token keyword">REVOKE</span> priv_type <span class="token punctuation">[</span><span class="token punctuation">(</span>column_list<span class="token punctuation">)</span><span class="token punctuation">]</span>
-<span class="token punctuation">[</span><span class="token punctuation">,</span> priv_type <span class="token punctuation">[</span><span class="token punctuation">(</span>column_list<span class="token punctuation">)</span><span class="token punctuation">]</span><span class="token punctuation">]</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
-<span class="token keyword">ON</span> <span class="token punctuation">[</span>object_type<span class="token punctuation">]</span> priv_level
-<span class="token keyword">FROM</span> <span class="token keyword">user</span> <span class="token punctuation">[</span><span class="token punctuation">,</span> <span class="token keyword">user</span><span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
-</code></pre>
-<h4 id="3-2-语法说明"><a href="#3-2-语法说明" class="headerlink" title="3.2 语法说明"></a>3.2 语法说明</h4><table>
-<thead>
-<tr>
-<th>参数</th>
-<th>参数说明</th>
-</tr>
-</thead>
-<tbody><tr>
-<td><code>priv_type</code></td>
-<td>参数表示权限的类型</td>
-</tr>
-<tr>
-<td><code>column_list</code></td>
-<td>参数表示权限作用于哪些列上，没有该参数时作用于整个表上</td>
-</tr>
-<tr>
-<td><code>user</code></td>
-<td>参数由用户名和主机名构成，格式为“username’@’hostname’”</td>
-</tr>
-</tbody></table>
-<h4 id="3-3-注意事项"><a href="#3-3-注意事项" class="headerlink" title="3.3 注意事项"></a>3.3 注意事项</h4><ul>
-<li>REVOKE 语法和 GRANT 语句的语法格式相似，但具有相反的效果。</li>
-<li>要使用 REVOKE 语句，必须拥有 MySQL 数据库的全局 CREATE USER 权限或 UPDATE 权限</li>
-</ul>
-<h3 id="四-、实践操作"><a href="#四-、实践操作" class="headerlink" title="四 、实践操作"></a>四 、实践操作</h3><p>① 运维童鞋想要查询所有用户的权限</p>
-<pre class=" language-sql"><code class="language-sql"><span class="token keyword">select</span> <span class="token operator">*</span> <span class="token keyword">FROM</span> mysql<span class="token punctuation">.</span><span class="token keyword">user</span><span class="token punctuation">;</span>
-</code></pre>
-<p><img src="http://blog.xiezhrspace.cn/blog-img/82478dc655e448859b95316d38a984bc.png" alt="在这里插入图片描述"><br>②运维童鞋想要创建一个新的用户testXiezhr,密码为testXiezhr。并授予test用户所有的数据<strong>查询、插入权限</strong></p>
-<pre class=" language-sql"><code class="language-sql"><span class="token comment" spellcheck="true"># 创建用户并授权</span>
-mysql<span class="token operator">></span> <span class="token keyword">GRANT</span> <span class="token keyword">SELECT</span><span class="token punctuation">,</span><span class="token keyword">INSERT</span> <span class="token keyword">ON</span> <span class="token operator">*</span><span class="token punctuation">.</span><span class="token operator">*</span>
-    <span class="token operator">-</span><span class="token operator">></span>      <span class="token keyword">TO</span> <span class="token string">'testXiezhr'</span>@'localhost<span class="token string">'
-    ->      IDENTIFIED BY '</span>testXiezhr'
-    <span class="token operator">-</span><span class="token operator">></span>       <span class="token keyword">WITH</span> <span class="token keyword">GRANT</span> <span class="token keyword">OPTION</span><span class="token punctuation">;</span>
-Query OK<span class="token punctuation">,</span> <span class="token number">0</span> <span class="token keyword">rows</span> affected<span class="token punctuation">,</span> <span class="token number">1</span> warning <span class="token punctuation">(</span><span class="token number">0.01</span> sec<span class="token punctuation">)</span>
-<span class="token comment" spellcheck="true"># 使用 SHOW GRANTS 语句查询用户 testXiezhr的权限</span>
-mysql<span class="token operator">></span> <span class="token keyword">show</span> grants <span class="token keyword">for</span> <span class="token string">'testXiezhr'</span><span class="token variable">@localhost</span><span class="token punctuation">;</span>
-<span class="token operator">+</span><span class="token comment" spellcheck="true">---------------------------------------------------------------------------+</span>
-<span class="token operator">|</span> Grants <span class="token keyword">for</span> testXiezhr<span class="token variable">@localhost</span>                                           <span class="token operator">|</span>
-<span class="token operator">+</span><span class="token comment" spellcheck="true">---------------------------------------------------------------------------+</span>
-<span class="token operator">|</span> <span class="token keyword">GRANT</span> <span class="token keyword">SELECT</span><span class="token punctuation">,</span> <span class="token keyword">INSERT</span> <span class="token keyword">ON</span> <span class="token operator">*</span><span class="token punctuation">.</span><span class="token operator">*</span> <span class="token keyword">TO</span> <span class="token string">'testXiezhr'</span><span class="token variable">@'localhost'</span> <span class="token keyword">WITH</span> <span class="token keyword">GRANT</span> <span class="token keyword">OPTION</span> <span class="token operator">|</span>
-<span class="token operator">+</span><span class="token comment" spellcheck="true">---------------------------------------------------------------------------+</span>
-<span class="token number">1</span> <span class="token keyword">row</span> <span class="token operator">in</span> <span class="token keyword">set</span> <span class="token punctuation">(</span><span class="token number">0.00</span> sec<span class="token punctuation">)</span>
-</code></pre>
-<p>③ 运维童鞋想要<strong>收回</strong>testXiezhr用户的插入权限</p>
-<pre class=" language-sql"><code class="language-sql"><span class="token comment" spellcheck="true"># 使用revoke关键字收回insert 权限</span>
-mysql<span class="token operator">></span> <span class="token keyword">REVOKE</span> <span class="token keyword">INSERT</span> <span class="token keyword">ON</span> <span class="token operator">*</span><span class="token punctuation">.</span><span class="token operator">*</span> <span class="token keyword">FROM</span> <span class="token string">'testXiezhr'</span><span class="token variable">@'localhost'</span><span class="token punctuation">;</span>
-Query OK<span class="token punctuation">,</span> <span class="token number">0</span> <span class="token keyword">rows</span> affected <span class="token punctuation">(</span><span class="token number">0.00</span> sec<span class="token punctuation">)</span>
-<span class="token comment" spellcheck="true">#使用 SHOW GRANTS 语句查询用户 testXiezhr的权限，我们发现insert 权限没有了</span>
-mysql<span class="token operator">></span> <span class="token keyword">show</span> grants <span class="token keyword">for</span> <span class="token string">'testXiezhr'</span><span class="token variable">@localhost</span><span class="token punctuation">;</span>
-<span class="token operator">+</span><span class="token comment" spellcheck="true">-------------------------------------------------------------------+</span>
-<span class="token operator">|</span> Grants <span class="token keyword">for</span> testXiezhr<span class="token variable">@localhost</span>                                   <span class="token operator">|</span>
-<span class="token operator">+</span><span class="token comment" spellcheck="true">-------------------------------------------------------------------+</span>
-<span class="token operator">|</span> <span class="token keyword">GRANT</span> <span class="token keyword">SELECT</span> <span class="token keyword">ON</span> <span class="token operator">*</span><span class="token punctuation">.</span><span class="token operator">*</span> <span class="token keyword">TO</span> <span class="token string">'testXiezhr'</span><span class="token variable">@'localhost'</span> <span class="token keyword">WITH</span> <span class="token keyword">GRANT</span> <span class="token keyword">OPTION</span> <span class="token operator">|</span>
-<span class="token operator">+</span><span class="token comment" spellcheck="true">-------------------------------------------------------------------+</span>
-<span class="token number">1</span> <span class="token keyword">row</span> <span class="token operator">in</span> <span class="token keyword">set</span> <span class="token punctuation">(</span><span class="token number">0.00</span> sec<span class="token punctuation">)</span>
-</code></pre>
-]]></content>
-      <categories>
-        <category>MySQL</category>
-        <category>DCL</category>
-        <category>DCL语言</category>
-      </categories>
-      <tags>
-        <tag>MySQL</tag>
-        <tag>DCL</tag>
-        <tag>DCL语言</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>【必知必会的MySQL知识】③DML语言</title>
     <url>/archives/98273844.html</url>
     <content><![CDATA[<h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>前面的两篇文章中，我们已经对MySQL有了基本了解。<br>并且知道了怎么用工具连接数据库？怎么创建数据库？怎么创建表？<br>这一篇呢我们就来看看怎么在我们创建的表中插入数据、删除数据和修改数据。也就是上一篇文章中提到的<strong>DML 数据操作语言</strong></p>
@@ -9346,6 +9967,173 @@ mysql<span class="token operator">></span> <span class="token keyword">select</s
       <tags>
         <tag>MySQL</tag>
         <tag>DML语言</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>【必知必会的MySQL知识】⑤DCL语言</title>
+    <url>/archives/80b35a31.html</url>
+    <content><![CDATA[<h3 id="一、概述"><a href="#一、概述" class="headerlink" title="一、概述"></a>一、概述</h3><blockquote>
+<p>数据控制语言，用来定义访问权限和安全级别。主要包含包括<strong>grant</strong>，<strong>revoke</strong> 关键字</p>
+<ul>
+<li>grant   授予权限</li>
+<li>revoke 回收权限</li>
+</ul>
+</blockquote>
+<h3 id="二-、授权"><a href="#二-、授权" class="headerlink" title="二 、授权"></a>二 、授权</h3><h4 id="2-1-语法格式"><a href="#2-1-语法格式" class="headerlink" title="2.1 语法格式"></a>2.1 语法格式</h4><pre class=" language-sql"><code class="language-sql"><span class="token keyword">GRANT</span> priv_type <span class="token punctuation">[</span><span class="token punctuation">(</span>column_list<span class="token punctuation">)</span><span class="token punctuation">]</span>  <span class="token punctuation">[</span><span class="token punctuation">,</span> priv_type <span class="token punctuation">[</span><span class="token punctuation">(</span>column_list<span class="token punctuation">)</span><span class="token punctuation">]</span><span class="token punctuation">]</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+<span class="token keyword">ON</span> <span class="token punctuation">[</span>object_type<span class="token punctuation">]</span> priv_level
+<span class="token keyword">TO</span> <span class="token keyword">user</span> <span class="token punctuation">[</span>IDENTIFIED <span class="token keyword">BY</span> <span class="token punctuation">[</span>PASSWORD<span class="token punctuation">]</span> <span class="token string">'password'</span><span class="token punctuation">]</span>
+<span class="token punctuation">[</span><span class="token punctuation">,</span> <span class="token keyword">user</span><span class="token punctuation">[</span>IDENTIFIED <span class="token keyword">BY</span> <span class="token punctuation">[</span>PASSWORD<span class="token punctuation">]</span> <span class="token string">'password'</span><span class="token punctuation">]</span><span class="token punctuation">]</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+<span class="token punctuation">[</span><span class="token keyword">WITH</span> with_option <span class="token punctuation">[</span>with_option<span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">]</span>
+</code></pre>
+<h4 id="2-2-语法说明"><a href="#2-2-语法说明" class="headerlink" title="2.2 语法说明"></a>2.2 语法说明</h4><table>
+<thead>
+<tr>
+<th>参数</th>
+<th>参数说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code> priv_type</code></td>
+<td>参数表示权限类型</td>
+</tr>
+<tr>
+<td><code>columns_list</code></td>
+<td>参数表示权限作用于哪些列上，省略该参数时，表示作用于整个表</td>
+</tr>
+<tr>
+<td><code>object_type</code></td>
+<td>参数用于指定权限对象</td>
+</tr>
+<tr>
+<td><code>priv_level </code></td>
+<td>参数用于指定权限级别</td>
+</tr>
+<tr>
+<td><code>user</code></td>
+<td>参数表示用户账户；由用户名和主机名构成，格式是“‘username’@’hostname’”</td>
+</tr>
+<tr>
+<td><code>IDENTIFIED BY</code></td>
+<td>参数用来为用户设置密码</td>
+</tr>
+<tr>
+<td><code>password</code></td>
+<td>参数是用户的新密码</td>
+</tr>
+<tr>
+<td><code>WITH </code></td>
+<td>一个或多个<strong>with_option</strong> 参数</td>
+</tr>
+</tbody></table>
+<p> <strong>with_option</strong> 参数一共5个选项<br> |with_option参数|参数说明|<br> |–|–|<br>|<code>GRANT OPTION</code>|被授权的用户可以将这些权限赋予给别的用户|<br>|<code>MAX_QUERIES_PER_HOUR count</code>|设置每个小时可以允许执行 count 次查询|<br>| <code>MAX_UPDATES_PER_HOUR count</code>|设置每个小时可以允许执行 count 次更新|<br>| <code>MAX_CONNECTIONS_PER_HOUR count</code>|设置每小时可以建立 count 个连接|<br>|<code>MAX_USER_CONNECTIONS count</code>|设置单个用户可以同时具有的 count 个连接|</p>
+<h4 id="2-3-权限类型"><a href="#2-3-权限类型" class="headerlink" title="2.3  权限类型"></a>2.3  权限类型</h4><p>权限类型分类<br>|权限类型|说明|<br>|–|–|<br>|<code>数据库权限</code>|和一个具体的数据库中的所有表相关。例如，可以在已有的数据库 mytest 中创建新表的权限|<br>|<code>表权限</code>|和一个具体表中的所有数据相关。例如，可以使用 SELECT 语句查询表 students 的所有数据的权限|<br>|<code>列权限</code>|和表中的一个具体列相关。例如，可以使用 UPDATE 语句更新表 students 中 name 列的值的权限|<br>|<code>用户权限</code>|和 MySQL 中所有的数据库相关。例如，可以删除已有的数据库或者创建一个新的数据库的权限|</p>
+<p>① 授予数据<strong>库</strong>权限时，&lt;权限类型&gt;可以指定为以下值<br>| 权限名称                       | 对应user表中的字段    | 说明                                                         |<br>| —————————— | ——————— | ———————————————————— |<br>|<code>SELECT </code>                        | <strong>Select_priv</strong>          | 表示授予用户可以使用 SELECT 语句访问特定数据库中所有表和视图的权限。 |<br>| <code>INSERT</code>                         | <strong>Insert_priv</strong>         | 表示授予用户可以使用 INSERT 语句向特定数据库中所有表添加数据行的权限。 |<br>|<code>DELETE</code>                        |<strong>Delete_priv</strong>           | 表示授予用户可以使用 DELETE 语句删除特定数据库中所有表的数据行的权限。 |<br>|<code>UPDATE</code>                        | <strong>Update_priv</strong>           | 表示授予用户可以使用 UPDATE 语句更新特定数据库中所有数据表的值的权限。 |<br>| <code>REFERENCES </code>                    | <strong>References_priv</strong>      | 表示授予用户可以创建指向特定的数据库中的表外键的权限。       |<br>|<code>CREATE   </code>                     | <strong>Create_priv</strong>          | 表示授权用户可以使用 CREATE TABLE 语句在特定数据库中创建新表的权限。 |<br>|<code>ALTER</code>                         | <strong>Alter_priv</strong>            | 表示授予用户可以使用 ALTER TABLE 语句修改特定数据库中所有数据表的权限。 |<br>| <code>SHOW VIEW  </code>                    | <strong>Show_view_priv</strong>        | 表示授予用户可以查看特定数据库中已有视图的视图定义的权限。   |<br>|<code> CREATE ROUTINE</code>                 | <strong>Create_routine_priv</strong>   | 表示授予用户可以为特定的数据库创建存储过程和存储函数的权限。 |<br>| <code>ALTER ROUTINE </code>                 | <strong>Alter_routine_priv</strong>    | 表示授予用户可以更新和删除数据库中已有的存储过程和存储函数的权限。 |<br>| <code>INDEX </code>                       | <strong>Index_priv</strong>            | 表示授予用户可以在特定数据库中的所有数据表上定义和删除索引的权限。 |<br>|<code>DROP</code>                       | <strong>Drop_priv</strong>             | 表示授予用户可以删除特定数据库中所有表和视图的权限。         |<br>| <code>CREATE TEMPORARY TABLES</code>        |<strong>Create_tmp_table_priv</strong> | 表示授予用户可以在特定数据库中创建临时表的权限。             |<br>| <code>CREATE VIEW</code>                    | <strong>Create_view_priv</strong>      | 表示授予用户可以在特定数据库中创建新的视图的权限。           |<br>| <code>EXECUTE ROUTINE</code>                | <strong>Execute_priv</strong>          | 表示授予用户可以调用特定数据库的存储过程和存储函数的权限。   |<br>|<code> LOCK TABLES</code>                    | <strong>Lock_tables_priv</strong>      | 表示授予用户可以锁定特定数据库的已有数据表的权限。           |<br>| <code>ALL 或 ALL PRIVILEGES 或 SUPER</code> | <strong>Super_priv</strong>            | 表示以上所有权限/超级权限                                    |</p>
+<p>② 授予<strong>表</strong>权限时，&lt;权限类型&gt;可以指定为以下值：<br>| 权限名称                       | 对应user表中的字段 | 说明                                                       |<br>| —————————— | —————— | ———————————————————- |<br>| <code>SELECT</code>                         | <strong>Select_priv</strong>        | 授予用户可以使用 SELECT 语句进行访问特定表的权限           |<br>| <code>INSERT</code>                         | <strong>Insert_priv</strong>        | 授予用户可以使用 INSERT 语句向一个特定表中添加数据行的权限 |<br>|  <code>DELETE</code>                         | <strong>Delete_priv</strong>        | 授予用户可以使用 DELETE 语句从一个特定表中删除数据行的权限 |<br>|  <code>DROP</code>                           | <strong>Drop_priv</strong>          | 授予用户可以删除数据表的权限                               |<br>|  <code>UPDATE</code>                         | <strong>Update_priv</strong>        | 授予用户可以使用 UPDATE 语句更新特定数据表的权限           |<br>|  <code>ALTER</code>                          | <strong>Alter_priv</strong>         | 授予用户可以使用 ALTER TABLE 语句修改数据表的权限          |<br>|  <code>REFERENCES</code>                     | <strong>References_priv</strong>    | 授予用户可以创建一个外键来参照特定数据表的权限             |<br>|  <code>CREATE</code>                         | <strong>Create_priv</strong>        | 授予用户可以使用特定的名字创建一个数据表的权限             |<br>|  <code>INDEX </code>                          | <strong>Index_priv</strong>         | 授予用户可以在表上定义索引的权限                           |<br>|  <code>ALL 或 ALL PRIVILEGES 或 SUPER </code> | <strong>Super_priv</strong>         | 所有的权限名                                               |</p>
+<p>③ 授予<strong>列</strong>权限时，&lt;权限类型&gt;可以指定以下值<br>| 权限名称                       | 对应user表中的字段 | 说明                                                       |<br>| —————————— | —————— | ———————————————————- |<br>| <code>SELECT</code>                         | <strong>Select_priv</strong>        | 授予用户可以使用 SELECT 语句进行访问特定表的权限           |<br>| <code>INSERT</code>                         | <strong>Insert_priv</strong>        | 授予用户可以使用 INSERT 语句向一个特定表中添加数据行的权限 |<br>|  <code>UPDATE</code>                         | <strong>Update_priv</strong>        | 授予用户可以使用 UPDATE 语句更新特定数据表的权限           |</p>
+<p>④授予<strong>用户</strong>权限时，&lt;权限类型&gt; 除了可以指定为授予数据库权限，还可以指定以下值<br>| 权限名称                        | 说明                                                       |<br>| ——————————  | ————————————————— |<br>|<code>CREATE USER</code>|表示授予用户可以创建和删除新用户的权限|<br>|<code>SHOW DATABASES</code>|表示授予用户可以使用 SHOW DATABASES 语句查看所有已有的数据库的定义的权限|</p>
+<h4 id="2-4-权限级别"><a href="#2-4-权限级别" class="headerlink" title="2.4 权限级别"></a>2.4 权限级别</h4><table>
+<thead>
+<tr>
+<th>权限级别</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>*</code></td>
+<td>表示当前数据库中的所有表</td>
+</tr>
+<tr>
+<td><code>*.*</code></td>
+<td>表示所有数据库中的所有表</td>
+</tr>
+<tr>
+<td><code>db_name.*</code></td>
+<td>表示某个数据库中的所有表，db_name 指定数据库名</td>
+</tr>
+<tr>
+<td><code>db_name.tbl_name</code></td>
+<td>表示某个数据库中的某个表或视图，db_name 指定数据库名，tbl_name 指定表名或视图名</td>
+</tr>
+<tr>
+<td><code>db_name.routine_name</code></td>
+<td>表示某个数据库中的某个存储过程或函数，routine_name 指定存储过程名或函数名</td>
+</tr>
+<tr>
+<td><code>TO 子句</code></td>
+<td>如果权限被授予给一个不存在的用户，MySQL 会自动执行一条 CREATE USER 语句来创建这个用户，但同时必须为该用户设置密码</td>
+</tr>
+</tbody></table>
+<h3 id="三、-回收权限"><a href="#三、-回收权限" class="headerlink" title="三、 回收权限"></a>三、 回收权限</h3><h4 id="3-1-语法格式"><a href="#3-1-语法格式" class="headerlink" title="3.1 语法格式"></a>3.1 语法格式</h4><pre class=" language-sql"><code class="language-sql"><span class="token keyword">REVOKE</span> priv_type <span class="token punctuation">[</span><span class="token punctuation">(</span>column_list<span class="token punctuation">)</span><span class="token punctuation">]</span>
+<span class="token punctuation">[</span><span class="token punctuation">,</span> priv_type <span class="token punctuation">[</span><span class="token punctuation">(</span>column_list<span class="token punctuation">)</span><span class="token punctuation">]</span><span class="token punctuation">]</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+<span class="token keyword">ON</span> <span class="token punctuation">[</span>object_type<span class="token punctuation">]</span> priv_level
+<span class="token keyword">FROM</span> <span class="token keyword">user</span> <span class="token punctuation">[</span><span class="token punctuation">,</span> <span class="token keyword">user</span><span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+</code></pre>
+<h4 id="3-2-语法说明"><a href="#3-2-语法说明" class="headerlink" title="3.2 语法说明"></a>3.2 语法说明</h4><table>
+<thead>
+<tr>
+<th>参数</th>
+<th>参数说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>priv_type</code></td>
+<td>参数表示权限的类型</td>
+</tr>
+<tr>
+<td><code>column_list</code></td>
+<td>参数表示权限作用于哪些列上，没有该参数时作用于整个表上</td>
+</tr>
+<tr>
+<td><code>user</code></td>
+<td>参数由用户名和主机名构成，格式为“username’@’hostname’”</td>
+</tr>
+</tbody></table>
+<h4 id="3-3-注意事项"><a href="#3-3-注意事项" class="headerlink" title="3.3 注意事项"></a>3.3 注意事项</h4><ul>
+<li>REVOKE 语法和 GRANT 语句的语法格式相似，但具有相反的效果。</li>
+<li>要使用 REVOKE 语句，必须拥有 MySQL 数据库的全局 CREATE USER 权限或 UPDATE 权限</li>
+</ul>
+<h3 id="四-、实践操作"><a href="#四-、实践操作" class="headerlink" title="四 、实践操作"></a>四 、实践操作</h3><p>① 运维童鞋想要查询所有用户的权限</p>
+<pre class=" language-sql"><code class="language-sql"><span class="token keyword">select</span> <span class="token operator">*</span> <span class="token keyword">FROM</span> mysql<span class="token punctuation">.</span><span class="token keyword">user</span><span class="token punctuation">;</span>
+</code></pre>
+<p><img src="http://blog.xiezhrspace.cn/blog-img/82478dc655e448859b95316d38a984bc.png" alt="在这里插入图片描述"><br>②运维童鞋想要创建一个新的用户testXiezhr,密码为testXiezhr。并授予test用户所有的数据<strong>查询、插入权限</strong></p>
+<pre class=" language-sql"><code class="language-sql"><span class="token comment" spellcheck="true"># 创建用户并授权</span>
+mysql<span class="token operator">></span> <span class="token keyword">GRANT</span> <span class="token keyword">SELECT</span><span class="token punctuation">,</span><span class="token keyword">INSERT</span> <span class="token keyword">ON</span> <span class="token operator">*</span><span class="token punctuation">.</span><span class="token operator">*</span>
+    <span class="token operator">-</span><span class="token operator">></span>      <span class="token keyword">TO</span> <span class="token string">'testXiezhr'</span>@'localhost<span class="token string">'
+    ->      IDENTIFIED BY '</span>testXiezhr'
+    <span class="token operator">-</span><span class="token operator">></span>       <span class="token keyword">WITH</span> <span class="token keyword">GRANT</span> <span class="token keyword">OPTION</span><span class="token punctuation">;</span>
+Query OK<span class="token punctuation">,</span> <span class="token number">0</span> <span class="token keyword">rows</span> affected<span class="token punctuation">,</span> <span class="token number">1</span> warning <span class="token punctuation">(</span><span class="token number">0.01</span> sec<span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true"># 使用 SHOW GRANTS 语句查询用户 testXiezhr的权限</span>
+mysql<span class="token operator">></span> <span class="token keyword">show</span> grants <span class="token keyword">for</span> <span class="token string">'testXiezhr'</span><span class="token variable">@localhost</span><span class="token punctuation">;</span>
+<span class="token operator">+</span><span class="token comment" spellcheck="true">---------------------------------------------------------------------------+</span>
+<span class="token operator">|</span> Grants <span class="token keyword">for</span> testXiezhr<span class="token variable">@localhost</span>                                           <span class="token operator">|</span>
+<span class="token operator">+</span><span class="token comment" spellcheck="true">---------------------------------------------------------------------------+</span>
+<span class="token operator">|</span> <span class="token keyword">GRANT</span> <span class="token keyword">SELECT</span><span class="token punctuation">,</span> <span class="token keyword">INSERT</span> <span class="token keyword">ON</span> <span class="token operator">*</span><span class="token punctuation">.</span><span class="token operator">*</span> <span class="token keyword">TO</span> <span class="token string">'testXiezhr'</span><span class="token variable">@'localhost'</span> <span class="token keyword">WITH</span> <span class="token keyword">GRANT</span> <span class="token keyword">OPTION</span> <span class="token operator">|</span>
+<span class="token operator">+</span><span class="token comment" spellcheck="true">---------------------------------------------------------------------------+</span>
+<span class="token number">1</span> <span class="token keyword">row</span> <span class="token operator">in</span> <span class="token keyword">set</span> <span class="token punctuation">(</span><span class="token number">0.00</span> sec<span class="token punctuation">)</span>
+</code></pre>
+<p>③ 运维童鞋想要<strong>收回</strong>testXiezhr用户的插入权限</p>
+<pre class=" language-sql"><code class="language-sql"><span class="token comment" spellcheck="true"># 使用revoke关键字收回insert 权限</span>
+mysql<span class="token operator">></span> <span class="token keyword">REVOKE</span> <span class="token keyword">INSERT</span> <span class="token keyword">ON</span> <span class="token operator">*</span><span class="token punctuation">.</span><span class="token operator">*</span> <span class="token keyword">FROM</span> <span class="token string">'testXiezhr'</span><span class="token variable">@'localhost'</span><span class="token punctuation">;</span>
+Query OK<span class="token punctuation">,</span> <span class="token number">0</span> <span class="token keyword">rows</span> affected <span class="token punctuation">(</span><span class="token number">0.00</span> sec<span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true">#使用 SHOW GRANTS 语句查询用户 testXiezhr的权限，我们发现insert 权限没有了</span>
+mysql<span class="token operator">></span> <span class="token keyword">show</span> grants <span class="token keyword">for</span> <span class="token string">'testXiezhr'</span><span class="token variable">@localhost</span><span class="token punctuation">;</span>
+<span class="token operator">+</span><span class="token comment" spellcheck="true">-------------------------------------------------------------------+</span>
+<span class="token operator">|</span> Grants <span class="token keyword">for</span> testXiezhr<span class="token variable">@localhost</span>                                   <span class="token operator">|</span>
+<span class="token operator">+</span><span class="token comment" spellcheck="true">-------------------------------------------------------------------+</span>
+<span class="token operator">|</span> <span class="token keyword">GRANT</span> <span class="token keyword">SELECT</span> <span class="token keyword">ON</span> <span class="token operator">*</span><span class="token punctuation">.</span><span class="token operator">*</span> <span class="token keyword">TO</span> <span class="token string">'testXiezhr'</span><span class="token variable">@'localhost'</span> <span class="token keyword">WITH</span> <span class="token keyword">GRANT</span> <span class="token keyword">OPTION</span> <span class="token operator">|</span>
+<span class="token operator">+</span><span class="token comment" spellcheck="true">-------------------------------------------------------------------+</span>
+<span class="token number">1</span> <span class="token keyword">row</span> <span class="token operator">in</span> <span class="token keyword">set</span> <span class="token punctuation">(</span><span class="token number">0.00</span> sec<span class="token punctuation">)</span>
+</code></pre>
+]]></content>
+      <categories>
+        <category>MySQL</category>
+        <category>DCL</category>
+        <category>DCL语言</category>
+      </categories>
+      <tags>
+        <tag>MySQL</tag>
+        <tag>DCL</tag>
+        <tag>DCL语言</tag>
       </tags>
   </entry>
   <entry>

@@ -1,0 +1,2454 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="kettle,大数据">
+    <meta name="description" content="">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="baidu-site-verification" content="code-uutUfowLsm" />
+    <meta name="msvalidate.01" content="F999DE5405A9F0E56508AD3016F4E45E" />
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <title>快速上手kettl （三）壶中可以放些啥？ | xiezhrspace</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="https://fastly.jsdelivr.net/gh/xiezhr/xiezhrblog-cdn-source/source/libs/awesome/css/all.css">
+    <link rel="stylesheet" type="text/css" href="https://fastly.jsdelivr.net/gh/xiezhr/xiezhrblog-cdn-source/source/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="https://fastly.jsdelivr.net/gh/xiezhr/xiezhrblog-cdn-source/source/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="https://fastly.jsdelivr.net/gh/xiezhr/xiezhrblog-cdn-source/source/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="https://fastly.jsdelivr.net/gh/xiezhr/xiezhrblog-cdn-source/source/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="https://fastly.jsdelivr.net/gh/xiezhr/xiezhrblog-cdn-source/source/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="https://fastly.jsdelivr.net/gh/xiezhr/xiezhrblog-cdn-source/source/css/my.css">
+    
+    <link rel="stylesheet" type="text/css" href="https://fastly.jsdelivr.net/gh/xiezhr/xiezhrblog-cdn-source/source/libs/artitalk/artitalk.min.css">
+    <!--引入春节样式-->
+    <link rel="stylesheet" type="text/css" href="../../css/spring.css">
+    <!--引入黑夜样式-->
+    <link rel="stylesheet" type="text/css" href="../../css/moon.css">
+    
+
+    <script src="https://fastly.jsdelivr.net/gh/xiezhr/xiezhrblog-cdn-source/source/libs/jquery/jquery.min.js"></script>
+
+    
+        <link type="text/css" href="/js/live2d_assets/waifu.css">
+    
+
+    
+
+<!-- 元宵节灯笼样式开始 -->
+
+<!-- 元宵节灯笼样式结束 -->
+
+    
+
+<meta name="generator" content="Hexo 5.4.0"><link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+
+
+
+
+
+    <style type="text/css" lang="css">
+    #loading-container{
+        position: fixed;
+        top: 0;
+        left: 0;
+        min-height: 100vh;
+        width: 100vw;
+        z-index: 9999;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background: #FFF;
+        text-align: center;
+        /* loader页面消失采用渐隐的方式*/
+        -webkit-transition: opacity 1s ease;
+        -moz-transition: opacity 1s ease;
+        -o-transition: opacity 1s ease;
+        transition: opacity 1s ease;
+    }
+    .loading-image{
+        width: 120px;
+        height: 50px;
+        transform: translate(-50%);
+    }
+
+    .loading-image div:nth-child(2) {
+        -webkit-animation: pacman-balls 1s linear 0s infinite;
+        animation: pacman-balls 1s linear 0s infinite
+    }
+
+    .loading-image div:nth-child(3) {
+        -webkit-animation: pacman-balls 1s linear .33s infinite;
+        animation: pacman-balls 1s linear .33s infinite
+    }
+
+    .loading-image div:nth-child(4) {
+        -webkit-animation: pacman-balls 1s linear .66s infinite;
+        animation: pacman-balls 1s linear .66s infinite
+    }
+
+    .loading-image div:nth-child(5) {
+        -webkit-animation: pacman-balls 1s linear .99s infinite;
+        animation: pacman-balls 1s linear .99s infinite
+    }
+
+   .loading-image div:first-of-type {
+        width: 0;
+        height: 0;
+        border: 25px solid #49b1f5;
+        border-right-color: transparent;
+        border-radius: 25px;
+        -webkit-animation: rotate_pacman_half_up .5s 0s infinite;
+        animation: rotate_pacman_half_up .5s 0s infinite;
+    }
+    .loading-image div:nth-child(2) {
+        width: 0;
+        height: 0;
+        border: 25px solid #49b1f5;
+        border-right-color: transparent;
+        border-radius: 25px;
+        -webkit-animation: rotate_pacman_half_down .5s 0s infinite;
+        animation: rotate_pacman_half_down .5s 0s infinite;
+        margin-top: -50px;
+    }
+    @-webkit-keyframes rotate_pacman_half_up {0% {transform: rotate(270deg)}50% {transform: rotate(1turn)}to {transform: rotate(270deg)}}
+
+    @keyframes rotate_pacman_half_up {0% {transform: rotate(270deg)}50% {transform: rotate(1turn)}to {transform: rotate(270deg)}}
+
+    @-webkit-keyframes rotate_pacman_half_down {0% {transform: rotate(90deg)}50% {transform: rotate(0deg)}to {transform: rotate(90deg)}}
+
+    @keyframes rotate_pacman_half_down {0% {transform: rotate(90deg)}50% {transform: rotate(0deg)}to {transform: rotate(90deg)}}
+
+    @-webkit-keyframes pacman-balls {75% {opacity: .7}to {transform: translate(-100px, -6.25px)}}
+
+    @keyframes pacman-balls {75% {opacity: .7}to {transform: translate(-100px, -6.25px)}}
+
+
+    .loading-image div:nth-child(3),
+    .loading-image div:nth-child(4),
+    .loading-image div:nth-child(5),
+    .loading-image div:nth-child(6){
+        background-color: #49b1f5;
+        width: 15px;
+        height: 15px;
+        border-radius: 100%;
+        margin: 2px;
+        width: 10px;
+        height: 10px;
+        position: absolute;
+        transform: translateY(-6.25px);
+        top: 25px;
+        left: 100px;
+    }
+    .loading-text{
+        margin-bottom: 20vh;
+        text-align: center;
+        color: #2c3e50;
+        font-size: 2rem;
+        box-sizing: border-box;
+        padding: 0 10px;
+        text-shadow: 0 2px 10px rgba(0,0,0,0.2);
+    }
+    @media only screen and (max-width: 500px) {
+         .loading-text{
+            font-size: 1.5rem;
+         }
+    }
+    .fadeout {
+        opacity: 0;
+        filter: alpha(opacity=0);
+    }
+    /* logo出现动画 */
+    @-webkit-keyframes fadeInDown{0%{opacity:0;-webkit-transform:translate3d(0,-100%,0);transform:translate3d(0,-100%,0)}100%{opacity:1;-webkit-transform:none;transform:none}}
+    @keyframes fadeInDown{0%{opacity:0;-webkit-transform:translate3d(0,-100%,0);}}
+ </style>
+ <script>
+(function () {
+    const loaded = function(){
+       setTimeout(function(){
+            const loader = document.getElementById("loading-container");
+            loader.className="fadeout" ;//使用渐隐的方法淡出loading page
+            // document.getElementById("body-wrap").style.display="flex";
+            setTimeout(function(){
+                loader.style.display="none";
+            },2500); 
+        },1000);//强制显示loading page 1s  
+    };
+    loaded();
+})()
+</script>
+
+ 
+
+<body>
+    
+    
+        <div id="loading-container">
+             <p class="loading-text">嘘~  小破站正在拼命加载中 . . . </p> 
+             <div class="loading-image">
+                 <div></div>
+                 <div></div>
+                 <div></div>
+                 <div></div> 
+                 <div></div>
+             </div>
+        </div>
+    
+
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" id="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span diyFont" id="logo-title">xiezhrspace</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/#" class="waves-effect waves-light">
+
+      
+      <span>归档</span>
+      <i class="fas fa-chevron-down" aria-hidden="true" style="zoom: 0.6;"></i>
+    </a>
+    <ul class="sub-nav menus_item_child ">
+      
+      <li>
+        <a href="/tags">
+          
+          <span>标签</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/categories">
+          
+          <span>分类</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/archives">
+          
+          <span>时间轴</span>
+        </a>
+      </li>
+      
+    </ul>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/artitalk" class="waves-effect waves-light">
+      
+      <span>说说</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/#" class="waves-effect waves-light">
+
+      
+      <span>媒体</span>
+      <i class="fas fa-chevron-down" aria-hidden="true" style="zoom: 0.6;"></i>
+    </a>
+    <ul class="sub-nav menus_item_child ">
+      
+      <li>
+        <a href="/books">
+          
+          <span>读书</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/musics">
+          
+          <span>音乐</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/movies">
+          
+          <span>电影</span>
+        </a>
+      </li>
+      
+    </ul>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/#" class="waves-effect waves-light">
+
+      
+      <span>资源分享</span>
+      <i class="fas fa-chevron-down" aria-hidden="true" style="zoom: 0.6;"></i>
+    </a>
+    <ul class="sub-nav menus_item_child ">
+      
+      <li>
+        <a href="/share-tools">
+          
+          <span>常用工具</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/e-book">
+          
+          <span>电子书</span>
+        </a>
+      </li>
+      
+    </ul>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/#" class="waves-effect waves-light">
+
+      
+      <span>交流</span>
+      <i class="fas fa-chevron-down" aria-hidden="true" style="zoom: 0.6;"></i>
+    </a>
+    <ul class="sub-nav menus_item_child ">
+      
+      <li>
+        <a href="/contact">
+          
+          <span>留言</span>
+        </a>
+      </li>
+      
+      <li>
+        <a target="_blank" rel="noopener" href="http://chat.xiezhrspace.cn">
+          
+          <span>聊天室</span>
+        </a>
+      </li>
+      
+    </ul>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/friends" class="waves-effect waves-light">
+      
+      <span>友情链接</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/#" class="waves-effect waves-light">
+
+      
+      <span>实验室</span>
+      <i class="fas fa-chevron-down" aria-hidden="true" style="zoom: 0.6;"></i>
+    </a>
+    <ul class="sub-nav menus_item_child ">
+      
+      <li>
+        <a href="/sponsorship">
+          
+          <i class="fas fa-money" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>赞助墙</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/status">
+          
+          <i class="fas fa-flush" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>检测监控</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/epidemic">
+          
+          <span>疫情实况</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/rain-code">
+          
+          <span>代码雨</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/mykeep">
+          
+          <span>我的Keep</span>
+        </a>
+      </li>
+      
+    </ul>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+<style>
+  #logo-title{
+  }
+
+  #logo-img{
+    
+  }
+  #mobile-logo-img{}
+</style>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img" id="mobile-logo-img">
+        
+        <div class="logo-name">xiezhrspace
+        <div class="logo-desc">
+            
+            爱学习 爱编程 爱分享 再小的帆也能远航
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			<!-- 
+				<i class="fas fa-fw fa-link"></i>
+			 -->
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="javascript:;">
+			<!-- 
+				<i class="fas fa-fw fa-link"></i>
+			 -->
+			归档
+			<span class="m-icon"><i class="fas fa-chevron-right"></i></span>
+		</a>
+            <ul  style="background:  ;" >
+              
+                <li>
+
+                  <a href="/tags " style="margin-left:75px">
+				  
+		          <span>标签</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/categories " style="margin-left:75px">
+				  
+		          <span>分类</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/archives " style="margin-left:75px">
+				  
+		          <span>时间轴</span>
+                  </a>
+                </li>
+              
+            </ul>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/artitalk" class="waves-effect waves-light">
+			<!-- 
+				<i class="fas fa-fw fa-link"></i>
+			 -->
+			说说
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="javascript:;">
+			<!-- 
+				<i class="fas fa-fw fa-link"></i>
+			 -->
+			媒体
+			<span class="m-icon"><i class="fas fa-chevron-right"></i></span>
+		</a>
+            <ul  style="background:  ;" >
+              
+                <li>
+
+                  <a href="/books " style="margin-left:75px">
+				  
+		          <span>读书</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/musics " style="margin-left:75px">
+				  
+		          <span>音乐</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/movies " style="margin-left:75px">
+				  
+		          <span>电影</span>
+                  </a>
+                </li>
+              
+            </ul>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="javascript:;">
+			<!-- 
+				<i class="fas fa-fw fa-link"></i>
+			 -->
+			资源分享
+			<span class="m-icon"><i class="fas fa-chevron-right"></i></span>
+		</a>
+            <ul  style="background:  ;" >
+              
+                <li>
+
+                  <a href="/share-tools " style="margin-left:75px">
+				  
+		          <span>常用工具</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/e-book " style="margin-left:75px">
+				  
+		          <span>电子书</span>
+                  </a>
+                </li>
+              
+            </ul>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			<!-- 
+				<i class="fas fa-fw fa-link"></i>
+			 -->
+			关于
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="javascript:;">
+			<!-- 
+				<i class="fas fa-fw fa-link"></i>
+			 -->
+			交流
+			<span class="m-icon"><i class="fas fa-chevron-right"></i></span>
+		</a>
+            <ul  style="background:  ;" >
+              
+                <li>
+
+                  <a href="/contact " style="margin-left:75px">
+				  
+		          <span>留言</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a target="_blank" rel="noopener" href="http://chat.xiezhrspace.cn " style="margin-left:75px">
+				  
+		          <span>聊天室</span>
+                  </a>
+                </li>
+              
+            </ul>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/friends" class="waves-effect waves-light">
+			<!-- 
+				<i class="fas fa-fw fa-link"></i>
+			 -->
+			友情链接
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="javascript:;">
+			<!-- 
+				<i class="fas fa-fw fa-link"></i>
+			 -->
+			实验室
+			<span class="m-icon"><i class="fas fa-chevron-right"></i></span>
+		</a>
+            <ul  style="background:  ;" >
+              
+                <li>
+
+                  <a href="/sponsorship " style="margin-left:75px">
+				  
+				   <i class="fa fas fa-money" style="position: absolute;left:50px" ></i>
+			      
+		          <span>赞助墙</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/status " style="margin-left:75px">
+				  
+				   <i class="fa fas fa-flush" style="position: absolute;left:50px" ></i>
+			      
+		          <span>检测监控</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/epidemic " style="margin-left:75px">
+				  
+		          <span>疫情实况</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/rain-code " style="margin-left:75px">
+				  
+		          <span>代码雨</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/mykeep " style="margin-left:75px">
+				  
+		          <span>我的Keep</span>
+                  </a>
+                </li>
+              
+            </ul>
+          
+        </li>
+        
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+    </nav>
+
+</header>
+
+    
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('http://blog.xiezhrspace.cn/blog-img/image-20230524215333176.png')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">快速上手kettl （三）壶中可以放些啥？</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="https://fastly.jsdelivr.net/gh/xiezhr/xiezhrblog-cdn-source/source/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        margin: 35px 0 15px 0;
+        padding-left: 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content {
+        height: calc(100vh - 250px);
+        overflow: auto;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+
+        position: absolute;
+        right: 23.5vw;
+        display: block;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!--评论区样式调整-->
+<style>
+    .v[data-class="v"] .vwrap .vheader .vinput {
+        width: 32%;
+        border-bottom: 1px dashed #dedede;
+      }
+</style>
+<!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/kettle-%E5%A4%A7%E6%95%B0%E6%8D%AE/">
+                                <span class="chip bg-color">kettle,大数据</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/kettle-%E5%A4%A7%E6%95%B0%E6%8D%AE/" class="post-category">
+                                kettle,大数据
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2023-06-03
+                </div>
+                
+
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
+                    2023-06-04
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
+                    2.4k
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
+                    9 分
+                </div>
+                
+
+                
+                    <div id="busuanzi_container_page_pv" class="info-break-policy">
+                        <i class="far fa-eye fa-fw"></i>阅读次数:&nbsp;&nbsp;
+                        <span id="busuanzi_value_page_pv"></span>
+                    </div>
+				
+            </div>
+        </div>
+        <hr class="clearfix">
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h3 id="序言"><a href="#序言" class="headerlink" title="序言"></a>序言</h3><p>快速上手kettle开篇中，我们将kettle比作壶，并对这个壶做了简单介绍。</p>
+<p>而上一期中我们实现了①将csv文件通过kettle转换成excel文件；</p>
+<p>②将excel文件通过kettle写入到MySQL数据库表中 这两个案例。</p>
+<p>相信大家跟我一样，对kettle已经有了初步认识，并且对这强大的工具产生了兴趣。</p>
+<p>今天这小节，我们来看看kettle 这“壶”里面到底能放些啥东西？</p>
+<h3 id="一-、kettle这壶能装些啥"><a href="#一-、kettle这壶能装些啥" class="headerlink" title="一 、kettle这壶能装些啥"></a>一 、kettle这壶能装些啥</h3><p>启动kettle，在转换–&gt;输入下面有很多东西，如下截图。有图可以看出这kettle“真能装”。</p>
+<p>可以把各种五花八门的数据丢到这壶里，kettle也是来者不拒。我们日常能用到的数据基本都能往里面塞。</p>
+<table>
+<thead>
+<tr>
+<th>–kettle能装的东西</th>
+<th>–kettle能装的东西</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><img src="http://blog.xiezhrspace.cn/blog-img/image-20230529212100343.png" alt="输入1"></td>
+<td><img src="http://blog.xiezhrspace.cn/blog-img/image-20230529212117176.png" alt="输入2"></td>
+</tr>
+</tbody></table>
+<p>一眼望去，能看到不少“大熟人”，<strong>Access输入</strong>、<strong>CSV文件输入</strong>、<strong>Excel输入</strong>、<strong>JSON输入</strong>、<strong>XML输入</strong>、<strong>文本文件输入</strong>、<strong>YAML输入</strong>、<strong>表输入</strong>等等</p>
+<p>不知道你对上面提到的“大熟人”了不了解，其实不了解也没关系。</p>
+<p>在后面的模块中，会把这些“大熟人”分别介绍给你。并且保证你过目不忘，再次遇到就能“称兄道弟”</p>
+<h3 id="二、Access输入"><a href="#二、Access输入" class="headerlink" title="二、Access输入"></a>二、Access输入</h3><blockquote>
+<p>Access是微软公司开发的一个数据库管理软件.它像个保险柜，可以帮你存储和管理各种各样的数据。</p>
+</blockquote>
+<p>Access是我们平常会用到数据库，接下来我们就新建一个Access数据库为例，来简单说一说怎么使用Access这个输入控件</p>
+<h4 id="2-1-准备Acess数据库和表"><a href="#2-1-准备Acess数据库和表" class="headerlink" title="2.1 准备Acess数据库和表"></a>2.1 准备Acess数据库和表</h4><table>
+<thead>
+<tr>
+<th align="left">新建一个access数据库，并建一个云襄传的表，然后往里面添加一些数据</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><img src="http://blog.xiezhrspace.cn/blog-img/image-20230529231426525.png" alt="云襄传"></td>
+</tr>
+</tbody></table>
+<h4 id="2-2-新建一个转换并设置"><a href="#2-2-新建一个转换并设置" class="headerlink" title="2.2 新建一个转换并设置"></a>2.2 新建一个转换并设置</h4><table>
+<thead>
+<tr>
+<th>–①将Access输入控件拖入工作区</th>
+<th>–②选择2.1新建的云襄传.accdb</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><img src="http://blog.xiezhrspace.cn/blog-img/image-20230529231939231.png" alt="image-20230529231939231"></td>
+<td><img src="http://blog.xiezhrspace.cn/blog-img/image-20230529232115886.png" alt="image-20230529232115886"></td>
+</tr>
+<tr>
+<td>–③添加文件</td>
+<td>–④ 选择数据库中数据表</td>
+</tr>
+<tr>
+<td><img src="http://blog.xiezhrspace.cn/blog-img/image-20230529232332208.png" alt="image-20230529232332208"></td>
+<td><img src="http://blog.xiezhrspace.cn/blog-img/image-20230529232521630.png" alt="image-20230529232521630"></td>
+</tr>
+<tr>
+<td>–④ 获取字段</td>
+<td>–⑤ 预览数据</td>
+</tr>
+<tr>
+<td><img src="http://blog.xiezhrspace.cn/blog-img/image-20230529232645861.png" alt="image-20230529232645861"></td>
+<td><img src="http://blog.xiezhrspace.cn/blog-img/image-20230529232754443.png" alt="image-20230529232754443"></td>
+</tr>
+</tbody></table>
+<h4 id="2-3-启动转换预览数据"><a href="#2-3-启动转换预览数据" class="headerlink" title="2.3 启动转换预览数据"></a>2.3 启动转换预览数据</h4><table>
+<thead>
+<tr>
+<th>–①启动转换</th>
+<th>–②预览数据</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><img src="http://blog.xiezhrspace.cn/blog-img/image-20230529232957930.png" alt="image-20230529232957930"></td>
+<td><img src="http://blog.xiezhrspace.cn/blog-img/image-20230529233131829.png" alt="image-20230529233131829"></td>
+</tr>
+</tbody></table>
+<p><strong>注：</strong> <strong>启动执行转换后，Preview date tab页面如果加载出数据说明输入控件配置是成功的</strong></p>
+<h3 id="三、CSV文件输入"><a href="#三、CSV文件输入" class="headerlink" title="三、CSV文件输入"></a>三、CSV文件输入</h3><blockquote>
+<p>CSV文件是一个用逗号分隔的固定格式的文本文件，这种文件后缀名为.csv，可以用Excel或者文本编辑器打开。</p>
+<p>在日常工作中，我们经常会需要将CSV文件转换为其他格式的数据</p>
+</blockquote>
+<h4 id="3-1-准备csv文件，并将csv输入控件拖入工作区"><a href="#3-1-准备csv文件，并将csv输入控件拖入工作区" class="headerlink" title="3.1 准备csv文件，并将csv输入控件拖入工作区"></a>3.1 准备csv文件，并将csv输入控件拖入工作区</h4><p><img src="http://blog.xiezhrspace.cn/blog-img/image-20230531072743328.png" alt="csv输入控件"></p>
+<h4 id="3-2-csv输入控件设置"><a href="#3-2-csv输入控件设置" class="headerlink" title="3.2 csv输入控件设置"></a>3.2 csv输入控件设置</h4><p><img src="http://blog.xiezhrspace.cn/blog-img/image-20230531073458267.png" alt="csv文件输入设置"></p>
+<h4 id="3-3-预览csv文件内容"><a href="#3-3-预览csv文件内容" class="headerlink" title="3.3 预览csv文件内容"></a>3.3 预览csv文件内容</h4><blockquote>
+<p>可以在设置界面点击<strong>【预览】</strong> 按钮查看csv数据，也可以启动步骤预览数据、</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>– 预览按钮预览数据</th>
+<th>–启动步骤预览csv文件</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><img src="http://blog.xiezhrspace.cn/blog-img/image-20230531073713076.png" alt="预览文件"></td>
+<td><img src="http://blog.xiezhrspace.cn/blog-img/image-20230531074028281.png" alt="image-20230531074028281"></td>
+</tr>
+</tbody></table>
+<h3 id="四、文本文件输入"><a href="#四、文本文件输入" class="headerlink" title="四、文本文件输入"></a>四、文本文件输入</h3><blockquote>
+<p>我们经常需要将服务器上的日志文件（文本文件）数据或者其他文本数据提取出来，然后放到excel，这样查看起来就很方便</p>
+</blockquote>
+<h4 id="4-1-准备txt格式文本文件，并将控件拖入工作区"><a href="#4-1-准备txt格式文本文件，并将控件拖入工作区" class="headerlink" title="4.1 准备txt格式文本文件，并将控件拖入工作区"></a>4.1 准备txt格式文本文件，并将控件拖入工作区</h4><p><img src="http://blog.xiezhrspace.cn/blog-img/image-20230531075731561.png" alt="拖入工作区"></p>
+<h4 id="4-2-文本输入控件设置"><a href="#4-2-文本输入控件设置" class="headerlink" title="4.2 文本输入控件设置"></a>4.2 文本输入控件设置</h4><table>
+<thead>
+<tr>
+<th>–①选择txt文本文件</th>
+<th>–②预览文件内容</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><img src="http://blog.xiezhrspace.cn/blog-img/image-20230531080155920.png" alt="选择文本文件"></td>
+<td><img src="http://blog.xiezhrspace.cn/blog-img/image-20230531080015420.png" alt="预览内容"></td>
+</tr>
+<tr>
+<td>–③设置分割符</td>
+<td>–④ 获取字段</td>
+</tr>
+<tr>
+<td><img src="http://blog.xiezhrspace.cn/blog-img/image-20230531080334152.png" alt="设置分隔符"></td>
+<td><img src="http://blog.xiezhrspace.cn/blog-img/image-20230531080701302.png" alt="获取字段"></td>
+</tr>
+</tbody></table>
+<h4 id="4-3-启动步骤，浏览数据"><a href="#4-3-启动步骤，浏览数据" class="headerlink" title="4.3 启动步骤，浏览数据"></a>4.3 启动步骤，浏览数据</h4><p><img src="http://blog.xiezhrspace.cn/blog-img/image-20230531080912316.png" alt="启动步骤"></p>
+<h3 id="五、Excel输入"><a href="#五、Excel输入" class="headerlink" title="五、Excel输入"></a>五、Excel输入</h3><blockquote>
+<p>excel 对于我们来说并不陌生，时我们平常接触到最多的文件格式</p>
+</blockquote>
+<h4 id="5-1-准备excel文件，并将控件拖入工作区"><a href="#5-1-准备excel文件，并将控件拖入工作区" class="headerlink" title="5.1 准备excel文件，并将控件拖入工作区"></a>5.1 准备excel文件，并将控件拖入工作区</h4><p><img src="http://blog.xiezhrspace.cn/blog-img/image-20230531221809761.png" alt="拖入控件"></p>
+<h4 id="5-2-Excel控件设置"><a href="#5-2-Excel控件设置" class="headerlink" title="5.2  Excel控件设置"></a>5.2  Excel控件设置</h4><table>
+<thead>
+<tr>
+<th>–① 选择excel文件</th>
+<th>–② 获取工作表名称</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><img src="http://blog.xiezhrspace.cn/blog-img/image-20230531222321178.png" alt="image-20230531222321178"></td>
+<td><img src="http://blog.xiezhrspace.cn/blog-img/image-20230531222514990.png" alt="image-20230531222514990"></td>
+</tr>
+<tr>
+<td>– ③ 获取字段，并设置数据格式</td>
+<td>–④ 预览数据</td>
+</tr>
+<tr>
+<td><img src="http://blog.xiezhrspace.cn/blog-img/image-20230531223004644.png" alt="image-20230531223004644"></td>
+<td><img src="http://blog.xiezhrspace.cn/blog-img/image-20230531223338937.png" alt="image-20230531223338937"></td>
+</tr>
+</tbody></table>
+<h4 id="5-3-启动转换，预览数据"><a href="#5-3-启动转换，预览数据" class="headerlink" title="5.3 启动转换，预览数据"></a>5.3 启动转换，预览数据</h4><p>上一步【预览记录】 如果有数据显示出来，基本上excel设置时成功的了</p>
+<p>当然我们可以启动转换，然后预览excel文件中的数据</p>
+<p><img src="http://blog.xiezhrspace.cn/blog-img/image-20230531223637622.png" alt="image-20230531223637622"></p>
+<h3 id="六-、json文件输入"><a href="#六-、json文件输入" class="headerlink" title="六 、json文件输入"></a>六 、json文件输入</h3><blockquote>
+<p>json 可以算是现在市面上用的比较多的数据结构了，是JavaScript对象，是一种轻量级的数据交换格式。</p>
+<p>可以很方便的在不同语言之间传递</p>
+</blockquote>
+<h4 id="6-1-json基本组成"><a href="#6-1-json基本组成" class="headerlink" title="6.1 json基本组成"></a>6.1 json基本组成</h4><ul>
+<li>对象：**{ }**</li>
+<li>数组：**[ ]**</li>
+<li>属性：<strong>key:value</strong></li>
+</ul>
+<h4 id="6-2-JSON-Path"><a href="#6-2-JSON-Path" class="headerlink" title="6.2 JSON Path"></a>6.2 JSON Path</h4><blockquote>
+<p>JSON Path 用来定位json节点数据</p>
+</blockquote>
+<p>Json Path 包含两种写法</p>
+<ul>
+<li><p>点记法：$.store.book[0].title</p>
+</li>
+<li><p>括号记法：$ [ ‘ store ’ ] [ ‘ book ’ ]  [  0  ] [ ‘title’ ]</p>
+</li>
+</ul>
+<p>使用过程中一些常用<strong>符号</strong> 含义</p>
+<table>
+<thead>
+<tr>
+<th>–</th>
+<th>–</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>$</code></td>
+<td>查询根节点对象，用于表示一个json数据，可以数组或对象</td>
+</tr>
+<tr>
+<td><code>@</code></td>
+<td>表示当前节点对象，类似于Java中的this对象</td>
+</tr>
+<tr>
+<td><code>*</code></td>
+<td>可以表示一个数字或字符</td>
+</tr>
+<tr>
+<td><code>&#39;&#39;</code></td>
+<td>类似于递归搜索</td>
+</tr>
+<tr>
+<td><code>.&lt;name&gt;</code></td>
+<td>表示一个子节点</td>
+</tr>
+<tr>
+<td><code>[&#39;&lt;name&gt;&#39;(,&#39;&lt;name&gt;&#39;)]</code></td>
+<td>表示一个或多个子节点</td>
+</tr>
+<tr>
+<td><code>[&lt;number&gt;(,&lt;number&gt;)]</code></td>
+<td>表示一个或多个数组下标</td>
+</tr>
+<tr>
+<td><code>[start:end]</code></td>
+<td>数组片段，区间为（start,end） 不包含end</td>
+</tr>
+<tr>
+<td><code>[?(&lt;expression&gt;)]</code></td>
+<td>过滤器表达式，结果为Boolean类型</td>
+</tr>
+</tbody></table>
+<p>上面说了一些常用符号的使用，我们就以实际的json为例，来看看json里的节点怎么取</p>
+<pre class=" language-json"><code class="language-json">&amp;#<span class="token number">123</span><span class="token punctuation">;</span>
+    <span class="token property">"data"</span><span class="token operator">:</span>&amp;#<span class="token number">123</span><span class="token punctuation">;</span>
+        <span class="token property">"longSeason"</span><span class="token operator">:</span><span class="token punctuation">[</span>
+            &amp;#<span class="token number">123</span><span class="token punctuation">;</span>   <span class="token property">"actor"</span><span class="token operator">:</span><span class="token string">"范伟"</span><span class="token punctuation">,</span>
+                <span class="token property">"role"</span><span class="token operator">:</span><span class="token string">"王响"</span><span class="token punctuation">,</span>
+                <span class="token property">"sex"</span><span class="token operator">:</span><span class="token string">"男"</span><span class="token punctuation">,</span>
+                <span class="token property">"age"</span><span class="token operator">:</span><span class="token number">56</span>
+            &amp;#<span class="token number">125</span><span class="token punctuation">;</span><span class="token punctuation">,</span>
+            &amp;#<span class="token number">123</span><span class="token punctuation">;</span>   <span class="token property">"actor"</span><span class="token operator">:</span><span class="token string">"秦昊"</span><span class="token punctuation">,</span>
+                <span class="token property">"role"</span><span class="token operator">:</span><span class="token string">"龚彪"</span><span class="token punctuation">,</span>
+                <span class="token property">"sex"</span><span class="token operator">:</span><span class="token string">"男"</span><span class="token punctuation">,</span>
+                <span class="token property">"age"</span><span class="token operator">:</span><span class="token number">40</span>
+            &amp;#<span class="token number">125</span><span class="token punctuation">;</span><span class="token punctuation">,</span>
+            &amp;#<span class="token number">123</span><span class="token punctuation">;</span>   <span class="token property">"actor"</span><span class="token operator">:</span><span class="token string">"李庚希"</span><span class="token punctuation">,</span>
+                <span class="token property">"role"</span><span class="token operator">:</span><span class="token string">"沈默"</span><span class="token punctuation">,</span>
+                <span class="token property">"sex"</span><span class="token operator">:</span><span class="token string">"女"</span><span class="token punctuation">,</span>
+                <span class="token property">"age"</span><span class="token operator">:</span><span class="token number">18</span>
+            &amp;#<span class="token number">125</span><span class="token punctuation">;</span><span class="token punctuation">,</span>
+            &amp;#<span class="token number">123</span><span class="token punctuation">;</span>   <span class="token property">"actor"</span><span class="token operator">:</span><span class="token string">"陈明昊"</span><span class="token punctuation">,</span>
+                <span class="token property">"role"</span><span class="token operator">:</span><span class="token string">"马德胜"</span><span class="token punctuation">,</span>
+                <span class="token property">"sex"</span><span class="token operator">:</span><span class="token string">"男"</span><span class="token punctuation">,</span>
+                <span class="token property">"age"</span><span class="token operator">:</span><span class="token number">55</span>
+            &amp;#<span class="token number">125</span><span class="token punctuation">;</span>
+        <span class="token punctuation">]</span><span class="token punctuation">,</span>
+        <span class="token property">"surname"</span><span class="token operator">:</span><span class="token punctuation">[</span>
+            &amp;#<span class="token number">123</span><span class="token punctuation">;</span>   <span class="token property">"actor"</span><span class="token operator">:</span><span class="token string">"陈晓"</span><span class="token punctuation">,</span>
+                <span class="token property">"role"</span><span class="token operator">:</span><span class="token string">"云襄"</span><span class="token punctuation">,</span>
+                <span class="token property">"sex"</span><span class="token operator">:</span><span class="token string">"男"</span><span class="token punctuation">,</span>
+                <span class="token property">"age"</span><span class="token operator">:</span><span class="token number">28</span>
+            &amp;#<span class="token number">125</span><span class="token punctuation">;</span><span class="token punctuation">,</span>
+            &amp;#<span class="token number">123</span><span class="token punctuation">;</span>   <span class="token property">"actor"</span><span class="token operator">:</span><span class="token string">"毛晓彤"</span><span class="token punctuation">,</span>
+                <span class="token property">"role"</span><span class="token operator">:</span><span class="token string">"舒亚男"</span><span class="token punctuation">,</span>
+                <span class="token property">"sex"</span><span class="token operator">:</span><span class="token string">"女"</span><span class="token punctuation">,</span>
+                <span class="token property">"age"</span><span class="token operator">:</span><span class="token number">18</span>
+            &amp;#<span class="token number">125</span><span class="token punctuation">;</span><span class="token punctuation">,</span>
+            &amp;#<span class="token number">123</span><span class="token punctuation">;</span>   <span class="token property">"actor"</span><span class="token operator">:</span><span class="token string">"许龄月"</span><span class="token punctuation">,</span>
+                <span class="token property">"role"</span><span class="token operator">:</span><span class="token string">"柯梦兰"</span><span class="token punctuation">,</span>
+                <span class="token property">"sex"</span><span class="token operator">:</span><span class="token string">"女"</span><span class="token punctuation">,</span>
+                <span class="token property">"age"</span><span class="token operator">:</span><span class="token number">18</span>
+            &amp;#<span class="token number">125</span><span class="token punctuation">;</span><span class="token punctuation">,</span>
+            &amp;#<span class="token number">123</span><span class="token punctuation">;</span>
+               <span class="token property">"actor"</span><span class="token operator">:</span><span class="token string">"刘冠麟"</span><span class="token punctuation">,</span>
+               <span class="token property">"role"</span><span class="token operator">:</span><span class="token string">"金十两"</span><span class="token punctuation">,</span>
+               <span class="token property">"sex"</span><span class="token operator">:</span><span class="token string">"男"</span><span class="token punctuation">,</span>
+               <span class="token property">"age"</span><span class="token operator">:</span><span class="token number">35</span>
+
+            &amp;#<span class="token number">125</span><span class="token punctuation">;</span><span class="token punctuation">,</span>
+            &amp;#<span class="token number">123</span><span class="token punctuation">;</span>   <span class="token property">"actor"</span><span class="token operator">:</span><span class="token string">"唐晓天"</span><span class="token punctuation">,</span>
+                <span class="token property">"role"</span><span class="token operator">:</span><span class="token string">"苏鸣玉"</span><span class="token punctuation">,</span>
+                <span class="token property">"sex"</span><span class="token operator">:</span><span class="token string">"男"</span><span class="token punctuation">,</span>
+                <span class="token property">"age"</span><span class="token operator">:</span><span class="token number">25</span>
+            &amp;#<span class="token number">125</span><span class="token punctuation">;</span>
+
+        <span class="token punctuation">]</span>
+    &amp;#<span class="token number">125</span><span class="token punctuation">;</span>
+
+&amp;#<span class="token number">125</span><span class="token punctuation">;</span>
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>–取出漫长季节中所有演员</th>
+<th>–结果</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>$.data.longSeason[*].actor</td>
+<td>[“范伟”,”秦昊”,”李庚希”,”陈明昊”]</td>
+</tr>
+<tr>
+<td>$..longSeason..actor</td>
+<td>[“范伟”,”秦昊”,”李庚希”,”陈明昊”]</td>
+</tr>
+</tbody></table>
+<h4 id="6-3-实践操作"><a href="#6-3-实践操作" class="headerlink" title="6.3 实践操作"></a>6.3 实践操作</h4><h5 id="6-3-1-准备json文件，并将json-input控件拖入工作区"><a href="#6-3-1-准备json文件，并将json-input控件拖入工作区" class="headerlink" title="6.3.1 准备json文件，并将json input控件拖入工作区"></a>6.3.1 准备json文件，并将json input控件拖入工作区</h5><p><img src="http://blog.xiezhrspace.cn/blog-img/image-20230601223937889.png" alt="拖入工作区"></p>
+<h5 id="6-3-2-JSON-控件设置"><a href="#6-3-2-JSON-控件设置" class="headerlink" title="6.3.2 JSON 控件设置"></a>6.3.2 JSON 控件设置</h5><table>
+<thead>
+<tr>
+<th>–① 选择json文件并添加</th>
+<th>–② 选择字段</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><img src="http://blog.xiezhrspace.cn/blog-img/image-20230601224229271.png" alt="选择并添加"></td>
+<td><img src="http://blog.xiezhrspace.cn/blog-img/image-20230601224550176.png" alt="image-20230601224550176"></td>
+</tr>
+<tr>
+<td>– ③ 查看表达式</td>
+<td>– ④ 预览节点数据</td>
+</tr>
+<tr>
+<td><img src="http://blog.xiezhrspace.cn/blog-img/image-20230601224803349.png" alt="image-20230601224803349"></td>
+<td><img src="http://blog.xiezhrspace.cn/blog-img/image-20230601224938534.png" alt="image-20230601224938534"></td>
+</tr>
+</tbody></table>
+<h5 id="6-3-3-启动转换，预览数据"><a href="#6-3-3-启动转换，预览数据" class="headerlink" title="6.3.3 启动转换，预览数据"></a>6.3.3 启动转换，预览数据</h5><p><img src="http://blog.xiezhrspace.cn/blog-img/image-20230601225145733.png" alt="启动转换预览数据"></p>
+<h3 id="七、xml-输入"><a href="#七、xml-输入" class="headerlink" title="七、xml 输入"></a>七、xml 输入</h3><blockquote>
+<p>xml是一种可扩展标记语言，XML 和上面说的json一样用来传输和存储数据</p>
+</blockquote>
+<h4 id="7-1-准备xml文件"><a href="#7-1-准备xml文件" class="headerlink" title="7.1 准备xml文件"></a>7.1 准备xml文件</h4><p>我们后面的演示都用下面的xml为例子</p>
+<pre class=" language-xml"><code class="language-xml"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>data</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>longSeason</span><span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>actor</span><span class="token punctuation">></span></span>范伟<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>actor</span><span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>role</span><span class="token punctuation">></span></span>王响<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>role</span><span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>sex</span><span class="token punctuation">></span></span>男<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>sex</span><span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>age</span><span class="token punctuation">></span></span>56<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>age</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>longSeason</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>longSeason</span><span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>actor</span><span class="token punctuation">></span></span>秦昊<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>actor</span><span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>role</span><span class="token punctuation">></span></span>龚彪<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>role</span><span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>sex</span><span class="token punctuation">></span></span>男<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>sex</span><span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>age</span><span class="token punctuation">></span></span>40<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>age</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>longSeason</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>longSeason</span><span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>actor</span><span class="token punctuation">></span></span>李庚希<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>actor</span><span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>role</span><span class="token punctuation">></span></span>沈默<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>role</span><span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>sex</span><span class="token punctuation">></span></span>女<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>sex</span><span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>age</span><span class="token punctuation">></span></span>18<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>age</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>longSeason</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>longSeason</span><span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>actor</span><span class="token punctuation">></span></span>陈明昊<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>actor</span><span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>role</span><span class="token punctuation">></span></span>马德胜<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>role</span><span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>sex</span><span class="token punctuation">></span></span>男<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>sex</span><span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>age</span><span class="token punctuation">></span></span>55<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>age</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>longSeason</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>surname</span><span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>actor</span><span class="token punctuation">></span></span>陈晓<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>actor</span><span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>role</span><span class="token punctuation">></span></span>云襄<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>role</span><span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>sex</span><span class="token punctuation">></span></span>男<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>sex</span><span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>age</span><span class="token punctuation">></span></span>28<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>age</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>surname</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>surname</span><span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>actor</span><span class="token punctuation">></span></span>毛晓彤<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>actor</span><span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>role</span><span class="token punctuation">></span></span>舒亚男<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>role</span><span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>sex</span><span class="token punctuation">></span></span>女<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>sex</span><span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>age</span><span class="token punctuation">></span></span>18<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>age</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>surname</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>surname</span><span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>actor</span><span class="token punctuation">></span></span>许龄月<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>actor</span><span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>role</span><span class="token punctuation">></span></span>柯梦兰<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>role</span><span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>sex</span><span class="token punctuation">></span></span>女<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>sex</span><span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>age</span><span class="token punctuation">></span></span>18<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>age</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>surname</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>surname</span><span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>actor</span><span class="token punctuation">></span></span>刘冠麟<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>actor</span><span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>role</span><span class="token punctuation">></span></span>金十两<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>role</span><span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>sex</span><span class="token punctuation">></span></span>男<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>sex</span><span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>age</span><span class="token punctuation">></span></span>35<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>age</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>surname</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>surname</span><span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>actor</span><span class="token punctuation">></span></span>唐晓天<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>actor</span><span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>role</span><span class="token punctuation">></span></span>苏鸣玉<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>role</span><span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>sex</span><span class="token punctuation">></span></span>男<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>sex</span><span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>age</span><span class="token punctuation">></span></span>25<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>age</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>surname</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>data</span><span class="token punctuation">></span></span>
+</code></pre>
+<h4 id="7-2-XPath"><a href="#7-2-XPath" class="headerlink" title="7.2 XPath"></a>7.2 XPath</h4><p>在说json输入控件中，我么介绍了JSON Path， 这里是xml输入控件，也有类似<strong>XPath</strong> 来定位xml中节点的位置</p>
+<table>
+<thead>
+<tr>
+<th>–表达式</th>
+<th>–描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>nodename</td>
+<td>选取此节点的所有节点</td>
+</tr>
+<tr>
+<td>/</td>
+<td>从根节点选取</td>
+</tr>
+<tr>
+<td>//</td>
+<td>从匹配选择的当前节点选择文档中的节点，而不考虑他们的位置</td>
+</tr>
+<tr>
+<td>.</td>
+<td>选取当前节点</td>
+</tr>
+<tr>
+<td>..</td>
+<td>选取当前节点的父节点</td>
+</tr>
+<tr>
+<td>@</td>
+<td>属性</td>
+</tr>
+</tbody></table>
+<table>
+<thead>
+<tr>
+<th>–取出漫长季节中所有演员</th>
+<th>–结果</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>/data/longSeason/actor</td>
+<td>[“范伟”,”秦昊”,”李庚希”,”陈明昊”]</td>
+</tr>
+</tbody></table>
+<h4 id="7-3-实践操作"><a href="#7-3-实践操作" class="headerlink" title="7.3 实践操作"></a>7.3 实践操作</h4><h5 id="7-3-1-将xml输入控件拖入工作区"><a href="#7-3-1-将xml输入控件拖入工作区" class="headerlink" title="7.3.1 将xml输入控件拖入工作区"></a>7.3.1 将xml输入控件拖入工作区</h5><p><img src="http://blog.xiezhrspace.cn/blog-img/image-20230601232215755.png" alt="image-20230601232215755"></p>
+<h5 id="7-3-2-xml控件设置"><a href="#7-3-2-xml控件设置" class="headerlink" title="7.3.2 xml控件设置"></a>7.3.2 xml控件设置</h5><table>
+<thead>
+<tr>
+<th>–① 选择xml文件并添加</th>
+<th>– ② 获取xml文档读取路径</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><img src="http://blog.xiezhrspace.cn/blog-img/image-20230601232407505.png" alt="添加文件"></td>
+<td><img src="http://blog.xiezhrspace.cn/blog-img/image-20230601232538051.png" alt="读取循环路径"></td>
+</tr>
+<tr>
+<td>– ③ 获取字段</td>
+<td>– ④ 预览</td>
+</tr>
+<tr>
+<td><img src="http://blog.xiezhrspace.cn/blog-img/image-20230601232743607.png" alt="获取字段"></td>
+<td><img src="http://blog.xiezhrspace.cn/blog-img/image-20230601232915072.png" alt="预览"></td>
+</tr>
+</tbody></table>
+<h5 id="7-3-3-启动转换，预览数据"><a href="#7-3-3-启动转换，预览数据" class="headerlink" title="7.3.3 启动转换，预览数据"></a>7.3.3 启动转换，预览数据</h5><p><img src="http://blog.xiezhrspace.cn/blog-img/image-20230601233132670.png" alt="image-20230601233132670"></p>
+<h3 id="八、表输入"><a href="#八、表输入" class="headerlink" title="八、表输入"></a>八、表输入</h3><blockquote>
+<p>由于涉及到数据库表相关操作，所以我们新建转换之后需要先建立DB连接。</p>
+</blockquote>
+<p>建立DB连接的方式我们在上一小节小试牛刀中已经提过，这里就不展开了。我们还是以MySQL为例子来说表输入。</p>
+<p><img src="http://blog.xiezhrspace.cn/blog-img/image-20230603080159233.png" alt="DB连接"></p>
+<h4 id="8-1-将表输入控件拖入工作区"><a href="#8-1-将表输入控件拖入工作区" class="headerlink" title="8.1 将表输入控件拖入工作区"></a>8.1 将表输入控件拖入工作区</h4><p><img src="http://blog.xiezhrspace.cn/blog-img/image-20230603080323531.png" alt="image-20230603080323531"></p>
+<h4 id="8-2-表输入控件设置"><a href="#8-2-表输入控件设置" class="headerlink" title="8.2 表输入控件设置"></a>8.2 表输入控件设置</h4><table>
+<thead>
+<tr>
+<th>– ①获取SQL查询语句</th>
+<th>– ② 点击【预览】按钮预览表数据</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><img src="http://blog.xiezhrspace.cn/blog-img/image-20230603080641559.png" alt="获取sql语句"></td>
+<td><img src="http://blog.xiezhrspace.cn/blog-img/image-20230603080755724.png" alt="image-20230603080755724"></td>
+</tr>
+</tbody></table>
+<h4 id="8-3-启动转换，预览表数据"><a href="#8-3-启动转换，预览表数据" class="headerlink" title="8.3 启动转换，预览表数据"></a>8.3 启动转换，预览表数据</h4><p><img src="http://blog.xiezhrspace.cn/blog-img/image-20230603080938749.png" alt="预览表数据"></p>
+<h3 id="九、-生成记录"><a href="#九、-生成记录" class="headerlink" title="九、 生成记录"></a>九、 生成记录</h3><blockquote>
+<p>在日常工作中我们经常需要批量造一些测试数据，通过生成记录这个输入控件就可以完成。</p>
+</blockquote>
+<h4 id="9-1-将生成记录控件拖入工作区"><a href="#9-1-将生成记录控件拖入工作区" class="headerlink" title="9.1 将生成记录控件拖入工作区"></a>9.1 将生成记录控件拖入工作区</h4><p><img src="http://blog.xiezhrspace.cn/blog-img/image-20230603081811452.png" alt="生成记录拖入工作区"></p>
+<h4 id="9-2-生成记录控件设置"><a href="#9-2-生成记录控件设置" class="headerlink" title="9.2 生成记录控件设置"></a>9.2 生成记录控件设置</h4><table>
+<thead>
+<tr>
+<th>– ①  填写需要数据的相关信息</th>
+<th>– ② 预览生成的数据</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><img src="http://blog.xiezhrspace.cn/blog-img/image-20230603082158964.png" alt="image-20230603082158964"></td>
+<td><img src="http://blog.xiezhrspace.cn/blog-img/image-20230603082254603.png" alt="image-20230603082254603"></td>
+</tr>
+</tbody></table>
+<h4 id="9-3-启动转换，预览数据"><a href="#9-3-启动转换，预览数据" class="headerlink" title="9.3 启动转换，预览数据"></a>9.3 启动转换，预览数据</h4><p><img src="http://blog.xiezhrspace.cn/blog-img/image-20230603082537913.png" alt="启动转换预览数据"></p>
+<p>到此，10条测试数据就造好了</p>
+<h3 id="十、小结"><a href="#十、小结" class="headerlink" title="十、小结"></a>十、小结</h3><p>本篇文章我们主要是说了九个kettle的常用输入控件（<strong>kettle壶里能放写啥东西进去</strong>）。</p>
+<p>kettle的输入控件就代表着kettle能处理一些什么格式的数据，其实它还有其他输入控件，这里就不一一例举了。</p>
+<p>大家如果感兴趣，可以将输入下面的每个控件都去试试。</p>
+<p>本期内容到此就结束了，希望对你有所帮助。</p>
+<p>这一期说了<strong>输入控件</strong>，那下一期就到了<strong>输出控件</strong>了</p>
+<p>我们下一期再见 (●’◡’●)</p>
+
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="/about" rel="external nofollow noreferrer">xiezhr</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="https://www.xiezhrspace.cn/archives/80b937aa.html">https://www.xiezhrspace.cn/archives/80b937aa.html</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="/about" target="_blank">xiezhr</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/kettle-%E5%A4%A7%E6%95%B0%E6%8D%AE/">
+                                    <span class="chip bg-color">kettle,大数据</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="qq,wechat,weibo,douban" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+                <style>
+    #reward {
+        margin: 40px 0;
+        text-align: center;
+    }
+
+    #reward .reward-link {
+        font-size: 1.4rem;
+        line-height: 38px;
+    }
+
+    #reward .btn-floating:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    #rewardModal {
+        width: 320px;
+        height: 350px;
+    }
+
+    #rewardModal .reward-title {
+        margin: 15px auto;
+        padding-bottom: 5px;
+    }
+
+    #rewardModal .modal-content {
+        padding: 10px;
+    }
+
+    #rewardModal .close {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 1.3rem;
+        line-height: 20px;
+        cursor: pointer;
+    }
+
+    #rewardModal .close:hover {
+        color: #ef5350;
+        transform: scale(1.3);
+        -moz-transform:scale(1.3);
+        -webkit-transform:scale(1.3);
+        -o-transform:scale(1.3);
+    }
+
+    #rewardModal .reward-tabs {
+        margin: 0 auto;
+        width: 210px;
+    }
+
+    .reward-tabs .tabs {
+        height: 38px;
+        margin: 10px auto;
+        padding-left: 0;
+    }
+
+    .reward-content ul {
+        padding-left: 0 !important;
+    }
+
+    .reward-tabs .tabs .tab {
+        height: 38px;
+        line-height: 38px;
+    }
+
+    .reward-tabs .tab a {
+        color: #fff;
+        background-color: #ccc;
+    }
+
+    .reward-tabs .tab a:hover {
+        background-color: #ccc;
+        color: #fff;
+    }
+
+    .reward-tabs .wechat-tab .active {
+        color: #fff !important;
+        background-color: #22AB38 !important;
+    }
+
+    .reward-tabs .alipay-tab .active {
+        color: #fff !important;
+        background-color: #019FE8 !important;
+    }
+
+    .reward-tabs .reward-img {
+        width: 210px;
+        height: 210px;
+    }
+</style>
+
+<div id="reward">
+    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-medium waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close modal-close"><i class="fas fa-times"></i></a>
+            <h4 class="reward-title">你的赏识是我前进的动力</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs row">
+                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
+                    </ul>
+                    <div id="alipay">
+                        <img src="https://fastly.jsdelivr.net/gh/xiezhr/xiezhrblog-cdn-source/source/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                    <div id="wechat">
+                        <img src="https://fastly.jsdelivr.net/gh/xiezhr/xiezhrblog-cdn-source/source/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('.tabs').tabs();
+    });
+</script>
+
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+        <style>
+    .valine-card {
+        margin: 1.5rem auto;
+    }
+
+    .valine-card .card-content {
+        padding: 20px 20px 5px 20px;
+    }
+
+    #vcomments textarea {
+        
+        box-sizing: border-box;
+        /* background: url("https://fastly.jsdelivr.net/gh/xiezhr/xiezhrblog-cdn-source/source/medias/comment_bg.webp") 100% 100% no-repeat; */
+        background-image: url("https://fastly.jsdelivr.net/gh/xiezhr/xiezhrblog-cdn-source/source/medias/hongmiaosi.gif");
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position:right;
+        resize:vertical;
+    }
+
+    #vcomments p {
+        margin: 2px 2px 10px;
+        font-size: 1.05rem;
+        line-height: 1.78rem;
+    }
+
+    #vcomments blockquote p {
+        text-indent: 0.2rem;
+    }
+
+    #vcomments a {
+        padding: 0 2px;
+        color: #4cbf30;
+        font-weight: 500;
+        text-decoration: none;
+    }
+
+    #vcomments img {
+        max-width: 100%;
+        height: auto;
+        cursor: pointer;
+    }
+
+    #vcomments ol li {
+        list-style-type: decimal;
+    }
+
+    #vcomments ol,
+    ul {
+        display: block;
+        padding-left: 2em;
+        word-spacing: 0.05rem;
+    }
+
+    #vcomments ul li,
+    ol li {
+        display: list-item;
+        line-height: 1.8rem;
+        font-size: 1rem;
+    }
+
+    #vcomments ul li {
+        list-style-type: disc;
+    }
+
+    #vcomments ul ul li {
+        list-style-type: circle;
+    }
+
+    #vcomments table, th, td {
+        padding: 12px 13px;
+        border: 1px solid #dfe2e5;
+    }
+
+    #vcomments table, th, td {
+        border: 0;
+    }
+
+    table tr:nth-child(2n), thead {
+        background-color: #fafafa;
+    }
+
+    #vcomments table th {
+        background-color: #f2f2f2;
+        min-width: 80px;
+    }
+
+    #vcomments table td {
+        min-width: 80px;
+    }
+
+    #vcomments h1 {
+        font-size: 1.85rem;
+        font-weight: bold;
+        line-height: 2.2rem;
+    }
+
+    #vcomments h2 {
+        font-size: 1.65rem;
+        font-weight: bold;
+        line-height: 1.9rem;
+    }
+
+    #vcomments h3 {
+        font-size: 1.45rem;
+        font-weight: bold;
+        line-height: 1.7rem;
+    }
+
+    #vcomments h4 {
+        font-size: 1.25rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    #vcomments h5 {
+        font-size: 1.1rem;
+        font-weight: bold;
+        line-height: 1.4rem;
+    }
+
+    #vcomments h6 {
+        font-size: 1rem;
+        line-height: 1.3rem;
+    }
+
+    #vcomments p {
+        font-size: 1rem;
+        line-height: 1.5rem;
+    }
+
+    #vcomments hr {
+        margin: 12px 0;
+        border: 0;
+        border-top: 1px solid #ccc;
+    }
+
+    #vcomments blockquote {
+        margin: 15px 0;
+        border-left: 5px solid #42b983;
+        padding: 1rem 0.8rem 0.3rem 0.8rem;
+        color: #666;
+        background-color: rgba(66, 185, 131, .1);
+    }
+
+    #vcomments pre {
+        font-family: monospace, monospace;
+        padding: 1.2em;
+        margin: .5em 0;
+        background: #272822;
+        overflow: auto;
+        border-radius: 0.3em;
+        tab-size: 4;
+    }
+
+    #vcomments code {
+        font-family: monospace, monospace;
+        padding: 1px 3px;
+        font-size: 0.92rem;
+        color: #e96900;
+        background-color: #f8f8f8;
+        border-radius: 2px;
+    }
+
+    #vcomments pre code {
+        font-family: monospace, monospace;
+        padding: 0;
+        color: #e8eaf6;
+        background-color: #272822;
+    }
+
+    #vcomments pre[class*="language-"] {
+        padding: 1.2em;
+        margin: .5em 0;
+    }
+
+    #vcomments code[class*="language-"],
+    pre[class*="language-"] {
+        color: #e8eaf6;
+    }
+
+    #vcomments [type="checkbox"]:not(:checked), [type="checkbox"]:checked {
+        position: inherit;
+        margin-left: -1.3rem;
+        margin-right: 0.4rem;
+        margin-top: -1px;
+        vertical-align: middle;
+        left: unset;
+        visibility: visible;
+    }
+
+    #vcomments b,
+    strong {
+        font-weight: bold;
+    }
+
+    #vcomments dfn {
+        font-style: italic;
+    }
+
+    #vcomments small {
+        font-size: 85%;
+    }
+
+    #vcomments cite {
+        font-style: normal;
+    }
+
+    #vcomments mark {
+        background-color: #fcf8e3;
+        padding: .2em;
+    }
+
+    #vcomments table, th, td {
+        padding: 12px 13px;
+        border: 1px solid #dfe2e5;
+    }
+
+    table tr:nth-child(2n), thead {
+        background-color: #fafafa;
+    }
+
+    #vcomments table th {
+        background-color: #f2f2f2;
+        min-width: 80px;
+    }
+
+    #vcomments table td {
+        min-width: 80px;
+    }
+
+    #vcomments [type="checkbox"]:not(:checked), [type="checkbox"]:checked {
+        position: inherit;
+        margin-left: -1.3rem;
+        margin-right: 0.4rem;
+        margin-top: -1px;
+        vertical-align: middle;
+        left: unset;
+        visibility: visible;
+    }
+
+    
+</style>
+
+<div class="card valine-card" data-aos="fade-up">
+    <div class="comment_headling" style="font-size: 20px; font-weight: 700; position: relative; padding-left: 20px; top: 15px; padding-bottom: 5px;">
+        <i class="fas fa-comments fa-fw" aria-hidden="true"></i>
+        <span>评论</span>
+    </div>
+    <div id="vcomments" class="card-content" style="display: grid">
+    </div>
+</div>
+
+<script src="/libs/valine/av-min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/small-rose/small-rose.github.io/libs/valine/Valine.min.js"></script>
+
+<script>
+    // new Valine({
+    //     el: '#vcomments',
+    //     appId: 'nLFYjWbdxNXHi8ECkNbad7eo-gzGzoHsz',
+    //     appKey: 'EN6vxfxOV7eBy6HlfVE4jhGI',
+    //     notify: 'true' === 'true',
+    //     verify: 'true' === 'true',
+    //     visitor: 'true' === 'true',
+    //     avatar: 'monsterid',
+    //     pageSize: '10',
+    //     lang: 'zh-cn',
+    //     placeholder: '欢迎你留下宝贵的意见 ^-^&#39;'
+    // });
+
+    let metaPlaceholder = {"nick":"昵称/QQ号(必填)","mail":"邮箱(必填)","link":"网址(https://)"} ;
+    //这里要换行
+    new Valine({
+            el: '#vcomments',
+            appId: 'nLFYjWbdxNXHi8ECkNbad7eo-gzGzoHsz',
+            appKey: 'EN6vxfxOV7eBy6HlfVE4jhGI',
+            notify: 'true' === 'true',
+            verify: 'true' === 'true',
+            visitor: 'true' === 'true',
+            avatar: 'monsterid',
+            pageSize: '10',
+            lang: 'zh-CN',
+            placeholder: '欢迎你留下宝贵的意见 ^-^&#39;',
+            meta: ["nick", "mail", "link"],
+            recordIP: 'true' === 'true',
+            enableQQ: 'monsterid',
+            requiredFields: ["1610cd43778f1d972a92503426346411"],
+            master: ["1610cd43778f1d972a92503426346411"],
+            friends: ["c08508165c8eba9a77f8c2853xxxx09e", "901345d4c91ddfd8db0f175bbcfff0c8", "1512958e18378c98b498d5effe3e76ff"],
+            tagMeta: ["博主", "小伙伴", "访客"],
+            metaPlaceholder: metaPlaceholder,
+
+        });
+
+</script>
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/archives/0.html">
+                    <div class="card-image">
+                        
+                        
+                        <img src="https://fastly.jsdelivr.net/gh/xiezhr/xiezhrblog-cdn-source/source/medias/featureimages/0.jpg" class="responsive-img" alt="">
+                        
+                        <span class="card-title"></span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2023-06-04
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-user fa-fw"></i>
+                            xiezhr
+                            
+                        </span>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/archives/44e1a33c.html">
+                    <div class="card-image">
+                        
+                        <img src="http://blog.xiezhrspace.cn/blog-img/image-20230524215333176.png" class="responsive-img" alt="快速上手kettl(一) 壶之简介">
+                        
+                        <span class="card-title">快速上手kettl(一) 壶之简介</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            快速上手kettl(一)壶之简介
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-05-25
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/kettle-%E5%A4%A7%E6%95%B0%E6%8D%AE/" class="post-category">
+                                    kettle,大数据
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/kettle-%E5%A4%A7%E6%95%B0%E6%8D%AE/">
+                        <span class="chip bg-color">kettle,大数据</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+<script>
+    $('#articleContent').on('copy', function (e) {
+        // IE8 or earlier browser is 'undefined'
+        if (typeof window.getSelection === 'undefined') return;
+
+        var selection = window.getSelection();
+        // if the selection is short let's not annoy our users.
+        if (('' + selection).length < Number.parseInt('300')) {
+            return;
+        }
+
+        // create a div outside of the visible area and fill it with the selected text.
+        var bodyElement = document.getElementsByTagName('body')[0];
+        var newdiv = document.createElement('div');
+        newdiv.style.position = 'absolute';
+        newdiv.style.left = '-99999px';
+        bodyElement.appendChild(newdiv);
+        newdiv.appendChild(selection.getRangeAt(0).cloneContents());
+
+        // we need a <pre> tag workaround.
+        // otherwise the text inside "pre" loses all the line breaks!
+        //if (selection.getRangeAt(0).commonAncestorContainer.nodeName === 'PRE') {
+          //  newdiv.innerHTML = "<pre>" + newdiv.innerHTML + "</pre>";
+        //}
+        newdiv.innerHTML = "<pre>" + newdiv.innerHTML + "</pre>";
+        var url = document.location.href;
+        newdiv.innerHTML += '<br />'
+            + '来源: xiezhrspace<br />'
+            + '文章作者: xiezhr<br />'
+            + '文章链接: <a href="' + url + '">' + url + '</a><br />'
+            + '本文章著作权归作者所有，任何形式的转载都请注明出处。';
+
+        selection.selectAllChildren(newdiv);
+        window.setTimeout(function () {bodyElement.removeChild(newdiv);}, 200);
+    });
+</script>
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+<!-- 代码块折行 -->
+
+<style type="text/css">
+code[class*="language-"], pre[class*="language-"] { white-space: pre !important; }
+</style>
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="https://fastly.jsdelivr.net/gh/xiezhr/xiezhrblog-cdn-source/source/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+
+
+    <style>
+    .youpaiyunlogo {
+        height: 26px;
+        display: inline-block;
+        vertical-align: top;
+    }
+</style>
+<footer class="page-footer bg-color">
+    
+    <div class="container row center-align" style="margin-bottom: 15px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            <span id="year">2020</span>
+            <a href="/about" target="_blank">xiezhr</a>
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            <br>
+            
+            &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
+                class="white-color">204.6k</span>&nbsp;字
+            
+            
+            
+            
+            
+            
+            <span id="busuanzi_container_site_pv">
+                |&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;<span id="busuanzi_value_site_pv"
+                    class="white-color"></span>&nbsp;次
+            </span>
+            
+            
+            <span id="busuanzi_container_site_uv">
+                |&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;<span id="busuanzi_value_site_uv"
+                    class="white-color"></span>&nbsp;人
+            </span>
+            
+            <br>
+            
+            <span id="sitetime">载入运行时间...</span>
+            <script>
+                function siteTime() {
+                    var seconds = 1000;
+                    var minutes = seconds * 60;
+                    var hours = minutes * 60;
+                    var days = hours * 24;
+                    var years = days * 365;
+                    var today = new Date();
+                    var startYear = "2020";
+                    var startMonth = "11";
+                    var startDate = "17";
+                    var startHour = "9";
+                    var startMinute = "1";
+                    var startSecond = "1";
+                    var todayYear = today.getFullYear();
+                    var todayMonth = today.getMonth() + 1;
+                    var todayDate = today.getDate();
+                    var todayHour = today.getHours();
+                    var todayMinute = today.getMinutes();
+                    var todaySecond = today.getSeconds();
+                    var t1 = Date.UTC(startYear, startMonth, startDate, startHour, startMinute, startSecond);
+                    var t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond);
+                    var diff = t2 - t1;
+                    var diffYears = Math.floor(diff / years);
+                    var diffDays = Math.floor((diff / days) - diffYears * 365);
+                    var diffHours = Math.floor((diff - (diffYears * 365 + diffDays) * days) / hours);
+                    var diffMinutes = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours) /
+                        minutes);
+                    var diffSeconds = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours -
+                        diffMinutes * minutes) / seconds);
+                    if (startYear == todayYear) {
+                        document.getElementById("year").innerHTML = todayYear;
+                        document.getElementById("sitetime").innerHTML = "小破站已在各种灾难中安全运行 " + diffDays + " 天 " + diffHours +
+                            " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
+                    } else {
+                        document.getElementById("year").innerHTML = startYear + " - " + todayYear;
+                        document.getElementById("sitetime").innerHTML = "小破站已在各种灾难中安全运行 " + diffYears + " 年 " + diffDays +
+                            " 天 " + diffHours + " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
+                    }
+                }
+                setInterval(siteTime, 1000);
+            </script>
+            
+            <br>
+            
+            <span id="icp"><img src="/medias/icp.png" style="vertical-align: text-bottom;" />
+                <a href="https://beian.miit.gov.cn/" target="_blank">滇ICP备2020008901号</a>
+            </span>
+            
+            <a href="https://www.upyun.com/?utm_source=lianmeng&amp;utm_medium=referra" target="_blank" title="本站由又拍云 提供CDN加速/云存储服务" >
+                <img src="https://cdn2.sublimerui.top/2021/01/09/4a78e24138103.png"class="youpaiyunlogo"/>
+            </a>
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/xiezhr" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+    <a href="https://cdn.jsdelivr.net/gh/xiezhr/xiezhrblog-cdn-source@main/blog-img/1653405669657wx.jpg" class="tooltipped" target="_blank" data-tooltip="微信联系我: https://cdn.jsdelivr.net/gh/xiezhr/xiezhrblog-cdn-source@main/blog-img/1653405669657wx.jpg" data-position="top" data-delay="50">
+        <i class="fab fa-weixin"></i>
+    </a>
+
+
+
+    <a href="https://www.jianshu.com/u/2b57477b4c5a" class="tooltipped" target="_blank" data-tooltip="关注我的简书: https://www.jianshu.com/u/2b57477b4c5a" data-position="top" data-delay="50">
+        <i class="fab fa-jianshu">简</i>
+    </a>
+
+
+
+    <a href="https://blog.csdn.net/rong09_13" class="tooltipped" target="_blank" data-tooltip="关注我的CSDN: https://blog.csdn.net/rong09_13" data-position="top" data-delay="50">
+        <i class="fab fa-csdn">C</i>
+    </a>
+
+
+
+    <a href="https://juejin.im/user/1829211147871415/posts" class="tooltipped" target="_blank" data-tooltip="关注我的掘金: https://juejin.im/user/1829211147871415/posts" data-position="top" data-delay="50">
+        <i class="fab fa-juejin">掘</i>
+    </a>
+
+
+
+    <a href="mailto:1666397814@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=1666397814" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 1666397814" data-position="top" data-delay="50">
+        <i class="fab fa-qq"></i>
+    </a>
+
+
+
+
+
+    <a href="https://www.zhihu.com/people/rong-xie-49-35" class="tooltipped" target="_blank" data-tooltip="关注我的知乎: https://www.zhihu.com/people/rong-xie-49-35" data-position="top" data-delay="50">
+        <i class="fab fa-zhihu1">知</i>
+    </a>
+
+
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script src="https://fastly.jsdelivr.net/gh/xiezhr/xiezhrblog-cdn-source/source/js/search.js"></script>
+<script type="text/javascript">
+$(function () {
+    searchFunc('/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <style>
+    .top-scroll .btn-floating {
+        background: rgb(73, 177, 245);
+        width: 38px;
+        height: 38px;
+    }
+
+</style>
+
+<!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="https://fastly.jsdelivr.net/gh/xiezhr/xiezhrblog-cdn-source/source/libs/materialize/materialize.min.js"></script>
+    <script src="https://fastly.jsdelivr.net/gh/xiezhr/xiezhrblog-cdn-source/source/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="https://fastly.jsdelivr.net/gh/xiezhr/xiezhrblog-cdn-source/source/libs/aos/aos.js"></script>
+    <script src="https://fastly.jsdelivr.net/gh/xiezhr/xiezhrblog-cdn-source/source/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="https://fastly.jsdelivr.net/gh/xiezhr/xiezhrblog-cdn-source/source/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="https://fastly.jsdelivr.net/gh/xiezhr/xiezhrblog-cdn-source/source/js/matery.js"></script>
+
+    
+    <!-- 自动更改网站标题 -->
+    <script type="text/javascript">
+        var OriginTitile=document.title,st;
+        document.addEventListener("visibilitychange",function(){
+            document.hidden?(document.title="ヽ(●-`Д´-)ノ你要玩捉迷藏嘛",clearTimeout(st)):(document.title="(Ő∀Ő3)ノ欢迎回来！",st=setTimeout(function(){document.title="从0到1每天学一点点"},3e3))
+        })
+    </script>
+
+    <div id="weather-v2-plugin-simple"></div>
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    
+    <script async src="https://fastly.jsdelivr.net/gh/xiezhr/xiezhrblog-cdn-source/source/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+    
+    <script type="text/javascript" color="0,0,255"
+        pointColor="0,0,255" opacity='0.7'
+        zIndex="-1" count="120"
+        src="https://fastly.jsdelivr.net/gh/xiezhr/xiezhrblog-cdn-source/source/libs/background/canvas-nest.js"></script>
+    
+
+    
+
+    
+
+    
+    <script src="https://fastly.jsdelivr.net/gh/xiezhr/xiezhrblog-cdn-source/source/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+    <!--添加全局深色模式-->
+    <script> 
+        if (localStorage.getItem('dark') === '1') { 
+            document.body.classList.add('dark'); 
+        } else if (new Date().getHours() >= 22 || new Date().getHours() < 7) {
+             document.body.classList.add('dark'); 
+        } else if (matchMedia('(prefers-color-scheme: dark)').matches) { 
+            document.body.classList.add('dark'); 
+        } 
+    </script> 
+    <a onclick="switchNightMode()" id="sma"> 
+        <i class="fa fa-moon-o" id="nightMode" aria-hidden="true"></i> 
+    </a>
+</body>
+
+</html>
