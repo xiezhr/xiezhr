@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>快速上手kettl （三）壶里能倒出些啥？</title>
+    <title>快速上手kettl （四）壶里能倒出些啥？</title>
     <url>/archives/36e1e77b.html</url>
     <content><![CDATA[<h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>通过前面的文章中我们对<code>kettle</code> 这把“<strong>壶</strong>” 做了简单介绍，并对“<strong>壶</strong>” 里能装些啥也具体说了下。</p>
 <p>大家应该对<code>kettle</code>这把壶有了整体的认知，本篇文章我们就来说一说<code>kettle</code> 这<strong>壶</strong> 通过对各种数据加工后，</p>
@@ -21525,9 +21525,9 @@ pull：更新到本地
         <category>Java</category>
       </categories>
       <tags>
+        <tag>Java</tag>
         <tag>IntelliJ IDEA</tag>
         <tag>IDEA</tag>
-        <tag>Java</tag>
       </tags>
   </entry>
   <entry>
@@ -21643,8 +21643,8 @@ pull：更新到本地
         <category>年终总结</category>
       </categories>
       <tags>
-        <tag>2021</tag>
         <tag>年终总结</tag>
+        <tag>2021</tag>
       </tags>
   </entry>
   <entry>
