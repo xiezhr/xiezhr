@@ -1,12 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title></title>
-    <url>/archives/0.html</url>
-    <content><![CDATA[<hr>
-<p>title: PB从入坑到放弃（三）数据窗口<br>tag: ‘PB,PowerBuilder,数据库技术’<br>categories: ‘PB,PowerBuilder,数据库技术’<br>comment: true<br>description: PB从入坑到放弃（三）数据窗口<br>summary: PB从入坑到放弃（三）数据窗口<br>keywords: ‘PB,PowerBuilder,数据库技术’<br>img: ‘<a href="http://blog.xiezhrspace.cn/blog-img/PB%E4%BB%8E%E5%85%A5%E5%9D%91%E5%88%B0%E6%94%BE%E5%BC%83%EF%BC%88%E4%B8%89%EF%BC%89.png&#39;">http://blog.xiezhrspace.cn/blog-img/PB从入坑到放弃（三）.png&#39;</a><br>author: xiezhr<br>date: 2023-07-10 07:15:00</p>
-<hr>
-<h3 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h3><p>数据窗口是<code>Pb</code>的一个特色控件，有了数据窗口对于<code>pb</code>来说可谓如虎添翼。</p>
+    <title>PB从入坑到放弃（三）数据窗口</title>
+    <url>/archives/1cae4cbe.html</url>
+    <content><![CDATA[<h3 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h3><p>数据窗口是<code>Pb</code>的一个特色控件，有了数据窗口对于<code>pb</code>来说可谓如虎添翼。</p>
 <p>对数据库中的数据操作，几乎都可以在数据窗口中完成。</p>
 <p>使用数据窗口可以简单检索数据、以图形化的方式显示数据、绘制功能强大的数据统计报表。</p>
 <h3 id="一、-数据窗口画板"><a href="#一、-数据窗口画板" class="headerlink" title="一、 数据窗口画板"></a>一、 数据窗口画板</h3><blockquote>
@@ -1219,6 +1216,12 @@ dw_1<span class="token punctuation">.</span><span class="token function">modify<
 <p>方法Ⅱ</p>
 <p> 用列表框显示出所有的列，可以多选高亮列。通过Modify函数动态定义选中列的位置，宽度以及是否可见等属性</p>
 ]]></content>
+      <categories>
+        <category>PB,PowerBuilder,数据库技术</category>
+      </categories>
+      <tags>
+        <tag>PB,PowerBuilder,数据库技术</tag>
+      </tags>
   </entry>
   <entry>
     <title>PB从入坑到放弃（二）编码规范</title>
