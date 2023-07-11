@@ -1,6 +1,2314 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title></title>
+    <url>/archives/0.html</url>
+    <content><![CDATA[<hr>
+<p>title: PB从入坑到放弃（三）数据窗口<br>tag: ‘PB,PowerBuilder,数据库技术’<br>categories: ‘PB,PowerBuilder,数据库技术’<br>comment: true<br>description: PB从入坑到放弃（三）数据窗口<br>summary: PB从入坑到放弃（三）数据窗口<br>keywords: ‘PB,PowerBuilder,数据库技术’<br>img: ‘<a href="http://blog.xiezhrspace.cn/blog-img/PB%E4%BB%8E%E5%85%A5%E5%9D%91%E5%88%B0%E6%94%BE%E5%BC%83%EF%BC%88%E4%B8%89%EF%BC%89.png&#39;">http://blog.xiezhrspace.cn/blog-img/PB从入坑到放弃（三）.png&#39;</a><br>author: xiezhr<br>date: 2023-07-10 07:15:00</p>
+<hr>
+<h3 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h3><p>数据窗口是<code>Pb</code>的一个特色控件，有了数据窗口对于<code>pb</code>来说可谓如虎添翼。</p>
+<p>对数据库中的数据操作，几乎都可以在数据窗口中完成。</p>
+<p>使用数据窗口可以简单检索数据、以图形化的方式显示数据、绘制功能强大的数据统计报表。</p>
+<h3 id="一、-数据窗口画板"><a href="#一、-数据窗口画板" class="headerlink" title="一、 数据窗口画板"></a>一、 数据窗口画板</h3><blockquote>
+<p>数据窗口画板由Design， Preview， Control List， Data， Properties和 Column Specification  6个试窗构成</p>
+</blockquote>
+<p><img src="http://blog.xiezhrspace.cn/blog-img/image-20230702150748503.png" alt="数据窗口画板"></p>
+<h4 id="1-1-Design-视窗"><a href="#1-1-Design-视窗" class="headerlink" title="1.1  Design 视窗"></a>1.1  Design 视窗</h4><p>Design 是一个非常重要的视窗 ，使用菜单 Design→Options 来改变 Design 窗口的外观  </p>
+<h5 id="1-1-1-General-tab页设置"><a href="#1-1-1-General-tab页设置" class="headerlink" title="1.1.1 General tab页设置"></a>1.1.1 General tab页设置</h5><p><img src="http://blog.xiezhrspace.cn/blog-img/image-20230702152010971.png" alt="General"></p>
+<p>① <code>Snap to Grid</code>：选中该属性时，在数据窗口中的部件自动和网格对齐， 建议都选中</p>
+<p>② <code>Show Grid</code>：是否显示网格。  </p>
+<table>
+<thead>
+<tr>
+<th>– 未选中</th>
+<th>– 选中后</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><img src="http://blog.xiezhrspace.cn/blog-img/image-20230702151428110.png" alt="未选中"></td>
+<td><img src="http://blog.xiezhrspace.cn/blog-img/image-20230702151443738.png" alt="选中后"></td>
+</tr>
+</tbody></table>
+<p>③<code>Show Ruler</code>：显示标尺。 </p>
+<table>
+<thead>
+<tr>
+<th>– 未选中</th>
+<th>– 选中</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><img src="http://blog.xiezhrspace.cn/blog-img/image-20230702151536002.png" alt="未选中标尺"></td>
+<td><img src="http://blog.xiezhrspace.cn/blog-img/image-20230702151549244.png" alt="选中标尺"></td>
+</tr>
+</tbody></table>
+<p>④ <code> X， Y</code>：网格之间的间距，单位是数据窗口属性中设置的单位  </p>
+<p>⑤<code> Show Edges</code>：是否显示边框。主要针对字段、标签、文本等而言  </p>
+<p>⑥ <code>Retrieve on Preview</code>：是否在预览时检索</p>
+<h5 id="1-1-2-Generation-tab页设置"><a href="#1-1-2-Generation-tab页设置" class="headerlink" title="1.1.2 Generation   tab页设置"></a>1.1.2 Generation   tab页设置</h5><p><img src="http://blog.xiezhrspace.cn/blog-img/image-20230702152051993.png" alt="Generation   "></p>
+<p>① <code>Presentation Style</code>：在该下拉列表框中可以选择要设置哪种类型的数据窗口。下面的<br>其他操作都是针对选中的那种类型的数据窗口而言的。<br>②<code> Background Color</code>：设置数据窗口的背景颜色。<br>③<code> Text 组框</code>： border 可以设置 text 部件的边框类型， color 可以设置文本的颜色。<br>④ <code>Columns 组框</code>： border 可以设置字段的边框类型， color 可以设置字段中文字的颜  </p>
+<h5 id="1-1-3-Prefixes-tab页设置"><a href="#1-1-3-Prefixes-tab页设置" class="headerlink" title="1.1.3 Prefixes  tab页设置"></a>1.1.3 Prefixes  tab页设置</h5><blockquote>
+<p>设置数据窗口中放置部件时命名的默认前缀  </p>
+</blockquote>
+<p><img src="http://blog.xiezhrspace.cn/blog-img/image-20230702152248757.png" alt="Prefixes"></p>
+<h4 id="1-2-Preview-视窗"><a href="#1-2-Preview-视窗" class="headerlink" title="1.2  Preview 视窗"></a>1.2  Preview 视窗</h4><p>可以预览数据窗口的外观，并显示相应表中对应的数据  </p>
+<p>在该窗口中可以进行各种数据操作，包括数据过滤、数据排序、增加数据、删除数据、检索数据、查找数据以及翻页等  </p>
+<p>这些操作都可以在鼠标右键弹出菜单中完成</p>
+<h5 id="1-2-1-查找数据"><a href="#1-2-1-查找数据" class="headerlink" title="1.2.1 查找数据"></a>1.2.1 查找数据</h5><table>
+<thead>
+<tr>
+<th>–呼出菜单</th>
+<th>– 查找内容</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><img src="http://blog.xiezhrspace.cn/blog-img/image-20230702152859447.png" alt="image-20230702152859447"></td>
+<td><img src="http://blog.xiezhrspace.cn/blog-img/image-20230702153243006.png" alt="image-20230702153243006"></td>
+</tr>
+</tbody></table>
+<h5 id="1-2-2-翻页"><a href="#1-2-2-翻页" class="headerlink" title="1.2.2 翻页"></a>1.2.2 翻页</h5><table>
+<thead>
+<tr>
+<th>– 呼出菜单</th>
+<th>–呼出菜单</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><img src="http://blog.xiezhrspace.cn/blog-img/image-20230702153416310.png" alt="image-20230702153416310"></td>
+<td><img src="http://blog.xiezhrspace.cn/blog-img/image-20230702153432362.png" alt="image-20230702153432362"></td>
+</tr>
+</tbody></table>
+<ul>
+<li>first page（翻到第一页）</li>
+<li> prior page（前一页）</li>
+<li> next page（下一页）</li>
+<li> last page（最后一页）  </li>
+</ul>
+<h5 id="1-2-3-增加、删除数据"><a href="#1-2-3-增加、删除数据" class="headerlink" title="1.2.3 增加、删除数据"></a>1.2.3 增加、删除数据</h5><p>在数据窗口中增加或者删除数据，得首先设置数据窗口相应的属性，</p>
+<p>允许修改的字段Tab Order 值不能为 0</p>
+<table>
+<thead>
+<tr>
+<th>–</th>
+<th>–</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><img src="http://blog.xiezhrspace.cn/blog-img/image-20230702153817872.png" alt="image-20230702153817872"></td>
+<td><img src="http://blog.xiezhrspace.cn/blog-img/image-20230702153937111.png" alt="image-20230702153937111"></td>
+</tr>
+</tbody></table>
+<h4 id="1-3-Control-List-视窗"><a href="#1-3-Control-List-视窗" class="headerlink" title="1.3 Control List 视窗"></a>1.3 Control List 视窗</h4><p>Control List 是数据窗口中所有的部件构成的一个列表  </p>
+<p><img src="http://blog.xiezhrspace.cn/blog-img/image-20230702154224282.png" alt="image-20230702154224282"></p>
+<h4 id="1-4-Data-视窗"><a href="#1-4-Data-视窗" class="headerlink" title="1.4 Data 视窗"></a>1.4 Data 视窗</h4><p>显示的是数据窗口对象中的数据,很多操作和 Preview 视窗中的都相同 .</p>
+<p>该视窗侧重于对应表中各个字段的取值，而 Preview 视窗侧重于数据窗口对象的显示效果  </p>
+<p><img src="http://blog.xiezhrspace.cn/blog-img/image-20230702154503043.png" alt="image-20230702154503043"></p>
+<h4 id="1-5-Properties-视窗"><a href="#1-5-Properties-视窗" class="headerlink" title="1.5 Properties 视窗"></a>1.5 Properties 视窗</h4><p>属性视窗显示的是当前选中对象的属性，可以对这些属性进行修改  </p>
+<p><img src="http://blog.xiezhrspace.cn/blog-img/image-20230702154650737.png" alt="Properties 视窗  "></p>
+<h4 id="1-6-Column-Specification-视窗"><a href="#1-6-Column-Specification-视窗" class="headerlink" title="1.6 Column Specification 视窗"></a>1.6 Column Specification 视窗</h4><p>是一个比较重要的视窗，在该视窗中可以增加、删除、修改列的初始值、检验表达式或者校验信息  </p>
+<p><img src="http://blog.xiezhrspace.cn/blog-img/image-20230702155218661.png" alt="校验信息"></p>
+<p><strong>举个栗子：</strong></p>
+<p>假设 <code>empno</code>的位数是 10，如果位数不正确，则应该提醒用户。</p>
+<p>在<code> Validation Expression</code>列为字段 <code>empno</code>输入校验表达式：<br><code>len(empno) = 10</code><br>在 <code>Validation message </code>中输入：’员工编号必须为 10 位！ ‘<br>当程序运行时，会自动校验用户输入的内容是否位数为 10 位，否则显示输入的信息  </p>
+<h3 id="二、数据窗口的数据源"><a href="#二、数据窗口的数据源" class="headerlink" title="二、数据窗口的数据源"></a>二、数据窗口的数据源</h3><p><code>Pb</code>提供的 <code>Quick Select</code>（快速选择类型）、 <code>SQL Select</code>（ SQL 选择类型）、<code> Query</code>（查询类型）、 <code>External</code><br>（外部类型） 和 <code>Stored Procedure</code>（存储过程类型）  5种数据源</p>
+<h4 id="2-1-Quick-Select-数据源"><a href="#2-1-Quick-Select-数据源" class="headerlink" title="2.1 Quick Select 数据源"></a>2.1 Quick Select 数据源</h4><p>快捷数据源，是经常使用的一种数据源，可以快速地创建数据窗口  。</p>
+<p>使用这种数据源，只能从一个数据表或者视图中选取数据</p>
+<p>需要从多个数据表中选取数据而且还想使用这种数据源时，只能创建对应的视图</p>
+<table>
+<thead>
+<tr>
+<th>–</th>
+<th>–</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><img src="http://blog.xiezhrspace.cn/blog-img/image-20230702161151928.png" alt="image-20230702161151928"></td>
+<td><img src="http://blog.xiezhrspace.cn/blog-img/image-20230702161616327.png" alt="image-20230702161616327"></td>
+</tr>
+</tbody></table>
+<h4 id="2-2-SQL-Select-数据源"><a href="#2-2-SQL-Select-数据源" class="headerlink" title="2.2  SQL Select 数据源"></a>2.2  SQL Select 数据源</h4><p>选择这种数据源时，SQL语句设计是图形化的，也可以手工输入SQL语句</p>
+<table>
+<thead>
+<tr>
+<th>– ①选择数据源</th>
+<th>–②选择表</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><img src="http://blog.xiezhrspace.cn/blog-img/image-20230702162238916.png" alt="image-20230702162238916"></td>
+<td><img src="http://blog.xiezhrspace.cn/blog-img/image-20230702162329169.png" alt="image-20230702162329169"></td>
+</tr>
+<tr>
+<td>–③ 选择字段</td>
+<td>– SQL语法和图形化切换</td>
+</tr>
+<tr>
+<td><img src="http://blog.xiezhrspace.cn/blog-img/image-20230702162635260.png" alt="image-20230702162635260"></td>
+<td><img src="http://blog.xiezhrspace.cn/blog-img/image-20230702162841887.png" alt="image-20230702162841887"></td>
+</tr>
+<tr>
+<td>– ④ 定义检索条件</td>
+<td></td>
+</tr>
+<tr>
+<td><img src="http://blog.xiezhrspace.cn/blog-img/image-20230702163453988.png" alt="image-20230702163453988"></td>
+<td><img src="http://blog.xiezhrspace.cn/blog-img/image-20230702163614029.png" alt="image-20230702163614029"></td>
+</tr>
+</tbody></table>
+<h4 id="2-3-Query-数据源"><a href="#2-3-Query-数据源" class="headerlink" title="2.3  Query 数据源"></a>2.3  Query 数据源</h4><p><code>PB</code>可以将特定的 <code>SQL </code>语句保存为 <code>Query</code> 对象， 不同的 Query 数据源的数据窗口都可以使用这些已经保存<br><code>Query</code>对象来作为数据源，增强了 <code>SQL</code> 语句的重用性  </p>
+<table>
+<thead>
+<tr>
+<th>–① 新建<code>Query</code>数据源对象</th>
+<th>–② 使用<code>Query</code> 数据源</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><img src="http://blog.xiezhrspace.cn/blog-img/image-20230702164438783.png" alt="新建`Query`数据源对象"></td>
+<td><img src="http://blog.xiezhrspace.cn/blog-img/image-20230702164526974.png" alt=" 使用`Query` 数据源"></td>
+</tr>
+</tbody></table>
+<h4 id="2-4-External-数据源"><a href="#2-4-External-数据源" class="headerlink" title="2.4 External 数据源"></a>2.4 External 数据源</h4><p>是一种比较特殊的数据源，可以弥补其他四种数据源的不足  </p>
+<p>当和不存在于数据库中的数据打交道或者要利用数据窗口的某些特性但不进行数据处理时，这两种情况下都可以使用 External 数据源的数据窗口  </p>
+<table>
+<thead>
+<tr>
+<th>–① 指定数据源</th>
+<th>– ② 设置数据类型及长度</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><img src="http://blog.xiezhrspace.cn/blog-img/image-20230702165139799.png" alt="指定数据源"></td>
+<td><img src="http://blog.xiezhrspace.cn/blog-img/image-20230702165404543.png" alt="设置数据类型及长度"></td>
+</tr>
+</tbody></table>
+<h4 id="2-5-Stored-Procedure（存储过程）"><a href="#2-5-Stored-Procedure（存储过程）" class="headerlink" title="2.5 Stored Procedure（存储过程）"></a>2.5 Stored Procedure（存储过程）</h4><p>可以直接使用数据库中已经创建好的存储过程作为数据源</p>
+<p><code>SQL</code> 语句无需网上传送，可以减少网络通信量及网上传输<code> SQL</code> 语句的时间， 所以执行效率比其他数据源的数据窗口要高  </p>
+<table>
+<thead>
+<tr>
+<th>– ① 选择数据源</th>
+<th>–② 选择数据库中创建好的存储过程</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><img src="http://blog.xiezhrspace.cn/blog-img/image-20230702165806412.png" alt="image-20230702165806412"></td>
+<td><img src="http://blog.xiezhrspace.cn/blog-img/image-20230704224527259.png" alt="存储过程"></td>
+</tr>
+</tbody></table>
+<h4 id="2-6-Web-Service-数据源"><a href="#2-6-Web-Service-数据源" class="headerlink" title="2.6 Web Service 数据源"></a>2.6 Web Service 数据源</h4><blockquote>
+<p>这是<code>PB</code> 11.5 以后新加的数据源</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>–① 选择Web Service 数据源</th>
+<th>–②输入WebService的WSDL文件的地址</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><img src="http://blog.xiezhrspace.cn/blog-img/image-20230704232632844.png" alt="选择webservice"></td>
+<td><img src="http://blog.xiezhrspace.cn/blog-img/image-20230704232850151.png" alt="wsdl地址"></td>
+</tr>
+<tr>
+<td>–③ 选择WebService接口</td>
+<td>–④ 选择WebService 接口方法</td>
+</tr>
+<tr>
+<td><img src="http://blog.xiezhrspace.cn/blog-img/image-20230704232953813.png" alt="选择WebService接口"></td>
+<td><img src="http://blog.xiezhrspace.cn/blog-img/image-20230704233218303.png" alt="WebService 接口方法"></td>
+</tr>
+</tbody></table>
+<h3 id="三、数据窗口显示样式"><a href="#三、数据窗口显示样式" class="headerlink" title="三、数据窗口显示样式"></a>三、数据窗口显示样式</h3><h4 id="3-1-Grid-显示样式"><a href="#3-1-Grid-显示样式" class="headerlink" title="3.1 Grid 显示样式"></a>3.1 Grid 显示样式</h4><p>数据窗口布局整齐，但不能灵活地安排字段、标签、表头的布局  </p>
+<p>字段横向排列在 detail band 中，标签横向排列在 header band 中，和字段相对应，字段和字段之<br>间有网格线分隔，类似于电子表格  。</p>
+<p>如下图所示</p>
+<p><img src="http://blog.xiezhrspace.cn/blog-img/image-20230705082756726.png" alt="Grid 显示样式"></p>
+<h4 id="3-2-Tabular-显示样式"><a href="#3-2-Tabular-显示样式" class="headerlink" title="3.2 Tabular 显示样式"></a>3.2 Tabular 显示样式</h4><p>字段、标签的布局和 Grid 显示样式的数据窗口相同，都是横向排列的，但是字段之间没有网格线分隔。</p>
+<p>字段和标签的布局可以随意调整，在 header band 中的标签可以随意拖放到 detail band 中，</p>
+<p>detail band 中的字段也可以拖放到 header band 中  </p>
+<p><img src="http://blog.xiezhrspace.cn/blog-img/image-20230705082706279.png" alt="Tabular 显示样式"></p>
+<h4 id="3-3-Group-显示样式"><a href="#3-3-Group-显示样式" class="headerlink" title="3.3 Group 显示样式"></a>3.3 Group 显示样式</h4><p>数据窗口可以指定按那个（或那些）字段进行分组，可以用指定的分组条件将数据分组显示，并且允许为每组指定一些计算。  </p>
+<p>例如：要显示各部门员工的薪资数据，可以按部门分组</p>
+<table>
+<thead>
+<tr>
+<th>– ①按部门分组</th>
+<th>– ②分组后数据</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><img src="http://blog.xiezhrspace.cn/blog-img/image-20230706081121250.png" alt="image-20230706081121250"></td>
+<td><img src="http://blog.xiezhrspace.cn/blog-img/image-20230706081216960.png" alt="image-20230706081216960"></td>
+</tr>
+</tbody></table>
+<h4 id="3-4-Freedom-显示样式"><a href="#3-4-Freedom-显示样式" class="headerlink" title="3.4 Freedom 显示样式"></a>3.4 Freedom 显示样式</h4><p>这种显示样式的数据窗口布局也很灵活，可以随意安排字段和标签的位置  </p>
+<table>
+<thead>
+<tr>
+<th>– ① 选择Freeform</th>
+<th>– ②录入表单信息</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><img src="http://blog.xiezhrspace.cn/blog-img/image-20230706081444933.png" alt="image-20230706081444933"></td>
+<td><img src="http://blog.xiezhrspace.cn/blog-img/image-20230706082146853.png" alt="image-20230706082146853"></td>
+</tr>
+</tbody></table>
+<h4 id="3-5-Label-显示样式"><a href="#3-5-Label-显示样式" class="headerlink" title="3.5 Label 显示样式"></a>3.5 Label 显示样式</h4><p>如果用户想要生成邮件标签，可以使用 Label 显示样式的数据窗口来实现  </p>
+<p>在向导的指引下，可以设定标签的一些参数。</p>
+<p>可以指定标签的大小，包括三方面的设定： Label 本身的大小、Label 之间的边框、 Label 的布局顺序。</p>
+<p>在 Label 组框中，参数“ Across”指横向显示的标签数目， “ Down”表示一页中竖向显示的标签数目  </p>
+<table>
+<thead>
+<tr>
+<th>–</th>
+<th>–</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><img src="http://blog.xiezhrspace.cn/blog-img/image-20230706082846458.png" alt="image-20230706082846458"></td>
+<td><img src="http://blog.xiezhrspace.cn/blog-img/image-20230706082946035.png" alt="image-20230706082946035"></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><img src="http://blog.xiezhrspace.cn/blog-img/image-20230706083005580.png" alt="image-20230706083005580"></td>
+<td><img src="http://blog.xiezhrspace.cn/blog-img/image-20230706083027102.png" alt="image-20230706083027102"></td>
+</tr>
+</tbody></table>
+<p><img src="http://blog.xiezhrspace.cn/blog-img/image-20230706082757111.png" alt="最终效果"></p>
+<h4 id="3-6-N-up-显示样式"><a href="#3-6-N-up-显示样式" class="headerlink" title="3.6 N-up 显示样式"></a>3.6 N-up 显示样式</h4><p>可以在同一页上显示多列相同字段的一种特殊的显示样式 .</p>
+<p>可以设置每行重复显示字段的次数 ，默认是2</p>
+<p>这里我们每行显示2列员工编号和员工姓名</p>
+<table>
+<thead>
+<tr>
+<th>– ① 选择N-up样式</th>
+<th>– ②设置每行显示列数</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><img src="http://blog.xiezhrspace.cn/blog-img/image-20230706142754451.png" alt="image-20230706142754440"></td>
+<td><img src="http://blog.xiezhrspace.cn/blog-img/image-20230706142918517.png" alt="image-20230706142918266"></td>
+</tr>
+</tbody></table>
+<p><img src="http://blog.xiezhrspace.cn/blog-img/image-20230706143207138.png" alt="最终显示效果"></p>
+<h4 id="3-7-CrossTab-显示样式"><a href="#3-7-CrossTab-显示样式" class="headerlink" title="3.7 CrossTab 显示样式"></a>3.7 CrossTab 显示样式</h4><p>通过CrossTab 显示样式我们可以制作出下图所示的交叉报表</p>
+<table>
+<thead>
+<tr>
+<th>–① 选择CrossTab 显示样式</th>
+<th>–② 设置行分类、列分类</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><img src="http://blog.xiezhrspace.cn/blog-img/image-20230706144921837.png" alt="image-20230706144921837"></td>
+<td><img src="http://blog.xiezhrspace.cn/blog-img/image-20230706145208850.png" alt="image-20230706145207746"></td>
+</tr>
+</tbody></table>
+<p>最终显示效果</p>
+<p><img src="http://blog.xiezhrspace.cn/blog-img/image-20230706150705209.png" alt="交叉报表"></p>
+<h4 id="3-8-Graph-显示样式"><a href="#3-8-Graph-显示样式" class="headerlink" title="3.8 Graph 显示样式"></a>3.8 Graph 显示样式</h4><p>Graph 显示样式  可以显示饼图、柱状图、折线图等  </p>
+<p>Graph 显示样式的数据窗口时，三个主要参数是 </p>
+<ul>
+<li>Category  显示在横向坐标轴上的字段  </li>
+<li> Values    显示在纵向坐标轴上的字段  </li>
+<li>Series   横向坐标轴上同组比较时的分组标准  </li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>– ① 选择Graph 样式</th>
+<th>– ② 选择横向、纵向坐标</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><img src="http://blog.xiezhrspace.cn/blog-img/image-20230706151325074.png" alt="image-20230706151325074"></td>
+<td><img src="http://blog.xiezhrspace.cn/blog-img/image-20230706151601096.png" alt="image-20230706151600488"></td>
+</tr>
+<tr>
+<td>–③ 选择图表样式及设置标题</td>
+<td></td>
+</tr>
+<tr>
+<td><img src="http://blog.xiezhrspace.cn/blog-img/image-20230706151911224.png" alt="image-20230706151909292"></td>
+<td></td>
+</tr>
+</tbody></table>
+<p>我们这里选择柱状图显示，一共又17种样式可以选择，感兴趣的小伙伴可以都试试</p>
+<p><img src="http://blog.xiezhrspace.cn/blog-img/image-20230706152428639.png" alt="柱状图"></p>
+<h4 id="3-9-Composite-显示样式"><a href="#3-9-Composite-显示样式" class="headerlink" title="3.9  Composite 显示样式"></a>3.9  Composite 显示样式</h4><p>这种样式的数据窗口可以将多种类型的、多个逻辑上毫不相关的数据窗口放置到一起，是一种比较灵活的</p>
+<p>我们把前面制作好的柱状图和表格放到一起</p>
+<table>
+<thead>
+<tr>
+<th>– ① 选择Composite 显示样式</th>
+<th>– ② 选择要展示的报表</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><img src="http://blog.xiezhrspace.cn/blog-img/image-20230706170353099.png" alt="image-20230706170353099"></td>
+<td><img src="http://blog.xiezhrspace.cn/blog-img/image-20230706170534859.png" alt="image-20230706170534859"></td>
+</tr>
+</tbody></table>
+<p>最终显示效果</p>
+<p><img src="http://blog.xiezhrspace.cn/blog-img/image-20230706170940727.png" alt="混合图表"></p>
+<h4 id="3-10-RichText-显示样式"><a href="#3-10-RichText-显示样式" class="headerlink" title="3.10  RichText 显示样式"></a>3.10  RichText 显示样式</h4><p>这种样式的数据窗口使数据库中的数据和文字可以在一起排版，可以方便地将数据库中的数据和文字内容一起形成文<br>档、报告 。</p>
+<table>
+<thead>
+<tr>
+<th>– ① 选择RichText 显示样式</th>
+<th>– ② 选择文字处理工具</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><img src="http://blog.xiezhrspace.cn/blog-img/image-20230706171641052.png" alt="image-20230706171641052"></td>
+<td><img src="http://blog.xiezhrspace.cn/blog-img/image-20230706171834285.png" alt="image-20230706171834285"></td>
+</tr>
+</tbody></table>
+<p>最终显示效果</p>
+<p><img src="http://blog.xiezhrspace.cn/blog-img/image-20230706172534656.png" alt="文字处理"></p>
+<h4 id="3-11-OLE-2-0-显示样式"><a href="#3-11-OLE-2-0-显示样式" class="headerlink" title="3.11 OLE 2.0 显示样式"></a>3.11 OLE 2.0 显示样式</h4><p>OLE  对象链接和嵌入 。使用它可以将其他软件的功能引入到 <code>PB</code>开发的应用程序中  </p>
+<p>使用这种显示样式的数据窗口，可以借鉴其他软件的强大功能，弥补 <code>PB</code>在某些专业性较强领域中的不足或空白  </p>
+<table>
+<thead>
+<tr>
+<th>– ① 选择OLE 样式</th>
+<th>– ② 设置分组</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><img src="http://blog.xiezhrspace.cn/blog-img/image-20230707221130369.png" alt="image-20230707221130369"></td>
+<td><img src="http://blog.xiezhrspace.cn/blog-img/image-20230707221243781.png" alt="image-20230707221243781"></td>
+</tr>
+</tbody></table>
+<p><img src="http://blog.xiezhrspace.cn/blog-img/image-20230707221326629.png" alt="引入pdf功能"></p>
+<h4 id="3-12-TreeView-显示样式"><a href="#3-12-TreeView-显示样式" class="headerlink" title="3.12 TreeView 显示样式"></a>3.12 TreeView 显示样式</h4><p>该样式可以按照树形结构显示数据，我们以<code>emp</code>和<code>dept</code>表为例，以<code>dept_name</code> 字段进行分组</p>
+<table>
+<thead>
+<tr>
+<th>– ① 选择TreeView 样式</th>
+<th>– ② 选择dept_name分组</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><img src="http://blog.xiezhrspace.cn/blog-img/image-20230707221651250.png" alt="选择TreeView样式"></td>
+<td><img src="http://blog.xiezhrspace.cn/blog-img/image-20230708171958910.png" alt="image-20230708171958910"></td>
+</tr>
+</tbody></table>
+<p>最终效果</p>
+<p><img src="http://blog.xiezhrspace.cn/blog-img/image-20230708172214739.png" alt="根据部门分组显示员工信息"></p>
+<h3 id="四、数据窗口对象介绍"><a href="#四、数据窗口对象介绍" class="headerlink" title="四、数据窗口对象介绍"></a>四、数据窗口对象介绍</h3><p>数据窗口用带（ Band）将其分隔成四部分 ，一个标准的报表一般由题头、数据、页脚、总计四部分构成，分别对应数据窗口的 Header， Detail，<br>Summary 和 Footer 四部分  </p>
+<p><img src="http://blog.xiezhrspace.cn/blog-img/image-20230708173423024.png" alt="数据窗口四部分"></p>
+<table>
+<thead>
+<tr>
+<th>带</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>Header</code></td>
+<td>出现在每页的顶端，用于显示标题和列的题头。<br />放置表头、报表日期等一些能够方便查阅的内容， 即使这部分字段的 Tab Order 值不为 0、 DisplayOnly 属性为 False 也不允许用户编辑，并且也只能显示多条记录中的一条</td>
+</tr>
+<tr>
+<td><code>Detail</code></td>
+<td>包含了数据窗口对象的主体，显示了各行的数据和相关的标签。<br/>放置数据、表格，程序运行时，数据窗口自动处理该区域，根据数据库中的数据显示一条或者多条数据</td>
+</tr>
+<tr>
+<td><code>Summary</code></td>
+<td>出现在每页的底端，用来显示文本和页号 <br/>放置页内小计、页号等页脚方面的内容</td>
+</tr>
+<tr>
+<td><code>Footer</code></td>
+<td>出现在 DataWindow 对象的最后一页，用来为整个数据窗口对象显示总计和总和<br />放置总计、制表人等需要在表格最后放置的内容</td>
+</tr>
+</tbody></table>
+<h3 id="五、数据窗口常用函数"><a href="#五、数据窗口常用函数" class="headerlink" title="五、数据窗口常用函数"></a>五、数据窗口常用函数</h3><table>
+<thead>
+<tr>
+<th>函数</th>
+<th>参数</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>dw_1.insertrow(row)</code></td>
+<td><code>row</code> 设置插入位置<br /> 成功时返回插入成功的行号，失败返回-1 <br /><code>insertrow(0)</code> 表示在最后一行插入一行</td>
+<td>插入空行</td>
+</tr>
+<tr>
+<td><code>dw_1.deleterow(row)</code></td>
+<td><code>row</code> 要删除的行号<br />成功时返回1，失败时返回-1<br /><code>deleterow(0)</code> 代表删除当前行</td>
+<td>删除行</td>
+</tr>
+<tr>
+<td><code>dw_1.retrieve()</code></td>
+<td><code>dw_1.retrieve(参数1,参数2,参数3...)</code></td>
+<td>检索数据</td>
+</tr>
+<tr>
+<td><code>dw_1.update(accept,resetflag)</code></td>
+<td><code>accept</code>：默认为true，执行之前调用<br /><code>resetflag</code>:默认为true，数据窗口自动重置更新标志<br />成功返回1，失败返回-1</td>
+<td>修改或更新操作</td>
+</tr>
+<tr>
+<td><code>dw_1.setsort(format)</code></td>
+<td><code>format</code>: A 升序，D降序<br />成功时返回1，失败时返回-1</td>
+<td>设置排序</td>
+</tr>
+<tr>
+<td><code>dw_1.sort()</code></td>
+<td>成功是返回1，失败时返回-1</td>
+<td>按照当前数据窗口 的排序规则进行排 序</td>
+</tr>
+<tr>
+<td><code>dw_1.setfilter(format)</code></td>
+<td><code>format</code>:是字符串，可以使用字段名或字段号定义<br />成功时返回1，失败时返回-1<br />例1：<code>dw_1.setfilter(&quot;sal&gt; 5000 and age &lt; 10000&quot;)</code><br />例2：<code>dw_1.setfilter(#3&gt;5000)</code><br />例3：<code>dw_1.setfilter(&quot;&quot;)</code></td>
+<td>设置数据窗口的过 滤条件</td>
+</tr>
+<tr>
+<td><code>dw_1.filter()</code></td>
+<td></td>
+<td>对数据窗口进行过 滤</td>
+</tr>
+<tr>
+<td><code>dw_1.reset()</code></td>
+<td>成功返回1，失败返回-1</td>
+<td>清除数据窗口的所 有数据</td>
+</tr>
+<tr>
+<td><code>dw_1.scroll(number)</code></td>
+<td><code>number</code>:滚动的行数<br />参数为正数的时候向下滚动，为负数时向上滚动<br />成功返回控件第一行显示的数据行号，失败时返回-1</td>
+<td>设置滚动的行数</td>
+</tr>
+<tr>
+<td><code>dw_1.scrolltorow(row)</code></td>
+<td><code>row</code> 指定的行号<br />成功返回1，失败返回-1</td>
+<td>滚动到指定行</td>
+</tr>
+<tr>
+<td><code>dw_1.scrollpriorpage()</code></td>
+<td></td>
+<td>滚动到上一页</td>
+</tr>
+<tr>
+<td><code>dw_1.ScrollNextPage()</code></td>
+<td></td>
+<td>滚动到下一页</td>
+</tr>
+<tr>
+<td><code>dw_1.scrollpriorrow()</code></td>
+<td></td>
+<td>滚动到上一行</td>
+</tr>
+<tr>
+<td><code>dw_1.scrollnextrow()</code></td>
+<td></td>
+<td>滚动到下一行</td>
+</tr>
+<tr>
+<td><code>dw_1.getrow()</code></td>
+<td>没有当前行时返回0，失败返回-1，成功返回当前行号</td>
+<td>获得当前行的行号</td>
+</tr>
+<tr>
+<td><code>dw_1.getcolumn()</code></td>
+<td>没有当前列时返回0，失败返回-1，成功返回当前列的 列号</td>
+<td>获取当前列的列号</td>
+</tr>
+<tr>
+<td><code>dw_1.setrow(row)</code></td>
+<td><code>row</code> 指定的行号<br />成功返回1，失败返回-1</td>
+<td>设置当前行</td>
+</tr>
+<tr>
+<td><code>dw_1.setcolumn(column)</code></td>
+<td><code>coumn</code> 列号或列名<br />成功返回1，失败返回-1<br /><br />例：设置当前列为第5列<br /><code> dw_1.setcolumn(5)</code><br /><br />例：设置当前列为age列<br /><code>dw_1.setcolumn(&quot;age&quot;)</code></td>
+<td>设置当前列</td>
+</tr>
+<tr>
+<td><code>dw_1.setrowfocusindicator(f,x,y)</code></td>
+<td><code>f </code>用于指示当前行的可视化图标<br /><code> x</code> x坐标 <br /><code>y</code> y坐标<br /> 成功返回1，失败返回-1 <br /><br />例：设置手形图标<br /><code>dw_1.setrowfocusindicator(Hand!)</code><br /><br />例2：设置图片控件p_arrow为指示图标 <br /><code>dw_1.setrowfocusindicator(p_arrow)</code></td>
+<td>设置用于指示当前 行的可视化图标</td>
+</tr>
+<tr>
+<td><code>dw_1.rowcount()</code></td>
+<td>无数据时返回0，失败返回-1</td>
+<td>获得数据窗口总行 数</td>
+</tr>
+<tr>
+<td><code>dw_1.modifiedcount()</code></td>
+<td>返回被修改但未更新的数据行数<br />无数据时返回0，失 败返回-1</td>
+<td>获得数据窗口中被 修改，但未更新的 数据行数。（不包 括新插入的行）</td>
+</tr>
+<tr>
+<td><code>dw_1.deletedcount()</code></td>
+<td>无数据时返回0，失败返回-1</td>
+<td>获得数据窗口中做 了删除标记，未做 update操作的数 据行数</td>
+</tr>
+<tr>
+<td><code>dw_1.filteredcount()</code></td>
+<td>无数据时返回0，失败返回-1</td>
+<td>获得被过滤掉的数 据行数</td>
+</tr>
+<tr>
+<td><code>dw_1.accepttext()</code></td>
+<td></td>
+<td>将还在编辑中的数 据，传送到数据窗 口控件</td>
+</tr>
+<tr>
+<td><code>dw_1.gettext()</code></td>
+<td></td>
+<td>获得编辑控件中的 文本</td>
+</tr>
+<tr>
+<td><code>dw_1.settext(text)</code></td>
+<td>成功返回1，失败返回-1</td>
+<td>设置编辑控件中的 文本</td>
+</tr>
+<tr>
+<td><code>dw_1.GetItemDate (row,column,dwbuffer,originalvalue)</code></td>
+<td><code>row</code> 指定数据行的行号<br /><code> column</code>： 指定的数据列<br /><code> dwbuffer</code>: 指定读取数据的缓冲区<br /><code> originalvalue</code> 为true时，返回原始缓冲区的值，为 false时返回当前值 <br /><br />例：取数据窗口<code>dw_1</code>第3行<code>first_day</code>字段的日期型变量 <code>dw_1.getitemdate(3,&quot;first_day&quot;)</code></td>
+<td>获取指定字段的日 期型变量</td>
+</tr>
+<tr>
+<td><code>dw_1.GetItemDateTime(row,column,dwbuffer,originalvalue)</code></td>
+<td><code>row</code>: 指定数据行的行号<br /><code> column</code>： 指定的数据列<br /><code> dwbuffer</code> 指定读取数据的缓冲区<br /><code> originalvalue</code> 为true时，返回原始缓冲区的值，为 false时返回当前值</td>
+<td>获取指定字段的日 期时间型变量</td>
+</tr>
+<tr>
+<td><code>dw_1.GetItemTime(row,column,dwbuffer,originalvalue)</code></td>
+<td><code>row</code> 指定数据行的行号<br /><code> column</code>： 指定的数据列<br /><code> dwbuffer</code> 指定读取数据的缓冲区 <br /><code>originalvalue</code> 为true时，返回原始缓冲区的值，为 false时返回当前值</td>
+<td>获取指定字段的时 间型变量</td>
+</tr>
+<tr>
+<td><code>dw_1.GetItemString(row,column,dwbuffer,originalvalue)</code></td>
+<td><code>row</code> 指定数据行的行号<br /><code> column</code>： 指定的数据列<br /><code> dwbuffer</code> 指定读取数据的缓冲区<br /><code> originalvalue</code> 为true时，返回原始缓冲区的值，为 false时返回当前值</td>
+<td>获得指定字段的字 符串变量</td>
+</tr>
+<tr>
+<td><code>dw_1.GetItemNumber(row,column,dwbuffer,originalvalue)</code></td>
+<td><code>row</code> 指定数据行的行号<br /><code> column</code>： 指定的数据列<br /><code> dwbuffer</code>: 指定读取数据的缓冲区 <br /><code>originalvalue</code> 为true时，返回原始缓冲区的值，为 false时返回当前值</td>
+<td>获得指定字段的数 值型变量</td>
+</tr>
+<tr>
+<td><code>dw_1.GetItemDecimal(row,column,dwbuffer,originalvalue)</code></td>
+<td><code>row</code> 指定数据行的行号<br /><code> column</code>： 指定的数据列<br /><code> dwbuffer</code> 指定读取数据的缓冲区 <br /><code>originalvalue</code> 为true时，返回原始缓冲区的值，为 false时返回当前值</td>
+<td>获得指定字段的小 数型变量</td>
+</tr>
+<tr>
+<td><code>dw_1.sharedata(dwsecondary)</code></td>
+<td>成功返回1，失败返回-1</td>
+<td>数据窗口控件数据 共享，保持同步更 新</td>
+</tr>
+<tr>
+<td><code>dw_1.sharedataoff()</code></td>
+<td>成功返回1，失败返回-1</td>
+<td>关闭数据窗口之间 的共享关系</td>
+</tr>
+<tr>
+<td><code>dw_1.print()</code></td>
+<td>成 功返回1，失败返回-1</td>
+<td>打印数据窗口</td>
+</tr>
+<tr>
+<td><code>dw_1.printcancel()</code></td>
+<td>成功返回1，失败返回-1</td>
+<td>取消数据窗口的打 印</td>
+</tr>
+<tr>
+<td><code>dw_1.getitemstatus (row,colum,dwbuffer)</code></td>
+<td><code>row</code>: 指定数据的行号<br /><code> column</code>: 指定的数据列<br /><code> dwbuffer</code>: 指定读取数据的缓冲区，默认为主缓冲区， 返回一个<code>dwitemstatus</code>枚举变量<br /><br /> 例：取数据窗口<code>dw_1</code>第5行work字段在filter缓冲区的 状态<code> l_status l_status = dw_1.getitemstatus(5,&#39;work&#39;,filter!)</code></td>
+<td>获取指定字段的状 态</td>
+</tr>
+<tr>
+<td><code>dw_1.setitemstatus (row,colum,dwbuffer,status)</code></td>
+<td><code>row</code>: 指定数据的行号 <br /><code>column</code>: 指定的数据列<br /><code> dwbuffer</code> :指定读取数据的缓冲区，默认为主缓冲区， 返回一个<code>dwitemstatus</code>枚举变量 status 枚举变量<br /><br /> 例：设置数据窗口<code>dw_1</code>第5行party字段在主缓冲区的 状态为<code>notmodified</code> <br /><code>l_status l_status = dw_1.setitemstatus(5,&#39;salary&#39;,primary!,notmodified!)</code></td>
+<td>设置指定字段的状 态</td>
+</tr>
+<tr>
+<td><code>dw_1.setitem(row,column,value)</code></td>
+<td><code>row</code>: 指定的行<br /><code> column</code> :指定的列<br /><code> value</code>: 赋值的内容</td>
+<td>为指定字段赋值</td>
+</tr>
+<tr>
+<td><code>dw_1.getvalidate(column)</code></td>
+<td>column 定义检验规则的字段（序号或字段名）。返回 指定字段的有效性检验规则</td>
+<td>获取当前某些字段 的有效性检验规则</td>
+</tr>
+<tr>
+<td><code>dw_1.setvalidate(column,rule)</code></td>
+<td>column 定义检验规则的字段（序号或字段名） rule 新的有效性检验规则<br /> 成功返回1，失败返回-1</td>
+<td>设置当前某些字段 的有效性检验规则</td>
+</tr>
+</tbody></table>
+<h3 id="六、数据窗口使用技巧"><a href="#六、数据窗口使用技巧" class="headerlink" title="六、数据窗口使用技巧"></a>六、数据窗口使用技巧</h3><h4 id="6-1-数据窗口的增删改查"><a href="#6-1-数据窗口的增删改查" class="headerlink" title="6.1 数据窗口的增删改查"></a>6.1 数据窗口的增删改查</h4><h5 id="6-1-1-将编辑的数据放到主缓冲区"><a href="#6-1-1-将编辑的数据放到主缓冲区" class="headerlink" title="6.1.1 将编辑的数据放到主缓冲区"></a>6.1.1 将编辑的数据放到主缓冲区</h5><pre class=" language-vb"><code class="language-vb">dw_1.accepttext()
+</code></pre>
+<h5 id="6-1-2-增加一行数据"><a href="#6-1-2-增加一行数据" class="headerlink" title="6.1.2 增加一行数据"></a>6.1.2 增加一行数据</h5><pre class=" language-vb"><code class="language-vb">dw_1.insertrow(0)
+</code></pre>
+<h5 id="6-1-3-删除一行数据"><a href="#6-1-3-删除一行数据" class="headerlink" title="6.1.3 删除一行数据"></a>6.1.3 删除一行数据</h5><pre class=" language-vb"><code class="language-vb">dw_1.deleterow(row)
+</code></pre>
+<h5 id="6-1-4-更新数据"><a href="#6-1-4-更新数据" class="headerlink" title="6.1.4 更新数据"></a>6.1.4 更新数据</h5><pre class=" language-vb"><code class="language-vb">dw_1.update()
+</code></pre>
+<ul>
+<li><p>在使用<code>update()</code> 函数将修改的数据保存到数据库中时，必须要设置数据窗口的修改属性。</p>
+</li>
+<li><p>数据窗口只能修改一个数据表</p>
+</li>
+<li><p>当增加、删除或者重新选择了字段时， <code>PB</code>将数据窗口的修改属性置为不允许，这时也应该进行手工设置  </p>
+</li>
+</ul>
+<p>单项 <strong>Rows→Update Properties</strong>  进行修改属性的设置  </p>
+<p><img src="http://blog.xiezhrspace.cn/blog-img/image-20230708231151257.png" alt="修改属性设置"></p>
+<ul>
+<li><strong>Allow Updates</strong> : 选中该选项，才允许继续进行其他属性的设定  </li>
+<li><strong>Table to Update</strong>  :要被更新的表</li>
+<li><strong>Where Clause for Update/Delete</strong></li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>选项</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>Key Columns</code></td>
+<td>单用户应用程序或者用户都以加锁方式访问数据库时可以选中该选项  <br />只使用在“ Unique Key Column(s)”列表框中指定的惟一列进行数据更新</td>
+</tr>
+<tr>
+<td><code>Key and Updateable Columns  </code></td>
+<td>默认的修改方式  <br />用主键列和可以修改的列来创建 where 子句</td>
+</tr>
+<tr>
+<td><code>Key and Modified&lt;br/&gt;Columns  </code></td>
+<td>上面两种方法的折中  <br />用主键和数据发生了变化的列来产生 where 子句</td>
+</tr>
+</tbody></table>
+<ul>
+<li><strong>Key Modification</strong>  </li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>选项</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>Use Delete then Insert   </code></td>
+<td>先删除原有主键值，然后再使用新的主键值插入一个完整的行</td>
+</tr>
+<tr>
+<td><code>Use Update  </code></td>
+<td>通过Update语句修改数据</td>
+</tr>
+</tbody></table>
+<ul>
+<li><strong>Updatable Columns</strong> : 需要修改的列</li>
+<li><strong>Unique Key Column（s）</strong> : 唯一能够确定一行的列</li>
+</ul>
+<h5 id="6-1-5-查找数据"><a href="#6-1-5-查找数据" class="headerlink" title="6.1.5 查找数据"></a>6.1.5 查找数据</h5><pre class=" language-vb"><code class="language-vb">dw_1.settransobject(sqlca)
+dw_1.retrieve()
+</code></pre>
+<h4 id="6-2-数据窗口更新多个表"><a href="#6-2-数据窗口更新多个表" class="headerlink" title="6.2 数据窗口更新多个表"></a>6.2 数据窗口更新多个表</h4><p>思路： 动态修改数据窗口的Update属性</p>
+<p>举个栗子： dw_1数据窗口中包含两张表的字段，emp(员工信息表)，dept(部门表)</p>
+<pre class=" language-sql"><code class="language-sql"><span class="token keyword">select</span> dept<span class="token punctuation">.</span>deptno<span class="token punctuation">,</span>dept<span class="token punctuation">.</span>dname<span class="token punctuation">,</span>
+emp<span class="token punctuation">.</span>empno<span class="token punctuation">,</span>emp<span class="token punctuation">.</span>ename
+<span class="token keyword">from</span> emp<span class="token punctuation">,</span>dept
+<span class="token keyword">where</span> emp<span class="token punctuation">.</span>deptno <span class="token operator">=</span> dept<span class="token punctuation">.</span>deptno
+</code></pre>
+<p>在创建数据窗口时设置为 dept 表可修改  </p>
+<pre class=" language-java"><code class="language-java">Int li_update
+li_update <span class="token operator">=</span> dw_1<span class="token punctuation">.</span><span class="token function">Update</span><span class="token punctuation">(</span>True<span class="token punctuation">,</span>False<span class="token punctuation">)</span> <span class="token comment" spellcheck="true">//接受最后一个字段内容，并且不清除行修改标志</span>
+<span class="token comment" spellcheck="true">// 如果对 Department 表的修改成功，下一步就要修改另一个表 Employee</span>
+If li_update <span class="token operator">=</span> <span class="token number">1</span> Then
+    <span class="token comment" spellcheck="true">//首先，关掉对 dept 表的修改</span>
+    dw_1<span class="token punctuation">.</span><span class="token function">ModIfy</span><span class="token punctuation">(</span><span class="token string">'dept_dname.Update = "No"'</span><span class="token punctuation">)</span>
+    dw_1<span class="token punctuation">.</span><span class="token function">ModIfy</span><span class="token punctuation">(</span><span class="token string">'dept_deptno.Update = "No"'</span><span class="token punctuation">)</span>
+    dw_1<span class="token punctuation">.</span><span class="token function">ModIfy</span><span class="token punctuation">(</span><span class="token string">'dept_deptno.Key = "No"'</span><span class="token punctuation">)</span>
+    <span class="token comment" spellcheck="true">//使 emp 表成为新的可修改表</span>
+    dw_1<span class="token punctuation">.</span><span class="token function">dwModIfy</span><span class="token punctuation">(</span><span class="token string">'DataWindow.Table.UpdateTable = ~'</span>emp<span class="token operator">~</span><span class="token string">' '</span><span class="token punctuation">)</span>
+    dw_1<span class="token punctuation">.</span><span class="token function">ModIfy</span><span class="token punctuation">(</span><span class="token string">'emp_empno.Update = "Yes"'</span><span class="token punctuation">)</span>
+    dw_1<span class="token punctuation">.</span><span class="token function">ModIfy</span><span class="token punctuation">(</span><span class="token string">'emp_ename.Update = "Yes"'</span><span class="token punctuation">)</span>
+    dw_1<span class="token punctuation">.</span><span class="token function">ModIfy</span><span class="token punctuation">(</span><span class="token string">'emp_empno.Key = '</span>Yes<span class="token string">' '</span> <span class="token punctuation">)</span>
+    <span class="token comment" spellcheck="true">//然后修改 Employee 表</span>
+    li_update <span class="token operator">=</span> dw_1<span class="token punctuation">.</span><span class="token function">Update</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    If li_update <span class="token operator">=</span> <span class="token number">1</span> Then
+    Commit Using SQLCA<span class="token punctuation">;</span>
+Else
+    <span class="token function">MessageBox</span><span class="token punctuation">(</span><span class="token string">"修改错误！ "</span><span class="token punctuation">,</span> <span class="token string">"数据修改错误，错误代码"</span><span class="token operator">&amp;</span>
+    <span class="token operator">+</span> <span class="token function">String</span><span class="token punctuation">(</span>SQLCA<span class="token punctuation">.</span>SqlDBCode<span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token string">"~r~n 错误原因： "</span><span class="token operator">+</span> SQLCA<span class="token punctuation">.</span>SqlErrText<span class="token punctuation">)</span>
+    Rollback Using SQLCA<span class="token punctuation">;</span>
+    End If
+    <span class="token comment" spellcheck="true">//恢复数据窗口开始时的属性，以便下一次用户单击“保存”按钮时</span>
+    <span class="token comment" spellcheck="true">//程序能够正确执行</span>
+    dw_1<span class="token punctuation">.</span><span class="token function">ModIfy</span><span class="token punctuation">(</span><span class="token string">'dept_dname.Update = "Yes"'</span><span class="token punctuation">)</span>
+    dw_1<span class="token punctuation">.</span><span class="token function">ModIfy</span><span class="token punctuation">(</span><span class="token string">'dept_deptno.Update = "Yes"'</span><span class="token punctuation">)</span>
+    dw_1<span class="token punctuation">.</span><span class="token function">ModIfy</span><span class="token punctuation">(</span><span class="token string">'dept_deptno.Key = "Yes"'</span><span class="token punctuation">)</span>
+    dw_1<span class="token punctuation">.</span><span class="token function">ModIfy</span><span class="token punctuation">(</span><span class="token string">'DataWindow.Table.UpdateTable = ~'</span>dept<span class="token operator">~</span><span class="token string">' '</span><span class="token punctuation">)</span>
+    dw_1<span class="token punctuation">.</span><span class="token function">ModIfy</span><span class="token punctuation">(</span><span class="token string">'emp_empno.Update = "No" '</span><span class="token punctuation">)</span>
+    dw_1<span class="token punctuation">.</span><span class="token function">ModIfy</span><span class="token punctuation">(</span><span class="token string">'emp_ename.Update = "No" '</span><span class="token punctuation">)</span>
+    dw_1<span class="token punctuation">.</span><span class="token function">ModIfy</span><span class="token punctuation">(</span><span class="token string">'emp_empno.Key = "No" '</span><span class="token punctuation">)</span>
+Else
+    <span class="token function">MessageBox</span><span class="token punctuation">(</span><span class="token string">'部门表更新失败，回滚更改为部门'</span><span class="token punctuation">)</span>
+    Rollback Using SQLCA<span class="token punctuation">;</span>
+End If
+</code></pre>
+<h4 id="6-3-设置字段只读"><a href="#6-3-设置字段只读" class="headerlink" title="6.3  设置字段只读"></a>6.3  设置字段只读</h4><p>① 方法一</p>
+<p>将tab order 设置为0  </p>
+<p>② 方法二</p>
+<pre class=" language-vb"><code class="language-vb">dw_1.modify("cname.tabsequence = 0 ")  
+</code></pre>
+<p>③ 方法三</p>
+<pre class=" language-vb"><code class="language-vb">dw_1.modify( "meno.edit.displayonly=yes")
+</code></pre>
+<p>④ 方法四</p>
+<pre class=" language-vb"><code class="language-vb">dw_1.modify("code_course.protect= 1")
+</code></pre>
+<h4 id="6-4-切换数据窗口数据源"><a href="#6-4-切换数据窗口数据源" class="headerlink" title="6.4 切换数据窗口数据源"></a>6.4 切换数据窗口数据源</h4><pre class=" language-vb"><code class="language-vb">dw_1.dataobject = "数据窗口名"
+</code></pre>
+<h4 id="6-5-隐藏数据窗口刷新过程"><a href="#6-5-隐藏数据窗口刷新过程" class="headerlink" title="6.5 隐藏数据窗口刷新过程"></a>6.5 隐藏数据窗口刷新过程</h4><pre class=" language-vb"><code class="language-vb">dw_1.setredraw(false) //不刷新
+dw_1.setredraw(true) //刷新
+</code></pre>
+<h4 id="6-6-数据窗口共享数据"><a href="#6-6-数据窗口共享数据" class="headerlink" title="6.6 数据窗口共享数据"></a>6.6 数据窗口共享数据</h4><pre class=" language-vb"><code class="language-vb">dw_2.sharedata(dw_1)
+</code></pre>
+<h4 id="6-7-数据窗口SQL中传递-in-的参数"><a href="#6-7-数据窗口SQL中传递-in-的参数" class="headerlink" title="6.7 数据窗口SQL中传递 in 的参数"></a>6.7 数据窗口SQL中传递 in 的参数</h4><pre class=" language-sql"><code class="language-sql"><span class="token keyword">select</span> emp<span class="token punctuation">.</span>empno<span class="token punctuation">,</span>emp<span class="token punctuation">.</span>ename<span class="token punctuation">,</span>emp<span class="token punctuation">.</span>job<span class="token punctuation">,</span>emp<span class="token punctuation">.</span>mgr<span class="token punctuation">,</span>emp<span class="token punctuation">.</span>hiredate<span class="token punctuation">,</span>emp<span class="token punctuation">.</span>sal<span class="token punctuation">,</span>emp<span class="token punctuation">.</span>comm  <span class="token keyword">from</span> emp <span class="token keyword">where</span> emp<span class="token punctuation">.</span>empno <span class="token operator">in</span> <span class="token punctuation">(</span>传入的参数<span class="token punctuation">)</span>
+</code></pre>
+<pre class=" language-java"><code class="language-java"><span class="token comment" spellcheck="true">//在传给数据窗口时，in中的内容必须是数组类型</span>
+string<span class="token punctuation">[</span><span class="token punctuation">]</span> arr_in
+arr_in<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token operator">=</span><span class="token string">'7369'</span>
+arr_in<span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">]</span><span class="token operator">=</span><span class="token string">'7499'</span>
+arr_in<span class="token punctuation">[</span><span class="token number">3</span><span class="token punctuation">]</span><span class="token operator">=</span><span class="token string">'7521'</span>
+dw_1<span class="token punctuation">.</span><span class="token function">retrieve</span><span class="token punctuation">(</span>ls_in<span class="token punctuation">)</span>
+</code></pre>
+<h4 id="6-8-获取当前数据窗口的sql"><a href="#6-8-获取当前数据窗口的sql" class="headerlink" title="6.8 获取当前数据窗口的sql"></a>6.8 获取当前数据窗口的sql</h4><pre class=" language-java"><code class="language-java">dw_1<span class="token punctuation">.</span><span class="token function">getsqlselect</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+</code></pre>
+<h4 id="6-9-设置当前数据窗口的sql"><a href="#6-9-设置当前数据窗口的sql" class="headerlink" title="6.9 设置当前数据窗口的sql"></a>6.9 设置当前数据窗口的sql</h4><pre class=" language-java"><code class="language-java">dw_1<span class="token punctuation">.</span><span class="token function">setsqlselect</span><span class="token punctuation">(</span>sql<span class="token punctuation">)</span>
+</code></pre>
+<h4 id="6-10-调用子数据窗口"><a href="#6-10-调用子数据窗口" class="headerlink" title="6.10 调用子数据窗口"></a>6.10 调用子数据窗口</h4><pre class=" language-vb"><code class="language-vb">integer rtncode
+datawindowchild dwc_child
+rtncode = dw_1.getchild("主窗口字段", dwc_child)
+if rtncode = 1 then
+    messagebox('',dwc_child.getitemstring(1,'子窗口字段'))
+else
+    messagebox('提示','未获取到子数据窗口!')
+end if
+</code></pre>
+<h4 id="6-11-判断数据窗口是否被修改"><a href="#6-11-判断数据窗口是否被修改" class="headerlink" title="6.11 判断数据窗口是否被修改"></a>6.11 判断数据窗口是否被修改</h4><pre class=" language-java"><code class="language-java"><span class="token comment" spellcheck="true">//判断数据窗口是否修改,建议写在closequery事件中</span>
+<span class="token keyword">if</span> dw_1<span class="token punctuation">.</span><span class="token function">modifiedcount</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">+</span> dw_1<span class="token punctuation">.</span><span class="token function">deletedcount</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">></span> <span class="token number">0</span> then
+    <span class="token function">messagebox</span><span class="token punctuation">(</span><span class="token string">'提示'</span><span class="token punctuation">,</span><span class="token string">'数据窗口已经修改,是否保存？'</span><span class="token punctuation">)</span>
+<span class="token keyword">else</span>
+    <span class="token function">messagebox</span><span class="token punctuation">(</span><span class="token string">'提示'</span><span class="token punctuation">,</span><span class="token string">'数据窗口没有修改,正常退出'</span><span class="token punctuation">)</span>
+end <span class="token keyword">if</span>
+</code></pre>
+<h4 id="6-12-数据窗口重置"><a href="#6-12-数据窗口重置" class="headerlink" title="6.12 数据窗口重置"></a>6.12 数据窗口重置</h4><pre class=" language-vb"><code class="language-vb">dw_1.reset()
+</code></pre>
+<h4 id="6-13-数据窗口重新分组"><a href="#6-13-数据窗口重新分组" class="headerlink" title="6.13 数据窗口重新分组"></a>6.13 数据窗口重新分组</h4><pre class=" language-java"><code class="language-java"><span class="token comment" spellcheck="true">//重新分组,在我们处理过滤和排序后，如果是分组窗口可能会破坏分组规则</span>
+<span class="token comment" spellcheck="true">//所以我们要进行重新分组，重新分组一般都是在filter()或sort()后面</span>
+dw_1<span class="token punctuation">.</span><span class="token function">groupcalc</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+</code></pre>
+<h4 id="6-14-获得数据窗口的状态"><a href="#6-14-获得数据窗口的状态" class="headerlink" title="6.14 获得数据窗口的状态"></a>6.14 获得数据窗口的状态</h4><pre class=" language-java"><code class="language-java"><span class="token comment" spellcheck="true">//(可选状态:datamodified! new! newmodified! notmodified!)</span>
+<span class="token comment" spellcheck="true">//当第一次使用retrieve()函数从数据库中读取数据时，所有在数据窗口缓冲区的记录与字段都是属于</span>
+NotModified<span class="token operator">!</span>状态。
+<span class="token comment" spellcheck="true">//当时数据被修改过后，被修改过的记录状态标志与字段状态标志都会被改成DataModified!</span>
+<span class="token comment" spellcheck="true">//当增加一笔数据时，增加数据的字段状态标志为NotModified!,记录状态标志为New!.</span>
+<span class="token comment" spellcheck="true">//当我们在增加的字段中填上数据后，字段状态标志为DataModified！记录状态标志为NewModified!</span>
+<span class="token keyword">if</span> dw_1<span class="token punctuation">.</span><span class="token function">getitemStatus</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span>dw_1<span class="token punctuation">.</span><span class="token function">deletedcount</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>primary<span class="token operator">!</span><span class="token punctuation">)</span> <span class="token operator">=</span> datamodified<span class="token operator">!</span> then
+    <span class="token function">messagebox</span><span class="token punctuation">(</span><span class="token string">'1:已修改数据'</span><span class="token punctuation">,</span><span class="token string">'datamodified!'</span><span class="token punctuation">)</span>
+elseif dw_1<span class="token punctuation">.</span><span class="token function">getitemStatus</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span>dw_1<span class="token punctuation">.</span><span class="token function">deletedcount</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>primary<span class="token operator">!</span><span class="token punctuation">)</span> <span class="token operator">=</span> <span class="token keyword">new</span><span class="token operator">!</span> then
+    <span class="token function">messagebox</span><span class="token punctuation">(</span><span class="token string">'2:已增加数据'</span><span class="token punctuation">,</span><span class="token string">'new!'</span><span class="token punctuation">)</span>
+elseif dw_1<span class="token punctuation">.</span><span class="token function">getitemStatus</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span>dw_1<span class="token punctuation">.</span><span class="token function">deletedcount</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>primary<span class="token operator">!</span><span class="token punctuation">)</span> <span class="token operator">=</span> newmodified<span class="token operator">!</span> then
+    <span class="token function">messagebox</span><span class="token punctuation">(</span><span class="token string">'3:已填写数据'</span><span class="token punctuation">,</span><span class="token string">'newmodified!'</span><span class="token punctuation">)</span>
+elseif dw_1<span class="token punctuation">.</span><span class="token function">getitemStatus</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span>dw_1<span class="token punctuation">.</span><span class="token function">deletedcount</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>primary<span class="token operator">!</span><span class="token punctuation">)</span> <span class="token operator">=</span> notmodified<span class="token operator">!</span> then
+    <span class="token function">messagebox</span><span class="token punctuation">(</span><span class="token string">'4:未修改数据'</span><span class="token punctuation">,</span><span class="token string">'notmodified!'</span><span class="token punctuation">)</span>
+end <span class="token keyword">if</span>
+</code></pre>
+<h4 id="6-15-设置数据窗口状态"><a href="#6-15-设置数据窗口状态" class="headerlink" title="6.15 设置数据窗口状态"></a>6.15 设置数据窗口状态</h4><pre class=" language-java"><code class="language-java"><span class="token comment" spellcheck="true">//(可选状态：datamodified! new! newmodified! notmodified!)</span>
+dw_1<span class="token punctuation">.</span><span class="token function">setitemstatus</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span>dw_1<span class="token punctuation">.</span><span class="token function">deletedcount</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>primary<span class="token operator">!</span><span class="token punctuation">,</span>notmodified<span class="token operator">!</span><span class="token punctuation">)</span>
+</code></pre>
+<h4 id="6-16-查找数据窗口中第一个被选中的行"><a href="#6-16-查找数据窗口中第一个被选中的行" class="headerlink" title="6.16 查找数据窗口中第一个被选中的行"></a>6.16 查找数据窗口中第一个被选中的行</h4><pre class=" language-java"><code class="language-java">dw_1<span class="token punctuation">.</span><span class="token function">getselectedrow</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span>
+</code></pre>
+<h4 id="6-17-数据窗口查找（find）"><a href="#6-17-数据窗口查找（find）" class="headerlink" title="6.17 数据窗口查找（find）"></a>6.17 数据窗口查找（find）</h4><pre class=" language-java"><code class="language-java"><span class="token comment" spellcheck="true">//dw_1.find(查找条件表达式,开始行, 结束行), 如果表达式成立，那么就返回符合条件的行号</span>
+dw_1<span class="token punctuation">.</span><span class="token function">find</span><span class="token punctuation">(</span><span class="token string">'id=8'</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">10</span><span class="token punctuation">)</span>
+</code></pre>
+<h4 id="6-18-数据窗口过滤"><a href="#6-18-数据窗口过滤" class="headerlink" title="6.18  数据窗口过滤"></a>6.18  数据窗口过滤</h4><p>① 列名过滤  </p>
+<pre class=" language-java"><code class="language-java">dw_1<span class="token punctuation">.</span><span class="token function">setfilter</span><span class="token punctuation">(</span><span class="token string">"isnull(列名)"</span><span class="token punctuation">)</span>
+dw_1<span class="token punctuation">.</span><span class="token function">filter</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+</code></pre>
+<p>②条件过滤  </p>
+<pre class=" language-java"><code class="language-java">dw_1<span class="token punctuation">.</span><span class="token function">setfilter</span><span class="token punctuation">(</span><span class="token string">"列名='"</span> <span class="token operator">+</span> 列值 <span class="token operator">+</span> <span class="token string">"'"</span><span class="token punctuation">)</span>
+dw_1<span class="token punctuation">.</span><span class="token function">filter</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+</code></pre>
+<p>③ 清除过滤</p>
+<pre class=" language-java"><code class="language-java"><span class="token comment" spellcheck="true">//方法一</span>
+dw_1<span class="token punctuation">.</span><span class="token function">setfilter</span><span class="token punctuation">(</span><span class="token string">''</span><span class="token punctuation">)</span>
+dw_1<span class="token punctuation">.</span><span class="token function">filter</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true">//方法二</span>
+dw_1<span class="token punctuation">.</span><span class="token function">setfilter</span><span class="token punctuation">(</span><span class="token string">'1=1'</span><span class="token punctuation">)</span>
+</code></pre>
+<p>④ sql语句过滤  </p>
+<pre class=" language-java"><code class="language-java">sql <span class="token operator">=</span> <span class="token string">'select * from 表名 where isnull(字段名 , '</span><span class="token string">'空'</span><span class="token string">') = '</span><span class="token string">'空'</span><span class="token string">' '</span> <span class="token punctuation">;</span>
+</code></pre>
+<h4 id="6-19-数据窗口分页"><a href="#6-19-数据窗口分页" class="headerlink" title="6.19 数据窗口分页"></a>6.19 数据窗口分页</h4><p>Ⅰ <strong>增加一个计算列</strong><br>计算列必须放在detail段<br>expression中输入:<code>ceiling(getrow()/20) </code> 这里表示每页20条数据</p>
+<p>这里20还可以用全局函数取代，这样可以允许用户任意设置每页多少行。  </p>
+<p>Ⅱ<strong>定义分组,选择菜单rows-&gt;create group…</strong>  </p>
+<p>按计算列字段分组，并一定将check box–&gt;new page on group break选中  </p>
+<p>Ⅲ <strong>将此计算列设为不可视</strong></p>
+<p>然后添加以下按钮，完成分页功能    </p>
+<p>①首页  </p>
+<pre class=" language-java"><code class="language-java">dw_1<span class="token punctuation">.</span><span class="token function">scrolltorow</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span>
+dw_1<span class="token punctuation">.</span><span class="token function">setrow</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span>
+</code></pre>
+<p>② 上一页</p>
+<pre class=" language-java"><code class="language-java">dw_1<span class="token punctuation">.</span><span class="token function">scrollpriorpage</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+</code></pre>
+<p>③ 下一页</p>
+<pre class=" language-java"><code class="language-java">dw_1<span class="token punctuation">.</span><span class="token function">scrollnextpage</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+</code></pre>
+<p>④ 最后一页</p>
+<pre class=" language-java"><code class="language-java">dw_1<span class="token punctuation">.</span><span class="token function">scrolltorow</span><span class="token punctuation">(</span>dw_1<span class="token punctuation">.</span><span class="token function">rowcount</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+dw_1<span class="token punctuation">.</span><span class="token function">setrow</span><span class="token punctuation">(</span>dw_1<span class="token punctuation">.</span><span class="token function">rowcount</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+</code></pre>
+<h4 id="6-20-数据窗口排序"><a href="#6-20-数据窗口排序" class="headerlink" title="6.20 数据窗口排序"></a>6.20 数据窗口排序</h4><p>① 正序排列  </p>
+<pre class=" language-java"><code class="language-java">dw_1<span class="token punctuation">.</span><span class="token function">setsort</span><span class="token punctuation">(</span><span class="token string">"列名 a"</span><span class="token punctuation">)</span>
+dw_1<span class="token punctuation">.</span><span class="token function">sort</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+</code></pre>
+<p>② 倒序排列  </p>
+<pre class=" language-java"><code class="language-java">dw_1<span class="token punctuation">.</span><span class="token function">setsort</span><span class="token punctuation">(</span><span class="token string">"列名 d"</span><span class="token punctuation">)</span>
+dw_1<span class="token punctuation">.</span><span class="token function">sort</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+</code></pre>
+<p>③ 双击排序  </p>
+<pre class=" language-java"><code class="language-java">string ls_old_sort<span class="token punctuation">,</span> ls_column
+<span class="token keyword">char</span> lc_sort
+<span class="token keyword">if</span> <span class="token function">right</span><span class="token punctuation">(</span>dwo<span class="token punctuation">.</span>name<span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">)</span> <span class="token operator">=</span> <span class="token string">'_t'</span> then
+    ls_column <span class="token operator">=</span> <span class="token function">left</span><span class="token punctuation">(</span>dwo<span class="token punctuation">.</span>name<span class="token punctuation">,</span> <span class="token function">len</span><span class="token punctuation">(</span><span class="token function">string</span><span class="token punctuation">(</span>dwo<span class="token punctuation">.</span>name<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token operator">-</span> <span class="token number">2</span><span class="token punctuation">)</span>
+    ls_old_sort <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">describe</span><span class="token punctuation">(</span><span class="token string">"datawindow.table.sort"</span><span class="token punctuation">)</span>
+    <span class="token keyword">if</span> ls_column <span class="token operator">=</span> <span class="token function">left</span><span class="token punctuation">(</span>ls_old_sort<span class="token punctuation">,</span> <span class="token function">len</span><span class="token punctuation">(</span>ls_old_sort<span class="token punctuation">)</span> <span class="token operator">-</span> <span class="token number">2</span><span class="token punctuation">)</span> then
+        lc_sort <span class="token operator">=</span> <span class="token function">right</span><span class="token punctuation">(</span>ls_old_sort<span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">)</span>
+        <span class="token keyword">if</span> lc_sort <span class="token operator">=</span> <span class="token string">'a'</span> then
+            lc_sort <span class="token operator">=</span> <span class="token string">'d'</span>
+        <span class="token keyword">else</span>
+            lc_sort <span class="token operator">=</span> <span class="token string">'a'</span>
+        end <span class="token keyword">if</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">setsort</span><span class="token punctuation">(</span>ls_column <span class="token operator">+</span> <span class="token string">" "</span> <span class="token operator">+</span> lc_sort<span class="token punctuation">)</span>
+    <span class="token keyword">else</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">setsort</span><span class="token punctuation">(</span>ls_column <span class="token operator">+</span> <span class="token string">" a"</span><span class="token punctuation">)</span>
+    end <span class="token keyword">if</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">sort</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+end <span class="token keyword">if</span>
+</code></pre>
+<h4 id="6-21-数据窗口获取焦点"><a href="#6-21-数据窗口获取焦点" class="headerlink" title="6.21 数据窗口获取焦点"></a>6.21 数据窗口获取焦点</h4><pre class=" language-java"><code class="language-java">dw_1<span class="token punctuation">.</span><span class="token function">setfocus</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+dw_1<span class="token punctuation">.</span><span class="token function">setrow</span><span class="token punctuation">(</span><span class="token string">"数据行号"</span><span class="token punctuation">)</span>
+dw_1<span class="token punctuation">.</span><span class="token function">setcolumn</span><span class="token punctuation">(</span><span class="token string">"字段名"</span><span class="token punctuation">)</span>
+</code></pre>
+<h4 id="6-22-数据窗口行相关"><a href="#6-22-数据窗口行相关" class="headerlink" title="6.22 数据窗口行相关"></a>6.22 数据窗口行相关</h4><p>① 行处理  </p>
+<pre class=" language-java"><code class="language-java">dw_1<span class="token punctuation">.</span><span class="token function">rowcount</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true">//获取总行</span>
+dw_1<span class="token punctuation">.</span><span class="token function">getrow</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true">//获取当前行</span>
+dw_1<span class="token punctuation">.</span><span class="token function">setrow</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true">//设置当前行</span>
+dw_1<span class="token punctuation">.</span><span class="token function">scrolltorow</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true">//滚动到目标行</span>
+dw_1<span class="token punctuation">.</span><span class="token function">selectrow</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token boolean">true</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true">//将第一行变成选中状态</span>
+dw_1<span class="token punctuation">.</span><span class="token function">isselected</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true">//检查第一行是否被选择</span>
+</code></pre>
+<p>② 点击高亮显示</p>
+<p>Ⅰ 在数据窗口的click事件中，写入以下代码  </p>
+<pre class=" language-java"><code class="language-java"><span class="token keyword">if</span> row <span class="token operator">></span> <span class="token number">0</span> then
+    <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">selectrow</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token boolean">false</span><span class="token punctuation">)</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">selectrow</span><span class="token punctuation">(</span>row<span class="token punctuation">,</span><span class="token boolean">true</span><span class="token punctuation">)</span>
+end <span class="token keyword">if</span>
+</code></pre>
+<p>Ⅱ在数据窗口rowfocuschanged事件中，写入以下代码  </p>
+<pre class=" language-java"><code class="language-java"><span class="token keyword">if</span> currentrow <span class="token operator">></span> <span class="token number">0</span> then
+    <span class="token function">selectRow</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token boolean">false</span><span class="token punctuation">)</span>
+    <span class="token function">selectRow</span><span class="token punctuation">(</span>currentrow<span class="token punctuation">,</span> <span class="token boolean">true</span><span class="token punctuation">)</span>
+    <span class="token function">scrolltorow</span><span class="token punctuation">(</span> currentrow <span class="token punctuation">)</span>
+end <span class="token keyword">if</span>
+</code></pre>
+<p>③ 隔行变色</p>
+<p>Ⅰ 打开数据窗口<br>Ⅱ. 右键 detail<br>Ⅲ. 找到右侧 color 属性右侧的小图标<br>Ⅳ. 在表达式中输入以下代码  </p>
+<pre class=" language-java"><code class="language-java"><span class="token keyword">if</span> <span class="token punctuation">(</span> <span class="token function">mod</span><span class="token punctuation">(</span> <span class="token function">getrow</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">)</span> <span class="token operator">=</span> <span class="token number">1</span> <span class="token punctuation">,</span> <span class="token function">rgb</span><span class="token punctuation">(</span><span class="token number">255</span><span class="token punctuation">,</span><span class="token number">255</span><span class="token punctuation">,</span><span class="token number">255</span><span class="token punctuation">)</span> <span class="token punctuation">,</span> <span class="token function">rgb</span><span class="token punctuation">(</span><span class="token number">235</span><span class="token punctuation">,</span><span class="token number">255</span><span class="token punctuation">,</span><span class="token number">235</span><span class="token punctuation">)</span> <span class="token punctuation">)</span>
+</code></pre>
+<p>④ 自增行</p>
+<p>Ⅰ. 添加计算列， page n of n<br>Ⅱ. 选择 getrow()  </p>
+<p>⑤ 设置每页打印行数  </p>
+<p>Ⅰ. 添加计算列 page n of n ，输入公式： ceiling(getrow()/20)<br>Ⅱ. 选择菜单 rows-&gt;create group ，创建分组，选择刚才创建的公式列page_1</p>
+<p>Ⅲ. 创建完分组后，选择右侧属性， new page on group break 打上勾即可<br>Ⅳ. 如果需要最后一页不足补空行  </p>
+<pre class=" language-java"><code class="language-java"><span class="token keyword">long</span> ll_pagerow <span class="token operator">=</span> <span class="token number">6</span> <span class="token comment" spellcheck="true">//每页打印行数</span>
+<span class="token keyword">long</span> ll_count<span class="token punctuation">,</span> ll_row
+ll_count <span class="token operator">=</span> dw_1<span class="token punctuation">.</span><span class="token function">retrieve</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true">//取得现有报表的总行数</span>
+ll_count <span class="token operator">=</span> ll_pagerow <span class="token operator">-</span> <span class="token function">mod</span><span class="token punctuation">(</span>ll_count<span class="token punctuation">,</span> ll_pagerow<span class="token punctuation">)</span>
+<span class="token keyword">if</span> ll_count <span class="token operator">&lt;</span> ll_pagerow then
+    <span class="token keyword">for</span> ll_row <span class="token operator">=</span> <span class="token number">1</span> to ll_count
+        dw_print<span class="token punctuation">.</span><span class="token function">insertrow</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true">//补足空行</span>
+    next
+end <span class="token keyword">if</span>
+</code></pre>
+<p>⑥ 移动行</p>
+<pre class=" language-java"><code class="language-java"><span class="token comment" spellcheck="true">//移动行</span>
+<span class="token comment" spellcheck="true">//（primary!主缓冲区 delete!删除缓冲区 filter!过滤缓冲区）</span>
+<span class="token comment" spellcheck="true">//dw_name.rowsmove(开始行,结束行,缓冲区,要移动到的另一窗口名,在哪一行前面插入,插入哪个缓冲区)</span>
+<span class="token comment" spellcheck="true">//rowsmove还可以在同一数据窗口的不同缓冲区进行移动行</span>
+<span class="token comment" spellcheck="true">//如：从删除缓冲区移动行到主缓冲区实现恢复功能：</span>
+dw_1<span class="token punctuation">.</span><span class="token function">deleterow</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true">//删除第1行</span>
+dw_1<span class="token punctuation">.</span><span class="token function">rowsmove</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span>dw_1<span class="token punctuation">.</span><span class="token function">deletedcount</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>delete<span class="token operator">!</span><span class="token punctuation">,</span>dw_1<span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">,</span>primary<span class="token operator">!</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true">//恢复第1行</span>
+</code></pre>
+<p>⑦ 复制行  </p>
+<pre class=" language-java"><code class="language-java"><span class="token comment" spellcheck="true">//复制行（primary!主缓冲区 delete!删除缓冲区 filter!过滤缓冲区）</span>
+<span class="token comment" spellcheck="true">//dw_name.rowscopy(开始行,结束行,缓冲区,要复制到的另一窗口名,在哪一行前面插入,插入哪个缓冲区)</span>
+<span class="token comment" spellcheck="true">//rowscopy( )--基本用法和移动行差不多</span>
+dw_1<span class="token punctuation">.</span><span class="token function">deleterow</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true">//删除第1行</span>
+dw_1<span class="token punctuation">.</span><span class="token function">rowscopy</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span>dw_1<span class="token punctuation">.</span><span class="token function">deletedcount</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>delete<span class="token operator">!</span><span class="token punctuation">,</span>dw_1<span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">,</span>primary<span class="token operator">!</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true">//复制第1行</span>
+</code></pre>
+<h4 id="6-23-列处理"><a href="#6-23-列处理" class="headerlink" title="6.23 列处理"></a>6.23 列处理</h4><p>① 获得数据窗口所有的列名  </p>
+<pre class=" language-java"><code class="language-java">integer li_index
+<span class="token keyword">for</span> li_index <span class="token operator">=</span> <span class="token number">1</span> to <span class="token function">integer</span><span class="token punctuation">(</span>dw_1<span class="token punctuation">.</span>object<span class="token punctuation">.</span>datawindow<span class="token punctuation">.</span>column<span class="token punctuation">.</span>count<span class="token punctuation">)</span>
+    <span class="token function">messagebox</span><span class="token punctuation">(</span><span class="token function">string</span><span class="token punctuation">(</span>li_index<span class="token punctuation">)</span><span class="token punctuation">,</span>dw_1<span class="token punctuation">.</span><span class="token function">describe</span><span class="token punctuation">(</span><span class="token string">"#"</span> <span class="token operator">+</span> <span class="token function">string</span><span class="token punctuation">(</span>li_index<span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token string">".name"</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+next
+</code></pre>
+<p>② 获得字段对应的dbname  </p>
+<pre class=" language-java"><code class="language-java">integer li_index
+<span class="token keyword">for</span> li_index <span class="token operator">=</span> <span class="token number">1</span> to <span class="token function">integer</span><span class="token punctuation">(</span>dw_1<span class="token punctuation">.</span>object<span class="token punctuation">.</span>datawindow<span class="token punctuation">.</span>column<span class="token punctuation">.</span>count<span class="token punctuation">)</span>
+    <span class="token function">messagebox</span><span class="token punctuation">(</span><span class="token function">string</span><span class="token punctuation">(</span>li_index<span class="token punctuation">)</span><span class="token punctuation">,</span>dw_1<span class="token punctuation">.</span><span class="token function">describe</span><span class="token punctuation">(</span><span class="token string">"#"</span> <span class="token operator">+</span> <span class="token function">string</span><span class="token punctuation">(</span>li_index<span class="token punctuation">)</span> <span class="token operator">+</span><span class="token string">".dbname"</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+next
+</code></pre>
+<p>③ 复制列  </p>
+<pre class=" language-java"><code class="language-java">dw_1<span class="token punctuation">.</span>object<span class="token punctuation">.</span>字段名<span class="token punctuation">.</span>primary <span class="token operator">=</span> dw_1<span class="token punctuation">.</span>object<span class="token punctuation">.</span>字段名<span class="token punctuation">.</span>primary
+</code></pre>
+<p>④ 获取显示列  </p>
+<pre class=" language-java"><code class="language-java"><span class="token function">describe</span><span class="token punctuation">(</span><span class="token string">'DataWindow.Table.GridColumns'</span><span class="token punctuation">)</span>
+</code></pre>
+<h4 id="6-24-数据窗口中实现复选框"><a href="#6-24-数据窗口中实现复选框" class="headerlink" title="6.24 数据窗口中实现复选框"></a>6.24 数据窗口中实现复选框</h4><p>① 在数据窗口的sql中，添加多选框字段  </p>
+<pre class=" language-java"><code class="language-java"><span class="token string">'0'</span> as checkbox
+</code></pre>
+<p>② 设置字段的 edit 属性为 <code>checkbox</code> ，并勾选<code>3d look  </code></p>
+<p>③ 设置(data value for on = 1)，设置(data value for off = 0)  </p>
+<p>④ 再dw_1数据窗口的click事件中写  </p>
+<pre class=" language-java"><code class="language-java"><span class="token keyword">if</span> dwo<span class="token punctuation">.</span>name <span class="token operator">=</span> <span class="token string">"checkbox"</span> then
+    <span class="token keyword">if</span> dw_1<span class="token punctuation">.</span><span class="token function">rowcount</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span> <span class="token number">0</span> then
+    <span class="token keyword">else</span>
+        <span class="token keyword">if</span> dw_1<span class="token punctuation">.</span>object<span class="token punctuation">.</span>checkbox<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token string">"1"</span> then
+            <span class="token keyword">for</span> row <span class="token operator">=</span> <span class="token number">1</span> to dw_1<span class="token punctuation">.</span><span class="token function">rowcount</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+                dw_1<span class="token punctuation">.</span>object<span class="token punctuation">.</span>checkbox<span class="token punctuation">[</span>row<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token string">"0"</span>
+            next
+        <span class="token keyword">else</span>
+            <span class="token keyword">for</span> row <span class="token operator">=</span> <span class="token number">1</span> to dw_1<span class="token punctuation">.</span><span class="token function">rowcount</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+                dw_1<span class="token punctuation">.</span>object<span class="token punctuation">.</span>checkbox<span class="token punctuation">[</span>row<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token string">"1"</span>
+            next
+        end <span class="token keyword">if</span>
+    end <span class="token keyword">if</span>
+end <span class="token keyword">if</span>
+</code></pre>
+<p>⑤ 判断是否选中</p>
+<pre class=" language-java"><code class="language-java"><span class="token keyword">long</span> i
+<span class="token keyword">if</span> dw_1<span class="token punctuation">.</span><span class="token function">rowcount</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span> <span class="token number">0</span> then <span class="token keyword">return</span> <span class="token number">0</span>
+<span class="token keyword">for</span> i <span class="token operator">=</span> <span class="token number">1</span> to dw_1<span class="token punctuation">.</span><span class="token function">rowcount</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token keyword">if</span> dw_1<span class="token punctuation">.</span><span class="token function">getitiemstring</span><span class="token punctuation">(</span>i<span class="token punctuation">,</span> <span class="token string">"checkbox"</span><span class="token punctuation">)</span> <span class="token operator">=</span> <span class="token string">'1'</span> then
+        <span class="token function">messagebox</span><span class="token punctuation">(</span><span class="token string">'提示信息'</span>，‘第’<span class="token operator">+</span><span class="token function">string</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span><span class="token operator">+</span><span class="token string">'行被选中'</span><span class="token punctuation">)</span>
+    end <span class="token keyword">if</span>
+next
+</code></pre>
+<h4 id="6-25-数据窗口转datastore"><a href="#6-25-数据窗口转datastore" class="headerlink" title="6.25 数据窗口转datastore"></a>6.25 数据窗口转datastore</h4><pre class=" language-java"><code class="language-java">datastore lds_data
+lds_data <span class="token operator">=</span> create datastore
+<span class="token comment" spellcheck="true">//给实例化后的datastore变量关联数据窗口对象</span>
+lds_data<span class="token punctuation">.</span>dataobject <span class="token operator">=</span> <span class="token string">'d_data'</span>
+<span class="token comment" spellcheck="true">//给数据存储对象指定事务对象</span>
+lds_data<span class="token punctuation">.</span><span class="token function">settransobject</span><span class="token punctuation">(</span>sqlca<span class="token punctuation">)</span>
+    
+<span class="token comment" spellcheck="true">//接下来就和操作普通数据窗口一样了</span>
+<span class="token keyword">long</span> ll_row
+ll_row <span class="token operator">=</span> lds_data<span class="token punctuation">.</span><span class="token function">insertrow</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span>
+lds_data<span class="token punctuation">.</span>object<span class="token punctuation">.</span>name<span class="token punctuation">[</span>ll_row<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token string">'张三'</span>
+</code></pre>
+<h4 id="6-26-动态数据窗口"><a href="#6-26-动态数据窗口" class="headerlink" title="6.26 动态数据窗口"></a>6.26 动态数据窗口</h4><p>① 数据窗口赋值与取值</p>
+<pre class=" language-java"><code class="language-java"><span class="token comment" spellcheck="true">//1 赋值</span>
+dw<span class="token punctuation">.</span><span class="token function">setitem</span><span class="token punctuation">(</span>行<span class="token punctuation">,</span> <span class="token string">'列名称'</span><span class="token punctuation">,</span> 值<span class="token punctuation">)</span>
+dw<span class="token punctuation">.</span>object<span class="token punctuation">.</span>列名<span class="token punctuation">[</span>行号<span class="token punctuation">]</span> <span class="token operator">=</span> 值
+    
+<span class="token comment" spellcheck="true">//2 取值</span>
+dw_1<span class="token punctuation">.</span>object<span class="token punctuation">.</span>字段名<span class="token punctuation">[</span>行数<span class="token punctuation">]</span> <span class="token comment" spellcheck="true">//直接取值</span>
+dw_1<span class="token punctuation">.</span>object<span class="token punctuation">.</span>字段名<span class="token punctuation">.</span>text <span class="token comment" spellcheck="true">//文本框</span>
+dw_1<span class="token punctuation">.</span><span class="token function">GetItemString</span><span class="token punctuation">(</span>行数<span class="token punctuation">,</span>列名<span class="token punctuation">)</span> <span class="token comment" spellcheck="true">//字符串</span>
+dw_1<span class="token punctuation">.</span><span class="token function">GetItemNumber</span><span class="token punctuation">(</span>行数<span class="token punctuation">,</span>列名<span class="token punctuation">)</span> <span class="token comment" spellcheck="true">//数值</span>
+dw_1<span class="token punctuation">.</span><span class="token function">GetItemDate</span><span class="token punctuation">(</span>行数<span class="token punctuation">,</span>列名<span class="token punctuation">)</span> <span class="token comment" spellcheck="true">//日期</span>
+dw_1<span class="token punctuation">.</span><span class="token function">GetItemDateTime</span><span class="token punctuation">(</span>行数<span class="token punctuation">,</span>列名<span class="token punctuation">)</span> <span class="token comment" spellcheck="true">//日期时间</span>
+dw_1<span class="token punctuation">.</span><span class="token function">GetItemDecimal</span><span class="token punctuation">(</span>行数<span class="token punctuation">,</span>列名<span class="token punctuation">)</span> <span class="token comment" spellcheck="true">//小数</span>
+</code></pre>
+<p>② 通过<code>describe</code>  获取数据窗口中的各种属性  </p>
+<pre class=" language-java"><code class="language-java">dw_1<span class="token punctuation">.</span><span class="token function">Describe</span><span class="token punctuation">(</span><span class="token string">"#1.name"</span><span class="token punctuation">)</span>  <span class="token comment" spellcheck="true">//获取字段名称  title</span>
+dw_1<span class="token punctuation">.</span><span class="token function">Describe</span><span class="token punctuation">(</span><span class="token string">"title.ColType"</span><span class="token punctuation">)</span>  <span class="token comment" spellcheck="true">//获取字段类型  char(100)</span>
+dw_1<span class="token punctuation">.</span><span class="token function">Describe</span><span class="token punctuation">(</span><span class="token string">"title.background.color"</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true">// 获取字段背景颜色 536870912</span>
+dw_1<span class="token punctuation">.</span><span class="token function">Describe</span><span class="token punctuation">(</span><span class="token string">"title.background.mode"</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true">//获取字段背景模式 1</span>
+dw_1<span class="token punctuation">.</span><span class="token function">Describe</span><span class="token punctuation">(</span><span class="token string">"title.edit.Autohscroll"</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true">//获取字段是否允许自动横向滚动 yes</span>
+dw_1<span class="token punctuation">.</span><span class="token function">Describe</span><span class="token punctuation">(</span><span class="token string">"title.key"</span><span class="token punctuation">)</span>  <span class="token comment" spellcheck="true">//获取字段是否为主键 no</span>
+dw_1<span class="token punctuation">.</span><span class="token function">Describe</span><span class="token punctuation">(</span><span class="token string">"title.protect"</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true">//获取字段中的数据保护 0</span>
+dw_1<span class="token punctuation">.</span><span class="token function">Describe</span><span class="token punctuation">(</span><span class="token string">"title.SlideLeft"</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true">//获取字段的滑动属性（当左面空白时是否向左滑动）  no</span>
+dw_1<span class="token punctuation">.</span><span class="token function">Describe</span><span class="token punctuation">(</span><span class="token string">"title.slideup"</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true">//获取字段的滑动属性（当上面出现空白时是否向上滑动） no</span>
+dw_1<span class="token punctuation">.</span><span class="token function">Describe</span><span class="token punctuation">(</span><span class="token string">"title.tabsequence"</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true">// 获取字段的TabOrder值    15</span>
+dw_1<span class="token punctuation">.</span><span class="token function">Describe</span><span class="token punctuation">(</span><span class="token string">"title.update"</span><span class="token punctuation">)</span>  <span class="token comment" spellcheck="true">//获取字段是否可以修改 yes</span>
+dw_1<span class="token punctuation">.</span><span class="token function">Describe</span><span class="token punctuation">(</span><span class="token string">"title.validation"</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true">// 获取字段的校验规则</span>
+dw_1<span class="token punctuation">.</span><span class="token function">Describe</span><span class="token punctuation">(</span><span class="token string">"title.expression"</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true">// 获取字段的表达式</span>
+dw_1<span class="token punctuation">.</span><span class="token function">Describe</span><span class="token punctuation">(</span><span class="token string">"Evaluate('LookupDisplay(sex)',1)"</span><span class="token punctuation">)</span>  <span class="token comment" spellcheck="true">// 获取显示值的属性</span>
+    
+</code></pre>
+<p>③ 通过<code>modify</code> 修改数据窗口中的各种属性  </p>
+<pre class=" language-java"><code class="language-java">dw_1<span class="token punctuation">.</span><span class="token function">modify</span><span class="token punctuation">(</span><span class="token string">"title.background.mode='1'"</span><span class="token punctuation">)</span>  <span class="token comment" spellcheck="true">// 修改字段背景模式</span>
+dw_1<span class="token punctuation">.</span><span class="token function">modify</span><span class="token punctuation">(</span><span class="token string">"title.background.color = '0'"</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true">//修改字段背景颜色</span>
+dw_1<span class="token punctuation">.</span><span class="token function">modify</span><span class="token punctuation">(</span><span class="token string">"title.criteria.dialog = yessex.criteria.override_edit =yes"</span><span class="token punctuation">)</span>  <span class="token comment" spellcheck="true">//修改检索规则</span>
+dw_1<span class="token punctuation">.</span><span class="token function">modify</span><span class="token punctuation">(</span><span class="token string">"title.edit.required = yes"</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true">//修改字段为必须输入</span>
+dw_1<span class="token punctuation">.</span><span class="token function">modify</span><span class="token punctuation">(</span><span class="token string">"title.format = 'yyyy-mm-dd'"</span><span class="token punctuation">)</span>  <span class="token comment" spellcheck="true">// 修改字段显示格式为日期格式</span>
+dw_1<span class="token punctuation">.</span><span class="token function">modify</span><span class="token punctuation">(</span><span class="token string">"title.key = yes"</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true">// 修改字段为主键</span>
+dw_1<span class="token punctuation">.</span><span class="token function">modify</span><span class="token punctuation">(</span><span class="token string">"title.protect ='1~tif(isrownew(),0,1)'"</span><span class="token punctuation">)</span>  <span class="token comment" spellcheck="true">//修改字段的保护属性</span>
+</code></pre>
+<p>④ 程序运行中动态创建数据窗口</p>
+<p>方法Ⅰ </p>
+<pre class=" language-java"><code class="language-java">string str_dwsyntax<span class="token punctuation">,</span>str_lag
+<span class="token comment" spellcheck="true">//获得数据窗口1的语法</span>
+str_dwsyntax<span class="token operator">=</span>dw_1<span class="token punctuation">.</span>object<span class="token punctuation">.</span>datawindow<span class="token punctuation">.</span>syntax
+<span class="token comment" spellcheck="true">//根据数据窗口1的语法动态生成数据窗口2的语法</span>
+dw_2<span class="token punctuation">.</span><span class="token function">create</span><span class="token punctuation">(</span>str_dwsyntax<span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true">//对数据窗口2的内容作局部修改</span>
+str_lag<span class="token operator">=</span><span class="token string">"stu_id_t.font.height='-12' stu_id_t.font.face='楷体_GB2312'"</span>
+<span class="token comment" spellcheck="true">//字体变12号字体，由宋体改为楷体</span>
+dw_2<span class="token punctuation">.</span><span class="token function">modify</span><span class="token punctuation">(</span>str_lag<span class="token punctuation">)</span>
+dw_2<span class="token punctuation">.</span><span class="token function">settransobject</span><span class="token punctuation">(</span>sqlca<span class="token punctuation">)</span>
+dw_2<span class="token punctuation">.</span><span class="token function">retrieve</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+</code></pre>
+<p>方法Ⅱ</p>
+<blockquote>
+<p>在程序中使用系统函数LibraryExport()得到某个已经存在的数据窗口对象的源代码</p>
+</blockquote>
+<p>方法Ⅲ</p>
+<blockquote>
+<p>在PB开发环境的库管理画笔(Library Painter)中使用移出功能(右键→Export)将某个数据窗口对象的语法保存到文本文件中</p>
+</blockquote>
+<p>方法Ⅳ</p>
+<pre class=" language-java"><code class="language-java"><span class="token comment" spellcheck="true">//连接默认事务sqlca</span>
+sqlca<span class="token punctuation">.</span>dbms <span class="token operator">=</span> <span class="token string">"O84 Oracle8/8i (8.x.4+)"</span>
+SQLCA<span class="token punctuation">.</span>LogPass <span class="token operator">=</span> <span class="token string">'数据库密码'</span>
+SQLCA<span class="token punctuation">.</span>ServerName <span class="token operator">=</span> ‘服务器IP’
+SQLCA<span class="token punctuation">.</span>LogId <span class="token operator">=</span> <span class="token string">'数据库用户名'</span>
+SQLCA<span class="token punctuation">.</span>AutoCommit <span class="token operator">=</span> False
+SQLCA<span class="token punctuation">.</span>DBParm <span class="token operator">=</span> <span class="token string">"PBCatalogOwner='hb_zh'"</span>
+sqlca<span class="token punctuation">.</span>autocommit <span class="token operator">=</span> <span class="token boolean">false</span>
+sqlca<span class="token punctuation">.</span>dbparm <span class="token operator">=</span> <span class="token string">""</span>
+connect using sqlca<span class="token punctuation">;</span>
+string dw_sql<span class="token punctuation">,</span>dw_style
+string dw_syntax<span class="token punctuation">,</span>dw_syntax_error<span class="token punctuation">,</span>dw_create_error
+<span class="token comment" spellcheck="true">//设置数据窗口sql</span>
+dw_sql <span class="token operator">=</span> <span class="token string">"select * from 表名"</span>
+<span class="token comment" spellcheck="true">//设置数据窗口风格</span>
+dw_style <span class="token operator">=</span> <span class="token string">"style(type=grid)"</span>
+<span class="token comment" spellcheck="true">//构造sql数据源</span>
+dw_syntax <span class="token operator">=</span> sqlca<span class="token punctuation">.</span><span class="token function">syntaxfromsql</span><span class="token punctuation">(</span>dw_sql<span class="token punctuation">,</span> dw_style<span class="token punctuation">,</span> dw_syntax_error<span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true">//判断sql数据源是否有错误</span>
+<span class="token keyword">if</span> <span class="token function">len</span><span class="token punctuation">(</span>dw_syntax_error<span class="token punctuation">)</span> <span class="token operator">></span> <span class="token number">0</span> then
+    <span class="token function">messagebox</span><span class="token punctuation">(</span><span class="token string">"提示"</span><span class="token punctuation">,</span> <span class="token string">"构造sql数据源错误: "</span> <span class="token operator">+</span> dw_syntax_error<span class="token punctuation">)</span>
+    <span class="token keyword">return</span>
+end <span class="token keyword">if</span>
+<span class="token comment" spellcheck="true">//通过sql数据源创建dw_1数据窗口</span>
+dw_1<span class="token punctuation">.</span><span class="token function">create</span><span class="token punctuation">(</span>dw_syntax<span class="token punctuation">,</span>dw_create_error<span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true">//判断dw_1数据窗口在创建中是否有错误</span>
+<span class="token keyword">if</span> <span class="token function">len</span><span class="token punctuation">(</span>dw_create_error<span class="token punctuation">)</span> <span class="token operator">></span> <span class="token number">0</span> then
+    <span class="token function">messagebox</span><span class="token punctuation">(</span><span class="token string">"提示"</span><span class="token punctuation">,</span> <span class="token string">"创建数据窗口错误: "</span> <span class="token operator">+</span> dw_create_error<span class="token punctuation">)</span>
+    <span class="token keyword">return</span>
+end <span class="token keyword">if</span>
+<span class="token comment" spellcheck="true">//检索数据</span>
+dw_1<span class="token punctuation">.</span><span class="token function">settransobject</span><span class="token punctuation">(</span>sqlca<span class="token punctuation">)</span>
+dw_1<span class="token punctuation">.</span><span class="token function">retrieve</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+</code></pre>
+<p>以上用到的<code>SyntaxFromSQL()</code>函数和<code>Create()</code> 函数具体说明如下</p>
+<p><img src="http://blog.xiezhrspace.cn/blog-img/%E5%8A%A8%E6%80%81%E6%95%B0%E6%8D%AE%E7%AA%97%E5%8F%A31.png" alt="动态数据窗口1"></p>
+<p><img src="http://blog.xiezhrspace.cn/blog-img/image-20230709164144117.png" alt="Create函数"></p>
+<h4 id="6-27-数据窗口导入导出"><a href="#6-27-数据窗口导入导出" class="headerlink" title="6.27 数据窗口导入导出"></a>6.27 数据窗口导入导出</h4><p>① 数据窗口导入</p>
+<pre class=" language-java"><code class="language-java"><span class="token comment" spellcheck="true">//dw_1.importfile(导入的文件类型, 文件名, 文件的开始行 , 文件的结束行, 文件的开始列, 文件的结束列, 数据窗口的开始列 )</span>
+<span class="token comment" spellcheck="true">//因为导出的数据窗口都有标题，所以我们这边从第2行开始导入</span>
+dw_1<span class="token punctuation">.</span><span class="token function">importfile</span><span class="token punctuation">(</span>text<span class="token operator">!</span><span class="token punctuation">,</span><span class="token string">'1.txt'</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">10</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">10</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true">//导入txt文件</span>
+dw_1<span class="token punctuation">.</span><span class="token function">importfile</span><span class="token punctuation">(</span>excel<span class="token operator">!</span><span class="token punctuation">,</span><span class="token string">'1.xls'</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">10</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">10</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true">//导入xls文件</span>
+dw_1<span class="token punctuation">.</span><span class="token function">importfile</span><span class="token punctuation">(</span>excel<span class="token operator">!</span><span class="token punctuation">,</span><span class="token string">'1.xlsx'</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">10</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">10</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token comment" spellcheck="true">//导入xlsl文件</span>
+dw_1<span class="token punctuation">.</span><span class="token function">importfile</span><span class="token punctuation">(</span>csv<span class="token operator">!</span><span class="token punctuation">,</span><span class="token string">'1.csv'</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">10</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">10</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token comment" spellcheck="true">//导入csv文件</span>
+</code></pre>
+<p>② 数据窗口导出</p>
+<pre class=" language-java"><code class="language-java"><span class="token comment" spellcheck="true">//dw_name.saveas(名字可含路径,另存为的类型,是否显示列标题)</span>
+dw_1<span class="token punctuation">.</span><span class="token function">saveas</span><span class="token punctuation">(</span><span class="token string">"1.txt"</span><span class="token punctuation">,</span>text<span class="token operator">!</span><span class="token punctuation">,</span><span class="token boolean">true</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true">//另存为txt文件</span>
+dw_1<span class="token punctuation">.</span><span class="token function">saveas</span><span class="token punctuation">(</span><span class="token string">"1.xls"</span><span class="token punctuation">,</span>excel<span class="token operator">!</span><span class="token punctuation">,</span><span class="token boolean">true</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true">//另存为xls文件</span>
+dw_1<span class="token punctuation">.</span><span class="token function">saveas</span><span class="token punctuation">(</span><span class="token string">"1.xlsx"</span><span class="token punctuation">,</span>excel<span class="token operator">!</span><span class="token punctuation">,</span><span class="token boolean">true</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true">//另存为xlsl文件</span>
+dw_1<span class="token punctuation">.</span><span class="token function">saveas</span><span class="token punctuation">(</span><span class="token string">"1.csv"</span><span class="token punctuation">,</span>csv<span class="token operator">!</span><span class="token punctuation">,</span><span class="token boolean">true</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true">//另存为csv文件</span>
+</code></pre>
+<h4 id="6-28-数据窗口快捷键"><a href="#6-28-数据窗口快捷键" class="headerlink" title="6.28 数据窗口快捷键"></a>6.28 数据窗口快捷键</h4><pre class=" language-java"><code class="language-java"><span class="token comment" spellcheck="true">//1、新建事件</span>
+<span class="token comment" spellcheck="true">//事件名 keydown</span>
+<span class="token comment" spellcheck="true">//event ID pbm_dwnkey（选择这个就可以了，其他参数它会自己设置）</span>
+
+<span class="token comment" spellcheck="true">//2、在此事件中，写入以下代码</span>
+<span class="token keyword">if</span> key <span class="token operator">=</span> KeyEnter<span class="token operator">!</span> then <span class="token function">Send</span><span class="token punctuation">(</span><span class="token function">Handle</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token number">256</span><span class="token punctuation">,</span><span class="token number">9</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">)</span>
+</code></pre>
+<h4 id="6-29-设置datawindow的当前行指示图标"><a href="#6-29-设置datawindow的当前行指示图标" class="headerlink" title="6.29 设置datawindow的当前行指示图标"></a>6.29 设置datawindow的当前行指示图标</h4><pre class=" language-java"><code class="language-java"><span class="token comment" spellcheck="true">//在datawindow中建立一个计算列,expression为'',并将该计算列移动为datawindow的第一个列，在</span>
+<span class="token comment" spellcheck="true">//datawindow控件的rowfocuschanged事件中写入代码：</span>
+<span class="token function">SetRowFocusIndicator</span><span class="token punctuation">(</span>hand<span class="token operator">!</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true">//小手指样式</span>
+<span class="token function">setrowfucsindicator</span><span class="token punctuation">(</span>p_1<span class="token punctuation">)</span> <span class="token comment" spellcheck="true">//自定义图片样式</span>
+</code></pre>
+<h4 id="6-30-打印datawindow的内容到文件中"><a href="#6-30-打印datawindow的内容到文件中" class="headerlink" title="6.30 打印datawindow的内容到文件中"></a>6.30 打印datawindow的内容到文件中</h4><pre class=" language-java"><code class="language-java"><span class="token comment" spellcheck="true">//数据窗口打印出pdf</span>
+dw_1<span class="token punctuation">.</span>object<span class="token punctuation">.</span>datawindow<span class="token punctuation">.</span>print<span class="token punctuation">.</span>filename <span class="token operator">=</span><span class="token string">"c:/temp.pdf"</span>
+dw_1<span class="token punctuation">.</span><span class="token function">print</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+</code></pre>
+<h4 id="6-31-将Grid风格改成自由格式"><a href="#6-31-将Grid风格改成自由格式" class="headerlink" title="6.31 将Grid风格改成自由格式"></a>6.31 将Grid风格改成自由格式</h4><pre class=" language-java"><code class="language-java">在DW的editsource中将processing<span class="token operator">=</span><span class="token number">1</span>的<span class="token number">1</span>改为<span class="token number">0</span>
+</code></pre>
+<h4 id="6-32-数据窗口自动调整大小"><a href="#6-32-数据窗口自动调整大小" class="headerlink" title="6.32 数据窗口自动调整大小"></a>6.32 数据窗口自动调整大小</h4><p>在数据窗所在窗口的Resize事件下编写代码</p>
+<pre class=" language-java"><code class="language-java"><span class="token function">Resize</span><span class="token punctuation">(</span>dw_datamon<span class="token punctuation">,</span><span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">Workspacewidth</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">-</span><span class="token number">50</span><span class="token punctuation">,</span><span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">Workspaceheight</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">-</span><span class="token number">50</span><span class="token punctuation">)</span>
+</code></pre>
+<h4 id="6-33-一个报表中要有一个计算域，是几个NUM型列相加，加的时候几个列中有一为空就加不出来"><a href="#6-33-一个报表中要有一个计算域，是几个NUM型列相加，加的时候几个列中有一为空就加不出来" class="headerlink" title="6.33 一个报表中要有一个计算域，是几个NUM型列相加，加的时候几个列中有一为空就加不出来"></a>6.33 一个报表中要有一个计算域，是几个NUM型列相加，加的时候几个列中有一为空就加不出来</h4><p>方法Ⅰ</p>
+<p>设置此数据列的初使值为0.0。但必需在数据窗口对象中设，即选菜单Rows中的Column Specifications……选项，在Initial  Value列中写上0.0即可</p>
+<p>方法Ⅱ</p>
+<p>计算列公式采用如下：</p>
+<pre class=" language-java"><code class="language-java"> <span class="token comment" spellcheck="true">// A + B + C</span>
+<span class="token keyword">if</span><span class="token punctuation">(</span><span class="token function">isnull</span><span class="token punctuation">(</span>A<span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span>A<span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token function">isnull</span><span class="token punctuation">(</span>B<span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span>B<span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token function">isnull</span><span class="token punctuation">(</span>C<span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span>C<span class="token punctuation">)</span>  
+</code></pre>
+<h4 id="6-34-动态生成的报表中怎么修改各个带区的宽度、位置"><a href="#6-34-动态生成的报表中怎么修改各个带区的宽度、位置" class="headerlink" title="6.34 动态生成的报表中怎么修改各个带区的宽度、位置?"></a>6.34 动态生成的报表中怎么修改各个带区的宽度、位置?</h4><pre class=" language-java"><code class="language-java"><span class="token comment" spellcheck="true">// 改变detail区的高度：</span>
+dw_1<span class="token punctuation">.</span><span class="token function">Modify</span><span class="token punctuation">(</span><span class="token string">"DataWindow.detail.Height=200"</span><span class="token punctuation">)</span>
+</code></pre>
+<h4 id="6-35-动态生成的报表中增加文本（标题），或对标题栏的文本进行修改"><a href="#6-35-动态生成的报表中增加文本（标题），或对标题栏的文本进行修改" class="headerlink" title="6.35 动态生成的报表中增加文本（标题），或对标题栏的文本进行修改"></a>6.35 动态生成的报表中增加文本（标题），或对标题栏的文本进行修改</h4><pre class=" language-Java"><code class="language-Java">//对标题栏文本的更改(文本名为dept_name_t)
+dw_1.modify("dept_name_t.text = '单位名称'")
+</code></pre>
+<h4 id="6-36-动态生成的报表中动态增加计算列"><a href="#6-36-动态生成的报表中动态增加计算列" class="headerlink" title="6.36   动态生成的报表中动态增加计算列"></a>6.36   动态生成的报表中动态增加计算列</h4><pre class=" language-java"><code class="language-java">string ls_modrow
+dw_1<span class="token punctuation">.</span><span class="token function">Modify</span><span class="token punctuation">(</span><span class="token string">"DataWindow.summary.Height=64"</span><span class="token punctuation">)</span>
+ls_modrow <span class="token operator">=</span> <span class="token string">'Create compute(band=summary font.charset="0" font.face="MS Sans Serif" font.family="2" font.height="-8" font.pitch="2" font.weight="400" background.mode="1" background.color="536870912" color="0" x="9" y="4" height="52" width="297" format="[general]" expression="count(dept_id for all)" alignment="1" border="0" crosstab.repeat=no )~r~n'</span>
+dw_1<span class="token punctuation">.</span><span class="token function">modify</span><span class="token punctuation">(</span> ls_modrow <span class="token punctuation">)</span>
+</code></pre>
+<h4 id="6-37-动态修改grid数据窗口中网格线是否可见，并在detail区增加加一条线"><a href="#6-37-动态修改grid数据窗口中网格线是否可见，并在detail区增加加一条线" class="headerlink" title="6.37 动态修改grid数据窗口中网格线是否可见，并在detail区增加加一条线"></a>6.37 动态修改grid数据窗口中网格线是否可见，并在detail区增加加一条线</h4><pre class=" language-java"><code class="language-java">dw_1<span class="token punctuation">.</span><span class="token function">Modify</span><span class="token punctuation">(</span><span class="token string">"DataWindow.Grid.Lines='1' "</span><span class="token punctuation">)</span>
+dw_1<span class="token punctuation">.</span><span class="token function">Modify</span><span class="token punctuation">(</span><span class="token string">"DataWindow.detail.Height=332"</span><span class="token punctuation">)</span>
+ls_line <span class="token operator">=</span> <span class="token string">'Create line(band=detail background.mode="2" background.color="16777215" pen.style="0" pen.width="5" pen.color="0" x1="37" y1="320" x2="1458" y2="316" )~r~n'</span>
+dw_1<span class="token punctuation">.</span><span class="token function">modify</span><span class="token punctuation">(</span> ls_line <span class="token punctuation">)</span>
+</code></pre>
+<h4 id="6-38数据窗口中添加一计算域，统计一下性别为男的记录数"><a href="#6-38数据窗口中添加一计算域，统计一下性别为男的记录数" class="headerlink" title="6.38数据窗口中添加一计算域，统计一下性别为男的记录数"></a>6.38数据窗口中添加一计算域，统计一下性别为男的记录数</h4><pre class=" language-java"><code class="language-java"><span class="token comment" spellcheck="true">//添加一个计算列</span>
+<span class="token function">sum</span><span class="token punctuation">(</span> <span class="token keyword">if</span><span class="token punctuation">(</span> stu_sex <span class="token operator">=</span><span class="token string">'男'</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">0</span> <span class="token punctuation">)</span><span class="token punctuation">)</span> 
+</code></pre>
+<h4 id="6-39-数据窗口中数据自动折行"><a href="#6-39-数据窗口中数据自动折行" class="headerlink" title="6.39 数据窗口中数据自动折行"></a>6.39 数据窗口中数据自动折行</h4><p>在PowerBuilder应用程序的开发过程中, 使用DataWindow时, 经常会遇到某列的数据太长, 不能同时全部显示的情况. 若采用自动水平滚动,  操作起来又不够简便，那么我们将如何实现列数据多行显示, 即实现列数据的自动折行呢？</p>
+<p>① 在DataWindow Painter中打开此DataWindow对象</p>
+<p>②在需设定自动折行的列上双击鼠标, 弹开此列的属性窗口</p>
+<p>③ 选择Position标签, 选中Autosize Height 多选框</p>
+<p>④ 选择Edit标签, 不选中Auto Horz  Scroll多选框</p>
+<p>⑤ 单击OK按钮, 保存所做的修改</p>
+<p>⑥ 点中Detail Band (即写有Detail的灰色长带),  单击鼠标右键, 选择Properties… 菜单项<br>⑦ 选中Autosize Height多选框<br>⑧ 单击OK按钮,  保存所做的修改<br>⑨ 保存此DataWindow</p>
+<p>注意:连在一起的汉字（中间没有标点或空格分隔）, 系统将认为是一个单词, 不会自动进行折行， 英文也是如此……DW窗口折行如果有汉字的话就必需中间加空格才会折行，否则怎样设置都不行。例如你如果想在第20位折行，就先判断第20位是否是个汉字，如不是就在第20位后加空格，如果是汉字就在第19位加空格。判断是否是汉字可以用它的ASCII码是否大于127来判断</p>
+<h4 id="6-40-连续页数打印多个数据窗"><a href="#6-40-连续页数打印多个数据窗" class="headerlink" title="6.40 连续页数打印多个数据窗"></a>6.40 连续页数打印多个数据窗</h4><p>① 建立一个全局变量</p>
+<pre class=" language-java"><code class="language-java"> integer g_int_page<span class="token operator">=</span><span class="token number">0</span>
+</code></pre>
+<p>② 建立一个全局函数f_setpage()</p>
+<pre class=" language-java"><code class="language-java"> <span class="token keyword">return</span> g_int_page
+</code></pre>
+<p>③ 在数据窗口对象中加入一计算域gs_pagenum</p>
+<pre class=" language-java"><code class="language-java"> <span class="token comment" spellcheck="true">//利用全局涵数来传递全局变量</span>
+<span class="token function">page</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token function">f_setpage</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+</code></pre>
+<p>④ 在每一个数据窗口控件的printend事件中改变全局变量的值，以使计算域的值发生变化</p>
+<pre class=" language-java"><code class="language-java">g_int_page<span class="token operator">=</span>dw_1<span class="token punctuation">.</span><span class="token function">getitemnumber</span><span class="token punctuation">(</span>dw_1<span class="token punctuation">.</span><span class="token function">rowcount</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token string">"gs_pagenum"</span><span class="token punctuation">)</span>
+</code></pre>
+<p>⑤ 当所有窗口打印完毕后将全局变量恢复</p>
+<pre class=" language-java"><code class="language-java">g_int_page<span class="token operator">=</span><span class="token number">0</span>
+</code></pre>
+<h4 id="6-41-动态实现打印不固定的数据列"><a href="#6-41-动态实现打印不固定的数据列" class="headerlink" title="6.41 动态实现打印不固定的数据列"></a>6.41 动态实现打印不固定的数据列</h4><p>做一个程序，其中的一个功能是：</p>
+<p>例如：数据库。雇员（序号，姓名，年龄，性别，出生年月，学历，职务，工资，等等）。</p>
+<p>客户要求在程序的运行中进行选择（对表的项任意选），然后打印出来。</p>
+<p>如选择姓名，年龄，出生。则打印姓名，年龄，出生。</p>
+<p>又如选择姓名，工资。则打印姓名，工资。我不知道如何去实现</p>
+<p>方法Ⅰ</p>
+<p>建数据窗口对象时，选用Grid风格(Grid风格数据窗口的字段宽度可以随意拖动，如同Excel)，不需要打印的字段可以随时将其宽度拖动为零</p>
+<p>方法Ⅱ</p>
+<p> 用列表框显示出所有的列，可以多选高亮列。通过Modify函数动态定义选中列的位置，宽度以及是否可见等属性</p>
+]]></content>
+  </entry>
+  <entry>
+    <title>PB从入坑到放弃（二）编码规范</title>
+    <url>/archives/89f0cb39.html</url>
+    <content><![CDATA[<h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>上一篇我们从0到1用<code>pb</code>开发了一个<code>helloworld</code>程序，并成功将开发的程序编译打包并且制作了安装包。</p>
+<p>程序员最讨厌的莫过于写文档和别人不写注释。</p>
+<p>不知道大家会不会和我一样，在找bug时，有段代码，心中不知默默的骂了它多少遍。</p>
+<p>哪个sx写的这代码，研究了一段时间发现，原来那sx竟是自己 😔。</p>
+<p>无规矩不成方圆，写代码也是一样的，尤其是在团队合作的时候。</p>
+<p>要想把代码写得优雅，就必须遵循一定的规则。今天我们就来看看<code>pb</code>开发中应该遵守哪些规范。</p>
+<h3 id="一-、变量命名规范"><a href="#一-、变量命名规范" class="headerlink" title="一 、变量命名规范"></a>一 、变量命名规范</h3><h4 id="1-1-变量命名规则"><a href="#1-1-变量命名规则" class="headerlink" title="1.1 变量命名规则"></a>1.1 变量命名规则</h4><blockquote>
+<p><strong>变量类型范围简写</strong> + <strong>数据类型简写</strong> +_+ <strong>含义代码</strong>      + //注释标明含义</p>
+</blockquote>
+<p>举例说明：</p>
+<pre class=" language-java"><code class="language-java"><span class="token comment" spellcheck="true">/*1、定义全局变量*/</span>
+string gs_orgcode  <span class="token comment" spellcheck="true">//定义机构编码</span>
+string gs_orgname  <span class="token comment" spellcheck="true">//定义机构名称</span>
+
+<span class="token comment" spellcheck="true">/*2、定义共享变量*/</span>
+string ss_phone 
+
+<span class="token comment" spellcheck="true">/*3、定义实例变量*/</span>
+string ls_name <span class="token comment" spellcheck="true">//定义用户姓名</span>
+    
+<span class="token comment" spellcheck="true">/*4、5、定义值传递变量和引用传递变量*/</span>    
+function <span class="token function">gf</span><span class="token punctuation">(</span>string v_orgcode<span class="token punctuation">,</span>string r_orgname<span class="token punctuation">)</span> <span class="token comment" spellcheck="true">//根据编号获取名称</span>
+</code></pre>
+<p>以上例子只是以不同变量类型范围内<code>string</code> 类型变量命名举例，具体可根据下面表格中的简写变通</p>
+<h4 id="1-2-变量类型范围"><a href="#1-2-变量类型范围" class="headerlink" title="1.2 变量类型范围"></a>1.2 变量类型范围</h4><table>
+<thead>
+<tr>
+<th>–范围</th>
+<th>– 描述</th>
+<th>– 简写</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>【全局变量】Global</td>
+<td>全局变量在整个应用中有效</td>
+<td><code>g_</code></td>
+</tr>
+<tr>
+<td>【共享变量】Shared</td>
+<td>共享变量在一个对象及其实例中有效</td>
+<td><code>s_</code></td>
+</tr>
+<tr>
+<td>【实例变量】Instance</td>
+<td>实例变量仅在一个对象的实例中有效</td>
+<td><code>i_</code></td>
+</tr>
+<tr>
+<td>【局部变量】Local</td>
+<td>局部变量仅在一段子程序或在 script 开始和结束时生效</td>
+<td><code>l_</code></td>
+</tr>
+<tr>
+<td>【值传递的变量】（函数变量）</td>
+<td>定义函数时，参数仅传递值，不会被函数改变 （value）</td>
+<td><code>v_</code></td>
+</tr>
+<tr>
+<td>【引用传递的变量】（函数变量）</td>
+<td>定义函数时，参数将被函数改变（ref）</td>
+<td><code>r_</code></td>
+</tr>
+</tbody></table>
+<h4 id="1-2-常见变量类型简写"><a href="#1-2-常见变量类型简写" class="headerlink" title="1.2 常见变量类型简写"></a><strong>1.2 常见变量类型简写</strong></h4><table>
+<thead>
+<tr>
+<th>–数据类型</th>
+<th>–描述</th>
+<th>–简写</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>Any</code></td>
+<td>可以保存任何类型的值,包括标准数据类型、对象、结构和[数组</td>
+<td><code>a_</code></td>
+</tr>
+<tr>
+<td><code>Blob</code></td>
+<td>二进制大型对象，用来存储图片、大文本等信息</td>
+<td><code>bb_</code></td>
+</tr>
+<tr>
+<td><code>Boolean</code></td>
+<td>布尔型，取值要么<code>true</code> 要么<code>false</code></td>
+<td><code>bl_</code></td>
+</tr>
+<tr>
+<td><code>Char</code>或<code>charater</code></td>
+<td>单个 ASCII 字符</td>
+<td><code>ch</code></td>
+</tr>
+<tr>
+<td><code>Date</code></td>
+<td>日期，由完整的年月日组成，格式取决于操作系统的设置</td>
+<td><code>d_</code></td>
+</tr>
+<tr>
+<td><code>DateTime</code></td>
+<td>日期及时间，用于和数据库的 <code>datatime</code> 类型数据交互</td>
+<td><code>dt_</code></td>
+</tr>
+<tr>
+<td><code>Decimal</code> 或 <code>dec</code></td>
+<td>有符号十进制数，最大 18 位宽 ,一般用于存储金钱</td>
+<td><code>dec</code></td>
+</tr>
+<tr>
+<td><code>Double</code></td>
+<td>有符号浮点数，精度 15 位</td>
+<td><code>db</code></td>
+</tr>
+<tr>
+<td><code>Integer</code>或 <code>int</code></td>
+<td>16 位有符号整数</td>
+<td><code>I</code>或<code>i</code></td>
+</tr>
+<tr>
+<td><code>Long</code></td>
+<td>32 位有符号整数</td>
+<td><code>L</code></td>
+</tr>
+<tr>
+<td><code>Real</code></td>
+<td>有符号浮点数，精度 6 位</td>
+<td><code>r</code></td>
+</tr>
+<tr>
+<td><code>string</code></td>
+<td>由任何 ASCII 字符组成的字符串</td>
+<td><code>s</code></td>
+</tr>
+<tr>
+<td><code>Time</code></td>
+<td>24 小时格式的时间值：小时、分、秒以</td>
+<td><code>t</code></td>
+</tr>
+<tr>
+<td><code>UnsignedInteger</code></td>
+<td>16 位无符号整数</td>
+<td><code>ui</code></td>
+</tr>
+<tr>
+<td><code>UnsignedLong</code></td>
+<td>32 位无符号整数</td>
+<td><code>ul</code></td>
+</tr>
+</tbody></table>
+<h3 id="二、应用命名规范"><a href="#二、应用命名规范" class="headerlink" title="二、应用命名规范"></a>二、应用命名规范</h3><blockquote>
+<p>应用的命名应使用与该应用的意义相关联的英文字母  </p>
+</blockquote>
+<p><code>app_his </code>表示医院管理系统</p>
+<h3 id="三、pbl-库命名规范"><a href="#三、pbl-库命名规范" class="headerlink" title="三、pbl 库命名规范"></a>三、<code>pbl</code> 库命名规范</h3><blockquote>
+<p>pbl库组织的好坏很重要，它会影响应用开发和维护的容易程度以及应用的性能  </p>
+</blockquote>
+<h4 id="3-1-Library-的大小"><a href="#3-1-Library-的大小" class="headerlink" title="3.1 Library 的大小"></a>3.1 Library 的大小</h4><blockquote>
+<p> <code>pb</code> 对 Library 的大小没有限制，但最好小于 <strong>1MB</strong> ,Library太大的话， <code>pb</code>要花更多的时间去打开和存储对象，这会影响开发的效率  </p>
+</blockquote>
+<h4 id="3-2-Library-的数量"><a href="#3-2-Library-的数量" class="headerlink" title="3.2 Library 的数量"></a>3.2 Library 的数量</h4><blockquote>
+<p>尽量用最少的 Library 数量  如果 Library 数量太多而每个 Library 中对象数量太少，搜索路径会<br>太长，影响运行效率  </p>
+</blockquote>
+<h4 id="3-3-Library-的分类组织"><a href="#3-3-Library-的分类组织" class="headerlink" title="3.3 Library 的分类组织"></a>3.3 Library 的分类组织</h4><blockquote>
+<p><code>pbl</code> 库可按子系统或功能组织，一般应用都包含公共 <code>pbl</code> 库。<br>每个 <code>pbl</code>库文件命名应该与该文件作用相关联，例如报表 <code>pbl</code>库文件命名为 <code>report.pbl  </code></p>
+</blockquote>
+<h3 id="四、窗口命名规范"><a href="#四、窗口命名规范" class="headerlink" title="四、窗口命名规范"></a>四、窗口命名规范</h3><blockquote>
+<p>w+”_”+与窗口意义相关联的英文字母 </p>
+</blockquote>
+<p>注意：总长不得超过 <code>pb</code>的 40 个字符限制</p>
+<p>举例：</p>
+<table>
+<thead>
+<tr>
+<th>–窗口名称</th>
+<th>– 注释信息</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>w_about</code></td>
+<td>关于本系统的版权信息</td>
+</tr>
+<tr>
+<td><code>w_system_error</code></td>
+<td>系统出错提示</td>
+</tr>
+<tr>
+<td><code>w_main</code></td>
+<td>系统主界面</td>
+</tr>
+<tr>
+<td><code>w_report_sheet</code></td>
+<td>报表查询</td>
+</tr>
+</tbody></table>
+<h3 id="五、数据窗口命名规范"><a href="#五、数据窗口命名规范" class="headerlink" title="五、数据窗口命名规范"></a>五、数据窗口命名规范</h3><blockquote>
+<p>①数据窗口控件</p>
+<p><code>dw</code>+”_”+ 与数据窗口相关英文字母</p>
+<p>② 数据窗口对象</p>
+<p><code>d</code>+”_”+ 与数据窗口相关描述英文字母(普通数据窗口对象)       <strong>或者</strong> </p>
+<p><code>dddw</code>+”_”+ 与数据窗口相关描述英文字母 （下拉式子数据窗口对象）</p>
+</blockquote>
+<p>举例：</p>
+<table>
+<thead>
+<tr>
+<th>– 数据窗口控件名称</th>
+<th>– 描述信息</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>dw_notice</code></td>
+<td>显示通知信息</td>
+</tr>
+<tr>
+<td><code>dw_system_err</code></td>
+<td>显示系统错误信息，被<code>w_system_err</code> 调用</td>
+</tr>
+</tbody></table>
+<table>
+<thead>
+<tr>
+<th>–数据窗口对象名称</th>
+<th>–描述信息</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>d_system_err</code></td>
+<td>显示系统错误信息，是数据窗口<code>dw_system_err</code>的对象</td>
+</tr>
+<tr>
+<td><code>d_goods</code></td>
+<td>显示商品信息</td>
+</tr>
+<tr>
+<td><code>dddw_sex</code></td>
+<td>性别代码表</td>
+</tr>
+<tr>
+<td><code>dddw_tccode</code></td>
+<td>统筹区代码表</td>
+</tr>
+</tbody></table>
+<h3 id="六、用户对象"><a href="#六、用户对象" class="headerlink" title="六、用户对象"></a>六、用户对象</h3><blockquote>
+<p><code>uo</code>+”_”+用户对象相关英文字母</p>
+</blockquote>
+<p>举例：</p>
+<table>
+<thead>
+<tr>
+<th>– 用户对象名称</th>
+<th>– 描述信息</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>uo_common_settle</code></td>
+<td>表示该<code>uo</code> 用于通用结算功能</td>
+</tr>
+<tr>
+<td><code>uo_elc_billinvoice</code></td>
+<td>表示该<code>uo</code> 用于处理电子票据功能</td>
+</tr>
+</tbody></table>
+<h3 id="七、常用控件"><a href="#七、常用控件" class="headerlink" title="七、常用控件"></a>七、常用控件</h3><blockquote>
+<p>控件简写+”_”+功能描述英文字母</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>– 控件名称</th>
+<th>– 控件缩写</th>
+<th>– 控件命名例子</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>CommandButton</code></td>
+<td><code>cb</code></td>
+<td><code>cb_exit</code></td>
+</tr>
+<tr>
+<td><code>PictureButton</code></td>
+<td><code>pb</code></td>
+<td><code>pb_thank_info</code></td>
+</tr>
+<tr>
+<td><code>CheckBox</code></td>
+<td><code>cbx</code></td>
+<td><code>cbx_age_show</code></td>
+</tr>
+<tr>
+<td><code>RadioButton</code></td>
+<td><code>rb</code></td>
+<td><code>rb_sex</code></td>
+</tr>
+<tr>
+<td><code>StaticText</code></td>
+<td><code>st</code></td>
+<td><code>st_user_id</code></td>
+</tr>
+<tr>
+<td><code>Picture</code></td>
+<td><code>p</code></td>
+<td><code>p_user_img</code></td>
+</tr>
+<tr>
+<td><code>GroupBox</code></td>
+<td><code>gb</code></td>
+<td><code>gb_detail_info</code></td>
+</tr>
+<tr>
+<td><code>Line</code></td>
+<td><code>ln</code></td>
+<td><code>ln_h_separator</code></td>
+</tr>
+<tr>
+<td><code>Oval</code></td>
+<td><code>oval</code></td>
+<td><code>oval_used_flag</code></td>
+</tr>
+<tr>
+<td><code>SingleLineEdit</code></td>
+<td><code>sle</code></td>
+<td><code>sle_name</code></td>
+</tr>
+<tr>
+<td><code>MultiLineEdit</code></td>
+<td><code>mle</code></td>
+<td><code>mle_book_comments</code></td>
+</tr>
+<tr>
+<td><code>RichTextEdit</code></td>
+<td><code>rte</code></td>
+<td><code>rte_student_answer</code></td>
+</tr>
+<tr>
+<td><code>EditMask</code></td>
+<td><code>em</code></td>
+<td><code>em_tel</code></td>
+</tr>
+<tr>
+<td><code>DropDownListBox</code></td>
+<td><code>ddlb</code></td>
+<td><code>ddlb_type</code></td>
+</tr>
+<tr>
+<td><code>DropDownPictureListBox</code></td>
+<td><code>ddplb</code></td>
+<td><code>ddplb_photo_preview</code></td>
+</tr>
+<tr>
+<td><code>ListBox</code></td>
+<td><code>lb</code></td>
+<td><code>lb_department_name</code></td>
+</tr>
+<tr>
+<td><code>PictureListBox</code></td>
+<td><code>plb</code></td>
+<td><code>plb_user_identification</code></td>
+</tr>
+<tr>
+<td><code>ListView</code></td>
+<td><code>lv</code></td>
+<td><code>lv_all_user</code></td>
+</tr>
+<tr>
+<td><code>TreeView</code></td>
+<td><code>tv</code></td>
+<td><code>tv_customers</code></td>
+</tr>
+<tr>
+<td><code>TabPage</code></td>
+<td><code>tpg</code></td>
+<td><code>tpg_ordinary_super</code></td>
+</tr>
+<tr>
+<td><code>Tab</code></td>
+<td><code>tab</code></td>
+<td><code>tab_super</code></td>
+</tr>
+<tr>
+<td><code>DataWindow</code></td>
+<td><code>dw</code></td>
+<td><code>dw_user_info</code></td>
+</tr>
+<tr>
+<td><code>OLE</code></td>
+<td><code>ole</code></td>
+<td><code>ole_word_doc</code></td>
+</tr>
+</tbody></table>
+<h3 id="八、函数命名规范"><a href="#八、函数命名规范" class="headerlink" title="八、函数命名规范"></a>八、函数命名规范</h3><blockquote>
+<p>函数类型+f+“_”+函数意义相关联的英文字母  </p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>–函数类型</th>
+<th>–函数类型简写</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>全局函数</td>
+<td><code>g_</code></td>
+</tr>
+<tr>
+<td>窗口函数</td>
+<td><code>w_</code></td>
+</tr>
+<tr>
+<td>菜单函数</td>
+<td><code>m_</code></td>
+</tr>
+<tr>
+<td>用户对象函数</td>
+<td><code>u_</code></td>
+</tr>
+</tbody></table>
+<p>举例：</p>
+<table>
+<thead>
+<tr>
+<th>– 函数名称</th>
+<th>–描述信息</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>gf_getOrgInfo</code></td>
+<td>全局函数，用于获取机构信息</td>
+</tr>
+<tr>
+<td><code>wf_getUserInfo</code></td>
+<td>窗口函数，用于获取用户信息</td>
+</tr>
+<tr>
+<td><code>uf_query_username</code></td>
+<td>用户对象函数，用于查询用户姓名</td>
+</tr>
+</tbody></table>
+<h3 id="九、关于注释"><a href="#九、关于注释" class="headerlink" title="九、关于注释"></a>九、关于注释</h3><h4 id="9-1-窗口open事件前说明"><a href="#9-1-窗口open事件前说明" class="headerlink" title="9.1 窗口open事件前说明"></a>9.1 窗口open事件前说明</h4><pre class=" language-java"><code class="language-java"><span class="token comment" spellcheck="true">/* ======================================================= */</span>
+<span class="token comment" spellcheck="true">// 窗口中英文名称：</span>
+<span class="token comment" spellcheck="true">// 窗口作用：</span>
+<span class="token comment" spellcheck="true">// 作者：</span>
+<span class="token comment" spellcheck="true">// 日期：</span>
+<span class="token comment" spellcheck="true">/* ======================================================= */</span>
+</code></pre>
+<h4 id="9-2-在事件脚本（-Script）之前应说明"><a href="#9-2-在事件脚本（-Script）之前应说明" class="headerlink" title="9.2 在事件脚本（ Script）之前应说明"></a>9.2 在事件脚本（ Script）之前应说明</h4><pre class=" language-java"><code class="language-java"><span class="token comment" spellcheck="true">/* ======================================================= */</span>
+<span class="token comment" spellcheck="true">// 脚本作用：</span>
+<span class="token comment" spellcheck="true">// 输入参数及数据类型：</span>
+<span class="token comment" spellcheck="true">// 返回参数及数据类型：</span>
+<span class="token comment" spellcheck="true">// 全局函数及其用途：</span>
+<span class="token comment" spellcheck="true">// 全局变量及其用途：</span>
+<span class="token comment" spellcheck="true">// 作者：</span>
+<span class="token comment" spellcheck="true">// 日期：</span>
+<span class="token comment" spellcheck="true">// 修改人的姓名：</span>
+<span class="token comment" spellcheck="true">// 修改日期：</span>
+<span class="token comment" spellcheck="true">// 修改原因：</span>
+<span class="token comment" spellcheck="true">/* ===================================================== */</span>
+</code></pre>
+<h4 id="9-3-脚本中的注释"><a href="#9-3-脚本中的注释" class="headerlink" title="9.3 脚本中的注释"></a>9.3 脚本中的注释</h4><p>①单行脚本程序注释：  </p>
+<pre class=" language-java"><code class="language-java"><span class="token comment" spellcheck="true">// 注释文本</span>
+</code></pre>
+<p>②脚本的程序段注释：  </p>
+<pre class=" language-java"><code class="language-java"><span class="token comment" spellcheck="true">/* ================================== */</span>
+<span class="token comment" spellcheck="true">//</span>
+<span class="token comment" spellcheck="true">// 注释文本</span>
+<span class="token comment" spellcheck="true">//</span>
+<span class="token comment" spellcheck="true">/* ================================== */</span>
+</code></pre>
+<p>③ 变量注释</p>
+<pre class=" language-java"><code class="language-java">数据类型 变量名 <span class="token comment" spellcheck="true">//注释</span>
+</code></pre>
+<h4 id="9-4-在函数、存储过程等脚本（-Script）之前应说明"><a href="#9-4-在函数、存储过程等脚本（-Script）之前应说明" class="headerlink" title="9.4 在函数、存储过程等脚本（ Script）之前应说明"></a>9.4 在函数、存储过程等脚本（ Script）之前应说明</h4><pre class=" language-java"><code class="language-java"><span class="token comment" spellcheck="true">/* ======================================================= */</span>
+<span class="token comment" spellcheck="true">// 函数名称：</span>
+<span class="token comment" spellcheck="true">// 参数解释：</span>
+<span class="token comment" spellcheck="true">// 功能描述：</span>
+<span class="token comment" spellcheck="true">// 调用举例：</span>
+<span class="token comment" spellcheck="true">// 最初作者：</span>
+<span class="token comment" spellcheck="true">// 编写日期：</span>
+<span class="token comment" spellcheck="true">// 返 回 值：</span>
+<span class="token comment" spellcheck="true">// 变量情况：</span>
+<span class="token comment" spellcheck="true">// 修 改 人：</span>
+<span class="token comment" spellcheck="true">// 修改日期：</span>
+<span class="token comment" spellcheck="true">// 修改原因：</span>
+<span class="token operator">/</span><span class="token operator">*</span> <span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span> <span class="token operator">*</span>
+</code></pre>
+<h3 id="十、代码编写规范"><a href="#十、代码编写规范" class="headerlink" title="十、代码编写规范"></a>十、代码编写规范</h3><blockquote>
+<p>脚本的书写应该层次清楚，以便于阅读  </p>
+</blockquote>
+<ul>
+<li> 用分层缩进的写法显示嵌套结构的层次  </li>
+<li>在注释段与程序段，以及不同逻辑的程序段之间插入空行  </li>
+<li>每行至多只写一条语句，当需要滚动显示时应该分行书写。一条语句需要在多行书<br>写时，用&amp;进行连接</li>
+</ul>
+<h4 id="10-1-流程控制写法"><a href="#10-1-流程控制写法" class="headerlink" title="10.1 流程控制写法"></a>10.1 流程控制写法</h4><blockquote>
+<p>用分层缩进的写法突出显示嵌套的层次结构  </p>
+</blockquote>
+<p>例如：</p>
+<pre class=" language-vb"><code class="language-vb">For i = 1 To 100
+    For j = 1 To 50
+        For k = 1 To 200
+            Matrix[i， j， k]=1
+        Next
+    Next
+Next
+</code></pre>
+<h4 id="10-2-数据库相关"><a href="#10-2-数据库相关" class="headerlink" title="10.2  数据库相关"></a>10.2  数据库相关</h4><p>① <code>sqlca</code>的连接语句<code>connect</code>在应用Open事件中完成，其<code>disconnec</code>t在主应用的<br><code>close</code>事件中完成，其余任何<code>pbl</code>中均不能有<code>disconnect</code>语句  </p>
+<p>② 要连接多个数据库，需要用<code>Create</code>创建对象，比如，<code> sqlsyb</code>，连接用 <code>connect using sqlsyb</code>， 处理完毕后用 <code>disconnect using sqlsyb</code>， 并且用<code> destroy sqlsyb</code>释放资源    </p>
+<p>③所有<code>sql</code>语句均需判断返回结果（包括<code>select</code>， <code>commit</code>语句）  </p>
+<pre class=" language-java"><code class="language-java">If sqlca<span class="token punctuation">.</span>sqlcode <span class="token operator">=</span> <span class="token operator">-</span><span class="token number">1</span> Then
+    <span class="token comment" spellcheck="true">// 错误处理程序</span>
+    <span class="token comment" spellcheck="true">// 跳出</span>
+Else
+    <span class="token comment" spellcheck="true">// 正常</span>
+End If
+</code></pre>
+<h4 id="10-3-代码块之间留一行"><a href="#10-3-代码块之间留一行" class="headerlink" title="10.3 代码块之间留一行"></a>10.3 代码块之间留一行</h4><pre class=" language-java"><code class="language-java">If <span class="token operator">&lt;</span>condition1<span class="token operator">></span> Then
+    <span class="token operator">&lt;</span>statementblock<span class="token operator">></span>
+End If
+    
+For <span class="token operator">&lt;</span>varname<span class="token operator">>=</span><span class="token operator">&lt;</span>start<span class="token operator">></span> To <span class="token operator">&lt;</span>End<span class="token operator">></span> Step <span class="token operator">&lt;</span>increment<span class="token operator">></span>
+    <span class="token operator">&lt;</span>statement_block<span class="token operator">></span>
+Next
+</code></pre>
+<h4 id="10-4-单行注释与当前script程序的缩进位置对齐"><a href="#10-4-单行注释与当前script程序的缩进位置对齐" class="headerlink" title="10.4 单行注释与当前script程序的缩进位置对齐"></a>10.4 单行注释与当前script程序的缩进位置对齐</h4><pre class=" language-java"><code class="language-java"><span class="token comment" spellcheck="true">//这是对condition1的注释</span>
+If <span class="token operator">&lt;</span>condition1<span class="token operator">></span> Then
+    <span class="token comment" spellcheck="true">//这是对condition2 的注释</span>
+    If <span class="token operator">&lt;</span>condition2<span class="token operator">></span> Then
+        <span class="token comment" spellcheck="true">//这是对action1的注释</span>
+        <span class="token operator">&lt;</span>action1<span class="token operator">></span>
+    End If
+End If
+</code></pre>
+<h4 id="10-5-代码缩进用tab"><a href="#10-5-代码缩进用tab" class="headerlink" title="10.5  代码缩进用tab"></a>10.5  代码缩进用<code>tab</code></h4><blockquote>
+<p>缩进应以Tab键实现，不得采用空格  </p>
+</blockquote>
+<h4 id="10-6-变量采用小写格式"><a href="#10-6-变量采用小写格式" class="headerlink" title="10.6 变量采用小写格式"></a>10.6 变量采用小写格式</h4><ul>
+<li><p>变量全部用小写  </p>
+<pre class=" language-java"><code class="language-java">string ls_name
+</code></pre>
+</li>
+<li><p>一个变量一行，每个变量必须注释  </p>
+<pre class=" language-java"><code class="language-java">string ls_name   <span class="token comment" spellcheck="true">//用户姓名</span>
+string ls_sex    <span class="token comment" spellcheck="true">//用户性别</span>
+<span class="token keyword">int</span> li_age    <span class="token comment" spellcheck="true">//用户年龄</span>
+</code></pre>
+</li>
+<li><p>通常情况下，变量的后半部分尽量用数据库字段名  </p>
+</li>
+<li><p>变量声明全部在脚本之前声明完毕  </p>
+</li>
+<li><p>对象名采用小写，属性、关键字、保留字和内置函数均采用首字母大写格式  </p>
+<pre class=" language-java"><code class="language-java">w_cont_de<span class="token punctuation">.</span>Visible <span class="token operator">=</span> True
+m_mdi<span class="token punctuation">.</span>m_file<span class="token punctuation">.</span>m_print<span class="token punctuation">.</span>Enabled <span class="token operator">=</span> False
+</code></pre>
+</li>
+</ul>
+<h4 id="10-7-字符串排版"><a href="#10-7-字符串排版" class="headerlink" title="10.7 字符串排版"></a>10.7 字符串排版</h4><blockquote>
+<p>连接起来的字符串超过了两行的长度时，使用 <code>+&amp;</code>，每次均<br>采用缩进格式。字符串的随后部分应该再次缩进  </p>
+</blockquote>
+<pre class=" language-java"><code class="language-java">ls_msg <span class="token operator">=</span> <span class="token string">"连接数据库失败！错误信息为： ~r~n"</span> <span class="token operator">+</span><span class="token operator">&amp;</span>
+         Sqlca<span class="token punctuation">.</span>SqlErrText <span class="token operator">+</span><span class="token operator">&amp;</span>
+         <span class="token string">"请与系统管理员联系"</span>
+</code></pre>
+<h4 id="10-8-PB关键字书写"><a href="#10-8-PB关键字书写" class="headerlink" title="10.8 PB关键字书写"></a>10.8 <code>PB</code>关键字书写</h4><blockquote>
+<p>首字母大写，这样看起来层次清晰  </p>
+</blockquote>
+<pre class=" language-java"><code class="language-java"><span class="token comment" spellcheck="true">// 举个栗子</span>
+This<span class="token punctuation">,</span>Parent<span class="token punctuation">,</span> ParentWindow<span class="token punctuation">,</span> True<span class="token punctuation">,</span> False<span class="token punctuation">,</span> Return<span class="token punctuation">,</span> Halt<span class="token punctuation">,</span>Close
+</code></pre>
+<h4 id="10-9-PB内部函数及属性"><a href="#10-9-PB内部函数及属性" class="headerlink" title="10.9 PB内部函数及属性"></a>10.9 <code>PB</code>内部函数及属性</h4><blockquote>
+<p>采用每个字首字母大写，这样看起来层次清晰  </p>
+</blockquote>
+<pre class=" language-java"><code class="language-java"><span class="token comment" spellcheck="true">//举个栗子</span>
+sle_user<span class="token punctuation">.</span>Text
+dw_1<span class="token punctuation">.</span><span class="token function">SetTransObject</span><span class="token punctuation">(</span>Sqlca<span class="token punctuation">)</span>
+Sqlca<span class="token punctuation">.</span>SqlErrText
+</code></pre>
+<h4 id="10-10-SQL语句书写"><a href="#10-10-SQL语句书写" class="headerlink" title="10.10 SQL语句书写"></a>10.10 <code>SQL</code>语句书写</h4><pre class=" language-java"><code class="language-java">SELECT name<span class="token punctuation">,</span> sex<span class="token punctuation">,</span> dept_id
+    INTO <span class="token operator">:</span>ls_name<span class="token punctuation">,</span> <span class="token operator">:</span>ls_sex<span class="token punctuation">,</span> <span class="token operator">:</span>ls_dept_id
+FROM employee
+WHERE emp_id <span class="token operator">=</span> <span class="token operator">:</span>ls_emp_id<span class="token punctuation">;</span>
+</code></pre>
+<h4 id="10-11-goto跳转语句"><a href="#10-11-goto跳转语句" class="headerlink" title="10.11 goto跳转语句"></a>10.11 <code>goto</code>跳转语句</h4><blockquote>
+<p>程序中应避免出现 goto 跳转语句 ,如果必须要使用，需要详细注释说明</p>
+</blockquote>
+<h4 id="10-12-游标模块"><a href="#10-12-游标模块" class="headerlink" title="10.12 游标模块"></a>10.12 游标模块</h4><p><strong>注意：</strong>游标命名规则： Cur + _ + 名称。  </p>
+<pre class=" language-java"><code class="language-java">Declare Cursorname Cursor <span class="token keyword">for</span>
+        Select语句
+Open Cursorname<span class="token punctuation">;</span>
+fetch Cursorname into <span class="token operator">&lt;</span>variables<span class="token operator">></span>
+Do While Sqlca<span class="token punctuation">.</span>Sqlcode <span class="token operator">=</span> <span class="token number">0</span>
+    <span class="token operator">&lt;</span>statementblock<span class="token operator">></span>
+    fetch Cursorname into <span class="token operator">&lt;</span>variables<span class="token operator">></span>
+Loop
+Close Cursorname
+</code></pre>
+<h4 id="10-13-存储过程调用"><a href="#10-13-存储过程调用" class="headerlink" title="10.13 存储过程调用"></a>10.13 存储过程调用</h4><p><strong>注意：</strong>存储过程命名规则： Pro + _ + 名称。  </p>
+<pre class=" language-java"><code class="language-java">declare Procedurename procedure For StoredProcedureName
+        <span class="token operator">:</span> Value1<span class="token punctuation">,</span><span class="token operator">:</span> Value2<span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">;</span>
+execute Procedurename<span class="token punctuation">;</span>
+fetch Procedurename into <span class="token operator">&lt;</span>variables<span class="token operator">></span><span class="token punctuation">;</span>
+close Procedurename<span class="token punctuation">;</span>
+commit<span class="token punctuation">;</span>
+</code></pre>
+<h4 id="10-14-操作符前后应留一空格"><a href="#10-14-操作符前后应留一空格" class="headerlink" title="10.14 操作符前后应留一空格"></a>10.14 操作符前后应留一空格</h4><blockquote>
+<p>所有操作符（包括等号）前后应留一空格，使程序看起来更清晰  </p>
+</blockquote>
+<pre class=" language-java"><code class="language-java">ls_msg <span class="token operator">=</span> ls_title <span class="token operator">+</span> ls_error
+</code></pre>
+<h4 id="10-15-循环中使用函数"><a href="#10-15-循环中使用函数" class="headerlink" title="10.15  循环中使用函数"></a>10.15  循环中使用函数</h4><blockquote>
+<p>仅当绝对需要时才在循环结构体中使用函数调用，也就是说，仅当函数的返回值依赖于循环迭代的值时才使用函数调用  </p>
+</blockquote>
+<pre class=" language-java"><code class="language-java">① 正例
+Long ll_num_selected
+ll_num_selected <span class="token operator">=</span> lb_devctg<span class="token punctuation">.</span><span class="token function">TotalSelected</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+For i <span class="token operator">=</span> <span class="token number">1</span> To num_selected
+……
+Next
+② 反例
+For i <span class="token operator">=</span> <span class="token number">1</span> To lb_1<span class="token punctuation">.</span><span class="token function">TotalSelected</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+……
+Next    
+</code></pre>
+<h4 id="10-16-条件判断表达式"><a href="#10-16-条件判断表达式" class="headerlink" title="10.16  条件判断表达式"></a>10.16  条件判断表达式</h4><blockquote>
+<p>条件判断表达式中，变量和固定取值的比较尽量不要使用&lt;&gt;进行判断，尤其数据来自数据库时，以保证程序的扩充性。  </p>
+<p>比如，前期设计中 1 代表男、 2 代表女，使用 var=2 比var&lt;&gt;1 的判断有更好的可扩充性  </p>
+</blockquote>
+<h3 id="十一、控件使用规范"><a href="#十一、控件使用规范" class="headerlink" title="十一、控件使用规范"></a>十一、控件使用规范</h3><ul>
+<li>应尽量为所有控件使用有意义的名称，重要控件不允许使用 pb_1 之类无明确意义的名称</li>
+<li>大号字体：各窗口控件字体为Arial，字号为12号，字色为黑色。小号字体：各窗口<br>控件字体为宋体，字号为9号，字色为黑色。  </li>
+<li>显示控件和输入控件底色分开，显示控件为灰色(窗口颜色)，输入控件为白色  </li>
+<li>输入区和显示区分别放置  </li>
+<li>按钮排列紧凑，在窗口右侧纵向排列时靠上放置；在窗口下方排列时靠右放置，因为左撇子操作者毕竟是少数  </li>
+<li>各字符类控件对齐方式为左对齐；数字类控件为右对齐，且必须按所需格式设置<br>Format 属性；日期控件必须保证能完整显示所需日期格式，应用yyyy-mm-dd风格  </li>
+<li><code>CommandButton</code>控件的推荐高度为104  </li>
+</ul>
+<h4 id="11-1-静态文本框"><a href="#11-1-静态文本框" class="headerlink" title="11.1 静态文本框"></a>11.1 静态文本框</h4><blockquote>
+<p>命名规则： st +_ + 名称（若为label可不改名）  </p>
+</blockquote>
+<p>外观规定如下  </p>
+<ul>
+<li><p>背景色： buttonface；  </p>
+</li>
+<li><p>前景色：黑色  </p>
+</li>
+<li><p>边 框：无  </p>
+</li>
+<li><p>高 度： 72  </p>
+<p>建议在其后加上全角冒号（： ）  </p>
+</li>
+</ul>
+<h4 id="11-2-单行编辑框"><a href="#11-2-单行编辑框" class="headerlink" title="11.2 单行编辑框"></a>11.2 单行编辑框</h4><blockquote>
+<p>命名规则： sle +_ + 名称  </p>
+</blockquote>
+<p>（ 1）外观  </p>
+<ul>
+<li>背景色：白色  </li>
+<li>前景色：黑色  </li>
+<li>边 框： 3D Lowered  </li>
+<li>高 度： 72  </li>
+</ul>
+<p>（ 2）程序说明  </p>
+<ul>
+<li>响应事件建议自定义 Keydown 事件，尽量不要用 Modify 事件  </li>
+<li>当获得焦点时控件背景变为深蓝色，字体颜色变为黄色，失去焦点时还原默认颜色  </li>
+</ul>
+<h4 id="11-3-命令按钮"><a href="#11-3-命令按钮" class="headerlink" title="11.3 命令按钮"></a>11.3 命令按钮</h4><blockquote>
+<p> 命名规则： cb +_+ 名称  </p>
+</blockquote>
+<p>（ 1）外观  </p>
+<ul>
+<li>高度：对于小号字体（宋体9号）为92；对于大号字体（ Arial 12号）为108  </li>
+<li>宽度：对于小号字体（宋体9号）为325；对于大号字体（ Arial 12号）为402  </li>
+</ul>
+<p>（ 2）说明  </p>
+<blockquote>
+<p>命令按钮控件不要使用 cb_1 之类无明确意义的名称(尤其在窗口中这类控件比较多时，<br>可能令人分不清各个控件的作用)  </p>
+</blockquote>
+<h4 id="11-4-图像按钮"><a href="#11-4-图像按钮" class="headerlink" title="11.4 图像按钮"></a>11.4 图像按钮</h4><blockquote>
+<p>钮命名规则： pb + _ + 名称  </p>
+</blockquote>
+<p>外观规定如下  </p>
+<ul>
+<li>尺寸：用图像原始尺寸  </li>
+<li>图像：按钮的有效与无效采用不同的 bmp 图像以示区别  </li>
+</ul>
+<p><strong>注意：</strong> 尽量不用图形按钮，而用命令按钮  </p>
+<h4 id="11-5-复选框"><a href="#11-5-复选框" class="headerlink" title="11.5 复选框"></a>11.5 复选框</h4><blockquote>
+<p>命名规则： cbx + _ + 名称  </p>
+</blockquote>
+<p>外观规定如下：  </p>
+<ul>
+<li>背景色： buttonface  </li>
+<li>前景色：黑色  </li>
+<li>边 框： 3D Lowered  </li>
+<li>高 度： 92；  </li>
+<li>位 置：标签在右  </li>
+</ul>
+<h4 id="11-6-单选按钮"><a href="#11-6-单选按钮" class="headerlink" title="11.6 单选按钮"></a>11.6 单选按钮</h4><blockquote>
+<p>命名规则： rb + _ + 名称  </p>
+</blockquote>
+<p>（ 1）外观  </p>
+<ul>
+<li>背景色： buttonface  </li>
+<li>前景色：黑色  </li>
+<li>边 框： 3D Lowered  </li>
+<li>高 度： 92  </li>
+<li>位 置：标签在右  </li>
+</ul>
+<p>（ 2）程序说明</p>
+<ul>
+<li>单选按钮最好与组合框配合使用  </li>
+</ul>
+<h4 id="11-7-组框"><a href="#11-7-组框" class="headerlink" title="11.7 组框"></a>11.7 组框</h4><blockquote>
+<p>命名规则： gb + _ + 名称  </p>
+</blockquote>
+<p>外观规定如下：</p>
+<ul>
+<li>背景色： buttonface；</li>
+<li>前景色：黑色；</li>
+<li>边 框： 3D Lowered  </li>
+</ul>
+<h4 id="11-8-屏蔽编辑框"><a href="#11-8-屏蔽编辑框" class="headerlink" title="11.8 屏蔽编辑框"></a>11.8 屏蔽编辑框</h4><blockquote>
+<p>命名规则： em + _ + 名称  </p>
+</blockquote>
+<p>（ 1）外观</p>
+<ul>
+<li>背景色：白色；</li>
+<li> 前景色：黑色；</li>
+<li> 边 框： 3D Lowered。  </li>
+</ul>
+<p>（ 2）程序说明  </p>
+<ul>
+<li>响应事件建议用自定义 Keydown 事件，尽量不要用 Modify 事件。</li>
+<li>当获得焦点时控件背景变为深蓝色，字体颜色变为黄色，失去焦点时还原默认颜色  </li>
+</ul>
+<h4 id="11-9-下拉列表框"><a href="#11-9-下拉列表框" class="headerlink" title="11.9 下拉列表框"></a>11.9 下拉列表框</h4><blockquote>
+<p>命名规则： ddlb + _ + 名称  </p>
+</blockquote>
+<p>外观规定如下：</p>
+<ul>
+<li>背景色：白色；</li>
+<li> 前景色：黑 色；</li>
+<li>边 框： 3D Lowered  </li>
+</ul>
+<h4 id="11-10-应用"><a href="#11-10-应用" class="headerlink" title="11.10 应用"></a>11.10 应用</h4><blockquote>
+<p>命名规则： app + _ + 应用名  </p>
+</blockquote>
+<ul>
+<li>为应用选择一个图标，以便在运行时标识应用。</li>
+<li>在 Open 事件中声明 <code>SQLCA</code> 全局变量和打开应用主窗口。</li>
+<li>在 <code>Closequery</code> 事件中编写退出应用之前的处理程序。</li>
+<li>在 <code>SystemError</code> 事件中编写系统出错的处理程序  </li>
+</ul>
+<h4 id="11-11-窗口"><a href="#11-11-窗口" class="headerlink" title="11.11 窗口"></a>11.11 窗口</h4><blockquote>
+<p>命名规则： w + _ + 窗口名  </p>
+</blockquote>
+<ul>
+<li>主窗口采用 <code>main</code> 窗口类型，子窗口一般采用<code> Popup</code>窗口类型，无控制菜单，无最大<br>化最小化按钮，不可改变大小。若为一般性提示窗口，用<code> response</code> 窗口类型。 </li>
+<li>窗口以 <code>buttonface</code> 颜色为背景颜色  </li>
+<li>重要的菜单选项设置 <code>Toolbar</code> 功能  </li>
+<li>窗口上下左右四周应至少留出两个网格，而不得将对象填满整个窗口  </li>
+</ul>
+<h4 id="11-12-菜单"><a href="#11-12-菜单" class="headerlink" title="11.12 菜单"></a>11.12 菜单</h4><blockquote>
+<p>命名规则： m + _ + 菜单名  </p>
+</blockquote>
+<p>菜单项 <code>MenuItem</code> 的名称以该菜单项在整个菜单中的物理位置分层次命名  </p>
+<p>MenuItem 位于整个菜单的第三列第二行，则命名为 m_32；文件菜单下的“关<br>闭”菜单项，命名为 m_file_close  </p>
+<h4 id="11-13-数据窗口对象"><a href="#11-13-数据窗口对象" class="headerlink" title="11.13 数据窗口对象"></a>11.13 数据窗口对象</h4><blockquote>
+<p>命名规则： d + _ + 功能含义  </p>
+</blockquote>
+<ul>
+<li>打印用数据窗口的背景色为白色，题目为16号字，内容为11号字，显示比例为75%  </li>
+<li>显示用数据窗口的背景色原则上为 <code>buttonface</code>， 可视窗口制作是否美观的实际情况而定  </li>
+<li>白色数据窗口各列显示框高度为72  </li>
+<li>Tabular 和 Grid 风格数据窗口，无表头时列名文本边框为 3D Raised。 Detail 区为 3D<br>Lowered，背景色原则上为白色。 Grid 风格数据窗口一般不出现线条  </li>
+</ul>
+<h4 id="11-14-数据窗口控件"><a href="#11-14-数据窗口控件" class="headerlink" title="11.14 数据窗口控件"></a>11.14 数据窗口控件</h4><blockquote>
+<p>命名规则： dw + _+ 功能含义  </p>
+</blockquote>
+<p>数据窗口边框原则上为 3D Lowered，也可以使用 none 外加 group  </p>
+<h4 id="11-15-用户对象命名"><a href="#11-15-用户对象命名" class="headerlink" title="11.15 用户对象命名"></a>11.15 用户对象命名</h4><blockquote>
+<p>命名规则： uo + _ + 功能含义  </p>
+</blockquote>
+<p>公共对象对应以上各控件规范制作  </p>
+<h3 id="十二、错误处理"><a href="#十二、错误处理" class="headerlink" title="十二、错误处理"></a>十二、错误处理</h3><p>对错误的处理和状态监测程序实行标准化，这有几方面的原因：</p>
+<ul>
+<li>要在整个应用中统一处理；</li>
+<li> 减少偶然漏掉特有处理的可能性；</li>
+<li>减少日后进行软件维护时的不必要的麻烦  </li>
+</ul>
+<p>以下几个方面的检查可以考虑用标准的方法处理：</p>
+<ul>
+<li><p>连接错误；</p>
+</li>
+<li><p> 连接库存取错误；</p>
+</li>
+<li><p> 数据录入错误；</p>
+</li>
+<li><p>程序执行错误。</p>
+<p>程序执行出错处理必须明确指出出错的原因或者可能。<br>数据库操作出错必须指出数据库错误代码（ <code>SQLCA.SQLCODE</code>）以及数据库错误说明<br>（ <code>SQLCA.SQLERRTEXT</code>），即下面的这段代码必须在数据库操作出错处理中：<br>“<del>r</del>n<del>r</del>n 错误码： “ + <code>string(SQLCA.SQLCODE)</code> &amp;<br>+ “<del>r</del>n<del>r</del>n 出错信息： “ + <code>SQLCA.SQLERRTEXT ) </code></p>
+</li>
+</ul>
+<h3 id="十三、版本控制"><a href="#十三、版本控制" class="headerlink" title="十三、版本控制"></a>十三、版本控制</h3><p>① 软件版本号标准为 <strong>a . b</strong>，其中 a 和 b 为 0 到 99 之间的数字</p>
+<p>② 当 <strong>a 大于 1 并且 b 为奇数</strong>时， 表示当前版本为处于<strong>开发、 测试阶段</strong>的版本， 定义为“开<br>发版”；当 <strong>b 为偶数</strong>时，表示当前版本为<strong>稳定的、可实际运行</strong>的版本，定义为“稳定版”</p>
+<p>③ 当软件开始开发时，确定版本号为 0.1；随着软件开发的进度，版本号随着每一次主<br>要功能的完善而变化，最高达到 0.99</p>
+<p>④ 软件初步开发完成后，经过软件开发小组内部测试，初步能够完成软件需求提出的<br>业务规范和技术要求，软件基本能正常运行，此时，<strong>确定该软件版本号为 1.0 Beta x</strong> ，这意<br>味着软件可以投入实际应用测试，其中 x <strong>代表测试的次数</strong></p>
+<p>⑤ 当软件的 1.0 Beta x 版本推出并经过用户实际应用或者试运行测试后，此时，确定该<br>软件版本号为 <strong>1.0 RC</strong>。这意味着软件<strong>可以投入实际应用运行</strong></p>
+<p>⑥ 当软件的 1.0 RC 版本投入实际应用运行达到某一时限后，则认为该版本已经稳定，<br>可以完全正常地使用了，这时，确定软件的<strong>版本号为 1.0</strong>，这意味着软件开发完成，可以投 入实际应用和推广 </p>
+<p>⑦ 当软件进行升级时，<strong>如果功能变化不大，则次版本号变化</strong>；<strong>如果软件功能发生重大变化时，主版本号变化</strong></p>
+<h3 id="十四-小结"><a href="#十四-小结" class="headerlink" title="十四 小结"></a>十四 小结</h3><p>以上从变量命名规范、<code>pb</code>的各种控件命名规范、代码书写、注释、错误处理、版本控制等方面说了日常工作中</p>
+<p>使用<code>pb</code>开发应遵守的一些规约。</p>
+<p>当然了，上面规范也不是必须的，你所在的团队也会有自己的一些规约。</p>
+<p>本期内容到此就结束了，希望对你有所帮助。我们下期再见 (●’◡’●)</p>
+<p>参考文献</p>
+<p>[^PowerBuilder 9.0 实用解析]: PowerBuilder 9.0 实用解析<br>[^Poweruilder9.0精彩编程百例 ]: Poweruilder9.0精彩编程百例<br><a href="PowerBuilder%E9%AB%98%E7%BA%A7%E7%BC%96%E7%A8%8B%E5%8F%8A%E5%85%B6%E9%A1%B9%E7%9B%AE%E5%BA%94%E7%94%A8%E5%BC%80%E5%8F%91">^ </a>: PowerBuilder 10.0 应用基础与实例教程</p>
+]]></content>
+      <categories>
+        <category>PB,PowerBuilder,数据库技术</category>
+      </categories>
+      <tags>
+        <tag>PB,PowerBuilder,数据库技术</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>PB从入坑到放弃（一）第一个HelloWorld程序</title>
+    <url>/archives/431e695.html</url>
+    <content><![CDATA[<h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>为了方便，后面我们都用<code>pb</code> 来代替<code>PowerBuilder</code></p>
+<p>说到这不得不来说说自己的<code>pb</code>入坑经历， 自己也不是计算机科班出生。</p>
+<p>刚到公司面试，听到<code>pb</code>也是一脸懵逼，这啥东西，从来没听过。</p>
+<p>关于<code>PB</code>资料，网上确实少的可怜</p>
+<p>然而，不知不觉已经干了好几年😔</p>
+<p>也是有了这些踩坑的经历，才打算写《<code>pb</code>从入坑到放弃》系列文章。这篇呢也是这系列的第一篇。</p>
+<p>扯得有点远了，还是回到正轨来，本篇文章我们主要就是用<code>pb</code> 创建第一个<code>helloworld</code> 程序。</p>
+<p>并将程序编译发布成可执行文件(.exe结尾的文件)，有了可执行文件，我们还要将它制作成安装包。</p>
+<h3 id="一-、PowerBuilder-是什么？"><a href="#一-、PowerBuilder-是什么？" class="headerlink" title="一 、PowerBuilder 是什么？"></a>一 、<code>PowerBuilder</code> 是什么？</h3><ul>
+<li><code>pb</code>是美国<code>Sybase</code>公司研制的快速开发工具</li>
+<li>它包含一个直观的<strong>图形界面</strong>和<strong>可扩展的面向对象的编程语言</strong><code>PowerScript</code></li>
+<li><code>pb</code>的主要特色是<code>DataWindow</code>（<strong>数据窗口</strong>），通过<code>DataWindow</code>可以方便地对数据库进行各种操作，可以不用写<code>SQL</code>就能快速开发出各种简单或者复杂报表</li>
+<li>可以直接与<code>Sybase</code>、<code>SQLServer</code>、<code>nformix</code>、<code>Oracle</code>等大型数据库连接</li>
+</ul>
+<h3 id="二、PowerBuilder-下载安装"><a href="#二、PowerBuilder-下载安装" class="headerlink" title="二、PowerBuilder 下载安装"></a>二、<code>PowerBuilder</code> 下载安装</h3><p>有不少新来的小伙伴经常会问，我是刚学<code>pb</code> 应该安装哪个版本好呢。</p>
+<p>小编这里推荐几个版本9、11.5、12.5  这几个版本算是用得比较多和比较稳定的，当然了最新的版本是2022</p>
+<p>小编呢工作上由于要维护老项目，也是一直在用着9这个版本。</p>
+<p>这里给大家找了各个版本的安装包，大家根据需要下载安装即可（<strong>有的需要安装补丁包的，也都在里面的</strong>），还有一些<code>pb</code>相关工具</p>
+<p>链接：<a href="https://pan.baidu.com/s/1WdGfYRw5jNLD70QXbaDmBg">https://pan.baidu.com/s/1WdGfYRw5jNLD70QXbaDmBg</a><br>提取码：8888</p>
+<p><img src="http://blog.xiezhrspace.cn/blog-img/image-20230626075127183.png" alt="image-20230626075127183"></p>
+<h3 id="三、创建第一个HelloWorld程序"><a href="#三、创建第一个HelloWorld程序" class="headerlink" title="三、创建第一个HelloWorld程序"></a>三、创建第一个<code>HelloWorld</code>程序</h3><p>小编安装的是<code>pb12.5</code>,这里就用这个版本来演示</p>
+<h4 id="3-1-创建helloworld程序"><a href="#3-1-创建helloworld程序" class="headerlink" title="3.1 创建helloworld程序"></a>3.1 创建helloworld程序</h4><p>① 新建工作空间</p>
+<blockquote>
+<p>点击菜单：File—&gt;New—&gt;Workspace</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>–</th>
+<th>–</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><img src="http://blog.xiezhrspace.cn/blog-img/image-20230626080745169.png" alt="image-20230626080745169"></td>
+<td><img src="http://blog.xiezhrspace.cn/blog-img/image-20230626080822166.png" alt="image-20230626080822166"></td>
+</tr>
+</tbody></table>
+<p>②  选择路径保存工作空间</p>
+<p><img src="http://blog.xiezhrspace.cn/blog-img/image-20230626081056386.png" alt="image-20230626081056386"></p>
+<p>③ 创建一个Application(应用程序实例)</p>
+<blockquote>
+<p>菜单栏—-&gt;File—-&gt;New—-&gt;Target—-&gt;Application</p>
+</blockquote>
+<p><img src="http://blog.xiezhrspace.cn/blog-img/image-20230626081524446.png" alt="image-20230626081524446"></p>
+<p>给应用实例起名，我们还是用默认的<code>HelloWorld</code> 就可以了</p>
+<p><img src="http://blog.xiezhrspace.cn/blog-img/image-20230626081754527.png" alt="image-20230626081754527"></p>
+<p>到此一个简单的项目架构就搭好了，是不是很easy呢</p>
+<p>④ 创建窗口</p>
+<blockquote>
+<p>File—&gt;new—-&gt;Pb Object—-&gt;Window</p>
+</blockquote>
+<p><img src="http://blog.xiezhrspace.cn/blog-img/image-20230627214724427.png" alt="创建窗口"></p>
+<p><img src="http://blog.xiezhrspace.cn/blog-img/image-20230627215355519.png" alt="窗口上放置控件"></p>
+<p><img src="http://blog.xiezhrspace.cn/blog-img/image-20230627215625482.png" alt="命名窗口"></p>
+<p>④ 写代码，打开窗口</p>
+<blockquote>
+<p>我们要在Application对象的Open事件中书写代码，open事件可以看作是程序的入口</p>
+</blockquote>
+<pre class=" language-java"><code class="language-java"><span class="token function">open</span><span class="token punctuation">(</span>w_helloworld<span class="token punctuation">)</span>
+</code></pre>
+<p><img src="http://blog.xiezhrspace.cn/blog-img/image-20230627220145431.png" alt="image-20230627220145431"></p>
+<p>⑤ 运行程序</p>
+<blockquote>
+<p>点击奔跑的小人即可运行程序</p>
+</blockquote>
+<p><img src="http://blog.xiezhrspace.cn/blog-img/image-20230627220339912.png" alt="点击运行程序"></p>
+<p><img src="http://blog.xiezhrspace.cn/blog-img/image-20230627220515122.png" alt="程序运行起来了"></p>
+<p>到此，我们第一个<code>pb</code>开发的<code>helloworld</code> 程序就跑起来了</p>
+<h4 id="3-2-项目文件机构介绍"><a href="#3-2-项目文件机构介绍" class="headerlink" title="3.2 项目文件机构介绍"></a>3.2 项目文件机构介绍</h4><p><img src="http://blog.xiezhrspace.cn/blog-img/image-20230626082809622.png" alt="image-20230626082809622"></p>
+<h3 id="四、程序编译与发布"><a href="#四、程序编译与发布" class="headerlink" title="四、程序编译与发布"></a>四、程序编译与发布</h3><blockquote>
+<p>上面小节中我们的程序已经在编辑器中跑起来了，那么怎么才能将它编译成exe可执行文件直接运行呢？</p>
+<p>这小节，我们就来实现将我们开发好的程序编译成exe可执行文件</p>
+</blockquote>
+<p>① 新建Application Wizard</p>
+<table>
+<thead>
+<tr>
+<th>– 1 新建Application Wizard</th>
+<th>– 2下一步</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><img src="http://blog.xiezhrspace.cn/blog-img/image-20230627221649034.png" alt="image-20230627221649034"></td>
+<td><img src="http://blog.xiezhrspace.cn/blog-img/image-20230627221727613.png" alt="image-20230627221727613"></td>
+</tr>
+<tr>
+<td>– 3 下一步</td>
+<td>– 4 新建p_helloworld_exe</td>
+</tr>
+<tr>
+<td><img src="http://blog.xiezhrspace.cn/blog-img/image-20230627221801915.png" alt="image-20230627221801915"></td>
+<td><img src="http://blog.xiezhrspace.cn/blog-img/image-20230627221834542.png" alt="image-20230627221834542"></td>
+</tr>
+<tr>
+<td>– 5 选择exe可执行文件路径</td>
+<td>– 6 选择全编译</td>
+</tr>
+<tr>
+<td><img src="http://blog.xiezhrspace.cn/blog-img/image-20230627222136300.png" alt="image-20230627222136300"></td>
+<td><img src="http://blog.xiezhrspace.cn/blog-img/image-20230627222334414.png" alt="image-20230627222334414"></td>
+</tr>
+<tr>
+<td>– 默认勾选</td>
+<td>–8 将pbl编译成pbd</td>
+</tr>
+<tr>
+<td><img src="http://blog.xiezhrspace.cn/blog-img/image-20230627222407722.png" alt="image-20230627222407722"></td>
+<td><img src="http://blog.xiezhrspace.cn/blog-img/image-20230627222450963.png" alt="image-20230627222450963"></td>
+</tr>
+<tr>
+<td>– 9 填写版本信息</td>
+<td>–完成</td>
+</tr>
+<tr>
+<td><img src="http://blog.xiezhrspace.cn/blog-img/image-20230627222526849.png" alt="image-20230627222526849"></td>
+<td><img src="http://blog.xiezhrspace.cn/blog-img/image-20230627222549380.png" alt="image-20230627222549380"></td>
+</tr>
+</tbody></table>
+<p>② 编译程序生成exe可执行文件</p>
+<table>
+<thead>
+<tr>
+<th>–</th>
+<th>–</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><img src="http://blog.xiezhrspace.cn/blog-img/image-20230627223039728.png" alt="image-20230627223039728"></td>
+<td><img src="http://blog.xiezhrspace.cn/blog-img/image-20230627223128417.png" alt="image-20230627223128417"></td>
+</tr>
+<tr>
+<td>– 版本信息</td>
+<td></td>
+</tr>
+<tr>
+<td><img src="http://blog.xiezhrspace.cn/blog-img/image-20230627223328599.png" alt="image-20230627223328599"></td>
+<td></td>
+</tr>
+</tbody></table>
+<p>以上检查都正确后，点击编译按钮进行编译</p>
+<table>
+<thead>
+<tr>
+<th>–</th>
+<th>–</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><img src="http://blog.xiezhrspace.cn/blog-img/image-20230627223439886.png" alt="image-20230627223439886"></td>
+<td><img src="http://blog.xiezhrspace.cn/blog-img/image-20230627223533440.png" alt="image-20230627223533440"></td>
+</tr>
+</tbody></table>
+<p>③ 查看生成的exe,并运行exe文件</p>
+<p><img src="http://blog.xiezhrspace.cn/blog-img/image-20230627223853052.png" alt="exe可执行文件"></p>
+<p>④ 双击helloworld.exe 运行程序</p>
+<p><img src="http://blog.xiezhrspace.cn/blog-img/image-20230627224017520.png" alt="运行程序"></p>
+<h3 id="五、安装包制作"><a href="#五、安装包制作" class="headerlink" title="五、安装包制作"></a>五、安装包制作</h3><blockquote>
+<p>无论你是软件开发、还是游戏开发，无论你用什么工具进行开发，我们都需要将我们开发好的程序打包发给客户。</p>
+<p>这一小节，我们就来看看怎么将我们上面开发好的程序制作成好看的安装包</p>
+</blockquote>
+<h4 id="5-1-打包工具"><a href="#5-1-打包工具" class="headerlink" title="5.1 打包工具"></a>5.1 打包工具</h4><p>我们这里推荐使用的是<code>Inno setup</code>软件制作Windows安装包</p>
+<p><code>Inno setup</code>是一个免费、开源、简单的打包软件。 </p>
+<p>这个软件足够简单，一分钟就完成打包。这个软件也足够强大，你想实现的功能，它几乎都能满足。 </p>
+<p>不仅功能强大，<code>Inno Setup</code>软件还可以实现类似于“QQ音乐安装包”、“搜狗输入法安装包”的界面效果</p>
+<h4 id="5-2-软件下载"><a href="#5-2-软件下载" class="headerlink" title="5.2  软件下载"></a>5.2  软件下载</h4><p>官网：<a href="https://jrsoftware.org/isinfo.php">https://jrsoftware.org/isinfo.php</a></p>
+<p>界面汉化包地址：<a href="https://jrsoftware.org/files/istrans/">https://jrsoftware.org/files/istrans/</a></p>
+<p><img src="http://blog.xiezhrspace.cn/blog-img/image-20230629203436742.png" alt="下载页面"></p>
+<p>按照方式很简单，使用默认按照即可</p>
+<table>
+<thead>
+<tr>
+<th>– 下载的安装包</th>
+<th>– 安装成功后图标</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><img src="http://blog.xiezhrspace.cn/blog-img/image-20230629203608583.png" alt="下载的exe"></td>
+<td><img src="http://blog.xiezhrspace.cn/blog-img/image-20230629203755229.png" alt="image-20230629203755229"></td>
+</tr>
+</tbody></table>
+<h4 id="5-3-将我们开发好的程序制作成安装包"><a href="#5-3-将我们开发好的程序制作成安装包" class="headerlink" title="5.3 将我们开发好的程序制作成安装包"></a>5.3 将我们开发好的程序制作成安装包</h4><p>① 打开 <code>inno setup</code>安装包制作工具。新手用户建议和我一样使用向导来协助制作</p>
+<p><img src="http://blog.xiezhrspace.cn/blog-img/image-20230629204148612.png" alt="使用向导制作"></p>
+<p>② 默认下一步</p>
+<p><img src="http://blog.xiezhrspace.cn/blog-img/image-20230629204232200.png" alt="默认下一步"></p>
+<p>③ 填写相关信息</p>
+<p><img src="http://blog.xiezhrspace.cn/blog-img/image-20230629204450340.png" alt="填写相关信息"></p>
+<p>④  配置安装路径</p>
+<p><img src="http://blog.xiezhrspace.cn/blog-img/image-20230629204651423.png" alt="配置安装路径"></p>
+<p>⑤ 选择主启动程序</p>
+<p><img src="http://blog.xiezhrspace.cn/blog-img/image-20230629210058163.png" alt="选择主启动程序"></p>
+<p>⑥ 添加程序运行所需要的文件或文件夹</p>
+<blockquote>
+<p>这里我们将之前有<code>pbl</code>文件编译得到的<code>bpd</code> 文件添加进去。</p>
+</blockquote>
+<p>注意：我们这里编写的程序比较简单，所以只需要添加一个<code>pbd</code>文件。 后期随着程序功能的不断完善，程序需要的文件会非常多</p>
+<p>建议选择跟目录文件夹，将所有文件都添加进去，再将不需要的文件<code>remove</code> 即可</p>
+<p><img src="http://blog.xiezhrspace.cn/blog-img/image-20230629210518964.png" alt="image-20230629210518964"></p>
+<p>⑦ 填写安装包信息</p>
+<p><img src="http://blog.xiezhrspace.cn/blog-img/image-20230629211022909.png" alt="安装包信息"></p>
+<p>⑧  是否创建快捷方式</p>
+<p><img src="http://blog.xiezhrspace.cn/blog-img/image-20230629211330546.png" alt="image-20230629211330546"></p>
+<p>⑨ 添加版权信息</p>
+<p><img src="http://blog.xiezhrspace.cn/blog-img/image-20230629211805851.png" alt="版权信息"></p>
+<p>⑩ 以管理员权限安装</p>
+<p><img src="http://blog.xiezhrspace.cn/blog-img/image-20230629211954423.png" alt="image-20230629211954423"></p>
+<p> ⑪ 选择语言</p>
+<p><img src="http://blog.xiezhrspace.cn/blog-img/image-20230629212240940.png" alt="选择语言"></p>
+<p>⑫ 编译器设置</p>
+<p><img src="http://blog.xiezhrspace.cn/blog-img/image-20230629212841546.png" alt="编译器设置"></p>
+<p>⑬ 下一步</p>
+<table>
+<thead>
+<tr>
+<th>– 下一步</th>
+<th>– 完成</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><img src="http://blog.xiezhrspace.cn/blog-img/image-20230629212929187.png" alt="image-20230629212929187"></td>
+<td><img src="http://blog.xiezhrspace.cn/blog-img/image-20230629212943352.png" alt="image-20230629212943352"></td>
+</tr>
+</tbody></table>
+<p>⑭  生成编译脚本</p>
+<p><img src="http://blog.xiezhrspace.cn/blog-img/image-20230629213418558.png" alt="生成编译脚本"></p>
+<p>⑮ 保存脚本</p>
+<p><img src="http://blog.xiezhrspace.cn/blog-img/image-20230629213929285.png" alt="保存脚本"></p>
+<p>⑯ 编译成功</p>
+<p><img src="http://blog.xiezhrspace.cn/blog-img/image-20230629214428899.png" alt="image-20230629214428899"></p>
+<p>⑰ 生成安装包，到这里安装包就制作完成了</p>
+<p><img src="http://blog.xiezhrspace.cn/blog-img/image-20230629214611560.png" alt="生成安装包信息"></p>
+<h4 id="5-4-用制作好的安装包测试一下"><a href="#5-4-用制作好的安装包测试一下" class="headerlink" title="5.4 用制作好的安装包测试一下"></a>5.4 用制作好的安装包测试一下</h4><p>① 双击安装包即可开始安装</p>
+<blockquote>
+<p>首先展示出来的就是，我们之前填写的版权信息。但是中文会有乱码，后面文章中会写解决办法。</p>
+</blockquote>
+<p>​    <img src="http://blog.xiezhrspace.cn/blog-img/image-20230629215139904.png" alt="image-20230629215139904"></p>
+<p>②  选择安装路径</p>
+<p><img src="http://blog.xiezhrspace.cn/blog-img/image-20230629220208579.png" alt="选择安装路径"></p>
+<p>③ 创建桌面快捷方式</p>
+<p><img src="http://blog.xiezhrspace.cn/blog-img/image-20230629220448058.png" alt="image-20230629220448058"></p>
+<p>④ 下一步</p>
+<p><img src="http://blog.xiezhrspace.cn/blog-img/image-20230629220506652.png" alt="image-20230629220506652"></p>
+<p>⑤ 完成</p>
+<p><img src="http://blog.xiezhrspace.cn/blog-img/image-20230629220529657.png" alt="image-20230629220529657"></p>
+<p>⑥ 桌面生成快捷方式</p>
+<p><img src="http://blog.xiezhrspace.cn/blog-img/image-20230629220638984.png" alt="生成快捷方式"></p>
+<p>⑦ 双击可运行</p>
+<p><img src="http://blog.xiezhrspace.cn/blog-img/image-20230629220711710.png" alt="双击运行"></p>
+<p>⑧ 卸载程序</p>
+<p><img src="http://blog.xiezhrspace.cn/blog-img/image-20230629222622412.png" alt="卸载程序"></p>
+<h3 id="六、小结"><a href="#六、小结" class="headerlink" title="六、小结"></a>六、小结</h3><p>通过本篇文章，相信你已经对<code>pb</code> 开发<code>CS</code> 应用程序有了整体认识。公司开发应用程序也是这样的流程。</p>
+<p>开发（编写代码）—&gt; 编译发布程序—&gt; 应用程序安装包制作</p>
+<p>本期内容到此就结束了，这也是【<code>pb</code>从入坑到放弃】系列的开篇</p>
+<p>希望对你有所帮助，我们下期再见。(●’◡’●)</p>
+]]></content>
+      <categories>
+        <category>PB,PowerBuilder,数据库技术</category>
+      </categories>
+      <tags>
+        <tag>PB,PowerBuilder,数据库技术</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>快速上手kettl （四）壶里能倒出些啥？</title>
     <url>/archives/36e1e77b.html</url>
     <content><![CDATA[<h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>通过前面的文章中我们对<code>kettle</code> 这把“<strong>壶</strong>” 做了简单介绍，并对“<strong>壶</strong>” 里能装些啥也具体说了下。</p>
@@ -21525,9 +23833,9 @@ pull：更新到本地
         <category>Java</category>
       </categories>
       <tags>
-        <tag>Java</tag>
         <tag>IntelliJ IDEA</tag>
         <tag>IDEA</tag>
+        <tag>Java</tag>
       </tags>
   </entry>
   <entry>

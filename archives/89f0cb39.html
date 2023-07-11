@@ -1,0 +1,2785 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="PB,PowerBuilder,数据库技术">
+    <meta name="description" content="">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="baidu-site-verification" content="code-uutUfowLsm" />
+    <meta name="msvalidate.01" content="F999DE5405A9F0E56508AD3016F4E45E" />
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <title>PB从入坑到放弃（二）编码规范 | xiezhrspace</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="https://fastly.jsdelivr.net/gh/xiezhr/xiezhrblog-cdn-source/source/libs/awesome/css/all.css">
+    <link rel="stylesheet" type="text/css" href="https://fastly.jsdelivr.net/gh/xiezhr/xiezhrblog-cdn-source/source/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="https://fastly.jsdelivr.net/gh/xiezhr/xiezhrblog-cdn-source/source/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="https://fastly.jsdelivr.net/gh/xiezhr/xiezhrblog-cdn-source/source/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="https://fastly.jsdelivr.net/gh/xiezhr/xiezhrblog-cdn-source/source/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="https://fastly.jsdelivr.net/gh/xiezhr/xiezhrblog-cdn-source/source/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="https://fastly.jsdelivr.net/gh/xiezhr/xiezhrblog-cdn-source/source/css/my.css">
+    
+    <link rel="stylesheet" type="text/css" href="https://fastly.jsdelivr.net/gh/xiezhr/xiezhrblog-cdn-source/source/libs/artitalk/artitalk.min.css">
+    <!--引入春节样式-->
+    <link rel="stylesheet" type="text/css" href="../../css/spring.css">
+    <!--引入黑夜样式-->
+    <link rel="stylesheet" type="text/css" href="../../css/moon.css">
+    
+
+    <script src="https://fastly.jsdelivr.net/gh/xiezhr/xiezhrblog-cdn-source/source/libs/jquery/jquery.min.js"></script>
+
+    
+        <link type="text/css" href="/js/live2d_assets/waifu.css">
+    
+
+    
+
+<!-- 元宵节灯笼样式开始 -->
+
+<!-- 元宵节灯笼样式结束 -->
+
+    
+
+<meta name="generator" content="Hexo 5.4.0"><link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+
+
+
+
+
+    <style type="text/css" lang="css">
+    #loading-container{
+        position: fixed;
+        top: 0;
+        left: 0;
+        min-height: 100vh;
+        width: 100vw;
+        z-index: 9999;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background: #FFF;
+        text-align: center;
+        /* loader页面消失采用渐隐的方式*/
+        -webkit-transition: opacity 1s ease;
+        -moz-transition: opacity 1s ease;
+        -o-transition: opacity 1s ease;
+        transition: opacity 1s ease;
+    }
+    .loading-image{
+        width: 120px;
+        height: 50px;
+        transform: translate(-50%);
+    }
+
+    .loading-image div:nth-child(2) {
+        -webkit-animation: pacman-balls 1s linear 0s infinite;
+        animation: pacman-balls 1s linear 0s infinite
+    }
+
+    .loading-image div:nth-child(3) {
+        -webkit-animation: pacman-balls 1s linear .33s infinite;
+        animation: pacman-balls 1s linear .33s infinite
+    }
+
+    .loading-image div:nth-child(4) {
+        -webkit-animation: pacman-balls 1s linear .66s infinite;
+        animation: pacman-balls 1s linear .66s infinite
+    }
+
+    .loading-image div:nth-child(5) {
+        -webkit-animation: pacman-balls 1s linear .99s infinite;
+        animation: pacman-balls 1s linear .99s infinite
+    }
+
+   .loading-image div:first-of-type {
+        width: 0;
+        height: 0;
+        border: 25px solid #49b1f5;
+        border-right-color: transparent;
+        border-radius: 25px;
+        -webkit-animation: rotate_pacman_half_up .5s 0s infinite;
+        animation: rotate_pacman_half_up .5s 0s infinite;
+    }
+    .loading-image div:nth-child(2) {
+        width: 0;
+        height: 0;
+        border: 25px solid #49b1f5;
+        border-right-color: transparent;
+        border-radius: 25px;
+        -webkit-animation: rotate_pacman_half_down .5s 0s infinite;
+        animation: rotate_pacman_half_down .5s 0s infinite;
+        margin-top: -50px;
+    }
+    @-webkit-keyframes rotate_pacman_half_up {0% {transform: rotate(270deg)}50% {transform: rotate(1turn)}to {transform: rotate(270deg)}}
+
+    @keyframes rotate_pacman_half_up {0% {transform: rotate(270deg)}50% {transform: rotate(1turn)}to {transform: rotate(270deg)}}
+
+    @-webkit-keyframes rotate_pacman_half_down {0% {transform: rotate(90deg)}50% {transform: rotate(0deg)}to {transform: rotate(90deg)}}
+
+    @keyframes rotate_pacman_half_down {0% {transform: rotate(90deg)}50% {transform: rotate(0deg)}to {transform: rotate(90deg)}}
+
+    @-webkit-keyframes pacman-balls {75% {opacity: .7}to {transform: translate(-100px, -6.25px)}}
+
+    @keyframes pacman-balls {75% {opacity: .7}to {transform: translate(-100px, -6.25px)}}
+
+
+    .loading-image div:nth-child(3),
+    .loading-image div:nth-child(4),
+    .loading-image div:nth-child(5),
+    .loading-image div:nth-child(6){
+        background-color: #49b1f5;
+        width: 15px;
+        height: 15px;
+        border-radius: 100%;
+        margin: 2px;
+        width: 10px;
+        height: 10px;
+        position: absolute;
+        transform: translateY(-6.25px);
+        top: 25px;
+        left: 100px;
+    }
+    .loading-text{
+        margin-bottom: 20vh;
+        text-align: center;
+        color: #2c3e50;
+        font-size: 2rem;
+        box-sizing: border-box;
+        padding: 0 10px;
+        text-shadow: 0 2px 10px rgba(0,0,0,0.2);
+    }
+    @media only screen and (max-width: 500px) {
+         .loading-text{
+            font-size: 1.5rem;
+         }
+    }
+    .fadeout {
+        opacity: 0;
+        filter: alpha(opacity=0);
+    }
+    /* logo出现动画 */
+    @-webkit-keyframes fadeInDown{0%{opacity:0;-webkit-transform:translate3d(0,-100%,0);transform:translate3d(0,-100%,0)}100%{opacity:1;-webkit-transform:none;transform:none}}
+    @keyframes fadeInDown{0%{opacity:0;-webkit-transform:translate3d(0,-100%,0);}}
+ </style>
+ <script>
+(function () {
+    const loaded = function(){
+       setTimeout(function(){
+            const loader = document.getElementById("loading-container");
+            loader.className="fadeout" ;//使用渐隐的方法淡出loading page
+            // document.getElementById("body-wrap").style.display="flex";
+            setTimeout(function(){
+                loader.style.display="none";
+            },2500); 
+        },1000);//强制显示loading page 1s  
+    };
+    loaded();
+})()
+</script>
+
+ 
+
+<body>
+    
+    
+        <div id="loading-container">
+             <p class="loading-text">嘘~  小破站正在拼命加载中 . . . </p> 
+             <div class="loading-image">
+                 <div></div>
+                 <div></div>
+                 <div></div>
+                 <div></div> 
+                 <div></div>
+             </div>
+        </div>
+    
+
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" id="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span diyFont" id="logo-title">xiezhrspace</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/#" class="waves-effect waves-light">
+
+      
+      <span>归档</span>
+      <i class="fas fa-chevron-down" aria-hidden="true" style="zoom: 0.6;"></i>
+    </a>
+    <ul class="sub-nav menus_item_child ">
+      
+      <li>
+        <a href="/tags">
+          
+          <span>标签</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/categories">
+          
+          <span>分类</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/archives">
+          
+          <span>时间轴</span>
+        </a>
+      </li>
+      
+    </ul>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/artitalk" class="waves-effect waves-light">
+      
+      <span>说说</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/#" class="waves-effect waves-light">
+
+      
+      <span>媒体</span>
+      <i class="fas fa-chevron-down" aria-hidden="true" style="zoom: 0.6;"></i>
+    </a>
+    <ul class="sub-nav menus_item_child ">
+      
+      <li>
+        <a href="/books">
+          
+          <span>读书</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/musics">
+          
+          <span>音乐</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/movies">
+          
+          <span>电影</span>
+        </a>
+      </li>
+      
+    </ul>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/#" class="waves-effect waves-light">
+
+      
+      <span>资源分享</span>
+      <i class="fas fa-chevron-down" aria-hidden="true" style="zoom: 0.6;"></i>
+    </a>
+    <ul class="sub-nav menus_item_child ">
+      
+      <li>
+        <a href="/share-tools">
+          
+          <span>常用工具</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/e-book">
+          
+          <span>电子书</span>
+        </a>
+      </li>
+      
+    </ul>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/#" class="waves-effect waves-light">
+
+      
+      <span>交流</span>
+      <i class="fas fa-chevron-down" aria-hidden="true" style="zoom: 0.6;"></i>
+    </a>
+    <ul class="sub-nav menus_item_child ">
+      
+      <li>
+        <a href="/contact">
+          
+          <span>留言</span>
+        </a>
+      </li>
+      
+      <li>
+        <a target="_blank" rel="noopener" href="http://chat.xiezhrspace.cn">
+          
+          <span>聊天室</span>
+        </a>
+      </li>
+      
+    </ul>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/friends" class="waves-effect waves-light">
+      
+      <span>友情链接</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/#" class="waves-effect waves-light">
+
+      
+      <span>实验室</span>
+      <i class="fas fa-chevron-down" aria-hidden="true" style="zoom: 0.6;"></i>
+    </a>
+    <ul class="sub-nav menus_item_child ">
+      
+      <li>
+        <a href="/sponsorship">
+          
+          <i class="fas fa-money" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>赞助墙</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/status">
+          
+          <i class="fas fa-flush" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>检测监控</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/epidemic">
+          
+          <span>疫情实况</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/rain-code">
+          
+          <span>代码雨</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/mykeep">
+          
+          <span>我的Keep</span>
+        </a>
+      </li>
+      
+    </ul>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+<style>
+  #logo-title{
+  }
+
+  #logo-img{
+    
+  }
+  #mobile-logo-img{}
+</style>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img" id="mobile-logo-img">
+        
+        <div class="logo-name">xiezhrspace
+        <div class="logo-desc">
+            
+            爱学习 爱编程 爱分享 再小的帆也能远航
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			<!-- 
+				<i class="fas fa-fw fa-link"></i>
+			 -->
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="javascript:;">
+			<!-- 
+				<i class="fas fa-fw fa-link"></i>
+			 -->
+			归档
+			<span class="m-icon"><i class="fas fa-chevron-right"></i></span>
+		</a>
+            <ul  style="background:  ;" >
+              
+                <li>
+
+                  <a href="/tags " style="margin-left:75px">
+				  
+		          <span>标签</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/categories " style="margin-left:75px">
+				  
+		          <span>分类</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/archives " style="margin-left:75px">
+				  
+		          <span>时间轴</span>
+                  </a>
+                </li>
+              
+            </ul>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/artitalk" class="waves-effect waves-light">
+			<!-- 
+				<i class="fas fa-fw fa-link"></i>
+			 -->
+			说说
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="javascript:;">
+			<!-- 
+				<i class="fas fa-fw fa-link"></i>
+			 -->
+			媒体
+			<span class="m-icon"><i class="fas fa-chevron-right"></i></span>
+		</a>
+            <ul  style="background:  ;" >
+              
+                <li>
+
+                  <a href="/books " style="margin-left:75px">
+				  
+		          <span>读书</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/musics " style="margin-left:75px">
+				  
+		          <span>音乐</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/movies " style="margin-left:75px">
+				  
+		          <span>电影</span>
+                  </a>
+                </li>
+              
+            </ul>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="javascript:;">
+			<!-- 
+				<i class="fas fa-fw fa-link"></i>
+			 -->
+			资源分享
+			<span class="m-icon"><i class="fas fa-chevron-right"></i></span>
+		</a>
+            <ul  style="background:  ;" >
+              
+                <li>
+
+                  <a href="/share-tools " style="margin-left:75px">
+				  
+		          <span>常用工具</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/e-book " style="margin-left:75px">
+				  
+		          <span>电子书</span>
+                  </a>
+                </li>
+              
+            </ul>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			<!-- 
+				<i class="fas fa-fw fa-link"></i>
+			 -->
+			关于
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="javascript:;">
+			<!-- 
+				<i class="fas fa-fw fa-link"></i>
+			 -->
+			交流
+			<span class="m-icon"><i class="fas fa-chevron-right"></i></span>
+		</a>
+            <ul  style="background:  ;" >
+              
+                <li>
+
+                  <a href="/contact " style="margin-left:75px">
+				  
+		          <span>留言</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a target="_blank" rel="noopener" href="http://chat.xiezhrspace.cn " style="margin-left:75px">
+				  
+		          <span>聊天室</span>
+                  </a>
+                </li>
+              
+            </ul>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/friends" class="waves-effect waves-light">
+			<!-- 
+				<i class="fas fa-fw fa-link"></i>
+			 -->
+			友情链接
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="javascript:;">
+			<!-- 
+				<i class="fas fa-fw fa-link"></i>
+			 -->
+			实验室
+			<span class="m-icon"><i class="fas fa-chevron-right"></i></span>
+		</a>
+            <ul  style="background:  ;" >
+              
+                <li>
+
+                  <a href="/sponsorship " style="margin-left:75px">
+				  
+				   <i class="fa fas fa-money" style="position: absolute;left:50px" ></i>
+			      
+		          <span>赞助墙</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/status " style="margin-left:75px">
+				  
+				   <i class="fa fas fa-flush" style="position: absolute;left:50px" ></i>
+			      
+		          <span>检测监控</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/epidemic " style="margin-left:75px">
+				  
+		          <span>疫情实况</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/rain-code " style="margin-left:75px">
+				  
+		          <span>代码雨</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/mykeep " style="margin-left:75px">
+				  
+		          <span>我的Keep</span>
+                  </a>
+                </li>
+              
+            </ul>
+          
+        </li>
+        
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+    </nav>
+
+</header>
+
+    
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('http://blog.xiezhrspace.cn/blog-img/PowerBuilder从入坑到放弃（二）.png')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">PB从入坑到放弃（二）编码规范</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="https://fastly.jsdelivr.net/gh/xiezhr/xiezhrblog-cdn-source/source/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        margin: 35px 0 15px 0;
+        padding-left: 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content {
+        height: calc(100vh - 250px);
+        overflow: auto;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+
+        position: absolute;
+        right: 23.5vw;
+        display: block;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!--评论区样式调整-->
+<style>
+    .v[data-class="v"] .vwrap .vheader .vinput {
+        width: 32%;
+        border-bottom: 1px dashed #dedede;
+      }
+</style>
+<!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/PB-PowerBuilder-%E6%95%B0%E6%8D%AE%E5%BA%93%E6%8A%80%E6%9C%AF/">
+                                <span class="chip bg-color">PB,PowerBuilder,数据库技术</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/PB-PowerBuilder-%E6%95%B0%E6%8D%AE%E5%BA%93%E6%8A%80%E6%9C%AF/" class="post-category">
+                                PB,PowerBuilder,数据库技术
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2023-07-03
+                </div>
+                
+
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
+                    2023-07-11
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
+                    4.9k
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
+                    18 分
+                </div>
+                
+
+                
+                    <div id="busuanzi_container_page_pv" class="info-break-policy">
+                        <i class="far fa-eye fa-fw"></i>阅读次数:&nbsp;&nbsp;
+                        <span id="busuanzi_value_page_pv"></span>
+                    </div>
+				
+            </div>
+        </div>
+        <hr class="clearfix">
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>上一篇我们从0到1用<code>pb</code>开发了一个<code>helloworld</code>程序，并成功将开发的程序编译打包并且制作了安装包。</p>
+<p>程序员最讨厌的莫过于写文档和别人不写注释。</p>
+<p>不知道大家会不会和我一样，在找bug时，有段代码，心中不知默默的骂了它多少遍。</p>
+<p>哪个sx写的这代码，研究了一段时间发现，原来那sx竟是自己 😔。</p>
+<p>无规矩不成方圆，写代码也是一样的，尤其是在团队合作的时候。</p>
+<p>要想把代码写得优雅，就必须遵循一定的规则。今天我们就来看看<code>pb</code>开发中应该遵守哪些规范。</p>
+<h3 id="一-、变量命名规范"><a href="#一-、变量命名规范" class="headerlink" title="一 、变量命名规范"></a>一 、变量命名规范</h3><h4 id="1-1-变量命名规则"><a href="#1-1-变量命名规则" class="headerlink" title="1.1 变量命名规则"></a>1.1 变量命名规则</h4><blockquote>
+<p><strong>变量类型范围简写</strong> + <strong>数据类型简写</strong> +_+ <strong>含义代码</strong>      + //注释标明含义</p>
+</blockquote>
+<p>举例说明：</p>
+<pre class=" language-java"><code class="language-java"><span class="token comment" spellcheck="true">/*1、定义全局变量*/</span>
+string gs_orgcode  <span class="token comment" spellcheck="true">//定义机构编码</span>
+string gs_orgname  <span class="token comment" spellcheck="true">//定义机构名称</span>
+
+<span class="token comment" spellcheck="true">/*2、定义共享变量*/</span>
+string ss_phone 
+
+<span class="token comment" spellcheck="true">/*3、定义实例变量*/</span>
+string ls_name <span class="token comment" spellcheck="true">//定义用户姓名</span>
+    
+<span class="token comment" spellcheck="true">/*4、5、定义值传递变量和引用传递变量*/</span>    
+function <span class="token function">gf</span><span class="token punctuation">(</span>string v_orgcode<span class="token punctuation">,</span>string r_orgname<span class="token punctuation">)</span> <span class="token comment" spellcheck="true">//根据编号获取名称</span>
+</code></pre>
+<p>以上例子只是以不同变量类型范围内<code>string</code> 类型变量命名举例，具体可根据下面表格中的简写变通</p>
+<h4 id="1-2-变量类型范围"><a href="#1-2-变量类型范围" class="headerlink" title="1.2 变量类型范围"></a>1.2 变量类型范围</h4><table>
+<thead>
+<tr>
+<th>–范围</th>
+<th>– 描述</th>
+<th>– 简写</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>【全局变量】Global</td>
+<td>全局变量在整个应用中有效</td>
+<td><code>g_</code></td>
+</tr>
+<tr>
+<td>【共享变量】Shared</td>
+<td>共享变量在一个对象及其实例中有效</td>
+<td><code>s_</code></td>
+</tr>
+<tr>
+<td>【实例变量】Instance</td>
+<td>实例变量仅在一个对象的实例中有效</td>
+<td><code>i_</code></td>
+</tr>
+<tr>
+<td>【局部变量】Local</td>
+<td>局部变量仅在一段子程序或在 script 开始和结束时生效</td>
+<td><code>l_</code></td>
+</tr>
+<tr>
+<td>【值传递的变量】（函数变量）</td>
+<td>定义函数时，参数仅传递值，不会被函数改变 （value）</td>
+<td><code>v_</code></td>
+</tr>
+<tr>
+<td>【引用传递的变量】（函数变量）</td>
+<td>定义函数时，参数将被函数改变（ref）</td>
+<td><code>r_</code></td>
+</tr>
+</tbody></table>
+<h4 id="1-2-常见变量类型简写"><a href="#1-2-常见变量类型简写" class="headerlink" title="1.2 常见变量类型简写"></a><strong>1.2 常见变量类型简写</strong></h4><table>
+<thead>
+<tr>
+<th>–数据类型</th>
+<th>–描述</th>
+<th>–简写</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>Any</code></td>
+<td>可以保存任何类型的值,包括标准数据类型、对象、结构和[数组</td>
+<td><code>a_</code></td>
+</tr>
+<tr>
+<td><code>Blob</code></td>
+<td>二进制大型对象，用来存储图片、大文本等信息</td>
+<td><code>bb_</code></td>
+</tr>
+<tr>
+<td><code>Boolean</code></td>
+<td>布尔型，取值要么<code>true</code> 要么<code>false</code></td>
+<td><code>bl_</code></td>
+</tr>
+<tr>
+<td><code>Char</code>或<code>charater</code></td>
+<td>单个 ASCII 字符</td>
+<td><code>ch</code></td>
+</tr>
+<tr>
+<td><code>Date</code></td>
+<td>日期，由完整的年月日组成，格式取决于操作系统的设置</td>
+<td><code>d_</code></td>
+</tr>
+<tr>
+<td><code>DateTime</code></td>
+<td>日期及时间，用于和数据库的 <code>datatime</code> 类型数据交互</td>
+<td><code>dt_</code></td>
+</tr>
+<tr>
+<td><code>Decimal</code> 或 <code>dec</code></td>
+<td>有符号十进制数，最大 18 位宽 ,一般用于存储金钱</td>
+<td><code>dec</code></td>
+</tr>
+<tr>
+<td><code>Double</code></td>
+<td>有符号浮点数，精度 15 位</td>
+<td><code>db</code></td>
+</tr>
+<tr>
+<td><code>Integer</code>或 <code>int</code></td>
+<td>16 位有符号整数</td>
+<td><code>I</code>或<code>i</code></td>
+</tr>
+<tr>
+<td><code>Long</code></td>
+<td>32 位有符号整数</td>
+<td><code>L</code></td>
+</tr>
+<tr>
+<td><code>Real</code></td>
+<td>有符号浮点数，精度 6 位</td>
+<td><code>r</code></td>
+</tr>
+<tr>
+<td><code>string</code></td>
+<td>由任何 ASCII 字符组成的字符串</td>
+<td><code>s</code></td>
+</tr>
+<tr>
+<td><code>Time</code></td>
+<td>24 小时格式的时间值：小时、分、秒以</td>
+<td><code>t</code></td>
+</tr>
+<tr>
+<td><code>UnsignedInteger</code></td>
+<td>16 位无符号整数</td>
+<td><code>ui</code></td>
+</tr>
+<tr>
+<td><code>UnsignedLong</code></td>
+<td>32 位无符号整数</td>
+<td><code>ul</code></td>
+</tr>
+</tbody></table>
+<h3 id="二、应用命名规范"><a href="#二、应用命名规范" class="headerlink" title="二、应用命名规范"></a>二、应用命名规范</h3><blockquote>
+<p>应用的命名应使用与该应用的意义相关联的英文字母  </p>
+</blockquote>
+<p><code>app_his </code>表示医院管理系统</p>
+<h3 id="三、pbl-库命名规范"><a href="#三、pbl-库命名规范" class="headerlink" title="三、pbl 库命名规范"></a>三、<code>pbl</code> 库命名规范</h3><blockquote>
+<p>pbl库组织的好坏很重要，它会影响应用开发和维护的容易程度以及应用的性能  </p>
+</blockquote>
+<h4 id="3-1-Library-的大小"><a href="#3-1-Library-的大小" class="headerlink" title="3.1 Library 的大小"></a>3.1 Library 的大小</h4><blockquote>
+<p> <code>pb</code> 对 Library 的大小没有限制，但最好小于 <strong>1MB</strong> ,Library太大的话， <code>pb</code>要花更多的时间去打开和存储对象，这会影响开发的效率  </p>
+</blockquote>
+<h4 id="3-2-Library-的数量"><a href="#3-2-Library-的数量" class="headerlink" title="3.2 Library 的数量"></a>3.2 Library 的数量</h4><blockquote>
+<p>尽量用最少的 Library 数量  如果 Library 数量太多而每个 Library 中对象数量太少，搜索路径会<br>太长，影响运行效率  </p>
+</blockquote>
+<h4 id="3-3-Library-的分类组织"><a href="#3-3-Library-的分类组织" class="headerlink" title="3.3 Library 的分类组织"></a>3.3 Library 的分类组织</h4><blockquote>
+<p><code>pbl</code> 库可按子系统或功能组织，一般应用都包含公共 <code>pbl</code> 库。<br>每个 <code>pbl</code>库文件命名应该与该文件作用相关联，例如报表 <code>pbl</code>库文件命名为 <code>report.pbl  </code></p>
+</blockquote>
+<h3 id="四、窗口命名规范"><a href="#四、窗口命名规范" class="headerlink" title="四、窗口命名规范"></a>四、窗口命名规范</h3><blockquote>
+<p>w+”_”+与窗口意义相关联的英文字母 </p>
+</blockquote>
+<p>注意：总长不得超过 <code>pb</code>的 40 个字符限制</p>
+<p>举例：</p>
+<table>
+<thead>
+<tr>
+<th>–窗口名称</th>
+<th>– 注释信息</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>w_about</code></td>
+<td>关于本系统的版权信息</td>
+</tr>
+<tr>
+<td><code>w_system_error</code></td>
+<td>系统出错提示</td>
+</tr>
+<tr>
+<td><code>w_main</code></td>
+<td>系统主界面</td>
+</tr>
+<tr>
+<td><code>w_report_sheet</code></td>
+<td>报表查询</td>
+</tr>
+</tbody></table>
+<h3 id="五、数据窗口命名规范"><a href="#五、数据窗口命名规范" class="headerlink" title="五、数据窗口命名规范"></a>五、数据窗口命名规范</h3><blockquote>
+<p>①数据窗口控件</p>
+<p><code>dw</code>+”_”+ 与数据窗口相关英文字母</p>
+<p>② 数据窗口对象</p>
+<p><code>d</code>+”_”+ 与数据窗口相关描述英文字母(普通数据窗口对象)       <strong>或者</strong> </p>
+<p><code>dddw</code>+”_”+ 与数据窗口相关描述英文字母 （下拉式子数据窗口对象）</p>
+</blockquote>
+<p>举例：</p>
+<table>
+<thead>
+<tr>
+<th>– 数据窗口控件名称</th>
+<th>– 描述信息</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>dw_notice</code></td>
+<td>显示通知信息</td>
+</tr>
+<tr>
+<td><code>dw_system_err</code></td>
+<td>显示系统错误信息，被<code>w_system_err</code> 调用</td>
+</tr>
+</tbody></table>
+<table>
+<thead>
+<tr>
+<th>–数据窗口对象名称</th>
+<th>–描述信息</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>d_system_err</code></td>
+<td>显示系统错误信息，是数据窗口<code>dw_system_err</code>的对象</td>
+</tr>
+<tr>
+<td><code>d_goods</code></td>
+<td>显示商品信息</td>
+</tr>
+<tr>
+<td><code>dddw_sex</code></td>
+<td>性别代码表</td>
+</tr>
+<tr>
+<td><code>dddw_tccode</code></td>
+<td>统筹区代码表</td>
+</tr>
+</tbody></table>
+<h3 id="六、用户对象"><a href="#六、用户对象" class="headerlink" title="六、用户对象"></a>六、用户对象</h3><blockquote>
+<p><code>uo</code>+”_”+用户对象相关英文字母</p>
+</blockquote>
+<p>举例：</p>
+<table>
+<thead>
+<tr>
+<th>– 用户对象名称</th>
+<th>– 描述信息</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>uo_common_settle</code></td>
+<td>表示该<code>uo</code> 用于通用结算功能</td>
+</tr>
+<tr>
+<td><code>uo_elc_billinvoice</code></td>
+<td>表示该<code>uo</code> 用于处理电子票据功能</td>
+</tr>
+</tbody></table>
+<h3 id="七、常用控件"><a href="#七、常用控件" class="headerlink" title="七、常用控件"></a>七、常用控件</h3><blockquote>
+<p>控件简写+”_”+功能描述英文字母</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>– 控件名称</th>
+<th>– 控件缩写</th>
+<th>– 控件命名例子</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>CommandButton</code></td>
+<td><code>cb</code></td>
+<td><code>cb_exit</code></td>
+</tr>
+<tr>
+<td><code>PictureButton</code></td>
+<td><code>pb</code></td>
+<td><code>pb_thank_info</code></td>
+</tr>
+<tr>
+<td><code>CheckBox</code></td>
+<td><code>cbx</code></td>
+<td><code>cbx_age_show</code></td>
+</tr>
+<tr>
+<td><code>RadioButton</code></td>
+<td><code>rb</code></td>
+<td><code>rb_sex</code></td>
+</tr>
+<tr>
+<td><code>StaticText</code></td>
+<td><code>st</code></td>
+<td><code>st_user_id</code></td>
+</tr>
+<tr>
+<td><code>Picture</code></td>
+<td><code>p</code></td>
+<td><code>p_user_img</code></td>
+</tr>
+<tr>
+<td><code>GroupBox</code></td>
+<td><code>gb</code></td>
+<td><code>gb_detail_info</code></td>
+</tr>
+<tr>
+<td><code>Line</code></td>
+<td><code>ln</code></td>
+<td><code>ln_h_separator</code></td>
+</tr>
+<tr>
+<td><code>Oval</code></td>
+<td><code>oval</code></td>
+<td><code>oval_used_flag</code></td>
+</tr>
+<tr>
+<td><code>SingleLineEdit</code></td>
+<td><code>sle</code></td>
+<td><code>sle_name</code></td>
+</tr>
+<tr>
+<td><code>MultiLineEdit</code></td>
+<td><code>mle</code></td>
+<td><code>mle_book_comments</code></td>
+</tr>
+<tr>
+<td><code>RichTextEdit</code></td>
+<td><code>rte</code></td>
+<td><code>rte_student_answer</code></td>
+</tr>
+<tr>
+<td><code>EditMask</code></td>
+<td><code>em</code></td>
+<td><code>em_tel</code></td>
+</tr>
+<tr>
+<td><code>DropDownListBox</code></td>
+<td><code>ddlb</code></td>
+<td><code>ddlb_type</code></td>
+</tr>
+<tr>
+<td><code>DropDownPictureListBox</code></td>
+<td><code>ddplb</code></td>
+<td><code>ddplb_photo_preview</code></td>
+</tr>
+<tr>
+<td><code>ListBox</code></td>
+<td><code>lb</code></td>
+<td><code>lb_department_name</code></td>
+</tr>
+<tr>
+<td><code>PictureListBox</code></td>
+<td><code>plb</code></td>
+<td><code>plb_user_identification</code></td>
+</tr>
+<tr>
+<td><code>ListView</code></td>
+<td><code>lv</code></td>
+<td><code>lv_all_user</code></td>
+</tr>
+<tr>
+<td><code>TreeView</code></td>
+<td><code>tv</code></td>
+<td><code>tv_customers</code></td>
+</tr>
+<tr>
+<td><code>TabPage</code></td>
+<td><code>tpg</code></td>
+<td><code>tpg_ordinary_super</code></td>
+</tr>
+<tr>
+<td><code>Tab</code></td>
+<td><code>tab</code></td>
+<td><code>tab_super</code></td>
+</tr>
+<tr>
+<td><code>DataWindow</code></td>
+<td><code>dw</code></td>
+<td><code>dw_user_info</code></td>
+</tr>
+<tr>
+<td><code>OLE</code></td>
+<td><code>ole</code></td>
+<td><code>ole_word_doc</code></td>
+</tr>
+</tbody></table>
+<h3 id="八、函数命名规范"><a href="#八、函数命名规范" class="headerlink" title="八、函数命名规范"></a>八、函数命名规范</h3><blockquote>
+<p>函数类型+f+“_”+函数意义相关联的英文字母  </p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>–函数类型</th>
+<th>–函数类型简写</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>全局函数</td>
+<td><code>g_</code></td>
+</tr>
+<tr>
+<td>窗口函数</td>
+<td><code>w_</code></td>
+</tr>
+<tr>
+<td>菜单函数</td>
+<td><code>m_</code></td>
+</tr>
+<tr>
+<td>用户对象函数</td>
+<td><code>u_</code></td>
+</tr>
+</tbody></table>
+<p>举例：</p>
+<table>
+<thead>
+<tr>
+<th>– 函数名称</th>
+<th>–描述信息</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>gf_getOrgInfo</code></td>
+<td>全局函数，用于获取机构信息</td>
+</tr>
+<tr>
+<td><code>wf_getUserInfo</code></td>
+<td>窗口函数，用于获取用户信息</td>
+</tr>
+<tr>
+<td><code>uf_query_username</code></td>
+<td>用户对象函数，用于查询用户姓名</td>
+</tr>
+</tbody></table>
+<h3 id="九、关于注释"><a href="#九、关于注释" class="headerlink" title="九、关于注释"></a>九、关于注释</h3><h4 id="9-1-窗口open事件前说明"><a href="#9-1-窗口open事件前说明" class="headerlink" title="9.1 窗口open事件前说明"></a>9.1 窗口open事件前说明</h4><pre class=" language-java"><code class="language-java"><span class="token comment" spellcheck="true">/* ======================================================= */</span>
+<span class="token comment" spellcheck="true">// 窗口中英文名称：</span>
+<span class="token comment" spellcheck="true">// 窗口作用：</span>
+<span class="token comment" spellcheck="true">// 作者：</span>
+<span class="token comment" spellcheck="true">// 日期：</span>
+<span class="token comment" spellcheck="true">/* ======================================================= */</span>
+</code></pre>
+<h4 id="9-2-在事件脚本（-Script）之前应说明"><a href="#9-2-在事件脚本（-Script）之前应说明" class="headerlink" title="9.2 在事件脚本（ Script）之前应说明"></a>9.2 在事件脚本（ Script）之前应说明</h4><pre class=" language-java"><code class="language-java"><span class="token comment" spellcheck="true">/* ======================================================= */</span>
+<span class="token comment" spellcheck="true">// 脚本作用：</span>
+<span class="token comment" spellcheck="true">// 输入参数及数据类型：</span>
+<span class="token comment" spellcheck="true">// 返回参数及数据类型：</span>
+<span class="token comment" spellcheck="true">// 全局函数及其用途：</span>
+<span class="token comment" spellcheck="true">// 全局变量及其用途：</span>
+<span class="token comment" spellcheck="true">// 作者：</span>
+<span class="token comment" spellcheck="true">// 日期：</span>
+<span class="token comment" spellcheck="true">// 修改人的姓名：</span>
+<span class="token comment" spellcheck="true">// 修改日期：</span>
+<span class="token comment" spellcheck="true">// 修改原因：</span>
+<span class="token comment" spellcheck="true">/* ===================================================== */</span>
+</code></pre>
+<h4 id="9-3-脚本中的注释"><a href="#9-3-脚本中的注释" class="headerlink" title="9.3 脚本中的注释"></a>9.3 脚本中的注释</h4><p>①单行脚本程序注释：  </p>
+<pre class=" language-java"><code class="language-java"><span class="token comment" spellcheck="true">// 注释文本</span>
+</code></pre>
+<p>②脚本的程序段注释：  </p>
+<pre class=" language-java"><code class="language-java"><span class="token comment" spellcheck="true">/* ================================== */</span>
+<span class="token comment" spellcheck="true">//</span>
+<span class="token comment" spellcheck="true">// 注释文本</span>
+<span class="token comment" spellcheck="true">//</span>
+<span class="token comment" spellcheck="true">/* ================================== */</span>
+</code></pre>
+<p>③ 变量注释</p>
+<pre class=" language-java"><code class="language-java">数据类型 变量名 <span class="token comment" spellcheck="true">//注释</span>
+</code></pre>
+<h4 id="9-4-在函数、存储过程等脚本（-Script）之前应说明"><a href="#9-4-在函数、存储过程等脚本（-Script）之前应说明" class="headerlink" title="9.4 在函数、存储过程等脚本（ Script）之前应说明"></a>9.4 在函数、存储过程等脚本（ Script）之前应说明</h4><pre class=" language-java"><code class="language-java"><span class="token comment" spellcheck="true">/* ======================================================= */</span>
+<span class="token comment" spellcheck="true">// 函数名称：</span>
+<span class="token comment" spellcheck="true">// 参数解释：</span>
+<span class="token comment" spellcheck="true">// 功能描述：</span>
+<span class="token comment" spellcheck="true">// 调用举例：</span>
+<span class="token comment" spellcheck="true">// 最初作者：</span>
+<span class="token comment" spellcheck="true">// 编写日期：</span>
+<span class="token comment" spellcheck="true">// 返 回 值：</span>
+<span class="token comment" spellcheck="true">// 变量情况：</span>
+<span class="token comment" spellcheck="true">// 修 改 人：</span>
+<span class="token comment" spellcheck="true">// 修改日期：</span>
+<span class="token comment" spellcheck="true">// 修改原因：</span>
+<span class="token operator">/</span><span class="token operator">*</span> <span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span> <span class="token operator">*</span>
+</code></pre>
+<h3 id="十、代码编写规范"><a href="#十、代码编写规范" class="headerlink" title="十、代码编写规范"></a>十、代码编写规范</h3><blockquote>
+<p>脚本的书写应该层次清楚，以便于阅读  </p>
+</blockquote>
+<ul>
+<li> 用分层缩进的写法显示嵌套结构的层次  </li>
+<li>在注释段与程序段，以及不同逻辑的程序段之间插入空行  </li>
+<li>每行至多只写一条语句，当需要滚动显示时应该分行书写。一条语句需要在多行书<br>写时，用&amp;进行连接</li>
+</ul>
+<h4 id="10-1-流程控制写法"><a href="#10-1-流程控制写法" class="headerlink" title="10.1 流程控制写法"></a>10.1 流程控制写法</h4><blockquote>
+<p>用分层缩进的写法突出显示嵌套的层次结构  </p>
+</blockquote>
+<p>例如：</p>
+<pre class=" language-vb"><code class="language-vb">For i = 1 To 100
+    For j = 1 To 50
+        For k = 1 To 200
+            Matrix[i， j， k]=1
+        Next
+    Next
+Next
+</code></pre>
+<h4 id="10-2-数据库相关"><a href="#10-2-数据库相关" class="headerlink" title="10.2  数据库相关"></a>10.2  数据库相关</h4><p>① <code>sqlca</code>的连接语句<code>connect</code>在应用Open事件中完成，其<code>disconnec</code>t在主应用的<br><code>close</code>事件中完成，其余任何<code>pbl</code>中均不能有<code>disconnect</code>语句  </p>
+<p>② 要连接多个数据库，需要用<code>Create</code>创建对象，比如，<code> sqlsyb</code>，连接用 <code>connect using sqlsyb</code>， 处理完毕后用 <code>disconnect using sqlsyb</code>， 并且用<code> destroy sqlsyb</code>释放资源    </p>
+<p>③所有<code>sql</code>语句均需判断返回结果（包括<code>select</code>， <code>commit</code>语句）  </p>
+<pre class=" language-java"><code class="language-java">If sqlca<span class="token punctuation">.</span>sqlcode <span class="token operator">=</span> <span class="token operator">-</span><span class="token number">1</span> Then
+    <span class="token comment" spellcheck="true">// 错误处理程序</span>
+    <span class="token comment" spellcheck="true">// 跳出</span>
+Else
+    <span class="token comment" spellcheck="true">// 正常</span>
+End If
+</code></pre>
+<h4 id="10-3-代码块之间留一行"><a href="#10-3-代码块之间留一行" class="headerlink" title="10.3 代码块之间留一行"></a>10.3 代码块之间留一行</h4><pre class=" language-java"><code class="language-java">If <span class="token operator">&lt;</span>condition1<span class="token operator">></span> Then
+    <span class="token operator">&lt;</span>statementblock<span class="token operator">></span>
+End If
+    
+For <span class="token operator">&lt;</span>varname<span class="token operator">>=</span><span class="token operator">&lt;</span>start<span class="token operator">></span> To <span class="token operator">&lt;</span>End<span class="token operator">></span> Step <span class="token operator">&lt;</span>increment<span class="token operator">></span>
+    <span class="token operator">&lt;</span>statement_block<span class="token operator">></span>
+Next
+</code></pre>
+<h4 id="10-4-单行注释与当前script程序的缩进位置对齐"><a href="#10-4-单行注释与当前script程序的缩进位置对齐" class="headerlink" title="10.4 单行注释与当前script程序的缩进位置对齐"></a>10.4 单行注释与当前script程序的缩进位置对齐</h4><pre class=" language-java"><code class="language-java"><span class="token comment" spellcheck="true">//这是对condition1的注释</span>
+If <span class="token operator">&lt;</span>condition1<span class="token operator">></span> Then
+    <span class="token comment" spellcheck="true">//这是对condition2 的注释</span>
+    If <span class="token operator">&lt;</span>condition2<span class="token operator">></span> Then
+        <span class="token comment" spellcheck="true">//这是对action1的注释</span>
+        <span class="token operator">&lt;</span>action1<span class="token operator">></span>
+    End If
+End If
+</code></pre>
+<h4 id="10-5-代码缩进用tab"><a href="#10-5-代码缩进用tab" class="headerlink" title="10.5  代码缩进用tab"></a>10.5  代码缩进用<code>tab</code></h4><blockquote>
+<p>缩进应以Tab键实现，不得采用空格  </p>
+</blockquote>
+<h4 id="10-6-变量采用小写格式"><a href="#10-6-变量采用小写格式" class="headerlink" title="10.6 变量采用小写格式"></a>10.6 变量采用小写格式</h4><ul>
+<li><p>变量全部用小写  </p>
+<pre class=" language-java"><code class="language-java">string ls_name
+</code></pre>
+</li>
+<li><p>一个变量一行，每个变量必须注释  </p>
+<pre class=" language-java"><code class="language-java">string ls_name   <span class="token comment" spellcheck="true">//用户姓名</span>
+string ls_sex    <span class="token comment" spellcheck="true">//用户性别</span>
+<span class="token keyword">int</span> li_age    <span class="token comment" spellcheck="true">//用户年龄</span>
+</code></pre>
+</li>
+<li><p>通常情况下，变量的后半部分尽量用数据库字段名  </p>
+</li>
+<li><p>变量声明全部在脚本之前声明完毕  </p>
+</li>
+<li><p>对象名采用小写，属性、关键字、保留字和内置函数均采用首字母大写格式  </p>
+<pre class=" language-java"><code class="language-java">w_cont_de<span class="token punctuation">.</span>Visible <span class="token operator">=</span> True
+m_mdi<span class="token punctuation">.</span>m_file<span class="token punctuation">.</span>m_print<span class="token punctuation">.</span>Enabled <span class="token operator">=</span> False
+</code></pre>
+</li>
+</ul>
+<h4 id="10-7-字符串排版"><a href="#10-7-字符串排版" class="headerlink" title="10.7 字符串排版"></a>10.7 字符串排版</h4><blockquote>
+<p>连接起来的字符串超过了两行的长度时，使用 <code>+&amp;</code>，每次均<br>采用缩进格式。字符串的随后部分应该再次缩进  </p>
+</blockquote>
+<pre class=" language-java"><code class="language-java">ls_msg <span class="token operator">=</span> <span class="token string">"连接数据库失败！错误信息为： ~r~n"</span> <span class="token operator">+</span><span class="token operator">&amp;</span>
+         Sqlca<span class="token punctuation">.</span>SqlErrText <span class="token operator">+</span><span class="token operator">&amp;</span>
+         <span class="token string">"请与系统管理员联系"</span>
+</code></pre>
+<h4 id="10-8-PB关键字书写"><a href="#10-8-PB关键字书写" class="headerlink" title="10.8 PB关键字书写"></a>10.8 <code>PB</code>关键字书写</h4><blockquote>
+<p>首字母大写，这样看起来层次清晰  </p>
+</blockquote>
+<pre class=" language-java"><code class="language-java"><span class="token comment" spellcheck="true">// 举个栗子</span>
+This<span class="token punctuation">,</span>Parent<span class="token punctuation">,</span> ParentWindow<span class="token punctuation">,</span> True<span class="token punctuation">,</span> False<span class="token punctuation">,</span> Return<span class="token punctuation">,</span> Halt<span class="token punctuation">,</span>Close
+</code></pre>
+<h4 id="10-9-PB内部函数及属性"><a href="#10-9-PB内部函数及属性" class="headerlink" title="10.9 PB内部函数及属性"></a>10.9 <code>PB</code>内部函数及属性</h4><blockquote>
+<p>采用每个字首字母大写，这样看起来层次清晰  </p>
+</blockquote>
+<pre class=" language-java"><code class="language-java"><span class="token comment" spellcheck="true">//举个栗子</span>
+sle_user<span class="token punctuation">.</span>Text
+dw_1<span class="token punctuation">.</span><span class="token function">SetTransObject</span><span class="token punctuation">(</span>Sqlca<span class="token punctuation">)</span>
+Sqlca<span class="token punctuation">.</span>SqlErrText
+</code></pre>
+<h4 id="10-10-SQL语句书写"><a href="#10-10-SQL语句书写" class="headerlink" title="10.10 SQL语句书写"></a>10.10 <code>SQL</code>语句书写</h4><pre class=" language-java"><code class="language-java">SELECT name<span class="token punctuation">,</span> sex<span class="token punctuation">,</span> dept_id
+    INTO <span class="token operator">:</span>ls_name<span class="token punctuation">,</span> <span class="token operator">:</span>ls_sex<span class="token punctuation">,</span> <span class="token operator">:</span>ls_dept_id
+FROM employee
+WHERE emp_id <span class="token operator">=</span> <span class="token operator">:</span>ls_emp_id<span class="token punctuation">;</span>
+</code></pre>
+<h4 id="10-11-goto跳转语句"><a href="#10-11-goto跳转语句" class="headerlink" title="10.11 goto跳转语句"></a>10.11 <code>goto</code>跳转语句</h4><blockquote>
+<p>程序中应避免出现 goto 跳转语句 ,如果必须要使用，需要详细注释说明</p>
+</blockquote>
+<h4 id="10-12-游标模块"><a href="#10-12-游标模块" class="headerlink" title="10.12 游标模块"></a>10.12 游标模块</h4><p><strong>注意：</strong>游标命名规则： Cur + _ + 名称。  </p>
+<pre class=" language-java"><code class="language-java">Declare Cursorname Cursor <span class="token keyword">for</span>
+        Select语句
+Open Cursorname<span class="token punctuation">;</span>
+fetch Cursorname into <span class="token operator">&lt;</span>variables<span class="token operator">></span>
+Do While Sqlca<span class="token punctuation">.</span>Sqlcode <span class="token operator">=</span> <span class="token number">0</span>
+    <span class="token operator">&lt;</span>statementblock<span class="token operator">></span>
+    fetch Cursorname into <span class="token operator">&lt;</span>variables<span class="token operator">></span>
+Loop
+Close Cursorname
+</code></pre>
+<h4 id="10-13-存储过程调用"><a href="#10-13-存储过程调用" class="headerlink" title="10.13 存储过程调用"></a>10.13 存储过程调用</h4><p><strong>注意：</strong>存储过程命名规则： Pro + _ + 名称。  </p>
+<pre class=" language-java"><code class="language-java">declare Procedurename procedure For StoredProcedureName
+        <span class="token operator">:</span> Value1<span class="token punctuation">,</span><span class="token operator">:</span> Value2<span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">;</span>
+execute Procedurename<span class="token punctuation">;</span>
+fetch Procedurename into <span class="token operator">&lt;</span>variables<span class="token operator">></span><span class="token punctuation">;</span>
+close Procedurename<span class="token punctuation">;</span>
+commit<span class="token punctuation">;</span>
+</code></pre>
+<h4 id="10-14-操作符前后应留一空格"><a href="#10-14-操作符前后应留一空格" class="headerlink" title="10.14 操作符前后应留一空格"></a>10.14 操作符前后应留一空格</h4><blockquote>
+<p>所有操作符（包括等号）前后应留一空格，使程序看起来更清晰  </p>
+</blockquote>
+<pre class=" language-java"><code class="language-java">ls_msg <span class="token operator">=</span> ls_title <span class="token operator">+</span> ls_error
+</code></pre>
+<h4 id="10-15-循环中使用函数"><a href="#10-15-循环中使用函数" class="headerlink" title="10.15  循环中使用函数"></a>10.15  循环中使用函数</h4><blockquote>
+<p>仅当绝对需要时才在循环结构体中使用函数调用，也就是说，仅当函数的返回值依赖于循环迭代的值时才使用函数调用  </p>
+</blockquote>
+<pre class=" language-java"><code class="language-java">① 正例
+Long ll_num_selected
+ll_num_selected <span class="token operator">=</span> lb_devctg<span class="token punctuation">.</span><span class="token function">TotalSelected</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+For i <span class="token operator">=</span> <span class="token number">1</span> To num_selected
+……
+Next
+② 反例
+For i <span class="token operator">=</span> <span class="token number">1</span> To lb_1<span class="token punctuation">.</span><span class="token function">TotalSelected</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+……
+Next    
+</code></pre>
+<h4 id="10-16-条件判断表达式"><a href="#10-16-条件判断表达式" class="headerlink" title="10.16  条件判断表达式"></a>10.16  条件判断表达式</h4><blockquote>
+<p>条件判断表达式中，变量和固定取值的比较尽量不要使用&lt;&gt;进行判断，尤其数据来自数据库时，以保证程序的扩充性。  </p>
+<p>比如，前期设计中 1 代表男、 2 代表女，使用 var=2 比var&lt;&gt;1 的判断有更好的可扩充性  </p>
+</blockquote>
+<h3 id="十一、控件使用规范"><a href="#十一、控件使用规范" class="headerlink" title="十一、控件使用规范"></a>十一、控件使用规范</h3><ul>
+<li>应尽量为所有控件使用有意义的名称，重要控件不允许使用 pb_1 之类无明确意义的名称</li>
+<li>大号字体：各窗口控件字体为Arial，字号为12号，字色为黑色。小号字体：各窗口<br>控件字体为宋体，字号为9号，字色为黑色。  </li>
+<li>显示控件和输入控件底色分开，显示控件为灰色(窗口颜色)，输入控件为白色  </li>
+<li>输入区和显示区分别放置  </li>
+<li>按钮排列紧凑，在窗口右侧纵向排列时靠上放置；在窗口下方排列时靠右放置，因为左撇子操作者毕竟是少数  </li>
+<li>各字符类控件对齐方式为左对齐；数字类控件为右对齐，且必须按所需格式设置<br>Format 属性；日期控件必须保证能完整显示所需日期格式，应用yyyy-mm-dd风格  </li>
+<li><code>CommandButton</code>控件的推荐高度为104  </li>
+</ul>
+<h4 id="11-1-静态文本框"><a href="#11-1-静态文本框" class="headerlink" title="11.1 静态文本框"></a>11.1 静态文本框</h4><blockquote>
+<p>命名规则： st +_ + 名称（若为label可不改名）  </p>
+</blockquote>
+<p>外观规定如下  </p>
+<ul>
+<li><p>背景色： buttonface；  </p>
+</li>
+<li><p>前景色：黑色  </p>
+</li>
+<li><p>边 框：无  </p>
+</li>
+<li><p>高 度： 72  </p>
+<p>建议在其后加上全角冒号（： ）  </p>
+</li>
+</ul>
+<h4 id="11-2-单行编辑框"><a href="#11-2-单行编辑框" class="headerlink" title="11.2 单行编辑框"></a>11.2 单行编辑框</h4><blockquote>
+<p>命名规则： sle +_ + 名称  </p>
+</blockquote>
+<p>（ 1）外观  </p>
+<ul>
+<li>背景色：白色  </li>
+<li>前景色：黑色  </li>
+<li>边 框： 3D Lowered  </li>
+<li>高 度： 72  </li>
+</ul>
+<p>（ 2）程序说明  </p>
+<ul>
+<li>响应事件建议自定义 Keydown 事件，尽量不要用 Modify 事件  </li>
+<li>当获得焦点时控件背景变为深蓝色，字体颜色变为黄色，失去焦点时还原默认颜色  </li>
+</ul>
+<h4 id="11-3-命令按钮"><a href="#11-3-命令按钮" class="headerlink" title="11.3 命令按钮"></a>11.3 命令按钮</h4><blockquote>
+<p> 命名规则： cb +_+ 名称  </p>
+</blockquote>
+<p>（ 1）外观  </p>
+<ul>
+<li>高度：对于小号字体（宋体9号）为92；对于大号字体（ Arial 12号）为108  </li>
+<li>宽度：对于小号字体（宋体9号）为325；对于大号字体（ Arial 12号）为402  </li>
+</ul>
+<p>（ 2）说明  </p>
+<blockquote>
+<p>命令按钮控件不要使用 cb_1 之类无明确意义的名称(尤其在窗口中这类控件比较多时，<br>可能令人分不清各个控件的作用)  </p>
+</blockquote>
+<h4 id="11-4-图像按钮"><a href="#11-4-图像按钮" class="headerlink" title="11.4 图像按钮"></a>11.4 图像按钮</h4><blockquote>
+<p>钮命名规则： pb + _ + 名称  </p>
+</blockquote>
+<p>外观规定如下  </p>
+<ul>
+<li>尺寸：用图像原始尺寸  </li>
+<li>图像：按钮的有效与无效采用不同的 bmp 图像以示区别  </li>
+</ul>
+<p><strong>注意：</strong> 尽量不用图形按钮，而用命令按钮  </p>
+<h4 id="11-5-复选框"><a href="#11-5-复选框" class="headerlink" title="11.5 复选框"></a>11.5 复选框</h4><blockquote>
+<p>命名规则： cbx + _ + 名称  </p>
+</blockquote>
+<p>外观规定如下：  </p>
+<ul>
+<li>背景色： buttonface  </li>
+<li>前景色：黑色  </li>
+<li>边 框： 3D Lowered  </li>
+<li>高 度： 92；  </li>
+<li>位 置：标签在右  </li>
+</ul>
+<h4 id="11-6-单选按钮"><a href="#11-6-单选按钮" class="headerlink" title="11.6 单选按钮"></a>11.6 单选按钮</h4><blockquote>
+<p>命名规则： rb + _ + 名称  </p>
+</blockquote>
+<p>（ 1）外观  </p>
+<ul>
+<li>背景色： buttonface  </li>
+<li>前景色：黑色  </li>
+<li>边 框： 3D Lowered  </li>
+<li>高 度： 92  </li>
+<li>位 置：标签在右  </li>
+</ul>
+<p>（ 2）程序说明</p>
+<ul>
+<li>单选按钮最好与组合框配合使用  </li>
+</ul>
+<h4 id="11-7-组框"><a href="#11-7-组框" class="headerlink" title="11.7 组框"></a>11.7 组框</h4><blockquote>
+<p>命名规则： gb + _ + 名称  </p>
+</blockquote>
+<p>外观规定如下：</p>
+<ul>
+<li>背景色： buttonface；</li>
+<li>前景色：黑色；</li>
+<li>边 框： 3D Lowered  </li>
+</ul>
+<h4 id="11-8-屏蔽编辑框"><a href="#11-8-屏蔽编辑框" class="headerlink" title="11.8 屏蔽编辑框"></a>11.8 屏蔽编辑框</h4><blockquote>
+<p>命名规则： em + _ + 名称  </p>
+</blockquote>
+<p>（ 1）外观</p>
+<ul>
+<li>背景色：白色；</li>
+<li> 前景色：黑色；</li>
+<li> 边 框： 3D Lowered。  </li>
+</ul>
+<p>（ 2）程序说明  </p>
+<ul>
+<li>响应事件建议用自定义 Keydown 事件，尽量不要用 Modify 事件。</li>
+<li>当获得焦点时控件背景变为深蓝色，字体颜色变为黄色，失去焦点时还原默认颜色  </li>
+</ul>
+<h4 id="11-9-下拉列表框"><a href="#11-9-下拉列表框" class="headerlink" title="11.9 下拉列表框"></a>11.9 下拉列表框</h4><blockquote>
+<p>命名规则： ddlb + _ + 名称  </p>
+</blockquote>
+<p>外观规定如下：</p>
+<ul>
+<li>背景色：白色；</li>
+<li> 前景色：黑 色；</li>
+<li>边 框： 3D Lowered  </li>
+</ul>
+<h4 id="11-10-应用"><a href="#11-10-应用" class="headerlink" title="11.10 应用"></a>11.10 应用</h4><blockquote>
+<p>命名规则： app + _ + 应用名  </p>
+</blockquote>
+<ul>
+<li>为应用选择一个图标，以便在运行时标识应用。</li>
+<li>在 Open 事件中声明 <code>SQLCA</code> 全局变量和打开应用主窗口。</li>
+<li>在 <code>Closequery</code> 事件中编写退出应用之前的处理程序。</li>
+<li>在 <code>SystemError</code> 事件中编写系统出错的处理程序  </li>
+</ul>
+<h4 id="11-11-窗口"><a href="#11-11-窗口" class="headerlink" title="11.11 窗口"></a>11.11 窗口</h4><blockquote>
+<p>命名规则： w + _ + 窗口名  </p>
+</blockquote>
+<ul>
+<li>主窗口采用 <code>main</code> 窗口类型，子窗口一般采用<code> Popup</code>窗口类型，无控制菜单，无最大<br>化最小化按钮，不可改变大小。若为一般性提示窗口，用<code> response</code> 窗口类型。 </li>
+<li>窗口以 <code>buttonface</code> 颜色为背景颜色  </li>
+<li>重要的菜单选项设置 <code>Toolbar</code> 功能  </li>
+<li>窗口上下左右四周应至少留出两个网格，而不得将对象填满整个窗口  </li>
+</ul>
+<h4 id="11-12-菜单"><a href="#11-12-菜单" class="headerlink" title="11.12 菜单"></a>11.12 菜单</h4><blockquote>
+<p>命名规则： m + _ + 菜单名  </p>
+</blockquote>
+<p>菜单项 <code>MenuItem</code> 的名称以该菜单项在整个菜单中的物理位置分层次命名  </p>
+<p>MenuItem 位于整个菜单的第三列第二行，则命名为 m_32；文件菜单下的“关<br>闭”菜单项，命名为 m_file_close  </p>
+<h4 id="11-13-数据窗口对象"><a href="#11-13-数据窗口对象" class="headerlink" title="11.13 数据窗口对象"></a>11.13 数据窗口对象</h4><blockquote>
+<p>命名规则： d + _ + 功能含义  </p>
+</blockquote>
+<ul>
+<li>打印用数据窗口的背景色为白色，题目为16号字，内容为11号字，显示比例为75%  </li>
+<li>显示用数据窗口的背景色原则上为 <code>buttonface</code>， 可视窗口制作是否美观的实际情况而定  </li>
+<li>白色数据窗口各列显示框高度为72  </li>
+<li>Tabular 和 Grid 风格数据窗口，无表头时列名文本边框为 3D Raised。 Detail 区为 3D<br>Lowered，背景色原则上为白色。 Grid 风格数据窗口一般不出现线条  </li>
+</ul>
+<h4 id="11-14-数据窗口控件"><a href="#11-14-数据窗口控件" class="headerlink" title="11.14 数据窗口控件"></a>11.14 数据窗口控件</h4><blockquote>
+<p>命名规则： dw + _+ 功能含义  </p>
+</blockquote>
+<p>数据窗口边框原则上为 3D Lowered，也可以使用 none 外加 group  </p>
+<h4 id="11-15-用户对象命名"><a href="#11-15-用户对象命名" class="headerlink" title="11.15 用户对象命名"></a>11.15 用户对象命名</h4><blockquote>
+<p>命名规则： uo + _ + 功能含义  </p>
+</blockquote>
+<p>公共对象对应以上各控件规范制作  </p>
+<h3 id="十二、错误处理"><a href="#十二、错误处理" class="headerlink" title="十二、错误处理"></a>十二、错误处理</h3><p>对错误的处理和状态监测程序实行标准化，这有几方面的原因：</p>
+<ul>
+<li>要在整个应用中统一处理；</li>
+<li> 减少偶然漏掉特有处理的可能性；</li>
+<li>减少日后进行软件维护时的不必要的麻烦  </li>
+</ul>
+<p>以下几个方面的检查可以考虑用标准的方法处理：</p>
+<ul>
+<li><p>连接错误；</p>
+</li>
+<li><p> 连接库存取错误；</p>
+</li>
+<li><p> 数据录入错误；</p>
+</li>
+<li><p>程序执行错误。</p>
+<p>程序执行出错处理必须明确指出出错的原因或者可能。<br>数据库操作出错必须指出数据库错误代码（ <code>SQLCA.SQLCODE</code>）以及数据库错误说明<br>（ <code>SQLCA.SQLERRTEXT</code>），即下面的这段代码必须在数据库操作出错处理中：<br>“<del>r</del>n<del>r</del>n 错误码： “ + <code>string(SQLCA.SQLCODE)</code> &amp;<br>+ “<del>r</del>n<del>r</del>n 出错信息： “ + <code>SQLCA.SQLERRTEXT ) </code></p>
+</li>
+</ul>
+<h3 id="十三、版本控制"><a href="#十三、版本控制" class="headerlink" title="十三、版本控制"></a>十三、版本控制</h3><p>① 软件版本号标准为 <strong>a . b</strong>，其中 a 和 b 为 0 到 99 之间的数字</p>
+<p>② 当 <strong>a 大于 1 并且 b 为奇数</strong>时， 表示当前版本为处于<strong>开发、 测试阶段</strong>的版本， 定义为“开<br>发版”；当 <strong>b 为偶数</strong>时，表示当前版本为<strong>稳定的、可实际运行</strong>的版本，定义为“稳定版”</p>
+<p>③ 当软件开始开发时，确定版本号为 0.1；随着软件开发的进度，版本号随着每一次主<br>要功能的完善而变化，最高达到 0.99</p>
+<p>④ 软件初步开发完成后，经过软件开发小组内部测试，初步能够完成软件需求提出的<br>业务规范和技术要求，软件基本能正常运行，此时，<strong>确定该软件版本号为 1.0 Beta x</strong> ，这意<br>味着软件可以投入实际应用测试，其中 x <strong>代表测试的次数</strong></p>
+<p>⑤ 当软件的 1.0 Beta x 版本推出并经过用户实际应用或者试运行测试后，此时，确定该<br>软件版本号为 <strong>1.0 RC</strong>。这意味着软件<strong>可以投入实际应用运行</strong></p>
+<p>⑥ 当软件的 1.0 RC 版本投入实际应用运行达到某一时限后，则认为该版本已经稳定，<br>可以完全正常地使用了，这时，确定软件的<strong>版本号为 1.0</strong>，这意味着软件开发完成，可以投 入实际应用和推广 </p>
+<p>⑦ 当软件进行升级时，<strong>如果功能变化不大，则次版本号变化</strong>；<strong>如果软件功能发生重大变化时，主版本号变化</strong></p>
+<h3 id="十四-小结"><a href="#十四-小结" class="headerlink" title="十四 小结"></a>十四 小结</h3><p>以上从变量命名规范、<code>pb</code>的各种控件命名规范、代码书写、注释、错误处理、版本控制等方面说了日常工作中</p>
+<p>使用<code>pb</code>开发应遵守的一些规约。</p>
+<p>当然了，上面规范也不是必须的，你所在的团队也会有自己的一些规约。</p>
+<p>本期内容到此就结束了，希望对你有所帮助。我们下期再见 (●’◡’●)</p>
+<p>参考文献</p>
+<p>[^PowerBuilder 9.0 实用解析]: PowerBuilder 9.0 实用解析<br>[^Poweruilder9.0精彩编程百例 ]: Poweruilder9.0精彩编程百例<br><a href="PowerBuilder%E9%AB%98%E7%BA%A7%E7%BC%96%E7%A8%8B%E5%8F%8A%E5%85%B6%E9%A1%B9%E7%9B%AE%E5%BA%94%E7%94%A8%E5%BC%80%E5%8F%91">^ </a>: PowerBuilder 10.0 应用基础与实例教程</p>
+
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="/about" rel="external nofollow noreferrer">xiezhr</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="https://www.xiezhrspace.cn/archives/89f0cb39.html">https://www.xiezhrspace.cn/archives/89f0cb39.html</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="/about" target="_blank">xiezhr</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/PB-PowerBuilder-%E6%95%B0%E6%8D%AE%E5%BA%93%E6%8A%80%E6%9C%AF/">
+                                    <span class="chip bg-color">PB,PowerBuilder,数据库技术</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="qq,wechat,weibo,douban" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+                <style>
+    #reward {
+        margin: 40px 0;
+        text-align: center;
+    }
+
+    #reward .reward-link {
+        font-size: 1.4rem;
+        line-height: 38px;
+    }
+
+    #reward .btn-floating:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    #rewardModal {
+        width: 320px;
+        height: 350px;
+    }
+
+    #rewardModal .reward-title {
+        margin: 15px auto;
+        padding-bottom: 5px;
+    }
+
+    #rewardModal .modal-content {
+        padding: 10px;
+    }
+
+    #rewardModal .close {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 1.3rem;
+        line-height: 20px;
+        cursor: pointer;
+    }
+
+    #rewardModal .close:hover {
+        color: #ef5350;
+        transform: scale(1.3);
+        -moz-transform:scale(1.3);
+        -webkit-transform:scale(1.3);
+        -o-transform:scale(1.3);
+    }
+
+    #rewardModal .reward-tabs {
+        margin: 0 auto;
+        width: 210px;
+    }
+
+    .reward-tabs .tabs {
+        height: 38px;
+        margin: 10px auto;
+        padding-left: 0;
+    }
+
+    .reward-content ul {
+        padding-left: 0 !important;
+    }
+
+    .reward-tabs .tabs .tab {
+        height: 38px;
+        line-height: 38px;
+    }
+
+    .reward-tabs .tab a {
+        color: #fff;
+        background-color: #ccc;
+    }
+
+    .reward-tabs .tab a:hover {
+        background-color: #ccc;
+        color: #fff;
+    }
+
+    .reward-tabs .wechat-tab .active {
+        color: #fff !important;
+        background-color: #22AB38 !important;
+    }
+
+    .reward-tabs .alipay-tab .active {
+        color: #fff !important;
+        background-color: #019FE8 !important;
+    }
+
+    .reward-tabs .reward-img {
+        width: 210px;
+        height: 210px;
+    }
+</style>
+
+<div id="reward">
+    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-medium waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close modal-close"><i class="fas fa-times"></i></a>
+            <h4 class="reward-title">你的赏识是我前进的动力</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs row">
+                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
+                    </ul>
+                    <div id="alipay">
+                        <img src="https://fastly.jsdelivr.net/gh/xiezhr/xiezhrblog-cdn-source/source/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                    <div id="wechat">
+                        <img src="https://fastly.jsdelivr.net/gh/xiezhr/xiezhrblog-cdn-source/source/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('.tabs').tabs();
+    });
+</script>
+
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+        <style>
+    .valine-card {
+        margin: 1.5rem auto;
+    }
+
+    .valine-card .card-content {
+        padding: 20px 20px 5px 20px;
+    }
+
+    #vcomments textarea {
+        
+        box-sizing: border-box;
+        /* background: url("https://fastly.jsdelivr.net/gh/xiezhr/xiezhrblog-cdn-source/source/medias/comment_bg.webp") 100% 100% no-repeat; */
+        background-image: url("https://fastly.jsdelivr.net/gh/xiezhr/xiezhrblog-cdn-source/source/medias/comment_bg.webp");
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position:right;
+        resize:vertical;
+    }
+
+    #vcomments p {
+        margin: 2px 2px 10px;
+        font-size: 1.05rem;
+        line-height: 1.78rem;
+    }
+
+    #vcomments blockquote p {
+        text-indent: 0.2rem;
+    }
+
+    #vcomments a {
+        padding: 0 2px;
+        color: #4cbf30;
+        font-weight: 500;
+        text-decoration: none;
+    }
+
+    #vcomments img {
+        max-width: 100%;
+        height: auto;
+        cursor: pointer;
+    }
+
+    #vcomments ol li {
+        list-style-type: decimal;
+    }
+
+    #vcomments ol,
+    ul {
+        display: block;
+        padding-left: 2em;
+        word-spacing: 0.05rem;
+    }
+
+    #vcomments ul li,
+    ol li {
+        display: list-item;
+        line-height: 1.8rem;
+        font-size: 1rem;
+    }
+
+    #vcomments ul li {
+        list-style-type: disc;
+    }
+
+    #vcomments ul ul li {
+        list-style-type: circle;
+    }
+
+    #vcomments table, th, td {
+        padding: 12px 13px;
+        border: 1px solid #dfe2e5;
+    }
+
+    #vcomments table, th, td {
+        border: 0;
+    }
+
+    table tr:nth-child(2n), thead {
+        background-color: #fafafa;
+    }
+
+    #vcomments table th {
+        background-color: #f2f2f2;
+        min-width: 80px;
+    }
+
+    #vcomments table td {
+        min-width: 80px;
+    }
+
+    #vcomments h1 {
+        font-size: 1.85rem;
+        font-weight: bold;
+        line-height: 2.2rem;
+    }
+
+    #vcomments h2 {
+        font-size: 1.65rem;
+        font-weight: bold;
+        line-height: 1.9rem;
+    }
+
+    #vcomments h3 {
+        font-size: 1.45rem;
+        font-weight: bold;
+        line-height: 1.7rem;
+    }
+
+    #vcomments h4 {
+        font-size: 1.25rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    #vcomments h5 {
+        font-size: 1.1rem;
+        font-weight: bold;
+        line-height: 1.4rem;
+    }
+
+    #vcomments h6 {
+        font-size: 1rem;
+        line-height: 1.3rem;
+    }
+
+    #vcomments p {
+        font-size: 1rem;
+        line-height: 1.5rem;
+    }
+
+    #vcomments hr {
+        margin: 12px 0;
+        border: 0;
+        border-top: 1px solid #ccc;
+    }
+
+    #vcomments blockquote {
+        margin: 15px 0;
+        border-left: 5px solid #42b983;
+        padding: 1rem 0.8rem 0.3rem 0.8rem;
+        color: #666;
+        background-color: rgba(66, 185, 131, .1);
+    }
+
+    #vcomments pre {
+        font-family: monospace, monospace;
+        padding: 1.2em;
+        margin: .5em 0;
+        background: #272822;
+        overflow: auto;
+        border-radius: 0.3em;
+        tab-size: 4;
+    }
+
+    #vcomments code {
+        font-family: monospace, monospace;
+        padding: 1px 3px;
+        font-size: 0.92rem;
+        color: #e96900;
+        background-color: #f8f8f8;
+        border-radius: 2px;
+    }
+
+    #vcomments pre code {
+        font-family: monospace, monospace;
+        padding: 0;
+        color: #e8eaf6;
+        background-color: #272822;
+    }
+
+    #vcomments pre[class*="language-"] {
+        padding: 1.2em;
+        margin: .5em 0;
+    }
+
+    #vcomments code[class*="language-"],
+    pre[class*="language-"] {
+        color: #e8eaf6;
+    }
+
+    #vcomments [type="checkbox"]:not(:checked), [type="checkbox"]:checked {
+        position: inherit;
+        margin-left: -1.3rem;
+        margin-right: 0.4rem;
+        margin-top: -1px;
+        vertical-align: middle;
+        left: unset;
+        visibility: visible;
+    }
+
+    #vcomments b,
+    strong {
+        font-weight: bold;
+    }
+
+    #vcomments dfn {
+        font-style: italic;
+    }
+
+    #vcomments small {
+        font-size: 85%;
+    }
+
+    #vcomments cite {
+        font-style: normal;
+    }
+
+    #vcomments mark {
+        background-color: #fcf8e3;
+        padding: .2em;
+    }
+
+    #vcomments table, th, td {
+        padding: 12px 13px;
+        border: 1px solid #dfe2e5;
+    }
+
+    table tr:nth-child(2n), thead {
+        background-color: #fafafa;
+    }
+
+    #vcomments table th {
+        background-color: #f2f2f2;
+        min-width: 80px;
+    }
+
+    #vcomments table td {
+        min-width: 80px;
+    }
+
+    #vcomments [type="checkbox"]:not(:checked), [type="checkbox"]:checked {
+        position: inherit;
+        margin-left: -1.3rem;
+        margin-right: 0.4rem;
+        margin-top: -1px;
+        vertical-align: middle;
+        left: unset;
+        visibility: visible;
+    }
+
+    
+</style>
+
+<div class="card valine-card" data-aos="fade-up">
+    <div class="comment_headling" style="font-size: 20px; font-weight: 700; position: relative; padding-left: 20px; top: 15px; padding-bottom: 5px;">
+        <i class="fas fa-comments fa-fw" aria-hidden="true"></i>
+        <span>评论</span>
+    </div>
+    <div id="vcomments" class="card-content" style="display: grid">
+    </div>
+</div>
+
+<script src="/libs/valine/av-min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/small-rose/small-rose.github.io/libs/valine/Valine.min.js"></script>
+
+<script>
+    // new Valine({
+    //     el: '#vcomments',
+    //     appId: 'nLFYjWbdxNXHi8ECkNbad7eo-gzGzoHsz',
+    //     appKey: 'EN6vxfxOV7eBy6HlfVE4jhGI',
+    //     notify: 'true' === 'true',
+    //     verify: 'true' === 'true',
+    //     visitor: 'true' === 'true',
+    //     avatar: 'monsterid',
+    //     pageSize: '10',
+    //     lang: 'zh-cn',
+    //     placeholder: '欢迎你留下宝贵的意见 ^-^&#39;'
+    // });
+
+    let metaPlaceholder = {"nick":"昵称/QQ号(必填)","mail":"邮箱(必填)","link":"网址(https://)"} ;
+    //这里要换行
+    new Valine({
+            el: '#vcomments',
+            appId: 'nLFYjWbdxNXHi8ECkNbad7eo-gzGzoHsz',
+            appKey: 'EN6vxfxOV7eBy6HlfVE4jhGI',
+            notify: 'true' === 'true',
+            verify: 'true' === 'true',
+            visitor: 'true' === 'true',
+            avatar: 'monsterid',
+            pageSize: '10',
+            lang: 'zh-CN',
+            placeholder: '欢迎你留下宝贵的意见 ^-^&#39;',
+            meta: ["nick", "mail", "link"],
+            recordIP: 'true' === 'true',
+            enableQQ: 'monsterid',
+            requiredFields: ["1610cd43778f1d972a92503426346411"],
+            master: ["1610cd43778f1d972a92503426346411"],
+            friends: ["c08508165c8eba9a77f8c2853xxxx09e", "901345d4c91ddfd8db0f175bbcfff0c8", "1512958e18378c98b498d5effe3e76ff"],
+            tagMeta: ["博主", "小伙伴", "访客"],
+            metaPlaceholder: metaPlaceholder,
+
+        });
+
+</script>
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/archives/0.html">
+                    <div class="card-image">
+                        
+                        
+                        <img src="https://fastly.jsdelivr.net/gh/xiezhr/xiezhrblog-cdn-source/source/medias/featureimages/0.jpg" class="responsive-img" alt="">
+                        
+                        <span class="card-title"></span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2023-07-11
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-user fa-fw"></i>
+                            xiezhr
+                            
+                        </span>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/archives/431e695.html">
+                    <div class="card-image">
+                        
+                        <img src="http://blog.xiezhrspace.cn/blog-img/f70af6bcd407470abd752511b0d8cd6e.png" class="responsive-img" alt="PB从入坑到放弃（一）第一个HelloWorld程序">
+                        
+                        <span class="card-title">PB从入坑到放弃（一）第一个HelloWorld程序</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            PB从入坑到放弃（一）第一个HelloWorld程序
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-06-30
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/PB-PowerBuilder-%E6%95%B0%E6%8D%AE%E5%BA%93%E6%8A%80%E6%9C%AF/" class="post-category">
+                                    PB,PowerBuilder,数据库技术
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/PB-PowerBuilder-%E6%95%B0%E6%8D%AE%E5%BA%93%E6%8A%80%E6%9C%AF/">
+                        <span class="chip bg-color">PB,PowerBuilder,数据库技术</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+<script>
+    $('#articleContent').on('copy', function (e) {
+        // IE8 or earlier browser is 'undefined'
+        if (typeof window.getSelection === 'undefined') return;
+
+        var selection = window.getSelection();
+        // if the selection is short let's not annoy our users.
+        if (('' + selection).length < Number.parseInt('300')) {
+            return;
+        }
+
+        // create a div outside of the visible area and fill it with the selected text.
+        var bodyElement = document.getElementsByTagName('body')[0];
+        var newdiv = document.createElement('div');
+        newdiv.style.position = 'absolute';
+        newdiv.style.left = '-99999px';
+        bodyElement.appendChild(newdiv);
+        newdiv.appendChild(selection.getRangeAt(0).cloneContents());
+
+        // we need a <pre> tag workaround.
+        // otherwise the text inside "pre" loses all the line breaks!
+        //if (selection.getRangeAt(0).commonAncestorContainer.nodeName === 'PRE') {
+          //  newdiv.innerHTML = "<pre>" + newdiv.innerHTML + "</pre>";
+        //}
+        newdiv.innerHTML = "<pre>" + newdiv.innerHTML + "</pre>";
+        var url = document.location.href;
+        newdiv.innerHTML += '<br />'
+            + '来源: xiezhrspace<br />'
+            + '文章作者: xiezhr<br />'
+            + '文章链接: <a href="' + url + '">' + url + '</a><br />'
+            + '本文章著作权归作者所有，任何形式的转载都请注明出处。';
+
+        selection.selectAllChildren(newdiv);
+        window.setTimeout(function () {bodyElement.removeChild(newdiv);}, 200);
+    });
+</script>
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+<!-- 代码块折行 -->
+
+<style type="text/css">
+code[class*="language-"], pre[class*="language-"] { white-space: pre !important; }
+</style>
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="https://fastly.jsdelivr.net/gh/xiezhr/xiezhrblog-cdn-source/source/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+
+
+    <style>
+    .youpaiyunlogo {
+        height: 26px;
+        display: inline-block;
+        vertical-align: top;
+    }
+</style>
+<footer class="page-footer bg-color">
+    
+    <div class="container row center-align" style="margin-bottom: 15px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            <span id="year">2020</span>
+            <a href="/about" target="_blank">xiezhr</a>
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            <br>
+            
+            &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
+                class="white-color">228.7k</span>&nbsp;字
+            
+            
+            
+            
+            
+            
+            <span id="busuanzi_container_site_pv">
+                |&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;<span id="busuanzi_value_site_pv"
+                    class="white-color"></span>&nbsp;次
+            </span>
+            
+            
+            <span id="busuanzi_container_site_uv">
+                |&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;<span id="busuanzi_value_site_uv"
+                    class="white-color"></span>&nbsp;人
+            </span>
+            
+            <br>
+            
+            <span id="sitetime">载入运行时间...</span>
+            <script>
+                function siteTime() {
+                    var seconds = 1000;
+                    var minutes = seconds * 60;
+                    var hours = minutes * 60;
+                    var days = hours * 24;
+                    var years = days * 365;
+                    var today = new Date();
+                    var startYear = "2020";
+                    var startMonth = "11";
+                    var startDate = "17";
+                    var startHour = "9";
+                    var startMinute = "1";
+                    var startSecond = "1";
+                    var todayYear = today.getFullYear();
+                    var todayMonth = today.getMonth() + 1;
+                    var todayDate = today.getDate();
+                    var todayHour = today.getHours();
+                    var todayMinute = today.getMinutes();
+                    var todaySecond = today.getSeconds();
+                    var t1 = Date.UTC(startYear, startMonth, startDate, startHour, startMinute, startSecond);
+                    var t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond);
+                    var diff = t2 - t1;
+                    var diffYears = Math.floor(diff / years);
+                    var diffDays = Math.floor((diff / days) - diffYears * 365);
+                    var diffHours = Math.floor((diff - (diffYears * 365 + diffDays) * days) / hours);
+                    var diffMinutes = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours) /
+                        minutes);
+                    var diffSeconds = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours -
+                        diffMinutes * minutes) / seconds);
+                    if (startYear == todayYear) {
+                        document.getElementById("year").innerHTML = todayYear;
+                        document.getElementById("sitetime").innerHTML = "小破站已在各种灾难中安全运行 " + diffDays + " 天 " + diffHours +
+                            " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
+                    } else {
+                        document.getElementById("year").innerHTML = startYear + " - " + todayYear;
+                        document.getElementById("sitetime").innerHTML = "小破站已在各种灾难中安全运行 " + diffYears + " 年 " + diffDays +
+                            " 天 " + diffHours + " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
+                    }
+                }
+                setInterval(siteTime, 1000);
+            </script>
+            
+            <br>
+            
+            <span id="icp"><img src="/medias/icp.png" style="vertical-align: text-bottom;" />
+                <a href="https://beian.miit.gov.cn/" target="_blank">滇ICP备2020008901号</a>
+            </span>
+            
+            <a href="https://www.upyun.com/?utm_source=lianmeng&amp;utm_medium=referra" target="_blank" title="本站由又拍云 提供CDN加速/云存储服务" >
+                <img src="https://cdn2.sublimerui.top/2021/01/09/4a78e24138103.png"class="youpaiyunlogo"/>
+            </a>
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/xiezhr" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+    <a href="https://cdn.jsdelivr.net/gh/xiezhr/xiezhrblog-cdn-source@main/blog-img/1653405669657wx.jpg" class="tooltipped" target="_blank" data-tooltip="微信联系我: https://cdn.jsdelivr.net/gh/xiezhr/xiezhrblog-cdn-source@main/blog-img/1653405669657wx.jpg" data-position="top" data-delay="50">
+        <i class="fab fa-weixin"></i>
+    </a>
+
+
+
+    <a href="https://www.jianshu.com/u/2b57477b4c5a" class="tooltipped" target="_blank" data-tooltip="关注我的简书: https://www.jianshu.com/u/2b57477b4c5a" data-position="top" data-delay="50">
+        <i class="fab fa-jianshu">简</i>
+    </a>
+
+
+
+    <a href="https://blog.csdn.net/rong09_13" class="tooltipped" target="_blank" data-tooltip="关注我的CSDN: https://blog.csdn.net/rong09_13" data-position="top" data-delay="50">
+        <i class="fab fa-csdn">C</i>
+    </a>
+
+
+
+    <a href="https://juejin.im/user/1829211147871415/posts" class="tooltipped" target="_blank" data-tooltip="关注我的掘金: https://juejin.im/user/1829211147871415/posts" data-position="top" data-delay="50">
+        <i class="fab fa-juejin">掘</i>
+    </a>
+
+
+
+    <a href="mailto:1666397814@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=1666397814" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 1666397814" data-position="top" data-delay="50">
+        <i class="fab fa-qq"></i>
+    </a>
+
+
+
+
+
+    <a href="https://www.zhihu.com/people/rong-xie-49-35" class="tooltipped" target="_blank" data-tooltip="关注我的知乎: https://www.zhihu.com/people/rong-xie-49-35" data-position="top" data-delay="50">
+        <i class="fab fa-zhihu1">知</i>
+    </a>
+
+
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script src="https://fastly.jsdelivr.net/gh/xiezhr/xiezhrblog-cdn-source/source/js/search.js"></script>
+<script type="text/javascript">
+$(function () {
+    searchFunc('/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <style>
+    .top-scroll .btn-floating {
+        background: rgb(73, 177, 245);
+        width: 38px;
+        height: 38px;
+    }
+
+</style>
+
+<!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="https://fastly.jsdelivr.net/gh/xiezhr/xiezhrblog-cdn-source/source/libs/materialize/materialize.min.js"></script>
+    <script src="https://fastly.jsdelivr.net/gh/xiezhr/xiezhrblog-cdn-source/source/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="https://fastly.jsdelivr.net/gh/xiezhr/xiezhrblog-cdn-source/source/libs/aos/aos.js"></script>
+    <script src="https://fastly.jsdelivr.net/gh/xiezhr/xiezhrblog-cdn-source/source/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="https://fastly.jsdelivr.net/gh/xiezhr/xiezhrblog-cdn-source/source/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="https://fastly.jsdelivr.net/gh/xiezhr/xiezhrblog-cdn-source/source/js/matery.js"></script>
+
+    
+    <!-- 自动更改网站标题 -->
+    <script type="text/javascript">
+        var OriginTitile=document.title,st;
+        document.addEventListener("visibilitychange",function(){
+            document.hidden?(document.title="ヽ(●-`Д´-)ノ你要玩捉迷藏嘛",clearTimeout(st)):(document.title="(Ő∀Ő3)ノ欢迎回来！",st=setTimeout(function(){document.title="从0到1每天学一点点"},3e3))
+        })
+    </script>
+
+    <div id="weather-v2-plugin-simple"></div>
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    
+    <script async src="https://fastly.jsdelivr.net/gh/xiezhr/xiezhrblog-cdn-source/source/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+    
+    <script type="text/javascript" color="0,0,255"
+        pointColor="0,0,255" opacity='0.7'
+        zIndex="-1" count="120"
+        src="https://fastly.jsdelivr.net/gh/xiezhr/xiezhrblog-cdn-source/source/libs/background/canvas-nest.js"></script>
+    
+
+    
+
+    
+
+    
+    <script src="https://fastly.jsdelivr.net/gh/xiezhr/xiezhrblog-cdn-source/source/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+    <!--添加全局深色模式-->
+    <script> 
+        if (localStorage.getItem('dark') === '1') { 
+            document.body.classList.add('dark'); 
+        } else if (new Date().getHours() >= 22 || new Date().getHours() < 7) {
+             document.body.classList.add('dark'); 
+        } else if (matchMedia('(prefers-color-scheme: dark)').matches) { 
+            document.body.classList.add('dark'); 
+        } 
+    </script> 
+    <a onclick="switchNightMode()" id="sma"> 
+        <i class="fa fa-moon-o" id="nightMode" aria-hidden="true"></i> 
+    </a>
+</body>
+
+</html>
