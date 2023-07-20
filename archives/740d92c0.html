@@ -18,7 +18,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>PB从入坑到放弃（二）编码规范 | xiezhrspace</title>
+    <title>PB从入坑到放弃（五）窗口使用技巧 | xiezhrspace</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="https://fastly.jsdelivr.net/gh/xiezhr/xiezhrblog-cdn-source/source/libs/awesome/css/all.css">
@@ -731,12 +731,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('http://blog.xiezhrspace.cn/blog-img/PowerBuilder从入坑到放弃（二）.png')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('http://blog.xiezhrspace.cn/blog-img/PB从入坑到放弃（五）.png')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">PB从入坑到放弃（二）编码规范</h1>
+                    <h1 class="description center-align post-title">PB从入坑到放弃（五）窗口使用技巧</h1>
                 </div>
             </div>
         </div>
@@ -885,28 +885,28 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2023-07-03
+                    2023-07-19
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2023-07-11
+                    2023-07-20
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    4.9k
+                    2.5k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    18 分
+                    9 分
                 </div>
                 
 
@@ -921,819 +921,775 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>上一篇我们从0到1用<code>pb</code>开发了一个<code>helloworld</code>程序，并成功将开发的程序编译打包并且制作了安装包。</p>
-<p>程序员最讨厌的莫过于写文档和别人不写注释。</p>
-<p>不知道大家会不会和我一样，在找bug时，有段代码，心中不知默默的骂了它多少遍。</p>
-<p>哪个sx写的这代码，研究了一段时间发现，原来那sx竟是自己 😔。</p>
-<p>无规矩不成方圆，写代码也是一样的，尤其是在团队合作的时候。</p>
-<p>要想把代码写得优雅，就必须遵循一定的规则。今天我们就来看看<code>pb</code>开发中应该遵守哪些规范。</p>
-<h3 id="一-、变量命名规范"><a href="#一-、变量命名规范" class="headerlink" title="一 、变量命名规范"></a>一 、变量命名规范</h3><h4 id="1-1-变量命名规则"><a href="#1-1-变量命名规则" class="headerlink" title="1.1 变量命名规则"></a>1.1 变量命名规则</h4><blockquote>
-<p><strong>变量类型范围简写</strong> + <strong>数据类型简写</strong> +_+ <strong>含义代码</strong>      + //注释标明含义</p>
-</blockquote>
-<p>举例说明：</p>
-<pre class=" language-java"><code class="language-java"><span class="token comment" spellcheck="true">/*1、定义全局变量*/</span>
-string gs_orgcode  <span class="token comment" spellcheck="true">//定义机构编码</span>
-string gs_orgname  <span class="token comment" spellcheck="true">//定义机构名称</span>
-
-<span class="token comment" spellcheck="true">/*2、定义共享变量*/</span>
-string ss_phone 
-
-<span class="token comment" spellcheck="true">/*3、定义实例变量*/</span>
-string ls_name <span class="token comment" spellcheck="true">//定义用户姓名</span>
-    
-<span class="token comment" spellcheck="true">/*4、5、定义值传递变量和引用传递变量*/</span>    
-function <span class="token function">gf</span><span class="token punctuation">(</span>string v_orgcode<span class="token punctuation">,</span>string r_orgname<span class="token punctuation">)</span> <span class="token comment" spellcheck="true">//根据编号获取名称</span>
-</code></pre>
-<p>以上例子只是以不同变量类型范围内<code>string</code> 类型变量命名举例，具体可根据下面表格中的简写变通</p>
-<h4 id="1-2-变量类型范围"><a href="#1-2-变量类型范围" class="headerlink" title="1.2 变量类型范围"></a>1.2 变量类型范围</h4><table>
-<thead>
-<tr>
-<th>–范围</th>
-<th>– 描述</th>
-<th>– 简写</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>【全局变量】Global</td>
-<td>全局变量在整个应用中有效</td>
-<td><code>g_</code></td>
-</tr>
-<tr>
-<td>【共享变量】Shared</td>
-<td>共享变量在一个对象及其实例中有效</td>
-<td><code>s_</code></td>
-</tr>
-<tr>
-<td>【实例变量】Instance</td>
-<td>实例变量仅在一个对象的实例中有效</td>
-<td><code>i_</code></td>
-</tr>
-<tr>
-<td>【局部变量】Local</td>
-<td>局部变量仅在一段子程序或在 script 开始和结束时生效</td>
-<td><code>l_</code></td>
-</tr>
-<tr>
-<td>【值传递的变量】（函数变量）</td>
-<td>定义函数时，参数仅传递值，不会被函数改变 （value）</td>
-<td><code>v_</code></td>
-</tr>
-<tr>
-<td>【引用传递的变量】（函数变量）</td>
-<td>定义函数时，参数将被函数改变（ref）</td>
-<td><code>r_</code></td>
-</tr>
-</tbody></table>
-<h4 id="1-2-常见变量类型简写"><a href="#1-2-常见变量类型简写" class="headerlink" title="1.2 常见变量类型简写"></a><strong>1.2 常见变量类型简写</strong></h4><table>
-<thead>
-<tr>
-<th>–数据类型</th>
-<th>–描述</th>
-<th>–简写</th>
-</tr>
-</thead>
-<tbody><tr>
-<td><code>Any</code></td>
-<td>可以保存任何类型的值,包括标准数据类型、对象、结构和[数组</td>
-<td><code>a_</code></td>
-</tr>
-<tr>
-<td><code>Blob</code></td>
-<td>二进制大型对象，用来存储图片、大文本等信息</td>
-<td><code>bb_</code></td>
-</tr>
-<tr>
-<td><code>Boolean</code></td>
-<td>布尔型，取值要么<code>true</code> 要么<code>false</code></td>
-<td><code>bl_</code></td>
-</tr>
-<tr>
-<td><code>Char</code>或<code>charater</code></td>
-<td>单个 ASCII 字符</td>
-<td><code>ch</code></td>
-</tr>
-<tr>
-<td><code>Date</code></td>
-<td>日期，由完整的年月日组成，格式取决于操作系统的设置</td>
-<td><code>d_</code></td>
-</tr>
-<tr>
-<td><code>DateTime</code></td>
-<td>日期及时间，用于和数据库的 <code>datatime</code> 类型数据交互</td>
-<td><code>dt_</code></td>
-</tr>
-<tr>
-<td><code>Decimal</code> 或 <code>dec</code></td>
-<td>有符号十进制数，最大 18 位宽 ,一般用于存储金钱</td>
-<td><code>dec</code></td>
-</tr>
-<tr>
-<td><code>Double</code></td>
-<td>有符号浮点数，精度 15 位</td>
-<td><code>db</code></td>
-</tr>
-<tr>
-<td><code>Integer</code>或 <code>int</code></td>
-<td>16 位有符号整数</td>
-<td><code>I</code>或<code>i</code></td>
-</tr>
-<tr>
-<td><code>Long</code></td>
-<td>32 位有符号整数</td>
-<td><code>L</code></td>
-</tr>
-<tr>
-<td><code>Real</code></td>
-<td>有符号浮点数，精度 6 位</td>
-<td><code>r</code></td>
-</tr>
-<tr>
-<td><code>string</code></td>
-<td>由任何 ASCII 字符组成的字符串</td>
-<td><code>s</code></td>
-</tr>
-<tr>
-<td><code>Time</code></td>
-<td>24 小时格式的时间值：小时、分、秒以</td>
-<td><code>t</code></td>
-</tr>
-<tr>
-<td><code>UnsignedInteger</code></td>
-<td>16 位无符号整数</td>
-<td><code>ui</code></td>
-</tr>
-<tr>
-<td><code>UnsignedLong</code></td>
-<td>32 位无符号整数</td>
-<td><code>ul</code></td>
-</tr>
-</tbody></table>
-<h3 id="二、应用命名规范"><a href="#二、应用命名规范" class="headerlink" title="二、应用命名规范"></a>二、应用命名规范</h3><blockquote>
-<p>应用的命名应使用与该应用的意义相关联的英文字母  </p>
-</blockquote>
-<p><code>app_his </code>表示医院管理系统</p>
-<h3 id="三、pbl-库命名规范"><a href="#三、pbl-库命名规范" class="headerlink" title="三、pbl 库命名规范"></a>三、<code>pbl</code> 库命名规范</h3><blockquote>
-<p>pbl库组织的好坏很重要，它会影响应用开发和维护的容易程度以及应用的性能  </p>
-</blockquote>
-<h4 id="3-1-Library-的大小"><a href="#3-1-Library-的大小" class="headerlink" title="3.1 Library 的大小"></a>3.1 Library 的大小</h4><blockquote>
-<p> <code>pb</code> 对 Library 的大小没有限制，但最好小于 <strong>1MB</strong> ,Library太大的话， <code>pb</code>要花更多的时间去打开和存储对象，这会影响开发的效率  </p>
-</blockquote>
-<h4 id="3-2-Library-的数量"><a href="#3-2-Library-的数量" class="headerlink" title="3.2 Library 的数量"></a>3.2 Library 的数量</h4><blockquote>
-<p>尽量用最少的 Library 数量  如果 Library 数量太多而每个 Library 中对象数量太少，搜索路径会<br>太长，影响运行效率  </p>
-</blockquote>
-<h4 id="3-3-Library-的分类组织"><a href="#3-3-Library-的分类组织" class="headerlink" title="3.3 Library 的分类组织"></a>3.3 Library 的分类组织</h4><blockquote>
-<p><code>pbl</code> 库可按子系统或功能组织，一般应用都包含公共 <code>pbl</code> 库。<br>每个 <code>pbl</code>库文件命名应该与该文件作用相关联，例如报表 <code>pbl</code>库文件命名为 <code>report.pbl  </code></p>
-</blockquote>
-<h3 id="四、窗口命名规范"><a href="#四、窗口命名规范" class="headerlink" title="四、窗口命名规范"></a>四、窗口命名规范</h3><blockquote>
-<p>w+”_”+与窗口意义相关联的英文字母 </p>
-</blockquote>
-<p>注意：总长不得超过 <code>pb</code>的 40 个字符限制</p>
-<p>举例：</p>
+                <p><code>PB</code>应用程序就是由许多共同协作完成特定任务的窗口组成的集合。</p>
+<p>窗口在应用程序的开发工作中占有很大的比重，是非常重要的一个 <code>PB </code>对象  </p>
+<h3 id="一、窗口类型"><a href="#一、窗口类型" class="headerlink" title="一、窗口类型"></a>一、窗口类型</h3><p><img src="http://blog.xiezhrspace.cn/blog-img/image-20230717152835298.png" alt="窗口类型"></p>
 <table>
 <thead>
 <tr>
-<th>–窗口名称</th>
-<th>– 注释信息</th>
+<th>窗口类型</th>
+<th>描述</th>
 </tr>
 </thead>
 <tbody><tr>
-<td><code>w_about</code></td>
-<td>关于本系统的版权信息</td>
+<td><code>Main</code></td>
+<td>①可以覆盖其他窗口，也可以被其他窗口覆盖<br />②可以最大、最小化，可以用鼠标改变其 大小<br />③可以有边框，可以有菜单<br />④常用于应用主操作窗口</td>
 </tr>
 <tr>
-<td><code>w_system_error</code></td>
-<td>系统出错提示</td>
+<td><code>Child</code></td>
+<td>①可以被其他窗口覆盖，也可以覆盖其他窗口<br />②可以最大或最小化，也可以用鼠标改变 其大小，父窗口最小或最大化时， Child 类型的窗口也相应的被最大或最小化<br />③可以 有边框，但不能有菜单<br />④位置是相对于其父窗口而言，用鼠标拖放其位置不能超过其 父窗口的范围<br />⑤常被其他窗口打开</td>
 </tr>
 <tr>
-<td><code>w_main</code></td>
-<td>系统主界面</td>
+<td><code>Response</code></td>
+<td>①不能最大、最小化，没有边框，不能用鼠标改变其大小<br />②在继续执行程序之前，必须 对这种类型的窗口做出响应<br />③常用于显示非常重要的信息</td>
 </tr>
 <tr>
-<td><code>w_report_sheet</code></td>
-<td>报表查询</td>
+<td><code>Popup</code></td>
+<td>①可以最大或最小化，在对这种类型的窗口响应之前，可以操作其他窗口<br />②不随父窗口 最大和最小化<br />③可以拥有菜单、边框<br />④常用于显示其他窗口的辅助信息</td>
 </tr>
 </tbody></table>
-<h3 id="五、数据窗口命名规范"><a href="#五、数据窗口命名规范" class="headerlink" title="五、数据窗口命名规范"></a>五、数据窗口命名规范</h3><blockquote>
-<p>①数据窗口控件</p>
-<p><code>dw</code>+”_”+ 与数据窗口相关英文字母</p>
-<p>② 数据窗口对象</p>
-<p><code>d</code>+”_”+ 与数据窗口相关描述英文字母(普通数据窗口对象)       <strong>或者</strong> </p>
-<p><code>dddw</code>+”_”+ 与数据窗口相关描述英文字母 （下拉式子数据窗口对象）</p>
+<h3 id="二、窗口属性"><a href="#二、窗口属性" class="headerlink" title="二、窗口属性"></a>二、窗口属性</h3><table>
+<thead>
+<tr>
+<th>– General 属性页属性</th>
+<th>–Scroll 属性页属性</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><img src="http://blog.xiezhrspace.cn/blog-img/image-20230717153114166.png" alt="General 属性页属性"></td>
+<td><img src="http://blog.xiezhrspace.cn/blog-img/image-20230717153144576.png" alt="General 属性页属性"></td>
+</tr>
+<tr>
+<td>– ToolBar 属性页属性</td>
+<td>–Other 属性页</td>
+</tr>
+<tr>
+<td><img src="http://blog.xiezhrspace.cn/blog-img/image-20230717153207507.png" alt="ToolBar 属性页属性"></td>
+<td><img src="http://blog.xiezhrspace.cn/blog-img/image-20230717153238128.png" alt="Other 属性页"></td>
+</tr>
+</tbody></table>
+<h4 id="2-1-General-属性页属性"><a href="#2-1-General-属性页属性" class="headerlink" title="2.1 General 属性页属性"></a>2.1 General 属性页属性</h4><table>
+<thead>
+<tr>
+<th>属性</th>
+<th>简介</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>Title</code></td>
+<td>窗口的标题</td>
+</tr>
+<tr>
+<td><code>Tag</code></td>
+<td>和窗口相关的一个文本属性，可以理解成窗口的注释</td>
+</tr>
+<tr>
+<td><code>MenuName</code></td>
+<td>和窗口相连的菜单</td>
+</tr>
+<tr>
+<td><code>Visibl</code></td>
+<td>窗口是否可见</td>
+</tr>
+<tr>
+<td><code>Enabled</code></td>
+<td>确定窗口的功能是否可用</td>
+</tr>
+<tr>
+<td><code>TitleBar</code></td>
+<td>确定窗口是否有标题栏</td>
+</tr>
+<tr>
+<td><code>ControlMenu， MaxBox， MinBox</code></td>
+<td>三个属性确定在窗口的标题栏是否显示最大、最小化以及关闭按钮</td>
+</tr>
+<tr>
+<td><code>ClientEdge</code></td>
+<td>是否显示用户工作区边框</td>
+</tr>
+<tr>
+<td><code>PaletteWindow</code></td>
+<td>该属性只用于 Popup 类型的窗口，确定是否显示标题栏图标和最大、最小化按钮</td>
+</tr>
+<tr>
+<td><code>ContextHelp</code></td>
+<td>只用在 Response 类型的窗口上。确定是否支持上下文帮助。如果支持就在窗口的右上角显示一个问号图标</td>
+</tr>
+<tr>
+<td><code>RightToLeft </code></td>
+<td>确定由右到左显示</td>
+</tr>
+<tr>
+<td><code>Center</code></td>
+<td>窗口居中显示，不管屏幕分辨率如何设置。该属性在 PB 7.0 中没有，新增</td>
+</tr>
+<tr>
+<td><code>Resizable</code></td>
+<td>决定窗口在运行时是否可以改变其大小</td>
+</tr>
+<tr>
+<td><code>Border</code></td>
+<td>决定窗口是否有边框</td>
+</tr>
+<tr>
+<td><code>WindowType</code></td>
+<td>确定窗口的类型，可用取值的含义，从字面意思可以理解。该属性在窗口打开时起作用</td>
+</tr>
+<tr>
+<td><code>BackColor</code></td>
+<td>设置窗口的背景颜色</td>
+</tr>
+<tr>
+<td><code>MdiClientColor </code></td>
+<td>用来确定 MDI 用户区的颜色</td>
+</tr>
+<tr>
+<td><code>Icon</code></td>
+<td>用来设置窗口标题栏的图标</td>
+</tr>
+</tbody></table>
+<h4 id="2-2-Scroll-属性页属性"><a href="#2-2-Scroll-属性页属性" class="headerlink" title="2.2 Scroll 属性页属性"></a>2.2 Scroll 属性页属性</h4><table>
+<thead>
+<tr>
+<th>属性</th>
+<th>简介</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>HscrollBar， VscrollBar</code></td>
+<td>是否需要显示水平或垂直滚动条</td>
+</tr>
+<tr>
+<td><code>UnitsPerLine</code></td>
+<td>用户在垂直滚动条上每次单击移动的 PB单位数。默认为 0，表示每次 滚动窗口高度的 1/100</td>
+</tr>
+<tr>
+<td><code>UnitsPerColumn</code></td>
+<td>用户在水平滚动条上每次单击向左或者向右移动的 PB单位数。默认为 0，表示每次滚动窗口宽度的 1/100</td>
+</tr>
+<tr>
+<td><code>ColumnsPerPage</code></td>
+<td>表示每页显示的列数。默认为 0，表示显示 10 列</td>
+</tr>
+<tr>
+<td><code>LinesPerPage</code></td>
+<td>表示每页显示的行数。默认为 0，表示显示 10 行</td>
+</tr>
+</tbody></table>
+<h4 id="2-3-ToolBar-属性页属性"><a href="#2-3-ToolBar-属性页属性" class="headerlink" title="2.3 ToolBar 属性页属性"></a>2.3 ToolBar 属性页属性</h4><table>
+<thead>
+<tr>
+<th>属性</th>
+<th>简介</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>ToolBarVisible </code></td>
+<td>工具条是否可见</td>
+</tr>
+<tr>
+<td><code>ToolBarAlignment</code></td>
+<td>确定工具条在窗口上的初始位置。 有 5 个可用的枚举型取值： AlignAtBootom!(底部)、AlignAtLeft!（左）、 AlignAtRight!(右)、 AlignAtTop!(顶部)、 Floating!（浮动）</td>
+</tr>
+<tr>
+<td><code>ToolBarX， ToolBarY， ToolBa rHeight 和 ToolBarWidth </code></td>
+<td>用来设置当工具条浮动显示时工具条的起始位置及高宽。默认取值都是 0</td>
+</tr>
+</tbody></table>
+<h4 id="2-4-Other-属性页中的属性"><a href="#2-4-Other-属性页中的属性" class="headerlink" title="2.4 Other 属性页中的属性"></a>2.4 Other 属性页中的属性</h4><blockquote>
+<p>用来设置窗口的真实坐标、宽高和鼠标的默认指针。</p>
+<p>当屏幕分辨率是 800 × 600 时，全屏显示的窗口 X， Y， Width 和 Height 分别是 0， 0， 3658， 2407。  </p>
 </blockquote>
-<p>举例：</p>
-<table>
-<thead>
-<tr>
-<th>– 数据窗口控件名称</th>
-<th>– 描述信息</th>
-</tr>
-</thead>
-<tbody><tr>
-<td><code>dw_notice</code></td>
-<td>显示通知信息</td>
-</tr>
-<tr>
-<td><code>dw_system_err</code></td>
-<td>显示系统错误信息，被<code>w_system_err</code> 调用</td>
-</tr>
-</tbody></table>
-<table>
-<thead>
-<tr>
-<th>–数据窗口对象名称</th>
-<th>–描述信息</th>
-</tr>
-</thead>
-<tbody><tr>
-<td><code>d_system_err</code></td>
-<td>显示系统错误信息，是数据窗口<code>dw_system_err</code>的对象</td>
-</tr>
-<tr>
-<td><code>d_goods</code></td>
-<td>显示商品信息</td>
-</tr>
-<tr>
-<td><code>dddw_sex</code></td>
-<td>性别代码表</td>
-</tr>
-<tr>
-<td><code>dddw_tccode</code></td>
-<td>统筹区代码表</td>
-</tr>
-</tbody></table>
-<h3 id="六、用户对象"><a href="#六、用户对象" class="headerlink" title="六、用户对象"></a>六、用户对象</h3><blockquote>
-<p><code>uo</code>+”_”+用户对象相关英文字母</p>
+<h3 id="三、11种常用控件"><a href="#三、11种常用控件" class="headerlink" title="三、11种常用控件"></a>三、11种常用控件</h3><blockquote>
+<p>窗口可以看作是一个容器，所以在窗口上可以放各种控件，来完成用户与程序的交互</p>
 </blockquote>
-<p>举例：</p>
+<p><img src="http://blog.xiezhrspace.cn/blog-img/image-20230717155550604.png" alt="种常用控件"></p>
 <table>
 <thead>
 <tr>
-<th>– 用户对象名称</th>
-<th>– 描述信息</th>
+<th>控件</th>
+<th>说明</th>
 </tr>
 </thead>
 <tbody><tr>
-<td><code>uo_common_settle</code></td>
-<td>表示该<code>uo</code> 用于通用结算功能</td>
+<td><code>Button</code></td>
+<td>用来执行特定的命令，接受用户的键盘或鼠标操作。<br />该控件的 Text 属性一般用来 向用户说明该按钮的功能。<br />典型事件是 Clicked</td>
 </tr>
 <tr>
-<td><code>uo_elc_billinvoice</code></td>
-<td>表示该<code>uo</code> 用于处理电子票据功能</td>
-</tr>
-</tbody></table>
-<h3 id="七、常用控件"><a href="#七、常用控件" class="headerlink" title="七、常用控件"></a>七、常用控件</h3><blockquote>
-<p>控件简写+”_”+功能描述英文字母</p>
-</blockquote>
-<table>
-<thead>
-<tr>
-<th>– 控件名称</th>
-<th>– 控件缩写</th>
-<th>– 控件命名例子</th>
-</tr>
-</thead>
-<tbody><tr>
-<td><code>CommandButton</code></td>
-<td><code>cb</code></td>
-<td><code>cb_exit</code></td>
+<td><code>Picture button </code></td>
+<td>和控件 Button 相同，只是在它的上面还可以显示图形，提供更漂亮友好的界面。<br />典型事件也是 Clicked</td>
 </tr>
 <tr>
-<td><code>PictureButton</code></td>
-<td><code>pb</code></td>
-<td><code>pb_thank_info</code></td>
+<td><code>Static text</code></td>
+<td>显示指示性或解释性信息，文字只能单行显示。<br />一般很少在该控件上编程</td>
 </tr>
 <tr>
-<td><code>CheckBox</code></td>
-<td><code>cbx</code></td>
-<td><code>cbx_age_show</code></td>
+<td><code>Singlelineedit</code></td>
+<td>单行编辑，一般用来接受用户比较少的文字输入。<br />典型事件是 Modified，通常在该 事件上判断用户的输入是否符合既定规则，如是否是数字等</td>
 </tr>
 <tr>
-<td><code>RadioButton</code></td>
-<td><code>rb</code></td>
-<td><code>rb_sex</code></td>
+<td><code>Multilineedit</code></td>
+<td>多行编辑，用来接收用户比较多的文字输入。<br />典型事件也是 Modified，通常在该事 件上判断用户的输入是否符合既定规则</td>
 </tr>
 <tr>
-<td><code>StaticText</code></td>
-<td><code>st</code></td>
-<td><code>st_user_id</code></td>
+<td><code>Check box</code></td>
+<td>复选框，用来界定用户的输入，一般输入信息作为其他命令执行时的选项。 <br />当有多个复选框时，它们间的连接符习惯性认为是“ and”。<br />重要属性是 Checked，通常用来判断该控件是否选中</td>
 </tr>
 <tr>
-<td><code>Picture</code></td>
-<td><code>p</code></td>
-<td><code>p_user_img</code></td>
+<td><code>Radio box</code></td>
+<td>单选按钮，用来界定用户的输入只能是给定值中的一个。<br />它的输入信息通 常用来选择其他命令互斥的执行方式。<br />重要属性 是 Checked，true 表示选中</td>
 </tr>
 <tr>
-<td><code>GroupBox</code></td>
-<td><code>gb</code></td>
-<td><code>gb_detail_info</code></td>
+<td><code>Dropdownlistbox</code></td>
+<td>以紧凑列表框的形式给用户显示信息，通常在该控件中进行单选。<br />经常和光标 （ cursor ） 配 合 使 用 ， 显 示 从 数 据 库 中 提 取 的 数 据 。 <br />典 型 事 件 是 <code>SelectionChanged</code>，通常在该事件上读取当前用户的选择信息</td>
 </tr>
 <tr>
-<td><code>Line</code></td>
-<td><code>ln</code></td>
-<td><code>ln_h_separator</code></td>
-</tr>
-<tr>
-<td><code>Oval</code></td>
-<td><code>oval</code></td>
-<td><code>oval_used_flag</code></td>
-</tr>
-<tr>
-<td><code>SingleLineEdit</code></td>
-<td><code>sle</code></td>
-<td><code>sle_name</code></td>
-</tr>
-<tr>
-<td><code>MultiLineEdit</code></td>
-<td><code>mle</code></td>
-<td><code>mle_book_comments</code></td>
-</tr>
-<tr>
-<td><code>RichTextEdit</code></td>
-<td><code>rte</code></td>
-<td><code>rte_student_answer</code></td>
-</tr>
-<tr>
-<td><code>EditMask</code></td>
-<td><code>em</code></td>
-<td><code>em_tel</code></td>
-</tr>
-<tr>
-<td><code>DropDownListBox</code></td>
-<td><code>ddlb</code></td>
-<td><code>ddlb_type</code></td>
-</tr>
-<tr>
-<td><code>DropDownPictureListBox</code></td>
-<td><code>ddplb</code></td>
-<td><code>ddplb_photo_preview</code></td>
-</tr>
-<tr>
-<td><code>ListBox</code></td>
-<td><code>lb</code></td>
-<td><code>lb_department_name</code></td>
-</tr>
-<tr>
-<td><code>PictureListBox</code></td>
-<td><code>plb</code></td>
-<td><code>plb_user_identification</code></td>
-</tr>
-<tr>
-<td><code>ListView</code></td>
-<td><code>lv</code></td>
-<td><code>lv_all_user</code></td>
-</tr>
-<tr>
-<td><code>TreeView</code></td>
-<td><code>tv</code></td>
-<td><code>tv_customers</code></td>
-</tr>
-<tr>
-<td><code>TabPage</code></td>
-<td><code>tpg</code></td>
-<td><code>tpg_ordinary_super</code></td>
-</tr>
-<tr>
-<td><code>Tab</code></td>
-<td><code>tab</code></td>
-<td><code>tab_super</code></td>
+<td><code>Listbox</code></td>
+<td>列表框，是显示信息的，但其显示格式不如 <code>Dropdownlistbox</code> 紧凑，也通常和光 标（cursor）配合使用，显示从数据库中提取的数据。但是，该控件经常可以同时 选中多行。典型事件也是 <code>SelectionChanged</code>，通常在该事件上读取当前用户的选 择信息</td>
 </tr>
 <tr>
 <td><code>DataWindow</code></td>
-<td><code>dw</code></td>
-<td><code>dw_user_info</code></td>
+<td>是 PB中最重要的、也是 PB最具特色的一个控件。<br />可以 完成对数据库中的所有数据操作</td>
 </tr>
 <tr>
-<td><code>OLE</code></td>
-<td><code>ole</code></td>
-<td><code>ole_word_doc</code></td>
+<td><code>Group box</code></td>
+<td>将功能类似的或在功能模块上关系紧密的部件放置在一起，界面美观，可以 给用户一个操作上的暗示。很少在该控件上编程</td>
 </tr>
 </tbody></table>
-<h3 id="八、函数命名规范"><a href="#八、函数命名规范" class="headerlink" title="八、函数命名规范"></a>八、函数命名规范</h3><blockquote>
-<p>函数类型+f+“_”+函数意义相关联的英文字母  </p>
-</blockquote>
-<table>
+<h3 id="四、窗口事件"><a href="#四、窗口事件" class="headerlink" title="四、窗口事件"></a>四、窗口事件</h3><h4 id="4-1-常用事件"><a href="#4-1-常用事件" class="headerlink" title="4.1 常用事件"></a>4.1 常用事件</h4><table>
 <thead>
 <tr>
-<th>–函数类型</th>
-<th>–函数类型简写</th>
+<th>事件</th>
+<th>事件说明</th>
 </tr>
 </thead>
 <tbody><tr>
-<td>全局函数</td>
-<td><code>g_</code></td>
+<td><code>open</code></td>
+<td>在窗口打开之后，显示之前发生。<br />调整窗口大小、设置窗口实例变量、初始化一些控件</td>
 </tr>
 <tr>
-<td>窗口函数</td>
-<td><code>w_</code></td>
+<td><code>close</code></td>
+<td>窗口被关闭时发生。触发该事件后，没有办法阻止窗口的关闭</td>
 </tr>
 <tr>
-<td>菜单函数</td>
-<td><code>m_</code></td>
+<td><code>closequery</code></td>
+<td>在开始关闭窗口时发生，该事件返回一个0或1的返回值 <br />如果返回值为1，则窗口不关闭，close事件也不会产生 <br />如果返回值为0，则窗口被关闭</td>
 </tr>
 <tr>
-<td>用户对象函数</td>
-<td><code>u_</code></td>
+<td><code>resize</code></td>
+<td>当窗口大小发生变化时变化，窗口被打开时也触发此事件</td>
+</tr>
+<tr>
+<td><code>key</code></td>
+<td>当用户在键盘上按下一个键且插入点不在编辑区域时发生</td>
+</tr>
+<tr>
+<td><code>activate</code></td>
+<td>在窗口成为活动窗口之前、 Open 事件触发完后触发  ，此事件发生后，Tab 值最小的对象得到焦点，如果没有 排序号，则窗口本身获得焦点</td>
+</tr>
+<tr>
+<td><code>deactivate</code></td>
+<td>窗口变为不活动时发生</td>
+</tr>
+<tr>
+<td><code>clicked</code></td>
+<td>户单击窗口的空白区域时发生，此区域不能有任何的空间或数据窗口</td>
+</tr>
+<tr>
+<td><code>doubleclicked</code></td>
+<td>用户双击窗口的空白区域时发生，此区域不能有任何的空间或数据窗口</td>
+</tr>
+<tr>
+<td><code>dragleave</code></td>
+<td>当可拖放对象或控件，离开空白区时发生</td>
+</tr>
+<tr>
+<td><code>dragleave</code></td>
+<td>当可拖放对象或控件，在窗口中被拖动时发生</td>
+</tr>
+<tr>
+<td><code>hotlinkalarm</code></td>
+<td>在动态数据交换（DDE）服务器应用发送了新的（修改后）的数据，且客 户DDE应用程序已经接收到数据时发生</td>
+</tr>
+<tr>
+<td><code>mousedown</code></td>
+<td>空白区，单击鼠标左击时发生。<br />此事件与click事件相同，flags的值总为1</td>
+</tr>
+<tr>
+<td><code>mousemove</code></td>
+<td>鼠标在窗口中移动时发生</td>
+</tr>
+<tr>
+<td><code>mouseup</code></td>
+<td>放开鼠标左键时发生</td>
+</tr>
+<tr>
+<td><code>rbuttondown</code></td>
+<td>空白区，按下鼠标右键时发生</td>
+</tr>
+<tr>
+<td><code>remoteexec</code></td>
+<td>当一个DDE客户应用程序发送了一条命令时发生</td>
+</tr>
+<tr>
+<td><code>remotehotlinkstart</code></td>
+<td>当一个DDE客户应用程序要开始一个热连接(hotlink)时发生</td>
+</tr>
+<tr>
+<td><code>remotehotlinkstop</code></td>
+<td>当一个DDE客户应用程序要结束一个热链接时发生</td>
+</tr>
+<tr>
+<td><code>remoterequest</code></td>
+<td>当一个DDE客户应用程序请求数据时发生</td>
+</tr>
+<tr>
+<td><code>remotesend</code></td>
+<td>当一个DDE客户应用程序已经发送了数据时产生</td>
+</tr>
+<tr>
+<td><code>systemkey</code></td>
+<td>当插入点不在编辑框中且用户按下【alt】或【alt+其他组合键时发生】</td>
+</tr>
+<tr>
+<td><code>timer</code></td>
+<td>调用timer函数，启动定时器、设定时间后发生</td>
+</tr>
+<tr>
+<td><code>toolbarmoved</code></td>
+<td>当MDI窗口中的工具栏被移动时发生</td>
 </tr>
 </tbody></table>
-<p>举例：</p>
-<table>
-<thead>
-<tr>
-<th>– 函数名称</th>
-<th>–描述信息</th>
-</tr>
-</thead>
-<tbody><tr>
-<td><code>gf_getOrgInfo</code></td>
-<td>全局函数，用于获取机构信息</td>
-</tr>
-<tr>
-<td><code>wf_getUserInfo</code></td>
-<td>窗口函数，用于获取用户信息</td>
-</tr>
-<tr>
-<td><code>uf_query_username</code></td>
-<td>用户对象函数，用于查询用户姓名</td>
-</tr>
-</tbody></table>
-<h3 id="九、关于注释"><a href="#九、关于注释" class="headerlink" title="九、关于注释"></a>九、关于注释</h3><h4 id="9-1-窗口open事件前说明"><a href="#9-1-窗口open事件前说明" class="headerlink" title="9.1 窗口open事件前说明"></a>9.1 窗口open事件前说明</h4><pre class=" language-java"><code class="language-java"><span class="token comment" spellcheck="true">/* ======================================================= */</span>
-<span class="token comment" spellcheck="true">// 窗口中英文名称：</span>
-<span class="token comment" spellcheck="true">// 窗口作用：</span>
-<span class="token comment" spellcheck="true">// 作者：</span>
-<span class="token comment" spellcheck="true">// 日期：</span>
-<span class="token comment" spellcheck="true">/* ======================================================= */</span>
+<h4 id="4-2-举个栗子"><a href="#4-2-举个栗子" class="headerlink" title="4.2 举个栗子"></a>4.2 举个栗子</h4><p>① open事件</p>
+<pre class=" language-vb"><code class="language-vb">Cb_Save.Enabled=False //禁用“保存”按钮的功能
+SetPointer(HourGlass!) //将鼠标形状置为沙漏形
+Dw_1.SetTransObject(SQLCA) //为数据窗口设置事务对象
+Dw_1.Retrieve() //检索数据
 </code></pre>
-<h4 id="9-2-在事件脚本（-Script）之前应说明"><a href="#9-2-在事件脚本（-Script）之前应说明" class="headerlink" title="9.2 在事件脚本（ Script）之前应说明"></a>9.2 在事件脚本（ Script）之前应说明</h4><pre class=" language-java"><code class="language-java"><span class="token comment" spellcheck="true">/* ======================================================= */</span>
-<span class="token comment" spellcheck="true">// 脚本作用：</span>
-<span class="token comment" spellcheck="true">// 输入参数及数据类型：</span>
-<span class="token comment" spellcheck="true">// 返回参数及数据类型：</span>
-<span class="token comment" spellcheck="true">// 全局函数及其用途：</span>
-<span class="token comment" spellcheck="true">// 全局变量及其用途：</span>
-<span class="token comment" spellcheck="true">// 作者：</span>
-<span class="token comment" spellcheck="true">// 日期：</span>
-<span class="token comment" spellcheck="true">// 修改人的姓名：</span>
-<span class="token comment" spellcheck="true">// 修改日期：</span>
-<span class="token comment" spellcheck="true">// 修改原因：</span>
-<span class="token comment" spellcheck="true">/* ===================================================== */</span>
+<p>② 避免用户因疏忽退出窗口而丢掉在数据窗口中的修改数据 ，通常在 <code>CloseQuery</code> 事件中判<br>断某些工作是否完成，并显示一个提示窗口询问用户，根据用户的确认，返回一个值来决定<br>是否触发窗口的 Close 事件。</p>
+<p>返回值为 1，表示取消关闭动作；返回值为 0，表示继续执行Close 事件  </p>
+<pre class=" language-vb"><code class="language-vb">Int li_flag
+//如果数据窗口中没有修改，则允许执行 Close，直接返回
+If dw_1.ModifiedCount() <= 0 And dw_1.DeletedCount() <= 0 Then Return 0
+//如果数据窗口有修改，询问用户是否保存
+li_flag = MessageBox("提示","数据已经修改，是否保存？ ",Question!,YesNoCancel!,1)
+Choose Case flag_i //根据用户选择执行
+    Case 1 //用户选择要保存数据
+        If dw_1.Update() = 1 Then //如果修改数据成功
+            Commit; //提交
+            Return 0 //继续执行 Close 事件
+        Else //修改数据不成功
+            rollback; //回退事务
+            li_flag = MessageBox("提示","数据错误，是否继续关闭!",Question!,YesNoCancel!,2) //显示错误
+            If li_flag = 1 Then
+                Return 0 //允许关闭
+            Else
+                Return 1 //不允许关闭
+            End If
+        End If
+    Case 2 //用户选择不保存数据
+        Rollback; //回退事务
+        Return 0 //允许执行 Close 事件
+    Case 3 //用户选择取消
+        Return 1 //不允许关闭
+End Choose //用户所有的选择情况处理完毕
 </code></pre>
-<h4 id="9-3-脚本中的注释"><a href="#9-3-脚本中的注释" class="headerlink" title="9.3 脚本中的注释"></a>9.3 脚本中的注释</h4><p>①单行脚本程序注释：  </p>
-<pre class=" language-java"><code class="language-java"><span class="token comment" spellcheck="true">// 注释文本</span>
+<p>③ 在窗口的 Resize 事件中编写脚本，当用户调整窗口大小时，根据用户调整的<br>比例对窗口上的控件大小进行调整。首先定义两个实例变量用来保存调整之前的窗口大小  </p>
+<pre class=" language-vb"><code class="language-vb">//open事件中代码
+ii_width = This.width
+ii_height = This.height
 </code></pre>
-<p>②脚本的程序段注释：  </p>
-<pre class=" language-java"><code class="language-java"><span class="token comment" spellcheck="true">/* ================================== */</span>
-<span class="token comment" spellcheck="true">//</span>
-<span class="token comment" spellcheck="true">// 注释文本</span>
-<span class="token comment" spellcheck="true">//</span>
-<span class="token comment" spellcheck="true">/* ================================== */</span>
-</code></pre>
-<p>③ 变量注释</p>
-<pre class=" language-java"><code class="language-java">数据类型 变量名 <span class="token comment" spellcheck="true">//注释</span>
-</code></pre>
-<h4 id="9-4-在函数、存储过程等脚本（-Script）之前应说明"><a href="#9-4-在函数、存储过程等脚本（-Script）之前应说明" class="headerlink" title="9.4 在函数、存储过程等脚本（ Script）之前应说明"></a>9.4 在函数、存储过程等脚本（ Script）之前应说明</h4><pre class=" language-java"><code class="language-java"><span class="token comment" spellcheck="true">/* ======================================================= */</span>
-<span class="token comment" spellcheck="true">// 函数名称：</span>
-<span class="token comment" spellcheck="true">// 参数解释：</span>
-<span class="token comment" spellcheck="true">// 功能描述：</span>
-<span class="token comment" spellcheck="true">// 调用举例：</span>
-<span class="token comment" spellcheck="true">// 最初作者：</span>
-<span class="token comment" spellcheck="true">// 编写日期：</span>
-<span class="token comment" spellcheck="true">// 返 回 值：</span>
-<span class="token comment" spellcheck="true">// 变量情况：</span>
-<span class="token comment" spellcheck="true">// 修 改 人：</span>
-<span class="token comment" spellcheck="true">// 修改日期：</span>
-<span class="token comment" spellcheck="true">// 修改原因：</span>
-<span class="token operator">/</span><span class="token operator">*</span> <span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span> <span class="token operator">*</span>
-</code></pre>
-<h3 id="十、代码编写规范"><a href="#十、代码编写规范" class="headerlink" title="十、代码编写规范"></a>十、代码编写规范</h3><blockquote>
-<p>脚本的书写应该层次清楚，以便于阅读  </p>
-</blockquote>
-<ul>
-<li> 用分层缩进的写法显示嵌套结构的层次  </li>
-<li>在注释段与程序段，以及不同逻辑的程序段之间插入空行  </li>
-<li>每行至多只写一条语句，当需要滚动显示时应该分行书写。一条语句需要在多行书<br>写时，用&amp;进行连接</li>
-</ul>
-<h4 id="10-1-流程控制写法"><a href="#10-1-流程控制写法" class="headerlink" title="10.1 流程控制写法"></a>10.1 流程控制写法</h4><blockquote>
-<p>用分层缩进的写法突出显示嵌套的层次结构  </p>
-</blockquote>
-<p>例如：</p>
-<pre class=" language-vb"><code class="language-vb">For i = 1 To 100
-    For j = 1 To 50
-        For k = 1 To 200
-            Matrix[i， j， k]=1
-        Next
-    Next
+<pre class=" language-vb"><code class="language-vb">//Resize事件中代码
+Int li_index //循环变量
+DragObject lobj_every //用来获取窗口上的控件
+For li_index = 1 To UpperBound(this.control[]) //对窗口中的所有控件逐一处理
+    lobj_every = control[li_index] //保存当前控件
+    lobj_every.x = lw_obj.x * (newwidth / ii_width) //重新设置 x 坐标
+    lobj_every.width = lobj_every.width * (newwidth / ii_width) //重新设置宽度
+    lobj_every.y = lobj_every.y * (newheight / ii_height) //重新设置 y 坐标
+    lobj_every.height = lobj_every.height * (newheight / ii_height) //重新设置高度
 Next
+ii_width = newwidth //保存当前宽度
+ii_height = newheight //保存当前高度
 </code></pre>
-<h4 id="10-2-数据库相关"><a href="#10-2-数据库相关" class="headerlink" title="10.2  数据库相关"></a>10.2  数据库相关</h4><p>① <code>sqlca</code>的连接语句<code>connect</code>在应用Open事件中完成，其<code>disconnec</code>t在主应用的<br><code>close</code>事件中完成，其余任何<code>pbl</code>中均不能有<code>disconnect</code>语句  </p>
-<p>② 要连接多个数据库，需要用<code>Create</code>创建对象，比如，<code> sqlsyb</code>，连接用 <code>connect using sqlsyb</code>， 处理完毕后用 <code>disconnect using sqlsyb</code>， 并且用<code> destroy sqlsyb</code>释放资源    </p>
-<p>③所有<code>sql</code>语句均需判断返回结果（包括<code>select</code>， <code>commit</code>语句）  </p>
-<pre class=" language-java"><code class="language-java">If sqlca<span class="token punctuation">.</span>sqlcode <span class="token operator">=</span> <span class="token operator">-</span><span class="token number">1</span> Then
-    <span class="token comment" spellcheck="true">// 错误处理程序</span>
-    <span class="token comment" spellcheck="true">// 跳出</span>
-Else
-    <span class="token comment" spellcheck="true">// 正常</span>
+<h3 id="五、窗口常用函数"><a href="#五、窗口常用函数" class="headerlink" title="五、窗口常用函数"></a>五、窗口常用函数</h3><h4 id="5-1-open-函数"><a href="#5-1-open-函数" class="headerlink" title="5.1 open 函数"></a>5.1 open 函数</h4><blockquote>
+<p>函数用来打开其他的窗口  </p>
+</blockquote>
+<p>① 语法</p>
+<pre><code>Open ( Windowvar)
+</code></pre>
+<p>② 参数</p>
+<ul>
+<li><code>Windowvar</code> 是一个 <code>Window</code> 类型的参数，是要打开的窗口名称  </li>
+</ul>
+<p>③ 返回</p>
+<ul>
+<li>成功时返回1，否则返回-1  </li>
+<li>数为 Null， 则返回 Null  </li>
+</ul>
+<p>④ 举个栗子</p>
+<pre><code>//打开主窗口
+Open(w_main)
+</code></pre>
+<p>注：连续调用Open函数，窗口不会被打开两次，只是第二次调用时会再次触发窗口 Activate 事件。为了避免这种情况，可以将脚本修改如下</p>
+<pre class=" language-vb"><code class="language-vb">If Not IsValid(w_main) Then //如果窗口没有打开
+    Open(w_main) //则打开该窗口
+Else //如果窗口已经打开
+    W_main.BringToTop = True //将该窗口显示在最顶层
 End If
 </code></pre>
-<h4 id="10-3-代码块之间留一行"><a href="#10-3-代码块之间留一行" class="headerlink" title="10.3 代码块之间留一行"></a>10.3 代码块之间留一行</h4><pre class=" language-java"><code class="language-java">If <span class="token operator">&lt;</span>condition1<span class="token operator">></span> Then
-    <span class="token operator">&lt;</span>statementblock<span class="token operator">></span>
-End If
-    
-For <span class="token operator">&lt;</span>varname<span class="token operator">>=</span><span class="token operator">&lt;</span>start<span class="token operator">></span> To <span class="token operator">&lt;</span>End<span class="token operator">></span> Step <span class="token operator">&lt;</span>increment<span class="token operator">></span>
-    <span class="token operator">&lt;</span>statement_block<span class="token operator">></span>
+<p>竟然open函数调用两次也不能打开两个窗口，那么问题来了，怎么才能打开多个窗口呢？代码如下</p>
+<p>① 打开和 w_edit 完全相同的一个窗口  </p>
+<pre><code>w_edit lws_edit  //定义一个窗口变量
+Open(lws_edit)   //创建窗口实例
+</code></pre>
+<p>②通过数组，打开多个实例窗口</p>
+<pre class=" language-vb"><code class="language-vb">w_edit lws_edit[3]
+Int li_index
+For li_index =1 To 3
+    Open(lws_edit[li_index])
 Next
 </code></pre>
-<h4 id="10-4-单行注释与当前script程序的缩进位置对齐"><a href="#10-4-单行注释与当前script程序的缩进位置对齐" class="headerlink" title="10.4 单行注释与当前script程序的缩进位置对齐"></a>10.4 单行注释与当前script程序的缩进位置对齐</h4><pre class=" language-java"><code class="language-java"><span class="token comment" spellcheck="true">//这是对condition1的注释</span>
-If <span class="token operator">&lt;</span>condition1<span class="token operator">></span> Then
-    <span class="token comment" spellcheck="true">//这是对condition2 的注释</span>
-    If <span class="token operator">&lt;</span>condition2<span class="token operator">></span> Then
-        <span class="token comment" spellcheck="true">//这是对action1的注释</span>
-        <span class="token operator">&lt;</span>action1<span class="token operator">></span>
-    End If
-End If
-</code></pre>
-<h4 id="10-5-代码缩进用tab"><a href="#10-5-代码缩进用tab" class="headerlink" title="10.5  代码缩进用tab"></a>10.5  代码缩进用<code>tab</code></h4><blockquote>
-<p>缩进应以Tab键实现，不得采用空格  </p>
+<h4 id="5-2-close-函数"><a href="#5-2-close-函数" class="headerlink" title="5.2 close 函数"></a>5.2 close 函数</h4><blockquote>
+<p>函数的作用是关闭窗口，释放窗口及其上面的控件所占用的内存空间，窗口的<code>CloseQuery</code> 事件和 <code>Close</code> 事件触发  </p>
 </blockquote>
-<h4 id="10-6-变量采用小写格式"><a href="#10-6-变量采用小写格式" class="headerlink" title="10.6 变量采用小写格式"></a>10.6 变量采用小写格式</h4><ul>
-<li><p>变量全部用小写  </p>
-<pre class=" language-java"><code class="language-java">string ls_name
+<p>① 语法</p>
+<pre><code>Close ( Windowname )
 </code></pre>
-</li>
-<li><p>一个变量一行，每个变量必须注释  </p>
-<pre class=" language-java"><code class="language-java">string ls_name   <span class="token comment" spellcheck="true">//用户姓名</span>
-string ls_sex    <span class="token comment" spellcheck="true">//用户性别</span>
-<span class="token keyword">int</span> li_age    <span class="token comment" spellcheck="true">//用户年龄</span>
-</code></pre>
-</li>
-<li><p>通常情况下，变量的后半部分尽量用数据库字段名  </p>
-</li>
-<li><p>变量声明全部在脚本之前声明完毕  </p>
-</li>
-<li><p>对象名采用小写，属性、关键字、保留字和内置函数均采用首字母大写格式  </p>
-<pre class=" language-java"><code class="language-java">w_cont_de<span class="token punctuation">.</span>Visible <span class="token operator">=</span> True
-m_mdi<span class="token punctuation">.</span>m_file<span class="token punctuation">.</span>m_print<span class="token punctuation">.</span>Enabled <span class="token operator">=</span> False
-</code></pre>
-</li>
-</ul>
-<h4 id="10-7-字符串排版"><a href="#10-7-字符串排版" class="headerlink" title="10.7 字符串排版"></a>10.7 字符串排版</h4><blockquote>
-<p>连接起来的字符串超过了两行的长度时，使用 <code>+&amp;</code>，每次均<br>采用缩进格式。字符串的随后部分应该再次缩进  </p>
-</blockquote>
-<pre class=" language-java"><code class="language-java">ls_msg <span class="token operator">=</span> <span class="token string">"连接数据库失败！错误信息为： ~r~n"</span> <span class="token operator">+</span><span class="token operator">&amp;</span>
-         Sqlca<span class="token punctuation">.</span>SqlErrText <span class="token operator">+</span><span class="token operator">&amp;</span>
-         <span class="token string">"请与系统管理员联系"</span>
-</code></pre>
-<h4 id="10-8-PB关键字书写"><a href="#10-8-PB关键字书写" class="headerlink" title="10.8 PB关键字书写"></a>10.8 <code>PB</code>关键字书写</h4><blockquote>
-<p>首字母大写，这样看起来层次清晰  </p>
-</blockquote>
-<pre class=" language-java"><code class="language-java"><span class="token comment" spellcheck="true">// 举个栗子</span>
-This<span class="token punctuation">,</span>Parent<span class="token punctuation">,</span> ParentWindow<span class="token punctuation">,</span> True<span class="token punctuation">,</span> False<span class="token punctuation">,</span> Return<span class="token punctuation">,</span> Halt<span class="token punctuation">,</span>Close
-</code></pre>
-<h4 id="10-9-PB内部函数及属性"><a href="#10-9-PB内部函数及属性" class="headerlink" title="10.9 PB内部函数及属性"></a>10.9 <code>PB</code>内部函数及属性</h4><blockquote>
-<p>采用每个字首字母大写，这样看起来层次清晰  </p>
-</blockquote>
-<pre class=" language-java"><code class="language-java"><span class="token comment" spellcheck="true">//举个栗子</span>
-sle_user<span class="token punctuation">.</span>Text
-dw_1<span class="token punctuation">.</span><span class="token function">SetTransObject</span><span class="token punctuation">(</span>Sqlca<span class="token punctuation">)</span>
-Sqlca<span class="token punctuation">.</span>SqlErrText
-</code></pre>
-<h4 id="10-10-SQL语句书写"><a href="#10-10-SQL语句书写" class="headerlink" title="10.10 SQL语句书写"></a>10.10 <code>SQL</code>语句书写</h4><pre class=" language-java"><code class="language-java">SELECT name<span class="token punctuation">,</span> sex<span class="token punctuation">,</span> dept_id
-    INTO <span class="token operator">:</span>ls_name<span class="token punctuation">,</span> <span class="token operator">:</span>ls_sex<span class="token punctuation">,</span> <span class="token operator">:</span>ls_dept_id
-FROM employee
-WHERE emp_id <span class="token operator">=</span> <span class="token operator">:</span>ls_emp_id<span class="token punctuation">;</span>
-</code></pre>
-<h4 id="10-11-goto跳转语句"><a href="#10-11-goto跳转语句" class="headerlink" title="10.11 goto跳转语句"></a>10.11 <code>goto</code>跳转语句</h4><blockquote>
-<p>程序中应避免出现 goto 跳转语句 ,如果必须要使用，需要详细注释说明</p>
-</blockquote>
-<h4 id="10-12-游标模块"><a href="#10-12-游标模块" class="headerlink" title="10.12 游标模块"></a>10.12 游标模块</h4><p><strong>注意：</strong>游标命名规则： Cur + _ + 名称。  </p>
-<pre class=" language-java"><code class="language-java">Declare Cursorname Cursor <span class="token keyword">for</span>
-        Select语句
-Open Cursorname<span class="token punctuation">;</span>
-fetch Cursorname into <span class="token operator">&lt;</span>variables<span class="token operator">></span>
-Do While Sqlca<span class="token punctuation">.</span>Sqlcode <span class="token operator">=</span> <span class="token number">0</span>
-    <span class="token operator">&lt;</span>statementblock<span class="token operator">></span>
-    fetch Cursorname into <span class="token operator">&lt;</span>variables<span class="token operator">></span>
-Loop
-Close Cursorname
-</code></pre>
-<h4 id="10-13-存储过程调用"><a href="#10-13-存储过程调用" class="headerlink" title="10.13 存储过程调用"></a>10.13 存储过程调用</h4><p><strong>注意：</strong>存储过程命名规则： Pro + _ + 名称。  </p>
-<pre class=" language-java"><code class="language-java">declare Procedurename procedure For StoredProcedureName
-        <span class="token operator">:</span> Value1<span class="token punctuation">,</span><span class="token operator">:</span> Value2<span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">;</span>
-execute Procedurename<span class="token punctuation">;</span>
-fetch Procedurename into <span class="token operator">&lt;</span>variables<span class="token operator">></span><span class="token punctuation">;</span>
-close Procedurename<span class="token punctuation">;</span>
-commit<span class="token punctuation">;</span>
-</code></pre>
-<h4 id="10-14-操作符前后应留一空格"><a href="#10-14-操作符前后应留一空格" class="headerlink" title="10.14 操作符前后应留一空格"></a>10.14 操作符前后应留一空格</h4><blockquote>
-<p>所有操作符（包括等号）前后应留一空格，使程序看起来更清晰  </p>
-</blockquote>
-<pre class=" language-java"><code class="language-java">ls_msg <span class="token operator">=</span> ls_title <span class="token operator">+</span> ls_error
-</code></pre>
-<h4 id="10-15-循环中使用函数"><a href="#10-15-循环中使用函数" class="headerlink" title="10.15  循环中使用函数"></a>10.15  循环中使用函数</h4><blockquote>
-<p>仅当绝对需要时才在循环结构体中使用函数调用，也就是说，仅当函数的返回值依赖于循环迭代的值时才使用函数调用  </p>
-</blockquote>
-<pre class=" language-java"><code class="language-java">① 正例
-Long ll_num_selected
-ll_num_selected <span class="token operator">=</span> lb_devctg<span class="token punctuation">.</span><span class="token function">TotalSelected</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
-For i <span class="token operator">=</span> <span class="token number">1</span> To num_selected
-……
-Next
-② 反例
-For i <span class="token operator">=</span> <span class="token number">1</span> To lb_1<span class="token punctuation">.</span><span class="token function">TotalSelected</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
-……
-Next    
-</code></pre>
-<h4 id="10-16-条件判断表达式"><a href="#10-16-条件判断表达式" class="headerlink" title="10.16  条件判断表达式"></a>10.16  条件判断表达式</h4><blockquote>
-<p>条件判断表达式中，变量和固定取值的比较尽量不要使用&lt;&gt;进行判断，尤其数据来自数据库时，以保证程序的扩充性。  </p>
-<p>比如，前期设计中 1 代表男、 2 代表女，使用 var=2 比var&lt;&gt;1 的判断有更好的可扩充性  </p>
-</blockquote>
-<h3 id="十一、控件使用规范"><a href="#十一、控件使用规范" class="headerlink" title="十一、控件使用规范"></a>十一、控件使用规范</h3><ul>
-<li>应尽量为所有控件使用有意义的名称，重要控件不允许使用 pb_1 之类无明确意义的名称</li>
-<li>大号字体：各窗口控件字体为Arial，字号为12号，字色为黑色。小号字体：各窗口<br>控件字体为宋体，字号为9号，字色为黑色。  </li>
-<li>显示控件和输入控件底色分开，显示控件为灰色(窗口颜色)，输入控件为白色  </li>
-<li>输入区和显示区分别放置  </li>
-<li>按钮排列紧凑，在窗口右侧纵向排列时靠上放置；在窗口下方排列时靠右放置，因为左撇子操作者毕竟是少数  </li>
-<li>各字符类控件对齐方式为左对齐；数字类控件为右对齐，且必须按所需格式设置<br>Format 属性；日期控件必须保证能完整显示所需日期格式，应用yyyy-mm-dd风格  </li>
-<li><code>CommandButton</code>控件的推荐高度为104  </li>
-</ul>
-<h4 id="11-1-静态文本框"><a href="#11-1-静态文本框" class="headerlink" title="11.1 静态文本框"></a>11.1 静态文本框</h4><blockquote>
-<p>命名规则： st +_ + 名称（若为label可不改名）  </p>
-</blockquote>
-<p>外观规定如下  </p>
+<p>② 参数</p>
 <ul>
-<li><p>背景色： buttonface；  </p>
-</li>
-<li><p>前景色：黑色  </p>
-</li>
-<li><p>边 框：无  </p>
-</li>
-<li><p>高 度： 72  </p>
-<p>建议在其后加上全角冒号（： ）  </p>
-</li>
+<li><code>Windowname</code> 是要关闭的窗口名称，是一个 <code>Window</code> 类型的变量  </li>
+<li>成功返回 1，否则返回-1</li>
+<li>参数为 Null，则返回 Null  </li>
 </ul>
-<h4 id="11-2-单行编辑框"><a href="#11-2-单行编辑框" class="headerlink" title="11.2 单行编辑框"></a>11.2 单行编辑框</h4><blockquote>
-<p>命名规则： sle +_ + 名称  </p>
+<h4 id="5-3-MessageBox-函数"><a href="#5-3-MessageBox-函数" class="headerlink" title="5.3 MessageBox 函数"></a>5.3 MessageBox 函数</h4><blockquote>
+<p>函数可以打开一个小信息窗口，不仅可以以多种方式给用户显示提示信息，还可以将用户的选择信息返回 。</p>
+<p>小信息窗口有标题、提示信息、图标、按钮等 4 个元素，可以通过不同的参数来决定显示哪些或者显示哪种样式。  </p>
 </blockquote>
-<p>（ 1）外观  </p>
-<ul>
-<li>背景色：白色  </li>
-<li>前景色：黑色  </li>
-<li>边 框： 3D Lowered  </li>
-<li>高 度： 72  </li>
-</ul>
-<p>（ 2）程序说明  </p>
-<ul>
-<li>响应事件建议自定义 Keydown 事件，尽量不要用 Modify 事件  </li>
-<li>当获得焦点时控件背景变为深蓝色，字体颜色变为黄色，失去焦点时还原默认颜色  </li>
-</ul>
-<h4 id="11-3-命令按钮"><a href="#11-3-命令按钮" class="headerlink" title="11.3 命令按钮"></a>11.3 命令按钮</h4><blockquote>
-<p> 命名规则： cb +_+ 名称  </p>
-</blockquote>
-<p>（ 1）外观  </p>
-<ul>
-<li>高度：对于小号字体（宋体9号）为92；对于大号字体（ Arial 12号）为108  </li>
-<li>宽度：对于小号字体（宋体9号）为325；对于大号字体（ Arial 12号）为402  </li>
-</ul>
-<p>（ 2）说明  </p>
+<p>① 简单模式</p>
 <blockquote>
-<p>命令按钮控件不要使用 cb_1 之类无明确意义的名称(尤其在窗口中这类控件比较多时，<br>可能令人分不清各个控件的作用)  </p>
+<p>只能显示提示信息，并有一个确认按钮，不能让用户进行选择  </p>
 </blockquote>
-<h4 id="11-4-图像按钮"><a href="#11-4-图像按钮" class="headerlink" title="11.4 图像按钮"></a>11.4 图像按钮</h4><blockquote>
-<p>钮命名规则： pb + _ + 名称  </p>
-</blockquote>
-<p>外观规定如下  </p>
 <ul>
-<li>尺寸：用图像原始尺寸  </li>
-<li>图像：按钮的有效与无效采用不同的 bmp 图像以示区别  </li>
+<li>语法</li>
 </ul>
-<p><strong>注意：</strong> 尽量不用图形按钮，而用命令按钮  </p>
-<h4 id="11-5-复选框"><a href="#11-5-复选框" class="headerlink" title="11.5 复选框"></a>11.5 复选框</h4><blockquote>
-<p>命名规则： cbx + _ + 名称  </p>
-</blockquote>
-<p>外观规定如下：  </p>
+<pre><code>MessageBox(title,text)
+</code></pre>
 <ul>
-<li>背景色： buttonface  </li>
-<li>前景色：黑色  </li>
-<li>边 框： 3D Lowered  </li>
-<li>高 度： 92；  </li>
-<li>位 置：标签在右  </li>
+<li><p>参数</p>
+<ul>
+<li>title 为信息窗口标题  </li>
+<li>text 为提示信息  </li>
 </ul>
-<h4 id="11-6-单选按钮"><a href="#11-6-单选按钮" class="headerlink" title="11.6 单选按钮"></a>11.6 单选按钮</h4><blockquote>
-<p>命名规则： rb + _ + 名称  </p>
-</blockquote>
-<p>（ 1）外观  </p>
-<ul>
-<li>背景色： buttonface  </li>
-<li>前景色：黑色  </li>
-<li>边 框： 3D Lowered  </li>
-<li>高 度： 92  </li>
-<li>位 置：标签在右  </li>
-</ul>
-<p>（ 2）程序说明</p>
-<ul>
-<li>单选按钮最好与组合框配合使用  </li>
-</ul>
-<h4 id="11-7-组框"><a href="#11-7-组框" class="headerlink" title="11.7 组框"></a>11.7 组框</h4><blockquote>
-<p>命名规则： gb + _ + 名称  </p>
-</blockquote>
-<p>外观规定如下：</p>
-<ul>
-<li>背景色： buttonface；</li>
-<li>前景色：黑色；</li>
-<li>边 框： 3D Lowered  </li>
-</ul>
-<h4 id="11-8-屏蔽编辑框"><a href="#11-8-屏蔽编辑框" class="headerlink" title="11.8 屏蔽编辑框"></a>11.8 屏蔽编辑框</h4><blockquote>
-<p>命名规则： em + _ + 名称  </p>
-</blockquote>
-<p>（ 1）外观</p>
-<ul>
-<li>背景色：白色；</li>
-<li> 前景色：黑色；</li>
-<li> 边 框： 3D Lowered。  </li>
-</ul>
-<p>（ 2）程序说明  </p>
-<ul>
-<li>响应事件建议用自定义 Keydown 事件，尽量不要用 Modify 事件。</li>
-<li>当获得焦点时控件背景变为深蓝色，字体颜色变为黄色，失去焦点时还原默认颜色  </li>
-</ul>
-<h4 id="11-9-下拉列表框"><a href="#11-9-下拉列表框" class="headerlink" title="11.9 下拉列表框"></a>11.9 下拉列表框</h4><blockquote>
-<p>命名规则： ddlb + _ + 名称  </p>
-</blockquote>
-<p>外观规定如下：</p>
-<ul>
-<li>背景色：白色；</li>
-<li> 前景色：黑 色；</li>
-<li>边 框： 3D Lowered  </li>
-</ul>
-<h4 id="11-10-应用"><a href="#11-10-应用" class="headerlink" title="11.10 应用"></a>11.10 应用</h4><blockquote>
-<p>命名规则： app + _ + 应用名  </p>
-</blockquote>
-<ul>
-<li>为应用选择一个图标，以便在运行时标识应用。</li>
-<li>在 Open 事件中声明 <code>SQLCA</code> 全局变量和打开应用主窗口。</li>
-<li>在 <code>Closequery</code> 事件中编写退出应用之前的处理程序。</li>
-<li>在 <code>SystemError</code> 事件中编写系统出错的处理程序  </li>
-</ul>
-<h4 id="11-11-窗口"><a href="#11-11-窗口" class="headerlink" title="11.11 窗口"></a>11.11 窗口</h4><blockquote>
-<p>命名规则： w + _ + 窗口名  </p>
-</blockquote>
-<ul>
-<li>主窗口采用 <code>main</code> 窗口类型，子窗口一般采用<code> Popup</code>窗口类型，无控制菜单，无最大<br>化最小化按钮，不可改变大小。若为一般性提示窗口，用<code> response</code> 窗口类型。 </li>
-<li>窗口以 <code>buttonface</code> 颜色为背景颜色  </li>
-<li>重要的菜单选项设置 <code>Toolbar</code> 功能  </li>
-<li>窗口上下左右四周应至少留出两个网格，而不得将对象填满整个窗口  </li>
-</ul>
-<h4 id="11-12-菜单"><a href="#11-12-菜单" class="headerlink" title="11.12 菜单"></a>11.12 菜单</h4><blockquote>
-<p>命名规则： m + _ + 菜单名  </p>
-</blockquote>
-<p>菜单项 <code>MenuItem</code> 的名称以该菜单项在整个菜单中的物理位置分层次命名  </p>
-<p>MenuItem 位于整个菜单的第三列第二行，则命名为 m_32；文件菜单下的“关<br>闭”菜单项，命名为 m_file_close  </p>
-<h4 id="11-13-数据窗口对象"><a href="#11-13-数据窗口对象" class="headerlink" title="11.13 数据窗口对象"></a>11.13 数据窗口对象</h4><blockquote>
-<p>命名规则： d + _ + 功能含义  </p>
-</blockquote>
-<ul>
-<li>打印用数据窗口的背景色为白色，题目为16号字，内容为11号字，显示比例为75%  </li>
-<li>显示用数据窗口的背景色原则上为 <code>buttonface</code>， 可视窗口制作是否美观的实际情况而定  </li>
-<li>白色数据窗口各列显示框高度为72  </li>
-<li>Tabular 和 Grid 风格数据窗口，无表头时列名文本边框为 3D Raised。 Detail 区为 3D<br>Lowered，背景色原则上为白色。 Grid 风格数据窗口一般不出现线条  </li>
-</ul>
-<h4 id="11-14-数据窗口控件"><a href="#11-14-数据窗口控件" class="headerlink" title="11.14 数据窗口控件"></a>11.14 数据窗口控件</h4><blockquote>
-<p>命名规则： dw + _+ 功能含义  </p>
-</blockquote>
-<p>数据窗口边框原则上为 3D Lowered，也可以使用 none 外加 group  </p>
-<h4 id="11-15-用户对象命名"><a href="#11-15-用户对象命名" class="headerlink" title="11.15 用户对象命名"></a>11.15 用户对象命名</h4><blockquote>
-<p>命名规则： uo + _ + 功能含义  </p>
-</blockquote>
-<p>公共对象对应以上各控件规范制作  </p>
-<h3 id="十二、错误处理"><a href="#十二、错误处理" class="headerlink" title="十二、错误处理"></a>十二、错误处理</h3><p>对错误的处理和状态监测程序实行标准化，这有几方面的原因：</p>
-<ul>
-<li>要在整个应用中统一处理；</li>
-<li> 减少偶然漏掉特有处理的可能性；</li>
-<li>减少日后进行软件维护时的不必要的麻烦  </li>
-</ul>
-<p>以下几个方面的检查可以考虑用标准的方法处理：</p>
-<ul>
-<li><p>连接错误；</p>
 </li>
-<li><p> 连接库存取错误；</p>
-</li>
-<li><p> 数据录入错误；</p>
-</li>
-<li><p>程序执行错误。</p>
-<p>程序执行出错处理必须明确指出出错的原因或者可能。<br>数据库操作出错必须指出数据库错误代码（ <code>SQLCA.SQLCODE</code>）以及数据库错误说明<br>（ <code>SQLCA.SQLERRTEXT</code>），即下面的这段代码必须在数据库操作出错处理中：<br>“<del>r</del>n<del>r</del>n 错误码： “ + <code>string(SQLCA.SQLCODE)</code> &amp;<br>+ “<del>r</del>n<del>r</del>n 出错信息： “ + <code>SQLCA.SQLERRTEXT ) </code></p>
+<li><p>举个栗子</p>
+<pre class=" language-vb"><code class="language-vb">MessageBox(“错误提示” ,“数据保存错误! ” )
+</code></pre>
+<p><img src="http://blog.xiezhrspace.cn/blog-img/image-20230718205454682.png" alt="messagebox"></p>
 </li>
 </ul>
-<h3 id="十三、版本控制"><a href="#十三、版本控制" class="headerlink" title="十三、版本控制"></a>十三、版本控制</h3><p>① 软件版本号标准为 <strong>a . b</strong>，其中 a 和 b 为 0 到 99 之间的数字</p>
-<p>② 当 <strong>a 大于 1 并且 b 为奇数</strong>时， 表示当前版本为处于<strong>开发、 测试阶段</strong>的版本， 定义为“开<br>发版”；当 <strong>b 为偶数</strong>时，表示当前版本为<strong>稳定的、可实际运行</strong>的版本，定义为“稳定版”</p>
-<p>③ 当软件开始开发时，确定版本号为 0.1；随着软件开发的进度，版本号随着每一次主<br>要功能的完善而变化，最高达到 0.99</p>
-<p>④ 软件初步开发完成后，经过软件开发小组内部测试，初步能够完成软件需求提出的<br>业务规范和技术要求，软件基本能正常运行，此时，<strong>确定该软件版本号为 1.0 Beta x</strong> ，这意<br>味着软件可以投入实际应用测试，其中 x <strong>代表测试的次数</strong></p>
-<p>⑤ 当软件的 1.0 Beta x 版本推出并经过用户实际应用或者试运行测试后，此时，确定该<br>软件版本号为 <strong>1.0 RC</strong>。这意味着软件<strong>可以投入实际应用运行</strong></p>
-<p>⑥ 当软件的 1.0 RC 版本投入实际应用运行达到某一时限后，则认为该版本已经稳定，<br>可以完全正常地使用了，这时，确定软件的<strong>版本号为 1.0</strong>，这意味着软件开发完成，可以投 入实际应用和推广 </p>
-<p>⑦ 当软件进行升级时，<strong>如果功能变化不大，则次版本号变化</strong>；<strong>如果软件功能发生重大变化时，主版本号变化</strong></p>
-<h3 id="十四-小结"><a href="#十四-小结" class="headerlink" title="十四 小结"></a>十四 小结</h3><p>以上从变量命名规范、<code>pb</code>的各种控件命名规范、代码书写、注释、错误处理、版本控制等方面说了日常工作中</p>
-<p>使用<code>pb</code>开发应遵守的一些规约。</p>
-<p>当然了，上面规范也不是必须的，你所在的团队也会有自己的一些规约。</p>
-<p>本期内容到此就结束了，希望对你有所帮助。我们下期再见 (●’◡’●)</p>
-<p>参考文献</p>
-<p>[^PowerBuilder 9.0 实用解析]: PowerBuilder 9.0 实用解析<br>[^Poweruilder9.0精彩编程百例 ]: Poweruilder9.0精彩编程百例<br><a href="PowerBuilder%E9%AB%98%E7%BA%A7%E7%BC%96%E7%A8%8B%E5%8F%8A%E5%85%B6%E9%A1%B9%E7%9B%AE%E5%BA%94%E7%94%A8%E5%BC%80%E5%8F%91">^ </a>: PowerBuilder 10.0 应用基础与实例教程</p>
+<p>② 复杂模式</p>
+<ul>
+<li><p>语法</p>
+<pre><code>MessageBox ( title, text &#123;, icon &#123;, button &#123;, default &#125; &#125; &#125; )
+</code></pre>
+</li>
+<li><p>参数</p>
+<ul>
+<li>title 为信息窗口标题          </li>
+<li>text 为提示信息 </li>
+<li>icon  用来表示使用哪种图标  </li>
+<li>button  用来表示提供哪些按钮  </li>
+</ul>
+</li>
+</ul>
+<p>图标icon取值如下</p>
+<p><img src="http://blog.xiezhrspace.cn/blog-img/image-20230718210000967.png" alt="icon图标"></p>
+<p>按钮button取值如下</p>
+<table>
+<thead>
+<tr>
+<th>参数取值</th>
+<th>显示样式</th>
+<th>返回值</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>OK!</code></td>
+<td>显示 【确定】 按钮，该取值为默认值</td>
+<td>总返回 1</td>
+</tr>
+<tr>
+<td><code>OKCancel!</code></td>
+<td>显示 【确定】 和 【取消】按钮</td>
+<td>1-【确定】， 2-【取消】</td>
+</tr>
+<tr>
+<td><code>YesNo!</code></td>
+<td>显示 【是】 和 【否】按钮</td>
+<td>1-【是】， 2-【否】</td>
+</tr>
+<tr>
+<td><code>YesNoCancel!</code></td>
+<td>显示 【是】、 【否】 和 【取消】 三个按钮</td>
+<td>1-【是】， 2-【否】， 3-【取消】</td>
+</tr>
+<tr>
+<td><code>RetryCancel!</code></td>
+<td>显示 【重试】 和 【取消】按钮</td>
+<td>1-【重试】， 2-【取消】</td>
+</tr>
+<tr>
+<td><code>AbortRetryIgnore!</code></td>
+<td>显示 【放弃】、 【重试】和 【忽略】三个按钮</td>
+<td>1-【放弃】， 2-【重试】， 3-【忽略】</td>
+</tr>
+</tbody></table>
+<ul>
+<li><p>举个栗子</p>
+<pre><code>li_flag = MessageBox(&quot;提示&quot;,&quot;是否保存数据？ &quot;,Question!,YesNoCancel!,1)
+Choose Case li_flag
+Case 1 //用户选择 Yes，保存数据
+． ． ． ． ． ． //处理语句
+Case 2 //用户选择 No，不保存
+． ． ． ． ． ． //处理语句
+Case 3 //用户选择了 Cancel，不进行任何操作
+． ． ． ． ． ． //处理语句
+End Choose
+</code></pre>
+</li>
+</ul>
+<h3 id="六、值传递与接收"><a href="#六、值传递与接收" class="headerlink" title="六、值传递与接收"></a>六、值传递与接收</h3><h4 id="6-1-字符串"><a href="#6-1-字符串" class="headerlink" title="6.1 字符串"></a>6.1 字符串</h4><p>① 打开一个窗口，并传递一个字符串  </p>
+<pre class=" language-vb"><code class="language-vb">string ls_str
+ls_str = '个人公众号：XiezhrSpace'
+openwithparm( 窗口名,ls_str)
+</code></pre>
+<p>② 接收字符串</p>
+<pre class=" language-vb"><code class="language-vb">string ls_str
+ls_str = message.stringparm
+</code></pre>
+<h4 id="6-2-数值"><a href="#6-2-数值" class="headerlink" title="6.2 数值"></a>6.2 数值</h4><p>① 打开一个窗口，并传递一个数值  </p>
+<pre class=" language-vb"><code class="language-vb">openwithparm( 窗口名,1)
+</code></pre>
+<p>② 接收数值  </p>
+<pre class=" language-vb"><code class="language-vb">long ll_row
+ll_row = message.doubleparm
+</code></pre>
+<h4 id="6-3-结构体"><a href="#6-3-结构体" class="headerlink" title="6.3 结构体"></a>6.3 结构体</h4><p>① 打开一个窗口，并传递一个结构体  </p>
+<pre><code>st_parameter s_pm
+s_pm.a = 1
+openwithparm( 窗口名,s_pm)
+</code></pre>
+<p>② 接收结构体  </p>
+<pre><code>st_parameter s_pm
+s_pm = message.powerobjectparm
+messagebox(&#39;提示&#39;,s_pm.a)
+</code></pre>
+<h4 id="6-4-用户对象"><a href="#6-4-用户对象" class="headerlink" title="6.4 用户对象"></a>6.4 用户对象</h4><p>① 打开一个窗口，并传递一个用户对象  </p>
+<pre class=" language-vb"><code class="language-vb">//（1）、创建类用户对象u_parameter，并定义实例变量
+//（2）、给用户对象赋值，并传递该用户对象
+u_parameter u_pm
+u_pm.a = '1'
+openwithparm(窗口名,u_pm)
+</code></pre>
+<p>② 接收用户对象  </p>
+<pre class=" language-vb"><code class="language-vb">u_parameter u_pm
+u_pm = message.powerobjectparm
+messagebox('提示',u_pm.a)
+</code></pre>
+<h4 id="6-5-exe应用程序"><a href="#6-5-exe应用程序" class="headerlink" title="6.5 exe应用程序"></a>6.5 exe应用程序</h4><p>① 打开一个exe，并传递参数  </p>
+<pre class=" language-vb"><code class="language-vb">ls_exe = 'a.exe' + '|值1|' + '|值2|'
+run(ls_exe)
+</code></pre>
+<p>② 接收exe传递的参数  </p>
+<pre class=" language-vb"><code class="language-vb">string ls_parameter
+ls_parameter = commandparm()
+</code></pre>
+<h4 id="6-6-传递消息和接收消息"><a href="#6-6-传递消息和接收消息" class="headerlink" title="6.6 传递消息和接收消息"></a>6.6 传递消息和接收消息</h4><p>① 传递string消息  </p>
+<pre class=" language-vb"><code class="language-vb">w_main.triggerevent('ue_open',0,'test')
+//在用户自定义事件ue_open中接收消息：
+string ls_msg
+ls_msg = string(message.longparm,'address')
+</code></pre>
+<p>② 传递long消息  </p>
+<pre class=" language-vb"><code class="language-vb">w_main.triggerevent('ue_open',100,0)
+//在用户自定义事件ue_open中接收消息：
+long ll_msg
+ll_msg = message.wordparm
+</code></pre>
+<h4 id="6-7-可视化类传值"><a href="#6-7-可视化类传值" class="headerlink" title="6.7 可视化类传值"></a>6.7 可视化类传值</h4><pre class=" language-vb"><code class="language-vb">u_customvisual u_cv
+u_cv = create u_customvisual
+openuserobjectwithparm(u_cv,1)
+</code></pre>
+<h4 id="6-8-关闭窗口传递数据"><a href="#6-8-关闭窗口传递数据" class="headerlink" title="6.8 关闭窗口传递数据"></a>6.8 关闭窗口传递数据</h4><p>① 语法</p>
+<pre><code>CloseWithReturn ( windowname, Returnvalue )
+</code></pre>
+<p>② 参数</p>
+<ul>
+<li><code>windowname</code> 是要关闭的窗口的名称  </li>
+<li><code>Returnvalue  </code> 要返回的数值  </li>
+</ul>
+<p>注：只有被关闭的窗口是 response 类型才能有效地获取返回参数  </p>
+<h3 id="七、触发事件"><a href="#七、触发事件" class="headerlink" title="七、触发事件"></a>七、触发事件</h3><h4 id="7-1-立即触发"><a href="#7-1-立即触发" class="headerlink" title="7.1 立即触发"></a>7.1 立即触发</h4><pre class=" language-vb"><code class="language-vb">obj.triggerevent(clicked!)
+obj.trigger event ue_init()
+obj.trigger function wf_init()
+</code></pre>
+<h4 id="7-2-在事件队列最后触发"><a href="#7-2-在事件队列最后触发" class="headerlink" title="7.2 在事件队列最后触发"></a>7.2 在事件队列最后触发</h4><pre class=" language-vb"><code class="language-vb">obj.postevent(clicked!)
+obj.post event ue_init()
+obj.post function wf_init()
+</code></pre>
+<h4 id="7-3-动态绑定触发"><a href="#7-3-动态绑定触发" class="headerlink" title="7.3 动态绑定触发"></a>7.3 动态绑定触发</h4><pre class=" language-vb"><code class="language-vb">obj.dynamic event ue_init()
+obj.dynamic function wf_init()
+注：
+动态调用和静态调用的区别
+静态调用就是在编译代码时就对函数进行彻底编译
+动态调用就是在程序执行的时候才回去查找和调用相应的函数
+</code></pre>
+<h4 id="7-4-规定的时间内触发某事件"><a href="#7-4-规定的时间内触发某事件" class="headerlink" title="7.4 规定的时间内触发某事件"></a>7.4 规定的时间内触发某事件</h4><pre class=" language-vb"><code class="language-vb">idle(60) //如果60秒没有操作的话就触发application对象的idle事件
+timer(60) //每隔60秒就触发一次窗口的timer事件
+</code></pre>
+<h3 id="八、窗口使用技巧"><a href="#八、窗口使用技巧" class="headerlink" title="八、窗口使用技巧"></a>八、窗口使用技巧</h3><h4 id="8-1-创建窗口实例"><a href="#8-1-创建窗口实例" class="headerlink" title="8.1 创建窗口实例"></a>8.1 创建窗口实例</h4><p>① 创建窗口实例</p>
+<pre class=" language-vb"><code class="language-vb">w_edit lws_edit
+Open(lws_edit)
+</code></pre>
+<p>② 打开多个窗口实例</p>
+<pre class=" language-vb"><code class="language-vb">w_edit lws_edit[3]
+Int li_index
+For li_index =1 To 3
+    Open(lws_edit[li_index])
+Next
+</code></pre>
+<h4 id="8-2-使用窗口属性编程"><a href="#8-2-使用窗口属性编程" class="headerlink" title="8.2 使用窗口属性编程"></a>8.2 使用窗口属性编程</h4><p>根据 tag 的取值对各个控件进行初始化  </p>
+<pre class=" language-vb"><code class="language-vb">Int li_index,li_total
+DataWindow ldw_temp
+DropDownListbox lddlb_temp
+RadioButton lrb_temp
+li_total = Upperbound(Parent.Control[])
+For li_index = 1 To li_total
+    Choose Case Lower(Parent.Control[li_index].Tag)
+    Case "DataWindow"
+        ldw_temp = Parent.Control[li_index]
+        ldw_temp.Reset()
+    Case "DropDownListbox"
+        lddlb_temp = Parent.Control[li_index]
+        lddlb_temp.SelectItem(0)
+    Case "radiobutton"
+        lrb_temp = Parent.Control[li_index]
+        lrb_temp.Checked = False
+    Case Else
+    …
+    End Choose
+Next
+</code></pre>
+<h4 id="8-3-窗口最小化时设置动态图标"><a href="#8-3-窗口最小化时设置动态图标" class="headerlink" title="8.3  窗口最小化时设置动态图标"></a>8.3  窗口最小化时设置动态图标</h4><p>当程序最小化时打开 timer（在 deactive 中加入 timer(1)语句），并在 timer 事件中编写  </p>
+<p>程序激活时关闭 Timer 事件（在 Active 事件中加入 timer(0)语句）  </p>
+<pre class=" language-vb"><code class="language-vb">If This.Icon = "appico.ico" Then
+    This.Icon = "reverse.ico"
+Else
+    This.Icon = "appico.ico"
+End If
+</code></pre>
+<h4 id="8-4-放置闪烁文字"><a href="#8-4-放置闪烁文字" class="headerlink" title="8.4 放置闪烁文字"></a>8.4 放置闪烁文字</h4><p>以闪烁文字显示重要信息可以吸引用户的注意力，避免这些重要信息被忽略。通过周期性修改 visible 属性，可以实现闪烁效果</p>
+<p>在窗口中，假设放置一个静态文本 st_1，在窗口的 Open 事件中定义 Timer 事件的间隔：Timer(1)  </p>
+<p><strong>Timer 事件  中代码如下</strong></p>
+<pre><code>If Mod(Second(Now()),2) = 1 Then
+    st_1.visible = False
+Else
+    st_1.Visible = True
+End If
+</code></pre>
+<p><img src="http://blog.xiezhrspace.cn/blog-img/%E9%97%AA%E7%83%81.gif" alt="闪烁"></p>
+<h4 id="8-5-提高窗口的打开速度"><a href="#8-5-提高窗口的打开速度" class="headerlink" title="8.5 提高窗口的打开速度"></a>8.5 提高窗口的打开速度</h4><p>窗口的 Open 事件中经常编写脚本来进行初始处理工作，如果这些工作花费的时间比较长，在窗口显示之前用户就得等待很长的时间  </p>
+<p>这时，可以如下脚本优化</p>
+<p><strong>第一种方案:</strong></p>
+<p>① <code>open</code>事件中添加代码</p>
+<pre class=" language-vb"><code class="language-vb">PostEvent("ue_openpost")
+</code></pre>
+<p>② <code>ue_openpost</code> 事件中添加代码</p>
+<pre class=" language-vb"><code class="language-vb">SetPoInter(HourGlass!)
+dw_1.SetTransObject(SQLCA)
+dw_1.Retrieve()
+SetPoInter(Arrow!)
+</code></pre>
+<p><strong>第二种方案：</strong></p>
+<p><code>open</code>事件中添加如下代码</p>
+<pre class=" language-vb"><code class="language-vb">dw_1.SetRedraw(False)
+TriggerEvent("ue_openpost")
+Dw_1.SetRedraw(True)
+</code></pre>
+<h4 id="8-6-移动不带标题栏的窗口"><a href="#8-6-移动不带标题栏的窗口" class="headerlink" title="8.6 移动不带标题栏的窗口"></a>8.6 移动不带标题栏的窗口</h4><p>在开发应用程序中，可能要用到不带标题栏的窗口，而带有标题栏的窗口可以通过拖放<br>标题栏来移动窗口，如何移动没有标题栏窗口呢？  </p>
+<p>在要拖放窗口的 <code>MouseDown</code> 事件中编写代码，代码如下</p>
+<pre class=" language-vb"><code class="language-vb">Send(handle(this),274,61458,0)
+</code></pre>
+<h4 id="8-7-给窗口添加自动滚动条功能"><a href="#8-7-给窗口添加自动滚动条功能" class="headerlink" title="8.7 给窗口添加自动滚动条功能"></a>8.7 给窗口添加自动滚动条功能</h4><p>窗口的 Resize 事件中编写脚本，根据当前窗口的大小来设置是否显示滚动条  </p>
+<p>① 声明函数</p>
+<pre><code>Subroutine GetScrollRange(Uint hWindow,Int nScrollBarFlag,ref Int nMin,ref Int nMax) Library &quot;user.exe&quot;
+Function Int GetScrollPos(Uint hWindow,Int nScrollBarFlag) Library &quot;user.exe&quot;
+</code></pre>
+<p>② 定义实例变量</p>
+<pre class=" language-vb"><code class="language-vb">Int ii_width,ii_height
+</code></pre>
+<p>③ <code>open</code>事件中添加代码</p>
+<pre><code>ii_width = This.Width
+ii_height = This.Height
+</code></pre>
+<p>④ <code>Resize</code> 事件中实现</p>
+<pre class=" language-vb"><code class="language-vb">Uint hwindow
+Int nScrollPos,nMinPos,nMaxPos
+If This.WindowState = Minimized! Then //如果正在进行最小化，则直接返回
+    Return
+End If
+HWindow = Handle(This) //获取当前窗口的句柄
+//下面开始处理水平滚动条
+If This.Width < i_Width Then //如果小于打开时的宽度
+    This.HscrollBar = True //则显示水平滚动条
+Elseif This.HscrollBar Then //如果大于或等于打开时的宽度，并且已经有滚动条
+    NScrollPos = GetScrollPos(hwindow,0) //使用 API 函数获取当前滚动条位置
+    GetScrollRange(hwindow,0,nMinPos,nMaxPos) //使用 API 函数获取滚动范围
+    If nScrollPos > nMinPos Then //如果用户滚动了滚动条并且此时不需要显示滚动条
+        Post(hwindow,276,6,0) //则在水平方向调整窗口中的内容到原来的位置
+    End If
+    This.HscrollBar = False //取消滚动条特性
+End If
+//下面开始处理垂直滚动条
+If This.Height < i_Height Then //如果小于打开时的高度
+    This.VscrollBar = True //则显示垂直滚动条
+Elseif This.VscrollBar Then //如果大于或等于打开时的高度，并且已经有滚动条
+    NScrollPos = GetScrollPos(hWindow,1) //使用 API 函数获取当前滚动条位置
+    GetScrollRange(hwindow,1,nMinpos,nMaxPos) //使用 API 函数获取滚动范围
+    If nScrollPos > nMinPos Then //如果用户滚动了垂直滚动条且不需再显示
+        Post(hwindow,277,6,0) //则垂直调整窗口中的内容到原来的位置
+    End If
+    This.VscrollBar = False //取消滚动条特性
+End If
+</code></pre>
+<h4 id="8-8-自动调整窗口"><a href="#8-8-自动调整窗口" class="headerlink" title="8.8 自动调整窗口"></a>8.8 自动调整窗口</h4><p>实现窗口居中</p>
+<pre class=" language-vb"><code class="language-vb">//***************************************************************
+//* 功能： 将窗口移到屏幕的中央
+//* 参数 1: aw_window 要处理的窗口
+//* 返回值： (none)
+//* 调用举例: gf_window_center(w_pay_mode) //将窗口置于屏幕的中央
+//***************************************************************
+Environment le_env
+Int li_ScreenHeight, li_ScreenWidth
+Long ll_posx,ll_posy
+GetEnvironment(le_env)
+li_ScreenHeight = PixelsToUnits(le_env.ScreenHeight,YPixelsToUnits!)
+li_screenwidth = PixelsToUnits(le_env.ScreenWidth,XPixelsToUnits!)
+If aw_window.width > li_ScreenWidth Then //如果窗口超宽
+    ll_posx = 1
+Else
+    ll_posx = (li_ScreenWidth - aw_window.Width) / 2
+End If
+If aw_window.height > li_ScreenHeight Then //如果窗口超高
+    ll_posy = 1
+Else
+    ll_posy = (li_ScreenHeight - aw_window.Height) / 2
+End If
+
+aw_window.Move(ll_posx ,ll_posy)
+</code></pre>
+<p>以上就是本期内容的全部，希望对你有所帮助。我们下期再见 (●’◡’●)</p>
 
             </div>
             <hr/>
@@ -1759,7 +1715,7 @@ Next
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://www.xiezhrspace.cn/archives/89f0cb39.html">https://www.xiezhrspace.cn/archives/89f0cb39.html</a>
+                    <a href="https://www.xiezhrspace.cn/archives/740d92c0.html">https://www.xiezhrspace.cn/archives/740d92c0.html</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -1971,7 +1927,7 @@ Next
         
         box-sizing: border-box;
         /* background: url("https://fastly.jsdelivr.net/gh/xiezhr/xiezhrblog-cdn-source/source/medias/comment_bg.webp") 100% 100% no-repeat; */
-        background-image: url("https://fastly.jsdelivr.net/gh/xiezhr/xiezhrblog-cdn-source/source/medias/comment_bg.webp");
+        background-image: url("https://fastly.jsdelivr.net/gh/xiezhr/xiezhrblog-cdn-source/source/medias/hongmiaosi.gif");
         background-size: contain;
         background-repeat: no-repeat;
         background-position:right;
@@ -2263,28 +2219,29 @@ Next
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/archives/1cae4cbe.html">
+                <a href="/archives/740d92c0.html">
                     <div class="card-image">
                         
-                        <img src="http://blog.xiezhrspace.cn/blog-img/PB从入坑到放弃（三）.png" class="responsive-img" alt="PB从入坑到放弃（三）数据窗口">
+                        <img src="http://blog.xiezhrspace.cn/blog-img/PB从入坑到放弃（五）.png" class="responsive-img" alt="PB从入坑到放弃（五）窗口使用技巧">
                         
-                        <span class="card-title">PB从入坑到放弃（三）数据窗口</span>
+                        <span class="card-title">PB从入坑到放弃（五）窗口使用技巧</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            PB从入坑到放弃（三）数据窗口
+                            PB从入坑到放弃（五）窗口使用技巧
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2023-07-10
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-07-19
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -2297,6 +2254,7 @@ Next
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
@@ -2315,23 +2273,23 @@ Next
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/archives/431e695.html">
+                <a href="/archives/5c9fd3c9.html">
                     <div class="card-image">
                         
-                        <img src="http://blog.xiezhrspace.cn/blog-img/f70af6bcd407470abd752511b0d8cd6e.png" class="responsive-img" alt="PB从入坑到放弃（一）第一个HelloWorld程序">
+                        <img src="http://blog.xiezhrspace.cn/blog-img/PB从入坑到放弃 (四).png" class="responsive-img" alt="PB从入坑到放弃（四）常用函数">
                         
-                        <span class="card-title">PB从入坑到放弃（一）第一个HelloWorld程序</span>
+                        <span class="card-title">PB从入坑到放弃（四）常用函数</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            PB从入坑到放弃（一）第一个HelloWorld程序
+                            PB从入坑到放弃（四）常用函数
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2023-06-30
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-07-15
                             </span>
                         <span class="publish-author">
                             
