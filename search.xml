@@ -21187,7 +21187,7 @@ lo              65536   144476      0      0 0        144476      0      0      
 </code></pre>
 <p>3、实际操作</p>
 <p>①测试端口是否开放</p>
-<pre class=" language-shell"><code class="language-shell">[root@xiezhr ~]# telnet 112.112.17.172 31189
+<pre class=" language-shell"><code class="language-shell">[root@xiezhr ~]# telnet 192.168.1.200 31189
 </code></pre>
 <h3 id="ssh-安全的远程登录主机"><a href="#ssh-安全的远程登录主机" class="headerlink" title="ssh 安全的远程登录主机"></a>ssh 安全的远程登录主机</h3><p>1、简介</p>
 <blockquote>
@@ -21219,7 +21219,7 @@ lo              65536   144476      0      0 0        144476      0      0      
 </tbody></table>
 <p>4、实践操作</p>
 <p>① 远程登录服务器</p>
-<pre class=" language-shell"><code class="language-shell">[root@xiezhr ~]# ssh 220.165.5.45
+<pre class=" language-shell"><code class="language-shell">[root@xiezhr ~]# ssh 192.168.1.100
 </code></pre>
 <p>②远程执行命令</p>
 <pre class=" language-shell"><code class="language-shell">[root@xiezhr ~]# ssh 10.0.0.26 "free -m"
@@ -21535,7 +21535,7 @@ listening on eth0, link-type EN10MB (Ethernet), capture size 262144 bytes
 ^C21:52:41.487054 IP xiezhr.ssh > 39.130.60.147.54868: Flags [P.], seq 2354686734:2354686930, ack 602325169, win 255, length 196
 </code></pre>
 <p>④ 监听指定主机数据包</p>
-<pre class=" language-shell"><code class="language-shell">[root@xiezhr ~]# tcpdump -n host 220.165.5.50 
+<pre class=" language-shell"><code class="language-shell">[root@xiezhr ~]# tcpdump -n host 192.168.1.100 
 tcpdump: verbose output suppressed, use -v or -vv for full protocol decode
 listening on eth0, link-type EN10MB (Ethernet), capture size 262144 bytes
 </code></pre>
@@ -27967,8 +27967,8 @@ pull：更新到本地
         <category>年终总结</category>
       </categories>
       <tags>
-        <tag>2021</tag>
         <tag>年终总结</tag>
+        <tag>2021</tag>
       </tags>
   </entry>
   <entry>

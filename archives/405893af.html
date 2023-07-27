@@ -900,7 +900,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2023-03-21
+                    2023-07-27
                 </div>
                 
 
@@ -1327,7 +1327,7 @@ lo              65536   144476      0      0 0        144476      0      0      
 </code></pre>
 <p>3、实际操作</p>
 <p>①测试端口是否开放</p>
-<pre class=" language-shell"><code class="language-shell">[root@xiezhr ~]# telnet 112.112.17.172 31189
+<pre class=" language-shell"><code class="language-shell">[root@xiezhr ~]# telnet 192.168.1.200 31189
 </code></pre>
 <h3 id="ssh-安全的远程登录主机"><a href="#ssh-安全的远程登录主机" class="headerlink" title="ssh 安全的远程登录主机"></a>ssh 安全的远程登录主机</h3><p>1、简介</p>
 <blockquote>
@@ -1359,7 +1359,7 @@ lo              65536   144476      0      0 0        144476      0      0      
 </tbody></table>
 <p>4、实践操作</p>
 <p>① 远程登录服务器</p>
-<pre class=" language-shell"><code class="language-shell">[root@xiezhr ~]# ssh 220.165.5.45
+<pre class=" language-shell"><code class="language-shell">[root@xiezhr ~]# ssh 192.168.1.100
 </code></pre>
 <p>②远程执行命令</p>
 <pre class=" language-shell"><code class="language-shell">[root@xiezhr ~]# ssh 10.0.0.26 "free -m"
@@ -1675,7 +1675,7 @@ listening on eth0, link-type EN10MB (Ethernet), capture size 262144 bytes
 ^C21:52:41.487054 IP xiezhr.ssh > 39.130.60.147.54868: Flags [P.], seq 2354686734:2354686930, ack 602325169, win 255, length 196
 </code></pre>
 <p>④ 监听指定主机数据包</p>
-<pre class=" language-shell"><code class="language-shell">[root@xiezhr ~]# tcpdump -n host 220.165.5.50 
+<pre class=" language-shell"><code class="language-shell">[root@xiezhr ~]# tcpdump -n host 192.168.1.100 
 tcpdump: verbose output suppressed, use -v or -vv for full protocol decode
 listening on eth0, link-type EN10MB (Ethernet), capture size 262144 bytes
 </code></pre>
@@ -2372,7 +2372,7 @@ Received 52 bytes from 183.60.82.98#53 in 65 ms
         
         box-sizing: border-box;
         /* background: url("https://fastly.jsdelivr.net/gh/xiezhr/xiezhrblog-cdn-source/source/medias/comment_bg.webp") 100% 100% no-repeat; */
-        background-image: url("https://fastly.jsdelivr.net/gh/xiezhr/xiezhrblog-cdn-source/source/medias/comment_bg.webp");
+        background-image: url("https://fastly.jsdelivr.net/gh/xiezhr/xiezhrblog-cdn-source/source/medias/hongmiaosi.gif");
         background-size: contain;
         background-repeat: no-repeat;
         background-position:right;
