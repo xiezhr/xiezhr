@@ -1,6 +1,633 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>PB从入坑到放弃（七）PBer们的福音来了</title>
+    <url>/archives/dde17ceb.html</url>
+    <content><![CDATA[<p><img src="http://blog.xiezhrspace.cn/blog-img/PB%E4%BB%8E%E5%85%A5%E5%9D%91%E5%88%B0%E6%94%BE%E5%BC%83%EF%BC%88%E4%B8%83%EF%BC%89001.png" alt="PB从入坑到放弃（七）001"></p>
+<h3 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h3><p>也许现在的你需要用PB完成毕业设计、需要维护远古时代的代码，又或者是你呆的公司就是要求要用PB开发项目。</p>
+<p>不管你是出于什么原因还在使用PB，不可否认PB在数据窗口非常优秀，熟练使用之后开发数据库相关的应用非常高效</p>
+<p>但由于PB这一框架出现得比较早，而且主要用于传统基于数据库得CS开发。</p>
+<p>在网络、系统、数据传输等方面有很多欠缺，需要实现某些功能特别费劲，需要引入各种动态库才能实现</p>
+<h3 id="一、PB项目开发痛点"><a href="#一、PB项目开发痛点" class="headerlink" title="一、PB项目开发痛点"></a>一、PB项目开发痛点</h3><ul>
+<li>调用基于<code>http</code>协议开发的<code>webapi</code>接口实现方式单一</li>
+<li>数据传输格式<code>json</code>数据的封装与解析不方便</li>
+<li>各种加密解密或者签名算法实现比较困难</li>
+<li><code>utf8</code>、<code>utf16</code>、<code>ansi</code>等字符集编码相互转换困难</li>
+<li>没法处理大文件（几百兆的txt文件下载，导入）</li>
+</ul>
+<h3 id="二、Pbidea来了"><a href="#二、Pbidea来了" class="headerlink" title="二、Pbidea来了"></a>二、Pbidea来了</h3><p>既然PB中存在这些问题，但又不得不使用PB时。</p>
+<p>你是不是会想PB中有没有类似与Java中<code>Hutool</code>、<code>fastjson</code>、<code>Log4j</code>等等这样的类库呢？</p>
+<p>当然是有的，它就是今天要推荐给你的<code>Pbidea.dll</code>。</p>
+<p><code>Pbidea</code>是大自在大佬开发的，平常大家都喊在叔。并且该项目一直在维护中，就在昨天20230804还发布了一个新版本。</p>
+<p>它不仅可以解决上面的痛点，还封装了很多扩展功能，方便PBer们使用。</p>
+<p>利用它，你甚至可以使用在PB中使用<code>redis</code>、<code>RibbitMQ</code>、<code>kafka</code> 等这样的高并发组件。</p>
+<p>还有你平常觉得在PB中很难实现的<code>pdf</code>、图片展现处理等等都能轻松实现。</p>
+<p>这些怎么时候，在后面会一一说明</p>
+<h3 id="三、Pbidea-介绍"><a href="#三、Pbidea-介绍" class="headerlink" title="三、Pbidea 介绍"></a>三、Pbidea 介绍</h3><h4 id="3-1-下载"><a href="#3-1-下载" class="headerlink" title="3.1 下载"></a>3.1 下载</h4><p>① 通过GitHub下载</p>
+<p><a href="https://github.com/lxb320124/pbidea">https://github.com/lxb320124/pbidea</a></p>
+<p><img src="http://blog.xiezhrspace.cn/blog-img/image-20230805135245156.png" alt="github下载"></p>
+<p>② 通过QQ群下载</p>
+<blockquote>
+<p>GitHub上面好像没有同步更新，如果你需要最新的需要通过QQ群文件下载。</p>
+<p>由于这里不方便发群，小伙伴们找不到可以私信哦。最新版是昨天（2023年08月04日更新的）</p>
+</blockquote>
+<p><img src="http://blog.xiezhrspace.cn/blog-img/image-20230805140017382.png" alt="一直在更新中"></p>
+<h4 id="3-2-文件目录简介"><a href="#3-2-文件目录简介" class="headerlink" title="3.2 文件目录简介"></a>3.2 文件目录简介</h4><p>从上面渠道下载完项目后解压，目录如下。</p>
+<p>你需要关注的主要是两个目录。9–&gt;里面是基于PB9的<code>demo</code>。10–&gt;是基于PB9以上版本的demo</p>
+<p><img src="http://blog.xiezhrspace.cn/blog-img/image-20230805140854501.png" alt="image-20230805140854501"></p>
+<h4 id="3-4-运行起来"><a href="#3-4-运行起来" class="headerlink" title="3.4 运行起来"></a>3.4 运行起来</h4><p>既然demo都下载下来了，那么当然是要跑起来看看了。个人电脑上安装的是PB12.5 ，所以就打开了10目录下的demo</p>
+<p>① 打开工作空间</p>
+<p><img src="http://blog.xiezhrspace.cn/blog-img/image-20230805141425898.png" alt="打开工作空间"></p>
+<p>② 选择文件夹10下面的pbjson.pbw</p>
+<p><img src="http://blog.xiezhrspace.cn/blog-img/image-20230805141525717.png" alt="选择pbjson.pbw"></p>
+<p>③ 直接运行</p>
+<p><img src="http://blog.xiezhrspace.cn/blog-img/image-20230805141636685.png" alt="image-20230805141636685"></p>
+<p><img src="http://blog.xiezhrspace.cn/blog-img/image-20230805141838071.png" alt="demo界面"></p>
+<h3 id="四、Pbidea-使用"><a href="#四、Pbidea-使用" class="headerlink" title="四、Pbidea 使用"></a>四、Pbidea 使用</h3><p>从上面运行起来的demo中，我们可以看到，<code>Pbidea</code>包含了如下功能</p>
+<ul>
+<li><code>json/bson/xml</code>等各种交换格式</li>
+<li><code>httpclient</code></li>
+<li>加/解密和编码</li>
+<li>FTP/sFTP/FTP服务器</li>
+<li>扩展数据类型（map,string等）</li>
+<li>压缩/解压缩</li>
+<li>数据库扩展</li>
+<li><code>PDF</code>浏览与<code>dw2pdf</code></li>
+<li>图形图片条码、多媒体</li>
+<li>数据窗口增强</li>
+<li>websocket和tcp/ip客户端</li>
+<li>高并发组件</li>
+<li>物联网开发和只能设备</li>
+<li>计算机/打印及系统</li>
+<li>控件与界面美观</li>
+<li>其他<code>PowerBuilder</code>扩展功能</li>
+<li>行业应用案例</li>
+</ul>
+<p>接下来的小节中，将带大家怎么找对应功能的代码。并对部分功能简单一一说明</p>
+<h4 id="4-1-项目代码说明"><a href="#4-1-项目代码说明" class="headerlink" title="4.1 项目代码说明"></a>4.1 项目代码说明</h4><p><img src="http://blog.xiezhrspace.cn/blog-img/image-20230805145843203.png" alt="项目代码说明"></p>
+<p>① <code>websuit.pbl--&gt;uo_json</code> 中申明动态库</p>
+<p><img src="http://blog.xiezhrspace.cn/blog-img/image-20230805150428021.png" alt="申明动态库"></p>
+<p>②<code>pbjons--&gt;uo_tabpage_json</code> 调用上面申明好的动态库中方法（具体代码实现）</p>
+<p><img src="http://blog.xiezhrspace.cn/blog-img/image-20230805150710338.png" alt="具体代码案例"></p>
+<h4 id="4-2-json-bson-xm等各种交换格式-模块"><a href="#4-2-json-bson-xm等各种交换格式-模块" class="headerlink" title="4.2 json/bson/xm等各种交换格式 模块"></a>4.2 <code>json/bson/xm</code>等各种交换格式 模块</h4><p>①提供功能</p>
+<ul>
+<li>快速解析和生成<code>json</code>,基于<code>datawinow</code> 导入导出</li>
+<li><code>bson</code>数据的解析和生成</li>
+<li><code>xml</code>文件、字符串解析和生成</li>
+</ul>
+<p>②涉及uo对象及可视化uo</p>
+<ul>
+<li><code>uo_json</code>、<code>uo_xml</code>、<code>uo_bjson</code></li>
+<li><code>uo_tabpage_json</code> 、<code>uo_tabpage_xml</code>、<code>uo_tabpage_bson</code></li>
+</ul>
+<p>③界面位置</p>
+<p><img src="http://blog.xiezhrspace.cn/blog-img/image-20230805172444863.png" alt="image-20230805172444863"></p>
+<h4 id="4-3-httpclient-模块"><a href="#4-3-httpclient-模块" class="headerlink" title="4.3  httpclient 模块"></a>4.3  <code>httpclient</code> 模块</h4><p>① 提供功能</p>
+<ul>
+<li>提供基于<code>Winhttp</code>的<code>http/https</code>协议的数据访问，封装由下载和上传功能，可以直接传输<code>json</code>对象，自带<code>utf8</code>转码</li>
+<li>提供基于<code>libcurl</code>的<code>http/https</code>协议的数据访问，封装由下载和上传功能，可以直接传输<code>json</code>对象，自带<code>utf8</code>转码</li>
+</ul>
+<p>②涉及uo对象及可视化uo</p>
+<ul>
+<li><code>uo_httpclient</code>、<code>uo_curl</code></li>
+<li><code>uo_tabpage_httpclient</code> 、<code>uo_tabpage_curl</code></li>
+</ul>
+<p>③界面位置</p>
+<p><img src="http://blog.xiezhrspace.cn/blog-img/image-20230805173153992.png" alt="image-20230805173153992"></p>
+<h4 id="4-4-加-解密和编码"><a href="#4-4-加-解密和编码" class="headerlink" title="4.4 加/解密和编码"></a>4.4 加/解密和编码</h4><blockquote>
+<p>基于openssl实现常用功能</p>
+</blockquote>
+<p>① 提供功能</p>
+<ul>
+<li><p><code>RSA</code>公钥私钥生成，加密、解密、签名和验签</p>
+</li>
+<li><p><code>CRC32</code>、<code>CRＣ16</code>、<code>CRC18</code>校验</p>
+</li>
+<li><p>MD5、SHA、SM3、base64、urlencode/urldecode、timestamp等编码解密</p>
+</li>
+<li><p>AES、DES、3DES、SM4 等加密解密功能</p>
+</li>
+</ul>
+<p>② 涉及uo对象及可视化uo</p>
+<ul>
+<li><code>uo_crypto</code></li>
+<li><code>uo_tabpage_crypto_rsa</code>、<code>uo_tabpage_crypto_crc</code>、<code>uo_tabpage_crypto_a</code>、<code>uo_tabpage_crypto_sm2</code>、<code>uo_tabpage_crypto_asn1</code></li>
+</ul>
+<p>③ 截图</p>
+<p><img src="http://blog.xiezhrspace.cn/blog-img/image-20230805173844498.png" alt="加/解密和编码"></p>
+<h4 id="4-5-FTP-sFTP-FTP服务器"><a href="#4-5-FTP-sFTP-FTP服务器" class="headerlink" title="4.5 FTP/sFTP/FTP服务器"></a>4.5 FTP/sFTP/FTP服务器</h4><p>① 提供功能</p>
+<ul>
+<li>提供一个ftp服务器，可以共享本机文件给客户端</li>
+<li>基于libftp,完全从底层协议实现的ftp客户端</li>
+<li>基于ssh协议的FTP 客户端，除上传下载以外，还可以在服务端执行操作系统命令，相当于合并了ssh功能</li>
+</ul>
+<p>②涉及uo对象及可视化uo</p>
+<ul>
+<li><code>uo_ftp_server</code>、<code>uo_ftp</code></li>
+<li><code>uo_tabpage_ftp_server</code>、<code>uo_tabpage_ftp</code>、<code>uo_tabpage_ftp_browser</code>、<code>uo_tabpage_sftp</code></li>
+</ul>
+<p>③ 截图</p>
+<p><img src="http://blog.xiezhrspace.cn/blog-img/image-20230805174436295.png" alt="ftp相关"></p>
+<h4 id="4-6-扩展数据类型（map、string等）"><a href="#4-6-扩展数据类型（map、string等）" class="headerlink" title="4.6  扩展数据类型（map、string等）"></a>4.6  扩展数据类型（map、string等）</h4><p>①提供功能</p>
+<ul>
+<li>扩展实现了map容器</li>
+<li>扩展了二进制数据处理功能</li>
+<li>扩展了字符串处理功能 <ul>
+<li>正则表达式搜索、匹配、替换</li>
+<li>大文本按行处理</li>
+<li>字符集转换</li>
+<li>直接读写文本文件</li>
+<li>字符串分割</li>
+<li>控制台输出调试功能</li>
+</ul>
+</li>
+<li>位操作与进制转换</li>
+<li>大整数<code>biginteger</code>处理功能</li>
+<li>日期事件处理与计算</li>
+</ul>
+<p>②涉及uo对象及可视化uo</p>
+<ul>
+<li><code>uo_map</code>、<code>uo_blob</code>、<code>uo_string</code>、<code>uo_bits</code>、<code>uo_biginteger</code>、<code>uo_datatime</code></li>
+<li><code>uo_tabpage_map_asn1</code>、<code>uo_tabpage_blob</code>、<code>uo_tabpage_string</code>、<code>uo_tabpage_bits</code>、<code>uo_tabpage_biginteger</code>、<code>uo_tabpage_datatime</code></li>
+</ul>
+<p>③ 截图</p>
+<p><img src="http://blog.xiezhrspace.cn/blog-img/image-20230805175103361.png" alt="扩展数据类型"></p>
+<h4 id="4-7-压缩-解压缩"><a href="#4-7-压缩-解压缩" class="headerlink" title="4.7  压缩/解压缩"></a>4.7  压缩/解压缩</h4><p>①提供功能</p>
+<ul>
+<li>提供zip格式的压缩和解压缩功能（还可以将BLOB数据添加进压缩包，或者将压缩包内容读取到BLOB变量）</li>
+<li>提供数据流压缩和解压缩功能。支持压缩、解压缩.gz格式文件</li>
+</ul>
+<p>②涉及uo对象及可视化uo</p>
+<ul>
+<li><code>uo_zip</code>、<code>uo_compress</code></li>
+<li><code>uo_tabpage_zip</code>、<code>uo_tabpage_compress</code></li>
+</ul>
+<p>③ 截图</p>
+<p><img src="http://blog.xiezhrspace.cn/blog-img/image-20230805175318761.png" alt="压缩与解压缩"></p>
+<h4 id="4-8-数据库扩展"><a href="#4-8-数据库扩展" class="headerlink" title="4.8 数据库扩展"></a>4.8 数据库扩展</h4><p>① 提供功能</p>
+<ul>
+<li>提供众多数据库连接支持，快速高效范围数据库和结果集</li>
+<li>自身数据库改进，支持断线检测功能</li>
+<li>dbf文件的导入与导出</li>
+<li>解析Oracle的TNS文件为json格式</li>
+<li>提供非关系型数据库的支持</li>
+</ul>
+<p>②涉及uo对象及可视化uo</p>
+<ul>
+<li><code>uo_database</code>、 <code>uo_transation</code>、<code>uo_dbf</code>、<code>uo_json</code>、`uo_kv``</li>
+<li><code>uo_tabpage_sql</code>、<code>uo_tabpage_transation</code>、<code>uo_tabpage_dbf</code>、<code>uo_tabpage_kv</code></li>
+</ul>
+<p>③ 截图</p>
+<p><img src="http://blog.xiezhrspace.cn/blog-img/image-20230805180054427.png" alt="数据库扩展"></p>
+<h4 id="4-9-PDF浏览与dw2dbf"><a href="#4-9-PDF浏览与dw2dbf" class="headerlink" title="4.9 PDF浏览与dw2dbf"></a>4.9 PDF浏览与dw2dbf</h4><p>① 提供功能</p>
+<ul>
+<li>加载pdf文件，可打印和另存</li>
+<li>将pdf文件转换成图片</li>
+<li>将pdf转换为纯文本内容，可取到每个单词</li>
+<li>在指定位置添加图片</li>
+<li>添加手写签名</li>
+<li>dw生成pdf文件和图片</li>
+</ul>
+<p>②涉及uo对象及可视化uo</p>
+<ul>
+<li><code>uo_pdfmaker</code>、<code>uo_pdfview</code></li>
+<li><code>uo_tabpage_pdf_maker</code>、<code>uo_tabpage_pdf_view</code>、<code>uo_tabpage_pdf_fpsb</code>、<code>uo_tabpage_pdf_merge</code></li>
+</ul>
+<p>③ 截图</p>
+<p><img src="http://blog.xiezhrspace.cn/blog-img/image-20230805180747080.png" alt="pdf相关"></p>
+<h4 id="4-10-图形图形条形码、多媒体"><a href="#4-10-图形图形条形码、多媒体" class="headerlink" title="4.10 图形图形条形码、多媒体"></a>4.10 图形图形条形码、多媒体</h4><p>① 提供功能</p>
+<ul>
+<li>支持bmp、jpg、png、emf、wmf、gif、tif等格式图片加载、显示转换</li>
+<li>支持条码、二维码生成</li>
+<li>支持条码、二维码识别</li>
+<li>图片浏览控件</li>
+<li>图形处理工具，类似于windows自带的绘图工具</li>
+<li>音频文件合并阅读</li>
+</ul>
+<p>② 涉及uo对象及可视化uo</p>
+<ul>
+<li><p><code>uo_image</code>、<code>uo_imageview</code>、<code>uo_painter</code>、<code>uo_wavfile</code>、<code>uo_speak</code>、<code>uo_speak_recognize</code></p>
+</li>
+<li><p><code>uo_tabpage_image</code>、<code>uo_tabpage_code</code>、<code>uo_tabpage_symbol</code>、<code>uo_tabpage_image_view</code>、<code>uo_tabpage_painter_chart_arc</code>、<code>uo_tabpage_painter_chart_area</code>、<code>uo_tabpage_painter_chart_bar</code>、<code>uo_tabpage_painter_chart_bar3d</code>、</p>
+<p><code>uo_tabpage_painter_chart_barline</code>、<code>uo_tabpage_painter_chart_guage</code>、<code>uo_tabpage_painter_chart_hbar</code>、</p>
+<p><code>uo_tabpage_painter_chart_line</code>、<code>uo_tabpage_painter_chart_npie</code>、<code>uo_tabpage_painter_chart_percent</code>、</p>
+<p><code>uo_tabpage_painter_chart_pie</code>、<code>uo_tabpage_painter_chart_radar</code>、<code>uo_tabpage_painter_chart_scatter</code>、</p>
+<p><code>uo_tabpage_painter_clip、uo_tabpage_painter_image</code>、<code>uo_tabpage_painter_re</code>、<code>uo_tabpage_wav</code>、</p>
+</li>
+</ul>
+<p>​      <code> uo_tabpage_speak</code>、<code>uo_tabpage_recognize</code></p>
+<p>③ 截图</p>
+<p><img src="http://blog.xiezhrspace.cn/blog-img/image-20230805211508026.png" alt="图形图形条形码、多媒体"></p>
+<h4 id="4-11-数据窗口增强"><a href="#4-11-数据窗口增强" class="headerlink" title="4.11 数据窗口增强"></a>4.11 数据窗口增强</h4><p>① 提供功能</p>
+<ul>
+<li>datawindow与excel导入与导出</li>
+<li>拖拽功能，可用于排班、排房间等业务</li>
+<li>超大文本文件导入（几百兆txt文件导入）</li>
+<li>鼠标拖拽选取获取datawindow数据</li>
+<li>数据窗口解析为json数据</li>
+<li>实时生成图片</li>
+</ul>
+<p>②涉及uo对象及可视化uo</p>
+<ul>
+<li><code>uo_datawindowex</code>、<code>uo_drag_datawindow</code>、<code>vuo_selected_datawindow</code>、<code>uo_json</code></li>
+<li><code>uo_tabpage_excel</code>、<code>uo_tabpage_drag_datawindow</code>、<code>uo_tabpage_datawindow</code>、<code>uo_tabpage_datawindow_seletect</code>、</li>
+</ul>
+<p>​        <code>uo_tabpage_datawindow_syntax</code>、<code>uo_tabpage_datawindow_dimage</code></p>
+<p>③ 截图</p>
+<p><img src="http://blog.xiezhrspace.cn/blog-img/image-20230805211535311.png" alt="数据窗口增强"></p>
+<h4 id="4-12-websocket和tcp-ip客户端"><a href="#4-12-websocket和tcp-ip客户端" class="headerlink" title="4.12 websocket和tcp/ip客户端"></a>4.12 websocket和tcp/ip客户端</h4><p>① 提供功能</p>
+<ul>
+<li>websocket客户端</li>
+<li>socket客户端</li>
+<li>ping、支持带端口的ping</li>
+<li>基于smtp协议发送邮件</li>
+<li>基于pop协议接收邮件，并将接收到的邮件解析为json结构方便使用</li>
+</ul>
+<p>② 涉及uo对象及可视化uo</p>
+<ul>
+<li><code>uo_websocket_client</code>、<code>uo_socket_client</code>、<code>uo_mail</code></li>
+<li><code>uo_tabpage_ws_client</code>、<code>uo_tabpage_socket_client</code>、<code>uo_tabpage_ping</code>、<code>uo_tabpage_mail</code></li>
+</ul>
+<p>③ 截图</p>
+<p><img src="http://blog.xiezhrspace.cn/blog-img/image-20230805211602561.png" alt="websocket和tcp/ip客户端"></p>
+<h4 id="4-13-高并发组件"><a href="#4-13-高并发组件" class="headerlink" title="4.13 高并发组件"></a>4.13 高并发组件</h4><p>① 提供功能</p>
+<ul>
+<li>提供<code>RibbitMQ </code>功能</li>
+<li>提供<code>kafka</code>功能</li>
+<li>提供<code>mqtt</code>功能</li>
+<li>提供<code>redis</code>缓存共功能</li>
+</ul>
+<p>② 涉及uo对象及可视化uo</p>
+<ul>
+<li><code>uo_rabbitmq</code>、<code>uo_rabbitmq_exchange</code>、<code>uo_rabbitmq_queue</code>、<code>uo_kafka_consumer</code>、<code>uo_kafka_producer</code></li>
+</ul>
+<p>​       <code>uo_mqtt</code>、<code>uo_redis</code></p>
+<ul>
+<li><code>uo_tabpage_hc_rabbitmq</code>、<code>uo_tabpage_hc_kafka</code>、<code>uo_tabpage_hc_mqtt</code>、<code>uo_tabpage_hc_redis</code></li>
+</ul>
+<p>③ 截图</p>
+<p><img src="http://blog.xiezhrspace.cn/blog-img/image-20230805211623731.png" alt="高并发组件"></p>
+<h4 id="4-14-物联网开发和只能设备"><a href="#4-14-物联网开发和只能设备" class="headerlink" title="4.14 物联网开发和只能设备"></a>4.14 物联网开发和只能设备</h4><p>① 提供功能</p>
+<ul>
+<li>提供modbus-tcp功能</li>
+<li>海康指纹仪</li>
+<li>串口通讯</li>
+<li>读取身份证信息</li>
+</ul>
+<p>②  涉及uo对象及可视化uo</p>
+<ul>
+<li><code>uo_modbus_tcp</code>、<code>uo_fingerprint</code>、<code>uo_serial</code>、<code>uo_sdtapi</code></li>
+<li><code>uo_tabpage_modbus</code>、<code>uo_tabpage_fingerprint</code>、<code>uo_tabpage_serial</code>、<code>uo_tabpage_sdtapi</code></li>
+</ul>
+<p>③ 截图</p>
+<p><img src="http://blog.xiezhrspace.cn/blog-img/image-20230805211654143.png" alt="物联网开发和只能设备"></p>
+<h4 id="1-15-计算机-打印机及系统"><a href="#1-15-计算机-打印机及系统" class="headerlink" title="1.15 计算机/打印机及系统"></a>1.15 计算机/打印机及系统</h4><p>① 提供功能</p>
+<ul>
+<li>打印机控制相关功能</li>
+<li>无驱动打印机</li>
+<li>取ip、cpu序列号等信息</li>
+<li>多显示器管理</li>
+<li>窗口子类化处理、拦截窗口信息，自己做出判断处理</li>
+<li>多线程和进程数据共享</li>
+<li>系统环境变量管理</li>
+</ul>
+<p>②  涉及uo对象及可视化uo</p>
+<ul>
+<li><code>uo_printer</code>、<code>uo_printer_usb</code>、<code>uo_hardware</code>、<code>uo_monitor</code>、<code>uo_subclass</code>、<code>uo_thread_factory</code>、<code>uo_thread</code>、<code>uo_sysenv</code></li>
+<li><code>uo_tabpage_printer</code>、<code>uo_tabpage_printer_usb</code>、<code>uo_tabpage_printer_hardware</code>、<code>uo_tabpage_printer_monitor</code>、</li>
+</ul>
+<p>​       <code>uo_tabpage_system</code>、<code>uo_tabpage_subclass</code>、<code>uo_tabpage_thread</code>、<code>uo_tabpage_env</code></p>
+<p>③ 截图</p>
+<p><img src="http://blog.xiezhrspace.cn/blog-img/image-20230805212559400.png" alt="计算机/打印机及系统"></p>
+<h4 id="1-16-控件与界面美观"><a href="#1-16-控件与界面美观" class="headerlink" title="1.16 控件与界面美观"></a>1.16 控件与界面美观</h4><p>① 提供功能</p>
+<ul>
+<li>打开和保存对话框美化</li>
+<li>编辑器语法高亮功能</li>
+<li>计算器控件</li>
+<li>漂亮日历控件，支持鼠标、键盘 操作日期可快速跳转</li>
+<li>不同类型进度条</li>
+<li>内置字体图标</li>
+<li>基于微软最新edge webview2的浏览器控件</li>
+</ul>
+<p>②  涉及uo对象及可视化uo</p>
+<ul>
+<li><p><code>uo_scintilla</code>、<code>uo_calculator</code>、<code>uo_calendar</code>、<code>uo_wait_box</code>、<code>uo_progress</code>、<code>uo_messagewidget</code>、<code>uo_webview2</code></p>
+</li>
+<li><p><code>uo_tabpage_opensave</code>、<code>uo_tabpage_scintilla</code>、<code>uo_tabpage_calculator</code>、<code>uo_tabpage_calendar</code>、<code>uo_tabpage_progress</code>、</p>
+<p><code>uo_tabpage_awesome</code>、<code> uo_tabpage_webview2</code>、<code>uo_tabpage_webview2_2</code></p>
+</li>
+</ul>
+<p>③ 截图</p>
+<p><img src="http://blog.xiezhrspace.cn/blog-img/image-20230805213928539.png" alt="控件与界面美观"></p>
+<h4 id="1-17-其他PowerBuilder扩展功能"><a href="#1-17-其他PowerBuilder扩展功能" class="headerlink" title="1.17 其他PowerBuilder扩展功能"></a>1.17 其他PowerBuilder扩展功能</h4><p>① 提供功能</p>
+<ul>
+<li>各种杂项函数和功能集合</li>
+<li>保护pbd不受反编译</li>
+<li>文件读写操作增强功能</li>
+<li>dll函数调用</li>
+<li>pb动态编译</li>
+<li>配置文件及序列化</li>
+</ul>
+<p>②涉及uo对象及可视化uo</p>
+<ul>
+<li><code>uo_utils</code>、<code>uo_file</code>、<code>uo_blob</code>、<code>uo_string</code>、<code>uo_logfile</code>、<code>uo_dll</code>、<code>uo_orca</code>、<code>uo_config</code></li>
+<li><code>uo_tabpage_pb_reader</code>、<code>uo_tabpage_pb_var</code>、<code>uo_tabpage_pb_safe</code>、<code>uo_tabpage_file_op</code></li>
+</ul>
+<p>​      <code>uo_tabpage_dll</code>、<code>uo_tabpage_orca</code>、<code>uo_tabpage_config</code></p>
+<p>③ 截图</p>
+<p><img src="http://blog.xiezhrspace.cn/blog-img/image-20230805214338349.png" alt="其他PowerBuilder扩展功能"></p>
+<h4 id="1-18-行业应用和案例"><a href="#1-18-行业应用和案例" class="headerlink" title="1.18 行业应用和案例"></a>1.18 行业应用和案例</h4><p>① 提供的功能</p>
+<ul>
+<li><p>阿里cbs签名</p>
+</li>
+<li><p>内蒙古预算管理一体化系统接口签名</p>
+</li>
+<li><p>农业银行商户接口签名</p>
+</li>
+<li><p>赣州银行开放接口平台</p>
+</li>
+<li><p>工商银行二维码被扫支付接口</p>
+</li>
+<li><p>建行互联网银企直连请求加密及返回验签方法</p>
+</li>
+<li><p>国家医保目录上传下载接口</p>
+</li>
+<li><p>诺诺企业发票接口加密</p>
+</li>
+</ul>
+<p>②涉及uo对象及可视化uo</p>
+<ul>
+<li><code>uo_crypto</code>、<code>uo_httpclient</code>、<code>uo_curl</code></li>
+<li><code>uo_tabpage_bussess_csb</code>、<code>uo_tabpage_bussess_nmys</code>、<code>uo_tabpage_bussess_nyyhsh</code>、</li>
+</ul>
+<p>​       <code>uo_tabpage_bussess_gzbank</code>、<code>uo_tabpage_bussess_ghpay</code>、<code>uo_tabpage_bussess_yb_ud</code>、</p>
+<p>​       <code>uo_tabpage_bussess_nnfp</code></p>
+<p>③ 截图</p>
+<p><img src="http://blog.xiezhrspace.cn/blog-img/image-20230805215413171.png" alt="行业应用和案例"></p>
+<p>以上对<code>Pbidea</code> 提供的18个功能做了简要说明，有什么不清楚的就多看看demo。</p>
+<h3 id="五、怎么在项目中使用Pbidea"><a href="#五、怎么在项目中使用Pbidea" class="headerlink" title="五、怎么在项目中使用Pbidea"></a>五、怎么在项目中使用Pbidea</h3><h4 id="5-1-新项目"><a href="#5-1-新项目" class="headerlink" title="5.1 新项目"></a>5.1 新项目</h4><p>如果是新项目，新建项目之后，直接将<code>Pbidea.dll</code>放入到指定路径，并将<code>websuite.pbl</code>、<code>sciter.pbl</code>、<code>sql.pbl</code>、<code>web.pbl</code>、<code>web_client.pbl</code>、<code>painter.pbl</code>、<code>haikang.pbl</code> 加入到工作空间中即可，当然了如果你只用到其中的部分功能，可以先只加入<code>websuite.pbl</code></p>
+<p>① 将<code>Pbidea.dll</code>拷贝到项目跟目录</p>
+<p><img src="http://blog.xiezhrspace.cn/blog-img/image-20230805221707825.png" alt="image-20230805221707825"></p>
+<p>②右键选择Properties…</p>
+<p><img src="http://blog.xiezhrspace.cn/blog-img/image-20230805221023794.png" alt="右键选择Properties..."></p>
+<p>③ 选择需要添加的pbl文件（pbl文件路径和项目路径同一个目录）</p>
+<p><img src="http://blog.xiezhrspace.cn/blog-img/image-20230805221236253.png" alt="选择需要添加的pbl文件"></p>
+<p><img src="http://blog.xiezhrspace.cn/blog-img/image-20230805221545683.png" alt="编写代码"></p>
+<h4 id="5-2-老项目"><a href="#5-2-老项目" class="headerlink" title="5.2 老项目"></a>5.2 老项目</h4><p>如果是老项目，项目中新建的uo可能与Pbidea中的uo冲突，真个引入进去可能会影响原来代码功能</p>
+<p>我们只能按需引入，确保引入的uo和之前项目中的uo不冲突</p>
+<h3 id="六、小结"><a href="#六、小结" class="headerlink" title="六、小结"></a>六、小结</h3><p>工欲善其事必先利其器，多花费一点时间研究下<code>Pbidea</code>，尽量每个demo都点一点，做到心中有数。</p>
+<p>当我们在工作中遇到类似的需求时，就可以参考着demo中实现即可。</p>
+<p>用了这么久PB，<code>Pbidea</code>最好的扩展功能动态库了,没有之一</p>
+<p>本期内容到此就结束了，希望对你有所帮助。</p>
+<p>我们下期再见 (●’◡’●) </p>
+]]></content>
+      <categories>
+        <category>PB,PowerBuilder,数据库技术</category>
+      </categories>
+      <tags>
+        <tag>PB,PowerBuilder,数据库技术</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>PB从入坑到放弃（六）动态SQL应用</title>
+    <url>/archives/801e982a.html</url>
+    <content><![CDATA[<p><img src="http://blog.xiezhrspace.cn/blog-img/PB%E4%BB%8E%E5%85%A5%E5%9D%91%E5%88%B0%E6%94%BE%E5%BC%83%EF%BC%88%E5%85%AD%EF%BC%89%E5%8A%A8%E6%80%81SQL%E5%BA%94%E7%94%A8.png" alt="PB从入坑到放弃（六）动态SQL应用"></p>
+<h3 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h3><blockquote>
+<p>动态 <code>SQL</code> 语句是部分或者整个 <code>SQL</code> 语句在运行时才能确定，可以更好的与用户进行交互，大大提高了<code>SQL</code>的灵活性</p>
+</blockquote>
+<h3 id="一、执行SQL语句"><a href="#一、执行SQL语句" class="headerlink" title="一、执行SQL语句"></a>一、执行SQL语句</h3><h4 id="1-1-执行无入参SQL"><a href="#1-1-执行无入参SQL" class="headerlink" title="1.1 执行无入参SQL"></a>1.1 执行无入参SQL</h4><p>① 语法</p>
+<pre class=" language-sql"><code class="language-sql"><span class="token keyword">EXECUTE</span> IMMEDIATE SQLStatement <span class="token operator">&amp;</span><span class="token comment" spellcheck="true">#123;USING TransactionObject&amp;#125; ;</span>
+</code></pre>
+<p>② 说明</p>
+<ul>
+<li><code>SQLStatement </code> –&gt; 有效SQL语句字符串</li>
+<li><code>TransactionObject  </code> –&gt;事务对象名  省略时使用 <code>SQLCA</code></li>
+</ul>
+<p>③ 举个栗子</p>
+<blockquote>
+<p> 删除员工信息表emp</p>
+</blockquote>
+<pre class=" language-sql"><code class="language-sql">string sql <span class="token operator">=</span> <span class="token string">"drop table emp"</span>
+<span class="token keyword">EXECUTE</span> IMMEDIATE :sql <span class="token keyword">USING</span> SQLCA<span class="token punctuation">;</span>
+</code></pre>
+<h4 id="1-2-执行带参数SQL"><a href="#1-2-执行带参数SQL" class="headerlink" title="1.2 执行带参数SQL"></a>1.2 执行带参数SQL</h4><p>① 语法</p>
+<pre class=" language-sql"><code class="language-sql">PREPARE DynamicStagingArea <span class="token keyword">FROM</span> SQLStatement
+<span class="token operator">&amp;</span><span class="token comment" spellcheck="true">#123;USING TransactionObject&amp;#125; ;</span>
+<span class="token keyword">EXECUTE</span> DynamicStagingAreaUSING <span class="token operator">&amp;</span><span class="token comment" spellcheck="true">#123;ParameterList&amp;#125; ;</span>
+</code></pre>
+<p>②说明</p>
+<ul>
+<li><p><code>DynamicStagingArea  </code>–&gt;默认全局变量是 <code>SQLSA</code>  </p>
+</li>
+<li><p><code>SQLStatement</code>   –&gt;有效的SQL语句，其中? 代表需要传入的参数。执行时问号被 EXECUTE 语句中的 USING 子句所代表的值<br>取代  </p>
+</li>
+<li><p><code>TransactionObject</code>–&gt;事务对象名，大括号表示该子句可以省略，省略时使用 <code>SQLCA </code></p>
+</li>
+<li><p><code>ParameterList</code> –&gt;参数列表，可以是变量、常量或者控件的属性，各参数对应于 <code>SQLStatement</code>中的问号  </p>
+</li>
+</ul>
+<p>③ 举个栗子</p>
+<p> Ⅰ 删除员工编号56的员工信息</p>
+<pre class=" language-sql"><code class="language-sql">
+<span class="token keyword">Int</span> li_empno <span class="token operator">=</span> <span class="token number">56</span>
+PREPARE SQLSA <span class="token keyword">FROM</span> <span class="token string">"DELETE FROM emp WHERE empno=?"</span> <span class="token punctuation">;</span>
+<span class="token keyword">EXECUTE</span> SQLSA <span class="token keyword">USING</span> :li_empno <span class="token punctuation">;</span>
+</code></pre>
+<p>Ⅱ 新增一个员工信息</p>
+<pre class=" language-sql"><code class="language-sql">Prepare SQLSA <span class="token keyword">from</span>
+<span class="token string">"insert into emp  (empno, ename, job, mgr, hiredate, sal, comm, deptno) values  (?, ?, ?, ?, ?, ?, ?, ?)"</span>
+<span class="token keyword">execute</span> SQLSA <span class="token keyword">using</span> :ls_empno<span class="token punctuation">,</span> :ls_ename<span class="token punctuation">,</span> :ls_job<span class="token punctuation">,</span> :ls_mgr<span class="token punctuation">,</span> :ld_hiredate<span class="token punctuation">,</span> :ld_sal<span class="token punctuation">,</span> :ls_comm<span class="token punctuation">,</span> :ls_deptno<span class="token punctuation">;</span>
+</code></pre>
+<h3 id="二-、使用游标"><a href="#二-、使用游标" class="headerlink" title="二 、使用游标"></a>二 、使用游标</h3><blockquote>
+<p>数据库中的游标可以看作是一个指针，它指向查询语句返回的结果集中的当前行。通过游标，我们可以逐行处理结果集</p>
+</blockquote>
+<h4 id="2-1-语法"><a href="#2-1-语法" class="headerlink" title="2.1  语法"></a>2.1  语法</h4><p>① do while 语法</p>
+<pre class=" language-sql"><code class="language-sql"><span class="token comment" spellcheck="true">//定义游标</span>
+string test
+<span class="token comment" spellcheck="true">//声明游标</span>
+<span class="token keyword">declare</span> test <span class="token keyword">cursor</span> <span class="token keyword">for</span> <span class="token keyword">select</span> 字段名 <span class="token keyword">from</span> 表名 <span class="token keyword">where</span> 条件 <span class="token keyword">using</span> sqlca<span class="token punctuation">;</span>
+<span class="token comment" spellcheck="true">//打开游标</span>
+<span class="token keyword">open</span> test<span class="token punctuation">;</span>
+<span class="token comment" spellcheck="true">//获取数据</span>
+<span class="token keyword">fetch</span> test <span class="token keyword">into</span>:字段名变量<span class="token punctuation">;</span>
+<span class="token keyword">do</span> <span class="token keyword">while</span> sqlca<span class="token punctuation">.</span>sqlcode <span class="token operator">=</span> <span class="token number">0</span>
+<span class="token comment" spellcheck="true">//在这里写你的业务</span>
+<span class="token comment" spellcheck="true">//再次获取数据</span>
+<span class="token keyword">fetch</span> test <span class="token keyword">into</span>:字段名变量<span class="token punctuation">;</span>
+loop
+<span class="token comment" spellcheck="true">//关闭游标</span>
+<span class="token keyword">close</span> test<span class="token punctuation">;</span>
+</code></pre>
+<p>②  for 语法</p>
+<pre class=" language-sql"><code class="language-sql">long ll_count <span class="token operator">=</span> <span class="token number">10</span>
+<span class="token comment" spellcheck="true">//定义游标</span>
+string test
+<span class="token comment" spellcheck="true">//声明游标</span>
+<span class="token keyword">declare</span> test <span class="token keyword">cursor</span> <span class="token keyword">for</span> <span class="token keyword">select</span> 字段名 <span class="token keyword">from</span> 表名 <span class="token keyword">where</span> 表达式 <span class="token keyword">using</span> sqlca<span class="token punctuation">;</span>
+<span class="token comment" spellcheck="true">//打开游标</span>
+<span class="token keyword">open</span> test<span class="token punctuation">;</span>
+<span class="token keyword">for</span> i<span class="token operator">=</span><span class="token number">1</span> <span class="token keyword">to</span> ll_count
+<span class="token comment" spellcheck="true">//获取数据</span>
+<span class="token keyword">fetch</span> test <span class="token keyword">into</span> :变量名<span class="token punctuation">;</span>
+<span class="token comment" spellcheck="true">//在这里写你的业务</span>
+<span class="token keyword">next</span>
+<span class="token comment" spellcheck="true">//关闭游标</span>
+<span class="token keyword">close</span> test<span class="token punctuation">;</span>
+</code></pre>
+<h4 id="2-2-举个栗子"><a href="#2-2-举个栗子" class="headerlink" title="2.2 举个栗子"></a>2.2 举个栗子</h4><blockquote>
+<p>上面具体说了游标的两种实现语法，接下来我们就分别用两种语法实现向下拉框中添加数据的功能</p>
+</blockquote>
+<p>① 使用do while 语法向下拉框中添加员工信息</p>
+<pre><code>string ls_empno,ls_ename
+ddlb_1.Reset ()              //重置下拉列表
+
+DECLARE cur_empinfo CURSOR FOR
+ select empno,ename from emp;
+    
+Open cur_empinfo;      // 打开游标
+If SQLCA.SqlCode = -1 Then      //判断打开游标是否失败，失败则弹出提示信息
+  messagebox (&#39;提示信息&#39;+SQLCA.SqlErrText)
+  Return -1
+End If
+  
+Fetch cur_empinfo Into :ls_empno,:ls_ename; 
+ddlb_1.SetRedraw(False)   //禁止下拉列表刷新
+Do While SQLCA.SqlCode = 0 
+  ddlb_1.AddItem (ls_empno+&#39;-&#39;+ls_ename)  //向下拉列表添加数据
+  Fetch cur_empinfo Into :ls_empno,:ls_ename; 
+Loop
+ddlb_1.SetRedraw(True)  //刷新下拉列表
+Close cur_empinfo;  //关闭游标
+</code></pre>
+<p>②  使用for 语法向下拉框中添加员工信息</p>
+<pre class=" language-vb"><code class="language-vb">long ll_count = 10
+string ls_empno,ls_ename
+//定义游标
+string cur_empinfo
+//声明游标
+declare cur_empinfo cursor for select empno,ename from emp where deptno = '20' using sqlca;
+//打开游标
+open cur_empinfo;
+for i=1 to ll_count
+//获取数据
+fetch test into :ls_empno,:ls_ename;
+    //在这里写你的业务
+    ddlb_1.AddItem (ls_empno+'-'+ls_ename)  //向下拉列表添加数据
+next
+//关闭游标
+close cur_empinfo;
+</code></pre>
+<p><strong>注：</strong> 使用游标过程中，打开了游标，业务处理完之后一定要关闭游标</p>
+<h3 id="三-、调用存储过程"><a href="#三-、调用存储过程" class="headerlink" title="三 、调用存储过程"></a>三 、调用存储过程</h3><blockquote>
+<p>存储过程是一组预编译的SQL代码块，它将一些复杂操作封装起来，并存储在数据库中。</p>
+<p>由于存储过程在数据库中进行了预编译，并且能被多个客户端重复调用，可以减少网络开销，提高执行效率</p>
+</blockquote>
+<h4 id="3-1-调用格式"><a href="#3-1-调用格式" class="headerlink" title="3.1 调用格式"></a>3.1 调用格式</h4><pre class=" language-sql"><code class="language-sql"><span class="token comment" spellcheck="true">// 定义过程调用</span>
+<span class="token comment" spellcheck="true">// prc_Test 表示数据库中存储过程名称</span>
+<span class="token comment" spellcheck="true">// ls_a,ls_b 表示存储过程中的in类型入参</span>
+<span class="token keyword">Declare</span> my_proce <span class="token keyword">Procedure</span> <span class="token keyword">For</span> prc_Test<span class="token punctuation">(</span>:ls_a<span class="token punctuation">,</span>:ls_b<span class="token punctuation">)</span><span class="token punctuation">;</span>  
+
+<span class="token comment" spellcheck="true">// 执行过程，这里是不需要其他参数的</span>
+<span class="token keyword">Execute</span> my_proce <span class="token punctuation">;</span>
+
+<span class="token comment" spellcheck="true">// 调用过程出现错误处理</span>
+<span class="token keyword">If</span> SQLCA<span class="token punctuation">.</span>SQLCode <span class="token operator">&lt;></span> <span class="token number">0</span> <span class="token keyword">Then</span> 
+
+<span class="token keyword">End</span> <span class="token keyword">If</span>
+
+<span class="token comment" spellcheck="true">// 获取出参值，也就是OUT的变量，如果没有out类型的变量，这句也就不需要了</span>
+<span class="token keyword">Fetch</span> my_proce <span class="token keyword">Into</span> :ls_ReturnName<span class="token punctuation">;</span>
+
+ <span class="token comment" spellcheck="true">// 获取数据出现错误处理</span>
+<span class="token keyword">If</span> SQLCA<span class="token punctuation">.</span>SQLCode <span class="token operator">&lt;></span> <span class="token number">0</span> <span class="token keyword">Then</span>
+
+<span class="token keyword">End</span> <span class="token keyword">If</span>
+
+<span class="token comment" spellcheck="true">// 关闭调用</span>
+<span class="token keyword">Close</span> my_proce <span class="token punctuation">;</span>
+</code></pre>
+<h4 id="3-2-举个栗子"><a href="#3-2-举个栗子" class="headerlink" title="3.2 举个栗子"></a>3.2 举个栗子</h4><p>① PB调用无入参存储过程</p>
+<p>Ⅰ 创建存储过程</p>
+<pre class=" language-sql"><code class="language-sql"><span class="token keyword">Create</span> <span class="token operator">Or</span> Replace <span class="token keyword">Procedure</span> prc_getEmplname<span class="token punctuation">(</span>v_name <span class="token keyword">Out</span> Varchar2<span class="token punctuation">)</span> <span class="token keyword">As</span>
+<span class="token comment" spellcheck="true">--存储过程，有一个out类型参数，无入参</span>
+<span class="token keyword">Begin</span> 
+    v_name :<span class="token operator">=</span> <span class="token string">'Jone'</span><span class="token punctuation">;</span>
+<span class="token keyword">End</span><span class="token punctuation">;</span>
+</code></pre>
+<p>Ⅱ 调用存储过程</p>
+<pre class=" language-sql"><code class="language-sql"><span class="token keyword">Declare</span> my_proce <span class="token keyword">Procedure</span> <span class="token keyword">For</span> p_get_name<span class="token punctuation">;</span>  
+<span class="token comment" spellcheck="true">//或者</span>
+<span class="token keyword">Declare</span> my_proce <span class="token keyword">Procedure</span> <span class="token keyword">For</span> p_get_name<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> 
+</code></pre>
+<p>② PB调用有入参存储过程</p>
+<p>Ⅰ 创建存储过程</p>
+<blockquote>
+<p>我们来创建一个存储过程，根据部门编号和员工姓名给该员工涨1000块钱工资</p>
+</blockquote>
+<pre class=" language-sql"><code class="language-sql"><span class="token keyword">CREATE</span> <span class="token operator">OR</span> REPLACE <span class="token keyword">Procedure</span> prc_incr_sal<span class="token punctuation">(</span>pra_deptno <span class="token operator">in</span> Varchar2<span class="token punctuation">,</span>
+                                       pra_ename  <span class="token operator">in</span> varchar2<span class="token punctuation">,</span>
+                                       pra_code   <span class="token keyword">out</span> NUMBER<span class="token punctuation">,</span>    <span class="token comment" spellcheck="true">--执行代码</span>
+                                       pra_errmsg <span class="token keyword">out</span> VARCHAR2<span class="token punctuation">)</span> <span class="token keyword">As</span>
+<span class="token keyword">Begin</span>
+   pra_code :<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">;</span>
+   pra_errmsg :<span class="token operator">=</span><span class="token string">''</span><span class="token punctuation">;</span>
+
+   <span class="token keyword">begin</span>
+   <span class="token keyword">update</span> emp <span class="token keyword">set</span> sal<span class="token operator">=</span>sal<span class="token operator">+</span><span class="token number">1000</span> <span class="token keyword">where</span> deptno <span class="token operator">=</span> pra_deptno <span class="token operator">and</span> ename <span class="token operator">=</span>pra_ename<span class="token punctuation">;</span>
+    EXCEPTION
+      <span class="token keyword">WHEN</span> OTHERS <span class="token keyword">THEN</span>
+         pra_code :<span class="token operator">=</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">;</span>
+         pra_errmsg :<span class="token operator">=</span> <span class="token string">'更新员工薪水失败!'</span><span class="token operator">||</span>SQLERRM<span class="token punctuation">;</span>
+   <span class="token keyword">END</span><span class="token punctuation">;</span>
+<span class="token keyword">End</span> prc_incr_sal<span class="token punctuation">;</span>
+</code></pre>
+<p>Ⅱ 调用存储过程</p>
+<pre class=" language-sql"><code class="language-sql">string ls_deptno
+string ls_ename
+<span class="token keyword">int</span> li_AppCode
+string ls_err
+ls_deptno <span class="token operator">=</span> <span class="token string">"20"</span>
+ls_ename <span class="token operator">=</span> <span class="token string">"XIEZHR"</span>
+<span class="token keyword">DECLARE</span> my_prc <span class="token keyword">PROCEDURE</span> <span class="token keyword">FOR</span> PRC_INCR_SAL
+    <span class="token punctuation">(</span>:ls_deptno<span class="token punctuation">,</span> <span class="token comment" spellcheck="true">//员工编号</span>
+     :ls_ename  <span class="token comment" spellcheck="true">//员工姓名</span>
+    <span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token keyword">EXECUTE</span> my_prc<span class="token punctuation">;</span>
+<span class="token comment" spellcheck="true">// 执行存储过程报错处理</span>
+<span class="token keyword">IF</span> SQLCA<span class="token punctuation">.</span>SQLCode <span class="token operator">&lt;</span> <span class="token number">0</span> <span class="token keyword">THEN</span> 
+    ls_err <span class="token operator">=</span> SQLCA<span class="token punctuation">.</span>SQLErrText
+    <span class="token keyword">GOTO</span> prcErr
+<span class="token keyword">END</span> <span class="token keyword">if</span>
+<span class="token comment" spellcheck="true">//获取存储过程出参数据</span>
+<span class="token keyword">FETCH</span> my_prc <span class="token keyword">Into</span> :li_AppCode<span class="token punctuation">,</span> :ls_err <span class="token punctuation">;</span>
+
+<span class="token comment" spellcheck="true">//获取出参数据失败处理</span>
+<span class="token keyword">IF</span> SQLCA<span class="token punctuation">.</span>SQLCode <span class="token operator">&lt;</span> <span class="token number">0</span> <span class="token keyword">THEN</span> <span class="token keyword">GOTO</span> prcErr
+
+<span class="token keyword">IF</span> li_AppCode <span class="token operator">&lt;</span> <span class="token number">0</span> <span class="token keyword">THEN</span> <span class="token keyword">GOTO</span> prcErr
+<span class="token comment" spellcheck="true">//关闭存储过程</span>
+<span class="token keyword">CLOSE</span> my_prc<span class="token punctuation">;</span>
+
+<span class="token keyword">return</span> <span class="token number">0</span>
+
+prcErr:
+    <span class="token keyword">rollback</span><span class="token punctuation">;</span>
+    messagebox<span class="token punctuation">(</span><span class="token string">'错误信息'</span><span class="token punctuation">,</span><span class="token punctuation">)</span>
+</code></pre>
+<h3 id="四、小结"><a href="#四、小结" class="headerlink" title="四、小结"></a>四、小结</h3><p>通过前面的三小节内容，相信你已经学会了在PB中怎么执行动态<code>SQL</code>语句？PB怎么调用数据库中存储过程？</p>
+<p>PB怎么通过游标对<code>SQL</code>语句查询出的包含多条结果集的处理。这几种场景在PB中都是经常使用的。</p>
+<p>以上就是本期的全部内容，希望对你有所帮助 (●’◡’●)</p>
+<p>我们下期再见~  ヾ(•ω•`)o</p>
+]]></content>
+      <categories>
+        <category>PB,PowerBuilder,数据库技术</category>
+      </categories>
+      <tags>
+        <tag>PB,PowerBuilder,数据库技术</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>PB从入坑到放弃（五）窗口使用技巧</title>
     <url>/archives/740d92c0.html</url>
     <content><![CDATA[<p><code>PB</code>应用程序就是由许多共同协作完成特定任务的窗口组成的集合。</p>
@@ -11215,8 +11842,8 @@ public class ResultUtil &#123;
         <category>Java接入Chat GPT</category>
       </categories>
       <tags>
-        <tag>ChatGPT</tag>
         <tag>Java</tag>
+        <tag>ChatGPT</tag>
         <tag>Java接入Chat GPT</tag>
       </tags>
   </entry>

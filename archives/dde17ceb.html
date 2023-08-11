@@ -1,0 +1,2362 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="PB,PowerBuilder,数据库技术">
+    <meta name="description" content="">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="baidu-site-verification" content="code-uutUfowLsm" />
+    <meta name="msvalidate.01" content="F999DE5405A9F0E56508AD3016F4E45E" />
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <title>PB从入坑到放弃（七）PBer们的福音来了 | xiezhrspace</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="https://fastly.jsdelivr.net/gh/xiezhr/xiezhrblog-cdn-source/source/libs/awesome/css/all.css">
+    <link rel="stylesheet" type="text/css" href="https://fastly.jsdelivr.net/gh/xiezhr/xiezhrblog-cdn-source/source/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="https://fastly.jsdelivr.net/gh/xiezhr/xiezhrblog-cdn-source/source/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="https://fastly.jsdelivr.net/gh/xiezhr/xiezhrblog-cdn-source/source/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="https://fastly.jsdelivr.net/gh/xiezhr/xiezhrblog-cdn-source/source/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="https://fastly.jsdelivr.net/gh/xiezhr/xiezhrblog-cdn-source/source/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="https://fastly.jsdelivr.net/gh/xiezhr/xiezhrblog-cdn-source/source/css/my.css">
+    
+    <link rel="stylesheet" type="text/css" href="https://fastly.jsdelivr.net/gh/xiezhr/xiezhrblog-cdn-source/source/libs/artitalk/artitalk.min.css">
+    <!--引入春节样式-->
+    <link rel="stylesheet" type="text/css" href="../../css/spring.css">
+    <!--引入黑夜样式-->
+    <link rel="stylesheet" type="text/css" href="../../css/moon.css">
+    
+
+    <script src="https://fastly.jsdelivr.net/gh/xiezhr/xiezhrblog-cdn-source/source/libs/jquery/jquery.min.js"></script>
+
+    
+        <link type="text/css" href="/js/live2d_assets/waifu.css">
+    
+
+    
+
+<!-- 元宵节灯笼样式开始 -->
+
+<!-- 元宵节灯笼样式结束 -->
+
+    
+
+<meta name="generator" content="Hexo 5.4.0"><link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+
+
+
+
+
+    <style type="text/css" lang="css">
+    #loading-container{
+        position: fixed;
+        top: 0;
+        left: 0;
+        min-height: 100vh;
+        width: 100vw;
+        z-index: 9999;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background: #FFF;
+        text-align: center;
+        /* loader页面消失采用渐隐的方式*/
+        -webkit-transition: opacity 1s ease;
+        -moz-transition: opacity 1s ease;
+        -o-transition: opacity 1s ease;
+        transition: opacity 1s ease;
+    }
+    .loading-image{
+        width: 120px;
+        height: 50px;
+        transform: translate(-50%);
+    }
+
+    .loading-image div:nth-child(2) {
+        -webkit-animation: pacman-balls 1s linear 0s infinite;
+        animation: pacman-balls 1s linear 0s infinite
+    }
+
+    .loading-image div:nth-child(3) {
+        -webkit-animation: pacman-balls 1s linear .33s infinite;
+        animation: pacman-balls 1s linear .33s infinite
+    }
+
+    .loading-image div:nth-child(4) {
+        -webkit-animation: pacman-balls 1s linear .66s infinite;
+        animation: pacman-balls 1s linear .66s infinite
+    }
+
+    .loading-image div:nth-child(5) {
+        -webkit-animation: pacman-balls 1s linear .99s infinite;
+        animation: pacman-balls 1s linear .99s infinite
+    }
+
+   .loading-image div:first-of-type {
+        width: 0;
+        height: 0;
+        border: 25px solid #49b1f5;
+        border-right-color: transparent;
+        border-radius: 25px;
+        -webkit-animation: rotate_pacman_half_up .5s 0s infinite;
+        animation: rotate_pacman_half_up .5s 0s infinite;
+    }
+    .loading-image div:nth-child(2) {
+        width: 0;
+        height: 0;
+        border: 25px solid #49b1f5;
+        border-right-color: transparent;
+        border-radius: 25px;
+        -webkit-animation: rotate_pacman_half_down .5s 0s infinite;
+        animation: rotate_pacman_half_down .5s 0s infinite;
+        margin-top: -50px;
+    }
+    @-webkit-keyframes rotate_pacman_half_up {0% {transform: rotate(270deg)}50% {transform: rotate(1turn)}to {transform: rotate(270deg)}}
+
+    @keyframes rotate_pacman_half_up {0% {transform: rotate(270deg)}50% {transform: rotate(1turn)}to {transform: rotate(270deg)}}
+
+    @-webkit-keyframes rotate_pacman_half_down {0% {transform: rotate(90deg)}50% {transform: rotate(0deg)}to {transform: rotate(90deg)}}
+
+    @keyframes rotate_pacman_half_down {0% {transform: rotate(90deg)}50% {transform: rotate(0deg)}to {transform: rotate(90deg)}}
+
+    @-webkit-keyframes pacman-balls {75% {opacity: .7}to {transform: translate(-100px, -6.25px)}}
+
+    @keyframes pacman-balls {75% {opacity: .7}to {transform: translate(-100px, -6.25px)}}
+
+
+    .loading-image div:nth-child(3),
+    .loading-image div:nth-child(4),
+    .loading-image div:nth-child(5),
+    .loading-image div:nth-child(6){
+        background-color: #49b1f5;
+        width: 15px;
+        height: 15px;
+        border-radius: 100%;
+        margin: 2px;
+        width: 10px;
+        height: 10px;
+        position: absolute;
+        transform: translateY(-6.25px);
+        top: 25px;
+        left: 100px;
+    }
+    .loading-text{
+        margin-bottom: 20vh;
+        text-align: center;
+        color: #2c3e50;
+        font-size: 2rem;
+        box-sizing: border-box;
+        padding: 0 10px;
+        text-shadow: 0 2px 10px rgba(0,0,0,0.2);
+    }
+    @media only screen and (max-width: 500px) {
+         .loading-text{
+            font-size: 1.5rem;
+         }
+    }
+    .fadeout {
+        opacity: 0;
+        filter: alpha(opacity=0);
+    }
+    /* logo出现动画 */
+    @-webkit-keyframes fadeInDown{0%{opacity:0;-webkit-transform:translate3d(0,-100%,0);transform:translate3d(0,-100%,0)}100%{opacity:1;-webkit-transform:none;transform:none}}
+    @keyframes fadeInDown{0%{opacity:0;-webkit-transform:translate3d(0,-100%,0);}}
+ </style>
+ <script>
+(function () {
+    const loaded = function(){
+       setTimeout(function(){
+            const loader = document.getElementById("loading-container");
+            loader.className="fadeout" ;//使用渐隐的方法淡出loading page
+            // document.getElementById("body-wrap").style.display="flex";
+            setTimeout(function(){
+                loader.style.display="none";
+            },2500); 
+        },1000);//强制显示loading page 1s  
+    };
+    loaded();
+})()
+</script>
+
+ 
+
+<body>
+    
+    
+        <div id="loading-container">
+             <p class="loading-text">嘘~  小破站正在拼命加载中 . . . </p> 
+             <div class="loading-image">
+                 <div></div>
+                 <div></div>
+                 <div></div>
+                 <div></div> 
+                 <div></div>
+             </div>
+        </div>
+    
+
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" id="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span diyFont" id="logo-title">xiezhrspace</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/#" class="waves-effect waves-light">
+
+      
+      <span>归档</span>
+      <i class="fas fa-chevron-down" aria-hidden="true" style="zoom: 0.6;"></i>
+    </a>
+    <ul class="sub-nav menus_item_child ">
+      
+      <li>
+        <a href="/tags">
+          
+          <span>标签</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/categories">
+          
+          <span>分类</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/archives">
+          
+          <span>时间轴</span>
+        </a>
+      </li>
+      
+    </ul>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/artitalk" class="waves-effect waves-light">
+      
+      <span>说说</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/#" class="waves-effect waves-light">
+
+      
+      <span>媒体</span>
+      <i class="fas fa-chevron-down" aria-hidden="true" style="zoom: 0.6;"></i>
+    </a>
+    <ul class="sub-nav menus_item_child ">
+      
+      <li>
+        <a href="/books">
+          
+          <span>读书</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/musics">
+          
+          <span>音乐</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/movies">
+          
+          <span>电影</span>
+        </a>
+      </li>
+      
+    </ul>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/#" class="waves-effect waves-light">
+
+      
+      <span>资源分享</span>
+      <i class="fas fa-chevron-down" aria-hidden="true" style="zoom: 0.6;"></i>
+    </a>
+    <ul class="sub-nav menus_item_child ">
+      
+      <li>
+        <a href="/share-tools">
+          
+          <span>常用工具</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/e-book">
+          
+          <span>电子书</span>
+        </a>
+      </li>
+      
+    </ul>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/#" class="waves-effect waves-light">
+
+      
+      <span>交流</span>
+      <i class="fas fa-chevron-down" aria-hidden="true" style="zoom: 0.6;"></i>
+    </a>
+    <ul class="sub-nav menus_item_child ">
+      
+      <li>
+        <a href="/contact">
+          
+          <span>留言</span>
+        </a>
+      </li>
+      
+      <li>
+        <a target="_blank" rel="noopener" href="http://chat.xiezhrspace.cn">
+          
+          <span>聊天室</span>
+        </a>
+      </li>
+      
+    </ul>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/friends" class="waves-effect waves-light">
+      
+      <span>友情链接</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/#" class="waves-effect waves-light">
+
+      
+      <span>实验室</span>
+      <i class="fas fa-chevron-down" aria-hidden="true" style="zoom: 0.6;"></i>
+    </a>
+    <ul class="sub-nav menus_item_child ">
+      
+      <li>
+        <a href="/sponsorship">
+          
+          <i class="fas fa-money" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>赞助墙</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/status">
+          
+          <i class="fas fa-flush" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>检测监控</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/epidemic">
+          
+          <span>疫情实况</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/rain-code">
+          
+          <span>代码雨</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/mykeep">
+          
+          <span>我的Keep</span>
+        </a>
+      </li>
+      
+    </ul>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+<style>
+  #logo-title{
+  }
+
+  #logo-img{
+    
+  }
+  #mobile-logo-img{}
+</style>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img" id="mobile-logo-img">
+        
+        <div class="logo-name">xiezhrspace
+        <div class="logo-desc">
+            
+            爱学习 爱编程 爱分享 再小的帆也能远航
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			<!-- 
+				<i class="fas fa-fw fa-link"></i>
+			 -->
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="javascript:;">
+			<!-- 
+				<i class="fas fa-fw fa-link"></i>
+			 -->
+			归档
+			<span class="m-icon"><i class="fas fa-chevron-right"></i></span>
+		</a>
+            <ul  style="background:  ;" >
+              
+                <li>
+
+                  <a href="/tags " style="margin-left:75px">
+				  
+		          <span>标签</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/categories " style="margin-left:75px">
+				  
+		          <span>分类</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/archives " style="margin-left:75px">
+				  
+		          <span>时间轴</span>
+                  </a>
+                </li>
+              
+            </ul>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/artitalk" class="waves-effect waves-light">
+			<!-- 
+				<i class="fas fa-fw fa-link"></i>
+			 -->
+			说说
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="javascript:;">
+			<!-- 
+				<i class="fas fa-fw fa-link"></i>
+			 -->
+			媒体
+			<span class="m-icon"><i class="fas fa-chevron-right"></i></span>
+		</a>
+            <ul  style="background:  ;" >
+              
+                <li>
+
+                  <a href="/books " style="margin-left:75px">
+				  
+		          <span>读书</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/musics " style="margin-left:75px">
+				  
+		          <span>音乐</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/movies " style="margin-left:75px">
+				  
+		          <span>电影</span>
+                  </a>
+                </li>
+              
+            </ul>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="javascript:;">
+			<!-- 
+				<i class="fas fa-fw fa-link"></i>
+			 -->
+			资源分享
+			<span class="m-icon"><i class="fas fa-chevron-right"></i></span>
+		</a>
+            <ul  style="background:  ;" >
+              
+                <li>
+
+                  <a href="/share-tools " style="margin-left:75px">
+				  
+		          <span>常用工具</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/e-book " style="margin-left:75px">
+				  
+		          <span>电子书</span>
+                  </a>
+                </li>
+              
+            </ul>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			<!-- 
+				<i class="fas fa-fw fa-link"></i>
+			 -->
+			关于
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="javascript:;">
+			<!-- 
+				<i class="fas fa-fw fa-link"></i>
+			 -->
+			交流
+			<span class="m-icon"><i class="fas fa-chevron-right"></i></span>
+		</a>
+            <ul  style="background:  ;" >
+              
+                <li>
+
+                  <a href="/contact " style="margin-left:75px">
+				  
+		          <span>留言</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a target="_blank" rel="noopener" href="http://chat.xiezhrspace.cn " style="margin-left:75px">
+				  
+		          <span>聊天室</span>
+                  </a>
+                </li>
+              
+            </ul>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/friends" class="waves-effect waves-light">
+			<!-- 
+				<i class="fas fa-fw fa-link"></i>
+			 -->
+			友情链接
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="javascript:;">
+			<!-- 
+				<i class="fas fa-fw fa-link"></i>
+			 -->
+			实验室
+			<span class="m-icon"><i class="fas fa-chevron-right"></i></span>
+		</a>
+            <ul  style="background:  ;" >
+              
+                <li>
+
+                  <a href="/sponsorship " style="margin-left:75px">
+				  
+				   <i class="fa fas fa-money" style="position: absolute;left:50px" ></i>
+			      
+		          <span>赞助墙</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/status " style="margin-left:75px">
+				  
+				   <i class="fa fas fa-flush" style="position: absolute;left:50px" ></i>
+			      
+		          <span>检测监控</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/epidemic " style="margin-left:75px">
+				  
+		          <span>疫情实况</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/rain-code " style="margin-left:75px">
+				  
+		          <span>代码雨</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/mykeep " style="margin-left:75px">
+				  
+		          <span>我的Keep</span>
+                  </a>
+                </li>
+              
+            </ul>
+          
+        </li>
+        
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+    </nav>
+
+</header>
+
+    
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('http://blog.xiezhrspace.cn/blog-img/PB从入坑到放弃（七）001.png')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">PB从入坑到放弃（七）PBer们的福音来了</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="https://fastly.jsdelivr.net/gh/xiezhr/xiezhrblog-cdn-source/source/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        margin: 35px 0 15px 0;
+        padding-left: 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content {
+        height: calc(100vh - 250px);
+        overflow: auto;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+
+        position: absolute;
+        right: 23.5vw;
+        display: block;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!--评论区样式调整-->
+<style>
+    .v[data-class="v"] .vwrap .vheader .vinput {
+        width: 32%;
+        border-bottom: 1px dashed #dedede;
+      }
+</style>
+<!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/PB-PowerBuilder-%E6%95%B0%E6%8D%AE%E5%BA%93%E6%8A%80%E6%9C%AF/">
+                                <span class="chip bg-color">PB,PowerBuilder,数据库技术</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/PB-PowerBuilder-%E6%95%B0%E6%8D%AE%E5%BA%93%E6%8A%80%E6%9C%AF/" class="post-category">
+                                PB,PowerBuilder,数据库技术
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2023-08-05
+                </div>
+                
+
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
+                    2023-08-11
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
+                    2.9k
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
+                    10 分
+                </div>
+                
+
+                
+                    <div id="busuanzi_container_page_pv" class="info-break-policy">
+                        <i class="far fa-eye fa-fw"></i>阅读次数:&nbsp;&nbsp;
+                        <span id="busuanzi_value_page_pv"></span>
+                    </div>
+				
+            </div>
+        </div>
+        <hr class="clearfix">
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <p><img src="http://blog.xiezhrspace.cn/blog-img/PB%E4%BB%8E%E5%85%A5%E5%9D%91%E5%88%B0%E6%94%BE%E5%BC%83%EF%BC%88%E4%B8%83%EF%BC%89001.png" alt="PB从入坑到放弃（七）001"></p>
+<h3 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h3><p>也许现在的你需要用PB完成毕业设计、需要维护远古时代的代码，又或者是你呆的公司就是要求要用PB开发项目。</p>
+<p>不管你是出于什么原因还在使用PB，不可否认PB在数据窗口非常优秀，熟练使用之后开发数据库相关的应用非常高效</p>
+<p>但由于PB这一框架出现得比较早，而且主要用于传统基于数据库得CS开发。</p>
+<p>在网络、系统、数据传输等方面有很多欠缺，需要实现某些功能特别费劲，需要引入各种动态库才能实现</p>
+<h3 id="一、PB项目开发痛点"><a href="#一、PB项目开发痛点" class="headerlink" title="一、PB项目开发痛点"></a>一、PB项目开发痛点</h3><ul>
+<li>调用基于<code>http</code>协议开发的<code>webapi</code>接口实现方式单一</li>
+<li>数据传输格式<code>json</code>数据的封装与解析不方便</li>
+<li>各种加密解密或者签名算法实现比较困难</li>
+<li><code>utf8</code>、<code>utf16</code>、<code>ansi</code>等字符集编码相互转换困难</li>
+<li>没法处理大文件（几百兆的txt文件下载，导入）</li>
+</ul>
+<h3 id="二、Pbidea来了"><a href="#二、Pbidea来了" class="headerlink" title="二、Pbidea来了"></a>二、Pbidea来了</h3><p>既然PB中存在这些问题，但又不得不使用PB时。</p>
+<p>你是不是会想PB中有没有类似与Java中<code>Hutool</code>、<code>fastjson</code>、<code>Log4j</code>等等这样的类库呢？</p>
+<p>当然是有的，它就是今天要推荐给你的<code>Pbidea.dll</code>。</p>
+<p><code>Pbidea</code>是大自在大佬开发的，平常大家都喊在叔。并且该项目一直在维护中，就在昨天20230804还发布了一个新版本。</p>
+<p>它不仅可以解决上面的痛点，还封装了很多扩展功能，方便PBer们使用。</p>
+<p>利用它，你甚至可以使用在PB中使用<code>redis</code>、<code>RibbitMQ</code>、<code>kafka</code> 等这样的高并发组件。</p>
+<p>还有你平常觉得在PB中很难实现的<code>pdf</code>、图片展现处理等等都能轻松实现。</p>
+<p>这些怎么时候，在后面会一一说明</p>
+<h3 id="三、Pbidea-介绍"><a href="#三、Pbidea-介绍" class="headerlink" title="三、Pbidea 介绍"></a>三、Pbidea 介绍</h3><h4 id="3-1-下载"><a href="#3-1-下载" class="headerlink" title="3.1 下载"></a>3.1 下载</h4><p>① 通过GitHub下载</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/lxb320124/pbidea">https://github.com/lxb320124/pbidea</a></p>
+<p><img src="http://blog.xiezhrspace.cn/blog-img/image-20230805135245156.png" alt="github下载"></p>
+<p>② 通过QQ群下载</p>
+<blockquote>
+<p>GitHub上面好像没有同步更新，如果你需要最新的需要通过QQ群文件下载。</p>
+<p>由于这里不方便发群，小伙伴们找不到可以私信哦。最新版是昨天（2023年08月04日更新的）</p>
+</blockquote>
+<p><img src="http://blog.xiezhrspace.cn/blog-img/image-20230805140017382.png" alt="一直在更新中"></p>
+<h4 id="3-2-文件目录简介"><a href="#3-2-文件目录简介" class="headerlink" title="3.2 文件目录简介"></a>3.2 文件目录简介</h4><p>从上面渠道下载完项目后解压，目录如下。</p>
+<p>你需要关注的主要是两个目录。9–&gt;里面是基于PB9的<code>demo</code>。10–&gt;是基于PB9以上版本的demo</p>
+<p><img src="http://blog.xiezhrspace.cn/blog-img/image-20230805140854501.png" alt="image-20230805140854501"></p>
+<h4 id="3-4-运行起来"><a href="#3-4-运行起来" class="headerlink" title="3.4 运行起来"></a>3.4 运行起来</h4><p>既然demo都下载下来了，那么当然是要跑起来看看了。个人电脑上安装的是PB12.5 ，所以就打开了10目录下的demo</p>
+<p>① 打开工作空间</p>
+<p><img src="http://blog.xiezhrspace.cn/blog-img/image-20230805141425898.png" alt="打开工作空间"></p>
+<p>② 选择文件夹10下面的pbjson.pbw</p>
+<p><img src="http://blog.xiezhrspace.cn/blog-img/image-20230805141525717.png" alt="选择pbjson.pbw"></p>
+<p>③ 直接运行</p>
+<p><img src="http://blog.xiezhrspace.cn/blog-img/image-20230805141636685.png" alt="image-20230805141636685"></p>
+<p><img src="http://blog.xiezhrspace.cn/blog-img/image-20230805141838071.png" alt="demo界面"></p>
+<h3 id="四、Pbidea-使用"><a href="#四、Pbidea-使用" class="headerlink" title="四、Pbidea 使用"></a>四、Pbidea 使用</h3><p>从上面运行起来的demo中，我们可以看到，<code>Pbidea</code>包含了如下功能</p>
+<ul>
+<li><code>json/bson/xml</code>等各种交换格式</li>
+<li><code>httpclient</code></li>
+<li>加/解密和编码</li>
+<li>FTP/sFTP/FTP服务器</li>
+<li>扩展数据类型（map,string等）</li>
+<li>压缩/解压缩</li>
+<li>数据库扩展</li>
+<li><code>PDF</code>浏览与<code>dw2pdf</code></li>
+<li>图形图片条码、多媒体</li>
+<li>数据窗口增强</li>
+<li>websocket和tcp/ip客户端</li>
+<li>高并发组件</li>
+<li>物联网开发和只能设备</li>
+<li>计算机/打印及系统</li>
+<li>控件与界面美观</li>
+<li>其他<code>PowerBuilder</code>扩展功能</li>
+<li>行业应用案例</li>
+</ul>
+<p>接下来的小节中，将带大家怎么找对应功能的代码。并对部分功能简单一一说明</p>
+<h4 id="4-1-项目代码说明"><a href="#4-1-项目代码说明" class="headerlink" title="4.1 项目代码说明"></a>4.1 项目代码说明</h4><p><img src="http://blog.xiezhrspace.cn/blog-img/image-20230805145843203.png" alt="项目代码说明"></p>
+<p>① <code>websuit.pbl--&gt;uo_json</code> 中申明动态库</p>
+<p><img src="http://blog.xiezhrspace.cn/blog-img/image-20230805150428021.png" alt="申明动态库"></p>
+<p>②<code>pbjons--&gt;uo_tabpage_json</code> 调用上面申明好的动态库中方法（具体代码实现）</p>
+<p><img src="http://blog.xiezhrspace.cn/blog-img/image-20230805150710338.png" alt="具体代码案例"></p>
+<h4 id="4-2-json-bson-xm等各种交换格式-模块"><a href="#4-2-json-bson-xm等各种交换格式-模块" class="headerlink" title="4.2 json/bson/xm等各种交换格式 模块"></a>4.2 <code>json/bson/xm</code>等各种交换格式 模块</h4><p>①提供功能</p>
+<ul>
+<li>快速解析和生成<code>json</code>,基于<code>datawinow</code> 导入导出</li>
+<li><code>bson</code>数据的解析和生成</li>
+<li><code>xml</code>文件、字符串解析和生成</li>
+</ul>
+<p>②涉及uo对象及可视化uo</p>
+<ul>
+<li><code>uo_json</code>、<code>uo_xml</code>、<code>uo_bjson</code></li>
+<li><code>uo_tabpage_json</code> 、<code>uo_tabpage_xml</code>、<code>uo_tabpage_bson</code></li>
+</ul>
+<p>③界面位置</p>
+<p><img src="http://blog.xiezhrspace.cn/blog-img/image-20230805172444863.png" alt="image-20230805172444863"></p>
+<h4 id="4-3-httpclient-模块"><a href="#4-3-httpclient-模块" class="headerlink" title="4.3  httpclient 模块"></a>4.3  <code>httpclient</code> 模块</h4><p>① 提供功能</p>
+<ul>
+<li>提供基于<code>Winhttp</code>的<code>http/https</code>协议的数据访问，封装由下载和上传功能，可以直接传输<code>json</code>对象，自带<code>utf8</code>转码</li>
+<li>提供基于<code>libcurl</code>的<code>http/https</code>协议的数据访问，封装由下载和上传功能，可以直接传输<code>json</code>对象，自带<code>utf8</code>转码</li>
+</ul>
+<p>②涉及uo对象及可视化uo</p>
+<ul>
+<li><code>uo_httpclient</code>、<code>uo_curl</code></li>
+<li><code>uo_tabpage_httpclient</code> 、<code>uo_tabpage_curl</code></li>
+</ul>
+<p>③界面位置</p>
+<p><img src="http://blog.xiezhrspace.cn/blog-img/image-20230805173153992.png" alt="image-20230805173153992"></p>
+<h4 id="4-4-加-解密和编码"><a href="#4-4-加-解密和编码" class="headerlink" title="4.4 加/解密和编码"></a>4.4 加/解密和编码</h4><blockquote>
+<p>基于openssl实现常用功能</p>
+</blockquote>
+<p>① 提供功能</p>
+<ul>
+<li><p><code>RSA</code>公钥私钥生成，加密、解密、签名和验签</p>
+</li>
+<li><p><code>CRC32</code>、<code>CRＣ16</code>、<code>CRC18</code>校验</p>
+</li>
+<li><p>MD5、SHA、SM3、base64、urlencode/urldecode、timestamp等编码解密</p>
+</li>
+<li><p>AES、DES、3DES、SM4 等加密解密功能</p>
+</li>
+</ul>
+<p>② 涉及uo对象及可视化uo</p>
+<ul>
+<li><code>uo_crypto</code></li>
+<li><code>uo_tabpage_crypto_rsa</code>、<code>uo_tabpage_crypto_crc</code>、<code>uo_tabpage_crypto_a</code>、<code>uo_tabpage_crypto_sm2</code>、<code>uo_tabpage_crypto_asn1</code></li>
+</ul>
+<p>③ 截图</p>
+<p><img src="http://blog.xiezhrspace.cn/blog-img/image-20230805173844498.png" alt="加/解密和编码"></p>
+<h4 id="4-5-FTP-sFTP-FTP服务器"><a href="#4-5-FTP-sFTP-FTP服务器" class="headerlink" title="4.5 FTP/sFTP/FTP服务器"></a>4.5 FTP/sFTP/FTP服务器</h4><p>① 提供功能</p>
+<ul>
+<li>提供一个ftp服务器，可以共享本机文件给客户端</li>
+<li>基于libftp,完全从底层协议实现的ftp客户端</li>
+<li>基于ssh协议的FTP 客户端，除上传下载以外，还可以在服务端执行操作系统命令，相当于合并了ssh功能</li>
+</ul>
+<p>②涉及uo对象及可视化uo</p>
+<ul>
+<li><code>uo_ftp_server</code>、<code>uo_ftp</code></li>
+<li><code>uo_tabpage_ftp_server</code>、<code>uo_tabpage_ftp</code>、<code>uo_tabpage_ftp_browser</code>、<code>uo_tabpage_sftp</code></li>
+</ul>
+<p>③ 截图</p>
+<p><img src="http://blog.xiezhrspace.cn/blog-img/image-20230805174436295.png" alt="ftp相关"></p>
+<h4 id="4-6-扩展数据类型（map、string等）"><a href="#4-6-扩展数据类型（map、string等）" class="headerlink" title="4.6  扩展数据类型（map、string等）"></a>4.6  扩展数据类型（map、string等）</h4><p>①提供功能</p>
+<ul>
+<li>扩展实现了map容器</li>
+<li>扩展了二进制数据处理功能</li>
+<li>扩展了字符串处理功能 <ul>
+<li>正则表达式搜索、匹配、替换</li>
+<li>大文本按行处理</li>
+<li>字符集转换</li>
+<li>直接读写文本文件</li>
+<li>字符串分割</li>
+<li>控制台输出调试功能</li>
+</ul>
+</li>
+<li>位操作与进制转换</li>
+<li>大整数<code>biginteger</code>处理功能</li>
+<li>日期事件处理与计算</li>
+</ul>
+<p>②涉及uo对象及可视化uo</p>
+<ul>
+<li><code>uo_map</code>、<code>uo_blob</code>、<code>uo_string</code>、<code>uo_bits</code>、<code>uo_biginteger</code>、<code>uo_datatime</code></li>
+<li><code>uo_tabpage_map_asn1</code>、<code>uo_tabpage_blob</code>、<code>uo_tabpage_string</code>、<code>uo_tabpage_bits</code>、<code>uo_tabpage_biginteger</code>、<code>uo_tabpage_datatime</code></li>
+</ul>
+<p>③ 截图</p>
+<p><img src="http://blog.xiezhrspace.cn/blog-img/image-20230805175103361.png" alt="扩展数据类型"></p>
+<h4 id="4-7-压缩-解压缩"><a href="#4-7-压缩-解压缩" class="headerlink" title="4.7  压缩/解压缩"></a>4.7  压缩/解压缩</h4><p>①提供功能</p>
+<ul>
+<li>提供zip格式的压缩和解压缩功能（还可以将BLOB数据添加进压缩包，或者将压缩包内容读取到BLOB变量）</li>
+<li>提供数据流压缩和解压缩功能。支持压缩、解压缩.gz格式文件</li>
+</ul>
+<p>②涉及uo对象及可视化uo</p>
+<ul>
+<li><code>uo_zip</code>、<code>uo_compress</code></li>
+<li><code>uo_tabpage_zip</code>、<code>uo_tabpage_compress</code></li>
+</ul>
+<p>③ 截图</p>
+<p><img src="http://blog.xiezhrspace.cn/blog-img/image-20230805175318761.png" alt="压缩与解压缩"></p>
+<h4 id="4-8-数据库扩展"><a href="#4-8-数据库扩展" class="headerlink" title="4.8 数据库扩展"></a>4.8 数据库扩展</h4><p>① 提供功能</p>
+<ul>
+<li>提供众多数据库连接支持，快速高效范围数据库和结果集</li>
+<li>自身数据库改进，支持断线检测功能</li>
+<li>dbf文件的导入与导出</li>
+<li>解析Oracle的TNS文件为json格式</li>
+<li>提供非关系型数据库的支持</li>
+</ul>
+<p>②涉及uo对象及可视化uo</p>
+<ul>
+<li><code>uo_database</code>、 <code>uo_transation</code>、<code>uo_dbf</code>、<code>uo_json</code>、`uo_kv``</li>
+<li><code>uo_tabpage_sql</code>、<code>uo_tabpage_transation</code>、<code>uo_tabpage_dbf</code>、<code>uo_tabpage_kv</code></li>
+</ul>
+<p>③ 截图</p>
+<p><img src="http://blog.xiezhrspace.cn/blog-img/image-20230805180054427.png" alt="数据库扩展"></p>
+<h4 id="4-9-PDF浏览与dw2dbf"><a href="#4-9-PDF浏览与dw2dbf" class="headerlink" title="4.9 PDF浏览与dw2dbf"></a>4.9 PDF浏览与dw2dbf</h4><p>① 提供功能</p>
+<ul>
+<li>加载pdf文件，可打印和另存</li>
+<li>将pdf文件转换成图片</li>
+<li>将pdf转换为纯文本内容，可取到每个单词</li>
+<li>在指定位置添加图片</li>
+<li>添加手写签名</li>
+<li>dw生成pdf文件和图片</li>
+</ul>
+<p>②涉及uo对象及可视化uo</p>
+<ul>
+<li><code>uo_pdfmaker</code>、<code>uo_pdfview</code></li>
+<li><code>uo_tabpage_pdf_maker</code>、<code>uo_tabpage_pdf_view</code>、<code>uo_tabpage_pdf_fpsb</code>、<code>uo_tabpage_pdf_merge</code></li>
+</ul>
+<p>③ 截图</p>
+<p><img src="http://blog.xiezhrspace.cn/blog-img/image-20230805180747080.png" alt="pdf相关"></p>
+<h4 id="4-10-图形图形条形码、多媒体"><a href="#4-10-图形图形条形码、多媒体" class="headerlink" title="4.10 图形图形条形码、多媒体"></a>4.10 图形图形条形码、多媒体</h4><p>① 提供功能</p>
+<ul>
+<li>支持bmp、jpg、png、emf、wmf、gif、tif等格式图片加载、显示转换</li>
+<li>支持条码、二维码生成</li>
+<li>支持条码、二维码识别</li>
+<li>图片浏览控件</li>
+<li>图形处理工具，类似于windows自带的绘图工具</li>
+<li>音频文件合并阅读</li>
+</ul>
+<p>② 涉及uo对象及可视化uo</p>
+<ul>
+<li><p><code>uo_image</code>、<code>uo_imageview</code>、<code>uo_painter</code>、<code>uo_wavfile</code>、<code>uo_speak</code>、<code>uo_speak_recognize</code></p>
+</li>
+<li><p><code>uo_tabpage_image</code>、<code>uo_tabpage_code</code>、<code>uo_tabpage_symbol</code>、<code>uo_tabpage_image_view</code>、<code>uo_tabpage_painter_chart_arc</code>、<code>uo_tabpage_painter_chart_area</code>、<code>uo_tabpage_painter_chart_bar</code>、<code>uo_tabpage_painter_chart_bar3d</code>、</p>
+<p><code>uo_tabpage_painter_chart_barline</code>、<code>uo_tabpage_painter_chart_guage</code>、<code>uo_tabpage_painter_chart_hbar</code>、</p>
+<p><code>uo_tabpage_painter_chart_line</code>、<code>uo_tabpage_painter_chart_npie</code>、<code>uo_tabpage_painter_chart_percent</code>、</p>
+<p><code>uo_tabpage_painter_chart_pie</code>、<code>uo_tabpage_painter_chart_radar</code>、<code>uo_tabpage_painter_chart_scatter</code>、</p>
+<p><code>uo_tabpage_painter_clip、uo_tabpage_painter_image</code>、<code>uo_tabpage_painter_re</code>、<code>uo_tabpage_wav</code>、</p>
+</li>
+</ul>
+<p>​      <code> uo_tabpage_speak</code>、<code>uo_tabpage_recognize</code></p>
+<p>③ 截图</p>
+<p><img src="http://blog.xiezhrspace.cn/blog-img/image-20230805211508026.png" alt="图形图形条形码、多媒体"></p>
+<h4 id="4-11-数据窗口增强"><a href="#4-11-数据窗口增强" class="headerlink" title="4.11 数据窗口增强"></a>4.11 数据窗口增强</h4><p>① 提供功能</p>
+<ul>
+<li>datawindow与excel导入与导出</li>
+<li>拖拽功能，可用于排班、排房间等业务</li>
+<li>超大文本文件导入（几百兆txt文件导入）</li>
+<li>鼠标拖拽选取获取datawindow数据</li>
+<li>数据窗口解析为json数据</li>
+<li>实时生成图片</li>
+</ul>
+<p>②涉及uo对象及可视化uo</p>
+<ul>
+<li><code>uo_datawindowex</code>、<code>uo_drag_datawindow</code>、<code>vuo_selected_datawindow</code>、<code>uo_json</code></li>
+<li><code>uo_tabpage_excel</code>、<code>uo_tabpage_drag_datawindow</code>、<code>uo_tabpage_datawindow</code>、<code>uo_tabpage_datawindow_seletect</code>、</li>
+</ul>
+<p>​        <code>uo_tabpage_datawindow_syntax</code>、<code>uo_tabpage_datawindow_dimage</code></p>
+<p>③ 截图</p>
+<p><img src="http://blog.xiezhrspace.cn/blog-img/image-20230805211535311.png" alt="数据窗口增强"></p>
+<h4 id="4-12-websocket和tcp-ip客户端"><a href="#4-12-websocket和tcp-ip客户端" class="headerlink" title="4.12 websocket和tcp/ip客户端"></a>4.12 websocket和tcp/ip客户端</h4><p>① 提供功能</p>
+<ul>
+<li>websocket客户端</li>
+<li>socket客户端</li>
+<li>ping、支持带端口的ping</li>
+<li>基于smtp协议发送邮件</li>
+<li>基于pop协议接收邮件，并将接收到的邮件解析为json结构方便使用</li>
+</ul>
+<p>② 涉及uo对象及可视化uo</p>
+<ul>
+<li><code>uo_websocket_client</code>、<code>uo_socket_client</code>、<code>uo_mail</code></li>
+<li><code>uo_tabpage_ws_client</code>、<code>uo_tabpage_socket_client</code>、<code>uo_tabpage_ping</code>、<code>uo_tabpage_mail</code></li>
+</ul>
+<p>③ 截图</p>
+<p><img src="http://blog.xiezhrspace.cn/blog-img/image-20230805211602561.png" alt="websocket和tcp/ip客户端"></p>
+<h4 id="4-13-高并发组件"><a href="#4-13-高并发组件" class="headerlink" title="4.13 高并发组件"></a>4.13 高并发组件</h4><p>① 提供功能</p>
+<ul>
+<li>提供<code>RibbitMQ </code>功能</li>
+<li>提供<code>kafka</code>功能</li>
+<li>提供<code>mqtt</code>功能</li>
+<li>提供<code>redis</code>缓存共功能</li>
+</ul>
+<p>② 涉及uo对象及可视化uo</p>
+<ul>
+<li><code>uo_rabbitmq</code>、<code>uo_rabbitmq_exchange</code>、<code>uo_rabbitmq_queue</code>、<code>uo_kafka_consumer</code>、<code>uo_kafka_producer</code></li>
+</ul>
+<p>​       <code>uo_mqtt</code>、<code>uo_redis</code></p>
+<ul>
+<li><code>uo_tabpage_hc_rabbitmq</code>、<code>uo_tabpage_hc_kafka</code>、<code>uo_tabpage_hc_mqtt</code>、<code>uo_tabpage_hc_redis</code></li>
+</ul>
+<p>③ 截图</p>
+<p><img src="http://blog.xiezhrspace.cn/blog-img/image-20230805211623731.png" alt="高并发组件"></p>
+<h4 id="4-14-物联网开发和只能设备"><a href="#4-14-物联网开发和只能设备" class="headerlink" title="4.14 物联网开发和只能设备"></a>4.14 物联网开发和只能设备</h4><p>① 提供功能</p>
+<ul>
+<li>提供modbus-tcp功能</li>
+<li>海康指纹仪</li>
+<li>串口通讯</li>
+<li>读取身份证信息</li>
+</ul>
+<p>②  涉及uo对象及可视化uo</p>
+<ul>
+<li><code>uo_modbus_tcp</code>、<code>uo_fingerprint</code>、<code>uo_serial</code>、<code>uo_sdtapi</code></li>
+<li><code>uo_tabpage_modbus</code>、<code>uo_tabpage_fingerprint</code>、<code>uo_tabpage_serial</code>、<code>uo_tabpage_sdtapi</code></li>
+</ul>
+<p>③ 截图</p>
+<p><img src="http://blog.xiezhrspace.cn/blog-img/image-20230805211654143.png" alt="物联网开发和只能设备"></p>
+<h4 id="1-15-计算机-打印机及系统"><a href="#1-15-计算机-打印机及系统" class="headerlink" title="1.15 计算机/打印机及系统"></a>1.15 计算机/打印机及系统</h4><p>① 提供功能</p>
+<ul>
+<li>打印机控制相关功能</li>
+<li>无驱动打印机</li>
+<li>取ip、cpu序列号等信息</li>
+<li>多显示器管理</li>
+<li>窗口子类化处理、拦截窗口信息，自己做出判断处理</li>
+<li>多线程和进程数据共享</li>
+<li>系统环境变量管理</li>
+</ul>
+<p>②  涉及uo对象及可视化uo</p>
+<ul>
+<li><code>uo_printer</code>、<code>uo_printer_usb</code>、<code>uo_hardware</code>、<code>uo_monitor</code>、<code>uo_subclass</code>、<code>uo_thread_factory</code>、<code>uo_thread</code>、<code>uo_sysenv</code></li>
+<li><code>uo_tabpage_printer</code>、<code>uo_tabpage_printer_usb</code>、<code>uo_tabpage_printer_hardware</code>、<code>uo_tabpage_printer_monitor</code>、</li>
+</ul>
+<p>​       <code>uo_tabpage_system</code>、<code>uo_tabpage_subclass</code>、<code>uo_tabpage_thread</code>、<code>uo_tabpage_env</code></p>
+<p>③ 截图</p>
+<p><img src="http://blog.xiezhrspace.cn/blog-img/image-20230805212559400.png" alt="计算机/打印机及系统"></p>
+<h4 id="1-16-控件与界面美观"><a href="#1-16-控件与界面美观" class="headerlink" title="1.16 控件与界面美观"></a>1.16 控件与界面美观</h4><p>① 提供功能</p>
+<ul>
+<li>打开和保存对话框美化</li>
+<li>编辑器语法高亮功能</li>
+<li>计算器控件</li>
+<li>漂亮日历控件，支持鼠标、键盘 操作日期可快速跳转</li>
+<li>不同类型进度条</li>
+<li>内置字体图标</li>
+<li>基于微软最新edge webview2的浏览器控件</li>
+</ul>
+<p>②  涉及uo对象及可视化uo</p>
+<ul>
+<li><p><code>uo_scintilla</code>、<code>uo_calculator</code>、<code>uo_calendar</code>、<code>uo_wait_box</code>、<code>uo_progress</code>、<code>uo_messagewidget</code>、<code>uo_webview2</code></p>
+</li>
+<li><p><code>uo_tabpage_opensave</code>、<code>uo_tabpage_scintilla</code>、<code>uo_tabpage_calculator</code>、<code>uo_tabpage_calendar</code>、<code>uo_tabpage_progress</code>、</p>
+<p><code>uo_tabpage_awesome</code>、<code> uo_tabpage_webview2</code>、<code>uo_tabpage_webview2_2</code></p>
+</li>
+</ul>
+<p>③ 截图</p>
+<p><img src="http://blog.xiezhrspace.cn/blog-img/image-20230805213928539.png" alt="控件与界面美观"></p>
+<h4 id="1-17-其他PowerBuilder扩展功能"><a href="#1-17-其他PowerBuilder扩展功能" class="headerlink" title="1.17 其他PowerBuilder扩展功能"></a>1.17 其他PowerBuilder扩展功能</h4><p>① 提供功能</p>
+<ul>
+<li>各种杂项函数和功能集合</li>
+<li>保护pbd不受反编译</li>
+<li>文件读写操作增强功能</li>
+<li>dll函数调用</li>
+<li>pb动态编译</li>
+<li>配置文件及序列化</li>
+</ul>
+<p>②涉及uo对象及可视化uo</p>
+<ul>
+<li><code>uo_utils</code>、<code>uo_file</code>、<code>uo_blob</code>、<code>uo_string</code>、<code>uo_logfile</code>、<code>uo_dll</code>、<code>uo_orca</code>、<code>uo_config</code></li>
+<li><code>uo_tabpage_pb_reader</code>、<code>uo_tabpage_pb_var</code>、<code>uo_tabpage_pb_safe</code>、<code>uo_tabpage_file_op</code></li>
+</ul>
+<p>​      <code>uo_tabpage_dll</code>、<code>uo_tabpage_orca</code>、<code>uo_tabpage_config</code></p>
+<p>③ 截图</p>
+<p><img src="http://blog.xiezhrspace.cn/blog-img/image-20230805214338349.png" alt="其他PowerBuilder扩展功能"></p>
+<h4 id="1-18-行业应用和案例"><a href="#1-18-行业应用和案例" class="headerlink" title="1.18 行业应用和案例"></a>1.18 行业应用和案例</h4><p>① 提供的功能</p>
+<ul>
+<li><p>阿里cbs签名</p>
+</li>
+<li><p>内蒙古预算管理一体化系统接口签名</p>
+</li>
+<li><p>农业银行商户接口签名</p>
+</li>
+<li><p>赣州银行开放接口平台</p>
+</li>
+<li><p>工商银行二维码被扫支付接口</p>
+</li>
+<li><p>建行互联网银企直连请求加密及返回验签方法</p>
+</li>
+<li><p>国家医保目录上传下载接口</p>
+</li>
+<li><p>诺诺企业发票接口加密</p>
+</li>
+</ul>
+<p>②涉及uo对象及可视化uo</p>
+<ul>
+<li><code>uo_crypto</code>、<code>uo_httpclient</code>、<code>uo_curl</code></li>
+<li><code>uo_tabpage_bussess_csb</code>、<code>uo_tabpage_bussess_nmys</code>、<code>uo_tabpage_bussess_nyyhsh</code>、</li>
+</ul>
+<p>​       <code>uo_tabpage_bussess_gzbank</code>、<code>uo_tabpage_bussess_ghpay</code>、<code>uo_tabpage_bussess_yb_ud</code>、</p>
+<p>​       <code>uo_tabpage_bussess_nnfp</code></p>
+<p>③ 截图</p>
+<p><img src="http://blog.xiezhrspace.cn/blog-img/image-20230805215413171.png" alt="行业应用和案例"></p>
+<p>以上对<code>Pbidea</code> 提供的18个功能做了简要说明，有什么不清楚的就多看看demo。</p>
+<h3 id="五、怎么在项目中使用Pbidea"><a href="#五、怎么在项目中使用Pbidea" class="headerlink" title="五、怎么在项目中使用Pbidea"></a>五、怎么在项目中使用Pbidea</h3><h4 id="5-1-新项目"><a href="#5-1-新项目" class="headerlink" title="5.1 新项目"></a>5.1 新项目</h4><p>如果是新项目，新建项目之后，直接将<code>Pbidea.dll</code>放入到指定路径，并将<code>websuite.pbl</code>、<code>sciter.pbl</code>、<code>sql.pbl</code>、<code>web.pbl</code>、<code>web_client.pbl</code>、<code>painter.pbl</code>、<code>haikang.pbl</code> 加入到工作空间中即可，当然了如果你只用到其中的部分功能，可以先只加入<code>websuite.pbl</code></p>
+<p>① 将<code>Pbidea.dll</code>拷贝到项目跟目录</p>
+<p><img src="http://blog.xiezhrspace.cn/blog-img/image-20230805221707825.png" alt="image-20230805221707825"></p>
+<p>②右键选择Properties…</p>
+<p><img src="http://blog.xiezhrspace.cn/blog-img/image-20230805221023794.png" alt="右键选择Properties..."></p>
+<p>③ 选择需要添加的pbl文件（pbl文件路径和项目路径同一个目录）</p>
+<p><img src="http://blog.xiezhrspace.cn/blog-img/image-20230805221236253.png" alt="选择需要添加的pbl文件"></p>
+<p><img src="http://blog.xiezhrspace.cn/blog-img/image-20230805221545683.png" alt="编写代码"></p>
+<h4 id="5-2-老项目"><a href="#5-2-老项目" class="headerlink" title="5.2 老项目"></a>5.2 老项目</h4><p>如果是老项目，项目中新建的uo可能与Pbidea中的uo冲突，真个引入进去可能会影响原来代码功能</p>
+<p>我们只能按需引入，确保引入的uo和之前项目中的uo不冲突</p>
+<h3 id="六、小结"><a href="#六、小结" class="headerlink" title="六、小结"></a>六、小结</h3><p>工欲善其事必先利其器，多花费一点时间研究下<code>Pbidea</code>，尽量每个demo都点一点，做到心中有数。</p>
+<p>当我们在工作中遇到类似的需求时，就可以参考着demo中实现即可。</p>
+<p>用了这么久PB，<code>Pbidea</code>最好的扩展功能动态库了,没有之一</p>
+<p>本期内容到此就结束了，希望对你有所帮助。</p>
+<p>我们下期再见 (●’◡’●) </p>
+
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="/about" rel="external nofollow noreferrer">xiezhr</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="https://www.xiezhrspace.cn/archives/dde17ceb.html">https://www.xiezhrspace.cn/archives/dde17ceb.html</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="/about" target="_blank">xiezhr</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/PB-PowerBuilder-%E6%95%B0%E6%8D%AE%E5%BA%93%E6%8A%80%E6%9C%AF/">
+                                    <span class="chip bg-color">PB,PowerBuilder,数据库技术</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="qq,wechat,weibo,douban" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+                <style>
+    #reward {
+        margin: 40px 0;
+        text-align: center;
+    }
+
+    #reward .reward-link {
+        font-size: 1.4rem;
+        line-height: 38px;
+    }
+
+    #reward .btn-floating:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    #rewardModal {
+        width: 320px;
+        height: 350px;
+    }
+
+    #rewardModal .reward-title {
+        margin: 15px auto;
+        padding-bottom: 5px;
+    }
+
+    #rewardModal .modal-content {
+        padding: 10px;
+    }
+
+    #rewardModal .close {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 1.3rem;
+        line-height: 20px;
+        cursor: pointer;
+    }
+
+    #rewardModal .close:hover {
+        color: #ef5350;
+        transform: scale(1.3);
+        -moz-transform:scale(1.3);
+        -webkit-transform:scale(1.3);
+        -o-transform:scale(1.3);
+    }
+
+    #rewardModal .reward-tabs {
+        margin: 0 auto;
+        width: 210px;
+    }
+
+    .reward-tabs .tabs {
+        height: 38px;
+        margin: 10px auto;
+        padding-left: 0;
+    }
+
+    .reward-content ul {
+        padding-left: 0 !important;
+    }
+
+    .reward-tabs .tabs .tab {
+        height: 38px;
+        line-height: 38px;
+    }
+
+    .reward-tabs .tab a {
+        color: #fff;
+        background-color: #ccc;
+    }
+
+    .reward-tabs .tab a:hover {
+        background-color: #ccc;
+        color: #fff;
+    }
+
+    .reward-tabs .wechat-tab .active {
+        color: #fff !important;
+        background-color: #22AB38 !important;
+    }
+
+    .reward-tabs .alipay-tab .active {
+        color: #fff !important;
+        background-color: #019FE8 !important;
+    }
+
+    .reward-tabs .reward-img {
+        width: 210px;
+        height: 210px;
+    }
+</style>
+
+<div id="reward">
+    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-medium waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close modal-close"><i class="fas fa-times"></i></a>
+            <h4 class="reward-title">你的赏识是我前进的动力</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs row">
+                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
+                    </ul>
+                    <div id="alipay">
+                        <img src="https://fastly.jsdelivr.net/gh/xiezhr/xiezhrblog-cdn-source/source/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                    <div id="wechat">
+                        <img src="https://fastly.jsdelivr.net/gh/xiezhr/xiezhrblog-cdn-source/source/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('.tabs').tabs();
+    });
+</script>
+
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+        <style>
+    .valine-card {
+        margin: 1.5rem auto;
+    }
+
+    .valine-card .card-content {
+        padding: 20px 20px 5px 20px;
+    }
+
+    #vcomments textarea {
+        
+        box-sizing: border-box;
+        /* background: url("https://fastly.jsdelivr.net/gh/xiezhr/xiezhrblog-cdn-source/source/medias/comment_bg.webp") 100% 100% no-repeat; */
+        background-image: url("https://fastly.jsdelivr.net/gh/xiezhr/xiezhrblog-cdn-source/source/medias/simiao.gif");
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position:right;
+        resize:vertical;
+    }
+
+    #vcomments p {
+        margin: 2px 2px 10px;
+        font-size: 1.05rem;
+        line-height: 1.78rem;
+    }
+
+    #vcomments blockquote p {
+        text-indent: 0.2rem;
+    }
+
+    #vcomments a {
+        padding: 0 2px;
+        color: #4cbf30;
+        font-weight: 500;
+        text-decoration: none;
+    }
+
+    #vcomments img {
+        max-width: 100%;
+        height: auto;
+        cursor: pointer;
+    }
+
+    #vcomments ol li {
+        list-style-type: decimal;
+    }
+
+    #vcomments ol,
+    ul {
+        display: block;
+        padding-left: 2em;
+        word-spacing: 0.05rem;
+    }
+
+    #vcomments ul li,
+    ol li {
+        display: list-item;
+        line-height: 1.8rem;
+        font-size: 1rem;
+    }
+
+    #vcomments ul li {
+        list-style-type: disc;
+    }
+
+    #vcomments ul ul li {
+        list-style-type: circle;
+    }
+
+    #vcomments table, th, td {
+        padding: 12px 13px;
+        border: 1px solid #dfe2e5;
+    }
+
+    #vcomments table, th, td {
+        border: 0;
+    }
+
+    table tr:nth-child(2n), thead {
+        background-color: #fafafa;
+    }
+
+    #vcomments table th {
+        background-color: #f2f2f2;
+        min-width: 80px;
+    }
+
+    #vcomments table td {
+        min-width: 80px;
+    }
+
+    #vcomments h1 {
+        font-size: 1.85rem;
+        font-weight: bold;
+        line-height: 2.2rem;
+    }
+
+    #vcomments h2 {
+        font-size: 1.65rem;
+        font-weight: bold;
+        line-height: 1.9rem;
+    }
+
+    #vcomments h3 {
+        font-size: 1.45rem;
+        font-weight: bold;
+        line-height: 1.7rem;
+    }
+
+    #vcomments h4 {
+        font-size: 1.25rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    #vcomments h5 {
+        font-size: 1.1rem;
+        font-weight: bold;
+        line-height: 1.4rem;
+    }
+
+    #vcomments h6 {
+        font-size: 1rem;
+        line-height: 1.3rem;
+    }
+
+    #vcomments p {
+        font-size: 1rem;
+        line-height: 1.5rem;
+    }
+
+    #vcomments hr {
+        margin: 12px 0;
+        border: 0;
+        border-top: 1px solid #ccc;
+    }
+
+    #vcomments blockquote {
+        margin: 15px 0;
+        border-left: 5px solid #42b983;
+        padding: 1rem 0.8rem 0.3rem 0.8rem;
+        color: #666;
+        background-color: rgba(66, 185, 131, .1);
+    }
+
+    #vcomments pre {
+        font-family: monospace, monospace;
+        padding: 1.2em;
+        margin: .5em 0;
+        background: #272822;
+        overflow: auto;
+        border-radius: 0.3em;
+        tab-size: 4;
+    }
+
+    #vcomments code {
+        font-family: monospace, monospace;
+        padding: 1px 3px;
+        font-size: 0.92rem;
+        color: #e96900;
+        background-color: #f8f8f8;
+        border-radius: 2px;
+    }
+
+    #vcomments pre code {
+        font-family: monospace, monospace;
+        padding: 0;
+        color: #e8eaf6;
+        background-color: #272822;
+    }
+
+    #vcomments pre[class*="language-"] {
+        padding: 1.2em;
+        margin: .5em 0;
+    }
+
+    #vcomments code[class*="language-"],
+    pre[class*="language-"] {
+        color: #e8eaf6;
+    }
+
+    #vcomments [type="checkbox"]:not(:checked), [type="checkbox"]:checked {
+        position: inherit;
+        margin-left: -1.3rem;
+        margin-right: 0.4rem;
+        margin-top: -1px;
+        vertical-align: middle;
+        left: unset;
+        visibility: visible;
+    }
+
+    #vcomments b,
+    strong {
+        font-weight: bold;
+    }
+
+    #vcomments dfn {
+        font-style: italic;
+    }
+
+    #vcomments small {
+        font-size: 85%;
+    }
+
+    #vcomments cite {
+        font-style: normal;
+    }
+
+    #vcomments mark {
+        background-color: #fcf8e3;
+        padding: .2em;
+    }
+
+    #vcomments table, th, td {
+        padding: 12px 13px;
+        border: 1px solid #dfe2e5;
+    }
+
+    table tr:nth-child(2n), thead {
+        background-color: #fafafa;
+    }
+
+    #vcomments table th {
+        background-color: #f2f2f2;
+        min-width: 80px;
+    }
+
+    #vcomments table td {
+        min-width: 80px;
+    }
+
+    #vcomments [type="checkbox"]:not(:checked), [type="checkbox"]:checked {
+        position: inherit;
+        margin-left: -1.3rem;
+        margin-right: 0.4rem;
+        margin-top: -1px;
+        vertical-align: middle;
+        left: unset;
+        visibility: visible;
+    }
+
+    
+</style>
+
+<div class="card valine-card" data-aos="fade-up">
+    <div class="comment_headling" style="font-size: 20px; font-weight: 700; position: relative; padding-left: 20px; top: 15px; padding-bottom: 5px;">
+        <i class="fas fa-comments fa-fw" aria-hidden="true"></i>
+        <span>评论</span>
+    </div>
+    <div id="vcomments" class="card-content" style="display: grid">
+    </div>
+</div>
+
+<script src="/libs/valine/av-min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/small-rose/small-rose.github.io/libs/valine/Valine.min.js"></script>
+
+<script>
+    // new Valine({
+    //     el: '#vcomments',
+    //     appId: 'nLFYjWbdxNXHi8ECkNbad7eo-gzGzoHsz',
+    //     appKey: 'EN6vxfxOV7eBy6HlfVE4jhGI',
+    //     notify: 'true' === 'true',
+    //     verify: 'true' === 'true',
+    //     visitor: 'true' === 'true',
+    //     avatar: 'monsterid',
+    //     pageSize: '10',
+    //     lang: 'zh-cn',
+    //     placeholder: '欢迎你留下宝贵的意见 ^-^&#39;'
+    // });
+
+    let metaPlaceholder = {"nick":"昵称/QQ号(必填)","mail":"邮箱(必填)","link":"网址(https://)"} ;
+    //这里要换行
+    new Valine({
+            el: '#vcomments',
+            appId: 'nLFYjWbdxNXHi8ECkNbad7eo-gzGzoHsz',
+            appKey: 'EN6vxfxOV7eBy6HlfVE4jhGI',
+            notify: 'true' === 'true',
+            verify: 'true' === 'true',
+            visitor: 'true' === 'true',
+            avatar: 'monsterid',
+            pageSize: '10',
+            lang: 'zh-CN',
+            placeholder: '欢迎你留下宝贵的意见 ^-^&#39;',
+            meta: ["nick", "mail", "link"],
+            recordIP: 'true' === 'true',
+            enableQQ: 'monsterid',
+            requiredFields: ["1610cd43778f1d972a92503426346411"],
+            master: ["1610cd43778f1d972a92503426346411"],
+            friends: ["c08508165c8eba9a77f8c2853xxxx09e", "901345d4c91ddfd8db0f175bbcfff0c8", "1512958e18378c98b498d5effe3e76ff"],
+            tagMeta: ["博主", "小伙伴", "访客"],
+            metaPlaceholder: metaPlaceholder,
+
+        });
+
+</script>
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
+            <div class="card">
+                <a href="/archives/dde17ceb.html">
+                    <div class="card-image">
+                        
+                        <img src="http://blog.xiezhrspace.cn/blog-img/PB从入坑到放弃（七）001.png" class="responsive-img" alt="PB从入坑到放弃（七）PBer们的福音来了">
+                        
+                        <span class="card-title">PB从入坑到放弃（七）PBer们的福音来了</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            PB从入坑到放弃（七）PBer们的福音来了
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-08-05
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/PB-PowerBuilder-%E6%95%B0%E6%8D%AE%E5%BA%93%E6%8A%80%E6%9C%AF/" class="post-category">
+                                    PB,PowerBuilder,数据库技术
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/PB-PowerBuilder-%E6%95%B0%E6%8D%AE%E5%BA%93%E6%8A%80%E6%9C%AF/">
+                        <span class="chip bg-color">PB,PowerBuilder,数据库技术</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/archives/801e982a.html">
+                    <div class="card-image">
+                        
+                        <img src="http://blog.xiezhrspace.cn/blog-img/PB从入坑到放弃（六）动态SQL应用.png" class="responsive-img" alt="PB从入坑到放弃（六）动态SQL应用">
+                        
+                        <span class="card-title">PB从入坑到放弃（六）动态SQL应用</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            PB从入坑到放弃（六）动态SQL应用
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-08-04
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/PB-PowerBuilder-%E6%95%B0%E6%8D%AE%E5%BA%93%E6%8A%80%E6%9C%AF/" class="post-category">
+                                    PB,PowerBuilder,数据库技术
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/PB-PowerBuilder-%E6%95%B0%E6%8D%AE%E5%BA%93%E6%8A%80%E6%9C%AF/">
+                        <span class="chip bg-color">PB,PowerBuilder,数据库技术</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+<script>
+    $('#articleContent').on('copy', function (e) {
+        // IE8 or earlier browser is 'undefined'
+        if (typeof window.getSelection === 'undefined') return;
+
+        var selection = window.getSelection();
+        // if the selection is short let's not annoy our users.
+        if (('' + selection).length < Number.parseInt('300')) {
+            return;
+        }
+
+        // create a div outside of the visible area and fill it with the selected text.
+        var bodyElement = document.getElementsByTagName('body')[0];
+        var newdiv = document.createElement('div');
+        newdiv.style.position = 'absolute';
+        newdiv.style.left = '-99999px';
+        bodyElement.appendChild(newdiv);
+        newdiv.appendChild(selection.getRangeAt(0).cloneContents());
+
+        // we need a <pre> tag workaround.
+        // otherwise the text inside "pre" loses all the line breaks!
+        //if (selection.getRangeAt(0).commonAncestorContainer.nodeName === 'PRE') {
+          //  newdiv.innerHTML = "<pre>" + newdiv.innerHTML + "</pre>";
+        //}
+        newdiv.innerHTML = "<pre>" + newdiv.innerHTML + "</pre>";
+        var url = document.location.href;
+        newdiv.innerHTML += '<br />'
+            + '来源: xiezhrspace<br />'
+            + '文章作者: xiezhr<br />'
+            + '文章链接: <a href="' + url + '">' + url + '</a><br />'
+            + '本文章著作权归作者所有，任何形式的转载都请注明出处。';
+
+        selection.selectAllChildren(newdiv);
+        window.setTimeout(function () {bodyElement.removeChild(newdiv);}, 200);
+    });
+</script>
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+<!-- 代码块折行 -->
+
+<style type="text/css">
+code[class*="language-"], pre[class*="language-"] { white-space: pre !important; }
+</style>
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="https://fastly.jsdelivr.net/gh/xiezhr/xiezhrblog-cdn-source/source/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+
+
+    <style>
+    .youpaiyunlogo {
+        height: 26px;
+        display: inline-block;
+        vertical-align: top;
+    }
+</style>
+<footer class="page-footer bg-color">
+    
+    <div class="container row center-align" style="margin-bottom: 15px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            <span id="year">2020</span>
+            <a href="/about" target="_blank">xiezhr</a>
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            <br>
+            
+            &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
+                class="white-color">255.9k</span>&nbsp;字
+            
+            
+            
+            
+            
+            
+            <span id="busuanzi_container_site_pv">
+                |&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;<span id="busuanzi_value_site_pv"
+                    class="white-color"></span>&nbsp;次
+            </span>
+            
+            
+            <span id="busuanzi_container_site_uv">
+                |&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;<span id="busuanzi_value_site_uv"
+                    class="white-color"></span>&nbsp;人
+            </span>
+            
+            <br>
+            
+            <span id="sitetime">载入运行时间...</span>
+            <script>
+                function siteTime() {
+                    var seconds = 1000;
+                    var minutes = seconds * 60;
+                    var hours = minutes * 60;
+                    var days = hours * 24;
+                    var years = days * 365;
+                    var today = new Date();
+                    var startYear = "2020";
+                    var startMonth = "11";
+                    var startDate = "17";
+                    var startHour = "9";
+                    var startMinute = "1";
+                    var startSecond = "1";
+                    var todayYear = today.getFullYear();
+                    var todayMonth = today.getMonth() + 1;
+                    var todayDate = today.getDate();
+                    var todayHour = today.getHours();
+                    var todayMinute = today.getMinutes();
+                    var todaySecond = today.getSeconds();
+                    var t1 = Date.UTC(startYear, startMonth, startDate, startHour, startMinute, startSecond);
+                    var t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond);
+                    var diff = t2 - t1;
+                    var diffYears = Math.floor(diff / years);
+                    var diffDays = Math.floor((diff / days) - diffYears * 365);
+                    var diffHours = Math.floor((diff - (diffYears * 365 + diffDays) * days) / hours);
+                    var diffMinutes = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours) /
+                        minutes);
+                    var diffSeconds = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours -
+                        diffMinutes * minutes) / seconds);
+                    if (startYear == todayYear) {
+                        document.getElementById("year").innerHTML = todayYear;
+                        document.getElementById("sitetime").innerHTML = "小破站已在各种灾难中安全运行 " + diffDays + " 天 " + diffHours +
+                            " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
+                    } else {
+                        document.getElementById("year").innerHTML = startYear + " - " + todayYear;
+                        document.getElementById("sitetime").innerHTML = "小破站已在各种灾难中安全运行 " + diffYears + " 年 " + diffDays +
+                            " 天 " + diffHours + " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
+                    }
+                }
+                setInterval(siteTime, 1000);
+            </script>
+            
+            <br>
+            
+            <span id="icp"><img src="/medias/icp.png" style="vertical-align: text-bottom;" />
+                <a href="https://beian.miit.gov.cn/" target="_blank">滇ICP备2020008901号</a>
+            </span>
+            
+            <a href="https://www.upyun.com/?utm_source=lianmeng&amp;utm_medium=referra" target="_blank" title="本站由又拍云 提供CDN加速/云存储服务" >
+                <img src="https://cdn2.sublimerui.top/2021/01/09/4a78e24138103.png"class="youpaiyunlogo"/>
+            </a>
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/xiezhr" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+    <a href="https://cdn.jsdelivr.net/gh/xiezhr/xiezhrblog-cdn-source@main/blog-img/1653405669657wx.jpg" class="tooltipped" target="_blank" data-tooltip="微信联系我: https://cdn.jsdelivr.net/gh/xiezhr/xiezhrblog-cdn-source@main/blog-img/1653405669657wx.jpg" data-position="top" data-delay="50">
+        <i class="fab fa-weixin"></i>
+    </a>
+
+
+
+    <a href="https://www.jianshu.com/u/2b57477b4c5a" class="tooltipped" target="_blank" data-tooltip="关注我的简书: https://www.jianshu.com/u/2b57477b4c5a" data-position="top" data-delay="50">
+        <i class="fab fa-jianshu">简</i>
+    </a>
+
+
+
+    <a href="https://blog.csdn.net/rong09_13" class="tooltipped" target="_blank" data-tooltip="关注我的CSDN: https://blog.csdn.net/rong09_13" data-position="top" data-delay="50">
+        <i class="fab fa-csdn">C</i>
+    </a>
+
+
+
+    <a href="https://juejin.im/user/1829211147871415/posts" class="tooltipped" target="_blank" data-tooltip="关注我的掘金: https://juejin.im/user/1829211147871415/posts" data-position="top" data-delay="50">
+        <i class="fab fa-juejin">掘</i>
+    </a>
+
+
+
+    <a href="mailto:1666397814@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=1666397814" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 1666397814" data-position="top" data-delay="50">
+        <i class="fab fa-qq"></i>
+    </a>
+
+
+
+
+
+    <a href="https://www.zhihu.com/people/rong-xie-49-35" class="tooltipped" target="_blank" data-tooltip="关注我的知乎: https://www.zhihu.com/people/rong-xie-49-35" data-position="top" data-delay="50">
+        <i class="fab fa-zhihu1">知</i>
+    </a>
+
+
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script src="https://fastly.jsdelivr.net/gh/xiezhr/xiezhrblog-cdn-source/source/js/search.js"></script>
+<script type="text/javascript">
+$(function () {
+    searchFunc('/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <style>
+    .top-scroll .btn-floating {
+        background: rgb(73, 177, 245);
+        width: 38px;
+        height: 38px;
+    }
+
+</style>
+
+<!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="https://fastly.jsdelivr.net/gh/xiezhr/xiezhrblog-cdn-source/source/libs/materialize/materialize.min.js"></script>
+    <script src="https://fastly.jsdelivr.net/gh/xiezhr/xiezhrblog-cdn-source/source/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="https://fastly.jsdelivr.net/gh/xiezhr/xiezhrblog-cdn-source/source/libs/aos/aos.js"></script>
+    <script src="https://fastly.jsdelivr.net/gh/xiezhr/xiezhrblog-cdn-source/source/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="https://fastly.jsdelivr.net/gh/xiezhr/xiezhrblog-cdn-source/source/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="https://fastly.jsdelivr.net/gh/xiezhr/xiezhrblog-cdn-source/source/js/matery.js"></script>
+
+    
+    <!-- 自动更改网站标题 -->
+    <script type="text/javascript">
+        var OriginTitile=document.title,st;
+        document.addEventListener("visibilitychange",function(){
+            document.hidden?(document.title="ヽ(●-`Д´-)ノ你要玩捉迷藏嘛",clearTimeout(st)):(document.title="(Ő∀Ő3)ノ欢迎回来！",st=setTimeout(function(){document.title="从0到1每天学一点点"},3e3))
+        })
+    </script>
+
+    <div id="weather-v2-plugin-simple"></div>
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    
+    <script async src="https://fastly.jsdelivr.net/gh/xiezhr/xiezhrblog-cdn-source/source/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+    
+    <script type="text/javascript" color="0,0,255"
+        pointColor="0,0,255" opacity='0.7'
+        zIndex="-1" count="120"
+        src="https://fastly.jsdelivr.net/gh/xiezhr/xiezhrblog-cdn-source/source/libs/background/canvas-nest.js"></script>
+    
+
+    
+
+    
+
+    
+    <script src="https://fastly.jsdelivr.net/gh/xiezhr/xiezhrblog-cdn-source/source/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+    <!--添加全局深色模式-->
+    <script> 
+        if (localStorage.getItem('dark') === '1') { 
+            document.body.classList.add('dark'); 
+        } else if (new Date().getHours() >= 22 || new Date().getHours() < 7) {
+             document.body.classList.add('dark'); 
+        } else if (matchMedia('(prefers-color-scheme: dark)').matches) { 
+            document.body.classList.add('dark'); 
+        } 
+    </script> 
+    <a onclick="switchNightMode()" id="sma"> 
+        <i class="fa fa-moon-o" id="nightMode" aria-hidden="true"></i> 
+    </a>
+</body>
+
+</html>
