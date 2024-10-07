@@ -1,4 +1,4 @@
-<p align="center">
+<!-- <p align="center"> -->
 	<img alt="logo" width="200px" src="assets/images/logo.png">
 </p>
 
@@ -13,73 +13,18 @@
 </p>
 
 
-<!-- Snake Code Contribution Map 贪吃蛇代码贡献图 -->
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/Peter-JXL/Peter-JXL/output/github-contribution-grid-snake-dark.svg">
-  <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/Peter-JXL/Peter-JXL/output/github-contribution-grid-snake.svg">
-  <img alt="github contribution grid snake animation" src="https://raw.githubusercontent.com/Peter-JXL/Peter-JXL/output/github-contribution-grid-snake.svg">
-</picture>
 
 
 
 
 #  🙋 Hello
 
-<table border:none>
-
-<tr>
-  <td>
-
 ### 🤺 About Me
 
 <p>&emsp;&emsp;嗨，我是程序员晓凡。爱学习 爱生活 把分享变成一种习惯，再小的帆也能扬帆远航。</p>
 <p>&emsp;&emsp; 个人公众号：<a href="https://images.cnblogs.com/cnblogs_com/blogs/685650/galleries/2328783/o_230722031726_%E5%85%B3%E6%B3%A8%E5%BE%AE%E4%BF%A1%E5%85%AC%E4%BC%97%E5%8F%B7.png" target="_blank"> 程序员晓凡 </a></p>
 <p>&emsp;&emsp;每一个“1” 都是“∞”的开始 每一行代码，每一次创新，每一步前行，终将抵达“最好的我们”！</p>
-  </td>
-</tr>
-
-</table>
-
-## 📊 GitHub 数据统计
 
 
-
-<!-- metrics 基础资料 -->
-<img src="/github-metrics.svg" />
-
-<!-- GitHub 数据统计 -->
-
-<img src= "https://github-readme-stats-git-masterrstaa-rickstaa.vercel.app/api?username=Peter-JXL&hide_title=true&hide_border=true&show_icons=true&include_all_commits=true&line_height=21text_color=000&icon_color=000&bg_color=0,ea6161,ffc64d,fffc4d,52fa5a&theme=graywhite" /> 
-
-<img src  = "https://github-readme-stats-git-masterrstaa-rickstaa.vercel.app/api/top-langs/?username=Peter-JXL&hide_title=true&hide_border=true&layout=compact&langs_count=6&text_color=000&icon_color=fff&bg_color=0,52fa5a,4dfcff,c64dff&theme=graywhite" />
-
-
-<!-- github-readme-streak-stats 连续提交代码天数记录 -->
-<picture>
-  <source media="(prefers-color-scheme: light)" srcset="https://streak-stats.demolab.com/?user=Peter-JXL&theme=light&hide_border=true" />
-  <img src="https://streak-stats.demolab.com/?user=Peter-JXL&theme=dark&hide_border=true" />
-</picture>
-
-
-
-<!-- GitHub Activity Graph GitHub 活动图 -->
-<table>
-  <tr>
-    <td>
-      <picture>
-        <source media="(prefers-color-scheme: dark)"  srcset="https://github-readme-activity-graph.vercel.app/graph?username=Peter-JXL&theme=tokyo-night" />
-        <source media="(prefers-color-scheme: light)" srcset="https://github-readme-activity-graph.vercel.app/graph?username=Peter-JXL&theme=xcode" />
-        <img src="https://github-readme-activity-graph.vercel.app/graph?username=Peter-JXL&theme=tokyo-night" />
-      </picture>
-  </tr>
-</table>
-
-
-<!-- profile-3d-contrib 3D 贡献图-->
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="/profile-3d-contrib/profile-night-rainbow.svg" />
-  <source media="(prefers-color-scheme: light)" srcset="/profile-3d-contrib/profile-gitblock.svg" />
-  <img src="/profile-night-rainbow.svg" />
-</picture>
-
-
+<img height="160px" align="left" src="https://github-readme-stats.vercel.app/api?username=xiezhr&locale=cn&line_height=21&show_icons=true&theme=&rank_icon=default&include_all_commits=true&custom_title=我的统计数据"/>
+<img height="160px" align="left" src="https://github-readme-stats.vercel.app/api/top-langs/?username=xiezhr&include_all_commits=true&locale=cn&line_height=33&theme=&langs_count=6&layout=compact&custom_title=我的常用语言"/>
