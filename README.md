@@ -1,4 +1,5 @@
-<img alt="logo" width="50px" align="center"  src="assets/images/logo.png">
+<img alt="logo" style="display: block; margin: 0 auto; border-radius: 40%; width: 120px; "  src="assets/images/logo.png">
+
 <tr></tr>
 
 <p align="center">
