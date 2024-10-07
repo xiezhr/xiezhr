@@ -1,4 +1,8 @@
+<div align="center">
 <img alt="logo" style="display: block; margin: 0 auto; border-radius: 40%; width: 120px; "  src="assets/images/logo.png">
+</div>
+
+
 
 <tr></tr>
 
