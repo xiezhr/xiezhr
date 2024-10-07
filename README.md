@@ -17,9 +17,9 @@
 - :dog: 从事IT行业8年，全网5万+粉编程知识博主。
 - :man_technologist: 成长：[关于我，从小白到架构师的成长经历](https://www.bilibili.com/video/BV1FF41137q5)
 - :seedling: 干货：[公众号『 程序员晓凡 』](https://gitee.com/xiezhr/image-learn-bed/raw/master/image/微信公众号.png)
-- :pencil: 博客：[xiezhrspace.cn](https://www.xiezhrspacec.cn/) - 足够干货
-- :tv: 视频：[B站 小傅哥の码场](https://space.bilibili.com/15637440)
-- :love_letter: 微信：[xie_zhr](https://bugstack.cn/images/personal/fustack.png) - 备注来意
+- :pencil: 博客：[xiezhrspace.cn](https://xiezhrspace.cn/) - 足够干货
+- :tv: 视频：[B站 程序员晓凡](https://space.bilibili.com/305330347)
+- :love_letter: 微信：[xie_zhr](https://gitee.com/xiezhr/image-learn-bed/raw/master/image/wx.jpg) - 备注来意
 
 <p>&emsp;&emsp;嗨，我是程序员晓凡。爱学习 爱生活 把分享变成一种习惯，再小的帆也能扬帆远航。</p>
 <p>&emsp;&emsp;每一个“1” 都是“∞”的开始 每一行代码，每一次创新，每一步前行，终将抵达“最好的我们”！</p>
@@ -28,8 +28,10 @@
 - :bus: [batchsql2excel:一个基于Oracle/MySQL脚本导出Excel工具](https://github.com/xiezhr/batchsql2excel)
 - :bus: [pb-project-example:PB案例学习笔记](https://github.com/xiezhr/pb-project-example)
 - :bus: [computer-tool-software:日常软件集合](https://github.com/xiezhr/computer-tool-software)
+- :bus: [更多搜索...](https://github.com/xiezhr?tab=repositories)
 
 ## 🔥 Github 统计数据
+
 <img height="160px" align="left" src="https://github-readme-stats.vercel.app/api?username=xiezhr&locale=cn&line_height=21&show_icons=true&theme=&rank_icon=default&include_all_commits=true&custom_title=我的统计数据"/>
 <img height="160px" align="left" src="https://github-readme-stats.vercel.app/api/top-langs/?username=xiezhr&include_all_commits=true&locale=cn&line_height=33&theme=&langs_count=6&layout=compact&custom_title=我的常用语言"/>
 
