@@ -20,13 +20,13 @@
 ## 🙋 Hello
 
 - :dog: 从事IT行业8年，全网5万+粉编程知识博主。
-- :man_technologist: 成长：[关于我，从小白到架构师的成长经历](https://www.bilibili.com/video/BV1FF41137q5)
-- :seedling: 干货：[公众号『 程序员晓凡 』](https://gitee.com/xiezhr/image-learn-bed/raw/master/image/微信公众号.png)
+- :man_technologist: 成长：[关于我，从小白到架构师的成长经历](https://mp.weixin.qq.com/s/_uhLfCqrP1wqKM1-zME6tg)
+- :seedling: 干货：[公众号『 程序员晓凡 』](https://blog.xiezhrspace.cn/xiezhr-info/gzh-xiezhr.png)
 - :pencil: 博客：[xiezhrspace.cn](https://xiezhrspace.cn/) - 足够干货
 - :tv: 视频：[B站 程序员晓凡](https://space.bilibili.com/305330347)
-- :love_letter: 微信：[xie_zhr](https://gitee.com/xiezhr/image-learn-bed/raw/master/image/wx.jpg) - 备注来意
+- :love_letter: 微信：[xie_zhr](https://blog.xiezhrspace.cn/xiezhr-info/wx-xiezhr.jpg) - 备注来意
 
-<p>&emsp;&emsp;嗨，我是程序员晓凡。爱学习 爱生活 把分享变成一种习惯，再小的帆也能扬帆远航。</p>
+<p>&emsp;&emsp;爱学习 爱生活 把分享变成一种习惯，再小的帆也能远航。</p>
 <p>&emsp;&emsp;每一个“1” 都是“∞”的开始 每一行代码，每一次创新，每一步前行，终将抵达“最好的我们”！</p>
 
 ## 📚 我的项目
