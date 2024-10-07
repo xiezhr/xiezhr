@@ -1,4 +1,5 @@
-<img alt="logo" width="50px" text-align="center"  src="assets/images/logo.png">
+<img alt="logo" width="50px" align="center"  src="assets/images/logo.png">
+<tr></tr>
 
 <p align="center">
   <a href="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/wx.jpg"><img src="https://img.shields.io/badge/weChat-%E5%BE%AE%E4%BF%A1%E5%8F%B7-green.svg" alt="微信"></a>
@@ -29,18 +30,8 @@
 - :bus: [computer-tool-software:日常软件集合](https://github.com/xiezhr/computer-tool-software)
 
 ## 🔥 Github 统计数据
+<img height="160px" align="left" src="https://github-readme-stats.vercel.app/api?username=xiezhr&locale=cn&line_height=21&show_icons=true&theme=&rank_icon=default&include_all_commits=true&custom_title=我的统计数据"/>
+<img height="160px" align="right" src="https://github-readme-stats.vercel.app/api/top-langs/?username=xiezhr&include_all_commits=true&locale=cn&line_height=33&theme=&langs_count=6&layout=compact&custom_title=我的常用语言"/>
 
-<table>
-  <tr>
-    <td>
-      <img height="160px" align="left" src="https://github-readme-stats.vercel.app/api?username=xiezhr&locale=cn&line_height=21&show_icons=true&theme=&rank_icon=default&include_all_commits=true&custom_title=我的统计数据"/>
-    </td>
-    <td>
-    <img height="160px" align="left" src="https://github-readme-stats.vercel.app/api/top-langs/?username=xiezhr&include_all_commits=true&locale=cn&line_height=33&theme=&langs_count=6&layout=compact&custom_title=我的常用语言"/>
-    </td>
-
-  </tr>
-
-</table>
 
 
