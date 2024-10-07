@@ -32,7 +32,7 @@
 
 <table>
   <tr>
-    <td width="60">
+    <td>
       <img height="160px" align="left" src="https://github-readme-stats.vercel.app/api?username=xiezhr&locale=cn&line_height=21&show_icons=true&theme=&rank_icon=default&include_all_commits=true&custom_title=我的统计数据"/>
     </td>
     <td>
