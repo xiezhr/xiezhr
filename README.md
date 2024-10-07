@@ -20,7 +20,7 @@
 ## 🙋 Hello
 
 - :dog: 从事IT行业8年，全网5万+粉编程知识博主。
-- :man_technologist: 成长：[关于我，从小白到架构师的成长经历](https://mp.weixin.qq.com/s/_uhLfCqrP1wqKM1-zME6tg)
+- :man_technologist: 成长：[关于我](https://mp.weixin.qq.com/s/_uhLfCqrP1wqKM1-zME6tg)
 - :seedling: 干货：[公众号『 程序员晓凡 』](https://blog.xiezhrspace.cn/xiezhr-info/gzh-xiezhr.png)
 - :pencil: 博客：[xiezhrspace.cn](https://xiezhrspace.cn/) - 足够干货
 - :tv: 视频：[B站 程序员晓凡](https://space.bilibili.com/305330347)
