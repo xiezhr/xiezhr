@@ -12,10 +12,20 @@
 
 
 <!-- profile logo 个人资料徽标 -->
-  <div>
-    <a href="https://www.peterjxl.com/"><img src="https://img.shields.io/badge/Website-博客-8c36db" /></a>&emsp;
-    <img src="https://komarev.com/ghpvc/?username=Peter-JXL&label=Views&color=orange&style=flat" alt="访问量统计" />&emsp;
-  </div>
+<p align="center">
+	<img alt="logo" width="200px" src="assets/images/logo.png">
+</p>
+
+<p align="center">
+  <a href="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/wx.jpg"><img src="https://img.shields.io/badge/weChat-%E5%BE%AE%E4%BF%A1%E5%8F%B7-green.svg" alt="微信"></a>
+  <a href="https://gitee.com/xiezhr/image-learn-bed/raw/master/image/微信公众号.png"><img src="https://img.shields.io/badge/%E5%85%AC%E4%BC%97%E5%8F%B7-XiezhrSpace-blue.svg" alt="公众号"></a>
+  <a href="https://www.xiezhrspace.cn"><img src="https://img.shields.io/badge/%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2-www.xiezhrspace.cn-orange.svg" alt="个人博客"></a>
+  <a href="https://blog.csdn.net/rong09_13"><img src="https://img.shields.io/badge/csdn-CSDN-red.svg" alt="cndn"></a>
+   <a href="https://www.zhihu.com/people/rong-xie-49-35/posts"><img 		         src="https://img.shields.io/badge/zhihu-%E7%9F%A5%E4%B9%8E-blue.svg" alt="知乎"></a>
+  <a href="https://juejin.im/user/1829211147871415"><img src="https://img.shields.io/badge/juejin-%E6%8E%98%E9%87%91-9cf.svg" alt="掘金"></a>
+  <a href="https://space.bilibili.com/305330347"><img src="https://img.shields.io/badge/bilibili-%E5%93%94%E5%93%A9%E5%93%94%E5%93%A9-critical.svg" alt="哔哩哔哩"></a> 
+</p>
+
 
 <!-- Snake Code Contribution Map 贪吃蛇代码贡献图 -->
 <picture>
@@ -29,14 +39,14 @@
 #  🙋 Hello
 
 <table>
-  
+
 <tr><td>
 
 ### 🤺 About Me
 
 <img align="right" width="88" src="https://avatars.githubusercontent.com/u/45090349?v=4" />
 
-<p>&emsp;&emsp;嗨，我是Peter-JXL。热爱编程、读书、健身、旅行。</p>
+<p>&emsp;&emsp;嗨，我是程序员晓凡。热爱编程、读书、健身、旅行。</p>
 <p>&emsp;&emsp;想要自己“实现”一台计算机，从零开始写 CPU + 操作系统 + 编译原理 + 网络协议 +......</p>
 <p>&emsp;&emsp; 个人公众号：<a href="https://github.com/Peter-JXL/vuepressblog/blob/master/images/QR-Code.png" target="_blank"> PeterJXL </a></p>
 <p>&emsp;&emsp;我们正在让这个世界变得更加美好，通过代码的重复使用和延展构建完美体系。</p>
@@ -69,7 +79,7 @@
 
   <!-- for beauty 留个空行好看点 -->
   <div>&nbsp;</div>
-  
+
 </td></tr>
 
 
