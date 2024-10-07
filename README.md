@@ -26,7 +26,7 @@
 
 #  🙋 Hello
 
-<table>
+<table border:none>
 
 <tr>
   <td>
