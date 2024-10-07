@@ -46,11 +46,9 @@
 
 <img align="right" width="88" src="https://avatars.githubusercontent.com/u/45090349?v=4" />
 
-<p>&emsp;&emsp;嗨，我是程序员晓凡。热爱编程、读书、健身、旅行。</p>
-<p>&emsp;&emsp;想要自己“实现”一台计算机，从零开始写 CPU + 操作系统 + 编译原理 + 网络协议 +......</p>
-<p>&emsp;&emsp; 个人公众号：<a href="https://github.com/Peter-JXL/vuepressblog/blob/master/images/QR-Code.png" target="_blank"> PeterJXL </a></p>
-<p>&emsp;&emsp;我们正在让这个世界变得更加美好，通过代码的重复使用和延展构建完美体系。</p>
-<p>&emsp;&emsp;<strong>We're making the world a better place. Through constructing elegant hierarchies for maximum code reuse and extensibility.</strong></p>
+<p>&emsp;&emsp;嗨，我是程序员晓凡。爱学习 爱生活 把分享变成一种习惯，再小的帆也能扬帆远航。</p>
+<p>&emsp;&emsp; 个人公众号：<a href="https://images.cnblogs.com/cnblogs_com/blogs/685650/galleries/2328783/o_230722031726_%E5%85%B3%E6%B3%A8%E5%BE%AE%E4%BF%A1%E5%85%AC%E4%BC%97%E5%8F%B7.png" target="_blank"> 程序员晓凡 </a></p>
+<p>&emsp;&emsp;每一个“1” 都是“∞”的开始 每一行代码，每一次创新，每一步前行，终将抵达“最好的我们”！</p>
 
 
   <!-- for beauty 留个空行好看点 -->
