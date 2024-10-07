@@ -33,13 +33,9 @@
 
 ### 🤺 About Me
 
-<!-- <img align="right" width="88" src="https://avatars.githubusercontent.com/u/45090349?v=4" /> -->
-
 <p>&emsp;&emsp;嗨，我是程序员晓凡。爱学习 爱生活 把分享变成一种习惯，再小的帆也能扬帆远航。</p>
 <p>&emsp;&emsp; 个人公众号：<a href="https://images.cnblogs.com/cnblogs_com/blogs/685650/galleries/2328783/o_230722031726_%E5%85%B3%E6%B3%A8%E5%BE%AE%E4%BF%A1%E5%85%AC%E4%BC%97%E5%8F%B7.png" target="_blank"> 程序员晓凡 </a></p>
 <p>&emsp;&emsp;每一个“1” 都是“∞”的开始 每一行代码，每一次创新，每一步前行，终将抵达“最好的我们”！</p>
-  <!-- for beauty 留个空行好看点 -->
-  <div>&nbsp;</div>
   </td>
 </tr>
 
